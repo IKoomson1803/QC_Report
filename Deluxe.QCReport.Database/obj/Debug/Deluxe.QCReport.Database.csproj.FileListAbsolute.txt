@@ -1,0 +1,37 @@
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Deluxe.QCReport.Database.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Deluxe.QCReport.Database.pdb
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.csprojAssemblyReference.cache
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.csproj.CoreCompileInputs.cache
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Deluxe.QCReport.Database.dll.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Deluxe.QCReport.Database.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Deluxe.QCReport.Database.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Autofac.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Autofac.Integration.Mvc.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Newtonsoft.Json.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Net.Http.Formatting.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Helpers.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Http.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Mvc.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Razor.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.WebPages.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.WebPages.Razor.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Autofac.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Autofac.Integration.Mvc.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\Newtonsoft.Json.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Net.Http.Formatting.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Helpers.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Http.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Mvc.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.Razor.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.WebPages.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\bin\Debug\System.Web.WebPages.Razor.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.csproj.CoreCompileInputs.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.csproj.CopyComplete
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.csproj.AssemblyReference.cache

@@ -1,0 +1,404 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+
+<div class="bs-callout bs-callout-warning">
+
+    @using (Html.BeginForm("SaveChecklist", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+                @string.Format("{0} - {1}: Checklist: Lionsgate", Model.ChecklistLionsGate.Qcnum, Model.ChecklistLionsGate.subQcnum)
+            </div>
+        </div>
+        if (Model.SecurityLevel >= 1)
+
+        {
+
+            <div class="row">
+                <div class="col-xs-8 text-center" style="font-size:14px;font-weight:bold">
+                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                </div>
+            </div>
+
+        }
+        <div class="row">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-xs-7" style="font-size:14px;font-weight:bold;">
+
+                <label class="control-label">File to Spec: </label>
+                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistLionsGate.IsFile, true) Yes </label>
+                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsFile, false) No </label>
+            </div>
+
+        </div>
+
+        @Html.HiddenFor(m => m.ChecklistLionsGate.Qcnum);
+        @Html.HiddenFor(m => m.ChecklistLionsGate.subQcnum);
+        @Html.HiddenFor(m => m.ChecklistLionsGate.CustId);
+
+
+        @*<div class="row" style="height:500px; overflow-y:auto;overflow-x:hidden;">*@
+
+        <div class="bs-callout bs-callout-default">
+            <div class="row">
+
+                <div class="col-sm-7">
+                    <b style="font-size:14px;">Video and Content</b>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Is the file Full Range Video:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheFileFullRangeVideo, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheFileFullRangeVideo, false) No </label>
+                        </div>
+                    </div>
+
+                    @*<div class="row">
+                            <div class="col-sm-9">
+                                <label class="control-label">Is the frame rate of the content correct:</label>
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheFrameRateOfTheContenCorrect, true) Yes </label>
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheFrameRateOfTheContenCorrect, false) No </label>
+                            </div>
+                        </div>*@
+
+                    @*<div class="row">
+                            <div class="col-sm-9">
+                                <label class="control-label">Is the Head-build correct:</label>
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheHeadBuildCorrect, true) Yes </label>
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheHeadBuildCorrect, false) No </label>
+                            </div>
+                        </div>*@
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Are the Video levels correct on the Head-build:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AreTheVideoLevelsCorrectOnTheHeadBuild, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AreTheVideoLevelsCorrectOnTheHeadBuild, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Are the Video levels correct on the content:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AreTheVideoLevelsCorrectOnTheContent, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AreTheVideoLevelsCorrectOnTheContent, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Has the Aspect Ratio been checked on the slate and programme:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasTheAspectRatioBeenCheckedOTheSlateAndProgramme, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasTheAspectRatioBeenCheckedOTheSlateAndProgramme, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Is the info on the slate correct:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheInfoOnTheSlateCcorrect, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheInfoOnTheSlateCcorrect, false) No </label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Is the Lionsgate Celestial logo added / present:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheLionsgateCeletiallLogoAddedOrPresent, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheLionsgateCeletiallLogoAddedOrPresent, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Is all added text within 16:9 90% title safe:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsAllAddedTextWithin16_9NinetyPercentTitleSafe, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsAllAddedTextWithin16_9NinetyPercentTitleSafe, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Has all added text been listed (including plot significant <br /> featured text):</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasAllAddedTextBeenListedIncludingPlotSignificantFeaturedText, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasAllAddedTextBeenListedIncludingPlotSignificantFeaturedText, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label text-right" style="text-wrap:none;">Are there textless and clean graphic covers after feature for all<br /> texted shots:</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AreThereTextlessAndCleanGraphicCoversAfterFeatureForAllTextedShots, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AreThereTextlessAndCleanGraphicCoversAfterFeatureForAllTextedShots, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label class="control-label">Flashing images present – (Images likely to cause a seizure):</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.FlashingImagesPpresentImagesLikelyToCauseASeizure, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.FlashingImagesPpresentImagesLikelyToCauseASeizure, false) No </label>
+                        </div>
+                    </div>
+
+                    @*<div class="row">
+                            <div class="col-sm-9">
+                                <label class="control-label">First and last cut been checked / logged as reference:</label>
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.FirstAndLastCutBeenCheckedOrLoggedAsReference, true) Yes </label>
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.FirstAndLastCutBeenCheckedOrLoggedAsReference, false) No </label>
+                            </div>
+                        </div>*@
+
+
+
+
+                </div>
+
+
+                <div class="col-sm-5 checklistBorderLeft">
+                    <b style="font-size:14px;">Audio and Metadata</b>
+
+                    <hr />
+
+                    @*<div class="row">
+                            <div class="col-sm-8">
+                                <label class="control-label">Is the audio tone on Head-build correct:</label>
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheAudioToneOnHeadBuildCorrect, true) Yes </label>
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.IsTheAudioToneOnHeadBuildCorrect, false) No </label>
+                            </div>
+                        </div>*@
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Is 2.0 Stereo TV full mix present and <br />QC’D:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.Is_2_0_StereoTVFullMixPresentAndQCeD, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.Is_2_0_StereoTVFullMixPresentAndQCeD, false) No </label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Has the 5.1 mix been spot checked:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasThe_5_1_MixBeenSpotChecked, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasThe_5_1_MixBeenSpotChecked, false) No </label>
+                        </div>
+                    </div>
+
+                    @*<div class="row">
+                            <div class="col-sm-8">
+                                <label class="control-label">Audio / Video Sync Checked / Logged:</label>
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AudioOrVideoSyncCheckedOrLogged, true) Yes </label>
+                                <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.AudioOrVideoSyncCheckedOrLogged, false) No </label>
+                            </div>
+                        </div>*@
+
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Has all File Metadata been checked:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasAllFileMetadataBeenChecked, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.HasAllFileMetadataBeenChecked, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">File format / Codec:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.FileFormatOrCodec, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Standard / Frame rate:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.StandardOrFrameRate, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Resolution:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.Resolution, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Progressive:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.Progressive, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.Progressive, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">CLAP Present:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.CLAPPresent, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistLionsGate.CLAPPresent, false) No </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Colour Primaries:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.ColourPrimaries, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Transfer Characteristics:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.TransferCharacteristics, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Matrix Coefficients:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.MatrixCoefficients, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Audio Bit Depth / Rate:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.AudioBitDepthOrRate, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label class="control-label">Is Audio Discrete:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistLionsGate.IsAudioDiscreate, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @*</div>*@
+
+
+
+
+    }
+
+
+
+
+</div>
+
+<script>
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkQcCkecklist").addClass("subMenuOnClick");
+    }
+
+    $(function () {
+  
+        $(function () {
+           setActiveButton();
+
+        $('#btnSave').on("click", function () {
+
+            //$('.cssload-preloader').fadeIn();
+            var myModel = $('#form_jobdetails').serializeObject();
+
+            console.log('Model: ' + JSON.stringify(myModel))
+
+            $.post('/Job/SaveChecklist', { model: myModel }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+                .fail(function (xdata) {
+
+                    Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                })
+                .always(function () {
+
+                    $('.cssload-preloader').hide();
+                });
+
+        });
+
+
+    });
+
+    });
+</script>

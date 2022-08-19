@@ -1,0 +1,220 @@
+BODY#bdyAdminNav
+{
+    BACKGROUND-COLOR: #333399
+}
+TABLE#tblCoolbar
+{
+    BACKGROUND-COLOR: #f5f5dc;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    BORDER-LEFT: buttonhighlight 1px solid;
+    BORDER-RIGHT: buttonshadow 1px solid;
+    BORDER-TOP: buttonhighlight 1px solid;
+    COLOR: menutext;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 1px;
+    PADDING-RIGHT: 1px;
+    PADDING-TOP: 1px
+}
+TABLE#tblCoolbar TABLE
+{
+    BORDER-BOTTOM: #f5f5dc 1px solid;
+    BORDER-LEFT: #f5f5dc 1px solid;
+    BORDER-RIGHT: #f5f5dc 1px solid;
+    BORDER-TOP: #f5f5dc 1px solid;
+    COLOR: menutext;
+    CURSOR: hand;
+    FONT-FAMILY: tahoma;
+    FONT-SIZE: 70%;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 1px;
+    PADDING-RIGHT: 1px;
+    PADDING-TOP: 1px
+}
+TABLE#tblForm
+{
+    FONT-FAMILY: tahoma;
+    FONT-SIZE: 100%;
+    TEXT-DECORATION: none
+}
+TABLE#tblTapeFormat
+{
+    FONT-FAMILY: tahoma;
+    FONT-SIZE: 100%;
+    TEXT-DECORATION: none
+}
+TABLE#tblForm A
+{
+    COLOR: #666666;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblForm A:hover
+{
+    COLOR: #6699ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblTapeFormat A
+{
+    COLOR: #666666;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblTapeFormat A:hover
+{
+    COLOR: #6699ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblCoolbar A
+{
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblCoolbar A:hover
+{
+    COLOR: #0066ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblCoolbar TABLE A
+{
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblCoolbar TABLE A:hover
+{
+    COLOR: #0066ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblAdminNav
+{
+    COLOR: #ffffff;
+    FONT-FAMILY: Tahoma;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bolder;
+    TEXT-DECORATION: none;
+    font-color: #FFFFFF
+}
+TABLE#tblAdminNav A
+{
+    COLOR: #99ccff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblAdminNav A:hover
+{
+    COLOR: yellow;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TR.trWhite
+{
+    BACKGROUND-COLOR: #ffffff;
+    CURSOR: hand
+}
+TR.trBrown
+{
+    BACKGROUND-COLOR: #cccc99
+}
+TR.trBeige
+{
+}
+BODY.bodyForm
+{
+    BACKGROUND-COLOR: #f5f5dc;
+    BORDER-BOTTOM: thin inset;
+    BORDER-LEFT: thin inset;
+    BORDER-RIGHT: thin inset;
+    BORDER-TOP: thin inset;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    FONT-SIZE: 8pt;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TD.underline
+{
+    BORDER-BOTTOM: black thin solid;
+    BORDER-LEFT: white 0pt;
+    BORDER-RIGHT: white 0pt;
+    BORDER-TOP: 0pt;
+    MARGIN: 0px 0px 1px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+.header_type
+{
+    COLOR: black;
+    FONT-FAMILY: 'Times New Roman'
+}
+.txt_underline
+{
+    FONT-FAMILY: Tahoma;
+    FONT-SIZE: 7pt;
+    TEXT-DECORATION: underline
+}
+.txt_italic
+{
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    FONT-STYLE: italic
+}
+.txt_address
+{
+    FONT-FAMILY: 'Times New Roman';
+    FONT-SIZE: 5pt
+}
+.txt_boldtype
+{
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    FONT-SIZE: 9pt
+}
+TD.underlineNsides
+{
+    BORDER-BOTTOM: black thin solid;
+    BORDER-LEFT: medium none;
+    BORDER-RIGHT: black thin solid
+}
+TD.blackSquare
+{
+    BORDER-BOTTOM: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-RIGHT: black thin solid;
+    BORDER-TOP: black thin solid
+}
+TD.left_line
+{
+    BORDER-LEFT: black thin solid
+}
+TD.right_line
+{
+    BORDER-RIGHT: black thin solid
+}
+.txt_boldtype2
+{
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    FONT-WEIGHT: bolder
+}
+TD.right_top_bot
+{
+    BORDER-BOTTOM: black thin solid;
+    BORDER-RIGHT: black thin solid;
+    BORDER-TOP: black thin solid
+}
+TD.left_top_bot
+{
+    BORDER-BOTTOM: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-TOP: black thin solid
+}

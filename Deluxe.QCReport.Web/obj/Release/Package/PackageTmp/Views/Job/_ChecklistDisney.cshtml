@@ -1,0 +1,592 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+
+    @using (Html.BeginForm("SaveChecklist", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+
+        @*<form id="form_jobdetails" name="form_jobdetails" action="Post">*@
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+                @string.Format("{0} - {1}: Checklist - Disney Inventory Spec ", Model.ChecklistDisney.Qcnum, Model.ChecklistDisney.subQcnum)
+            </div>
+        </div>
+        if (Model.SecurityLevel >= 1)
+
+        {
+
+            <div class="row">
+                <div class="col-xs-8 text-center" style="font-size:14px;font-weight:bold">
+                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                </div>
+            </div>
+
+        }
+        <div class="row">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+
+                <label class="control-label">File to Spec: </label>
+                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistDisney.IsFile, true) Yes </label>
+                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistDisney.IsFile, false) No </label>
+            </div>
+
+        </div>
+
+        @Html.HiddenFor(m => m.ChecklistDisney.Qcnum);
+        @Html.HiddenFor(m => m.ChecklistDisney.subQcnum);
+        @Html.HiddenFor(m => m.ChecklistDisney.CustId);
+
+
+        @*<div class="row" style="height:500px; overflow-y:auto;overflow-x:hidden;">*@
+
+        <div class="bs-callout bs-callout-default">
+
+
+            <div class="row">
+                <!--<div class="col-sm-3  checklistBorder">
+                <span class="checklistHeader">&nbsp;</span>-->
+                @*<div class="row">
+                        <div class="col-sm-6" style="margin-top:-18px">
+                            <label class="control-label"><b style="font-size:14px;">File to Spec</b></label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.IsFile, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.IsFile, false) No </label>
+
+                        </div>
+                    </div>
+                    <hr />*@
+                <!--<div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">File Type:</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.FileType, new { @class = "form-control"})
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Standard Definition:</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.StandardDefinition, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">File Name to spec</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.FileName, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.FileName, false) No </label>
+                        </div>
+                    </div>
+
+                </div>-->
+
+                <div class="col-sm-4  checklistBorder">
+                    <b style="font-size:14px;">Video to Spec</b>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">File Type:</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.FileType, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Standard Definition:</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.StandardDefinition, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">File Name to spec</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.FileName, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.FileName, false) No </label>
+                        </div>
+                    </div>
+
+
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">File Jes: (Quick Time)</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoJesExtensifier, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoJesExtensifier, false) No </label>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Container / Wrapper</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoContainerOrWrapper, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Codec</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoCodec, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Resolution</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoResolution, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Frame Rate / Standard</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoFrameRateOrStandard, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Display Aspect Ratio</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoDisplayAspectRatio, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Progressive</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoProgressive, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoProgressive, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">CLAP Present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoCLAP, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoCLAP, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Color Primaries Present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoColourPrimaries, new { @class = "form-control" })
+                        </div>
+
+
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Transfer Characteristics Present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoTransferCharacteristics, new { @class = "form-control" })
+                        </div>
+
+
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Matrix Coefficients Present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.VideoMatrixCoefficients, new { @class = "form-control" })
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4  checklistBorder">
+                    <b style="font-size:14px;">Audio to Spec</b>
+
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">24 Tracks Present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.Audio24TracksPresent, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.Audio24TracksPresent, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Audio Track Layout</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.AudioTrackLayout, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.AudioTrackLayout, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Codec</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.AudioCodec, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Sample Rate</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.AudioSampleRate, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Bit Rate</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.AudioBitRate, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Bit Depth</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.ChecklistDisney.AudioBitDepth, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Channels Discrete</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.AudioChannelsDiscrete, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.AudioChannelsDiscrete, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Audio tracks labelled/tagged in QT</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.AudioTracksLabelledOrtTaggedInQT, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.AudioTracksLabelledOrtTaggedInQT, false) No </label>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+
+                <div class="col-sm-4">
+                    <b style="font-size:14px;">Programme Layout to Spec</b>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Timecode: 00:00:00:00</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoTimecode, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.VideoTimecode, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Head Build Present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeHeadBuild, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeHeadBuild, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Slate Present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeSlatePresent, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeSlatePresent, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Programme start: (1s Black - Video and Audio)</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeStart1stBlackVideoAndAudio, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeStart1stBlackVideoAndAudio, false) No </label>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Textless elements present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeTextlessElementsPresent, true, new { @onclick = "toggleTextless()" }) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeTextlessElementsPresent, false, new { @onclick = "toggleTextless()" }) No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row textless">
+                        <div class="col-sm-6">
+                            <label class="control-label">Black between programme and textless elements to spec</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeBlackBetweenProgrammeAndTextlessElements, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeBlackBetweenProgrammeAndTextlessElements, false) No </label>
+                        </div>
+
+                    </div>
+
+                    <hr class="textless" />
+
+                    <div class="row textless">
+                        <div class="col-sm-6">
+                            <label class="control-label">Full textless covers for texted shots present</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeFullTextlessCoversForTextedShotsPresent, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeFullTextlessCoversForTextedShotsPresent, false) No </label>
+                        </div>
+                    </div>
+                    <hr class="textless" />
+
+                    <div class="row textless">
+                        <div class="col-sm-6">
+                            <label class="control-label">Does textless match the framing and </label>
+                            <label class="control-label">aspect ratio of its corresponding texted shot</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeDoesTextlessMatchTheFramingAndAspectRatioOfItsCorrespondingTextedShot, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeDoesTextlessMatchTheFramingAndAspectRatioOfItsCorrespondingTextedShot, false) No </label>
+                        </div>
+                    </div>
+                    <hr class="textless" />
+
+                    <div class="row textless">
+                        <div class="col-sm-6">
+                            <label class="control-label">Textless Gaps (1-2s)</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeTextlessGaps1Or2s, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeTextlessGaps1Or2s, false) No </label>
+                        </div>
+                    </div>
+                    <hr class="textless" />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Programme end: (1s Black - Video and Audio)</label>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeEnd1stBlackVideoAndAudio, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistDisney.ProgrammeEnd1stBlackVideoAndAudio, false) No </label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        @*</div>*@
+
+        @*</form>*@
+
+    }
+
+
+</div>
+
+
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkQcCkecklist").addClass("subMenuOnClick");
+    }
+
+    $(document).ready(function () {
+        $(document).ready(function () {
+
+            setActiveButton();
+
+            $('#btnSave').on("click", function () {
+
+               // //$('.cssload-preloader').fadeIn();
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                console.log('Model: ' + JSON.stringify(myModel))
+
+
+
+                $.post('/Job/SaveChecklist', { model: myModel }).done(function (data) {
+
+
+
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+                        $('.cssload-preloader').hide();
+                    });
+
+            });
+
+            if ($('#ChecklistDisney_ProgrammeTextlessElementsPresent').is(":checked")) {
+
+                $('.textless').show();
+            }
+            else {
+
+                $('.textless').hide();
+
+            }
+
+
+
+        });
+    });
+
+
+
+    //$(function () {
+    
+
+    //    $('#btnSave').on("click", function () {
+
+    //        //$('.cssload-preloader').fadeIn();
+    //        var myModel = $('#form_jobdetails').serializeObject();
+
+    //        console.log('Model: ' + JSON.stringify(myModel))
+
+            
+
+    //        $.post('/Job/SaveChecklist', { model: myModel }).done(function (data) {
+
+               
+
+    //            if (data.success == true) {
+    //                Msg.success(data.msg, 5 * 1000);
+    //            }
+    //            else {
+    //                Msg.error(data.msg, 5 * 1000);
+    //            }
+    //        })
+    //        .fail(function (xdata) {
+
+    //            Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+    //        })
+    //        .always(function () {
+
+    //            $('.cssload-preloader').hide();
+    //        });
+
+    //    });
+
+    //    if ($('#ChecklistDisney_ProgrammeTextlessElementsPresent').is(":checked")) {
+
+    //        $('.textless').show();
+    //    }
+    //    else {
+
+    //        $('.textless').hide();
+
+    //    }
+        
+    //});
+
+    function toggleTextless() {
+                     
+        if ($('#ChecklistDisney_ProgrammeTextlessElementsPresent').is(":checked")) {
+
+            $('.textless').show();
+        
+        }
+        else {
+
+            $('.textless').hide();
+           
+        }
+
+    }
+
+
+  
+
+</script>

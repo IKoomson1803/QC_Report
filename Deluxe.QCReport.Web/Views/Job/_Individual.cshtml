@@ -1,0 +1,299 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+
+<div class="bs-callout bs-callout-warning">
+
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Individual Specs", Model.IndividualSpecs_VM.Qcnum, Model.IndividualSpecs_VM.subQcnum)</b>
+        </div>
+
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-6 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+    @*<div class="row" style="height:500px; overflow-y:auto;overflow-x:hidden;">*@
+
+        @using (Html.BeginForm("SaveIndividualSpecsDetails", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+        {
+            @Html.HiddenFor(m => m.IndividualSpecs_VM.Qcnum);
+            @Html.HiddenFor(m => m.IndividualSpecs_VM.subQcnum);
+
+            <div class="bs-callout bs-callout-default">
+
+                <div class="row">
+                    <div class="col-sm-2 text-right">
+
+                        <label class="control-label">H. Blanking:</label>
+                    </div>
+
+                    <div class="col-sm-1 form-group">
+
+                        @Html.TextBoxFor(m => m.IndividualSpecs_VM.HBlanking, new { @class = "form-control", maxlength = "40" })
+                    </div>
+                    <div class="col-sm-2 text-right">
+
+                        <label class="control-label">Closed Caps:</label>
+                    </div>
+
+                    <div class="col-sm-1 form-group">
+
+                        @Html.DropDownListFor(m => m.IndividualSpecs_VM.ClosedCaps, new SelectList(Model.ClosedCapsList, "value", "value"), "", new { @class = "form-control", maxlength = "50" })
+                    </div>
+                    <div class="col-sm-6">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 text-right">
+
+                        <label class="control-label">Source Tape #:</label>
+                    </div>
+
+                    <div class="col-sm-1 form-group">
+
+                        @Html.TextBoxFor(m => m.IndividualSpecs_VM.SourceTape, new { @class = "form-control", maxlength = "40" })
+                    </div>
+                    <div class="col-sm-2 text-right">
+
+                        <label class="control-label">V. Blanking:</label>
+                    </div>
+
+                    <div class="col-sm-1 form-group">
+
+                        @Html.TextBoxFor(m => m.IndividualSpecs_VM.VBlanking, new { @class = "form-control", maxlength = "40" })
+                    </div>
+                    <div class="col-sm-6">
+
+                    </div>
+                </div>
+            </div>
+
+            if (string.IsNullOrEmpty(Model.IndividualSpecs_VM.AssetType) || Model.IndividualSpecs_VM.AssetType.ToLower() == "tape")
+            {
+                <div class="bs-callout bs-callout-default">
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Video RF:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.DropDownListFor(m => m.IndividualSpecs_VM.VideoRF, new SelectList(Model.ChannelPhaseList, "value", "value"), new { @class = "form-control", maxlength = "50" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Burst Level:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.BurstLevel, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Sync Level:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.SyncLevel, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Front Porch:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.FrontPorch, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Channel Conditions:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.ChannelConditions, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Slate:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.Slate, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">VITS:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.VITS, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Tracking:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.Tracking, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Label:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.Label, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">VIRS:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.VIRS, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Control Track:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.ControlTrack, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Shipper:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.Shipper, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">VITC:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.VITC, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Tape Wrap:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.TapeWrap, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+
+                            <label class="control-label">Subtitles:</label>
+                        </div>
+
+                        <div class="col-sm-1 form-group">
+
+                            @Html.TextBoxFor(m => m.IndividualSpecs_VM.Subtitles, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+        }
+
+
+    @*</div>*@
+
+
+   
+
+
+</div>
+
+<script>
+    $(function () {
+
+
+        $('#divTCC').css('visibility', 'hidden');
+
+        $('.lnkQcIndividualSpecs').addClass('active');
+
+
+        $('#btnSave').on("click", function () {
+
+            //$('.cssload-preloader').fadeIn();
+            var myModel = $('#form_jobdetails').serializeObject();
+
+            $.post('/Job/SaveIndividualSpecsDetails', { model: myModel }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+            });
+        });
+    });
+
+</script>

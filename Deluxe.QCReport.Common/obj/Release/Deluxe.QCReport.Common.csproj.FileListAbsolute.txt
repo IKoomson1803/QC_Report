@@ -1,0 +1,14 @@
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\Deluxe.QCReport.Common.dll.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\Deluxe.QCReport.Common.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\Deluxe.QCReport.Common.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Release\Deluxe.QCReport.Common.csproj.CoreCompileInputs.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Release\Deluxe.QCReport.Common.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Release\Deluxe.QCReport.Common.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\Dapper.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Release\Deluxe.QCReport.Common.csproj.CopyComplete
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Release\Deluxe.QCReport.Common.csproj.AssemblyReference.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\ClosedXML.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\ExcelNumberFormat.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\FastMember.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\ExcelNumberFormat.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\DocumentFormat.OpenXml.dll

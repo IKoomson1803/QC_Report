@@ -1,0 +1,180 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+@{
+
+
+    var filename = Model.DPPProgDetails.Filename;
+
+}
+
+
+<div class="bs-callout bs-callout-warning">
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Programme Details", Model.DPPProgDetails.QCNum, Model.DPPProgDetails.SubQCNum)</b>
+        </div>
+
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-5 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+    @using (Html.BeginForm("SaveHeaderDetails", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => m.DPPProgDetails.QCNum);
+        @Html.HiddenFor(m => m.DPPProgDetails.SubQCNum);
+
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Programme Details:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+
+                @*@Html.TextBoxFor(m => m.DPPProgDetails.ProgrammeDetails, new { @class = "form-control", @style = "width:300px", maxlength = "255" })*@
+                @Html.TextAreaFor(m => m.DPPProgDetails.ProgrammeDetails, 3, 3, new { @class = "form-control",  @title = Model.DPPProgDetails.ProgrammeDetails })
+            </div>
+
+           
+        </div>
+
+        <div class="row">
+                <div class="col-sm-2 text-right">
+
+                <label class="control-label">Duration:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @Html.TextBoxFor(m => m.DPPProgDetails.Duration, new { @class = "form-control", @style = "width:150px", maxlength = "20" })
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">File Name:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @*@Html.TextBoxFor(m => m.Header_VM.Filename, new { @id = "tbFilename", @class = "form-control", maxlength = "255", @title = Model.Header_VM.Filename })*@
+                @Html.TextAreaFor(m => m.DPPProgDetails.Filename, 3, 3, new { @class = "form-control", maxlength = "255", @title = Model.DPPProgDetails.Filename })
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Production Number:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @Html.TextBoxFor(m => m.DPPProgDetails.ProductionNumber, new { @class = "form-control", @style = "width:150px", maxlength = "50" })
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Series Title:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @Html.TextAreaFor(m => m.DPPProgDetails.SeriesTitle, 3, 3, new { @class = "form-control", maxlength = "255", @title = Model.DPPProgDetails.SeriesTitle })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Programme Title / Number:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @Html.TextAreaFor(m => m.DPPProgDetails.ProgrammeTitleAndNumber, 3, 3, new { @class = "form-control", maxlength = "255", @title = Model.DPPProgDetails.ProgrammeTitleAndNumber })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Episode Title / Number:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @Html.TextAreaFor(m => m.DPPProgDetails.EpisodeTitleAndNumber, 3, 3, new { @class = "form-control", maxlength = "255", @title = Model.DPPProgDetails.EpisodeTitleAndNumber })
+            </div>
+        </div>
+
+    }
+
+
+
+
+</div>
+
+
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkDPPProgDetails").addClass("subMenuOnClick");
+    }
+
+
+    $(function () {
+        $(function () {
+
+            setActiveButton();
+            
+        $('#btnSave').on("click", function () {
+
+             var myModel = $('#form_jobdetails').serializeObject();
+
+            $.post('/DPP/SaveDPPProgDetails', { model: myModel }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                
+            });
+        });
+
+
+
+    });
+
+
+
+   });
+
+
+    
+
+
+</script>

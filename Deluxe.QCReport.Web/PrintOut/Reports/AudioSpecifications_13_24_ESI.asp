@@ -1,0 +1,347 @@
+<!-- Include file by Isaac Koomson 02/06/2016 -->
+          
+            <% If Not IsNull(rsHeader.Fields("Ch13_Desc").value) And Trim(rsHeader.Fields("Ch13_Desc").value) <> ""  Then %>
+              <tr>
+                <td width="6%" class="left_bottom_border"><b>&nbsp;Ch13&nbsp;</b></td>
+                <td width="18%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch13_Desc")%>&nbsp;</td>
+				<td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language13")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase13")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border" ><%=FieldExists(rsHeader,"Discreate13")%>&nbsp;</td>
+				
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch13_LKFS")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch13_Tone")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch13_Avg")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch13_Peak")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH13_TruePeak")%>&nbsp;</td>
+				<td width="12%" class="left_right_bottom_border">
+				&nbsp;
+			      <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch13").value) And rsFullSpot.Fields("FullQC_Ch13").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch13").value) And rsFullSpot.Fields("SpotQC_Ch13").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				
+				&nbsp;</td>
+              </tr>
+               <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch14_Desc").value) And Trim(rsHeader.Fields("Ch14_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%" class="left_bottom_border"><b>&nbsp;Ch14&nbsp;</b></td>
+                <td width="18%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch14_Desc")%>&nbsp;</td>
+				<td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language14")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase14")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate14")%>&nbsp;</td>
+				
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch14_LKFS")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch14_Tone")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch14_Avg")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch14_Peak")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH14_TruePeak")%>&nbsp;</td>
+				<td width="12%" class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch14").value) And rsFullSpot.Fields("FullQC_Ch14").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch14").value) And rsFullSpot.Fields("SpotQC_Ch14").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				&nbsp;</td>
+              </tr>
+                <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch15_Desc").value) And Trim(rsHeader.Fields("Ch15_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"  class="left_bottom_border"><b>&nbsp;Ch15&nbsp;</b></td>
+                <td width="18%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch15_Desc")%>&nbsp;</td>
+				<td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language15")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase15")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate15")%>&nbsp;</td>
+				
+				
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch15_LKFS")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch15_Tone")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch15_Avg")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch15_Peak")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH15_TruePeak")%>&nbsp;</td>
+				<td width="12%" class="left_right_bottom_border">
+				&nbsp;
+			 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch15").value) And rsFullSpot.Fields("FullQC_Ch15").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch15").value) And rsFullSpot.Fields("SpotQC_Ch15").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				
+				&nbsp;</td>
+              </tr>
+               <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch16_Desc").value) And Trim(rsHeader.Fields("Ch16_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"  class="left_bottom_border"><b>&nbsp;Ch16&nbsp;</b></td>
+                <td width="18%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch16_Desc")%></b>&nbsp;</td>
+				<td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language16")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase16")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate16")%>&nbsp;</td>
+				
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch16_LKFS")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch16_Tone")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch16_Avg")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch16_Peak")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH16_TruePeak")%>&nbsp;</td>
+				<td width="12%"  class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch16").value) And rsFullSpot.Fields("FullQC_Ch16").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch16").value) And rsFullSpot.Fields("SpotQC_Ch16").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				
+				&nbsp;</td>
+              </tr>
+                <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch17_Desc").value) And Trim(rsHeader.Fields("Ch17_Desc").value) <> ""  Then %> 
+               <tr>
+                <td width="6%"  class="left_bottom_border"><b>&nbsp;Ch17&nbsp;</b></td>
+                <td width="18%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch17_Desc")%>&nbsp;</td>
+				<td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language17")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase17")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate17")%>&nbsp;</td>
+				
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch17_LKFS")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch17_Tone")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch17_Avg")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch17_Peak")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH17_TruePeak")%>&nbsp;</td>
+				<td width="12%"  class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch17").value) And rsFullSpot.Fields("FullQC_Ch17").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch17").value) And rsFullSpot.Fields("SpotQC_Ch17").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				&nbsp;</td>
+              </tr>
+              <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch18_Desc").value) And Trim(rsHeader.Fields("Ch18_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"  class="left_bottom_border"><b>&nbsp;Ch18&nbsp;</b></td>
+                <td width="18%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch18_Desc")%>&nbsp;</td>
+				<td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language18")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase18")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate18")%>&nbsp;</td>
+				
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch18_LKFS")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch18_Tone")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch18_Avg")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch18_Peak")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH18_TruePeak")%>&nbsp;</td>
+				<td width="12%"  class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch18").value) And rsFullSpot.Fields("FullQC_Ch18").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch18").value) And rsFullSpot.Fields("SpotQC_Ch18").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				
+				&nbsp;</td>
+              </tr>
+             <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch19_Desc").value) And Trim(rsHeader.Fields("Ch19_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"   class="left_bottom_border"><b>&nbsp;Ch19&nbsp;</b></td>
+                <td width="18%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch19_Desc")%>&nbsp;</td>
+				<td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language19")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase19")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate19")%>&nbsp;</td>
+				
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch19_LKFS")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch19_Tone")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch19_Avg")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch19_Peak")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH19_TruePeak")%>&nbsp;</td>
+				<td width="12%"  class="left_right_bottom_border">
+				&nbsp;
+			 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch19").value) And rsFullSpot.Fields("FullQC_Ch19").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch19").value) And rsFullSpot.Fields("SpotQC_Ch19").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				
+				&nbsp;</td>
+              </tr>
+               <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch20_Desc").value) And Trim(rsHeader.Fields("Ch20_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"   class="left_bottom_border"><b>&nbsp;Ch20&nbsp;</b></td>
+                <td width="18%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch20_Desc")%>&nbsp;</td>
+				<td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language20")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase20")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border" ><%=FieldExists(rsHeader,"Discreate20")%>&nbsp;</td>
+				
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch20_LKFS")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch20_Tone")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch20_Avg")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch20_Peak")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH20_TruePeak")%>&nbsp;</td>
+				<td width="12%" class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch20").value) And rsFullSpot.Fields("FullQC_Ch20").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch20").value) And rsFullSpot.Fields("SpotQC_Ch20").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				
+				&nbsp;</td>
+              </tr>
+               <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch21_Desc").value) And Trim(rsHeader.Fields("Ch21_Desc").value) <> ""  Then %> 
+               
+              <tr>
+                <td width="6%"   class="left_bottom_border"><b>&nbsp;Ch21&nbsp;</b></td>
+                <td width="18%"   class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch21_Desc")%>&nbsp;</td>
+				<td width="12%"   class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language21")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase21")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate21")%>&nbsp;</td>
+				
+                <td width="12%"   class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch21_LKFS")%>&nbsp;</td>
+                <td width="12%"   class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch21_Tone")%>&nbsp;</td>
+                <td width="12%"   class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch21_Avg")%>&nbsp;</td>
+                <td width="12%"   class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch21_Peak")%>&nbsp;</td>
+                <td width="12%"   class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH21_TruePeak")%>&nbsp;</td>
+				<td width="12%" class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch21").value) And rsFullSpot.Fields("FullQC_Ch21").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch21").value) And rsFullSpot.Fields("SpotQC_Ch21").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				&nbsp;</td>
+              </tr>
+              <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch22_Desc").value) And Trim(rsHeader.Fields("Ch22_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"  class="left_bottom_border"><b>&nbsp;Ch22&nbsp;</b></td>
+                <td width="18%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch22_Desc")%>&nbsp;</td>
+				<td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language22")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase22")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate22")%>&nbsp;</td>
+				
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch22_LKFS")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch22_Tone")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch22_Avg")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch22_Peak")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch22_TruePeak")%>&nbsp;</td>
+				<td width="12%"  class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch22").value) And rsFullSpot.Fields("FullQC_Ch22").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch22").value) And rsFullSpot.Fields("SpotQC_Ch22").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				&nbsp;</td>
+              </tr>
+               <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch23_Desc").value) And Trim(rsHeader.Fields("Ch23_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"  class="left_bottom_border"><b>&nbsp;Ch23&nbsp;</b></td>
+                <td width="18%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch23_Desc")%>&nbsp;</td>
+				<td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language23")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase23")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate23")%>&nbsp;</td>
+				
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch23_LKFS")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch23_Tone")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch23_Avg")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch23_Peak")%>&nbsp;</td>
+                <td width="12%" class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH23_TruePeak")%>&nbsp;</td>
+				<td width="12%"  class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch23").value) And rsFullSpot.Fields("FullQC_Ch23").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch23").value) And rsFullSpot.Fields("SpotQC_Ch23").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				&nbsp;</td>
+              </tr>
+              <% End If %>
+			  
+			 <% If Not IsNull(rsHeader.Fields("Ch24_Desc").value) And Trim(rsHeader.Fields("Ch24_Desc").value) <> ""  Then %> 
+              <tr>
+                <td width="6%"  class="left_bottom_border"><b>&nbsp;Ch24&nbsp;</b></td>
+                <td width="18%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch24_Desc")%>&nbsp;</td>
+				<td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Language24")%>&nbsp;</td>
+				
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"InPhase24")%>&nbsp;</td>
+				<td width="9%" class="left_bottom_border"><%=FieldExists(rsHeader,"Discreate24")%>&nbsp;</td>
+				
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch24_LKFS")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch24_Tone")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch24_Avg")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("Ch24_Peak")%>&nbsp;</td>
+                <td width="12%"  class="left_bottom_border">&nbsp;<%=rsHeader.Fields("CH24_TruePeak")%>&nbsp;</td>
+				<td width="12%"  class="left_right_bottom_border">
+				&nbsp;
+				 <%
+				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch24").value) And rsFullSpot.Fields("FullQC_Ch24").value = True Then
+				      Response.Write("<b>F</b>")
+				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch24").value) And rsFullSpot.Fields("SpotQC_Ch24").value = True Then
+				     Response.Write("<b>S</b>")
+				  End If
+				
+				%>
+				&nbsp;</td>
+              </tr>
+              <% End If %>
+			  
+			 

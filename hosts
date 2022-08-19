@@ -1,0 +1,66 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+127.0.0.1       localhost
+::1             localhost
+192.168.250.9 nexguard.bydeluxe.com nexguard-test.bydeluxe.com nexguard-live.bydeluxe.com
+127.0.0.1   iemmyawards-dev.deluxe142.co.uk
+127.0.0.1   metastore-dev.bydeluxe.com
+127.0.0.1   emmys-webhook-dev.bydeluxe.com
+127.0.0.1   one-pintracker-dev.bydeluxe.com
+127.0.0.1   esi-tracker-dev.bydeluxe.com
+127.0.0.1   itvgemigration-dev.bydeluxe.com
+127.0.0.1   qcdev.bydeluxe.com
+127.0.0.1   esi-dashboard-dev.bydeluxe.com
+127.0.0.1   bbcwwpremiumtracker-dev.bydeluxe.com
+127.0.0.1   avemailsender-dev.bydeluxe.com
+127.0.0.1   previewdev.deluxe142.co.uk
+127.0.0.1   coastzeusxmldev.bydeluxe.com
+127.0.0.1   classicqc.bydeluxe.com
+	
+# DTDC Development Environment
+127.0.0.1 dln-x-mssql-204.services.bydeluxe.net
+127.0.0.1 dln-x-inweb-205.services.bydeluxe.net
+127.0.0.1 dln-x-exweb-202.services.bydeluxe.net
+127.0.0.1 dln-x-dbapp-203.services.bydeluxe.net
+127.0.0.1 dln-x-relay-200.services.bydeluxe.net
+127.0.0.1 filebrowserdev.dcinema.com parserdev.dcinema.com
+127.0.0.1 productiondbdev.dcinema.com
+127.0.0.1 staffdev.dcinema.com
+127.0.0.1 bigappledev.dcinema.com bigapplescannerdev.dcinema.com
+127.0.0.1 pdbrelaydev.dcinema.com
+127.0.0.1 negtrackdev.dcinema.com negtrackapidev.dcinema.com
+
+# DTDC Prevent access to external clients PROD services
+127.0.0.1 filmservice.net
+127.0.0.1 keygen2.motionpicturesolutions.net
+127.0.0.1 ud01mtapi.uniquedigitalcinema.com
+127.0.0.1 api.cinema.globecast.com
+127.0.0.1 genie.portal.gofilex.com
+	
+# BEGIN section for OpenVPN Client SSL sites
+127.94.0.1	client.openvpn.net
+127.94.0.2	openvpn-client.vpn3.deluxedev.cloud
+# END section for OpenVPN Client SSL sites
+# Added by Docker Desktop
+172.26.59.20 host.docker.internal
+172.26.59.20 gateway.docker.internal
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
+# End of section

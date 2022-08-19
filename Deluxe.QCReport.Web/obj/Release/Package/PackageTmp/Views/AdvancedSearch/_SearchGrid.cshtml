@@ -1,0 +1,146 @@
+﻿@model Deluxe.QCReport.Web.Models.SearchParamsVM
+
+
+@{
+    ViewBag.Title = "Search";
+    var seachResult = Model.Headers;
+    var count = Model.Headers.Count;
+    var itemNo = 0;
+}
+
+
+@if (seachResult != null && seachResult.Any())
+{
+
+<div id="divSearchResult" class="col-sm-12 display bs-callout bs-callout-success">
+
+    <div class="row">
+        <div class="col-xs-1">
+            <div style="padding-bottom:3px;">
+                <div id="divCounter" class="btn btn-primary btn-DefaultCursor">
+                    Total Items
+                    <span class="badge"> @count</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <button type="button" id="btnExport" onclick="exportToExcel()" style="cursor:pointer;" class="btn btn-danger">
+                Export to Excel
+            </button>
+            <span id="spExportToExcel" style="color:red; font-weight:bold;font-size:16px;display:none;">Exporting to excel, please wait...</span>
+
+        </div>
+    </div>
+
+
+    
+
+    <table id="tblSearchResult" cellspacing="0" style="table-layout: fixed;word-wrap: break-word;">
+        <thead>
+            <tr class="SearchGridHeaderRow">
+                <th class="tblHeaderCell tblHeaderNumberCell">Item No.</th>
+                <th class="tblHeaderCell">Job #</th>
+                <th class="tblHeaderCell">QC #</th>
+                <th class="tblHeaderCell">Rev. #</th>
+                <th class="tblHeaderCell">QC Op #1</th>
+                <th class="tblHeaderCell">QC Date #1</th>
+                <th class="tblHeaderCell">QC Op #2</th>
+                <th class="tblHeaderCell">QC Date #2</th>
+                <th class="tblHeaderCell">Rev. By #1</th>
+                <th class="tblHeaderCell">Rev. By #2</th>
+                <th class="tblHeaderCell">Client</th>
+                <th class="tblHeaderCell">Title</th>
+                <th class="tblHeaderCell">Ep. Name</th>
+                <th class="tblHeaderCell">Ep. #</th>
+                <th class="tblHeaderCell">File Name</th>
+                <th class="tblHeaderCell">Version</th>
+                <th class="tblHeaderCell">Status</th>
+                <th class="tblHeaderCell">Grd. Video </th>
+                <th class="tblHeaderCell">Grd. Audio </th>
+                <th class="tblHeaderCell">Grd. Overall </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < seachResult.Count; i++)
+            {
+                itemNo++;
+
+
+                <tr>
+                    <td>@itemNo</td>
+                    <td>
+                        <a href="/home/index?woNumber=@seachResult[i].Wonum">@seachResult[i].Wonum</a>
+                    </td>
+                    <td>
+                        <a href="/home/index?qcNumber=@seachResult[i].Qcnum">@seachResult[i].Qcnum</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].subQcnum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].QC_date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].FullName2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].QC_Date_2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Revised_By)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Revised_By_2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].CustName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Show)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Epis_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Epis_no)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Filename)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Version)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].Eval_Stat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].grdVideo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].grdAudio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Headers[i].grdOverall)
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>
+
+    <script src="~/Scripts/custom/searchResultDataTable.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>
+    <script src="~/Scripts/custom/exportToExcel.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>
+}
+
+
+
+
+
+

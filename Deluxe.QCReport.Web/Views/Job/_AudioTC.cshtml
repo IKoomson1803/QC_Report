@@ -1,0 +1,510 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+
+<div class="bs-callout bs-callout-warning">
+
+
+
+
+
+
+    @using (Ajax.BeginForm("AudioTCChannelCountChanged", "Job",
+        new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "divContent", OnComplete = "ajaxFormCompleted", OnFailure = "ajaxFormFailure", OnSuccess = "ajaxFormSuccess" },
+        new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+
+
+
+        <div class="row" style="margin-top:-20px;">
+
+            <div class="col-sm-3">
+                <b style="font-size:14px;">@string.Format("{0} - {1}: Audio & TC", Model.AudioTC_VM.Qcnum, Model.AudioTC_VM.subQcnum)</b>
+            </div>
+
+            @if (Model.SecurityLevel >= 1)
+            {
+
+                <div class="col-xs-5 text-center">
+
+                    <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                </div>
+
+            }
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1">
+
+                <label class="control-label">Ch. Count:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.ChannelCount, new SelectList(Model.ChannelCountList, "value", "value"), new { @id = "ddlChannelCnt", @class = "form-control" })
+            </div>
+
+
+        </div>
+
+        @*<div class="row" style="height:500px; overflow-y:auto;overflow-x:hidden;">*@
+        <table style="margin-top: 1px;  width: 100%">
+            <thead>
+                <tr>
+                    <th style="width:5%; text-align:left !important;margin-left:0">Ch. No.</th>
+                    <th style="width:18%">Description</th>
+                    <th style="width:16%">Language</th>
+
+                    <th style="width:5%">In Phase </th>
+                    <th style="width:5%"> Discrete</th>
+
+                    <th style="width:6%">LKFS</th>
+                    <th style="width:6%">Tone</th>
+                    <th style="width:6%">AVG db</th>
+                    <th style="width:6%">Peak db</th>
+                    <th style="width:6%">True Peak</th>
+                    <th style="width:7%">Full / Spot</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.HiddenFor(m => m.AudioTC_VM.Qcnum)
+                @Html.HiddenFor(m => m.AudioTC_VM.subQcnum)
+
+                @for (var i = 0; i < Model.AudioTC_VM.ChannelsList.Count; i++)
+                {
+
+                    <tr>
+                        <td style="width:10px">
+                            @Html.HiddenFor(m => m.AudioTC_VM.ChannelsList[i].ChannelNo)
+                            @string.Format("CH {0}:", Model.AudioTC_VM.ChannelsList[i].ChannelNo)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Description, new SelectList(Model.AudioDescList, "value", "value", Model.AudioTC_VM.ChannelsList[i].Description), "", new { @class = "form-control", @title= Model.AudioTC_VM.ChannelsList[i].Description })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Language, new SelectList(Model.LanguageList, "value", "value", Model.AudioTC_VM.ChannelsList[i].Language), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Language })
+                        </td>
+
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].InPhase, new SelectList(Model.YesNoList, "value", "value", Model.AudioTC_VM.ChannelsList[i].InPhase), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].InPhase })
+                        </td>
+
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Discreate, new SelectList(Model.YesNoList, "value", "value", Model.AudioTC_VM.ChannelsList[i].Discreate), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Discreate })
+                        </td>
+
+                        <td>
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].LKFS, new { @class = "form-control", @title= Model.AudioTC_VM.ChannelsList[i].LKFS })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Tone, new { @class = "form-control", @title= Model.AudioTC_VM.ChannelsList[i].Tone })
+                        </td>
+                        <td>
+
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Average, new { @class = "form-control", @title=Model.AudioTC_VM.ChannelsList[i].Average })
+                        </td>
+                        <td>
+
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Peak, new { @class = "form-control", @title= Model.AudioTC_VM.ChannelsList[i].Peak })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].TruePeak, new { @class = "form-control", @title=Model.AudioTC_VM.ChannelsList[i].TruePeak })
+                        </td>
+                        <td>
+
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].FullSpotQC, new SelectList(Model.FullSpotCheckList, "value", "value", Model.AudioTC_VM.ChannelsList[i].FullSpotQC), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].FullSpotQC, @style = "width:80px;" })
+                        </td>
+
+                        <td style="width:10px">
+                            &nbsp;&nbsp;  <span id="ClearChannel" onclick="clearChannelItem(@i)" class="glyphicon glyphicon-remove-circle" style="color:red;cursor:pointer;" title="Clear row entries"></span>
+                        </td>
+                    </tr>
+
+
+                }
+
+                <tr style="display:none;">
+                    <td>
+                        @Html.HiddenFor(m => m.AudioTC_VM.Cue.ChannelNo)
+                        Cue:
+                    </td>
+                    <td>
+
+                        @Html.DropDownListFor(m => m.AudioTC_VM.Cue.Description, new SelectList(Model.AudioDescList, "value", "value", Model.AudioTC_VM.Cue.Description), "", new { @class = "form-control", @autocomplete = "off" })
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+
+                        @Html.TextBoxFor(m => m.AudioTC_VM.Cue.LKFS, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.AudioTC_VM.Cue.Tone, new { @class = "form-control" })
+                        @*@Html.DropDownListFor(m => m.AudioTC_VM.Cue.Tone, new SelectList(Model.ToneList, "value", "value", Model.AudioTC_VM.Cue.Tone), "", new { @class = "form-control", @autocomplete = "off" })*@
+                    </td>
+                    <td>
+
+                        @Html.TextBoxFor(m => m.AudioTC_VM.Cue.Average, new { @class = "form-control" })
+                    </td>
+                    <td>
+
+                        @Html.TextBoxFor(m => m.AudioTC_VM.Cue.Peak, new { @class = "form-control" })
+                    </td>
+                    @*<td>
+
+                            @Html.TextBoxFor(m => m.AudioTC_VM.Cue.TruePeak, new { @class = "form-control" })
+                        </td>*@
+                    <td>
+
+                        @Html.DropDownListFor(m => m.AudioTC_VM.Cue.FullSpotQC, new SelectList(Model.FullSpotCheckList, "value", "value", Model.AudioTC_VM.Cue.FullSpotQC), "", new { @class = "form-control", @autocomplete = "off", @style = "width:80px;" })
+                    </td>
+
+                    <td style="width:10px">
+                        &nbsp;&nbsp;  <span id="ClearCue" onclick="clearCueItem()" class="glyphicon glyphicon-remove-circle" style="color:red;cursor:pointer;" title="Clear row entries"></span>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <br />
+
+        <div class="row">
+
+            <div class="col-sm-1">
+
+                <label class="control-label">&nbsp;</label>
+            </div>
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">Noise Reduction:</label>
+            </div>
+
+            <div class="col-sm-1 form-group" style="display:none">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.NoiseReduction, new SelectList(Model.NoiseReductionList, "value", "value"), new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">Time Code:</label>
+            </div>
+
+            <div class="col-sm-2 form-group" style="display:none">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.TimeCode, new SelectList(Model.AudioTCList, "value", "value"), new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Audio QC'd in Unity:</label>
+            </div>
+
+            <div class="col-sm-1 form-group">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.AudioQCdInUnity, new SelectList(Model.YesNoList, "value", "value"), " ", new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Surround Sound:</label>
+            </div>
+
+            <div class="col-sm-1 form-group">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.SurroundSound, new SelectList(Model.YesNoList, "value", "value"), " ", new { @class = "form-control" })
+            </div>
+        </div>
+
+        @*</div>*@
+
+
+
+
+
+
+
+        <div class="row" style="display:none">
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">CH1 and 2 Phase:</label>
+            </div>
+
+            <div class="col-sm-1 form-group" style="display:none">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.CH1and2Phase, new SelectList(Model.ChannelPhaseList, "value", "value"), new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">T.C. Integrity:</label>
+            </div>
+
+            <div class="col-sm-2 form-group" style="display:none">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.TCIntegrity, new SelectList(Model.TCIntegrityList, "value", "value"), new { @class = "form-control" })
+            </div>
+
+            @*<div class="col-sm-2 text-right">
+
+                    <label class="control-label">Surround Sound:</label>
+                </div>
+
+                <div class="col-sm-1 form-group">
+
+                    @Html.DropDownListFor(m => m.AudioTC_VM.SurroundSound, new SelectList(Model.YesNoList, "value", "value"), " ", new { @class = "form-control" })
+                </div>*@
+        </div>
+
+        <div class="row" style="display:none">
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">CH3 and 4 Phase:</label>
+            </div>
+
+            <div class="col-sm-1 form-group" style="display:none">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.CH3and4Phase, new SelectList(Model.ChannelPhaseList, "value", "value"), new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">Comp/M_E Sync:</label>
+            </div>
+
+            <div class="col-sm-2 form-group" style="display:none">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.CompMESync, new SelectList(Model.ChannelPhaseList, "value", "value"), new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">LTC & VITC Match:</label>
+            </div>
+
+            <div class="col-sm-1 form-group" style="display:none">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.LTCVITCMatch, new SelectList(Model.YesNoList, "value", "value"), " ", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row" style="display:none">
+
+            <div class="col-sm-2 text-right" style="display:none">
+
+                <label class="control-label">Audio Phase/Tone:</label>
+            </div>
+
+            <div class="col-sm-1 form-group" style="display:none">
+
+                @Html.TextBoxFor(m => m.AudioTC_VM.AudioPhaseTone, new { @class = "form-control" })
+            </div>
+        </div>
+
+    }
+
+
+</div>
+
+<script>
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkQcAudioAndTC").addClass("subMenuOnClick");
+    }
+
+    $(function () {
+        $(function () {
+
+
+            setActiveButton()
+
+
+            $('#ddlChannelCnt').on('change', function () {
+
+               // $('.cssload-preloader').fadeIn();
+                $('#form_jobdetails').submit();
+
+            });
+
+              $('#btnSave').on("click", function () {
+
+            ////$('.cssload-preloader').fadeIn();
+            var qcno = '@Model.AudioTC_VM.Qcnum';
+            var revno = '@Model.AudioTC_VM.subQcnum';
+            var myModel = $('#form_jobdetails').serializeObject();
+
+           //console.log("Audio TC: " + JSON.stringify(myModel));
+
+
+           $.post('/Job/SaveAudioTCDetails', { model: myModel, modelAsJSONString: JSON.stringify(myModel) }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+
+                    LoadAudioTC(qcno, revno);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+            });
+        });
+
+        function LoadAudioTC(qcNumber,revNumber) {
+
+            $.post('/Job/AudioTCDetails', { qcnum: qcNumber, revnum: revNumber }).done(function (data) {
+
+                $("#divContent").html(data);
+            })
+                .fail(function (xdata) {
+
+                    Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                })
+                .always(function () {
+
+                });
+        }
+
+
+
+       });
+
+
+
+   });
+
+
+
+
+
+    @*$(function () {
+
+        //$('#divTCC').css('visibility', 'hidden');
+
+       //$('.lnkQcAudioAndTC').addClass('active');
+
+
+        $('#ddlChannelCnt').on('change', function () {
+
+            //$('.cssload-preloader').fadeIn();
+            $('#form_jobdetails').submit();
+
+        });
+
+
+       $('#btnSave').on("click", function () {
+
+            //$('.cssload-preloader').fadeIn();
+            var qcno = '@Model.AudioTC_VM.Qcnum';
+            var revno = '@Model.AudioTC_VM.subQcnum';
+            var myModel = $('#form_jobdetails').serializeObject();
+
+           //console.log("Audio TC: " + JSON.stringify(myModel));
+
+
+           $.post('/Job/SaveAudioTCDetails', { model: myModel, modelAsJSONString: JSON.stringify(myModel) }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 5 * 1000);
+
+                    LoadAudioTC(qcno, revno);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+            });
+        });
+
+        function LoadAudioTC(qcNumber,revNumber) {
+
+            $.post('/Job/AudioTCDetails', { qcnum: qcNumber, revnum: revNumber }).done(function (data) {
+
+                $("#divContent").html(data);
+            })
+                .fail(function (xdata) {
+
+                    Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                })
+                .always(function () {
+
+                });
+        }
+
+    });*@
+
+
+    function ajaxFormCompleted(xdata) {
+
+        $('.cssload-preloader').hide();
+
+    }
+
+    function ajaxFormSuccess(xdata) {
+
+        var resSuccess = '@Model.ResponseSuccess';
+        var resMsg = '@Model.ResponseText';
+
+        if (resMsg != '') {
+
+            if (resSuccess == 'True') {
+
+                Msg.success(resMsg, 5 * 1000);
+            }
+            else {
+
+                Msg.error(resMsg, 5 * 1000);
+            }
+        }
+    }
+
+    function ajaxFormFailure(xdata) {
+
+        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+    }
+
+    function clearChannelItem(i) {
+
+        $('#AudioTC_VM_ChannelsList_' + i + '__Description').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Language').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__InPhase').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Discreate').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__LKFS').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Tone').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Average').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Peak').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__FullSpotQC').val('');
+
+
+    }
+
+    function clearCueItem() {
+        $('#AudioTC_VM_Cue_Description').val('');
+        $('#AudioTC_VM_Cue_LKFS').val('');
+        $('#AudioTC_VM_Cue_Tone').val('');
+        $('#AudioTC_VM_Cue_Average').val('');
+        $('#AudioTC_VM_Cue_Peak').val('');
+        $('#AudioTC_VM_Cue_FullSpotQC').val('');
+    }
+
+
+</script>

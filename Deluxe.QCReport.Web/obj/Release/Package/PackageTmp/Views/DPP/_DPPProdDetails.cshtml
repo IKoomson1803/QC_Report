@@ -1,0 +1,124 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Production Details", Model.DPPProdDetails.QCNum, Model.DPPProdDetails.SubQCNum)</b>
+        </div>
+
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-5 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+    @using (Html.BeginForm("SaveHeaderDetails", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => m.DPPProdDetails.QCNum);
+        @Html.HiddenFor(m => m.DPPProdDetails.SubQCNum);
+
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Production Company:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+
+                @Html.TextBoxFor(m => m.DPPProdDetails.ProductionCompany, new { @class = "form-control", @style = "width:300px", maxlength = "150" })
+               
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Contact Phone Number:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @Html.TextBoxFor(m => m.DPPProdDetails.ContactPhoneNumber, new { @class = "form-control", @style = "width:150px", maxlength = "20" })
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Post Company:</label>
+            </div>
+
+            <div class="col-sm-5 form-group">
+                @Html.TextBoxFor(m => m.DPPProdDetails.PostCompany, new { @class = "form-control", @style = "width:300px", maxlength = "150" })
+            </div>
+
+
+        </div>
+
+
+    }
+
+</div>
+
+
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkDPPProdDetails").addClass("subMenuOnClick");
+    }
+
+
+    $(function () {
+        $(function () {
+
+            setActiveButton();
+
+            $('#btnSave').on("click", function () {
+
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                $.post('/DPP/SaveDPPProdDetails', { model: myModel }).done(function (data) {
+
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+
+                    });
+            });
+
+
+
+        });
+
+
+
+    });
+
+
+
+
+
+</script>

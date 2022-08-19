@@ -1,0 +1,79 @@
+﻿
+    <title>Locations Managemant</title>
+    <link rel="stylesheet" type="text/css" href="~/css/admin.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" />
+
+
+<a href="#Top">&nbsp;</a>
+<div id="rowTopMargin"></div>
+
+<div class="bs-callout bs-callout-warning">
+    <div class="adminHeader">Locations Management</div>
+
+    <form id="frmLocation" name="frmLocation">
+        <input type="hidden" id="pkey" name="pkey" />
+
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="PaddTopBot">
+                    <label>Search By Location (3 letters minimum) :</label><br />
+                    <input id="LocationSearch" class="ui-corner-all ui-textbox normalTextBox" type="text" placeholder="Location search" /><br />
+                    <span style="color:red;font-weight:bold;font-size:12px;">Auto search for location and hit enter to display the details below.  </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-8">
+
+                <div class="PaddTopBot">
+                    <label>Location:</label><br />
+                    <input id="Location" name="Location" class="ui-corner-all ui-textbox normalTextBox" type="text" placeholder="Location (mandatory)" required /><br />
+                </div>
+
+                <div class="PaddTopBot">
+                    <label>Address:</label><br />
+                    <textarea id="Address" name="Address" class="ui-corner-all ui-textbox longTextBox" type="text" placeholder="Address (mandatory)" rows="5"></textarea><br />
+                </div>
+                               
+
+                <div class="PaddTopBot">
+
+                    <button type="button" id="SaveLocation" name="SaveLocation" class="btn btn-info">
+                        Add New
+                    </button>
+                    <button type="button" id="ResetLocationFields" name="ResetLocationFields" class="btn btn-danger">
+                        Reset
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </form>
+
+
+
+
+
+
+</div>
+
+<script type="text/javascript" src="~/Scripts/Custom/location.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>

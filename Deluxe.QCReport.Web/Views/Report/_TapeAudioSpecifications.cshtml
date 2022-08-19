@@ -1,0 +1,107 @@
+﻿@model Deluxe.QCReport.Common.Models.ReportVM
+
+
+<div width="100%">
+
+    <div style="width:59%;float:left;">
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td valign="top" style="width:100%" height="100%" class="blackSquare">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+                        <tr>
+                            <td style="width:100%" class="bottom_border">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="center" style="padding:2px">
+                                            <b><font class="txt_italic" size="3">AUDIO SPECIFICATIONS</font>&nbsp;&nbsp;(F/S = Full or Spot Check QC)</b>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:100%">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                                    <tr>
+                                        <td>Tone Phase: <b>@Model.AudioTC_VM.AudioPhaseTone</b></td>
+                                        <td>Comp/M&E Sync: <b>@Model.AudioTC_VM.CompMESync</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Noise Reduction: <b>@Model.AudioTC_VM.NoiseReduction</b></td>
+                                        <td>TC Integrity: <b>@Model.AudioTC_VM.TCIntegrity</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bottom_border">LTC & VITC Match: <b>@Model.AudioTC_VM.LTCVITCMatch</b></td>
+                                        <td class="bottom_border">&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:100%" valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="1" height="100%">
+                                    <tr>
+                                        <td height="17px" width="6%" class="bottom_border">&nbsp;</td>
+                                        <td height="17px" width="12%" class="bottom_border"><b>Track</b></td>
+                                        <td height="17px" width="12%" class="bottom_border"><b>Lang</b></td>
+                                        <td height="17px" width="12%" class="bottom_border"><b>LUFS</b></td>
+                                        <td height="17px" width="12%" class="txt_boldtype2 bottom_border">Tone</td>
+                                        <td height="17px" width="12%" class="txt_boldtype2 bottom_border">Avg db</td>
+                                        <td height="17px" width="12%" class="txt_boldtype2 bottom_border">Peak</td>
+                                        <td height="17px" width="12%" class="txt_boldtype2 bottom_border">True</td>
+                                        <td height="17px" width="12%" class="txt_boldtype2 bottom_border">F/S</td>
+                                    </tr>
+
+                                    @foreach(Deluxe.QCReport.Common.Models.AudioTCChannel item in Model.AudioTC_VM.ChannelsList)
+                                    {<tr>
+                                        
+                                        <td width="6%" class="right_border"><b>@item.ChannelNo </b></td>
+                                        <td width="18%">@item.Description &nbsp;</td>
+                                        <td width="12%">@item.Language &nbsp;</td>
+                                        <td width="12%">@item.LKFS &nbsp;</td>
+                                        <td width="12%">@item.Tone &nbsp;</td>
+                                        <td width="12%">@item.Average &nbsp;</td>
+                                        <td width="12%">@item.Peak &nbsp;</td>
+                                        <td width="12%">@item.TruePeak &nbsp;</td>
+                                        <td width="12%">
+                                            @item.FullSpotQC
+
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            <tr>
+
+        </table>
+
+    </div>
+
+
+    <div style="width:40%;float:right;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td valign="top" style="width:100%" class="blackSquare">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td valign="top">
+                                
+                                @{Html.RenderPartial("_ProgramFormat", Model.TapeLayout_VM);}
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+

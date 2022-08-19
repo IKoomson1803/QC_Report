@@ -1,0 +1,28 @@
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Test.dll.config
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Test.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Test.pdb
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Common.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Common.pdb
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Common.dll.config
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.csprojAssemblyReference.cache
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.csproj.CoreCompileInputs.cache
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.csproj.CopyComplete
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.csproj.CoreCompileInputs.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Test.dll.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Test.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Test.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Common.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Dapper.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Common.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\Deluxe.QCReport.Common.dll.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.csproj.AssemblyReference.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.csproj.CopyComplete
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\ClosedXML.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\FastMember.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\DocumentFormat.OpenXml.dll

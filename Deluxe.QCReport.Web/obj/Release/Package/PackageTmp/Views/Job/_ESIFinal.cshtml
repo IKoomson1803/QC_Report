@@ -1,0 +1,263 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Final", Model.ESIFinalVM.Qcnum, Model.ESIFinalVM.subQcnum)</b>
+        </div>
+
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-6 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+    @*<div class="row" style="height:500px; overflow-y:auto;overflow-x:hidden;">*@
+
+        @using (Html.BeginForm("SaveESIFinal", "Job", FormMethod.Post, new { @class = "form-horizontal", @id = "form_jobdetails" }))
+        {
+            @Html.HiddenFor(m => Model.ESIFinalVM.Qcnum)
+            @Html.HiddenFor(m => Model.ESIFinalVM.subQcnum)
+
+
+            <div class="row">
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">QC Status:</label>
+                </div>
+
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    @Html.DropDownListFor(m => m.ESIFinalVM.Status, new SelectList(Model.EvalStatusList, "value", "value", Model.ESIFinalVM.Status), "Please Select", new { @class = "form-control", @style = "width:100px" })
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Luminance Levels Rating:</label>
+                </div>
+
+                <div class="col-xs-2 form-group" style="margin-left:5px;">
+                    @Html.DropDownListFor(m => m.ESIFinalVM.LuminanceLevelsRating, new SelectList(Model.PassOrFailList, "value", "value", Model.ESIFinalVM.LuminanceLevelsRating), "", new { @class = "form-control", @style = "width:100px" })
+
+                </div>
+
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Luminance Levels Details:</label>
+                </div>
+
+                <div class="col-xs-4 form-group" style="margin-left:5px;">
+                    @Html.TextBoxFor(m => m.ESIFinalVM.LuminanceLevelsDetails, new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Black Levels Rating:</label>
+                </div>
+
+                <div class="col-xs-2 form-group" style="margin-left:5px;">
+                    @Html.DropDownListFor(m => m.ESIFinalVM.BlackLevelsRating, new SelectList(Model.PassOrFailList, "value", "value", Model.ESIFinalVM.BlackLevelsRating), "", new { @class = "form-control", @style = "width:100px" })
+
+                </div>
+
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Black Levels Details:</label>
+                </div>
+
+                <div class="col-xs-4 form-group" style="margin-left:5px;">
+                    @Html.TextBoxFor(m => m.ESIFinalVM.BlackLevelsDetails, new { @class = "form-control" })
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Chrominance Levels Rating:</label>
+                </div>
+
+                <div class="col-xs-2 form-group" style="margin-left:5px;">
+                    @Html.DropDownListFor(m => m.ESIFinalVM.ChrominanceLevelsRating, new SelectList(Model.PassOrFailList, "value", "value", Model.ESIFinalVM.ChrominanceLevelsRating), "", new { @class = "form-control", @style = "width:100px" })
+
+                </div>
+
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Chrominance Levels Details:</label>
+                </div>
+
+                <div class="col-xs-4 form-group" style="margin-left:5px;">
+                    @Html.TextBoxFor(m => m.ESIFinalVM.ChrominanceLevelsDetails, new { @class = "form-control" })
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Audio Peaks And Loudness Rating:</label>
+                </div>
+
+                <div class="col-xs-2 form-group" style="margin-left:5px;">
+                    @Html.DropDownListFor(m => m.ESIFinalVM.AudioPeaksAndLoudnessRating, new SelectList(Model.PassOrFailList, "value", "value", Model.ESIFinalVM.AudioPeaksAndLoudnessRating), "", new { @class = "form-control", @style = "width:100px" })
+
+                </div>
+
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Audio Peaks And Loudness Details:</label>
+                </div>
+
+                <div class="col-xs-4 form-group" style="margin-left:5px;">
+                    @Html.TextBoxFor(m => m.ESIFinalVM.AudioPeaksAndLoudnessDetails, new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Title Safe Rating:</label>
+                </div>
+
+                <div class="col-xs-2 form-group" style="margin-left:5px;">
+                    @Html.DropDownListFor(m => m.ESIFinalVM.TitleSafeRating, new SelectList(Model.PassOrFailList, "value", "value", Model.ESIFinalVM.TitleSafeRating), "", new { @class = "form-control", @style = "width:100px" })
+
+                </div>
+
+                <div class="col-xs-3 form-group" style="margin-left:5px;">
+                    <label class="control-label">Title Safe Details:</label>
+                </div>
+
+                <div class="col-xs-4 form-group" style="margin-left:5px;">
+                    @Html.TextBoxFor(m => m.ESIFinalVM.TitleSafeDetails, new { @class = "form-control" })
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-11 form-group" style="margin-left:5px;">
+                    <label class="control-label">Comments:</label>
+                    <div style="white-space: pre-line">@Html.TextAreaFor(m => m.ESIFinalVM.Comments, 15, 500, new { @class = "form-control", @style = "height:300px" })</div>
+                 </div>
+            </div>
+
+
+
+
+        }
+
+    @*</div>*@
+
+
+  
+
+</div>
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkQcESIFinal").addClass("subMenuOnClick");
+    }
+
+    function sendFile(file, id) {
+        var lib_url = '/Job/ProcessUploadedImage';
+        data = new FormData();
+        data.append("file", file);
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: lib_url,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (url) {
+                var image = $('<img>').attr('src', url);
+                $('#' + id).summernote("insertNode", image[0]);
+            }
+        });
+    }
+
+    function initializeSummerNote(id) {
+        $('#' + id).summernote({
+            height: 200,
+            focus: true,
+            disableDragAndDrop: true,
+            spellCheck: true,
+            disableGrammar: false,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['style']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['font', ['strikethrough', 'superscript', 'subscript']], 
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                /*['insert', ['picture', 'video', 'table']],*/
+                /* ['insert', ['picture']], */
+                ['search', ['findnreplace', 'changecolor']],
+                ['view', ['help']]
+            ],
+            callbacks: {
+                onImageUpload: function (files, editor, welEditable) {
+                    sendFile(files[0], id);
+                }
+            }
+
+
+        });
+    }
+
+    $(function () {
+
+        $(function () {
+
+            setActiveButton();
+            initializeSummerNote('@Html.IdFor(m => m.ESIFinalVM.Comments)')
+
+            $('#btnSave').on("click", function () {
+
+                //$('.cssload-preloader').fadeIn();
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                $.post('/Job/SaveESIFinal', { model: myModel }).done(function (data) {
+
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+                        $('.cssload-preloader').hide();
+                    });
+            });
+
+
+
+
+        });
+
+    });
+
+</script>

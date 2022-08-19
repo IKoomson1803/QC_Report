@@ -1,0 +1,22 @@
+; Adobe Acrobat PDFWriter Driver for Windows
+; Copyright Adobe Systems, Inc.
+;
+; Version 1.00
+;
+; /* --------------------------------------------------------------- *\
+;  |
+;  | PDFWritr.drv = Acrobat PDFWriter Printer Driver
+;  | PDFHLP.hlp   = Help file Acrobat PDFWriter Printer Drivers
+;  | PDFWLIB.dll  = DLL for Acrobat PDFWriter
+;  |  	
+;  | 
+; \* --------------------------------------------------------------- */
+
+[disks]
+	 1 =. ,"PDFWriter Driver"
+
+[io.device]
+	 1:PDFWRITR.DRV,1:PDFWLIB.DLL,1:PDFWIN32.DLL,1:PDFHLP.HLP,"Acrobat PDFWriter"
+
+[io.dependent]
+PDFWRITR.DRV=PDFHLP.HLP,PDFWLIB.DLL,PDFWIN32.DLL

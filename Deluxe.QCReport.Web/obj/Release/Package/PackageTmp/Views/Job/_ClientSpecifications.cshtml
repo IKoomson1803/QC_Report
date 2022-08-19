@@ -1,0 +1,42 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+@{ 
+
+
+}
+
+<script type="text/javascript">
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkQcClientSpecs").addClass("subMenuOnClick");
+    }
+
+  $(function () {
+
+    $(function () {
+
+
+        setActiveButton();
+
+       @foreach (var item in Model.Specifications) {
+        @:AddHyperlink('@item');
+       }
+
+
+        function AddHyperlink(filename) {
+            //console.log('Encoded Plus Sign:' + encodeURIComponent('+'))
+            filename = encodeURIComponent(filename)
+            let a = document.createElement('a');
+            a.href = 'http://' + document.location.hostname + '/Specifications/' + filename;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a)
+        }
+
+    });
+
+ });
+
+</script>

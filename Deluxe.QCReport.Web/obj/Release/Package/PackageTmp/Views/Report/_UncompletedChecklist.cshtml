@@ -1,0 +1,93 @@
+﻿@model Deluxe.QCReport.Common.Models.ReportVM
+
+<div style="width:800px; height:200px;" class="bs-callout bs-callout-warning">
+
+    <table>
+        <tr>
+            <th style="font-weight:bold;font-size:1.2em">Report for QC #: @Model.Qcnum - @Model.subQcnum</th>
+        </tr>
+    </table>
+    <br />
+
+    <b style="font-size:16px;">Please complete all the items in the checklist and continue..</b><br /><br />
+
+    <div class="col-xs-3">
+        <button class="btn btn-xs btn-primary" id="btnBypassChecklist">Bypass Checklist</button>
+    </div>
+</div>
+
+
+<script>
+
+    function IsQCNumberValid(qcNumber) {
+        if (qcNumber == '') {
+            return false;
+        }
+        else if (qcNumber == '0') {
+            return false;
+        }
+        if (qcNumber == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    $(function () {
+
+        @*$('body').on('click', '#btnBypassChecklist', function () {
+            location.href = '/Report/Index?qcnum=' + '@Model.Qcnum' + '&revnum=' + '@Model.subQcnum'
+        });*@
+
+        function GetDetailsNav(qcno, rno, wono) {
+
+            $.post('/Home/GetTopNavigation', { qcnum: qcno, revnum: rno, wonum: wono }).done(function (data) {
+
+                //$("#divTopSubMenu").html(data);
+
+                console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
+
+                if (!$("#TopMenu").find('.lnkQcAudioAndTC').length) {
+                    $("#TopMenu").append(data);
+                }
+
+            })
+                .fail(function (xdata) {
+
+                    Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                });
+        };
+
+
+        $('#btnBypassChecklist').on("click", function () {
+
+            //$('.cssload-preloader').fadeIn();
+            var qcno = '@Model.Qcnum';
+            var rno = '@Model.subQcnum';
+
+            var isQCNoValid = IsQCNumberValid(qcno)
+
+            if (!isQCNoValid) {
+                $('.cssload-preloader').hide();
+                return;
+            }
+
+            GetDetailsNav(qcno, rno);
+
+            $.get('/Report/BypassChecklist', { qcnum: qcno, revnum: rno }).done(function (data) {
+
+                $("#divContent").html(data);
+            })
+                .fail(function (xdata) {
+
+                    Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                })
+                .always(function () {
+
+                    $('.cssload-preloader').hide();
+                });
+
+        });
+
+    });
+</script>

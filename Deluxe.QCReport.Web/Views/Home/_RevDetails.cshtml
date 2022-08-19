@@ -1,0 +1,135 @@
+﻿@model Deluxe.QCReport.Common.Models.RevDetailsVM
+
+
+<div class="bs-callout bs-callout-warning" style="font-size:12px;">
+    <b style="font-size:14px;">@string.Format("{0} Details for Revision {1}", Model.QCNumber, Model.RevNumber)</b>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-3 text-right">
+
+            <b>Revision Date:</b>
+        </div>
+        <div class="col-sm-3">
+
+            @Model.RevDate
+        </div>
+        <div class="col-sm-3 text-right">
+
+            <b>Revised By:</b>
+        </div>
+        <div class="col-sm-3">
+
+            @Model.RevBy
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 text-right">
+
+            <b>QC Operator:</b>
+        </div>
+        <div class="col-sm-3">
+
+            @Model.QCOperator
+        </div>
+        <div class="col-sm-3 text-right">
+
+            <b>Status:</b>
+        </div>
+        <div class="col-sm-3">
+
+            @Model.Status
+        </div>
+    </div>
+
+    @if (Model.SecurityLevel >= 2)
+    {
+        <div class="row">
+            <div class="col-sm-3">
+                &nbsp;
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+
+            <div class="col-sm-2  text-left">
+
+                <button type="button" class="btn btn-sm btn-danger" id="btnDeletePrompt">Delete</button>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deletePromptModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body" style="font-size:14px;font-weight:bold;">
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-danger" id="btnDelete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(function () {
+        $('#deletePromptModal').on('shown.bs.modal', function () {
+
+            var qcNum = '@Model.QCNumber';
+            var revNum = '@Model.RevNumber';
+            var modal = $(this);
+            modal.find('.modal-body').text('Are you sure you want to delete QC ' + qcNum + ' Revisions ' + revNum + '?');
+
+        });
+
+        $('#btnDeletePrompt').on("click", function () {
+
+            $('#deletePromptModal').modal('show');
+
+        });
+
+        $('#btnDelete').on("click", function () {
+
+            $('#deletePromptModal').modal('hide');
+
+            //$('.cssload-preloader').fadeIn();
+            var qcno = '@Model.QCNumber';
+            var revno = '@Model.RevNumber';
+
+            $.post('/Home/DeleteRev', { qcnum: qcno, revnum: revno }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 5 * 1000);
+
+                    $('#SearchQCNumber').val('@Model.QCNumber');
+
+                    //$('.cssload-preloader').fadeIn();
+                    $('#form_search').submit();
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+            });
+        });
+    });
+</script>

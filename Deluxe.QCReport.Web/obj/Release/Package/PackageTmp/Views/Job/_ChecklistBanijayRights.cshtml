@@ -1,0 +1,98 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+
+    @using (Html.BeginForm("SaveChecklist", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+                @string.Format("{0} - {1}: Checklist - Banijay Rights", Model.ChecklistBanijayRights.Qcnum, Model.ChecklistBanijayRights.subQcnum)
+            </div>
+        </div>
+
+        if (Model.SecurityLevel >= 1)
+
+        {
+
+            <div class="row">
+                <div class="col-xs-8 text-center" style="font-size:14px;font-weight:bold">
+                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                </div>
+            </div>
+
+        }
+        <div class="row">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+                &nbsp;
+            </div>
+        </div>
+
+
+        <div class="bs-callout bs-callout-default">
+            <div class="row">
+                <div class="col-sm-6">
+                    <b style="font-size:14px;">Measurements</b>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="row"  style="font-size:14px;font-weight:bold">
+                                <div class="col-xs-12">
+                                    File Details:
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12"  style="font-size:14px;font-weight:bold">
+                                    <label class="control-label">Banijay file to Spec: </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, true) Yes </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, false) No </label>
+
+                                </div>
+                            </div>
+                            <div class="row"  style="font-size:14px;font-weight:bold">
+                                <div class="col-xs-12">
+                                    <label class="control-label">Decode check pass: </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, true) Yes </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, false) No </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-sm-4">
+                                        <label class="control-label">Please confirm the video format: </label>
+                                    </div>
+                                    <div class="col-sm-6 form-group float-left">
+                                        @Html.TextBoxFor(m => m.ChecklistBanijayRights.Format, new { @class = "form-control"})
+                                    </div>
+                                
+                            </div>
+
+                           
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-sm-6">
+                    <b style="font-size:14px;">Specifics</b>
+                    <hr />
+
+
+                    <div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+         </div>
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.Qcnum);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.subQcnum);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.CustId);
+
+
+    }
+</div>

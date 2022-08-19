@@ -1,0 +1,127 @@
+﻿
+    <title>Users Managemant</title>
+    <link rel="stylesheet" type="text/css" href="~/css/admin.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" />
+
+
+<a href="#Top">&nbsp;</a>
+<div id="rowTopMargin"></div>
+
+
+
+<div class="bs-callout bs-callout-warning">
+    <div class="adminHeader">Users Management</div>
+
+
+    <form id="frmUser" name="frmUser">
+
+        <input type="hidden" id="qcUserId" name="qcUserId" />
+        <input type="hidden" id="Deleted" name="Deleted" />
+
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="PaddTopBot">
+                    <label>Search By Operator (3 letters minimum):</label><br />
+                    <input id="UsernameSearch" class="ui-corner-all ui-textbox normalTextBox" type="text" placeholder="Operator's search" /><br />
+                    <span style="color:red;font-weight:bold;font-size:12px;">Auto search for operator and hit enter to display the details below.  </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-8">
+
+                <div class="PaddTopBot">
+                    <label>CORP User Name:</label><br />
+                    <input id="UserNameText" name="UserNameText" class="normalTextBox" required placeholder="CORP username (mandatory)" />
+
+                </div>
+
+                <div class="PaddTopBot">
+                    <label>Full Name:</label><br />
+                    <input id="Fullname" name="Fullname" class="normalTextBox" placeholder="User full name (optional)" />
+                </div>
+
+
+                <div class="PaddTopBot">
+                    <label>Location:</label><br />
+                    <select id="Location" name="Location" class="normalTextBox" required>
+                        <option value="">Select Location  (mandatory)</option>
+                        <option value="7">Deluxe Australia</option>
+                        <option value="8">Deluxe Bangolore</option>
+                        <option value="15">Deluxe Burbank</option>
+                        <option value="9">Deluxe House</option>
+                        <option value="10">Deluxe Madrid</option>
+
+                    </select>
+                </div>
+
+                <div class="PaddTopBot">
+                    <label>Role:</label><br />
+                    <select id="SecurityLevel" name="SecurityLevel" class="normalTextBox" required>
+                        <option value="">Select Security Level  (mandatory)</option>
+                        <option value="0">Read Only</option>
+                        <option value="1">Operator</option>
+                        <option value="2">Super User</option>
+                        <option value="3">Administrator</option>
+                    </select>
+                </div>
+
+                <div class="PaddTopBot">
+                    <label>Phone:</label><br />
+                    <input id="Phone" name="Phone" class="shortTextBox" placeholder="User phone number (optional)" />
+                </div>
+
+                <div style="padding-left: 6px;">
+                    <label>&nbsp;</label>
+                    <input id="Enabled" name="Enabled" type="checkbox" />
+                    <label style="width:120px">Enable</label>
+
+                </div>
+
+
+                <div class="PaddTopBot">
+                    <button type="button" id="SaveUser" class="btn btn-info">
+                        Add New
+                    </button>
+                    <button type="button" id="ResetUserFields" class="btn btn-danger">
+                        Reset
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label class="control-label">&nbsp;</label>
+                <span id="divUserMessage" class="divMessage"></span>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="row" id="divUsers" style="overflow:auto;height:400px;">
+
+    </div>
+
+    
+    <script type="text/javascript" src="~/Scripts/Custom/user.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>
+
+
+

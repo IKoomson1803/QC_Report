@@ -1,0 +1,164 @@
+﻿@model Deluxe.QCReport.Common.Models.ReportVM
+@using Deluxe.QCReport.Common.Utilities;
+
+
+@{
+
+    var QCType = Model.QCTtype;
+    var isChecklistCompleted = Model.IsChecklistCompleted;
+     
+}
+
+
+
+<div class="bs-callout bs-callout-warning" style="margin-top:20px">
+
+    <form method="post" target="_blank" action="@ConfigManager.QCPrintOut">
+        <input type="hidden" id="txtQCNum" Name="txtQCNum" value="@Model.Qcnum" />
+        <input type="hidden" id="txtQCRev" Name="txtQCRev" value="@Model.subQcnum" />
+
+
+
+        <table>
+            <tr>
+                <th style="font-weight:bold;font-size:1.2em">Reports for QC #: @Model.Qcnum - @Model.subQcnum</th>
+            </tr>
+        </table>
+        <br />
+        <table>
+            <tr>
+                <th class="ReportCell">&nbsp;</th>
+                <th class="ReportCell" valign="bottom"><b>&nbsp;Report</b></th>
+            </tr>
+
+            @{
+                if (QCType != "E" && QCType != "D")
+                {
+
+                    if (QCType != "A" && QCType != "L" && QCType != "T")
+                    {
+                        <tr>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCR" id="chkQCR" value="1"></td>
+                            <th class="ReportCell">&nbsp;Broadcast QC&nbsp;&nbsp;</th>
+                         </tr>
+                        <tr>
+                            <td class="ReportCell"> <input type="checkbox" name="chkMQCR" id="chkMQCR" value="1"></td>
+                            <th class="ReportCell">&nbsp;Master QC&nbsp;&nbsp;</th>
+                         </tr>
+
+                    }
+
+
+                    if (QCType != "L" && QCType != "T")
+                    {
+                        <tr>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCR1Pg" id="chkQCR1Pg" value="1"></td>
+                            <th class="ReportCell">&nbsp;Runtime QC&nbsp;&nbsp;</th>
+                         </tr>
+                    }
+
+
+
+                    if (QCType != "A" && QCType != "T")
+                    {
+
+                        <tr>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCWLR1Pg" id="chkQCWLR1Pg" value="1"></td>
+                            <th class="ReportCell">&nbsp;Runtime QC With Log&nbsp;&nbsp;</th>
+                         </tr>
+
+                    }
+
+
+
+                    if (QCType != "A" && QCType != "L")
+                    {
+                        <tr>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCWTR1Pg" id="chkQCWTR1Pg" value="1"></td>
+                            <th class="ReportCell">&nbsp;Runtime QC With Text Info&nbsp;&nbsp;</th>
+                        </tr>
+                    }
+
+
+
+                }
+                else if (QCType == "E")
+                {
+
+                    <tr>
+                        <td class="ReportCell"><input type="checkbox" name="chkQCWLER" id="chkQCWLER" value="1"></td>
+
+                        @if (Model.CustName.ToLower().Contains("banijay"))
+                        {
+                            <th class="ReportCell">&nbsp;QC report for Banijay Rights&nbsp;&nbsp;</th>
+                        }
+                        else
+                        {
+                            <th class="ReportCell">&nbsp;QC report for Banijay Rights&nbsp;&nbsp;</th>
+                        }
+
+
+                    </tr>
+                }
+                else if (QCType == "D")
+                {
+
+                    if (isChecklistCompleted)
+                    {
+                        <tr>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCRWLDPP" id="chkQCRWLDPP" value="1"></td>
+                            <th class="ReportCell">&nbsp;QC report for DPP Eyeballs&nbsp;&nbsp;</th>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="ReportCell"></td>
+                            <th class="ReportCell" style="color:red; font-size:14px; font-weight:bold">&nbsp;Please complete the DPP checklist before printing the report&nbsp;&nbsp;</th>
+                        </tr>
+                    }
+
+                }
+
+
+            }
+
+        </table>
+        <br />
+
+        @if (QCType != "D")
+        {
+
+            <table width=70%>
+                <tr>
+                    <td align="left">
+                        <input type=submit name="action" value="Preview" id="btnPreview" class="btn btn-sm btn-primary">
+                    </td>
+                </tr>
+            </table>
+        }
+        else
+        {
+            if (isChecklistCompleted) 
+            { 
+            <table width=70%>
+                <tr>
+                    <td align="left">
+                        <input type=submit name="action" value="Preview" id="btnPreview" class="btn btn-sm btn-primary">
+                    </td>
+                </tr>
+            </table>
+            }
+        }
+
+
+    </form>
+
+</div>
+
+
+   

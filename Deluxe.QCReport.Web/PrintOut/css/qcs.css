@@ -1,0 +1,393 @@
+BODY#bdyAdminNav
+{
+    BACKGROUND-COLOR: #333399
+}
+TABLE#tblCoolbar
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: buttonhighlight 1px solid;
+    PADDING-LEFT: 1px;
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: buttonhighlight 1px solid;
+    COLOR: menutext;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    BACKGROUND-COLOR: #f5f5dc
+}
+TABLE#tblCoolbar TABLE
+{
+    BORDER-RIGHT: #f5f5dc 1px solid;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: #f5f5dc 1px solid;
+    PADDING-LEFT: 1px;
+    FONT-SIZE: 70%;
+    PADDING-BOTTOM: 1px;
+    BORDER-LEFT: #f5f5dc 1px solid;
+    CURSOR: hand;
+    COLOR: menutext;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #f5f5dc 1px solid;
+    FONT-FAMILY: tahoma
+}
+TABLE#tblForm
+{
+    BORDER-RIGHT: medium none;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: medium none;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 8pt;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-LEFT: medium none;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: tahoma;
+    BACKGROUND-COLOR: transparent;
+    TEXT-DECORATION: none
+}
+TABLE#tblTapeFormat
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblForm A
+{
+    COLOR: #666666;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblForm A:hover
+{
+    COLOR: #6699ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblTapeFormat A
+{
+    COLOR: #666666;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblTapeFormat A:hover
+{
+    COLOR: #6699ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TD.tdSector
+{
+    FONT-SIZE: 6pt !important;
+}
+
+TABLE#tblCoolbar A
+{
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblCoolbar A:hover
+{
+    COLOR: #0066ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblCoolbar TABLE A
+{
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblCoolbar TABLE A:hover
+{
+    COLOR: #0066ff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblAdminNav
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none;
+    font-color: #FFFFFF
+}
+TABLE#tblAdminNav A
+{
+    COLOR: #99ccff;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TABLE#tblAdminNav A:hover
+{
+    COLOR: yellow;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TR.trWhite
+{
+    CURSOR: hand;
+    BACKGROUND-COLOR: #ffffff
+}
+TR.trBrown
+{
+    BACKGROUND-COLOR: #cccc99
+}
+TR.trBeige
+{
+}
+BODY.bodyForm
+{
+    BORDER-RIGHT: thin inset;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: thin inset;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 8pt;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-LEFT: thin inset;
+    COLOR: black;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: thin inset;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #f5f5dc
+}
+TD.underline
+{
+    BORDER-RIGHT: white 0pt;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: 0pt;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 1px;
+    MARGIN: 0px 0px 1px;
+    BORDER-LEFT: white 0pt;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: black thin solid
+}
+.header_type
+{
+    COLOR: black;
+    FONT-FAMILY: 'Times New Roman'
+}
+.txt_underline
+{
+    FONT-SIZE: 7pt;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: underline
+}
+.txt_italic
+{
+    COLOR: black;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Tahoma
+}
+.txt_address
+{
+    FONT-SIZE: 5pt;
+    FONT-FAMILY: 'Times New Roman'
+}
+.txt_boldtype
+{
+    FONT-SIZE: 9pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma
+}
+TD.underlineNsides
+{
+    BORDER-RIGHT: black thin solid;
+    BORDER-LEFT: medium none;
+    BORDER-BOTTOM: black thin solid
+}
+TD.blackSquare, TABLE.blackSquare
+{
+    BORDER-RIGHT: black thin solid;
+    BORDER-TOP: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+TD.left_line
+{
+    BORDER-LEFT: black thin solid
+}
+TD.right_line
+{
+    BORDER-RIGHT: black thin solid
+}
+.txt_boldtype2
+{
+    FONT-WEIGHT: bolder;
+    COLOR: black;
+    FONT-FAMILY: Tahoma
+}
+
+.txt_boldtype_header
+{
+    FONT-WEIGHT: bolder;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+	font-size: 18pt
+}
+
+TD.right_top_bot
+{
+    BORDER-RIGHT: black thin solid;
+    BORDER-TOP: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+TD.left_top_bot
+{
+    BORDER-TOP: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+P.red_txt
+{
+    COLOR: red
+}
+TD.bottom_border
+{
+    BORDER-BOTTOM: black thin solid
+}
+TD.left_top_border
+{
+    BORDER-TOP: black thin solid;
+    BORDER-LEFT: black thin solid
+}
+TD.left_right_top_border, TABLE.left_right_top_border
+{
+    BORDER-RIGHT: black thin solid;
+    BORDER-TOP: black thin solid;
+    BORDER-LEFT: black thin solid
+}
+TD.top_border
+{
+    BORDER-TOP: black thin solid
+}
+TD.left_bottom_border
+{
+    BORDER-LEFT: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+TD.left_right_bottom_border,  TABLE.left_right_bottom_border
+{
+    BORDER-RIGHT: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+TD.left_top_bottom_border
+{
+    BORDER-TOP: black thin solid;
+    BORDER-LEFT: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+TD.right_top_bottom_border
+{
+    BORDER-TOP: black thin solid;
+    BORDER-RIGHT: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+TD.top_bottom_border
+{
+    BORDER-TOP: black thin solid;
+    BORDER-BOTTOM: black thin solid
+}
+TD.left_border
+{
+   BORDER-LEFT: black thin solid;
+}
+TD.left_bottom_border
+{
+   BORDER-LEFT: black thin solid;
+   BORDER-BOTTOM: black thin solid
+}
+
+TD.left_right_border
+{
+   BORDER-LEFT: black thin solid;
+   BORDER-RIGHT: black thin solid
+}
+
+.right_border
+{
+   BORDER-RIGHT: black thin solid;
+}
+
+.right_bottom_border
+{
+   BORDER-RIGHT: black thin solid;
+   BORDER-BOTTOM: black thin solid
+}
+
+TD.left_border
+{
+   BORDER-LEFT: black thin solid;
+}
+
+TD.top_border
+{
+   BORDER-TOP: black thin solid;
+}
+
+.bottom_border
+{
+   BORDER-BOTTOM: black thin solid;
+}
+
+INPUT.TextboxWidth
+{
+    WIDTH: 100%
+}
+TD.txt_12Font
+{
+    FONT-SIZE: 12pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TD.txt_8Font
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+TD.txt_10Font
+{
+    FONT-SIZE: 10pt;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    TEXT-DECORATION: none
+}
+
+.tblComments
+{
+min-height:50px;
+}
+
+.floatLeft
+{
+  float:left;
+  width:45%;
+}
+
+.floatRight
+{
+  float:right;
+  text-align:right;
+  width:45%;
+}
+
+.clear
+{
+cursor:hand;
+color:blue;
+text-decoration:underline;
+
+}
+
+.galimage[src=""] {
+  display:none;
+}
+

@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="qcsuk" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=qcsuk;Persist Security Info=True;User ID=bward" SettingsObjectName="Deluxe.QCReport.Common.Properties.Settings" SettingsPropertyName="qcsukConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="bward.optAspectRatio" Member="optAspectRatios">
+    <Type Name="optAspectRatio">
+      <Column Name="AspectID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AspectRatio" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optAudio" Member="optAudios">
+    <Type Name="optAudio">
+      <Column Name="AudioID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AudioDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optVideoCodec" Member="optVideoCodecs">
+    <Type Name="optVideoCodec">
+      <Column Name="VideoCodecID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VideoCodec" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optAudioBitDepth" Member="optAudioBitDepths">
+    <Type Name="optAudioBitDepth">
+      <Column Name="AudioBitDepthID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AudioBitDepth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optAudioCodec" Member="optAudioCodecs">
+    <Type Name="optAudioCodec">
+      <Column Name="AudioCodecID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AudioCodec" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optAudioTC" Member="optAudioTCs">
+    <Type Name="optAudioTC">
+      <Column Name="AudTCID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AudioTC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optBitRateMode" Member="optBitRateModes">
+    <Type Name="optBitRateMode">
+      <Column Name="BitRateModeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BitRateMode" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optColourEncoding" Member="optColourEncodings">
+    <Type Name="optColourEncoding">
+      <Column Name="ColourEncodingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ColourEncoding" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optFormat" Member="optFormats">
+    <Type Name="optFormat">
+      <Column Name="FormatID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Format" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optGamut" Member="optGamuts">
+    <Type Name="optGamut">
+      <Column Name="GamutID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Gamut" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optGOPStructure" Member="optGOPStructures">
+    <Type Name="optGOPStructure">
+      <Column Name="GOPStructureID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GOPStructure" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optLanguage" Member="optLanguages">
+    <Type Name="optLanguage">
+      <Column Name="LangID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Language" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optQCRoom" Member="optQCRooms">
+    <Type Name="optQCRoom">
+      <Column Name="QCRoomID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BayNumber" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optTapeDesc" Member="optTapeDescs">
+    <Type Name="optTapeDesc">
+      <Column Name="TapeDescID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TapeDesc" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optTCInteg" Member="optTCIntegs">
+    <Type Name="optTCInteg">
+      <Column Name="TCIntegID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TCInteg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optVersion" Member="optVersions">
+    <Type Name="optVersion">
+      <Column Name="VersionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optVideoBitDepth" Member="optVideoBitDepths">
+    <Type Name="optVideoBitDepth">
+      <Column Name="VideoBitDepthID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VideoBitDepth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.qcClients" Member="qcClients">
+    <Type Name="qcClient">
+      <Column Name="CustID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustCode" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="CustName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CustAddress" Type="System.String" DbType="Char(150)" CanBeNull="true" />
+      <Column Name="CustPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GradingScale" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="qcClient_qcHeader" Member="qcHeaders" ThisKey="CustID" OtherKey="CustId" Type="qcHeader" />
+    </Type>
+  </Table>
+  <Table Name="bward.qcHeader" Member="qcHeaders">
+    <Type Name="qcHeader">
+      <Column Name="Qcnum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="subQcnum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Wonum" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CustId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Show" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Epis_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Epis_Name" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tot_Part" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TapeDesc1" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="TapeDesc2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Standard" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Format" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Origin" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Aspect" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Textless" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="client_trk" Type="System.String" DbType="VarChar(75)" CanBeNull="true" />
+      <Column Name="TRT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bay_num" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="supervise" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="qc_type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="in_house" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DVNR" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="TelecineOp" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="addinfo" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="src_standard" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="src_desc" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Input_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="QC_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Eval_Stat" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="revised_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FullQC_Vid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch3" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch4" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch5" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch6" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch7" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Ch8" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FullQC_Cue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Vid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch3" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch4" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch5" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch6" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch7" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Ch8" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpotQC_Cue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Revised_By" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="QC_VTR" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Operator" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Mfg" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Stock_Batch" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="src_Format" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Rec_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Rec_vtr" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Rec_fac" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Bar_Vid" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Bar_Chr" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Bar_Set" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Black" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Chroma_Avg" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Lum_Avg" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Lum_Peak" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Chroma_peak" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="format_qc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IRE_MV" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Duration" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TapeNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Subtitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HLanguage" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="HeadLogo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TailLogo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="This_part" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="OTPercent" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="OTVer" Type="System.String" DbType="NVarChar(14)" CanBeNull="true" />
+      <Column Name="CTPercent" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CTVer" Type="System.String" DbType="NVarChar(14)" CanBeNull="true" />
+      <Column Name="CapPercent" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CapVer" Type="System.String" DbType="NVarChar(14)" CanBeNull="true" />
+      <Column Name="grdVideo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="grdAudio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="grdOverall" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RecommendationComments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FullQC_Ch9" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch10" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch11" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch12" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch13" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch14" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch15" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch16" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch9" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch10" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch11" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch12" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch13" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch14" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch15" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch16" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AssetType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Filename" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FullQC_Ch17" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch18" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch19" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch20" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch21" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch22" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch23" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FullQC_Ch24" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch17" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch18" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch19" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch20" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch21" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch22" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch23" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SpotQC_Ch24" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VideoComments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Video_Codec" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Video_Bit_Rate" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Video_Bit_Depth" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Bit_Rate_Mode" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Audio_Codec" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Audio_Bit_Rate" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Audio_Bit_Depth" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Sample_Rate" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GOP_Structure" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Gamut" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Colour_Encoding" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="File_Size" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Active_Picture" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Broadcast_Suitable" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Broadcast_Suitable_Reason" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="DVD_Blu_Ray_Suitable" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="DVD_Blu_Ray_Suitable_Reason" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="VOD_Suitable" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="VOD_Suitable_Reason" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="Frame_Size" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="qcClient_qcHeader" Member="qcClient" ThisKey="CustId" OtherKey="CustID" Type="qcClient" IsForeignKey="true" />
+      <Association Name="qcUser_qcHeader" Member="qcUser" ThisKey="Operator" OtherKey="qcUserID" Type="qcUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.qcUsers" Member="qcUsers">
+    <Type Name="qcUser">
+      <Column Name="qcUserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Location" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SecurityLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="qcUser_qcHeader" Member="qcHeaders" ThisKey="qcUserID" OtherKey="Operator" Type="qcHeader" />
+    </Type>
+  </Table>
+  <Table Name="bward.optStatus" Member="optStatus">
+    <Type Name="optStatus">
+      <Column Name="StatusId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="bward.optStandard" Member="optStandards">
+    <Type Name="optStandard">
+      <Column Name="StandardID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Standard" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="bward.qcLocation" Member="qcLocations">
+    <Type Name="qcLocation">
+      <Column Name="pkey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ReportName" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

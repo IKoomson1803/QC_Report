@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[Project1.vbp]
+SCC_Aux_Path = "\\10.100.9.42\c$\BladeSourceSafeDB"
+SCC_Project_Name = "$/Business Systems/QC/v2.0.0.0 - Standard lookups Management/Wrapper", CFCCAAAA

@@ -1,0 +1,70 @@
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.dll.config
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.pdb
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Antlr3.Runtime.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Newtonsoft.Json.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Helpers.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Mvc.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Optimization.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Razor.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Deployment.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Razor.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\WebGrease.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.pdb
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.dll.config
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Antlr3.Runtime.pdb
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Newtonsoft.Json.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Optimization.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Razor.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Deployment.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Razor.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Helpers.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Mvc.xml
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csprojAssemblyReference.cache
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CoreCompileInputs.cache
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CopyComplete
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.dll
+C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CoreCompileInputs.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.dll.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Antlr3.Runtime.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Newtonsoft.Json.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Net.Http.Formatting.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Helpers.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Http.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Mvc.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Optimization.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Razor.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Deployment.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Razor.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\WebGrease.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Dapper.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.dll.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Antlr3.Runtime.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Newtonsoft.Json.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Net.Http.Formatting.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Http.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Optimization.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Razor.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Deployment.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Razor.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Helpers.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Mvc.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.AssemblyReference.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CopyComplete
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\ClosedXML.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\FastMember.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\DocumentFormat.OpenXml.dll

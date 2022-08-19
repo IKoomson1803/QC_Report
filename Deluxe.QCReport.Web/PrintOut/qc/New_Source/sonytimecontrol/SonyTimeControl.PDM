@@ -1,0 +1,89 @@
+[Root]
+Most Recent Package=SonyTimeControl
+Most Recent Deploy=Web Deployment Intraweb2
+
+[Deploy|Web Deployment Intraweb2|Root]
+Package=SonyTimeControl
+Handler=PDWizard.WebPostDplySubWiz
+
+[Deploy|Web Deployment Intraweb2|Package Files]
+C:\Projects\sonytimecontrol\cab\SonyTimeControl.CAB=Yes
+C:\Projects\sonytimecontrol\cab\SonyTimeControl.HTM=No
+
+[Deploy|Web Deployment Intraweb2|Other Files and Folders]
+
+[Deploy|Web Deployment Intraweb2|WebPost Site]
+URL=http://intraweb2
+Provider={8B14B770-748C-11D0-A309-00C04FD7CFC5}
+Explode=No
+
+
+[Package|SonyTimeControl|Root]
+SubWizProgID=PDWizard.InetCABPkgSubWiz
+BuildFolder=C:\Projects\sonytimecontrol\cab
+Controls Design-Time Support=Yes
+
+[Package|SonyTimeControl|Configure DAO ISAMs]
+Applicable=No
+
+[Package|SonyTimeControl|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|SonyTimeControl|Files Found]
+
+[Package|SonyTimeControl|Files Released]
+
+[Package|SonyTimeControl|Missing Dependency Information]
+
+[Package|SonyTimeControl|Out-of-Date Dependency Information]
+
+[Package|SonyTimeControl|Files Added]
+c:\winnt\system32\msstkprp.dll=This file is needed for usercontrol design-time support.
+
+[Package|SonyTimeControl|Files Removed]
+
+[Package|SonyTimeControl|Files In Project]
+C:\WINNT\system32\msvbvm60.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINNT\system32\MSCOMM32.OCX=Yes
+C:\WINNT\system32\MSSTKPRP.DLL=Yes
+D:\qc\New_Source\sonytimecontrol\SonyTimeControl.ocx=Yes
+C:\WINNT\system32\oleaut32.dll=Yes
+C:\WINNT\system32\olepro32.dll=Yes
+C:\WINNT\system32\asycfilt.dll=Yes
+C:\WINNT\system32\stdole2.tlb=Yes
+
+[Package|SonyTimeControl|Configure Registry Files]
+Applicable=No
+
+[Package|SonyTimeControl|Configure Remote Servers]
+Applicable=No
+
+[Package|SonyTimeControl|Install Locations]
+
+[Package|SonyTimeControl|Configure Shared Files]
+Applicable=
+
+[Package|SonyTimeControl|ComponentInfo]
+SonyTimeControl.ocx=thiscab
+msvbvm60.dll=thiscab
+OLEAUT32.DLL=thiscab
+OLEPRO32.DLL=thiscab
+ASYCFILT.DLL=thiscab
+STDOLE2.TLB=thiscab
+COMCAT.DLL=thiscab
+MSCOMM32.OCX=thiscab
+MSSTKPRP.DLL=thiscab
+
+[Package|SonyTimeControl|ObjectInfo]
+TimeCodeControl=true;true
+
+[Package|SonyTimeControl|Package]
+PackageFolder=C:\Projects\sonytimecontrol\cab
+ProjectFolder=D:\qc\New_Source\sonytimecontrol
+ServerSideCab=C:\Projects\sonytimecontrol\cab\SonyTimeControl.CAB
+File1=C:\Projects\sonytimecontrol\cab\SonyTimeControl.CAB
+File2=C:\Projects\sonytimecontrol\cab\SonyTimeControl.HTM
+Handler1=PDWizard.WebPostDplySubWiz
+Handler2=PDWizard.FolderDplySubWiz

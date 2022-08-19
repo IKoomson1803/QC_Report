@@ -1,0 +1,37 @@
+﻿@model Deluxe.QCReport.Common.Models.TapeLayoutVM
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center" class="bottom_border" style="padding:2px;height:17px;">
+            <font class="txt_italic" size="3"><b>PROGRAM FORMAT</b></font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td width="42%" class="txt_boldtype2 bottom_border">Description</td>
+                    <td width="36%" class="txt_boldtype2 bottom_border">Time Code</td>
+                    <td width="22%" class="txt_boldtype2 bottom_border">Length</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+                @foreach (Deluxe.QCReport.Common.Models.TLTimeCodeVM item in Model.Timecodes)
+                {
+                    <tr>
+                        <td width="42%">@item.Description</td>
+                        <td width="36%">@item.Time_Code</td>
+                        <td width="22%">@item.Length</td>
+                    </tr>
+                }
+
+            </table>
+
+        </td>
+    </tr>
+</table>

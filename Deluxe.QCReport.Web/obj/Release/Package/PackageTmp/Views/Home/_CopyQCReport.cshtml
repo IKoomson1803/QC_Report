@@ -1,0 +1,38 @@
+﻿@model Tuple<string, int, int>
+<div style="font-size:14px;font-weight:bold;">
+    Copy QC
+</div>
+<div>
+    <form id="frmCopyQC">
+        <input type="hidden" id="txtJobNum" name="txtJobNum" value="@Model.Item1" />
+        <input type="hidden" id="txtQCNum" name="txtQCNum" value="@Model.Item2" />
+        <input type="hidden" id="txtRev" name="txtRev" value="@Model.Item3" />
+
+        <table>
+            <tr>
+                <th align="right">&nbsp;Job #: @Model.Item1 </th>
+            </tr>
+            <tr>
+                <th align="right">&nbsp;QC #:  @Model.Item2 </th>
+            </tr>
+            <tr>
+                <th align="right">&nbsp;Revision #: @Model.Item3 </th>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="float-right">
+            <button type="button" id="btnSaveCopyQC" class="btn btn-sm btn-primary">Copy QC</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="divCopyMessage"></div>
+
