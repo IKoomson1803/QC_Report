@@ -139,7 +139,7 @@ namespace Deluxe.QCReport.Web.Controllers
             return Json(new { success = result, msg = resultMsg });
         }
 
-        public ActionResult DPPCkecklist(int qcnum, int revnum)
+        public ActionResult DPPChecklist(int qcnum, int revnum)
         {
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             HomeVM model = new HomeVM();
@@ -166,7 +166,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /*******************************************************************************************/
 
 
-            return PartialView("_DPPCkecklist", model);
+            return PartialView("_DPPChecklist", model);
         }
 
         [HttpPost]
@@ -416,5 +416,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             return Json(new { success = result, msg = resultMsg });
         }
+
+
     }
 }

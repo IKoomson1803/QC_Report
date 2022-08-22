@@ -1427,6 +1427,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             // model.Header_VM = _headSrv.GetHeaderDetails(qcnum, revnum);
             var customerName = _clientService.GetClientDetails(qcnum, revnum).CustName; //model.Header_VM.CustName;
+            var customerId = _clientService.GetClientDetails(qcnum, revnum).CustID;
             var checklistPartial = "_NoChecklist";
 
             Session["QCNumber"] = qcnum;
@@ -1445,7 +1446,7 @@ namespace Deluxe.QCReport.Web.Controllers
                     {
                         Qcnum = qcnum,
                         subQcnum = revnum,
-                        CustId = model.Header_VM.CustId,
+                        CustId = customerId //model.Header_VM.CustId,
                     };
                 }
 
@@ -1466,7 +1467,7 @@ namespace Deluxe.QCReport.Web.Controllers
                     {
                         Qcnum = qcnum,
                         subQcnum = revnum,
-                        CustId = model.Header_VM.CustId,
+                        CustId = customerId // model.Header_VM.CustId,
                     };
                 }
             }
@@ -1485,7 +1486,7 @@ namespace Deluxe.QCReport.Web.Controllers
                     {
                         Qcnum = qcnum,
                         subQcnum = revnum,
-                        CustId = model.Header_VM.CustId,
+                        CustId = customerId //model.Header_VM.CustId,
                     };
                 }
             }
@@ -1506,11 +1507,13 @@ namespace Deluxe.QCReport.Web.Controllers
                     {
                         Qcnum = qcnum,
                         subQcnum = revnum,
-                        CustId = model.Header_VM.CustId,
+                        CustId = customerId // model.Header_VM.CustId,
 
                     };
                 }
             }
+
+
 
             /******************* Banijay Rights ****************************************************/
 
@@ -1526,7 +1529,7 @@ namespace Deluxe.QCReport.Web.Controllers
             //        {
             //            Qcnum = qcnum,
             //            subQcnum = revnum,
-            //            CustId = model.ChecklistBanijayRights.CustId,
+            //            CustId = customerId ,
             //        };
             //    }
             //}

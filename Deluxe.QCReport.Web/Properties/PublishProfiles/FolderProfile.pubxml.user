@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\DEVELOPEMENT - Bonobo Git Server\PUBLISH APPS\QC New</_PublishTargetUrl>
-    <History>True|2022-08-22T09:51:06.9769738Z;False|2022-08-22T10:49:16.5813765+01:00;False|2022-08-22T10:41:48.2690037+01:00;True|2022-08-19T12:26:17.8924139+01:00;</History>
+    <History>True|2022-08-22T15:38:52.2194885Z;True|2022-08-22T10:51:06.9769738+01:00;False|2022-08-22T10:49:16.5813765+01:00;False|2022-08-22T10:41:48.2690037+01:00;True|2022-08-19T12:26:17.8924139+01:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -30,10 +30,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/22/2022 10:41:47</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>08/22/2022 10:51:05</publishTime>
+      <publishTime>08/22/2022 16:38:50</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>08/22/2022 10:51:05</publishTime>
+      <publishTime>08/22/2022 16:38:50</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>08/04/2013 13:21:24</publishTime>
@@ -344,6 +344,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Specifications/DPPEyeball/DPP – Eyeballs QC HD File Spec Version 17082022.pdf">
       <publishTime>08/17/2022 11:23:19</publishTime>
     </File>
+    <File Include="Specifications/DPPEyeball/DPP – Eyeballs QC HD File Spec Version 19082022.pdf">
+      <publishTime>08/22/2022 16:07:35</publishTime>
+    </File>
     <File Include="Specifications/Lionsgate/LionsGate Spec August 2020.pdf">
       <publishTime>08/18/2021 11:10:32</publishTime>
     </File>
@@ -385,6 +388,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Views/AdvancedSearch/_SearchGrid.cshtml">
       <publishTime>07/04/2022 12:10:38</publishTime>
+    </File>
+    <File Include="Views/DPP/_DPPChecklist.cshtml">
+      <publishTime>08/15/2022 10:39:00</publishTime>
     </File>
     <File Include="Views/DPP/_DPPCkecklist.cshtml">
       <publishTime>08/15/2022 10:39:00</publishTime>
@@ -540,7 +546,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/10/2019 13:35:51</publishTime>
     </File>
     <File Include="Views/Shared/_TopSubNavigation.cshtml">
-      <publishTime>08/17/2022 11:49:06</publishTime>
+      <publishTime>08/22/2022 16:08:51</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>06/10/2019 13:35:51</publishTime>
