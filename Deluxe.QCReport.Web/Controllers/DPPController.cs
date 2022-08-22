@@ -232,6 +232,7 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             model.DPPCommBroadcasters = _dppService.GetCommBroadcasters(qcnum, revnum) as DPPCommBroadcasters;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+            model.YesNoNAList = LookUpsService.GetYesNoNA();
 
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(

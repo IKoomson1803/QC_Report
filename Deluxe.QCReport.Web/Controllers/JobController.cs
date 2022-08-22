@@ -1513,7 +1513,7 @@ namespace Deluxe.QCReport.Web.Controllers
             }
 
             /******************* Banijay Rights ****************************************************/
-          
+
             //else if (customerName.ToLower().Contains("banijay"))
             //{
             //    checklistPartial = "_ChecklistBanijayRights";
@@ -1522,7 +1522,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             //    if (model.ChecklistBanijayRights == null)
             //    {
-            //        model.ChecklistBanijayRights = new  ChecklistBanijayRights()
+            //        model.ChecklistBanijayRights = new ChecklistBanijayRights()
             //        {
             //            Qcnum = qcnum,
             //            subQcnum = revnum,

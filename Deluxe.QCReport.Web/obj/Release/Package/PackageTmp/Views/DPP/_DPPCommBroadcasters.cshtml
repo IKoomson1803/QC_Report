@@ -33,9 +33,12 @@
             </div>
 
             <div class="col-sm-5 form-group">
+                @Html.DropDownListFor(m => m.DPPCommBroadcasters.ProductPlacementLogoPresentAndInSafeArea,
+               new SelectList(Model.YesNoNAList, "value", "value", Model.DPPCommBroadcasters.ProductPlacementLogoPresentAndInSafeArea), "", new { @class = "form-control", @style = "width:50px" })
 
-                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.DPPCommBroadcasters.ProductPlacementLogoPresentAndInSafeArea, true) Yes </label>
-                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.DPPCommBroadcasters.ProductPlacementLogoPresentAndInSafeArea, false) No </label>
+
+                @*<label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.DPPCommBroadcasters.ProductPlacementLogoPresentAndInSafeArea, true) Yes </label>
+        <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.DPPCommBroadcasters.ProductPlacementLogoPresentAndInSafeArea, false) No </label>*@
 
             </div>
 
@@ -49,8 +52,11 @@
             </div>
 
             <div class="col-sm-5 form-group">
-                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.DPPCommBroadcasters.SponsorshipHeadAndTailPresent, true) Yes </label>
-                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.DPPCommBroadcasters.SponsorshipHeadAndTailPresent, false) No </label>
+                @Html.DropDownListFor(m => m.DPPCommBroadcasters.SponsorshipHeadAndTailPresent,
+             new SelectList(Model.YesNoNAList, "value", "value", Model.DPPCommBroadcasters.SponsorshipHeadAndTailPresent), "", new { @class = "form-control", @style = "width:50px" })
+
+                @*<label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.DPPCommBroadcasters.SponsorshipHeadAndTailPresent, true) Yes </label>
+        <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.DPPCommBroadcasters.SponsorshipHeadAndTailPresent, false) No </label>*@
             </div>
         </div>
 
@@ -62,8 +68,11 @@
             </div>
 
             <div class="col-sm-5 form-group">
-                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.DPPCommBroadcasters.TAndCsWithinSafeArea, true) Yes </label>
-                <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.DPPCommBroadcasters.TAndCsWithinSafeArea, false) No </label>
+                @Html.DropDownListFor(m => m.DPPCommBroadcasters.TAndCsWithinSafeArea,
+       new SelectList(Model.YesNoNAList, "value", "value", Model.DPPCommBroadcasters.TAndCsWithinSafeArea), "", new { @class = "form-control", @style = "width:50px" })
+
+                @*<label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.DPPCommBroadcasters.TAndCsWithinSafeArea, true) Yes </label>
+        <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.DPPCommBroadcasters.TAndCsWithinSafeArea, false) No </label>*@
             </div>
 
 

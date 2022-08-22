@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\DEVELOPMENT - TFS\PUBLISH APPS\QC New</_PublishTargetUrl>
-    <History>True|2022-08-14T10:56:30.8942921Z;True|2022-07-26T09:45:33.5910808+01:00;True|2022-07-21T10:49:14.4091574+01:00;True|2022-07-14T15:50:49.4053407+01:00;True|2022-07-08T10:22:21.9205357+01:00;False|2022-07-08T09:55:37.7950572+01:00;False|2022-07-08T09:48:23.5368135+01:00;False|2022-07-08T09:43:34.0359939+01:00;False|2022-07-07T17:39:26.4775281+01:00;False|2022-07-07T17:15:38.6076463+01:00;False|2022-07-07T17:12:42.4480849+01:00;False|2022-07-07T17:10:33.2357132+01:00;False|2022-07-07T17:10:24.3399080+01:00;False|2022-07-07T17:04:22.0594450+01:00;False|2022-07-07T17:04:10.6066508+01:00;False|2022-07-07T16:56:22.0204944+01:00;False|2022-07-07T16:55:53.2402330+01:00;True|2022-06-27T12:58:47.6833404+01:00;True|2022-05-17T10:27:48.9183833+01:00;True|2022-03-11T12:16:33.9746775+00:00;True|2022-03-11T12:07:38.5578267+00:00;True|2022-03-11T11:58:17.5432774+00:00;True|2022-03-11T11:57:04.5586016+00:00;True|2022-02-21T11:41:48.1177758+00:00;True|2022-02-09T13:45:09.3161822+00:00;True|2022-02-09T13:43:34.8516372+00:00;True|2022-02-09T13:43:23.4180087+00:00;True|2022-02-02T16:50:42.6084772+00:00;True|2022-01-25T12:40:14.2381665+00:00;True|2022-01-24T10:43:23.0219467+00:00;True|2022-01-21T13:28:16.0130641+00:00;True|2022-01-21T13:24:56.3315561+00:00;True|2022-01-21T11:54:07.7757970+00:00;True|2022-01-19T11:53:49.3048849+00:00;True|2022-01-18T13:24:45.0589978+00:00;True|2021-12-16T11:32:32.2432322+00:00;True|2021-12-16T10:55:56.1642591+00:00;True|2021-12-08T13:38:26.1687678+00:00;True|2021-12-03T16:34:21.9455830+00:00;True|2021-12-02T14:40:09.4432623+00:00;True|2021-12-02T14:20:34.2730371+00:00;True|2021-12-02T12:44:32.6331141+00:00;True|2021-11-30T14:11:38.4594092+00:00;True|2021-11-29T11:34:56.1877677+00:00;True|2021-11-18T09:11:19.6752388+00:00;True|2021-11-10T17:26:56.7597752+00:00;True|2021-11-08T09:27:28.6135818+00:00;True|2021-11-03T14:32:53.7387962+00:00;True|2021-11-03T10:33:21.6888139+00:00;True|2021-10-13T09:33:42.0890053+01:00;</History>
+    <_PublishTargetUrl>D:\DEVELOPEMENT - Bonobo Git Server\PUBLISH APPS\QC New</_PublishTargetUrl>
+    <History>True|2022-08-22T09:51:06.9769738Z;False|2022-08-22T10:49:16.5813765+01:00;False|2022-08-22T10:41:48.2690037+01:00;True|2022-08-19T12:26:17.8924139+01:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -21,19 +21,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/26/2015 12:09:03</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll">
-      <publishTime>08/17/2022 19:19:49</publishTime>
+      <publishTime>08/22/2022 10:41:47</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll.config">
       <publishTime>05/17/2021 17:40:06</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.pdb">
-      <publishTime>08/17/2022 19:19:49</publishTime>
+      <publishTime>08/22/2022 10:41:47</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>08/17/2022 19:19:50</publishTime>
+      <publishTime>08/22/2022 10:51:05</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>08/17/2022 19:19:50</publishTime>
+      <publishTime>08/22/2022 10:51:05</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>08/04/2013 13:21:24</publishTime>
@@ -76,9 +76,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>06/10/2019 13:35:51</publishTime>
-    </File>
-    <File Include="ClassDiagram1.cd">
-      <publishTime>07/02/2021 14:45:51</publishTime>
     </File>
     <File Include="Content/admin.css">
       <publishTime>10/18/2021 12:24:19</publishTime>
@@ -245,35 +242,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>06/10/2019 13:35:51</publishTime>
     </File>
-    <File Include="Scripts/Bundled/jobDetailsNav.js">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/jobDetailsNav_2.js">
-      <publishTime>07/08/2022 12:12:53</publishTime>
-    </File>
     <File Include="Scripts/Bundled/jobDetailsNav_3.js">
       <publishTime>08/08/2022 11:54:18</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/jobNav.js">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/jobNav_2.js">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/jobNav_3.js">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/jobNav_4.js">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/jobNav_5.js">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/topNav.js">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
-    <File Include="Scripts/Bundled/topNav_2.js">
-      <publishTime>11/04/2021 12:56:29</publishTime>
     </File>
     <File Include="Scripts/Bundled/topNav_4.js">
       <publishTime>08/08/2022 11:49:50</publishTime>
@@ -356,9 +326,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
       <publishTime>06/10/2019 13:35:51</publishTime>
     </File>
-    <File Include="Scripts/NicEdit/nicEdit-latest.js">
-      <publishTime>02/08/2022 17:41:44</publishTime>
-    </File>
     <File Include="Scripts/Partials/_tapeLayout.js">
       <publishTime>11/01/2021 12:56:05</publishTime>
     </File>
@@ -367,9 +334,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Specifications/BanijayRights/Banijay - QC Guidelines -  04 AUG 2022 --.pdf">
       <publishTime>08/04/2022 11:03:53</publishTime>
-    </File>
-    <File Include="Specifications/BanijayRights/Banijay - QC Guidelines - 24 July 2022.pdf">
-      <publishTime>07/25/2022 18:26:28</publishTime>
     </File>
     <File Include="Specifications/Disney/NEW- Disney_DMED_AcquisitionSpecs-International_v2.0_2020.pdf">
       <publishTime>04/26/2021 11:04:34</publishTime>
@@ -391,15 +355,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Specifications/WildBunch/Wildbunch File QC Spec - 20 August 2021.pdf">
       <publishTime>08/18/2021 11:11:33</publishTime>
-    </File>
-    <File Include="UploadedImages/16x9.png">
-      <publishTime>03/14/2022 14:24:17</publishTime>
-    </File>
-    <File Include="UploadedImages/3x4.jpg">
-      <publishTime>03/14/2022 14:22:26</publishTime>
-    </File>
-    <File Include="UploadedImages/TAMING_THE_GARDEN_3840x2160_Cover-Art.jpg">
-      <publishTime>05/27/2022 14:05:38</publishTime>
     </File>
     <File Include="Views/Administration/Index.cshtml">
       <publishTime>05/27/2022 13:13:38</publishTime>
@@ -435,7 +390,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/15/2022 10:39:00</publishTime>
     </File>
     <File Include="Views/DPP/_DPPCommBroadcasters.cshtml">
-      <publishTime>08/11/2022 17:55:43</publishTime>
+      <publishTime>08/22/2022 09:58:27</publishTime>
     </File>
     <File Include="Views/DPP/_DPPProdAndTechLog.cshtml">
       <publishTime>08/17/2022 18:16:05</publishTime>
@@ -524,14 +479,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Job/_Header.cshtml">
       <publishTime>08/17/2022 12:36:45</publishTime>
     </File>
-    <File Include="Views/Job/_Header2.cshtml">
-      <publishTime>11/01/2021 12:56:05</publishTime>
-    </File>
     <File Include="Views/Job/_History.cshtml">
       <publishTime>12/01/2021 12:35:52</publishTime>
-    </File>
-    <File Include="Views/Job/_History2.cshtml">
-      <publishTime>11/01/2021 12:56:05</publishTime>
     </File>
     <File Include="Views/Job/_Individual.cshtml">
       <publishTime>11/01/2021 12:56:05</publishTime>
@@ -567,7 +516,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/10/2019 13:35:51</publishTime>
     </File>
     <File Include="Views/Report/_ReportTypes.cshtml">
-      <publishTime>08/17/2022 19:13:23</publishTime>
+      <publishTime>08/19/2022 10:13:49</publishTime>
     </File>
     <File Include="Views/Report/_TapeAudioSpecifications.cshtml">
       <publishTime>06/10/2019 13:35:51</publishTime>
@@ -600,7 +549,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/18/2021 11:58:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/16/2022 15:51:27</publishTime>
+      <publishTime>08/22/2022 10:41:48</publishTime>
     </File>
   </ItemGroup>
 </Project>

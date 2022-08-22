@@ -4,9 +4,9 @@ namespace Deluxe.QCReport.Common.Models
 {
     public class DPPCommBroadcasters : DPPBase, IDPPCommBroadcasters
     {
-        public bool? ProductPlacementLogoPresentAndInSafeArea { get; set; }
-        public bool? SponsorshipHeadAndTailPresent { get; set; }
-        public bool? TAndCsWithinSafeArea { get; set; }
+        public string ProductPlacementLogoPresentAndInSafeArea { get; set; }
+        public string SponsorshipHeadAndTailPresent { get; set; }
+        public string TAndCsWithinSafeArea { get; set; }
 
     }
 }

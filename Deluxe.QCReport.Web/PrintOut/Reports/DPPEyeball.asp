@@ -89,23 +89,12 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; height:30px }
 	     <tr>
              <td style="width:50%" >&nbsp;Product placement logo present & in safe area (if required)&nbsp;</td>
 			 <td style="width:10%">&nbsp;
-			 
-			 <%
-							  If Not IsNull(rsHeader.Fields("ProductPlacementLogoPresentAndInSafeArea")) Then
-							    Response.Write  IIf(rsHeader.Fields("ProductPlacementLogoPresentAndInSafeArea"), "Yes", "No") 
-							  End If
-					  %>
-	
-			 </td>
+			 <%=rsHeader.Fields("ProductPlacementLogoPresentAndInSafeArea")%>
+		     &nbsp;</td>
 			  <td style="width:30%" >&nbsp;T&Cs within safe area&nbsp;</td>
 			 <td style="width:20%">&nbsp;
-			 
-			 <%
-							  If Not IsNull(rsHeader.Fields("TAndCsWithinSafeArea")) Then
-							    Response.Write  IIf(rsHeader.Fields("TAndCsWithinSafeArea"), "Yes", "No") 
-							  End If
-					  %>
-	
+			  <%=rsHeader.Fields("TAndCsWithinSafeArea")%>
+			&nbsp;
 			 </td>
 			 
              
@@ -113,13 +102,8 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; height:30px }
 		  <tr>
              <td style="width:50%" >&nbsp;Sponsorship head/tail present (if required)&nbsp;</td>
 			 <td style="width:10%">&nbsp;
-			 
-			 <%
-							  If Not IsNull(rsHeader.Fields("SponsorshipHeadAndTailPresent")) Then
-							    Response.Write  IIf(rsHeader.Fields("SponsorshipHeadAndTailPresent"), "Yes", "No") 
-							  End If
-					  %>
-	
+			  <%=rsHeader.Fields("SponsorshipHeadAndTailPresent")%>
+			&nbsp;
 			 </td>
 			  <td style="width:30%" class="left_top_border">&nbsp;</td>
 			 <td style="width:20%" class="left_right_top_border"> &nbsp;</td>

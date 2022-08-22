@@ -29,7 +29,6 @@
             <tr>
                 <th class="ReportCell">&nbsp;</th>
                 <th class="ReportCell" valign="bottom"><b>&nbsp;Report</b></th>
-                @*<th class="ReportCell" valign="bottom"><b>&nbsp;Description</b></th>*@
             </tr>
 
             @{
@@ -41,13 +40,11 @@
                         <tr>
                             <td class="ReportCell"><input type="checkbox" name="chkQCR" id="chkQCR" value="1"></td>
                             <th class="ReportCell">&nbsp;Broadcast QC&nbsp;&nbsp;</th>
-                            @*<th class="ReportCell">&nbsp;Broadcast Quality Control Report - Deluxe Full Quality Control Report</th>*@
-                        </tr>
+                         </tr>
                         <tr>
                             <td class="ReportCell"> <input type="checkbox" name="chkMQCR" id="chkMQCR" value="1"></td>
                             <th class="ReportCell">&nbsp;Master QC&nbsp;&nbsp;</th>
-                            @*<th class="ReportCell">&nbsp;Master Quality Control Report - Deluxe Full Quality Control Report</th>*@
-                        </tr>
+                         </tr>
 
                     }
 
@@ -57,8 +54,7 @@
                         <tr>
                             <td class="ReportCell"><input type="checkbox" name="chkQCR1Pg" id="chkQCR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC&nbsp;&nbsp;</th>
-                            @*<th class="ReportCell">&nbsp;Runtime Quality Control Report - Deluxe Runtime Quality Control Report 1st Page Only</th>*@
-                        </tr>
+                         </tr>
                     }
 
 
@@ -69,8 +65,7 @@
                         <tr>
                             <td class="ReportCell"><input type="checkbox" name="chkQCWLR1Pg" id="chkQCWLR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC With Log&nbsp;&nbsp;</th>
-                            @*<th class="ReportCell">&nbsp;Runtime Quality Control Report With Log - Deluxe Runtime Quality Control With Log Report</th>*@
-                        </tr>
+                         </tr>
 
                     }
 
@@ -81,7 +76,6 @@
                         <tr>
                             <td class="ReportCell"><input type="checkbox" name="chkQCWTR1Pg" id="chkQCWTR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC With Text Info&nbsp;&nbsp;</th>
-                            @*<th class="ReportCell">&nbsp;Deluxe Runtime Quality Control With Text Info Report</th>*@
                         </tr>
                     }
 
@@ -97,12 +91,10 @@
                         @if (Model.CustName.ToLower().Contains("banijay"))
                         {
                             <th class="ReportCell">&nbsp;QC report for Banijay Rights&nbsp;&nbsp;</th>
-                            @*<th class="ReportCell">&nbsp;Deluxe Runtime Quality Control With Log For Banijay Rights Report</th>*@
                         }
                         else
                         {
                             <th class="ReportCell">&nbsp;QC report for Banijay Rights&nbsp;&nbsp;</th>
-                            @*<th class="ReportCell">&nbsp;Deluxe Runtime Quality Control With Log For ESI Report</th>*@
                         }
 
 
@@ -144,7 +136,6 @@
             <table width=70%>
                 <tr>
                     <td align="left">
-                        @*<input type=submit name="action" value="  Print  " class="btn btn-sm btn-danger"  >*@
                         <input type=submit name="action" value="Preview" id="btnPreview" class="btn btn-sm btn-primary">
                     </td>
                 </tr>
@@ -157,7 +148,6 @@
             <table width=70%>
                 <tr>
                     <td align="left">
-                        @*<input type=submit name="action" value="  Print  " class="btn btn-sm btn-danger"  >*@
                         <input type=submit name="action" value="Preview" id="btnPreview" class="btn btn-sm btn-primary">
                     </td>
                 </tr>

@@ -8,9 +8,9 @@ namespace Deluxe.QCReport.Common.Abstractions
 {
     public interface IDPPCommBroadcasters
     {
-        bool? ProductPlacementLogoPresentAndInSafeArea { get; set; }
-        bool? SponsorshipHeadAndTailPresent { get; set; }
-        bool? TAndCsWithinSafeArea { get; set; }
+        string ProductPlacementLogoPresentAndInSafeArea { get; set; }
+        string SponsorshipHeadAndTailPresent { get; set; }
+        string TAndCsWithinSafeArea { get; set; }
 
     }
 }
