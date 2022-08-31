@@ -1517,22 +1517,23 @@ namespace Deluxe.QCReport.Web.Controllers
 
             /******************* Banijay Rights ****************************************************/
 
-            //else if (customerName.ToLower().Contains("banijay"))
-            //{
-            //    checklistPartial = "_ChecklistBanijayRights";
+            else if (customerName.ToLower().Contains("banijay")
+                || (customerName.ToLower().Contains("endemol")))
+            {
+                checklistPartial = "_ChecklistBanijayRights";
 
-            //    model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum);
+                model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum);
 
-            //    if (model.ChecklistBanijayRights == null)
-            //    {
-            //        model.ChecklistBanijayRights = new ChecklistBanijayRights()
-            //        {
-            //            Qcnum = qcnum,
-            //            subQcnum = revnum,
-            //            CustId = customerId ,
-            //        };
-            //    }
-            //}
+                if (model.ChecklistBanijayRights == null)
+                {
+                    model.ChecklistBanijayRights = new ChecklistBanijayRights()
+                    {
+                        Qcnum = qcnum,
+                        subQcnum = revnum,
+                        CustId = customerId,
+                    };
+                }
+            }
 
 
 

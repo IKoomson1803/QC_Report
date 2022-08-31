@@ -163,7 +163,7 @@ function CopyQC() {
         return;
     }
 
-    GetDetailsNav(qcno, rno);
+    GetNavDetails(qcno, rno);
     SaveCopyQC(qcno, rno, wono)
 
 }

@@ -44,6 +44,7 @@ namespace Deluxe.QCReport.Common.Utilities
             {
 
                 DataTable dt = ConvertListToDatatable(workSheetName, list, listMembers);
+              
 
                 if (dt != null)
                 {
@@ -51,15 +52,19 @@ namespace Deluxe.QCReport.Common.Utilities
                     {
                         wb.Worksheets.Add(dt);
                         excelFilename = excelFilename + "_" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".xlsx";
-                       // MemoryStream stream = GetStream(wb);
-                        HttpContext.Current.Response.Clear();
-                        HttpContext.Current.Response.AppendCookie(new HttpCookie("fileDownloadToken", downloadToken));  // This is used by exportToExcel.js on the client side
-                        HttpContext.Current.Response.Buffer = true;
-                        HttpContext.Current.Response.AddHeader("content-disposition",
-                        "attachment; filename=\"" + excelFilename + "\"");
-                        HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
-                      //  HttpContext.Current.Response.BinaryWrite(stream.ToArray());
-                        HttpContext.Current.Response.End();
+
+                        using (MemoryStream stream = GetStream(wb))
+                        {
+                            HttpContext.Current.Response.Clear();
+                            HttpContext.Current.Response.AppendCookie(new HttpCookie("fileDownloadToken", downloadToken));  // This is used by exportToExcel.js on the client side
+                            HttpContext.Current.Response.Buffer = true;
+                            HttpContext.Current.Response.AddHeader("content-disposition",
+                            "attachment; filename=\"" + excelFilename + "\"");
+                            HttpContext.Current.Response.ContentType = "application/vnd.ms-excel";
+                            HttpContext.Current.Response.BinaryWrite(stream.ToArray());
+                            HttpContext.Current.Response.End();
+                        }
+
                     }
                 }
 

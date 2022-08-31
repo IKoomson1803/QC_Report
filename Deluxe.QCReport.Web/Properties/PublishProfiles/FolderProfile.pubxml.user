@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\DEVELOPEMENT - Bonobo Git Server\PUBLISH APPS\QC New</_PublishTargetUrl>
-    <History>True|2022-08-22T15:38:52.2194885Z;True|2022-08-22T10:51:06.9769738+01:00;False|2022-08-22T10:49:16.5813765+01:00;False|2022-08-22T10:41:48.2690037+01:00;True|2022-08-19T12:26:17.8924139+01:00;</History>
+    <History>True|2022-08-31T09:27:38.4112046Z;True|2022-08-30T17:17:41.4694635+01:00;True|2022-08-22T16:38:52.2194885+01:00;True|2022-08-22T10:51:06.9769738+01:00;False|2022-08-22T10:49:16.5813765+01:00;False|2022-08-22T10:41:48.2690037+01:00;True|2022-08-19T12:26:17.8924139+01:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -21,19 +21,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/26/2015 12:09:03</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll">
-      <publishTime>08/22/2022 10:41:47</publishTime>
+      <publishTime>08/31/2022 10:27:36</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll.config">
       <publishTime>05/17/2021 17:40:06</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.pdb">
-      <publishTime>08/22/2022 10:41:47</publishTime>
+      <publishTime>08/31/2022 10:27:36</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>08/22/2022 16:38:50</publishTime>
+      <publishTime>08/31/2022 11:01:34</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>08/22/2022 16:38:50</publishTime>
+      <publishTime>08/31/2022 11:01:34</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>08/04/2013 13:21:24</publishTime>
@@ -243,7 +243,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/10/2019 13:35:51</publishTime>
     </File>
     <File Include="Scripts/Bundled/jobDetailsNav_3.js">
-      <publishTime>08/08/2022 11:54:18</publishTime>
+      <publishTime>08/24/2022 12:39:47</publishTime>
     </File>
     <File Include="Scripts/Bundled/topNav_4.js">
       <publishTime>08/08/2022 11:49:50</publishTime>
@@ -432,7 +432,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/15/2022 09:59:47</publishTime>
     </File>
     <File Include="Views/Home/_JobNavigation.cshtml">
-      <publishTime>08/17/2022 11:28:40</publishTime>
+      <publishTime>08/22/2022 16:52:27</publishTime>
     </File>
     <File Include="Views/Home/_NewQCReport.cshtml">
       <publishTime>08/14/2022 12:19:21</publishTime>
@@ -546,7 +546,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/10/2019 13:35:51</publishTime>
     </File>
     <File Include="Views/Shared/_TopSubNavigation.cshtml">
-      <publishTime>08/22/2022 16:08:51</publishTime>
+      <publishTime>08/22/2022 16:51:44</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>06/10/2019 13:35:51</publishTime>

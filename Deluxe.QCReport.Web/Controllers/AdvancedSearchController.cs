@@ -385,7 +385,7 @@ namespace Deluxe.QCReport.Web.Controllers
             var list = new List<Header>();
             var reportLst = new List<Header>();
             string excelFilename = "QC_Report";
-            string workSheetName = "QC Repory";
+            string workSheetName = "QC Report";
 
             if (Session[FILTER_ASSETS] != null)
             {
