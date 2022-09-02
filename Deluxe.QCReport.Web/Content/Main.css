@@ -439,10 +439,25 @@ button.multiselect {
 .checklistBorderLeft {
     border-left: 1px solid black;
 }
-.checklistHeader {
+.checklistHeader, .ChecklistHeaderUnderline {
     font-size: 14px;
     font-weight: bold;
-   /* text-decoration: underline;*/
+    /* text-decoration: underline;*/
+}
+
+.ChecklistHeaderUnderline {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+
+.ChecklistBigHeader {
+    font-size: 20px;
+    font-weight: bold
+}
+
+.ChecklisbHeaderUnderline {
+   text-decoration: underline;
 }
 
 .borderRight {
