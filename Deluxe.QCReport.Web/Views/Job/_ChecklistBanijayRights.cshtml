@@ -41,24 +41,29 @@
                                     File Details:
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-12 checklistHeader">
+                            <div class="row  checklistHeader">
+                                <div class="col-xs-3">
                                     <label class="control-label">Banijay file to Spec: </label>
-                                    &nbsp;<label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, true) Yes </label>
+                                </div>
+                                <div class="col-xs-6 text-left">
+                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, true) Yes </label>
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, false) No </label>
 
                                 </div>
+
                             </div>
-                            <div class="row checklistHeader">
-                                <div class="col-xs-12">
+                            <div class="row   checklistHeader">
+                                <div class="col-xs-3">
                                     <label class="control-label">Decode check pass: </label>
+                                </div>
+                                <div class="col-xs-6 text-left">
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, true) Yes </label>
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, false) No </label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <label class="control-label">Please confirm the video format: </label>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Confirm the video format: </label>
                                 </div>
                                 <div class="col-sm-6 form-group float-left">
                                     @Html.TextBoxFor(m => m.ChecklistBanijayRights.Format, new { @class = "form-control" })
@@ -124,8 +129,8 @@
 
 
                         </div>
-
                     </div>
+
 
                     <div class="row">
                         <div class="col-xs-12">
@@ -134,29 +139,48 @@
                                     Audio Codec:
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label class="control-label">Bit Depth: </label>
+                                </div>
+                                <div class="col-sm-6 form-group float-left">
+                                    @Html.TextBoxFor(m => m.ChecklistBanijayRights.BitDepth, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label class="control-label">Bit Rate:  </label>
+                                </div>
+                                <div class="col-sm-6 form-group float-left">
+                                    @Html.TextBoxFor(m => m.ChecklistBanijayRights.AudioBitRate, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label class="control-label">Sample Rate:</label>
+                                </div>
+                                <div class="col-sm-6 form-group float-left">
+                                    @Html.TextBoxFor(m => m.ChecklistBanijayRights.SampleRate, new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label class="control-label">Discrete: </label>
+                                 </div>
+                                <div class="col-sm-6 form-group float-left">
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.Discrete, true) Yes </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.Discrete, false) No </label>
+                                </div>
+
+                            </div>
+
+
+
+
+
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
-
-
-
 
 
 
