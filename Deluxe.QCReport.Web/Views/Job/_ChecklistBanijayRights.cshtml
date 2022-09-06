@@ -41,22 +41,21 @@
                                     File Details:
                                 </div>
                             </div>
+
                             <div class="row  checklistHeader">
                                 <div class="col-xs-3">
                                     <label class="control-label">Banijay file to Spec: </label>
                                 </div>
-                                <div class="col-xs-6 text-left">
-                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, true) Yes </label>
+                                <div class="col-xs-5 form-group float-left">
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, true) Yes </label>
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, false) No </label>
-
                                 </div>
-
                             </div>
                             <div class="row   checklistHeader">
                                 <div class="col-xs-3">
                                     <label class="control-label">Decode check pass: </label>
                                 </div>
-                                <div class="col-xs-6 text-left">
+                                <div class="col-xs-6 form-group float-left">
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, true) Yes </label>
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, false) No </label>
                                 </div>
@@ -167,7 +166,7 @@
                             <div class="row">
                                 <div class="col-xs-3">
                                     <label class="control-label">Discrete: </label>
-                                 </div>
+                                </div>
                                 <div class="col-sm-6 form-group float-left">
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.Discrete, true) Yes </label>
                                     <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.Discrete, false) No </label>
@@ -182,7 +181,96 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <hr class="col-xs-11 float-left" />
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label class="control-label">Is the file Metadata correct: </label>
+                                </div>
+                                <div class="col-xs-5 form-group float-left">
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">
+                                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheFileMetadataCorrect, true) Yes
+                                    </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">
+                                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheFileMetadataCorrect, false) No
+                                    </label>
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label class="control-label">Interlaced / Progressive correctly flagged: </label>
+                                </div>
+                                <div class="col-xs-5 form-group float-left">
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">
+                                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged, true) Yes
+                                    </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">
+                                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged, false) No
+                                    </label>
+
+                                    @Html.TextBoxFor(m => m.ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyNotFlaggedReason,
+                                    new { @class = "form-control", @style = "display:none" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label class="control-label">CLAP Present: </label>
+                                </div>
+                                <div class="col-xs-5 form-group float-left">
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">
+                                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.CLAPPresent, true) Yes
+                                    </label>
+                                    <label class="radio-inline" style="font-weight:bold;margin-top:-5px;">
+                                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.CLAPPresent, false) No
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="control-label">Colour Primaries Present: </label>
+                                </div>
+                                <div class="col-sm-5 form-group float-left">
+                                    @Html.TextBoxFor(m => m.ChecklistBanijayRights.ColourPrimariesPresent, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="control-label">Transfer Characteristics Present: </label>
+                                </div>
+                                <div class="col-sm-5 form-group float-left">
+                                    @Html.TextBoxFor(m => m.ChecklistBanijayRights.TransferCharacteristicsPresent, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="control-label">Matrix Coefficients Present: </label>
+                                </div>
+                                <div class="col-sm-5 form-group float-left">
+                                    @Html.TextBoxFor(m => m.ChecklistBanijayRights.MatrixCoefficientsPresent, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
 
 
 
@@ -216,3 +304,23 @@
 
     }
 </div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+
+             $("input[name='ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged']").change(function(){
+                      if ($(this).val() === 'False') {
+                              $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').show();
+                      } else if ($(this).val() === 'True') {
+                          $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').hide();
+                          $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').val('');
+                     }
+             });
+
+   
+
+    });
+
+</script>
