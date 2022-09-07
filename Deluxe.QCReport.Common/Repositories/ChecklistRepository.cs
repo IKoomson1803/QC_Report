@@ -28,12 +28,10 @@ namespace Deluxe.QCReport.Common.Repositories
 
         }
 
-        public ChecklistDisney GetChecklistDisney(int QCNum, int subQCNum)
+        public ChecklistDisney GetChecklistDisney(int qcNum, int subQCNum, int customerId)
         {
             ChecklistDisney result = new ChecklistDisney();
-            result.Qcnum = QCNum;
-            result.subQcnum = subQCNum;
-
+           
             try
             {
 
@@ -42,7 +40,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     result = connection.Query<ChecklistDisney>(
                         StoredProcedure.Checklist.sel_GetChecklist.ToString(),
-                        new { QCNum = QCNum, subQCNum  = subQCNum },
+                        new { QCNum = qcNum, subQCNum  = subQCNum },
                         null,
                         false,
                         commandTimeout: 120,
@@ -58,14 +56,17 @@ namespace Deluxe.QCReport.Common.Repositories
                     loggerItem);
 
             }
-            
-            //if(result == null)
-            //{
-            //    result = new Checklist();
-            //    result.Qcnum = QCNum;
-            //    result.subQcnum = subQCNum;
-            //}
-            
+
+            if (result == null)
+            {
+                result = new ChecklistDisney()
+                {
+                    Qcnum = qcNum,
+                    subQcnum = subQCNum,
+                    CustId = customerId
+                };
+            }
+
             return result;
         }
 
@@ -102,12 +103,10 @@ namespace Deluxe.QCReport.Common.Repositories
             return saved;
         }
 
-        public ChecklistLionsGate GetChecklistLionsGate(int QCNum, int subQCNum)
+        public ChecklistLionsGate GetChecklistLionsGate(int qcNum, int subQCNum, int customerId)
         {
             ChecklistLionsGate result = new ChecklistLionsGate();
-            result.Qcnum = QCNum;
-            result.subQcnum = subQCNum;
-
+           
             try
             {
 
@@ -116,7 +115,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     result = connection.Query<ChecklistLionsGate>(
                         StoredProcedure.Checklist.sel_GetChecklistLionsGate.ToString(),
-                        new { QCNum = QCNum, subQCNum = subQCNum },
+                        new { QCNum = qcNum, subQCNum = subQCNum },
                         null,
                         false,
                         commandTimeout: 120,
@@ -133,12 +132,16 @@ namespace Deluxe.QCReport.Common.Repositories
 
             }
 
-            //if(result == null)
-            //{
-            //    result = new Checklist();
-            //    result.Qcnum = QCNum;
-            //    result.subQcnum = subQCNum;
-            //}
+            if (result == null)
+            {
+                result = new ChecklistLionsGate()
+                {
+                    Qcnum = qcNum,
+                    subQcnum = subQCNum,
+                    CustId = customerId
+                };
+
+            }
 
             return result;
         }
@@ -177,12 +180,10 @@ namespace Deluxe.QCReport.Common.Repositories
         }
 
 
-        public ChecklistWarner GetChecklistWarner(int QCNum, int subQCNum)
+        public ChecklistWarner GetChecklistWarner(int qcNum, int subQCNum, int customerId)
         {
             ChecklistWarner result = new ChecklistWarner();
-            result.Qcnum = QCNum;
-            result.subQcnum = subQCNum;
-
+            
             try
             {
 
@@ -191,7 +192,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     result = connection.Query<ChecklistWarner>(
                         StoredProcedure.Checklist.sel_GetChecklistWarner.ToString(),
-                        new { QCNum = QCNum, subQCNum = subQCNum },
+                        new { QCNum = qcNum, subQcNum = subQCNum },
                         null,
                         false,
                         commandTimeout: 120,
@@ -208,12 +209,15 @@ namespace Deluxe.QCReport.Common.Repositories
 
             }
 
-            //if(result == null)
-            //{
-            //    result = new Checklist();
-            //    result.Qcnum = QCNum;
-            //    result.subQcnum = subQCNum;
-            //}
+                    if (result == null)
+                    {
+                        result = new ChecklistWarner() {
+                        Qcnum = qcNum,
+                        subQcnum = subQCNum,
+                        CustId = customerId
+                    };
+               
+            }
 
             return result;
         }
@@ -251,12 +255,10 @@ namespace Deluxe.QCReport.Common.Repositories
             return saved;
         }
 
-        public ChecklistWildBunch GetChecklistWildBunch(int QCNum, int subQCNum)
+        public ChecklistWildBunch GetChecklistWildBunch(int qcNum, int subQCNum, int customerId)
         {
             ChecklistWildBunch result = new ChecklistWildBunch();
-            result.Qcnum = QCNum;
-            result.subQcnum = subQCNum;
-
+          
             try
             {
 
@@ -265,7 +267,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     result = connection.Query<ChecklistWildBunch>(
                         StoredProcedure.Checklist.sel_GetChecklistWildBunch.ToString(),
-                        new { QCNum = QCNum, subQCNum = subQCNum },
+                        new { QCNum = qcNum, subQcNum = subQCNum },
                         null,
                         false,
                         commandTimeout: 120,
@@ -282,12 +284,15 @@ namespace Deluxe.QCReport.Common.Repositories
 
             }
 
-            //if(result == null)
-            //{
-            //    result = new Checklist();
-            //    result.Qcnum = QCNum;
-            //    result.subQcnum = subQCNum;
-            //}
+                if (result == null)
+                {
+                    result = new ChecklistWildBunch() {
+                       Qcnum = qcNum,
+                       subQcnum = subQCNum,
+                       CustId = customerId
+                };
+              
+            }
 
             return result;
         }
@@ -325,12 +330,10 @@ namespace Deluxe.QCReport.Common.Repositories
             return saved;
         }
 
-        public ChecklistBanijayRights GetChecklisBanijayRights(int QCNum, int subQCNum)
+        public ChecklistBanijayRights GetChecklisBanijayRights(int qcNum, int subQCNum, int customerId)
         {
             ChecklistBanijayRights result = new ChecklistBanijayRights();
-            result.Qcnum = QCNum;
-            result.subQcnum = subQCNum;
-
+        
             try
             {
 
@@ -339,7 +342,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     result = connection.Query<ChecklistBanijayRights>(
                         StoredProcedure.Checklist.sel_GetChecklistBanijayRights.ToString(),
-                        new { QCNum = QCNum, subQCNum = subQCNum },
+                        new { QCNum = qcNum, subQcNum = subQCNum },
                         null,
                         false,
                         commandTimeout: 120,
@@ -356,12 +359,16 @@ namespace Deluxe.QCReport.Common.Repositories
 
             }
 
-            //if(result == null)
-            //{
-            //    result = new Checklist();
-            //    result.Qcnum = QCNum;
-            //    result.subQcnum = subQCNum;
-            //}
+            if (result == null)
+            {
+                result = new ChecklistBanijayRights()
+                {
+                    Qcnum = qcNum,
+                    subQcnum = subQCNum,
+                    CustId = customerId
+            };
+                
+            }
 
             return result;
         }

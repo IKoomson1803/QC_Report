@@ -20,9 +20,9 @@ namespace Deluxe.QCReport.Common.Services
 
 
 
-        public ChecklistDisney GetChecklistDisney(int QCNum, int subQCNum)
+        public ChecklistDisney GetChecklistDisney(int qcNum, int subQCNum, int customerId)
         {
-            return _rep.GetChecklistDisney(QCNum, subQCNum);
+            return _rep.GetChecklistDisney(qcNum, subQCNum, customerId);
         }
 
         public bool SaveChecklistDisney(ChecklistDisney checklist)
@@ -30,9 +30,9 @@ namespace Deluxe.QCReport.Common.Services
             return _rep.SaveChecklistDisney(checklist);
         }
 
-        public ChecklistLionsGate GetChecklistLionsGate(int QCNum, int subQCNum)
+        public ChecklistLionsGate GetChecklistLionsGate(int qcNum, int subQCNum, int customerId)
         {
-            return _rep.GetChecklistLionsGate(QCNum, subQCNum);
+            return _rep.GetChecklistLionsGate(qcNum, subQCNum, customerId);
         }
 
         public bool SaveChecklistLionsGate(ChecklistLionsGate checklist)
@@ -40,9 +40,9 @@ namespace Deluxe.QCReport.Common.Services
             return _rep.SaveChecklistLionsGate(checklist);
         }
 
-        public ChecklistWarner GetChecklistWarner(int QCNum, int subQCNum)
+        public ChecklistWarner GetChecklistWarner(int qcNum, int subQCNum, int customerId)
         {
-            return _rep.GetChecklistWarner(QCNum, subQCNum);
+            return _rep.GetChecklistWarner(qcNum, subQCNum, customerId);
         }
 
         public bool SaveChecklistWarner(ChecklistWarner checklist)
@@ -50,9 +50,9 @@ namespace Deluxe.QCReport.Common.Services
             return _rep.SaveChecklistWarner(checklist);
         }
 
-        public ChecklistWildBunch GetChecklistWildBunch(int QCNum, int subQCNum)
+        public ChecklistWildBunch GetChecklistWildBunch(int qcNum, int subQCNum, int customerId)
         {
-            return _rep.GetChecklistWildBunch(QCNum, subQCNum);
+            return _rep.GetChecklistWildBunch(qcNum, subQCNum, customerId);
         }
 
         public bool SaveChecklistWildBunch(ChecklistWildBunch checklist)
@@ -60,9 +60,9 @@ namespace Deluxe.QCReport.Common.Services
             return _rep.SaveChecklistWildBunch(checklist);
         }
 
-        public ChecklistBanijayRights GetChecklistBanijayRights(int QCNum, int subQCNum)
+        public ChecklistBanijayRights GetChecklistBanijayRights(int qcNum, int subQCNum, int customerId)
         {
-            return _rep.GetChecklisBanijayRights(QCNum, subQCNum);
+            return _rep.GetChecklisBanijayRights(qcNum, subQCNum, customerId);
         }
 
         public bool SaveChecklistBanijayRights(ChecklistBanijayRights checklist)

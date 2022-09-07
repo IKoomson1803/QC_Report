@@ -257,30 +257,8 @@
                                 </div>
                             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
                 </div>
 
                 <div class="col-sm-6 checklistBorderLeft">
@@ -306,21 +284,29 @@
 </div>
 
 <script type="text/javascript">
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkQcCkecklist").addClass("subMenuOnClick");
+    }
 
-   
-    $(function () {
+    $(function ()
+      {
+        $(function ()
+        {
+            $("input[name='ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged']").change(function () {
+                if ($(this).val() === 'False') {
+                    $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').show();
+                } else if ($(this).val() === 'True') {
+                    $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').hide();
+                    $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').val('');
+                }
+            });
 
-             $("input[name='ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged']").change(function(){
-                      if ($(this).val() === 'False') {
-                              $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').show();
-                      } else if ($(this).val() === 'True') {
-                          $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').hide();
-                          $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').val('');
-                     }
-             });
 
-   
 
+
+        });
     });
 
+   
 </script>

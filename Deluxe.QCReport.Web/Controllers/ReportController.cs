@@ -27,7 +27,7 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly ChecklistService _checklistService = null;
         private readonly ILoggerService _loggerService = null;
         private readonly IDPPService _dppService = null;
-
+        private readonly IClientService _clientService = null;
 
         public ReportController()
         {
@@ -52,6 +52,11 @@ namespace Deluxe.QCReport.Web.Controllers
                                      conn,
                                      _loggerService));
 
+
+            _clientService = new ClientService(
+                              new ClientRepository(
+                                  conn,
+                                  _loggerService));
         }
 
 
@@ -86,7 +91,10 @@ namespace Deluxe.QCReport.Web.Controllers
             model.subQcnum = revnum;
             ChecklistBase checklist = null;
 
-            var customerName = _headerSrv.GetHeaderDetails(qcnum, revnum)?.CustName;
+            // var customerName = _headerSrv.GetHeaderDetails(qcnum, revnum)?.CustName;
+            var customerDetails = _clientService.GetClientDetails(qcnum, revnum);
+            var customerName = customerDetails.CustName;
+            var customerId = customerDetails.CustID;
             var checklistRequired = false;
 
             /****************Log User Activity******************************************************/
@@ -105,28 +113,28 @@ namespace Deluxe.QCReport.Web.Controllers
                 /******************** Disney ***************************************************************/
                 if (customerName.ToLower().Contains("disney"))
                 {
-                    checklist = _checklistService.GetChecklistDisney(qcnum, revnum);
+                    checklist = _checklistService.GetChecklistDisney(qcnum, revnum, customerId);
                     checklistRequired = true; 
                 }
 
                 /************************* Lionsgate ************************************************************/
                 else if (customerName.ToLower().Contains("lionsgate"))
                 {
-                    checklist = _checklistService.GetChecklistLionsGate(qcnum, revnum);
+                    checklist = _checklistService.GetChecklistLionsGate(qcnum, revnum, customerId);
                     checklistRequired = true;
                 }
 
                 /**************************** Warner Bros.*******************************************************/
                 else if (customerName.ToLower().Contains("warner"))
                 {
-                    checklist = _checklistService.GetChecklistWarner(qcnum, revnum);
+                    checklist = _checklistService.GetChecklistWarner(qcnum, revnum, customerId);
                     checklistRequired = true;
                 }
 
                 /************************** Wild Bunch*******************************************************/
                 else if (customerName.ToLower().Contains("wild bunch"))
                 {
-                    checklist = _checklistService.GetChecklistWildBunch(qcnum, revnum);
+                    checklist = _checklistService.GetChecklistWildBunch(qcnum, revnum, customerId);
                     checklistRequired = true;
                 }
 

@@ -1420,14 +1420,14 @@ namespace Deluxe.QCReport.Web.Controllers
         //}
 
 
-        public ActionResult Checklist(int qcnum, int revnum)
+        public ActionResult  Checklist(int qcnum, int revnum)
         {
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            // model.Header_VM = _headSrv.GetHeaderDetails(qcnum, revnum);
-            var customerName = _clientService.GetClientDetails(qcnum, revnum).CustName; //model.Header_VM.CustName;
-            var customerId = _clientService.GetClientDetails(qcnum, revnum).CustID;
+            var customerDetails = _clientService.GetClientDetails(qcnum, revnum);
+            var customerName = customerDetails.CustName;
+            var customerId = customerDetails.CustID;
             var checklistPartial = "_NoChecklist";
 
             Session["QCNumber"] = qcnum;
@@ -1437,19 +1437,7 @@ namespace Deluxe.QCReport.Web.Controllers
             if (customerName.ToLower().Contains("disney"))
             {
                 checklistPartial = "_ChecklistDisney";
-
-                model.ChecklistDisney = _checklistService.GetChecklistDisney(qcnum, revnum);
-
-                if (model.ChecklistDisney == null)
-                {
-                    model.ChecklistDisney = new ChecklistDisney()
-                    {
-                        Qcnum = qcnum,
-                        subQcnum = revnum,
-                        CustId = customerId //model.Header_VM.CustId,
-                    };
-                }
-
+                model.ChecklistDisney = _checklistService.GetChecklistDisney(qcnum, revnum, customerId);
             }
 
             /******************* Lionsgate ****************************************************/
@@ -1458,18 +1446,7 @@ namespace Deluxe.QCReport.Web.Controllers
                 || customerName.ToLower().Contains("lions gate"))
             {
                 checklistPartial = "_ChecklistLionsGate";
-
-                model.ChecklistLionsGate = _checklistService.GetChecklistLionsGate(qcnum, revnum);
-
-                if (model.ChecklistLionsGate == null)
-                {
-                    model.ChecklistLionsGate = new ChecklistLionsGate()
-                    {
-                        Qcnum = qcnum,
-                        subQcnum = revnum,
-                        CustId = customerId // model.Header_VM.CustId,
-                    };
-                }
+                model.ChecklistLionsGate = _checklistService.GetChecklistLionsGate(qcnum, revnum, customerId);
             }
 
             /******************* Warner Bros. ****************************************************/
@@ -1477,18 +1454,7 @@ namespace Deluxe.QCReport.Web.Controllers
             else if (customerName.ToLower().Contains("warner"))
             {
                 checklistPartial = "_ChecklistWarner";
-
-                model.ChecklistWarner = _checklistService.GetChecklistWarner(qcnum, revnum);
-
-                if (model.ChecklistWarner == null)
-                {
-                    model.ChecklistWarner = new ChecklistWarner()
-                    {
-                        Qcnum = qcnum,
-                        subQcnum = revnum,
-                        CustId = customerId //model.Header_VM.CustId,
-                    };
-                }
+                model.ChecklistWarner = _checklistService.GetChecklistWarner(qcnum, revnum, customerId);
             }
 
             /******************* Wild Bunch ****************************************************/
@@ -1498,22 +1464,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 || (customerName.ToLower().Contains("elle driver")))
             {
                 checklistPartial = "_ChecklistWildBunch";
-
-                model.ChecklistWildBunch = _checklistService.GetChecklistWildBunch(qcnum, revnum);
-
-                if (model.ChecklistWildBunch == null)
-                {
-                    model.ChecklistWildBunch = new ChecklistWildBunch()
-                    {
-                        Qcnum = qcnum,
-                        subQcnum = revnum,
-                        CustId = customerId // model.Header_VM.CustId,
-
-                    };
-                }
+                model.ChecklistWildBunch = _checklistService.GetChecklistWildBunch(qcnum, revnum, customerId);
             }
-
-
 
             /******************* Banijay Rights ****************************************************/
 
@@ -1521,21 +1473,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 || (customerName.ToLower().Contains("endemol")))
             {
                 checklistPartial = "_ChecklistBanijayRights";
-
-                model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum);
-
-                if (model.ChecklistBanijayRights == null)
-                {
-                    model.ChecklistBanijayRights = new ChecklistBanijayRights()
-                    {
-                        Qcnum = qcnum,
-                        subQcnum = revnum,
-                        CustId = customerId,
-                    };
-                }
+                model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
             }
-
-
 
             /****************Log User Activity******************************************************/
 
@@ -1545,7 +1484,6 @@ namespace Deluxe.QCReport.Web.Controllers
 
             /*******************************************************************************************/
 
-
             return PartialView(checklistPartial, model);
         }
 
@@ -1554,8 +1492,7 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             string resultMsg = "Checklist saved successfully.";
             var notSelected = new List<string>();
-            Type t = null;
-            object value = null;
+            Type t ;
             bool result = false;
             int qcnum = 0; 
             int revnum = 0;
@@ -1565,114 +1502,36 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 qcnum = model.ChecklistDisney.Qcnum;
                 revnum = model.ChecklistDisney.subQcnum;
-
                 t = typeof(ChecklistDisney);
-
-                foreach (var prop in t.GetProperties())
-                {
-                    if (model.ChecklistDisney.ProgrammeTextlessElementsPresent == false)
-                    {
-                        model.ChecklistDisney.ProgrammeTextlessGaps1Or2s = false;
-                        model.ChecklistDisney.ProgrammeDoesTextlessMatchTheFramingAndAspectRatioOfItsCorrespondingTextedShot = false;
-                        model.ChecklistDisney.ProgrammeFullTextlessCoversForTextedShotsPresent = false;
-                        model.ChecklistDisney.ProgrammeBlackBetweenProgrammeAndTextlessElements = false;
-                    }
-
-
-                    value = prop.GetValue(model.ChecklistDisney);
-
-                    if (value == null && prop.Name != "CustName")
-                    {
-                        notSelected.Add(prop.Name);
-                    }
-
-                }
-
-                if (!notSelected.Any())
-                {
-                    model.ChecklistDisney.ChecklistCompleted = true;
-                }
-
-               result = _checklistService.SaveChecklistDisney(model.ChecklistDisney);
-
+                result = SaveChecklistDisney(model, notSelected, t );
             }
+
             /*************** Lionsgate ***********************************/
             else if (model.ChecklistLionsGate != null)
             {
                 qcnum = model.ChecklistLionsGate.Qcnum;
                 revnum = model.ChecklistLionsGate.subQcnum;
                 t = typeof(ChecklistLionsGate);
-
-                foreach (var prop in t.GetProperties())
-                {
-                     value = prop.GetValue(model.ChecklistLionsGate );
-
-                    if (value == null && prop.Name != "CustName")
-                    {
-                        notSelected.Add(prop.Name);
-                    }
-
-                }
-
-                if (!notSelected.Any())
-                {
-                    model.ChecklistLionsGate.ChecklistCompleted = true;
-                }
-
-                result = _checklistService.SaveChecklistLionsGate(model.ChecklistLionsGate);
+                result = SaveChecklistLionsgate(model, notSelected, t);
             }
+
             /*************** Warner Bros. ***********************************/
             else if (model.ChecklistWarner != null)
             {
                 qcnum = model.ChecklistWarner.Qcnum;
                 revnum = model.ChecklistWarner.subQcnum;
                 t = typeof(ChecklistWarner);
-
-                foreach (var prop in t.GetProperties())
-                {
-                    value = prop.GetValue(model.ChecklistWarner);
-
-                    if (value == null && prop.Name != "CustName")
-                    {
-                        notSelected.Add(prop.Name);
-                    }
-
-                }
-
-                if (!notSelected.Any())
-                {
-                    model.ChecklistWarner.ChecklistCompleted = true;
-                }
-
-                result = _checklistService.SaveChecklistWarner(model.ChecklistWarner);
+                result = SaveChecklistWarner(model, notSelected, t);
 
             }
+
             /*************** Wild Bunch ***********************************/
             else if (model.ChecklistWildBunch != null)
             {
                 qcnum = model.ChecklistWildBunch.Qcnum;
                 revnum = model.ChecklistWildBunch.subQcnum;
                 t = typeof(ChecklistWildBunch);
-
-                foreach (var prop in t.GetProperties())
-                {
-                    value = prop.GetValue(model.ChecklistWildBunch);
-
-                    if (value == null && prop.Name != "CustName")
-                    {
-                        notSelected.Add(prop.Name);
-                    }
-
-                }
-
-                if (!notSelected.Any())
-                {
-                    model.ChecklistWildBunch.ChecklistCompleted = true;
-                }
-
-                result = _checklistService.SaveChecklistWildBunch(model.ChecklistWildBunch);
-
-
+                result = SaveChecklistWildBunch(model, notSelected, t);
             }
 
             /*************** Banijay Rights ***********************************/
@@ -1681,28 +1540,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 qcnum = model.ChecklistBanijayRights.Qcnum;
                 revnum = model.ChecklistBanijayRights.subQcnum;
                 t = typeof(ChecklistBanijayRights);
-
-                foreach (var prop in t.GetProperties())
-                {
-                    value = prop.GetValue(model.ChecklistBanijayRights);
-
-                    if (value == null && prop.Name != "CustName")
-                    {
-                        notSelected.Add(prop.Name);
-                    }
-
-                }
-
-                if (!notSelected.Any())
-                {
-                    model.ChecklistBanijayRights.ChecklistCompleted = true;
-                }
-
-                result = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
-
-
+                result = SaveChecklistBanijahRights(model, notSelected, t);
             }
-
 
             /**********************************************/
 
@@ -1725,6 +1564,140 @@ namespace Deluxe.QCReport.Web.Controllers
             }
 
             return Json(new { success = result, msg = resultMsg });
+        }
+
+        private bool SaveChecklistDisney(HomeVM model, List<string> notSelected, Type t )
+        {
+
+            object value ;
+
+            foreach (var prop in t.GetProperties())
+            {
+                if (model.ChecklistDisney.ProgrammeTextlessElementsPresent == false)
+                {
+                    model.ChecklistDisney.ProgrammeTextlessGaps1Or2s = false;
+                    model.ChecklistDisney.ProgrammeDoesTextlessMatchTheFramingAndAspectRatioOfItsCorrespondingTextedShot = false;
+                    model.ChecklistDisney.ProgrammeFullTextlessCoversForTextedShotsPresent = false;
+                    model.ChecklistDisney.ProgrammeBlackBetweenProgrammeAndTextlessElements = false;
+                }
+
+
+                value = prop.GetValue(model.ChecklistDisney);
+
+                if (value == null && prop.Name != "CustName")
+                {
+                    notSelected.Add(prop.Name);
+                }
+
+            }
+
+            if (!notSelected.Any())
+            {
+                model.ChecklistDisney.ChecklistCompleted = true;
+            }
+
+            return _checklistService.SaveChecklistDisney(model.ChecklistDisney);
+        
+        }
+
+        private bool SaveChecklistLionsgate(HomeVM model, List<string> notSelected, Type t)
+        {
+             object value;
+
+            foreach (var prop in t.GetProperties())
+            {
+                value = prop.GetValue(model.ChecklistLionsGate);
+
+                if (value == null && prop.Name != "CustName")
+                {
+                    notSelected.Add(prop.Name);
+                }
+
+            }
+
+            if (!notSelected.Any())
+            {
+                model.ChecklistLionsGate.ChecklistCompleted = true;
+            }
+
+            return _checklistService.SaveChecklistLionsGate(model.ChecklistLionsGate);
+
+            
+        }
+
+        private bool SaveChecklistWarner(HomeVM model, List<string> notSelected, Type t)
+        {
+           
+            object value;
+           
+            foreach (var prop in t.GetProperties())
+            {
+                value = prop.GetValue(model.ChecklistWarner);
+
+                if (value == null && prop.Name != "CustName")
+                {
+                    notSelected.Add(prop.Name);
+                }
+
+            }
+
+            if (!notSelected.Any())
+            {
+                model.ChecklistWarner.ChecklistCompleted = true;
+            }
+
+            return _checklistService.SaveChecklistWarner(model.ChecklistWarner);
+
+        }
+
+        private bool SaveChecklistWildBunch(HomeVM model, List<string> notSelected, Type t)
+        {
+             object value;
+
+            foreach (var prop in t.GetProperties())
+            {
+                value = prop.GetValue(model.ChecklistWildBunch);
+
+                if (value == null && prop.Name != "CustName")
+                {
+                    notSelected.Add(prop.Name);
+                }
+
+            }
+
+            if (!notSelected.Any())
+            {
+                model.ChecklistWildBunch.ChecklistCompleted = true;
+            }
+
+           return _checklistService.SaveChecklistWildBunch(model.ChecklistWildBunch);
+
+
+        }
+
+        private bool SaveChecklistBanijahRights(HomeVM model, List<string> notSelected, Type t)
+        {
+           
+            object value;
+
+            foreach (var prop in t.GetProperties())
+            {
+                value = prop.GetValue(model.ChecklistBanijayRights);
+
+                if (value == null && prop.Name != "CustName")
+                {
+                    notSelected.Add(prop.Name);
+                }
+
+            }
+
+            if (!notSelected.Any())
+            {
+                model.ChecklistBanijayRights.ChecklistCompleted = true;
+            }
+
+            return  _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
+
         }
 
         public ActionResult ClientSpecs(int qcnum, int revnum)
