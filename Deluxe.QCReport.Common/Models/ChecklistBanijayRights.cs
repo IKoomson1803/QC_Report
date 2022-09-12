@@ -31,6 +31,7 @@ namespace Deluxe.QCReport.Common.Models
         public string DisplayAspectRatioCorrect { get; set; }
         public string InterlacedVsProgressiveCheckedAndCorrect { get; set; }
         public bool? DoesTheFileContainLineup { get; set; }
+        public bool? IsTheSlatePresentAndInformationCorrect { get; set; }
         public bool? DoesTheProgrammeStartOnTheHour { get; set; }
         public bool? IsTheProgrammeSeamlessOrParted { get; set; }
         public bool? PartedBreaksLogged { get; set; }

@@ -86,6 +86,9 @@
     <Compile Include="Abstractions\IFaultDescriptionImage.cs" />
     <Compile Include="Abstractions\IFaultDescriptionImageRepository.cs" />
     <Compile Include="Abstractions\IFaultDescriptionImageService.cs" />
+    <Compile Include="Abstractions\IFinal.cs" />
+    <Compile Include="Abstractions\IFinalRepository.cs" />
+    <Compile Include="Abstractions\IFinalService.cs" />
     <Compile Include="Abstractions\IFormat.cs" />
     <Compile Include="Abstractions\ILocationRepository.cs" />
     <Compile Include="Abstractions\ILocationService.cs" />

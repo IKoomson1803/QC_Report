@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Deluxe.QCReport.Common.Abstractions;
 
 namespace Deluxe.QCReport.Common.Models
 {
     
-    public class FinalVM
+    public class FinalVM : IFinal
     {
         public int Qcnum { get; set; }
         public int subQcnum { get; set; }

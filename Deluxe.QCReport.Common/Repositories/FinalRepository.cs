@@ -10,10 +10,10 @@ namespace Deluxe.QCReport.Common.Repositories
 {
     public class FinalRepository : BaseRepository
     {
-        public FinalVM GetFinalDetails(int QCNum, int SubQCNum)
+        public FinalVM GetFinalDetails(int qcNum, int SubQCNum)
         {
             FinalVM result = new FinalVM();
-            result.Qcnum = QCNum;
+            result.Qcnum = qcNum;
             result.subQcnum = SubQCNum;
 
             try
@@ -25,7 +25,7 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Connection = _connection;
                     _cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     _cmd.CommandText = "[bward].[sp_SelectFinal]";
-                    _cmd.Parameters.Add(GetSqlParameterInt("@_QCNum", QCNum));
+                    _cmd.Parameters.Add(GetSqlParameterInt("@_QCNum", qcNum));
                     _cmd.Parameters.Add(GetSqlParameterInt("@_Rev", SubQCNum));
 
                     _cmd.Connection.Open();

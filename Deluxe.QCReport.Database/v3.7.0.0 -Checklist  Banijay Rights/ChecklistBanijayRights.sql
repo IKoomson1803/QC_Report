@@ -1,5 +1,90 @@
 ﻿USE [QCSUK]
 GO
+
+
+/****** Object:  Table [bward].[ChecklistBanijayRights]    Script Date: 09/09/2022 15:37:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [bward].[ChecklistBanijayRights](
+	[ChecklistId] [int] IDENTITY(1,1) NOT NULL,
+	[Qcnum] [int] NOT NULL,
+	[subQcnum] [int] NOT NULL,
+	[CustId] [int] NOT NULL,
+	[ChecklistCompleted] [bit] NOT NULL,
+	[IsFile] [bit] NULL,
+	[FileToSpec] [bit] NULL,
+	[DecodeCheckPass] [bit] NULL,
+	[Format] [varchar](50) NULL,
+	[Standard] [varchar](50) NULL,
+	[FrameRate] [varchar](50) NULL,
+	[VideoBitRate] [varchar](50) NULL,
+	[FrameSizeOrResolution] [varchar](20) NULL,
+	[AspectRatio] [varchar](20) NULL,
+	[BitDepth] [varchar](50) NULL,
+	[AudioBitRate] [varchar](50) NULL,
+	[SampleRate] [varchar](50) NULL,
+	[Discrete] [bit] NULL,
+	[IsTheFileMetadataCorrect] [bit] NULL,
+	[InterlacedOrProgressiveCorrectlyFlagged] [bit] NULL,
+	[InterlacedOrProgressiveCorrectlyNotFlaggedReason] [varchar](50) NULL,
+	[CLAPPresent] [bit] NULL,
+	[ColourPrimariesPresent] [varchar](50) NULL,
+	[TransferCharacteristicsPresent] [varchar](50) NULL,
+	[MatrixCoefficientsPresent] [varchar](50) NULL,
+	[DisplayAspectRatioCorrect] [varchar](50) NULL,
+	[InterlacedVsProgressiveCheckedAndCorrect] [varchar](50) NULL,
+	[DoesTheFileContainLineup] [bit] NULL,
+	[DoesTheProgrammeStartOnTheHour] [bit] NULL,
+	[IsTheProgrammeSeamlessOrParted] [bit] NULL,
+	[PartedBreaksLogged] [bit] NULL,
+	[IfPartedSpecifyIfOneSecondBlackBetweenParts] [bit] NULL,
+	[BumpersPresentAndLogged] [bit] NULL,
+	[InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments] [bit] NULL,
+	[DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram] [bit] NULL,
+	[AreTextlessElementsPresent] [bit] NULL,
+	[AreThereTextlessCoversForAllTextedShots] [bit] NULL,
+	[AreTheTextlessCoversTheSameTimingAsTextedShots] [bit] NULL,
+	[IsTheGradeAndAspectRatioTheSameAsTextedShots] [bit] NULL,
+	[IsThere10SecondsOfBlackBetweenProgrammeAndTextless] [bit] NULL,
+	[IsThere10SecondsOfBlackBeforeEndOfFile] [bit] NULL,
+	[IsAudioLlayoutCorrect] [bit] NULL,
+	[IsLineupToneCorrect] [bit] NULL,
+	[IsLoudnessR128APass] [bit] NULL,
+	[IsMAndEPresentAndComplete] [bit] NULL,
+	[IsMixMinusNarrationPresentAndComplete] [bit] NULL,
+	[MonoVsStereoChecked] [bit] NULL,
+	[AudioInSync] [bit] NULL,
+	[WAVSSupplied] [bit] NULL,
+	[AllAssociatedWAVSPresent] [bit] NULL,
+	[VideoComplianceCheckedAndLogged] [bit] NULL,
+	[FlashingLightsOrEpilepsyWarningPresent] [bit] NULL,
+	[VideoContentCensoredBleepedOrBlurred] [bit] NULL,
+	[NudityPresent] [bit] NULL,
+	[VideoTimeSpecificTextPresent] [bit] NULL,
+	[ProductPlacementPresent] [bit] NULL,
+	[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags] [bit] NULL,
+	[AudioComplianceCheckedAndLogged] [bit] NULL,
+	[AudioContentCensoredBleepedOrBlurred] [bit] NULL,
+	[ExtremeLanguagePresent] [bit] NULL,
+	[AudioTimeSpecificTextPresent] [bit] NULL,
+	[IsTheSlatePresentAndInformationCorrect] [bit] NULL,
+ CONSTRAINT [PK_ChecklistBanijayRights] PRIMARY KEY CLUSTERED 
+(
+	[ChecklistId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+
+
+
 /****** Object:  StoredProcedure [bward].[sel_GetChecklistBanijayRights]    Script Date: 01/08/2022 11:51:29 ******/
 SET ANSI_NULLS ON
 GO
@@ -21,7 +106,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT ck.*,cl.CustName FROM [bward].[ChecklisBanijayRights] ck
+	SELECT ck.*,cl.CustName FROM [bward].[ChecklistBanijayRights] ck
 	INNER JOIN [bward].[qcClients] cl
 	ON ck.CustId = cl.CustID
 	WHERE  [QCNum]  = @Qcnum
@@ -33,69 +118,76 @@ GO
 
 /**********************************************************************************/
 
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 09/09/2022 15:54:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 (
     @ChecklistId INT = 0,
-	@Qcnum int,
-	@subQcnum int,
-	@CustId int,
+	@Qcnum INT,
+	@subQcnum INT,
+	@CustId INT,
 	@ChecklistCompleted bit,
-	@IsFile bit,
-	@FileToSpec bit,
-	@DecodeCheckPass bit,
-	@Format varchar(50),
-	@Standard varchar(50),
-	@FrameRate varchar(50),
-	@VideoBitRate varchar(50),
-	@FrameSizeOrResolution varchar(20),
-	@AspectRatio varchar(20),
-	@BitDepth varchar(50),
-	@AudioBitRate varchar(50),
-	@SampleRate varchar(50),
-	@Discrete bit,
-	@IsTheFileMetadataCorrect bit,
-	@InterlacedOrProgressiveCorrectlyFlagged bit,
-	@InterlacedOrProgressiveCorrectlyNotFlaggedReason varchar(50),
-	@CLAPPresent bit,
-	@ColourPrimariesPresent varchar(50),
-	@TransferCharacteristicsPresent varchar(50),
-	@MatrixCoefficientsPresent varchar(50),
-	@DisplayAspectRatioCorrect varchar(50),
-	@InterlacedVsProgressiveCheckedAndCorrect varchar(50),
-	@DoesTheFileContainLineup bit,
-	@DoesTheProgrammeStartOnTheHour bit,
-	@IsTheProgrammeSeamlessOrParted bit,
-	@PartedBreaksLogged bit,
-	@IfPartedSpecifyIfOneSecondBlackBetweenParts bit,
-	@BumpersPresentAndLogged bit,
-	@InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments bit,
+	@IsFile BIT = NULL,
+	@FileToSpec BIT = NULL,
+	@DecodeCheckPass BIT = NULL,
+	@Format VARCHAR(50) = NULL,
+	@Standard VARCHAR(50) = NULL,
+	@FrameRate VARCHAR(50) = NULL,
+	@VideoBitRate VARCHAR(50) = NULL,
+	@FrameSizeOrResolution VARCHAR(20) = NULL,
+	@AspectRatio VARCHAR(20) = NULL,
+	@BitDepth VARCHAR(50) = NULL,
+	@AudioBitRate VARCHAR(50) = NULL,
+	@SampleRate VARCHAR(50) = NULL,
+	@Discrete BIT = NULL,
+	@IsTheFileMetadataCorrect BIT = NULL,
+	@InterlacedOrProgressiveCorrectlyFlagged BIT = NULL,
+	@InterlacedOrProgressiveCorrectlyNotFlaggedReason VARCHAR(50) = NULL,
+	@CLAPPresent BIT = NULL,
+	@ColourPrimariesPresent VARCHAR(50) = NULL,
+	@TransferCharacteristicsPresent VARCHAR(50) = NULL,
+	@MatrixCoefficientsPresent VARCHAR(50) = NULL,
+	@DisplayAspectRatioCorrect VARCHAR(50) = NULL,
+	@InterlacedVsProgressiveCheckedAndCorrect VARCHAR(50) = NULL,
+	@DoesTheFileContainLineup BIT = NULL,
+	@IsTheSlatePresentAndInformationCorrect BIT = NULL,
+	@DoesTheProgrammeStartOnTheHour BIT = NULL,
+	@IsTheProgrammeSeamlessOrParted BIT = NULL,
+	@PartedBreaksLogged BIT = NULL, 
+	@IfPartedSpecifyIfOneSecondBlackBetweenParts BIT = NULL,
+	@BumpersPresentAndLogged BIT = NULL,
+	@InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments BIT = NULL,
 	@DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram bit,
-	@AreTextlessElementsPresent bit,
-	@AreThereTextlessCoversForAllTextedShots bit,
-	@AreTheTextlessCoversTheSameTimingAsTextedShots bit,
-	@IsTheGradeAndAspectRatioTheSameAsTextedShots bit,
-	@IsThere10SecondsOfBlackBetweenProgrammeAndTextless bit,
-	@IsThere10SecondsOfBlackBeforeEndOfFile bit,
-	@IsAudioLlayoutCorrect bit,
-	@IsLineupToneCorrect bit,
-	@IsLoudnessR128APass bit,
-	@IsMAndEPresentAndComplete bit,
-	@IsMixMinusNarrationPresentAndComplete bit,
-	@MonoVsStereoChecked bit,
-	@AudioInSync bit,
-	@WAVSSupplied bit,
-	@AllAssociatedWAVSPresent bit,
-	@VideoComplianceCheckedAndLogged bit,
-	@FlashingLightsOrEpilepsyWarningPresent bit,
-	@VideoContentCensoredBleepedOrBlurred bit,
-	@NudityPresent bit,
-	@VideoTimeSpecificTextPresent bit,
-	@ProductPlacementPresent bit,
-	@CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags bit,
-	@AudioComplianceCheckedAndLogged bit,
-	@AudioContentCensoredBleepedOrBlurred bit,
-	@ExtremeLanguagePresent bit,
-	@AudioTimeSpecificTextPresent bit
+	@AreTextlessElementsPresent BIT = NULL,
+	@AreThereTextlessCoversForAllTextedShots BIT = NULL,
+	@AreTheTextlessCoversTheSameTimingAsTextedShots BIT = NULL,
+	@IsTheGradeAndAspectRatioTheSameAsTextedShots BIT = NULL,
+	@IsThere10SecondsOfBlackBetweenProgrammeAndTextless BIT = NULL,
+	@IsThere10SecondsOfBlackBeforeEndOfFile BIT = NULL,
+	@IsAudioLlayoutCorrect BIT = NULL,
+	@IsLineupToneCorrect BIT = NULL,
+	@IsLoudnessR128APass BIT = NULL,
+	@IsMAndEPresentAndComplete BIT = NULL,
+	@IsMixMinusNarrationPresentAndComplete BIT = NULL,
+	@MonoVsStereoChecked BIT = NULL,
+	@AudioInSync BIT = NULL,
+	@WAVSSupplied BIT = NULL,
+	@AllAssociatedWAVSPresent BIT = NULL,
+	@VideoComplianceCheckedAndLogged BIT = NULL,
+	@FlashingLightsOrEpilepsyWarningPresent BIT = NULL,
+	@VideoContentCensoredBleepedOrBlurred BIT = NULL,
+	@NudityPresent BIT = NULL,
+	@VideoTimeSpecificTextPresent BIT = NULL,
+	@ProductPlacementPresent BIT = NULL,
+	@CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags BIT = NULL,
+	@AudioComplianceCheckedAndLogged BIT = NULL,
+	@AudioContentCensoredBleepedOrBlurred BIT = NULL,
+	@ExtremeLanguagePresent BIT = NULL,
+	@AudioTimeSpecificTextPresent BIT = NULL
 )
 AS
 BEGIN
@@ -138,6 +230,7 @@ BEGIN TRY
 				[DisplayAspectRatioCorrect],
 				[InterlacedVsProgressiveCheckedAndCorrect],
 				[DoesTheFileContainLineup],
+				[IsTheSlatePresentAndInformationCorrect],
 				[DoesTheProgrammeStartOnTheHour],
 				[IsTheProgrammeSeamlessOrParted],
 				[PartedBreaksLogged],
@@ -199,6 +292,7 @@ BEGIN TRY
 				@DisplayAspectRatioCorrect,
 				@InterlacedVsProgressiveCheckedAndCorrect,
 				@DoesTheFileContainLineup,
+				@IsTheSlatePresentAndInformationCorrect,
 				@DoesTheProgrammeStartOnTheHour,
 				@IsTheProgrammeSeamlessOrParted,
 				@PartedBreaksLogged,
@@ -263,6 +357,7 @@ BEGIN TRY
 					[DisplayAspectRatioCorrect] = @DisplayAspectRatioCorrect,
 					[InterlacedVsProgressiveCheckedAndCorrect] = @InterlacedVsProgressiveCheckedAndCorrect,
 					[DoesTheFileContainLineup] = @DoesTheFileContainLineup,
+					[IsTheSlatePresentAndInformationCorrect] = @IsTheSlatePresentAndInformationCorrect,
 					[DoesTheProgrammeStartOnTheHour] = @DoesTheProgrammeStartOnTheHour,
 					[IsTheProgrammeSeamlessOrParted] = @IsTheProgrammeSeamlessOrParted,
 					[PartedBreaksLogged] = @PartedBreaksLogged,
@@ -308,4 +403,3 @@ BEGIN TRY
 
 END
 
-GO
