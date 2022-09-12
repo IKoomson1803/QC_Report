@@ -62,6 +62,11 @@ input, select, textarea, option, input[type="radio"], .table {
     padding-top: 3px;
 }
 
+.control-label {
+    text-align: left !important;
+}
+
+
 #form_jobdetails input[type=radio]{
     margin-top: 0;
 }
@@ -468,6 +473,7 @@ button.multiselect {
     border-left: 1px solid black;
 }
 
+
 /*.PaddTopBot {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -627,3 +633,4 @@ table.dataTable thead .sorting_desc:after {
     white-space: nowrap;
 }
 /*********End Dropzone Overrides ******************************************************************/
+
