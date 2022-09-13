@@ -1479,7 +1479,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                             $"Checklist QC with Id {qcnum} and Rev No {revnum} for customer {customerName} was viewed.",
+                                             $"Checklist with Id {qcnum} and Rev No {revnum} for customer {customerName} was viewed.",
                                             Constants.ActivityType.ChecklistViewed);
 
             /*******************************************************************************************/

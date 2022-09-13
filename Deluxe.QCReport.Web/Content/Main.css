@@ -71,6 +71,11 @@ input, select, textarea, option, input[type="radio"], .table {
     margin-top: 0;
 }
 
+.radio-inline {
+    font-weight: bold;
+    margin-top: -5px;
+}
+
 
 .form-group .form-control {
     height: 22px;
