@@ -60,6 +60,7 @@ CREATE TABLE [bward].[ChecklistBanijayRights](
 	[AudioInSync] [bit] NULL,
 	[WAVSSupplied] [bit] NULL,
 	[AllAssociatedWAVSPresent] [bit] NULL,
+	[AllAssociatedWAVSNotPresentReason] [varchar](50) NULL,	
 	[VideoComplianceCheckedAndLogged] [bit] NULL,
 	[FlashingLightsOrEpilepsyWarningPresent] [bit] NULL,
 	[VideoContentCensoredBleepedOrBlurred] [bit] NULL,
@@ -177,6 +178,7 @@ CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 	@AudioInSync BIT = NULL,
 	@WAVSSupplied BIT = NULL,
 	@AllAssociatedWAVSPresent BIT = NULL,
+	@AllAssociatedWAVSNotPresentReason VARCHAR(50) = NULL,
 	@VideoComplianceCheckedAndLogged BIT = NULL,
 	@FlashingLightsOrEpilepsyWarningPresent BIT = NULL,
 	@VideoContentCensoredBleepedOrBlurred BIT = NULL,
@@ -253,6 +255,7 @@ BEGIN TRY
 				[AudioInSync],
 				[WAVSSupplied],
 				[AllAssociatedWAVSPresent],
+				[AllAssociatedWAVSNotPresentReason],
 				[VideoComplianceCheckedAndLogged],
 				[FlashingLightsOrEpilepsyWarningPresent],
 				[VideoContentCensoredBleepedOrBlurred],
@@ -315,6 +318,7 @@ BEGIN TRY
 				@AudioInSync,
 				@WAVSSupplied,
 				@AllAssociatedWAVSPresent,
+				@AllAssociatedWAVSNotPresentReason,
 				@VideoComplianceCheckedAndLogged,
 				@FlashingLightsOrEpilepsyWarningPresent,
 				@VideoContentCensoredBleepedOrBlurred,
@@ -380,6 +384,7 @@ BEGIN TRY
 					[AudioInSync] = @AudioInSync,
 					[WAVSSupplied] = @WAVSSupplied,
 					[AllAssociatedWAVSPresent] = @AllAssociatedWAVSPresent,
+					[AllAssociatedWAVSNotPresentReason] = @AllAssociatedWAVSNotPresentReason,
 					[VideoComplianceCheckedAndLogged] = @VideoComplianceCheckedAndLogged,
 					[FlashingLightsOrEpilepsyWarningPresent] = @FlashingLightsOrEpilepsyWarningPresent,
 					[VideoContentCensoredBleepedOrBlurred] = @VideoContentCensoredBleepedOrBlurred,
@@ -403,3 +408,4 @@ BEGIN TRY
 
 END
 
+GO

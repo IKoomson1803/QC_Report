@@ -54,6 +54,7 @@ namespace Deluxe.QCReport.Common.Models
         public bool? AudioInSync { get; set; }
         public bool? WAVSSupplied { get; set; }
         public bool? AllAssociatedWAVSPresent { get; set; }
+        public string AllAssociatedWAVSNotPresentReason { get; set; }
         public bool? VideoComplianceCheckedAndLogged { get; set; }
         public bool? FlashingLightsOrEpilepsyWarningPresent { get; set; }
         public bool? VideoContentCensoredBleepedOrBlurred { get; set; }

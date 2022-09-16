@@ -144,6 +144,7 @@
     <Content Include="Content\Main.css" />
     <Content Include="Content\Report.css" />
     <Content Include="Content\Selectize.css" />
+    <Content Include="Content\Tabs.css" />
     <Content Include="controls\ASYCFILT.DLL" />
     <Content Include="controls\COMCAT.DLL" />
     <Content Include="controls\IEPrintSetttings.ocx" />
