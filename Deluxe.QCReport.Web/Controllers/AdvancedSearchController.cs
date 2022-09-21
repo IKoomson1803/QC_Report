@@ -74,11 +74,8 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                              string.Format(
-                              "Search criteria: {0}",
-                              Serializer.SerializeFromSingle(
-                                  searchParams)),
-                         Constants.ActivityType.Search);
+                              $"Search criteria: {Serializer.SerializeFromSingle(searchParams)}",
+                              Constants.ActivityType.Search);
 
             /*******************************************************************************************/
                      
@@ -141,11 +138,8 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                          string.Format(
-                          "Search criteria: {0}",
-                          Serializer.SerializeFromSingle(
-                              searchParams)),
-                     Constants.ActivityType.Search);
+                              $"Search criteria: {Serializer.SerializeFromSingle(searchParams)}",
+                              Constants.ActivityType.Search);
 
             /*******************************************************************************************/
 
@@ -187,10 +181,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                          string.Format(
-                          "Search criteria was reset: {0}",
-                          Serializer.SerializeFromSingle(
-                              model)),
+                         $"Search criteria was reset: { Serializer.SerializeFromSingle(model)}",
                      Constants.ActivityType.Search);
 
             /*******************************************************************************************/
@@ -382,6 +373,15 @@ namespace Deluxe.QCReport.Web.Controllers
 
         public void ExportToExcel(string downloadToken)
         {
+            /****************Log User Activity******************************************************/
+
+            WebSystemUtility.LogUserActivity(
+                           "Search criteria was was exported to excel.",
+                     Constants.ActivityType.ExportedToExcel);
+
+            /*******************************************************************************************/
+
+
             var list = new List<Header>();
             var reportLst = new List<Header>();
             string excelFilename = "QC_Report";
@@ -392,6 +392,7 @@ namespace Deluxe.QCReport.Web.Controllers
                 var searchParams = Serializer.DeserializeAsSingle<SearchParams>(Session[FILTER_ASSETS].ToString());
                 list = _reportService.Filter(searchParams)?.ToList();
              }
+
            
 
             string[] listMembers = {

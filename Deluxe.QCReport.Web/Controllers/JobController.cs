@@ -1067,11 +1067,8 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Log QC [Id: {0}]; Rev No; {1}",
-                                             qcnum,
-                                            revnum),
-                                        Constants.ActivityType.LogViewed);
+                                           $"Log QC [Id: {qcnum}]; Rev No; {revnum} was viewed",
+                                            Constants.ActivityType.LogViewed);
 
             /*******************************************************************************************/
 
@@ -1714,11 +1711,8 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Client specs for QC with  Id {0} and Rev No {1}.",
-                                             qcnum,
-                                             revnum),
-                                             Constants.ActivityType.ClientSpecsViewed);
+                                            $"Client specs for QC with  Id {0} and Rev No {1} for customer {customerName} was viewed.",
+                                            Constants.ActivityType.ClientSpecsViewed);
 
             /*********************** Disney ************************************************************/
 

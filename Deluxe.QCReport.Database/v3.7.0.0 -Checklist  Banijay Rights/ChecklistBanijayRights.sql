@@ -65,13 +65,13 @@ CREATE TABLE [bward].[ChecklistBanijayRights](
 	[FlashingLightsOrEpilepsyWarningPresent] [bit] NULL,
 	[VideoContentCensoredBleepedOrBlurred] [bit] NULL,
 	[NudityPresent] [bit] NULL,
-	[VideoTimeSpecificTextPresent] [bit] NULL,
+	[TimeSpecificTextPresent] [bit] NULL,
 	[ProductPlacementPresent] [bit] NULL,
 	[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags] [bit] NULL,
 	[AudioComplianceCheckedAndLogged] [bit] NULL,
 	[AudioContentCensoredBleepedOrBlurred] [bit] NULL,
 	[ExtremeLanguagePresent] [bit] NULL,
-	[AudioTimeSpecificTextPresent] [bit] NULL,
+	[TimeSpecificAudioPresent] [bit] NULL,
 	[IsTheSlatePresentAndInformationCorrect] [bit] NULL,
  CONSTRAINT [PK_ChecklistBanijayRights] PRIMARY KEY CLUSTERED 
 (
@@ -117,9 +117,7 @@ END
 
 GO
 
-/**********************************************************************************/
-
-/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 09/09/2022 15:54:59 ******/
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 21/09/2022 12:01:53 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -183,13 +181,13 @@ CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 	@FlashingLightsOrEpilepsyWarningPresent BIT = NULL,
 	@VideoContentCensoredBleepedOrBlurred BIT = NULL,
 	@NudityPresent BIT = NULL,
-	@VideoTimeSpecificTextPresent BIT = NULL,
+	@TimeSpecificTextPresent BIT = NULL,
 	@ProductPlacementPresent BIT = NULL,
 	@CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags BIT = NULL,
 	@AudioComplianceCheckedAndLogged BIT = NULL,
 	@AudioContentCensoredBleepedOrBlurred BIT = NULL,
 	@ExtremeLanguagePresent BIT = NULL,
-	@AudioTimeSpecificTextPresent BIT = NULL
+	@TimeSpecificAudioPresent BIT = NULL
 )
 AS
 BEGIN
@@ -260,13 +258,13 @@ BEGIN TRY
 				[FlashingLightsOrEpilepsyWarningPresent],
 				[VideoContentCensoredBleepedOrBlurred],
 				[NudityPresent],
-				[VideoTimeSpecificTextPresent],
+				[TimeSpecificTextPresent],
 				[ProductPlacementPresent],
 				[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags],
 				[AudioComplianceCheckedAndLogged],
 				[AudioContentCensoredBleepedOrBlurred],
 				[ExtremeLanguagePresent],
-				[AudioTimeSpecificTextPresent]) 
+				[TimeSpecificAudioPresent]) 
              SELECT
 			   @Qcnum,
 				@subQcnum,
@@ -323,13 +321,13 @@ BEGIN TRY
 				@FlashingLightsOrEpilepsyWarningPresent,
 				@VideoContentCensoredBleepedOrBlurred,
 				@NudityPresent,
-				@VideoTimeSpecificTextPresent,
+				@TimeSpecificTextPresent,
 				@ProductPlacementPresent,
 				@CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
 				@AudioComplianceCheckedAndLogged,
 				@AudioContentCensoredBleepedOrBlurred,
 				@ExtremeLanguagePresent,
-				@AudioTimeSpecificTextPresent
+				@TimeSpecificAudioPresent
 		 END
 			   ELSE 
 				 BEGIN
@@ -389,13 +387,13 @@ BEGIN TRY
 					[FlashingLightsOrEpilepsyWarningPresent] = @FlashingLightsOrEpilepsyWarningPresent,
 					[VideoContentCensoredBleepedOrBlurred] = @VideoContentCensoredBleepedOrBlurred,
 					[NudityPresent] = @NudityPresent,
-					[VideoTimeSpecificTextPresent] = @VideoTimeSpecificTextPresent,
+					[TimeSpecificTextPresent] = @TimeSpecificTextPresent,
 					[ProductPlacementPresent] = @ProductPlacementPresent,
 					[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags] = @CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
 					[AudioComplianceCheckedAndLogged] = @AudioComplianceCheckedAndLogged,
 					[AudioContentCensoredBleepedOrBlurred] = @AudioContentCensoredBleepedOrBlurred,
 					[ExtremeLanguagePresent] = @ExtremeLanguagePresent,
-					[AudioTimeSpecificTextPresent] = @AudioTimeSpecificTextPresent 
+					[TimeSpecificAudioPresent] = @TimeSpecificAudioPresent 
       				WHERE [QCNum] = @QCNum
 					AND [subQCNum] = @subQCNum 
 		 END 
@@ -407,5 +405,7 @@ BEGIN TRY
     END CATCH		 		
 
 END
+
+
 
 GO

@@ -88,14 +88,20 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             //var users =  _userService.GetUsers().ToArray();
             var users = _userService.GetRevisedByUsers().ToArray();
-            return Json(users, JsonRequestBehavior.AllowGet);
+
+            return Json(
+                users,
+                JsonRequestBehavior.AllowGet);
             
         }
 
         public ActionResult GetRevisedByUsers()
         {
             var users = _userService.GetRevisedByUsers().ToArray();
-            return Json(users, JsonRequestBehavior.AllowGet);
+
+            return Json(
+                users, 
+                JsonRequestBehavior.AllowGet);
 
         }
 
@@ -106,14 +112,15 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "User partial was viewed."),
+                                           "User partial was viewed.",
                                            Constants.ActivityType.UserPartialViewed);
 
             /*******************************************************************************************/
 
 
-            return PartialView("_UserPartial", model);
+            return PartialView(
+                "_UserPartial",
+                model);
         }
 
         public ActionResult GetUserDetails(string Username)
@@ -132,14 +139,14 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "User details [{0}] was searched.",
-                                             Username),
-                                            Constants.ActivityType.UserDetailsSearched);
+                                           $"User details [{Username}] was searched.",
+                                           Constants.ActivityType.UserDetailsSearched);
 
             /*******************************************************************************************/
 
-            return Json(user, JsonRequestBehavior.AllowGet);
+            return Json(
+                user, 
+                JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -147,7 +154,10 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             if (user == null)
             {
-                return Json(new { success = false, msg = "Failed to save user, please contact system admin. " });
+                return Json(
+                    new { success = false,
+                        msg = "Failed to save user, please contact system admin. " 
+                    });
             }
 
             user.UserName = user.UserNameText;
@@ -166,17 +176,13 @@ namespace Deluxe.QCReport.Web.Controllers
                 if(user.qcUserId > 0)
                 {
                     WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "User details [{0}] was updated",
-                                                 user.UserName),
-                                                Constants.ActivityType.UpdatedUser);
+                                                 $"User details [{user.UserName}] was updated",
+                                                 Constants.ActivityType.UpdatedUser);
                 }
                 else
                 {
                     WebSystemUtility.LogUserActivity(
-                                          string.Format(
-                                              "New user details [{0}] was inserted",
-                                               user.UserName),
+                                              $"New user details [{user.UserName}] was inserted",
                                               Constants.ActivityType.InsertUser);
                 }
                 
@@ -184,7 +190,10 @@ namespace Deluxe.QCReport.Web.Controllers
                 /*******************************************************************************************/
             }
 
-            return Json(new { success = result, msg = resultMsg });
+            return Json(
+                new { success = result,
+                    msg = resultMsg 
+                });
         }
 
         #endregion
@@ -204,8 +213,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Client partial was viewed."),
+                                           "Client partial was viewed.",
                                            Constants.ActivityType.ClientPartialViewed);
 
             /*******************************************************************************************/
@@ -225,14 +233,14 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Client details [{0}] was searched.",
-                                             clientName),
+                                             $"Client details [{clientName}] was searched.",
                                             Constants.ActivityType.ClientDetailsSearched);
 
             /*******************************************************************************************/
 
-            return Json(client, JsonRequestBehavior.AllowGet);
+            return Json(
+                client, 
+                JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -240,7 +248,11 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             if (client == null)
             {
-                return Json(new { success = false, msg = "Failed to save client, please contact system admin. " });
+                return Json(
+                    new {
+                        success = false, 
+                        msg = "Failed to save client, please contact system admin. " 
+                    });
             }
 
 
@@ -267,17 +279,19 @@ namespace Deluxe.QCReport.Web.Controllers
                 else
                 {
                     WebSystemUtility.LogUserActivity(
-                                          string.Format(
-                                              "New client details [{0}] was inserted",
-                                               client.CustName),
-                                              Constants.ActivityType.NewClientAdded);
+                                               $"New client details [{client.CustName}] was inserted",
+                                               Constants.ActivityType.NewClientAdded);
                 }
 
 
                 /*******************************************************************************************/
             }
 
-            return Json(new { success = result, msg = resultMsg });
+            return Json(
+                new { 
+                    success = result, 
+                    msg = resultMsg 
+                });
         }
 
 
@@ -291,8 +305,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Location partial was viewed."),
+                                          "Location partial was viewed.",
                                            Constants.ActivityType.LocationPartialViewed);
 
             /*******************************************************************************************/
@@ -303,7 +316,10 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult GetLocations()
         {
             var locations = _locationService.GetLocations()?.ToArray();
-            return Json(locations, JsonRequestBehavior.AllowGet);
+
+            return Json(
+                locations, 
+                JsonRequestBehavior.AllowGet);
 
         }
 
@@ -319,14 +335,14 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Location details [{0}] was searched.",
-                                             location),
+                                             $"Location details [{location}] was searched.",
                                             Constants.ActivityType.LocationDetailsSearched);
 
             /*******************************************************************************************/
 
-            return Json(deluxeLocation, JsonRequestBehavior.AllowGet);
+            return Json(
+                deluxeLocation,
+                JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -334,7 +350,11 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             if (deluxeLocation == null)
             {
-                return Json(new { success = false, msg = "Failed to save location, please contact system admin. " });
+                return Json(
+                    new { 
+                        success = false, 
+                        msg = "Failed to save location, please contact system admin. " 
+                    });
             }
 
 
@@ -353,25 +373,24 @@ namespace Deluxe.QCReport.Web.Controllers
                 if (deluxeLocation.pkey > 0)
                 {
                     WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "Location details [{0}] was updated",
-                                                 deluxeLocation.Location),
-                                                Constants.ActivityType.LocationDetailsUpdated);
+                                                 $"Location details [{deluxeLocation.Location}] was updated.",
+                                                 Constants.ActivityType.LocationDetailsUpdated);
                 }
                 else
                 {
                     WebSystemUtility.LogUserActivity(
-                                          string.Format(
-                                              "New location details [{0}] was inserted",
-                                               deluxeLocation.Location),
-                                              Constants.ActivityType.NewLocationAdded);
+                                               $"New location details [{deluxeLocation.Location}] was inserted.",
+                                               Constants.ActivityType.NewLocationAdded);
                 }
 
 
                 /*******************************************************************************************/
             }
 
-            return Json(new { success = result, msg = resultMsg });
+            return Json(
+                new { success = result, 
+                    msg = resultMsg
+                });
         }
 
 
@@ -384,8 +403,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Aspect Ratios partial was viewed."),
+                                          "Aspect Ratios partial was viewed.",
                                            Constants.ActivityType.AspectRatioPartialViewed);
 
             /*******************************************************************************************/
@@ -412,10 +430,8 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Aspect Ratio details [{0}] was searched.",
-                                             aspectRatio),
-                                            Constants.ActivityType.AspectRatioDetailsSearched);
+                                             $"Aspect Ratio details [{aspectRatio}] was searched.",
+                                             Constants.ActivityType.AspectRatioDetailsSearched);
 
             /*******************************************************************************************/
 
@@ -428,7 +444,11 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             if(model == null)
             {
-                return Json(new { success = false, msg = "Failed to save aspect ratio, please contact system admin." });
+                return Json(
+                    new {
+                        success = false,
+                        msg = "Failed to save aspect ratio, please contact system admin."
+                    });
             }
            
 
@@ -447,25 +467,24 @@ namespace Deluxe.QCReport.Web.Controllers
                 if (model.AspectID > 0)
                 {
                     WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "Aspect Ratio details [{0}] was updated",
-                                                 model.AspectID),
+                                                 $"Aspect Ratio details [{model.AspectID}] was updated",
                                                  Constants.ActivityType.LocationDetailsUpdated);
                 }
                 else
                 {
                     WebSystemUtility.LogUserActivity(
-                                          string.Format(
-                                              "New aspect ratio details [{0}] was inserted",
-                                               model.AspectRatio),
-                                              Constants.ActivityType.NewLocationAdded);
+                                               $"New aspect ratio details [{ model.AspectRatio}] was inserted",
+                                               Constants.ActivityType.NewLocationAdded);
                 }
 
 
                 /*******************************************************************************************/
             }
 
-            return Json(new { success = result, msg = resultMsg });
+            return Json(
+                new { success = result, 
+                    msg = resultMsg 
+                });
         }
 
 
@@ -480,8 +499,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Format partial was viewed."),
+                                           "Format partial was viewed.",
                                            Constants.ActivityType.FormatPartialViewed);
 
             /*******************************************************************************************/

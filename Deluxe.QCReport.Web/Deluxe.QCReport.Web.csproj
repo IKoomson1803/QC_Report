@@ -304,6 +304,8 @@
     <Content Include="Views\DPP\_DPPProdAndTechLog.cshtml" />
     <Content Include="Views\DPP\_DPPProdSignOff.cshtml" />
     <Content Include="Specifications\DPPEyeball\DPP – Eyeballs QC HD File Spec Version 19082022.pdf" />
+    <Content Include="Views\Job\_ChecklistBanijayRightsMeasurements.cshtml" />
+    <Content Include="Views\Job\_ChecklistBanijaRightsSpecifics.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

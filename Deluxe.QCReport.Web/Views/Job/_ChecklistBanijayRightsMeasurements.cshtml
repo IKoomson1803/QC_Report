@@ -1,0 +1,238 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div id="tab1" class="tab-content" style="display:none;">
+    <div class="row">
+        <div class="col-sm-6">
+            <span class="ChecklistBigHeader">Measurements</span>
+            <hr />
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12  ChecklistHeaderUnderline">
+                            File Details:
+                        </div>
+                    </div>
+
+                    <div class="row  checklistHeader">
+                        <div class="col-xs-5">
+                            <label class="control-label">Banijay file to Spec: </label>
+                        </div>
+                        <div class="col-xs-5 form-group float-left">
+                            <label class="radio-inline"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.FileToSpec, false) No </label>
+                        </div>
+                    </div>
+                    <div class="row   checklistHeader">
+                        <div class="col-xs-5">
+                            <label class="control-label">Decode check pass: </label>
+                        </div>
+                        <div class="col-xs-6 form-group float-left">
+                            <label class="radio-inline"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.DecodeCheckPass, false) No </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Confirm the video format: </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.Format, new { @class = "form-control" })
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12  ChecklistHeaderUnderline">
+                            Video Codec:
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">Format: </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.Format, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">Standard: </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.Standard, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Frame rate:</label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.FrameRate, new { @class = "form-control" })
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Frame size / Resolution: </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.FrameSizeOrResolution, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Aspect Ratio:  </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.AspectRatio, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12  ChecklistHeaderUnderline">
+                            Audio Codec:
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">Bit Depth: </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.BitDepth, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">Bit Rate:  </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.AudioBitRate, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Sample Rate:</label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.SampleRate, new { @class = "form-control" })
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">Discrete: </label>
+                        </div>
+                        <div class="col-sm-6 form-group float-left">
+                            <label class="radio-inline"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.Discrete, true) Yes </label>
+                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.Discrete, false) No </label>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <hr class="col-xs-11 float-left" />
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">Is the file Metadata correct: </label>
+                        </div>
+                        <div class="col-xs-5 form-group float-left">
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheFileMetadataCorrect, true) Yes
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheFileMetadataCorrect, false) No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">Interlaced / Progressive correctly flagged: </label>
+                        </div>
+                        <div class="col-xs-5 form-group float-left">
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged, true) Yes
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged, false) No
+                            </label>
+
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyNotFlaggedReason,
+                            new { @class = "form-control", @style = "display:none" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <label class="control-label">CLAP Present: </label>
+                        </div>
+                        <div class="col-xs-5 form-group float-left">
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.CLAPPresent, true) Yes
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.CLAPPresent, false) No
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Colour Primaries Present: </label>
+                        </div>
+                        <div class="col-sm-5 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.ColourPrimariesPresent, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Transfer Characteristics Present: </label>
+                        </div>
+                        <div class="col-sm-5 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.TransferCharacteristicsPresent, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label class="control-label">Matrix Coefficients Present: </label>
+                        </div>
+                        <div class="col-sm-5 form-group float-left">
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.MatrixCoefficientsPresent, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

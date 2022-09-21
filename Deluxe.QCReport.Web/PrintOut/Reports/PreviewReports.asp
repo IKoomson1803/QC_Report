@@ -226,7 +226,7 @@ dim rsItemNumber, sqlItemNumber, itemNumberCount
 itemNumberCount = 0
 dim rsDPPLog, sqlDPPLog
 Dim rsChecklistDPP, sqlChecklistDPP
-
+Dim rsChecklistBanijayRights, sqlChecklistBanijayRights
 
 
 ''*****************Log item number check***********************************************************************
@@ -368,6 +368,15 @@ sqlDPPLog = "SELECT TimeCode, Issue, ActionOrResolution, Initials " & _
 			   "WHERE QCNum= " & clng(sQCNum)& "AND SubQCNum = " & cint (sRev) & _
 			   "ORDER BY Id"
 rsDPPLog.Open sqlDPPLog
+
+'' Checklist Banijay Rights
+ set rsChecklistBanijayRights = Server.CreateObject("ADODB.Recordset")
+   rsChecklistBanijayRights.ActiveConnection = cnQCS
+   sqlChecklistBanijayRights = "SELECT TOP 1 * " & _
+   " FROM [QCSUK].[bward].[ChecklistBanijayRights] " & _
+   " WHERE Qcnum= " & clng(sQCNum) & " AND subQcnum = " & cint(sRev)
+  
+   rsChecklistBanijayRights.Open sqlChecklistBanijayRights,cnQCS 
 
 
 

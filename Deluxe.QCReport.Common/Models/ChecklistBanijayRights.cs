@@ -59,13 +59,13 @@ namespace Deluxe.QCReport.Common.Models
         public bool? FlashingLightsOrEpilepsyWarningPresent { get; set; }
         public bool? VideoContentCensoredBleepedOrBlurred { get; set; }
         public bool? NudityPresent { get; set; }
-        public bool? VideoTimeSpecificTextPresent { get; set; }
+        public bool? TimeSpecificTextPresent { get; set; }
         public bool? ProductPlacementPresent { get; set; }
         public bool? CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags { get; set; }
         public bool? AudioComplianceCheckedAndLogged { get; set; }
         public bool? AudioContentCensoredBleepedOrBlurred { get; set; }
         public bool? ExtremeLanguagePresent { get; set; }
-        public bool? AudioTimeSpecificTextPresent { get; set; }
+        public bool? TimeSpecificAudioPresent { get; set; }
     }
 
 }

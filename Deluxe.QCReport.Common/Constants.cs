@@ -61,6 +61,7 @@ namespace Deluxe.QCReport.Common
             FailedToUpdateUser,
             Search,
             Report,
+            ExportedToExcel,
             SendEmail,
             DeletedJob,
             CreatedNewQC,

@@ -83,10 +83,8 @@ namespace Deluxe.QCReport.Web.Controllers3
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Job details with WO number '{0}' was viewed.",
-                                            wonum),
-                                           Constants.ActivityType.JobDetailsViewed);
+                                          $"Job details with WO number '{wonum}' was viewed.",
+                                          Constants.ActivityType.JobDetailsViewed);
 
             /************************************************************************************/
 
@@ -106,9 +104,7 @@ namespace Deluxe.QCReport.Web.Controllers3
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "QC details with ID ={0} was viewed.",
-                                            qcnum),
+                                            $"QC details with QC number: { qcnum} was viewed.",
                                            Constants.ActivityType.QCDetailsViewed);
 
             /************************************************************************************/
@@ -126,16 +122,50 @@ namespace Deluxe.QCReport.Web.Controllers3
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "QC details with ID={0} and Rev number={1} was viewed.",
-                                            qcnum,
-                                            revnum),
-                                           Constants.ActivityType.QCDetailsViewed);
+                                        $"QC details with QC number: {qcnum} and Rev number: {revnum} was viewed.",
+                                        Constants.ActivityType.QCDetailsViewed);
 
             /************************************************************************************/
 
             return PartialView("_RevDetails", model);
         }
+
+        [HttpPost]
+        public ActionResult NewEditQCReport(string qcWONo, int? qcNo, int? qcRev)
+        {
+            NewQCReport model = new NewQCReport();
+
+            if (qcNo.HasValue && qcRev.HasValue) // Update           
+            {
+                model = _qcRSrv.GetQCReport(qcNo.Value, qcRev.Value);
+
+                /****************Log User Activity******************************************************/
+
+                WebSystemUtility.LogUserActivity(
+                                               $"QC Editor was viewed [Id: {qcNo.Value}]; Rev No: {qcRev.Value}",
+                                               Constants.ActivityType.CreatedNewQC);
+
+                /*******************************************************************************************/
+
+            }
+            else  // New
+            {
+                /****************Log User Activity******************************************************/
+
+                WebSystemUtility.LogUserActivity(
+                                           $"New QC Editor was viewed.",
+                                            Constants.ActivityType.CreatedNewQC);
+
+                /*******************************************************************************************/
+
+            }
+
+            model.QCWONumber = qcWONo;
+            model.ClientNameList = LookUpsService.GetCustName();
+
+            return PartialView("_NewQCReport", model);
+        }
+
 
         [HttpPost]
         public ActionResult SaveNewQCReport(NewQCReport model)
@@ -187,11 +217,8 @@ namespace Deluxe.QCReport.Web.Controllers3
                     /****************Log User Activity******************************************************/
 
                     WebSystemUtility.LogUserActivity(
-                                                string.Format(
-                                                    "QC updated [Id: {0}]; Rev No: {1}",
-                                                     model.Qcnum,
-                                                    model.subQcnum),
-                                                Constants.ActivityType.UpdatedQC);
+                                                    $"QC updated [Id: {model.Qcnum}]; Rev No: {model.subQcnum} for customer {selCustomer.Value}",
+                                                     Constants.ActivityType.UpdatedQC);
 
                     /*******************************************************************************************/
                 }
@@ -210,11 +237,8 @@ namespace Deluxe.QCReport.Web.Controllers3
                     /****************Log User Activity******************************************************/
 
                     WebSystemUtility.LogUserActivity(
-                                                string.Format(
-                                                    "New QC created [Id: {0}]; Rev No: {1}",
-                                                     newQCNum,
-                                                    model.subQcnum),
-                                                Constants.ActivityType.CreatedNewQC);
+                                                    $"New QC created [Id: {newQCNum}]; Rev No: {model.subQcnum} for customer {selCustomer.Value}",
+                                                    Constants.ActivityType.CreatedNewQC);
 
                     /*******************************************************************************************/
                 }
@@ -224,51 +248,7 @@ namespace Deluxe.QCReport.Web.Controllers3
             return Json(new { success = result, msg = resultMsg, woNum = model.QCWONumber });
         }
 
-        [HttpPost]
-        public ActionResult NewEditQCReport(string qcWONo, int? qcNo, int? qcRev)
-        {
-            NewQCReport model = new NewQCReport();
-
-            if (qcNo.HasValue && qcRev.HasValue)            
-            {
-                model = _qcRSrv.GetQCReport(qcNo.Value, qcRev.Value);
-
-                /****************Log User Activity******************************************************/
-
-                WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "QC Editor was viewed [Id: {0}]; Rev No: {1}",
-                                                 qcNo.Value,
-                                                qcRev.Value),
-                                            Constants.ActivityType.CreatedNewQC);
-
-                /*******************************************************************************************/
-
-            }
-            else
-            {
-                /****************Log User Activity******************************************************/
-
-                WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "New QC Editor was viewed for WO number '{0}'",
-                                                       qcWONo),
-                                            Constants.ActivityType.CreatedNewQC);
-
-                /*******************************************************************************************/
-
-            }
-
-            model.QCWONumber = qcWONo;
-           
-            model.ClientNameList = LookUpsService.GetCustName();
-
-          
-
-
-            return PartialView("_NewQCReport", model);
-        }
-
+       
 
         [HttpPost]
         public ActionResult CopyQCReport(string wonum, int qcnum, int revnum)
@@ -294,10 +274,8 @@ namespace Deluxe.QCReport.Web.Controllers3
                 /****************Log User Activity******************************************************/
 
                 WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "QC with Job number {0} was deleted.",
-                                                jobnum),
-                                            Constants.ActivityType.DeletedJob);
+                                            $"QC with Job number {jobnum} was deleted.",
+                                             Constants.ActivityType.DeletedJob);
 
                 /*******************************************************************************************/
             }
@@ -322,9 +300,7 @@ namespace Deluxe.QCReport.Web.Controllers3
                 /****************Log User Activity******************************************************/
 
                 WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "QC with Id {0} was deleted.",
-                                                qcnum),
+                                           $"QC with Id {qcnum} was deleted.",
                                             Constants.ActivityType.DeletedQC);
 
                 /*******************************************************************************************/
@@ -352,10 +328,7 @@ namespace Deluxe.QCReport.Web.Controllers3
                 /****************Log User Activity******************************************************/
 
                 WebSystemUtility.LogUserActivity(
-                                            string.Format(
-                                                "QC with Id {0} and Rev No {1} was deleted.",
-                                                 qcnum,
-                                                revnum),
+                                            $"QC with Id {qcnum} and Rev No { revnum} was deleted.",
                                             Constants.ActivityType.DeletedQCRevisionNumber);
 
                 /*******************************************************************************************/
