@@ -1677,6 +1677,9 @@ namespace Deluxe.QCReport.Web.Controllers
            
             object value;
 
+            // Should be modified and replace IsFile to FileToSpec across all the checklists
+            model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
+
             foreach (var prop in t.GetProperties())
             {
                 value = prop.GetValue(model.ChecklistBanijayRights);
@@ -1692,6 +1695,8 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 model.ChecklistBanijayRights.ChecklistCompleted = true;
             }
+
+            
 
             return  _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
 
@@ -1747,7 +1752,8 @@ namespace Deluxe.QCReport.Web.Controllers
             }
 
             /*********************** Banijay Rights ************************************************************/
-            else if (customerName.ToLower().Contains("banijay"))
+            else if (customerName.ToLower().Contains("banijay")
+                || customerName.ToLower().Contains("endemol"))
             {
                 customerName = "BanijayRights";
                 clientSpecFiles = GetClientSpecFiles(customerName);

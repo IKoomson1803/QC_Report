@@ -144,6 +144,14 @@ namespace Deluxe.QCReport.Web.Controllers
                     checklistRequired = true;
                 }
 
+                /************************** DPP Eyeball *******************************************************/
+                else if (customerName.ToLower().Contains("banijay")
+                   || customerName.ToLower().Contains("endemol"))
+                {
+                    checklist = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
+                    checklistRequired = true;
+                }
+
 
                 if (checklistRequired)
                 {
@@ -189,10 +197,7 @@ namespace Deluxe.QCReport.Web.Controllers
              /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Report Types page for  Id {0} and Rev No {1} was displayed.",
-                                              qcnum,
-                                             revnum),
+                                             $"Report Types page for  Id {qcnum} and Rev No {revnum} was displayed.",
                                             Constants.ActivityType.ReportTypesViewed);
 
             /*******************************************************************************************/

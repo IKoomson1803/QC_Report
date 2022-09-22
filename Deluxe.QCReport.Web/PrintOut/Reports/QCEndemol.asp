@@ -404,10 +404,9 @@ Set rsVidAud = Nothing
   </tr>
 </table>
 
-
-
 <!-- End Video And Audio -->
 
+<!--#include file="ChecklistBanijayRights.asp" -->
  
 <!-- START  LOG  -->
 

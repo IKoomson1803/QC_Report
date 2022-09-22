@@ -1,15 +1,3 @@
- <%
- Function IIf(bClause, sTrue, sFalse)
-    If CBool(bClause) Then
-        IIf = sTrue
-    Else 
-        IIf = sFalse
-    End If
-End Function
- 
- %>
- 
- 
  
  
  <% If Not rsChecklist.BOF = True And Not rsChecklist.EOF = True Then %>

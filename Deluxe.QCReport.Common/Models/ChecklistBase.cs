@@ -17,6 +17,6 @@ namespace Deluxe.QCReport.Common.Models
        /// <summary>
        /// File To Spec
        /// </summary>
-        public bool? IsFile { get; set; }  
+        public bool? IsFile { get; set; }  // Same as FileToSpec
     }
 }
