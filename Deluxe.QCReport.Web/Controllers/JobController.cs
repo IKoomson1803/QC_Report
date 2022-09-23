@@ -1275,10 +1275,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                        string.Format(
-                                            "Copy QC with Id {0} and Rev No {1} was deleted.",
-                                            qcnum.Value,
-                                           revnum.Value),
+                                            $"Copy QC with Id {qcnum.Value} and Rev No {revnum.Value} was copied.",
                                             Constants.ActivityType.CopyQCViewed);
 
             /*******************************************************************************************/

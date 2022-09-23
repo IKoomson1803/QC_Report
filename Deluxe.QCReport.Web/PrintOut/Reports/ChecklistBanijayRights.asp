@@ -35,18 +35,163 @@
      </tr>
 	  
 	   <tr>
-	       <td style="width:10%" >&nbsp;</td>
-	       <td  style="width:10%" >&nbsp;</td>
-		   <td style="width:10%"  >&nbsp;</td>
-	       <td  style="width:10%" >&nbsp;</td>
+	       <td style="width:10%" >
+		     <table style="width:100%" cellspacing="0">
+				   <tr>
+					   <td style="width:60%;padding-left:3px">Banijay file to Spec:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							  If Not IsNull(rsChecklistBanijayRights.Fields("FileToSpec")) Then
+							   Response.Write  IIf(rsChecklistBanijayRights.Fields("FileToSpec"), "Yes", "No") 
+							  End If
+						  %>
+						</td>
+				   </tr>
+			 </table>
+	   </td>
+	       <td  style="width:10%" >
+	          <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">Format:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							 If Not IsNull(rsChecklistBanijayRights.Fields("Format")) Then
+					           Response.Write  rsChecklistBanijayRights.Fields("Format") 
+					        End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
+		   </td>
+		   <td style="width:10%"  >
 		   
-		   <td style="width:10%" >&nbsp;</td>
-	       <td  style="width:10%" >&nbsp;</td>
-		   <td style="width:10%"  >&nbsp;</td>
-	       <td  style="width:10%" >&nbsp;</td>
-	       <td  style="width:10%" > &nbsp;  </td>
-		   <td  style="width:10%" > &nbsp;  </td>
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   
+		   <td style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" > 
+
+		   </td>
+		   <td  style="width:10%" >
+
+		   </td>
      </tr>
+	  
+	  <tr>
+	       <td style="width:10%" >
+		         <table style="width:100%" cellspacing="0">
+			   <tr>
+			   <td style="width:60%;padding-left:3px">Decode check pass:</td>
+			   <td style="width:40%;padding-left:3px">		  
+				   <%
+					  If Not IsNull(rsChecklistBanijayRights.Fields("DecodeCheckPass")) Then
+				       Response.Write  IIf(rsChecklistBanijayRights.Fields("DecodeCheckPass"), "Yes", "No") 
+				      End If
+				  %>
+		        </td>
+			   </tr>
+			 </table>
+	   </td>
+	       <td  style="width:10%" >
+		       <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">Standard:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							 If Not IsNull(rsChecklistBanijayRights.Fields("Standard")) Then
+					           Response.Write  rsChecklistBanijayRights.Fields("Standard") 
+					        End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
+	      </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   
+		   <td style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" > 
+
+		   </td>
+		   <td  style="width:10%" >
+
+		   </td>
+     </tr>
+	  
+	  <tr>
+	       <td style="width:10%" >
+		         <table style="width:100%" cellspacing="0">
+			   <tr>
+			   <td style="width:60%;padding-left:3px">Confirm the video format:</td>
+			   <td style="width:40%;padding-left:3px">		  
+				   <%
+					   If Not IsNull(rsChecklistBanijayRights.Fields("Format")) Then
+					      Response.Write  rsChecklistBanijayRights.Fields("Format") 
+					  End If
+				  %>
+		        </td>
+			   </tr>
+			 </table>
+	   </td>
+	       <td  style="width:10%" >
+		   
+	      </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   
+		   <td style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >  
+
+		   </td>
+		   <td  style="width:10%" > 
+
+		   </td>
+     </tr>
+	  
+	  
 	  
 	  
 	  
