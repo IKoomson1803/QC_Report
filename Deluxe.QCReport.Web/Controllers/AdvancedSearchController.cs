@@ -393,7 +393,25 @@ namespace Deluxe.QCReport.Web.Controllers
                 list = _reportService.Filter(searchParams)?.ToList();
              }
 
-           
+
+            //string[] listMembers = {
+            //"Work Order #",
+            //"QC #",
+            //"Revision #",
+            //"Full Name #1",
+            //"QC Date #1",
+            //"Full Name #2",
+            //"QC Date #2",
+            //"Revised By #1",
+            //"Revised By #2",
+            //"Customer",
+            //"Title",
+            //"Episode Name",
+            //"Episode #",
+            //"Filename",
+            //"Version",
+            //"Status"
+            //};
 
             string[] listMembers = {
             nameof(Header.Wonum),

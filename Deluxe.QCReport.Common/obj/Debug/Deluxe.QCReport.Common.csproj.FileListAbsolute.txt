@@ -5,17 +5,16 @@ C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCR
 C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.csproj.CoreCompileInputs.cache
 C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.dll
 C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.pdb
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.csproj.CoreCompileInputs.cache
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\Deluxe.QCReport.Common.dll.config
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\Deluxe.QCReport.Common.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\Deluxe.QCReport.Common.pdb
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\ClosedXML.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\Dapper.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\DocumentFormat.OpenXml.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\ExcelNumberFormat.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\FastMember.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\ExcelNumberFormat.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.csproj.CoreCompileInputs.cache
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.csproj.CopyComplete
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.pdb
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\DocumentFormat.OpenXml.dll
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.csproj.AssemblyReference.cache

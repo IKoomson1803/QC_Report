@@ -408,6 +408,12 @@ Set rsVidAud = Nothing
 
 <!--#include file="ChecklistBanijayRights.asp" -->
  
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+ 
 <!-- START  LOG  -->
 
 <div class="PageBreak"></div>

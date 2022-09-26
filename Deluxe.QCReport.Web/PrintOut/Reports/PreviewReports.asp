@@ -10,12 +10,10 @@ dim sAssetType, sQCType
 Dim videoWidth,videoHeight
 DIm bIsTwoChannels, bIsFourChannels, bIsSixChannels, bIsEightChannels, bIsTenChannels, bIsTwelveChannels
 Dim bIsFourteenChannels, bIsSixteenChannels, bIsEighteenChannels, bIsTwentyChannels , bIsTwentyTwoChannels, bIsTwentyFourChannels
-
 Dim rsChecklist, sqlChecklist, rsChecklistLionsGate, sqlChecklistLionsGate 
 Dim rsChecklistWarner, sqlChecklistWarner,rsChecklistWildBunch, sqlChecklistWildBunch
 Dim positionDisney, positionLionsGate, positionWarner, positionWildBunch 
 Dim IsChecklistCompleted 
-
 Dim rsFaultImage, sqlFaultImage, nFaultImages, nTotalImages
 
 sBVMaster = Request.QueryString("sBVMaster")
@@ -239,8 +237,6 @@ sqlItemNumber = "SELECT count(item_num) ItemNumberCount FROM [bward].[qcTime] " 
 rsItemNumber.Open sqlItemNumber
 
 ''**************************************************************************************************
-
-
 
 set rsBVMastLog = Server.CreateObject("ADODB.Recordset")
 rsBVMastLog.ActiveConnection = cnQCS

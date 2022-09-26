@@ -3,13 +3,17 @@
 	  
   <table width="100%" border="1" cellspacing="0" cellpadding="0" >	  
 	    <tr >
-			<td style="text-align:center;font-weight: bold;"  colspan="10">
+			<!--<td style="text-align:center;font-weight: bold;height:30px"  colspan="10" class="txt_italic" size="3">
 			&nbsp;CHECKLIST - Banijay Rights&nbsp; 
-			</td>
+			</td> -->
+			
+			 <td align="center" class="blackSquare" style="padding-bottom:2px" colspan="10" > 
+            <font class="txt_italic" size="3"><b>CHECKLIST - Banijay Rights</b></font>
+          </td>
 	 </tr>
 	   <tr>
-	       <td style="font-weight:bold;text-align:center;width:40%" colspan="4" >&nbsp;FILE & MEASUREMENTS</td>
-	       <td  style="font-weight:bold;text-align:center;width:60%" colspan="6">&nbsp;SPECIFICS</td>
+	       <td style="font-weight:bold;text-align:center;width:40%;height:20px" colspan="4" >&nbsp;FILE & MEASUREMENTS</td>
+	       <td  style="font-weight:bold;text-align:center;width:60%; height:20px" colspan="6">&nbsp;SPECIFICS</td>
      </tr>
 	   <tr>
 	       <td style="font-weight:bold;text-align:center;width:10%" >&nbsp;File Details</td>
@@ -105,14 +109,34 @@
 						</td>
 				   </tr>
 			 </table> 
-		   
-		   
-		   </td>
+		    </td>
 	       <td  style="width:10%" >
-		   
+		       <table style="width:100%" cellspacing="0">
+				   <tr>
+					   <td style="width:60%;padding-left:3px">Are textless elements present:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							  If Not IsNull(rsChecklistBanijayRights.Fields("AreTextlessElementsPresent")) Then
+							   Response.Write  IIf(rsChecklistBanijayRights.Fields("AreTextlessElementsPresent"), "Yes", "No") 
+							  End If
+						  %>
+						</td>
+				   </tr>
+			 </table>
 		   </td>
 		   <td style="width:10%"  >
-		   
+			   <table style="width:100%" cellspacing="0">
+					   <tr>
+						   <td style="width:60%;padding-left:3px">Is audio layout correct:</td>
+						   <td style="width:40%;padding-left:3px">		  
+							   <%
+								  If Not IsNull(rsChecklistBanijayRights.Fields("IsAudioLlayoutCorrect")) Then
+								   Response.Write  IIf(rsChecklistBanijayRights.Fields("IsAudioLlayoutCorrect"), "Yes", "No") 
+								  End If
+							  %>
+							</td>
+					   </tr>
+				 </table>
 		   </td>
 	       <td  style="width:10%" >
 		   
@@ -127,7 +151,7 @@
 	  
 	  <tr>
 	       <td style="width:10%" >
-		         <table style="width:100%" cellspacing="0">
+		      <table style="width:100%" cellspacing="0">
 			   <tr>
 			   <td style="width:60%;padding-left:3px">Decode check pass:</td>
 			   <td style="width:40%;padding-left:3px">		  
@@ -198,6 +222,18 @@
 			 </table> 
 		   </td>
 	       <td  style="width:10%" >
+		       <table style="width:100%" cellspacing="0">
+			        <tr>
+					   <td style="width:60%;padding-left:3px">Are there textless covers for all texted shots:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							   If Not IsNull(rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+			     </tr>
+			 </table>
 		   
 		   </td>
 		   <td style="width:10%"  >
@@ -287,7 +323,18 @@
 			 </table>
 		   </td>
 	       <td  style="width:10%" >
-		   
+		      <table style="width:100%" cellspacing="0">
+			        <tr>
+					   <td style="width:60%;padding-left:3px">Are the textless covers the same timing as texted shots:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							   If Not IsNull(rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+			     </tr>
+			 </table>
 		   </td>
 		   <td style="width:10%"  >
 		   
@@ -349,10 +396,32 @@
 		   </td>
 		   
 		   <td style="width:10%" >
-		   
-		   </td>
+		       <table style="width:100%" cellspacing="0">
+			        <tr>
+					   <td style="width:60%;padding-left:3px">Is the Slate present and information correct:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheSlatePresentAndInformationCorrect")) Then
+				                    Response.Write  rsChecklistBanijayRights.Fields("IsTheSlatePresentAndInformationCorrect")
+				               End If
+						  %>
+						</td>
+			     </tr>
+			 </table>
+		  </td>
 	       <td  style="width:10%" >
-		   
+		          <table style="width:100%" cellspacing="0">
+			        <tr>
+					   <td style="width:60%;padding-left:3px">Is the grade and aspect ratio the same as texted shots:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+			     </tr>
+			 </table>
 		   </td>
 		   <td style="width:10%"  >
 		   
@@ -398,19 +467,43 @@
 						</td>
 			     </tr>
 			 </table>
-		   
-		   </td>
+		  </td>
 	      
 	       <td  style="width:10%" >
-		   
+		       <table style="width:100%" cellspacing="0">
+			        <tr>
+					   <td style="width:60%;padding-left:3px">Does the programme start on the hour:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							   If Not IsNull(rsChecklistBanijayRights.Fields("DoesTheProgrammeStartOnTheHour")) Then
+				                    Response.Write  rsChecklistBanijayRights.Fields("DoesTheProgrammeStartOnTheHour")
+				               End If
+						  %>
+						</td>
+			     </tr>
+			 </table>
 		   </td>
 		   <td style="width:10%"  >
-		   
+		        <table style="width:100%" cellspacing="0">
+			        <tr>
+					   <td style="width:60%;padding-left:3px">Is there 10 seconds of black between programme & Textless:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							   If Not IsNull(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBetweenProgrammeAndTextless")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBetweenProgrammeAndTextless"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+			     </tr>
+			 </table>
 		   </td>
 	       <td  style="width:10%" >
 		   
 		   </td>
 	       <td  style="width:10%" >  
+
+		   </td>
+		   <td  style="width:10%" > 
 
 		   </td>
 		   <td  style="width:10%" > 
@@ -451,7 +544,138 @@
 		   </td>
 		   
 		   <td style="width:10%" >
+		     <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">Is the programme Seamless or Parted:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						  <%
+							    If Not IsNull(rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
+		   </td>
+	       <td  style="width:10%" >
+		       <table style="width:100%" cellspacing="0">
+			        <tr>
+					   <td style="width:60%;padding-left:3px">Is there 10 seconds of black before end of file:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						   <%
+							   If Not IsNull(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBeforeEndOfFile")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBeforeEndOfFile"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+			     </tr>
+			 </table>
+		   </td>
+		   <td style="width:10%"  >
 		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >  
+
+		   </td>
+		   <td  style="width:10%" > 
+
+		   </td>
+     </tr>
+	 
+	 <tr>
+	       <td style="width:10%" >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   <td style="width:10%"  >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   
+		   <td style="width:10%" >
+		     <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">Parted breaks logged:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						  <%
+							    If Not IsNull(rsChecklistBanijayRights.Fields("PartedBreaksLogged")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("PartedBreaksLogged"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
+		   </td>
+	       <td  style="width:10%" >&nbps;</td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >  
+
+		   </td>
+		   <td  style="width:10%" > 
+
+		   </td>
+     </tr>
+	 
+	  <tr>
+	       <td style="width:10%" >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   <td style="width:10%"  >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   
+		   <td style="width:10%" >
+		     <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">If parted, specify (if 1 second black between parts):</td>
+					   <td style="width:40%;padding-left:3px">		  
+						  <%
+							    If Not IsNull(rsChecklistBanijayRights.Fields("IfPartedSpecifyIfOneSecondBlackBetweenParts")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IfPartedSpecifyIfOneSecondBlackBetweenParts"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >  
+
+		   </td>
+		   <td  style="width:10%" > 
+
+		   </td>
+     </tr>
+	 
+	  <tr>
+	       <td style="width:10%" >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   <td style="width:10%"  >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   
+		   <td style="width:10%" >
+		     <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">Bumpers present and logged:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						  <%
+							    If Not IsNull(rsChecklistBanijayRights.Fields("BumpersPresentAndLogged")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("BumpersPresentAndLogged"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
 		   </td>
 	       <td  style="width:10%" >
 		   
@@ -471,9 +695,81 @@
      </tr>
 	 
 	 
+	 <tr>
+	       <td style="width:10%" >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   <td style="width:10%"  >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   
+		   <td style="width:10%" >
+		     <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">"International Sales and Distribution Banijay  Rights"
+                                (OR ESI) credit present (or Not Present)
+                                within the end credit roller. Checked and added to comments?:</td>
+					   <td style="width:40%;padding-left:3px">		  
+						  <%
+							    If Not IsNull(rsChecklistBanijayRights.Fields("InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >  
+
+		   </td>
+		   <td  style="width:10%" > 
+
+		   </td>
+     </tr>
 	 
-	 
-	 
+	 <tr>
+	       <td style="width:10%" >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   <td style="width:10%"  >&nbsp;</td>
+	       <td  style="width:10%" >&nbsp;</td>
+		   
+		   <td style="width:10%" >
+		     <table style="width:100%" cellspacing="0">
+				     <tr>
+					   <td style="width:60%;padding-left:3px">Does the file contain ESI / Banijay logo at the end of program</td>
+					   <td style="width:40%;padding-left:3px">		  
+						  <%
+							    If Not IsNull(rsChecklistBanijayRights.Fields("DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram")) Then
+				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram"), "Yes", "No") 
+				               End If
+						  %>
+						</td>
+				   </tr>
+			 </table> 
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+		   <td style="width:10%"  >
+		   
+		   </td>
+	       <td  style="width:10%" >
+		   
+		   </td>
+	       <td  style="width:10%" >  
+
+		   </td>
+		   <td  style="width:10%" > 
+
+		   </td>
+     </tr>
 	 
 	 
 	 
