@@ -383,6 +383,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
 
             var list = new List<Header>();
+            IEnumerable<ExportToExcel> filtered = new List<ExportToExcel>();
             var reportLst = new List<Header>();
             string excelFilename = "QC_Report";
             string workSheetName = "QC Report";
@@ -391,7 +392,28 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 var searchParams = Serializer.DeserializeAsSingle<SearchParams>(Session[FILTER_ASSETS].ToString());
                 list = _reportService.Filter(searchParams)?.ToList();
-             }
+
+                 filtered = from item in list
+                            select new ExportToExcel
+                            {
+                                 CustName = item.CustName,
+                                 Epis_Name  = item.Epis_no,
+                                 Epis_no = item.Epis_no,
+                                 Filename = item.Filename,
+                                 FullName = item.FullName,
+                                 FullName2 = item.FullName2,
+                                 Show = item.Show,
+                                 Eval_Stat = item.Eval_Stat,
+                                 Version = item.Version,
+                                 QC_date  = item.QC_date,
+                                 QC_Date_2 = item.QC_Date_2,
+                                 Qcnum = item.Qcnum,
+                                 Revised_By = item.Revised_By,
+                                 Revised_By_2 = item.Revised_By_2,
+                                 subQcnum = item.subQcnum,
+                                 Wonum = item.Wonum
+                            };
+            }
                        
 
             string[] listMembers = {
@@ -416,7 +438,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             //  CreateExcelFile.CreateExcelDocument<Header>(list, "QC Report.xlsx");
 
-            CreateExcelFile.DownloadToExcel<Header>(list, excelFilename, workSheetName, downloadToken, listMembers);
+            CreateExcelFile.DownloadToExcel<ExportToExcel>(filtered, excelFilename, workSheetName, downloadToken, listMembers);
 
         }
     }

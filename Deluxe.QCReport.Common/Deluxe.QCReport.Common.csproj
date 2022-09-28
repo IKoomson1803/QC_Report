@@ -135,6 +135,7 @@
     <Compile Include="Models\DPPProgDetails.cs" />
     <Compile Include="Models\ESIFinal.cs" />
     <Compile Include="Models\ESISpecifics.cs" />
+    <Compile Include="Models\ExportToExcel.cs" />
     <Compile Include="Models\FaultDescriptionImage.cs" />
     <Compile Include="Models\FaultDescriptionImageVM.cs" />
     <Compile Include="Models\FileChecklist.cs" />

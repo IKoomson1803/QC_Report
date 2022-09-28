@@ -9,9 +9,9 @@ namespace Deluxe.QCReport.Common.Utilities
 {
     public class ListToDataTableConverter
     {
-        public DataTable ToDataTable<T>(List<T> items)
+        public static DataTable ToDataTable<T>(IEnumerable<T> items)
         {
-            DataTable dataTable = new DataTable(typeof(T).Name);
+            DataTable dataTable = new DataTable($"{typeof(T).Name}_{DateTime.Now.ToString("ddMMyyyyHHmmss")}");
             //Get all the properties
             PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
@@ -19,7 +19,7 @@ namespace Deluxe.QCReport.Common.Utilities
             {
                 //Setting column names as Property display names or names 
                 var attribute = prop.GetCustomAttributes(typeof(DisplayNameAttribute), true).Cast<DisplayNameAttribute>().FirstOrDefault();
-                string displayName = attribute.DisplayName;
+                string displayName = attribute?.DisplayName;
 
                 if (!string.IsNullOrWhiteSpace(displayName))
                 {

@@ -93,29 +93,40 @@ namespace Deluxe.QCReport.Common.Utilities
         /// <returns></returns>
         static DataTable ConvertListToDatatable<T>(string tableName, IEnumerable<T> list, params string[] members)
         {
-            if (string.IsNullOrWhiteSpace(tableName))
-            {
-                tableName = string.Format("dataTable_{0}", DateTime.Now.ToString("ddMMyyyyHHmmss"));
-            }
-
-            if (tableName.Trim().Length > 31)
-                tableName = tableName.Substring(0, 30);
-
-            DataTable table = new DataTable(tableName);
-
             try
             {
-                using (var reader = ObjectReader.Create(list, members))
-                {
-                    table.Load(reader);
-                }
+                return ListToDataTableConverter.ToDataTable(list);
             }
             catch
             {
-                table = null;
+                return null;
             }
 
-            return table;
+           
+            /************** Fast Member ********************************************/
+            //if (string.IsNullOrWhiteSpace(tableName))
+            //{
+            //    tableName = string.Format("dataTable_{0}", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+            //}
+
+            //if (tableName.Trim().Length > 31)
+            //    tableName = tableName.Substring(0, 30);
+
+            //DataTable table = new DataTable(tableName);
+
+            //try
+            //{
+             //  using (var reader = ObjectReader.Create(list, members))
+            //    {
+            //        table.Load(reader);
+            //    }
+            //}
+            //catch
+            //{
+            //    table = null;
+            //}
+
+            //return table;
         }
 
 

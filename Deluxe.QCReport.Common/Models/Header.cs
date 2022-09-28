@@ -3,34 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
+
 
 
 namespace Deluxe.QCReport.Common.Models
 {
     public class Header
         { 
-        [DisplayName("QC #")]
+       
         public int Qcnum { get; set; }
-
-        [DisplayName("Revision #")]
         public int subQcnum { get; set; }
-
-        [DisplayName("Work Order #")]
         public string Wonum { get; set; }
-
         public int CustId { get; set; }
-
-        [DisplayName("Customer")]
         public string CustName { get; set; }
-
-        [DisplayName("Title")]
         public string Show { get; set; }
-
-        [DisplayName("Episode #")]
         public string Epis_no { get; set; }
-
-        [DisplayName("Episode Name")]
         public string Epis_Name { get; set; }
 
         public string Comments { get; set; }
@@ -56,20 +43,10 @@ namespace Deluxe.QCReport.Common.Models
         public string src_desc { get; set; }
         public DateTime Input_Date { get; set; }
         public string Pono { get; set; }
-
-        [DisplayName("QC Date #1")]
         public DateTime QC_date { get; set; }
-
-        [DisplayName("QC Date #2")]
-        public DateTime? QC_Date_2 { get; set; }
-
-        [DisplayName("Status")]
+       public DateTime? QC_Date_2 { get; set; }
         public string Eval_Stat { get; set; }
-
-        [DisplayName("Revised Date #1")]
         public DateTime revised_date { get; set; }
-
-
         public bool FullQC_Vid { get; set; }
         public bool FullQC_Ch1 { get; set; }
         public bool FullQC_Ch2 { get; set; }
@@ -90,20 +67,11 @@ namespace Deluxe.QCReport.Common.Models
         public bool SpotQC_Ch7 { get; set; }
         public bool SpotQC_Ch8 { get; set; }
         public bool SpotQC_Cue { get; set; }
-
-        [DisplayName("Revised By #1")]
         public string Revised_By { get; set; }
-
-        [DisplayName("Revised By #2")]
         public string Revised_By_2 { get; set; }
-
         public string QC_VTR { get; set; }
         public int Operator { get; set; }
-
-        [DisplayName("Full Name #1")]
         public string FullName { get; set; }
-
-        [DisplayName("Full Name #2")]
         public string FullName2 { get; set; }
         public string Stock_Mfg { get; set; }
         public string Stock_Batch { get; set; }

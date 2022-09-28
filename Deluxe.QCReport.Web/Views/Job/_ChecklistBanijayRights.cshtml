@@ -755,6 +755,8 @@
     }
 
     function toggleInterlacedOrProgressiveOrWAVsFlags() {
+       
+
         $("input[name='ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged']").change(function () {
             if ($(this).val() === 'False') {
                 $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').show();
@@ -773,6 +775,16 @@
             }
         });
 
+    }
+
+    function initializeInterlacedOrProgressiveOrWAVsFlags() {
+        if ($('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyFlagged:checked').val() == 'False') {
+            $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').show();
+        }
+
+        if ($('#ChecklistBanijayRights_AllAssociatedWAVSPresent:checked').val() == 'False') {
+            $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').show();;
+        }
     }
 
     function showTabsWidget() {
@@ -799,6 +811,7 @@
         $(function ()
         {
             showTabsWidget();
+            initializeInterlacedOrProgressiveOrWAVsFlags();
             toggleInterlacedOrProgressiveOrWAVsFlags();
             setActiveButton();
             Save();
