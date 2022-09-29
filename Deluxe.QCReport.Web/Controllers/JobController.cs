@@ -118,7 +118,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Header info QC [Id: {0}]; Rev No; {1}",
+                                            "Header info QC [Id: {0}]; Rev No; {1} was viewed.",
                                              qcnum,
                                              revnum),
                                         Constants.ActivityType.HeaderViewed);
@@ -188,7 +188,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
                 WebSystemUtility.LogUserActivity(
                                             string.Format(
-                                                "Header info QC [Id: {0}]; Rev No; {1}",
+                                                "Header info QC [Id: {0}]; Rev No; {1} was updated.",
                                                  model.Header_VM.Qcnum,
                                                 model.Header_VM.subQcnum),
                                             Constants.ActivityType.UpdatedHeader);
@@ -225,7 +225,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "History info QC [Id: {0}]; Rev No; {1}",
+                                            "History info QC [Id: {0}]; Rev No; {1} was viewed.",
                                             qcnum,
                                             revnum),
                                         Constants.ActivityType.HistoryViewed);
@@ -268,7 +268,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
                 WebSystemUtility.LogUserActivity(
                                             string.Format(
-                                                "History info QC [Id: {0}]; Rev No; {1}",
+                                                "History info QC [Id: {0}]; Rev No; {1} was updated.",
                                                  model.History_VM.Qcnum,
                                                 model.History_VM.subQcnum),
                                             Constants.ActivityType.UpdatedHeader);
@@ -294,7 +294,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Layout QC [Id: {0}]; Rev No; {1}",
+                                            "Layout QC [Id: {0}]; Rev No; {1} was viewed",
                                              qcnum,
                                             revnum),
                                         Constants.ActivityType.TapeLayoutViewed);
@@ -407,7 +407,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Text Info QC [Id: {0}]; Rev No; {1}",
+                                            "Text Info QC [Id: {0}]; Rev No; {1} was viewed.",
                                              qcnum,
                                              revnum),
                                         Constants.ActivityType.TextInfoViewed);
@@ -566,7 +566,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Header info QC [Id: {0}]; Rev No; {1}",
+                                            "Audio TC was changed. QC [Id: {0}]; Rev No; {1}",
                                              model.AudioTC_VM?.Qcnum,
                                             model.AudioTC_VM?.subQcnum),
                                         Constants.ActivityType.AudioTCChanged);
@@ -789,7 +789,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Individual Specs QC [Id: {0}]; Rev No; {1}",
+                                            "Individual Specs QC [Id: {0}]; Rev No; {1} was viewed",
                                              qcnum,
                                             revnum),
                                         Constants.ActivityType.IndividualSpecsViwed);
@@ -850,7 +850,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Measurements QC [Id: {0}]; Rev No; {1}",
+                                            "Measurements QC [Id: {0}]; Rev No; {1} was viewed.",
                                              qcnum,
                                             revnum),
                                         Constants.ActivityType.MeasurementsViewed);
@@ -861,14 +861,16 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
         
-        public ActionResult MeasurementsESI(int qcnum, int revnum)
+        public ActionResult ESIMeasurements(int qcnum, int revnum)
         {
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
+            var customerDetails = _clientService.GetClientDetails(qcnum, revnum);
+            var customerId = customerDetails.CustID;
 
             HomeVM model = new HomeVM();
             model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
+            model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-
             model.VideoCodecList = LookUpsService.GetVideoCodec();
             model.VideoBitDepthList = LookUpsService.GetVideoBitDepth();
             model.BitRateModeList = LookUpsService.GetBitRateMode();
@@ -882,21 +884,28 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Measurements QC [Id: {0}]; Rev No; {1}",
+                                            "Measurements QC [Id: {0}]; Rev No; {1} was viewed.",
                                              qcnum,
                                             revnum),
                                         Constants.ActivityType.MeasurementsViewed);
 
             /*******************************************************************************************/
-            return PartialView("_Measurements_ESI", model);
+            return PartialView("_ESIMeasurements", model);
         }
 
         [HttpPost]
         public ActionResult SaveOverallSpecsDetails(HomeVM model)
         {
-            bool result = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
+            bool result = false;
+            bool result1 = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
+
+            /****** Save Banijay Rights Measurments. Split the Save method into Measurements and Specifics *****************************************************************/
+            model.ChecklistBanijayRights.IsMeasurements = true;
+            bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
 
             string resultMsg = "Measurements saved successfully.";
+
+            result = (result1 && result2);
 
             if (!result) 
             { 
@@ -970,7 +979,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "Final QC [Id: {0}]; Rev No; {1}",
+                                            "Final QC [Id: {0}]; Rev No; {1} was viewed.",
                                              qcnum,
                                             revnum),
                                         Constants.ActivityType.FinalViewed);
@@ -1067,7 +1076,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                           $"Log QC [Id: {qcnum}]; Rev No; {revnum} was viewed",
+                                           $"Log QC [Id: {qcnum}]; Rev No; {revnum} was viewed.",
                                             Constants.ActivityType.LogViewed);
 
             /*******************************************************************************************/
@@ -1308,7 +1317,12 @@ namespace Deluxe.QCReport.Web.Controllers
             }
             else
             {
-                return Json(new { success = true, msg = "No QC copied. Please supply Work Order number and continue...", woNum = string.Empty }, JsonRequestBehavior.AllowGet);
+                return Json(
+                    new {
+                        success = true,
+                        msg = "No QC copied. Please supply Work Order number and continue...",
+                        woNum = string.Empty },
+                    JsonRequestBehavior.AllowGet);
             }
             
 
@@ -1332,7 +1346,11 @@ namespace Deluxe.QCReport.Web.Controllers
                 /*******************************************************************************************/
             }
 
-            return Json(new { success = result, msg = resultMsg, woNum = wonum }, JsonRequestBehavior.AllowGet);
+            return Json(
+                new { 
+                    success = result, 
+                    msg = resultMsg, woNum = wonum },
+                JsonRequestBehavior.AllowGet);
         }
 
         private int? GetUserId()
@@ -1463,17 +1481,19 @@ namespace Deluxe.QCReport.Web.Controllers
 
             /******************* Banijay Rights ****************************************************/
 
-            else if (customerName.ToLower().Contains("banijay")
-                || (customerName.ToLower().Contains("endemol")))
-            {
-                checklistPartial = "_ChecklistBanijayRights";
-                model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
-            }
+            //else if (customerName.ToLower().Contains("banijay")
+            //    || (customerName.ToLower().Contains("endemol")))
+            //{
+            //    checklistPartial = "_ChecklistBanijayRights";
+            //    model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
+            //}
 
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                             $"Checklist with Id {qcnum} and Rev No {revnum} for customer {customerName} was viewed.",
+                                             $"Checklist with Id {qcnum} and " +
+                                             $"Rev No {revnum} for customer {customerName}" +
+                                             $" was viewed.",
                                             Constants.ActivityType.ChecklistViewed);
 
             /*******************************************************************************************/
@@ -1529,13 +1549,13 @@ namespace Deluxe.QCReport.Web.Controllers
             }
 
             /*************** Banijay Rights ***********************************/
-            else if (model.ChecklistBanijayRights != null)
-            {
-                qcnum = model.ChecklistBanijayRights.Qcnum;
-                revnum = model.ChecklistBanijayRights.subQcnum;
-                t = typeof(ChecklistBanijayRights);
-                result = SaveChecklistBanijahRights(model, notSelected, t);
-            }
+            //else if (model.ChecklistBanijayRights != null)
+            //{
+            //    qcnum = model.ChecklistBanijayRights.Qcnum;
+            //    revnum = model.ChecklistBanijayRights.subQcnum;
+            //    t = typeof(ChecklistBanijayRights);
+            //    result = SaveChecklistBanijahRights(model, notSelected, t);
+            //}
 
             /**********************************************/
 
@@ -1557,7 +1577,10 @@ namespace Deluxe.QCReport.Web.Controllers
                 /*******************************************************************************************/
             }
 
-            return Json(new { success = result, msg = resultMsg });
+            return Json(
+                new { success = result, 
+                    msg = resultMsg }
+                );
         }
 
         private bool SaveChecklistDisney(HomeVM model, List<string> notSelected, Type t )
@@ -1669,35 +1692,35 @@ namespace Deluxe.QCReport.Web.Controllers
 
         }
 
-        private bool SaveChecklistBanijahRights(HomeVM model, List<string> notSelected, Type t)
-        {
+        //private bool SaveChecklistBanijahRights(HomeVM model, List<string> notSelected, Type t)
+        //{
            
-            object value;
+        //    object value;
 
-            // Should be modified and replace IsFile to FileToSpec across all the checklists
-            model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
+        //    // Should be modified and replace IsFile to FileToSpec across all the checklists
+        //    model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
 
-            foreach (var prop in t.GetProperties())
-            {
-                value = prop.GetValue(model.ChecklistBanijayRights);
+        //    foreach (var prop in t.GetProperties())
+        //    {
+        //        value = prop.GetValue(model.ChecklistBanijayRights);
 
-                if (value == null && prop.Name != "CustName")
-                {
-                    notSelected.Add(prop.Name);
-                }
+        //        if (value == null && prop.Name != "CustName")
+        //        {
+        //            notSelected.Add(prop.Name);
+        //        }
 
-            }
+        //    }
 
-            if (!notSelected.Any())
-            {
-                model.ChecklistBanijayRights.ChecklistCompleted = true;
-            }
+        //    if (!notSelected.Any())
+        //    {
+        //        model.ChecklistBanijayRights.ChecklistCompleted = true;
+        //    }
 
             
 
-            return  _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
+        //    return  _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
 
-        }
+        //}
 
         public ActionResult ClientSpecs(int qcnum, int revnum)
         {

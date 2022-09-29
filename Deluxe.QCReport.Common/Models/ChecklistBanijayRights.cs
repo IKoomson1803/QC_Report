@@ -8,7 +8,9 @@ namespace Deluxe.QCReport.Common.Models
 {
     public class ChecklistBanijayRights : ChecklistBase
     {
-       
+        public bool IsMeasurements { get; set; }
+
+       /************* MEASUREMENTS *****************************************/
         public bool? FileToSpec { get; set; }
         public bool? DecodeCheckPass { get; set; }
         public string Format { get; set; }
@@ -28,6 +30,9 @@ namespace Deluxe.QCReport.Common.Models
         public string ColourPrimariesPresent { get; set; }
         public string TransferCharacteristicsPresent { get; set; }
         public string MatrixCoefficientsPresent { get; set; }
+
+
+        /************** SPECIFICS **************************************************/
         public string DisplayAspectRatioCorrect { get; set; }
         public string InterlacedVsProgressiveCheckedAndCorrect { get; set; }
         public bool? DoesTheFileContainLineup { get; set; }

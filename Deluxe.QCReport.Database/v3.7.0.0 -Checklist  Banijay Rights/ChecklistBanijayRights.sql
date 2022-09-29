@@ -117,14 +117,15 @@ END
 
 GO
 
-/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 21/09/2022 12:01:53 ******/
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 29/09/2022 12:25:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
+ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 (
+    @IsMeasurements BIT, 
     @ChecklistId INT = 0,
 	@Qcnum INT,
 	@subQcnum INT,
@@ -331,71 +332,82 @@ BEGIN TRY
 		 END
 			   ELSE 
 				 BEGIN
-		           UPDATE [bward].[ChecklistBanijayRights] 
-				    SET [Qcnum] = @Qcnum,
-					[subQcnum] = @subQcnum,
-					[CustId] = @CustId,
-					[ChecklistCompleted] = @ChecklistCompleted,
-					[IsFile] = @IsFile,
-					[FileToSpec] = @FileToSpec,
-					[DecodeCheckPass] = @DecodeCheckPass,
-					[Format] = @Format,
-					[Standard] = @Standard,
-					[FrameRate] = @FrameRate,
-					[VideoBitRate] = @VideoBitRate,
-					[FrameSizeOrResolution] = @FrameSizeOrResolution,
-					[AspectRatio] = @AspectRatio,
-					[BitDepth] = @BitDepth,
-					[AudioBitRate] = @AudioBitRate,
-					[SampleRate] = @SampleRate,
-					[Discrete] = @Discrete,
-					[IsTheFileMetadataCorrect] = @IsTheFileMetadataCorrect,
-					[InterlacedOrProgressiveCorrectlyFlagged] = @InterlacedOrProgressiveCorrectlyFlagged,
-					[InterlacedOrProgressiveCorrectlyNotFlaggedReason] = @InterlacedOrProgressiveCorrectlyNotFlaggedReason,
-					[CLAPPresent] = @CLAPPresent,
-					[ColourPrimariesPresent] = @ColourPrimariesPresent,
-					[TransferCharacteristicsPresent] = @TransferCharacteristicsPresent,
-					[MatrixCoefficientsPresent] = @MatrixCoefficientsPresent,
-					[DisplayAspectRatioCorrect] = @DisplayAspectRatioCorrect,
-					[InterlacedVsProgressiveCheckedAndCorrect] = @InterlacedVsProgressiveCheckedAndCorrect,
-					[DoesTheFileContainLineup] = @DoesTheFileContainLineup,
-					[IsTheSlatePresentAndInformationCorrect] = @IsTheSlatePresentAndInformationCorrect,
-					[DoesTheProgrammeStartOnTheHour] = @DoesTheProgrammeStartOnTheHour,
-					[IsTheProgrammeSeamlessOrParted] = @IsTheProgrammeSeamlessOrParted,
-					[PartedBreaksLogged] = @PartedBreaksLogged,
-					[IfPartedSpecifyIfOneSecondBlackBetweenParts] = @IfPartedSpecifyIfOneSecondBlackBetweenParts,
-					[BumpersPresentAndLogged] = @BumpersPresentAndLogged,
-					[InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments] = @InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments,
-					[DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram] = @DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram,
-					[AreTextlessElementsPresent] = @AreTextlessElementsPresent,
-					[AreThereTextlessCoversForAllTextedShots] = @AreThereTextlessCoversForAllTextedShots,
-					[AreTheTextlessCoversTheSameTimingAsTextedShots] = @AreTheTextlessCoversTheSameTimingAsTextedShots,
-					[IsTheGradeAndAspectRatioTheSameAsTextedShots] = @IsTheGradeAndAspectRatioTheSameAsTextedShots,
-					[IsThere10SecondsOfBlackBetweenProgrammeAndTextless] = @IsThere10SecondsOfBlackBetweenProgrammeAndTextless,
-					[IsThere10SecondsOfBlackBeforeEndOfFile] = @IsThere10SecondsOfBlackBeforeEndOfFile,
-					[IsAudioLlayoutCorrect] = @IsAudioLlayoutCorrect,
-					[IsLineupToneCorrect] = @IsLineupToneCorrect,
-					[IsLoudnessR128APass] = @IsLoudnessR128APass,
-					[IsMAndEPresentAndComplete] = @IsMAndEPresentAndComplete,
-					[IsMixMinusNarrationPresentAndComplete] = @IsMixMinusNarrationPresentAndComplete,
-					[MonoVsStereoChecked] = @MonoVsStereoChecked,
-					[AudioInSync] = @AudioInSync,
-					[WAVSSupplied] = @WAVSSupplied,
-					[AllAssociatedWAVSPresent] = @AllAssociatedWAVSPresent,
-					[AllAssociatedWAVSNotPresentReason] = @AllAssociatedWAVSNotPresentReason,
-					[VideoComplianceCheckedAndLogged] = @VideoComplianceCheckedAndLogged,
-					[FlashingLightsOrEpilepsyWarningPresent] = @FlashingLightsOrEpilepsyWarningPresent,
-					[VideoContentCensoredBleepedOrBlurred] = @VideoContentCensoredBleepedOrBlurred,
-					[NudityPresent] = @NudityPresent,
-					[TimeSpecificTextPresent] = @TimeSpecificTextPresent,
-					[ProductPlacementPresent] = @ProductPlacementPresent,
-					[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags] = @CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
-					[AudioComplianceCheckedAndLogged] = @AudioComplianceCheckedAndLogged,
-					[AudioContentCensoredBleepedOrBlurred] = @AudioContentCensoredBleepedOrBlurred,
-					[ExtremeLanguagePresent] = @ExtremeLanguagePresent,
-					[TimeSpecificAudioPresent] = @TimeSpecificAudioPresent 
-      				WHERE [QCNum] = @QCNum
-					AND [subQCNum] = @subQCNum 
+		   --        UPDATE [bward].[ChecklistBanijayRights] 
+				 --   SET
+					--[ChecklistCompleted] = @ChecklistCompleted,
+					--[IsFile] = @IsFile,
+
+					IF @IsMeasurements = 1
+					  BEGIN  /*************** MEASUREMENTS  ********************************************/
+					    UPDATE [bward].[ChecklistBanijayRights] 
+						SET
+	   					[FileToSpec] = @FileToSpec,
+						[DecodeCheckPass] = @DecodeCheckPass,
+						[Format] = @Format,
+						[Standard] = @Standard,
+						[FrameRate] = @FrameRate,
+						[VideoBitRate] = @VideoBitRate,
+						[FrameSizeOrResolution] = @FrameSizeOrResolution,
+						[AspectRatio] = @AspectRatio,
+						[BitDepth] = @BitDepth,
+						[AudioBitRate] = @AudioBitRate,
+						[SampleRate] = @SampleRate,
+						[Discrete] = @Discrete,
+						[IsTheFileMetadataCorrect] = @IsTheFileMetadataCorrect,
+						[InterlacedOrProgressiveCorrectlyFlagged] = @InterlacedOrProgressiveCorrectlyFlagged,
+						[InterlacedOrProgressiveCorrectlyNotFlaggedReason] = @InterlacedOrProgressiveCorrectlyNotFlaggedReason,
+						[CLAPPresent] = @CLAPPresent,
+						[ColourPrimariesPresent] = @ColourPrimariesPresent,
+						[TransferCharacteristicsPresent] = @TransferCharacteristicsPresent,
+						[MatrixCoefficientsPresent] = @MatrixCoefficientsPresent
+						WHERE [QCNum] = @QCNum
+				        AND [subQCNum] = @subQCNum
+					  END
+                    ELSE
+					  BEGIN  /*********** SPECIFICS *****************************************************/
+					    UPDATE [bward].[ChecklistBanijayRights] 
+						SET
+						[DisplayAspectRatioCorrect] = @DisplayAspectRatioCorrect,
+						[InterlacedVsProgressiveCheckedAndCorrect] = @InterlacedVsProgressiveCheckedAndCorrect,
+						[DoesTheFileContainLineup] = @DoesTheFileContainLineup,
+						[IsTheSlatePresentAndInformationCorrect] = @IsTheSlatePresentAndInformationCorrect,
+						[DoesTheProgrammeStartOnTheHour] = @DoesTheProgrammeStartOnTheHour,
+						[IsTheProgrammeSeamlessOrParted] = @IsTheProgrammeSeamlessOrParted,
+						[PartedBreaksLogged] = @PartedBreaksLogged,
+						[IfPartedSpecifyIfOneSecondBlackBetweenParts] = @IfPartedSpecifyIfOneSecondBlackBetweenParts,
+						[BumpersPresentAndLogged] = @BumpersPresentAndLogged,
+						[InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments] = @InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments,
+						[DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram] = @DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram,
+						[AreTextlessElementsPresent] = @AreTextlessElementsPresent,
+						[AreThereTextlessCoversForAllTextedShots] = @AreThereTextlessCoversForAllTextedShots,
+						[AreTheTextlessCoversTheSameTimingAsTextedShots] = @AreTheTextlessCoversTheSameTimingAsTextedShots,
+						[IsTheGradeAndAspectRatioTheSameAsTextedShots] = @IsTheGradeAndAspectRatioTheSameAsTextedShots,
+						[IsThere10SecondsOfBlackBetweenProgrammeAndTextless] = @IsThere10SecondsOfBlackBetweenProgrammeAndTextless,
+						[IsThere10SecondsOfBlackBeforeEndOfFile] = @IsThere10SecondsOfBlackBeforeEndOfFile,
+						[IsAudioLlayoutCorrect] = @IsAudioLlayoutCorrect,
+						[IsLineupToneCorrect] = @IsLineupToneCorrect,
+						[IsLoudnessR128APass] = @IsLoudnessR128APass,
+						[IsMAndEPresentAndComplete] = @IsMAndEPresentAndComplete,
+						[IsMixMinusNarrationPresentAndComplete] = @IsMixMinusNarrationPresentAndComplete,
+						[MonoVsStereoChecked] = @MonoVsStereoChecked,
+						[AudioInSync] = @AudioInSync,
+						[WAVSSupplied] = @WAVSSupplied,
+						[AllAssociatedWAVSPresent] = @AllAssociatedWAVSPresent,
+						[AllAssociatedWAVSNotPresentReason] = @AllAssociatedWAVSNotPresentReason,
+						[VideoComplianceCheckedAndLogged] = @VideoComplianceCheckedAndLogged,
+						[FlashingLightsOrEpilepsyWarningPresent] = @FlashingLightsOrEpilepsyWarningPresent,
+						[VideoContentCensoredBleepedOrBlurred] = @VideoContentCensoredBleepedOrBlurred,
+						[NudityPresent] = @NudityPresent,
+						[TimeSpecificTextPresent] = @TimeSpecificTextPresent,
+						[ProductPlacementPresent] = @ProductPlacementPresent,
+						[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags] = @CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
+						[AudioComplianceCheckedAndLogged] = @AudioComplianceCheckedAndLogged,
+						[AudioContentCensoredBleepedOrBlurred] = @AudioContentCensoredBleepedOrBlurred,
+						[ExtremeLanguagePresent] = @ExtremeLanguagePresent,
+						[TimeSpecificAudioPresent] = @TimeSpecificAudioPresent 
+      					WHERE [QCNum] = @QCNum
+						AND [subQCNum] = @subQCNum 
+				 END
 		 END 
 	 
     END TRY

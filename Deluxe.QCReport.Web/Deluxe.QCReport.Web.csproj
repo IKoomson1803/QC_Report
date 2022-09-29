@@ -279,7 +279,7 @@
     <Content Include="Views\AdvancedSearch\_Search.cshtml" />
     <Content Include="Views\Administration\_ClientPartial.cshtml" />
     <Content Include="Specifications\Disney\Schedule D %28Technical Specification for Delivery Materials%29 Disney_Final.pdf" />
-    <Content Include="Views\Job\_Measurements_ESI.cshtml" />
+    <Content Include="Views\Job\_ESIMeasurements.cshtml" />
     <Content Include="Views\Job\_ChecklistWarner.cshtml" />
     <Content Include="Views\Job\_ESIHeader.cshtml" />
     <Content Include="Views\Job\_ESIHistory.cshtml" />

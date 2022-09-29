@@ -145,12 +145,12 @@ namespace Deluxe.QCReport.Web.Controllers
                 }
 
                 /************************** DPP Eyeball *******************************************************/
-                else if (customerName.ToLower().Contains("banijay")
-                   || customerName.ToLower().Contains("endemol"))
-                {
-                    checklist = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
-                    checklistRequired = true;
-                }
+                //else if (customerName.ToLower().Contains("banijay")
+                //   || customerName.ToLower().Contains("endemol"))
+                //{
+                //    checklist = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
+                //    checklistRequired = true;
+                //}
 
 
                 if (checklistRequired)
