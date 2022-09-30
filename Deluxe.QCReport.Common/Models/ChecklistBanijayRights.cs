@@ -13,6 +13,7 @@ namespace Deluxe.QCReport.Common.Models
        /************* MEASUREMENTS *****************************************/
         public bool? FileToSpec { get; set; }
         public bool? DecodeCheckPass { get; set; }
+        public string ConfirmVideoFormat { get; set; }
         public string Format { get; set; }
         public string Standard { get; set; }
         public string FrameRate { get; set; }

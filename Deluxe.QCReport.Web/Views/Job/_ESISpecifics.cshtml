@@ -229,12 +229,35 @@
          $(".subMenuOnClick").removeClass("subMenuOnClick")
          $('#lnkQcESISpecifics').addClass("subMenuOnClick");
      }
-         
+
+     function toggleWAVsFlag() {
+
+         $("input[name='ChecklistBanijayRights.AllAssociatedWAVSPresent']").change(function () {
+             if ($(this).val() === 'False') {
+                 $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').show();
+             } else if ($(this).val() === 'True') {
+                 $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').hide();
+                 $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').val('');
+             }
+         });
+
+     }
+
+     function initializeWAVsFlag() {
+
+
+         if ($('#ChecklistBanijayRights_AllAssociatedWAVSPresent:checked').val() == 'False') {
+             $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').show();;
+         }
+     }
+
 
      $(function () {
          $(function () {
 
              setActiveButton();
+             initializeWAVsFlag();
+             toggleWAVsFlag();
 
              $('#btnSave').on("click", function () {
 

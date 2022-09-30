@@ -18,6 +18,7 @@ CREATE TABLE [bward].[ChecklistBanijayRights](
 	[IsFile] [bit] NULL,
 	[FileToSpec] [bit] NULL,
 	[DecodeCheckPass] [bit] NULL,
+	[ConfirmVideoFormat] [varchar](50) NULL,
 	[Format] [varchar](50) NULL,
 	[Standard] [varchar](50) NULL,
 	[FrameRate] [varchar](50) NULL,
@@ -117,13 +118,13 @@ END
 
 GO
 
-/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 29/09/2022 12:25:12 ******/
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 30/09/2022 14:44:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
+CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 (
     @IsMeasurements BIT, 
     @ChecklistId INT = 0,
@@ -134,6 +135,7 @@ ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 	@IsFile BIT = NULL,
 	@FileToSpec BIT = NULL,
 	@DecodeCheckPass BIT = NULL,
+	@ConfirmVideoFormat VARCHAR(50) = NULL,
 	@Format VARCHAR(50) = NULL,
 	@Standard VARCHAR(50) = NULL,
 	@FrameRate VARCHAR(50) = NULL,
@@ -211,6 +213,7 @@ BEGIN TRY
 				[IsFile],
 				[FileToSpec],
 				[DecodeCheckPass],
+                [ConfirmVideoFormat],
 				[Format],
 				[Standard],
 				[FrameRate],
@@ -274,6 +277,7 @@ BEGIN TRY
 				@IsFile,
 				@FileToSpec,
 				@DecodeCheckPass,
+				@ConfirmVideoFormat,
 				@Format,
 				@Standard,
 				@FrameRate,
@@ -343,6 +347,7 @@ BEGIN TRY
 						SET
 	   					[FileToSpec] = @FileToSpec,
 						[DecodeCheckPass] = @DecodeCheckPass,
+						[ConfirmVideoFormat] = @ConfirmVideoFormat,
 						[Format] = @Format,
 						[Standard] = @Standard,
 						[FrameRate] = @FrameRate,

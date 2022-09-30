@@ -1873,7 +1873,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveESISpecifics(HomeVM model)
         {
             bool result1 = _esiSpecificsService.SaveESISpecifics(model.ESISpecificsVM);
-            model.ChecklistBanijayRights.IsMeasurements = true;
+            model.ChecklistBanijayRights.IsMeasurements = false;
             bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
             var result = (result1 && result2);
             string resultMsg = "ESI Specifics saved successfully.";

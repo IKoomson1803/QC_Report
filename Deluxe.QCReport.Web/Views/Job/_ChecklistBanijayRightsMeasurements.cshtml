@@ -4,8 +4,12 @@
 @*<div id="tab1" class="tab-content" style="display:none;">*@
 
     <div class="row">
-        <div class="col-sm-6">
-            <span class="ChecklistBigHeader">Checklist</span>
+           <div class="col-sm-6">
+                  <div class="row">
+                    <div class="col-xs-12 text-center  ChecklistBigHeader">
+                        Checklist
+                    </div>
+                </div>
             
 
             <div class="row">
@@ -39,7 +43,7 @@
                             <label class="control-label">Confirm the video format: </label>
                         </div>
                         <div class="col-sm-6 form-group float-left">
-                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.Format, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.ConfirmVideoFormat, new { @class = "form-control" })
                         </div>
 
                     </div>
