@@ -11,4 +11,3 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\R
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\FastMember.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\ExcelNumberFormat.xml
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Release\DocumentFormat.OpenXml.dll
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Release\Deluxe.QCReport.Common.csproj.AssemblyReference.cache

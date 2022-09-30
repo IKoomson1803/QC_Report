@@ -23,6 +23,11 @@
 
     </div>
 
+    <div class="row">
+        <div class="col-xs-12">
+            &nbsp;
+        </div>
+   </div>
 
     @using (Html.BeginForm("SaveOverallSpecsDetails", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
@@ -189,7 +194,7 @@
         if (Model.OverallSpecs_VM.AssetType.ToLower() == "file")
         {
 
-            <div class="bs-callout bs-callout-default">
+            @*<div class="bs-callout bs-callout-default">*@
                 @*<b style="font-size:14px;">File Measurements</b>*@
 
                 <div class="row" style="margin-top: -20px;">
@@ -262,19 +267,22 @@
 
 
 
-            </div>
+            @*</div>*@
+
+
         }
 
 
 
-        @{
-            Html.RenderPartial("_ChecklistBanijayRightsMeasurements", Model);
-           
-        }
+        <div class="tab-content-wrapper">
+            @{
+                Html.RenderPartial("_ChecklistBanijayRightsMeasurements", Model);
+            }
+        </div>
 
 
 
-    }
+                }
 
 
 

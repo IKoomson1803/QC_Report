@@ -202,9 +202,11 @@
 
         </div>
 
-        @{
-            Html.RenderPartial("_ChecklistBanijaRightsSpecifics", Model);
-        }
+        <div class="tab-content-wrapper">
+            @{
+                 Html.RenderPartial("_ChecklistBanijaRightsSpecifics", Model);
+            }
+        </div>
 
     }
 

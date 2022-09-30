@@ -25,6 +25,8 @@ namespace Deluxe.QCReport.Web
 
 
             var allErrors = Context.AllErrors;
+
+            var errorMessage = Context.Profile;
         }
 
     }

@@ -1817,8 +1817,16 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
 
+            var customerDetails = _clientService.GetClientDetails(qcnum, revnum);
+            var customerId = customerDetails.CustID;
+
+           
+           
+
             HomeVM model = new HomeVM();
             model.ESISpecificsVM = _esiSpecificsService.GetESISpecifics(qcnum, revnum) as ESISpecifics;
+            model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
+
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.YesNoList = LookUpsService.GetYesNo();
             model.YesNoNAList = LookUpsService.GetYesNoNA();
@@ -1864,10 +1872,12 @@ namespace Deluxe.QCReport.Web.Controllers
         [HttpPost]
         public ActionResult SaveESISpecifics(HomeVM model)
         {
-            bool result = _esiSpecificsService.SaveESISpecifics(model.ESISpecificsVM);
-
+            bool result1 = _esiSpecificsService.SaveESISpecifics(model.ESISpecificsVM);
+            model.ChecklistBanijayRights.IsMeasurements = true;
+            bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
+            var result = (result1 && result2);
             string resultMsg = "ESI Specifics saved successfully.";
-
+           
             if (!result)
             {
                 resultMsg = "ESI Specifics saving failed !";
