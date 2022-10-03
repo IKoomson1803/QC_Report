@@ -1,7 +1,7 @@
  <% If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %>
      <table width="100%" border="1" cellspacing="0" cellpadding="0" >	 
            <tr >
-			<td align="center" colspan="5" > 
+			<td align="center" colspan="4" > 
             <font class="txt_italic" size="3"><b>FILE & MEASUREMENTS</b></font>
           </td>
 	 </tr>

@@ -268,7 +268,7 @@ rsSpecifics.Open sqlSpecifics
 
 
 
-<table width="100%" class="blackSquare" >
+<table width="100%" class="blackSquare" style="border-bottom: none;>
  
    <tr> 
       <td >&nbsp;Banijay Rights / ESI End Credit / Logo: <b>&nbsp;<%=rsSpecifics.Fields("ESIEndCreditOrLogo")%></b></td>
