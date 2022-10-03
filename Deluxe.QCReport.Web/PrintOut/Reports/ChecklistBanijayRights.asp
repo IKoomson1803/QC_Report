@@ -336,8 +336,8 @@
 					   <td style="width:60%;padding-left:3px">Confirm the video format:</td>
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
-							   If Not IsNull(rsChecklistBanijayRights.Fields("Format")) Then
-								  Response.Write  rsChecklistBanijayRights.Fields("Format") 
+							   If Not IsNull(rsChecklistBanijayRights.Fields("ConfirmVideoFormat")) Then
+								  Response.Write  rsChecklistBanijayRights.Fields("ConfirmVideoFormat") 
 							  End If
 						  %>
 						</td>
@@ -962,37 +962,6 @@
 		   </td>
      </tr>
 	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
 	  
 </table>		  
  <%

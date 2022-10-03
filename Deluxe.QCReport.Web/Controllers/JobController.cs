@@ -900,7 +900,8 @@ namespace Deluxe.QCReport.Web.Controllers
             bool result1 = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
 
             /****** Save Banijay Rights Measurments. Split the Save method into Measurements and Specifics *****************************************************************/
-            model.ChecklistBanijayRights.IsMeasurements = true;
+            model.ChecklistBanijayRights.IsMeasurements = true;// Should be modified and replace IsFile to FileToSpec across all the checklists
+            model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
             bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
 
             string resultMsg = "Measurements saved successfully.";
@@ -1692,35 +1693,35 @@ namespace Deluxe.QCReport.Web.Controllers
 
         }
 
-        //private bool SaveChecklistBanijahRights(HomeVM model, List<string> notSelected, Type t)
-        //{
-           
-        //    object value;
+        private bool SaveChecklistBanijahRights(HomeVM model, List<string> notSelected, Type t)
+        {
 
-        //    // Should be modified and replace IsFile to FileToSpec across all the checklists
-        //    model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
+            object value;
 
-        //    foreach (var prop in t.GetProperties())
-        //    {
-        //        value = prop.GetValue(model.ChecklistBanijayRights);
+            // Should be modified and replace IsFile to FileToSpec across all the checklists
+            model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
 
-        //        if (value == null && prop.Name != "CustName")
-        //        {
-        //            notSelected.Add(prop.Name);
-        //        }
+            foreach (var prop in t.GetProperties())
+            {
+                value = prop.GetValue(model.ChecklistBanijayRights);
 
-        //    }
+                if (value == null && prop.Name != "CustName")
+                {
+                    notSelected.Add(prop.Name);
+                }
 
-        //    if (!notSelected.Any())
-        //    {
-        //        model.ChecklistBanijayRights.ChecklistCompleted = true;
-        //    }
+            }
 
-            
+            if (!notSelected.Any())
+            {
+                model.ChecklistBanijayRights.ChecklistCompleted = true;
+            }
 
-        //    return  _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
 
-        //}
+
+            return _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
+
+        }
 
         public ActionResult ClientSpecs(int qcnum, int revnum)
         {

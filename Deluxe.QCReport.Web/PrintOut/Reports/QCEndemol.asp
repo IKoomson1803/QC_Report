@@ -188,7 +188,7 @@ rsVidAud.Open sqlVidAud
 
 
 
-<table width="100%" class="blackSquare">
+<table width="100%" class="blackSquare" style="border-bottom: none;">
   <tr>
     <td>
 	<% If sAssetType = "Tape" Then %>
@@ -232,7 +232,15 @@ rsVidAud.Open sqlVidAud
 	<% End If %>
     </td>
   </tr>
+  <tr>
+      <td>
+	     
+	  </td>
+  </tr>
 </table>
+
+<!--#include file="ChecklistBanijayRightsMeasurements.asp" -->
+
 
 
 
@@ -287,6 +295,8 @@ rsSpecifics.Open sqlSpecifics
 Set rsSpecifics = Nothing
 
 %>
+
+<!--#include file="ChecklistBanijayRightsSpecifics.asp" -->
 
 <!-- End Specifics -->
 
@@ -405,34 +415,6 @@ Set rsVidAud = Nothing
 
 <!-- End Video And Audio -->
 
-<div class="PageBreak"></div>
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       Banijay Rights</h2>
-    </td>
-	<!--
-    <td align="right">
-		Page:&nbsp;1&nbsp;of&nbsp;2
-    </td>
-	-->
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
-
- <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table> 
-
-
-<!--#include file="ChecklistBanijayRights.asp" -->
  
  
 <!-- START  LOG  -->
