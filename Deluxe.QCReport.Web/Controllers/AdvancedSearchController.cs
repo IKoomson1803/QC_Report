@@ -113,8 +113,16 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Search(SearchParamsVM model)
+        public ActionResult Search(SearchParamsVM model, string statuses)
         {
+
+            if (!string.IsNullOrWhiteSpace(statuses))
+            {
+                char[] trimChars = { ',' };
+                statuses = statuses.Trim().TrimEnd(trimChars);
+                model.Statuses = statuses;
+            }
+
             bool canSearch = CanSearch(model);
 
             if (!canSearch)
@@ -216,6 +224,7 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             SearchParams searchCriteria = new SearchParams()
             {
+                WorkOrderNumber = StringUtil.EnsureIsNull(searchParams.WorkOrderNumber),
                 Statuses = StringUtil.EnsureIsNull(searchParams.Statuses),
                 Filename = StringUtil.EnsureIsNull(searchParams.Filename),
                 TapeNumber = StringUtil.EnsureIsNull(searchParams.TapeNumber),
@@ -332,7 +341,8 @@ namespace Deluxe.QCReport.Web.Controllers
             bool canSearch = true;
 
            
-            if (string.IsNullOrWhiteSpace(searchParams.Filename)
+            if (string.IsNullOrWhiteSpace(searchParams.WorkOrderNumber)
+                    && string.IsNullOrWhiteSpace(searchParams.Filename)
                      && string.IsNullOrWhiteSpace(searchParams.ClientName)
                      && string.IsNullOrWhiteSpace(searchParams.TapeNumber)
                      && string.IsNullOrWhiteSpace(searchParams.QCUser)

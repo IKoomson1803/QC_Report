@@ -122,21 +122,15 @@ namespace Deluxe.QCReport.Common.Repositories
 
 
                     _cmd.Connection.Open();
-
-                    if (_cmd.ExecuteNonQuery() != 1)
-                    {
-                        result = false;
-                        // TODO  : add loggig error here
-
-                    }
-                    else { result = true; }
-
-                    _cmd.Connection.Close();
+                   _cmd.ExecuteNonQuery();
+                    result = true;
+                   _cmd.Connection.Close();
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                var errorMessage = ex.Message;
                 result = false;
                 throw;
             }

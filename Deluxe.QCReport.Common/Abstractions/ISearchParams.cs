@@ -8,7 +8,7 @@ namespace Deluxe.QCReport.Common.Abstractions
 {
     public interface ISearchParams
     {
-        
+        string WorkOrderNumber { get; set; }
         string TapeNumber { get; set; }
         string QCUser { get; set; }
         string QCUser2 { get; set; }

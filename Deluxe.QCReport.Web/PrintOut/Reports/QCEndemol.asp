@@ -271,22 +271,22 @@ rsSpecifics.Open sqlSpecifics
 <table width="100%" class="blackSquare" style="border-bottom: none;>
  
    <tr> 
-      <td >&nbsp;Banijay Rights / ESI End Credit / Logo: <b>&nbsp;<%=rsSpecifics.Fields("ESIEndCreditOrLogo")%></b></td>
-   	  <td >&nbsp;Seamless Or Parted: <b>&nbsp;<%=rsSpecifics.Fields("SeamlessOrParted")%></b></td>
-      <td >&nbsp;Is Textless Present: <b>&nbsp;<%=rsSpecifics.Fields("IsTextlessPresent")%></b></td>
+      <td style="padding-left:2px">Banijay Rights / ESI End Credit / Logo: <b>&nbsp;<%=rsSpecifics.Fields("ESIEndCreditOrLogo")%></b></td>
+   	  <td style="padding-left:2px">Seamless Or Parted: <b><%=rsSpecifics.Fields("SeamlessOrParted")%></b></td>
+      <td style="padding-left:2px">Is Textless Present: <b<%=rsSpecifics.Fields("IsTextlessPresent")%></b></td>
    </tr>
    <tr ><td colspan="3">&nbsp;</td></tr>
    <tr> 
-      <td >&nbsp;Content Censored - Bleeped Or Blurred: <b>&nbsp;<%=rsSpecifics.Fields("ContentCensoredBleepedOrBlurred")%></b></td>
-      <td >&nbsp;Flashing Lights / Epilepsy Warning Present: <b>&nbsp;<%=rsSpecifics.Fields("FlashingLightsOrEpilepsyWarningPresent")%></b></td>
-      <td >&nbsp;Time Specific Text Or Audio Present: <b>&nbsp;<%=rsSpecifics.Fields("TimeSpecificTextOrAudioPresent")%></b></td>
+      <td style="padding-left:2px">Content Censored - Bleeped Or Blurred: <b>&nbsp;<%=rsSpecifics.Fields("ContentCensoredBleepedOrBlurred")%></b></td>
+      <td style="padding-left:2px">Flashing Lights / Epilepsy Warning Present: <b>&nbsp;<%=rsSpecifics.Fields("FlashingLightsOrEpilepsyWarningPresent")%></b></td>
+      <td style="padding-left:2px">Time Specific Text Or Audio Present: <b>&nbsp;<%=rsSpecifics.Fields("TimeSpecificTextOrAudioPresent")%></b></td>
    </tr>
     <tr ><td colspan="3">&nbsp;</td></tr>
    <tr> 
-      <td >&nbsp;Extreme Language Present: <b>&nbsp;<%=rsSpecifics.Fields("ExtremeLanguagePresent")%></b></td>
-      <td >&nbsp;Nudity Present: <b>&nbsp;<%=rsSpecifics.Fields("NudityPresent")%></b></td>
-      <td >&nbsp;Is M&E Present and Complete: <b>&nbsp;<%=rsSpecifics.Fields("IsMandEComplete")%></b></td>
-	   <td >&nbsp;Is Mix Minus Narration Present and Complete: <b>&nbsp;<%=rsSpecifics.Fields("IsMixMinusNarrationPresentandComplete")%></b></td>
+      <td style="padding-left:2px">Extreme Language Present: <b>&nbsp;<%=rsSpecifics.Fields("ExtremeLanguagePresent")%></b></td>
+      <td style="padding-left:2px">Nudity Present: <b>&nbsp;<%=rsSpecifics.Fields("NudityPresent")%></b></td>
+      <td style="padding-left:2px">Is M&E Present and Complete: <b>&nbsp;<%=rsSpecifics.Fields("IsMandEComplete")%></b></td>
+	   <td style="padding-left:2px">Is Mix Minus Narration Present and Complete: <b>&nbsp;<%=rsSpecifics.Fields("IsMixMinusNarrationPresentandComplete")%></b></td>
    </tr>
  
 </table>

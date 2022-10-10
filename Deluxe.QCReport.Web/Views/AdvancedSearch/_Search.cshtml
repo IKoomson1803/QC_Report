@@ -2,6 +2,7 @@
 
 @{ 
     var statuses = Model.StatusList;
+    var statusCount = Model.StatusList.Count;
 
  }
 
@@ -28,7 +29,13 @@
                     @Html.TextBoxFor(m => m.Filename, new { @class = "form-control" })
                 </div>
 
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">Work Order Number:</label>
+                </div>
 
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.WorkOrderNumber, new { @class = "form-control", @style = "width:90px" })
+                </div>
 
             </div>
         </div>
@@ -148,27 +155,27 @@
 
 
                 <div class="col-sm-4 form-group">
-
-                    @Html.DropDownListFor(m => m.Statuses, new SelectList(Model.StatusList, "value", "value"), "-- Select Status --", new { @class = "form-control" })
+                    @*&nbsp;&nbsp;  <span id="ClearStatus" onclick="clearStatuses()" class="glyphicon glyphicon-remove-circle" style="color:red;cursor:pointer;" title="Clear Statuses"></span>*@
+                    @Html.DropDownListFor(m => m.Statuses, new SelectList(Model.StatusList, "value", "value"), "")
 
 
                     @*<select id="Statuses" name="Statuses" style="display:none;">
 
 
-                            @if (statuses != null)
-                            {
-                                <option value="">--Select Status--- </option>
+            @if (statuses != null)
+            {
+                <option value="">--Select Status--- </option>
 
 
 
-                                foreach (var item in statuses)
-                                {
-                                    <option value="@item.Value.Trim()">
-                                        @item.Value.Trim()
-                                    </option>
-                                }
-                            }
-                        </select>*@
+                foreach (var item in statuses)
+                {
+                    <option value="@item.Value.Trim()">
+                        @item.Value.Trim()
+                    </option>
+                }
+            }
+        </select>*@
 
                 </div>
             </div>
@@ -301,6 +308,15 @@
     var revisedByUsers = [];
     var clients = [];
 
+   
+
+    function clearStatuses() {
+        if ($("#Statuses").val() != '') {
+            $("#Statuses")[0].selectize.clear();
+        }
+
+    }
+
     $(function () {
 
 
@@ -352,7 +368,7 @@
 
             var pageValid = isPageValid();
 
-            
+
 
             /*******Split and rebuild as comma delimited string**************************************************/
 
@@ -375,17 +391,25 @@
             if (pageValid) {
 
                 $.blockUI({ message: 'Please wait...' });
-                               
+
 
                 //$('.cssload-preloader').fadeIn();
                 //$('#form_AdvanceSearch').submit();
 
-               var formData = $('#form_AdvanceSearch').serializeObject();
+                var formData = $('#form_AdvanceSearch').serializeObject();
+
+                var myStatuses = '';
+                var aStatuses = $('#Statuses').val();
+
+                //Build ',' delimited string
+                $.each(aStatuses, function (index, status) {
+                    myStatuses += status + ','
+                });
 
                 //var formData = {
                 //    QCUser: $('#QCUser').val()
-                  
-                   
+
+
                 //}
 
                 //$.ajax({
@@ -400,18 +424,20 @@
                 //    }
                 //});
 
+                //data: {status: status, name: name}
+
 
                 $.ajax({
                     url: '/AdvancedSearch/Search',
                     cache: false,
-                    data: formData, //JSON.stringify(formData),
+                    data: { model: formData, statuses: myStatuses }, //JSON.stringify(formData),
                     type: 'POST',
                     //dataType: "json",
                     //contentType: "application/json",
                     success: function (data) {
 
                         $('.cssload-preloader').hide();
-                       
+
                         if (data.partial != '') {
                             $('#divContent').html(data.partial);
                         }
@@ -439,10 +465,10 @@
         //$('#btnResetFilter').on("click", function () {
 
         //      $.get('/AdvancedSearch/ResetForm', { model: null }).done(function (data) {
-                                   
+
         //          resetFilter();
         //        if (data.success == true) {
-                   
+
         //           // resetFilter();
         //        }
         //        else {
@@ -464,7 +490,7 @@
             resetFilter();
         });
 
-       
+
 
 
 
@@ -473,12 +499,12 @@
 
     function searchSuccessful(data) {
         alert(data)
-                  
+
         if (data.Partial != '') {
             alert(data.Partial)
                  $('.cssload-preloader').hide();
                 $('#divContent').html(data.Partial);
-              
+
        }
         else {
             Msg.error(data.msg, 5 * 1000);;
@@ -579,11 +605,13 @@
 
 
         /***********Reset Multi-Select DDL*****************************************/
-        $('#Statuses option:selected').each(function () {
-            $(this).prop('selected', false);
-        })
-        $('#Statuses').multiselect('rebuild');
-        $('#Statuses').multiselect('refresh');
+        //$('#Statuses option:selected').each(function () {
+        //    $(this).prop('selected', false);
+        //})
+        //$('#Statuses').multiselect('rebuild');
+        //$('#Statuses').multiselect('refresh');
+
+        clearStatuses();
 
     /****************************************************/
 
@@ -678,17 +706,22 @@
 
     function initializeMultiSelectChecboxList() {
 
-        $('#Statuses').multiselect({
-             multiple: false,
-            includeSelectAllOption: true,
-            enableCaseInsensitiveFiltering: true,
-            maxHeight: 200,
-            nonSelectedText: 'Select Status...',
-            allSelectedText: 'No option left ...',
-            delimiterText: '\n',
-            numberDisplayed: 1,
-            buttonWidth: '200px',
-            
+        //$('#Statuses').multiselect({
+        //     multiple: true,
+        //    includeSelectAllOption: true,
+        //    enableCaseInsensitiveFiltering: true,
+        //    maxHeight: 200,
+        //    nonSelectedText: 'Select Status...',
+        //    allSelectedText: 'No option left ...',
+        //    delimiterText: '\n',
+        //    numberDisplayed: 1,
+        //    buttonWidth: '200px',
+
+        //});
+
+        $("#Statuses").selectize({
+            maxItems: @statusCount,
+            plugins: ['remove_button']
         });
 
     }

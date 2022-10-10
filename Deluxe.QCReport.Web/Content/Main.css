@@ -639,3 +639,15 @@ table.dataTable thead .sorting_desc:after {
 }
 /*********End Dropzone Overrides ******************************************************************/
 
+.multiselect-container, .dropdown-menu{
+    padding-left: 5px;
+    line-height: 20px;
+}
+
+    .dropdown-menu > li > a {
+        /*padding: 5px 5px 5px 5px;*/
+    }
+
+.selectize-input{
+    width:350px !important;
+}
