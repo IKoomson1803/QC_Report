@@ -30,8 +30,6 @@
     </div>
 
 
-    @*<div class="row" style="height:500px; overflow-y:auto;overflow-x:hidden;">*@
-
     @using (Html.BeginForm("SaveESISpecifics", "Job", FormMethod.Post, new { @class = "form-horizontal", @id = "form_jobdetails" }))
     {
         @Html.HiddenFor(m => Model.ESISpecificsVM.Qcnum)
@@ -41,177 +39,12 @@
         @Html.HiddenFor(m => m.ChecklistBanijayRights.ChecklistId);
         @Html.HiddenFor(m => m.ChecklistBanijayRights.CustId);
 
-        <div class="row">
-
-            <div class="col-xs-4 form-group">
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Banijay Rights / ESI End Credit / Logo:</label>
-            </div>
-
-            <div class="col-xs-2 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.ESIEndCreditOrLogo, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.ESIEndCreditOrLogo), "", new { @class = "form-control", @style = "width:50px" })
-            </div>
-
-
-
-            @*@if (Model.ESISpecificsVM.CustName.ToLower().Contains("endemol"))
-                {
-                    <div class="col-xs-4 form-group">
-                        <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;ESI End Credit / Logo:</label>
-                    </div>
-
-                    <div class="col-xs-2 form-group">
-                        @Html.DropDownListFor(m => m.ESISpecificsVM.ESIEndCreditOrLogo, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.ESIEndCreditOrLogo), "", new { @class = "form-control", @style = "width:50px" })
-                    </div>
-
-                }
-                else if (Model.ESISpecificsVM.CustName.ToLower().Contains("banijay"))
-                {
-                    <div class="col-xs-4 form-group">
-                        <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Banijay Rights End Credit / Logo:</label>
-                    </div>
-
-                    <div class="col-xs-2 form-group">
-                        @Html.DropDownListFor(m => m.ESISpecificsVM.ESIEndCreditOrLogo, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.ESIEndCreditOrLogo), "", new { @class = "form-control", @style = "width:50px" })
-                    </div>
-
-                }
-                else if (Model.ESISpecificsVM.QCType == "E")
-                {
-                    <div class="col-xs-4 form-group">
-                        <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;ESI End Credit / Logo:</label>
-                    </div>
-
-                    <div class="col-xs-2 form-group">
-                        @Html.DropDownListFor(m => m.ESISpecificsVM.ESIEndCreditOrLogo, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.ESIEndCreditOrLogo), "", new { @class = "form-control", @style = "width:50px" })
-                    </div>
-
-                }*@
-
-
-
-
-
-
-            <div class="col-xs-4 form-group">
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Seamless Or Parted:</label>
-            </div>
-            <div class="col-xs-1 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.SeamlessOrParted, new SelectList(Model.SeamlessOrPartedList, "value", "value", Model.ESISpecificsVM.SeamlessOrParted), "", new { @class = "form-control", @style = "width:90px" })
-
-            </div>
-
-
-        </div>
-
-        <div class="row">
-
-
-            <div class="col-xs-4 form-group">
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Is Textless Present:</label>
-            </div>
-            <div class="col-xs-2 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.IsTextlessPresent, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.IsTextlessPresent), "", new { @class = "form-control", @style = "width:50px" })
-
-            </div>
-
-            <div class="col-xs-4 form-group">
-
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Content Censored - Bleeped Or Blurred:</label>
-            </div>
-            <div class="col-xs-1 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.ContentCensoredBleepedOrBlurred, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.ContentCensoredBleepedOrBlurred), "", new { @class = "form-control", @style = "width:50px" })
-
-            </div>
-
-
-
-
-
-        </div>
-
-        <div class="row">
-            <div class="col-xs-4 form-group">
-
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Flashing Lights/Epilepsy Warning Present:</label>
-
-            </div>
-            <div class="col-xs-2 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.FlashingLightsOrEpilepsyWarningPresent, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.FlashingLightsOrEpilepsyWarningPresent), "", new { @class = "form-control", @style = "width:50px" })
-
-            </div>
-
-            <div class="col-xs-4 form-group">
-
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Time Specific Text Or Audio Present:</label>
-
-            </div>
-            <div class="col-xs-1 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.TimeSpecificTextOrAudioPresent, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.TimeSpecificTextOrAudioPresent), "", new { @class = "form-control", @style = "width:50px" })
-
-            </div>
-
-
-
-        </div>
-
-        <div class="row">
-
-
-            <div class="col-xs-4 form-group">
-
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Extreme Language Present:</label>
-            </div>
-            <div class="col-xs-2 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.ExtremeLanguagePresent, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.ExtremeLanguagePresent), "", new { @class = "form-control", @style = "width:50px" })
-
-            </div>
-
-
-            <div class="col-xs-4 form-group">
-
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;Nudity Present:</label>
-
-            </div>
-            <div class="col-xs-1 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.NudityPresent, new SelectList(Model.YesNoList, "value", "value", Model.ESISpecificsVM.NudityPresent), "", new { @class = "form-control", @style = "width:50px" })
-            </div>
-
-
-        </div>
-
-        <div class="row">
-
-
-            <div class="col-xs-4 form-group">
-
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp; Is M&E Present and Complete:</label>
-
-            </div>
-            <div class="col-xs-2 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.IsMandEComplete, new SelectList(Model.YesNoNAList, "value", "value", Model.ESISpecificsVM.IsMandEComplete), "", new { @class = "form-control", @style = "width:50px" })
-            </div>
-
-            <div class="col-xs-4 form-group">
-
-                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;  Is Mix Minus Narration Present and Complete:</label>
-
-            </div>
-            <div class="col-xs-2 form-group">
-                @Html.DropDownListFor(m => m.ESISpecificsVM.IsMixMinusNarrationPresentandComplete, new SelectList(Model.YesNoNAList, "value", "value", Model.ESISpecificsVM.IsMixMinusNarrationPresentandComplete), "", new { @class = "form-control", @style = "width:50px" })
-            </div>
-
-        </div>
-
+        
         <div class="tab-content-wrapper">
-            @{
-                 Html.RenderPartial("_ChecklistBanijaRightsSpecifics", Model);
-            }
+            @{Html.RenderPartial("_ChecklistBanijaRightsSpecifics", Model); }
         </div>
 
     }
-
-    @*</div>*@
-
 
 
     <div class="row" style="margin-top:20px;">
@@ -223,7 +56,7 @@
     </div>
 </div>
 
- <script>
+<script>
 
      function setActiveButton() {
          $(".subMenuOnClick").removeClass("subMenuOnClick")
@@ -290,6 +123,6 @@
      });
 
 
-       
+
 
 </script>

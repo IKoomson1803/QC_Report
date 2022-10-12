@@ -1821,9 +1821,6 @@ namespace Deluxe.QCReport.Web.Controllers
             var customerDetails = _clientService.GetClientDetails(qcnum, revnum);
             var customerId = customerDetails.CustID;
 
-           
-           
-
             HomeVM model = new HomeVM();
             model.ESISpecificsVM = _esiSpecificsService.GetESISpecifics(qcnum, revnum) as ESISpecifics;
             model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
@@ -1837,35 +1834,35 @@ namespace Deluxe.QCReport.Web.Controllers
 
             WebSystemUtility.LogUserActivity(
                                         string.Format(
-                                            "ESI Specifics for QC with  Id {0} and Rev No {1}.",
+                                            "ESI Specifics for QC with  Id {0} and Rev No {1} was viewed.",
                                              qcnum,
                                              revnum),
                                              Constants.ActivityType.ESISpecificsViewed);
 
             /*******************************************************************************************/
 
-            Type t = typeof(ESISpecifics);
+            //Type t = typeof(ESISpecifics);
 
-            foreach (var prop in t.GetProperties())
-            {
-                var value = prop.GetValue(model.ESISpecificsVM);
+            //foreach (var prop in t.GetProperties())
+            //{
+            //    var value = prop.GetValue(model.ESISpecificsVM);
 
-                if (value != null)
-                {
-                    if (value.ToString() == "Y")
-                    {
-                        value = "Yes";
-                        prop.SetValue(model.ESISpecificsVM, value);
-                    }
-                    else if (value.ToString() == "N")
-                    {
-                        value = "No";
-                        prop.SetValue(model.ESISpecificsVM, value);
-                    }
-                }
+            //    if (value != null)
+            //    {
+            //        if (value.ToString() == "Y")
+            //        {
+            //            value = "Yes";
+            //            prop.SetValue(model.ESISpecificsVM, value);
+            //        }
+            //        else if (value.ToString() == "N")
+            //        {
+            //            value = "No";
+            //            prop.SetValue(model.ESISpecificsVM, value);
+            //        }
+            //    }
 
                 
-            }
+            //}
 
             return PartialView("_ESISpecifics", model);
         }

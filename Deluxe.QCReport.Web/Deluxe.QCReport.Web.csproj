@@ -274,6 +274,7 @@
     <Content Include="Views\Job\_NoChecklist.cshtml" />
     <Content Include="Views\Report\_UncompletedChecklist.cshtml" />
     <Content Include="Views\Job\_ESISpecifics.cshtml" />
+    <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />
     <Content Include="Views\AdvancedSearch\_Search.cshtml" />

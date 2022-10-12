@@ -1,640 +1,720 @@
 ﻿@model Deluxe.QCReport.Web.Models.HomeVM
 
 <hr />
-@*<div id="tab2" class="tab-content" style="display:none;">*@
-    <div class="row">
-        <div class="col-sm-6">
 
-            <div class="row">
-                <div class="col-xs-12 text-center  ChecklistBigHeader">
-                    Checklist
+<div class="row">
+    <div class="col-sm-6">
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12  ChecklistHeaderUnderline">
+                        Video:
+                    </div>
                 </div>
-            </div>
-            
-            
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12  ChecklistHeaderUnderline">
-                            Video:
-                        </div>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <label class="control-label">Display Aspect Ratio correct : </label>
                     </div>
-
-                    <div class="row">
-                        <div class="col-xs-7">
-                            <label class="control-label">Display Aspect Ratio correct : </label>
-                        </div>
-                        <div class="col-xs-5 form-group float-left">
-                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.DisplayAspectRatioCorrect, new { @class = "form-control" })
-                        </div>
+                    <div class="col-xs-5 form-group float-left">
+                        @Html.TextBoxFor(m => m.ChecklistBanijayRights.DisplayAspectRatioCorrect, new { @class = "form-control" })
                     </div>
-                    <div class="row">
-                        <div class="col-xs-7">
-                            <label class="control-label">Interlaced vs Progressive: checked and correct: </label>
-                        </div>
-                        <div class="col-xs-5 form-group float-left">
-                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.InterlacedVsProgressiveCheckedAndCorrect, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Does the file contain line-up: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline"> @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DoesTheFileContainLineup, true) Yes </label>
-                            <label class="radio-inline">@Html.RadioButtonFor(m => m.ChecklistBanijayRights.DoesTheFileContainLineup, false) No </label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is the Slate present and information correct: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Does the programme start on the hour: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DoesTheProgrammeStartOnTheHour, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DoesTheProgrammeStartOnTheHour, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is the programme Seamless or Parted: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheProgrammeSeamlessOrParted, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheProgrammeSeamlessOrParted, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Parted breaks logged: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.PartedBreaksLogged, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.PartedBreaksLogged, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">If parted, specify (if 1 second black between parts):</label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IfPartedSpecifyIfOneSecondBlackBetweenParts, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IfPartedSpecifyIfOneSecondBlackBetweenParts, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Bumpers present and logged: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.BumpersPresentAndLogged, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.BumpersPresentAndLogged, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">
-                                "International Sales and Distribution Banijay  Rights"
-                                (OR ESI) credit <br />present (or Not Present)
-                                within the end credit roller. Checked and added to comments?
-                            </label>
-
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <br /><br />
-
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Does the file contain ESI / Banijay logo at the end of program: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram, false) No
-                            </label>
-                        </div>
-
-                    </div>
-
-
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12  ChecklistHeaderUnderline">
-                            Textless:
-                        </div>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <label class="control-label">Interlaced vs Progressive: checked and correct: </label>
                     </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Are textless elements present: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AreTextlessElementsPresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AreTextlessElementsPresent, false) No
-                            </label>
-                        </div>
+                    <div class="col-xs-5 form-group float-left">
+                        @Html.TextBoxFor(m => m.ChecklistBanijayRights.InterlacedVsProgressiveCheckedAndCorrect, new { @class = "form-control" })
                     </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Are there textless covers for all texted shots: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AreThereTextlessCoversForAllTextedShots, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AreThereTextlessCoversForAllTextedShots, false) No
-                            </label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Does the file contain line-up: </label>
                     </div>
+                    <div class="col-sm-5 form-group float-left">
+                      
+                      @Html.DropDownListFor(
+                       m => m.ChecklistBanijayRights.DoesTheFileContainLineup,
+                       new SelectList(
+                           Model.YesNoList,
+                           "value",
+                           "value",
+                           Model.ChecklistBanijayRights.DoesTheFileContainLineup),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Are the textless covers the same timing as texted shots: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AreTheTextlessCoversTheSameTimingAsTextedShots, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AreTheTextlessCoversTheSameTimingAsTextedShots, false) No
-                            </label>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is the grade and aspect ratio the same as texted shots: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheGradeAndAspectRatioTheSameAsTextedShots, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsTheGradeAndAspectRatioTheSameAsTextedShots, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is there 10 seconds of black between programme & Textless: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is there 10 seconds of black before end of file: </label>
-                        </div>
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBeforeEndOfFile, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBeforeEndOfFile, false) No
-                            </label>
-                        </div>
                     </div>
 
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12  ChecklistHeaderUnderline">
-                            Audio:
-                        </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is the Slate present and information correct: </label>
                     </div>
+                    <div class="col-sm-5 form-group float-left">
+                     
+                     @Html.DropDownListFor(
+                     m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect,
+                        new SelectList(
+                            Model.YesNoList,
+                            "value",
+                            "value",
+                            Model.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect),
+                    "",
+                    new { @class = "form-control", @style = "width:50px" })
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is audio layout correct: </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsAudioLlayoutCorrect, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsAudioLlayoutCorrect, false) No
-                            </label>
-                        </div>
                     </div>
+                  </div>
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is line up tone correct: </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLineupToneCorrect, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLineupToneCorrect, false) No
-                            </label>
-                        </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Does the programme start on the hour: </label>
                     </div>
+                    <div class="col-sm-5 form-group float-left">
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is Loudness (R128) a pass: </label>
-                        </div>
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.DoesTheProgrammeStartOnTheHour,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.DoesTheProgrammeStartOnTheHour),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLoudnessR128APass, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLoudnessR128APass, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is M&E present and complete: </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Is Mix Minus Narration present and complete: </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Mono vs Stereo Checked? </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.MonoVsStereoChecked, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.MonoVsStereoChecked, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Audio in sync:  </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioInSync, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioInSync, false) No
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12  ChecklistHeaderUnderline">
-                            WAVS:
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">WAVS supplied: </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.WAVSSupplied, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.WAVSSupplied, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">All associated WAVS present: </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, false) No
-                            </label>
-
-                            @Html.TextBoxFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSNotPresentReason,
-                          new { @class = "form-control", @style = "display:none" })
-                        </div>
                     </div>
 
                 </div>
-            </div>
 
-            
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12  ChecklistBigHeader">
-                            Compliance:
-                        </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is the programme Seamless or Parted: </label>
                     </div>
+                    <div class="col-sm-5 form-group float-left">
 
-                    <div class="row">
-                        <div class="col-xs-12  ChecklistHeaderUnderline">
-                            Video:
-                        </div>
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsTheProgrammeSeamlessOrParted,
+                           new SelectList(
+                               Model.SeamlessOrPartedList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsTheProgrammeSeamlessOrParted),
+                       "",
+                       new { @class = "form-control", @style = "width:90px" })
+
                     </div>
+                    
+                </div>
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Compliance checked and logged: </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoComplianceCheckedAndLogged, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoComplianceCheckedAndLogged, false) No
-                            </label>
-                        </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Parted breaks logged: </label>
                     </div>
+                    <div class="col-sm-5 form-group float-left">
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Flashing Lights / Epilepsy Warning Present:  </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FlashingLightsOrEpilepsyWarningPresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FlashingLightsOrEpilepsyWarningPresent, false) No
-                            </label>
-                        </div>
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.PartedBreaksLogged,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.PartedBreaksLogged),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Content Censored - Bleeped Or Blurred:  </label>
-                        </div>
+                 </div>
 
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, false) No
-                            </label>
-                        </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">If parted, specify (if 1 second black between parts):</label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IfPartedSpecifyIfOneSecondBlackBetweenParts,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IfPartedSpecifyIfOneSecondBlackBetweenParts),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Nudity Present:  </label>
-                        </div>
+                    
+                </div>
 
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.NudityPresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.NudityPresent, false) No
-                            </label>
-                        </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Bumpers present and logged: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.BumpersPresentAndLogged,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.BumpersPresentAndLogged),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
                     </div>
+                    
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Time Specific: Text Present:  </label>
-                        </div>
+                </div>
 
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificTextPresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificTextPresent, false) No
-                            </label>
-                        </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">
+                            "International Sales and Distribution Banijay  Rights"
+                            (OR ESI) credit <br />present (or Not Present)
+                            within the end credit roller. Checked and added to comments?
+                        </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+                        <br /><br />
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
                     </div>
+                                       
+                </div>
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Product Placement Present:  </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ProductPlacementPresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ProductPlacementPresent, false) No
-                            </label>
-                        </div>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Does the file contain ESI / Banijay logo at the end of program: </label>
                     </div>
+                    <div class="col-sm-5 form-group float-left">
 
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Country specific phone numbers, competitions, websites hashtags:  </label>
-                        </div>
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(
-                               m => m.ChecklistBanijayRights.CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
-                               true)
-                                Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(
-                               m => m.ChecklistBanijayRights.CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
-                               false)
-                                No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12  ChecklistHeaderUnderline">
-                            Audio:
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Audio Compliance checked and logged:  </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, false) No
-                            </label>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Content Censored - Bleeped Or Blurred:  </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Extreme Language Present:  </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ExtremeLanguagePresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ExtremeLanguagePresent, false) No
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <label class="control-label">Time Specific:  Audio Present:  </label>
-                        </div>
-
-                        <div class="col-sm-5 form-group float-left">
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificAudioPresent, true) Yes
-                            </label>
-                            <label class="radio-inline">
-                                @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificAudioPresent, false) No
-                            </label>
-                        </div>
                     </div>
 
                 </div>
-            </div>
 
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12  ChecklistHeaderUnderline">
+                        Textless:
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Are textless elements present: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.AreTextlessElementsPresent,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.AreTextlessElementsPresent),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Are there textless covers for all texted shots: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.AreThereTextlessCoversForAllTextedShots,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.AreThereTextlessCoversForAllTextedShots),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Are the textless covers the same timing as texted shots: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.AreTheTextlessCoversTheSameTimingAsTextedShots,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.AreTheTextlessCoversTheSameTimingAsTextedShots),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+
+                  
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is the grade and aspect ratio the same as texted shots: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsTheGradeAndAspectRatioTheSameAsTextedShots,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsTheGradeAndAspectRatioTheSameAsTextedShots),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+
+                   
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is there 10 seconds of black between programme & Textless: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is there 10 seconds of black before end of file: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBeforeEndOfFile,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsThere10SecondsOfBlackBeforeEndOfFile),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+                   
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12  ChecklistHeaderUnderline">
+                        Audio:
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is audio layout correct: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsAudioLlayoutCorrect, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsAudioLlayoutCorrect, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is line up tone correct: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLineupToneCorrect, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLineupToneCorrect, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is Loudness (R128) a pass: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLoudnessR128APass, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsLoudnessR128APass, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is M&E present and complete: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is Mix Minus Narration present and complete: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Mono vs Stereo Checked? </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.MonoVsStereoChecked, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.MonoVsStereoChecked, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Audio in sync:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioInSync, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioInSync, false) No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12  ChecklistHeaderUnderline">
+                        WAVS:
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">WAVS supplied: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.WAVSSupplied, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.WAVSSupplied, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">All associated WAVS present: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, false) No
+                        </label>
+
+                        @Html.TextBoxFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSNotPresentReason,
+                      new { @class = "form-control", @style = "display:none" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xs-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12  ChecklistBigHeader">
+                        Compliance:
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12  ChecklistHeaderUnderline">
+                        Video:
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Compliance checked and logged: </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoComplianceCheckedAndLogged, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoComplianceCheckedAndLogged, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Flashing Lights / Epilepsy Warning Present:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FlashingLightsOrEpilepsyWarningPresent, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.FlashingLightsOrEpilepsyWarningPresent, false) No
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Content Censored - Bleeped Or Blurred:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, false) No
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Nudity Present:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.NudityPresent, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.NudityPresent, false) No
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Time Specific: Text Present:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificTextPresent, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificTextPresent, false) No
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Product Placement Present:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ProductPlacementPresent, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ProductPlacementPresent, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Country specific phone numbers, competitions, websites hashtags:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(
+                           m => m.ChecklistBanijayRights.CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
+                           true)
+                            Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(
+                           m => m.ChecklistBanijayRights.CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
+                           false)
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12  ChecklistHeaderUnderline">
+                        Audio:
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Audio Compliance checked and logged:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, false) No
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Content Censored - Bleeped Or Blurred:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Extreme Language Present:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ExtremeLanguagePresent, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.ExtremeLanguagePresent, false) No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Time Specific:  Audio Present:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificAudioPresent, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.TimeSpecificAudioPresent, false) No
+                        </label>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-@*</div>*@
+
+</div>
+

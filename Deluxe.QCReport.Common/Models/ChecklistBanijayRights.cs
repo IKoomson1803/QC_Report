@@ -11,8 +11,12 @@ namespace Deluxe.QCReport.Common.Models
         public bool IsMeasurements { get; set; }
 
        /************* MEASUREMENTS *****************************************/
+       //  File Details
         public bool? FileToSpec { get; set; }
         public bool? DecodeCheckPass { get; set; }
+
+        // Video Codec
+        public string VideoCodec { get; set; }
         public string ConfirmVideoFormat { get; set; }
         public string Format { get; set; }
         public string Standard { get; set; }
@@ -20,37 +24,47 @@ namespace Deluxe.QCReport.Common.Models
         public string VideoBitRate { get; set; }
         public string FrameSizeOrResolution { get; set; }
         public string AspectRatio { get; set; }
+
+        // Audio Codec
+        public string AudioCodec { get; set; }
         public string BitDepth { get; set; }
         public string AudioBitRate { get; set; }
         public string SampleRate { get; set; }
-        public bool? Discrete { get; set; }
-        public bool? IsTheFileMetadataCorrect { get; set; }
-        public bool? InterlacedOrProgressiveCorrectlyFlagged { get; set; }
+        public string Discrete { get; set; }
+
+        //Metadata
+        public string IsTheFileMetadataCorrect { get; set; }
+        public string InterlacedOrProgressiveCorrectlyFlagged { get; set; }
         public string InterlacedOrProgressiveCorrectlyNotFlaggedReason { get; set; }
-        public bool? CLAPPresent { get; set; }
+        public string CLAPPresent { get; set; }
         public string ColourPrimariesPresent { get; set; }
         public string TransferCharacteristicsPresent { get; set; }
         public string MatrixCoefficientsPresent { get; set; }
 
 
         /************** SPECIFICS **************************************************/
+        // Video
         public string DisplayAspectRatioCorrect { get; set; }
         public string InterlacedVsProgressiveCheckedAndCorrect { get; set; }
-        public bool? DoesTheFileContainLineup { get; set; }
-        public bool? IsTheSlatePresentAndInformationCorrect { get; set; }
-        public bool? DoesTheProgrammeStartOnTheHour { get; set; }
-        public bool? IsTheProgrammeSeamlessOrParted { get; set; }
-        public bool? PartedBreaksLogged { get; set; }
-        public bool? IfPartedSpecifyIfOneSecondBlackBetweenParts { get; set; }
-        public bool? BumpersPresentAndLogged { get; set; }
-        public bool? InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments { get; set; }
-        public bool? DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram { get; set; }
-        public bool? AreTextlessElementsPresent { get; set; }
-        public bool? AreThereTextlessCoversForAllTextedShots { get; set; }
-        public bool? AreTheTextlessCoversTheSameTimingAsTextedShots { get; set; }
-        public bool? IsTheGradeAndAspectRatioTheSameAsTextedShots { get; set; }
-        public bool? IsThere10SecondsOfBlackBetweenProgrammeAndTextless { get; set; }
-        public bool? IsThere10SecondsOfBlackBeforeEndOfFile { get; set; }
+        public string DoesTheFileContainLineup { get; set; }
+        public string IsTheSlatePresentAndInformationCorrect { get; set; }
+        public string DoesTheProgrammeStartOnTheHour { get; set; }
+        public string IsTheProgrammeSeamlessOrParted { get; set; }
+        public string PartedBreaksLogged { get; set; }
+        public string IfPartedSpecifyIfOneSecondBlackBetweenParts { get; set; }
+        public string BumpersPresentAndLogged { get; set; }
+        public string InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments { get; set; }
+        public string DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram { get; set; }
+
+        // Textless
+        public string AreTextlessElementsPresent { get; set; }
+        public string AreThereTextlessCoversForAllTextedShots { get; set; }
+        public string AreTheTextlessCoversTheSameTimingAsTextedShots { get; set; }
+        public string IsTheGradeAndAspectRatioTheSameAsTextedShots { get; set; }
+        public string IsThere10SecondsOfBlackBetweenProgrammeAndTextless { get; set; }
+        public string IsThere10SecondsOfBlackBeforeEndOfFile { get; set; }
+
+        //  Audio
         public bool? IsAudioLlayoutCorrect { get; set; }
         public bool? IsLineupToneCorrect { get; set; }
         public bool? IsLoudnessR128APass { get; set; }
@@ -58,9 +72,13 @@ namespace Deluxe.QCReport.Common.Models
         public bool? IsMixMinusNarrationPresentAndComplete { get; set; }
         public bool? MonoVsStereoChecked { get; set; }
         public bool? AudioInSync { get; set; }
+
+        // WAV
         public bool? WAVSSupplied { get; set; }
         public bool? AllAssociatedWAVSPresent { get; set; }
         public string AllAssociatedWAVSNotPresentReason { get; set; }
+
+        // Compliance Video 
         public bool? VideoComplianceCheckedAndLogged { get; set; }
         public bool? FlashingLightsOrEpilepsyWarningPresent { get; set; }
         public bool? VideoContentCensoredBleepedOrBlurred { get; set; }
@@ -68,6 +86,8 @@ namespace Deluxe.QCReport.Common.Models
         public bool? TimeSpecificTextPresent { get; set; }
         public bool? ProductPlacementPresent { get; set; }
         public bool? CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags { get; set; }
+
+        // Compliance Audio 
         public bool? AudioComplianceCheckedAndLogged { get; set; }
         public bool? AudioContentCensoredBleepedOrBlurred { get; set; }
         public bool? ExtremeLanguagePresent { get; set; }
