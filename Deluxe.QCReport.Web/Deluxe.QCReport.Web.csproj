@@ -274,13 +274,14 @@
     <Content Include="Views\Job\_NoChecklist.cshtml" />
     <Content Include="Views\Report\_UncompletedChecklist.cshtml" />
     <Content Include="Views\Job\_ESISpecifics.cshtml" />
+    <Content Include="Views\Job\_ESIMeasurements.cshtml" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />
     <Content Include="Views\AdvancedSearch\_Search.cshtml" />
     <Content Include="Views\Administration\_ClientPartial.cshtml" />
     <Content Include="Specifications\Disney\Schedule D %28Technical Specification for Delivery Materials%29 Disney_Final.pdf" />
-    <Content Include="Views\Job\_ESIMeasurements.cshtml" />
+    <None Include="Views\Job\_ESIMeasurements.cshtml.old" />
     <Content Include="Views\Job\_ChecklistWarner.cshtml" />
     <Content Include="Views\Job\_ESIHeader.cshtml" />
     <Content Include="Views\Job\_ESIHistory.cshtml" />

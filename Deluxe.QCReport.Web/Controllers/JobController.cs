@@ -879,6 +879,8 @@ namespace Deluxe.QCReport.Web.Controllers
             model.GOPStructureList = LookUpsService.GetGOPStructure();
             model.GamutList = LookUpsService.GetGamut();
             model.ColourEncodingList = LookUpsService.GetColourEncoding();
+            model.YesNoList = LookUpsService.GetYesNo();
+            model.YesNoNAList = LookUpsService.GetYesNoNA();
 
             /****************Log User Activity******************************************************/
 
