@@ -62,7 +62,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheFileMetadataCorrect")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsTheFileMetadataCorrect"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("IsTheFileMetadataCorrect") 
 				               End If
 						  %>
 						</td>
@@ -121,7 +121,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyFlagged")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyFlagged"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyFlagged")
 									 Response.Write  "<br/><span> " & rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyNotFlaggedReason") & "</span>" 
 				               End If
 						  %>
@@ -181,7 +181,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("CLAPPresent")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("CLAPPresent"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("CLAPPresent")
 				               End If
 						  %>
 						</td>
@@ -213,7 +213,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							    If Not IsNull(rsChecklistBanijayRights.Fields("Discrete")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("Discrete"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("Discrete")
 				               End If
 						  %>
 						</td>

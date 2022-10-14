@@ -187,7 +187,7 @@ rsVidAud.Open sqlVidAud
 </table>
 
 
-
+<!--
 <table width="100%" class="blackSquare" style="border-bottom: none;">
   <tr>
     <td>
@@ -239,14 +239,22 @@ rsVidAud.Open sqlVidAud
   </tr>
 </table>
 
+-->
+
 <!--#include file="ChecklistBanijayRightsMeasurements.asp" -->
 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 
 
 
 
 <!-- Start Specifics -->
-
+<!--
 <%
 Dim rsSpecifics, sqlSpecifics
 
@@ -295,6 +303,7 @@ rsSpecifics.Open sqlSpecifics
 Set rsSpecifics = Nothing
 
 %>
+-->
 
 <!--#include file="ChecklistBanijayRightsSpecifics.asp" -->
 

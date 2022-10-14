@@ -44,7 +44,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							  If Not IsNull(rsChecklistBanijayRights.Fields("AreTextlessElementsPresent")) Then
-							   Response.Write  IIf(rsChecklistBanijayRights.Fields("AreTextlessElementsPresent"), "Yes", "No") 
+							   Response.Write  rsChecklistBanijayRights.Fields("AreTextlessElementsPresent")
 							  End If
 						  %>
 						</td>
@@ -130,7 +130,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots")
 				               End If
 						  %>
 						</td>
@@ -204,7 +204,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("DoesTheFileContainLineup")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("DoesTheFileContainLineup"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("DoesTheFileContainLineup") 
 				               End If
 						  %>
 						</td>
@@ -218,7 +218,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots") 
 				               End If
 						  %>
 						</td>
@@ -292,7 +292,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots")
 				               End If
 						  %>
 						</td>
@@ -365,7 +365,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBetweenProgrammeAndTextless")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBetweenProgrammeAndTextless"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBetweenProgrammeAndTextless")
 				               End If
 						  %>
 						</td>
@@ -413,7 +413,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						  <%
 							    If Not IsNull(rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted")
 				               End If
 						  %>
 						</td>
@@ -427,7 +427,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						   <%
 							   If Not IsNull(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBeforeEndOfFile")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBeforeEndOfFile"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBeforeEndOfFile") 
 				               End If
 						  %>
 						</td>
@@ -476,7 +476,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						  <%
 							    If Not IsNull(rsChecklistBanijayRights.Fields("PartedBreaksLogged")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("PartedBreaksLogged"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("PartedBreaksLogged")
 				               End If
 						  %>
 						</td>
@@ -524,7 +524,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						  <%
 							    If Not IsNull(rsChecklistBanijayRights.Fields("IfPartedSpecifyIfOneSecondBlackBetweenParts")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("IfPartedSpecifyIfOneSecondBlackBetweenParts"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("IfPartedSpecifyIfOneSecondBlackBetweenParts") 
 				               End If
 						  %>
 						</td>
@@ -546,7 +546,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						  <%
 							    If Not IsNull(rsChecklistBanijayRights.Fields("BumpersPresentAndLogged")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("BumpersPresentAndLogged"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("BumpersPresentAndLogged")
 				               End If
 						  %>
 						</td>
@@ -569,7 +569,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						  <%
 							    If Not IsNull(rsChecklistBanijayRights.Fields("InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments") 
 				               End If
 						  %>
 						</td>
@@ -590,7 +590,7 @@
 					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
 						  <%
 							    If Not IsNull(rsChecklistBanijayRights.Fields("DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram")) Then
-				                    Response.Write  IIf(rsChecklistBanijayRights.Fields("DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram"), "Yes", "No") 
+				                    Response.Write  rsChecklistBanijayRights.Fields("DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram") 
 				               End If
 						  %>
 						</td>
