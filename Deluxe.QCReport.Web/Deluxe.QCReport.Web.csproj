@@ -201,6 +201,7 @@
     <Content Include="Scripts\Partials\_tapeLayout.js" />
     <Content Include="Scripts\Selectize.min.js" />
     <Content Include="Specifications\NoSpecs.html" />
+    <Content Include="UploadedImages\76-DAYS_iTUNES.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

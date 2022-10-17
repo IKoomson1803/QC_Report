@@ -1,0 +1,128 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+
+<div class="bs-callout bs-callout-warning">
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Specifics", Model.ESISpecificsVM.Qcnum, Model.ESISpecificsVM.subQcnum)</b>
+        </div>
+
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-6 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            &nbsp;
+        </div>
+
+    </div>
+
+
+    @using (Html.BeginForm("SaveESISpecifics", "Job", FormMethod.Post, new { @class = "form-horizontal", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => Model.ESISpecificsVM.Qcnum)
+        @Html.HiddenFor(m => Model.ESISpecificsVM.subQcnum)
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.Qcnum);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.subQcnum);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.ChecklistId);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.CustId);
+
+        
+        <div class="tab-content-wrapper">
+            @{Html.RenderPartial("_ChecklistBanijaRightsSpecifics", Model); }
+        </div>
+
+    }
+
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-4">
+
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+     function setActiveButton() {
+         $(".subMenuOnClick").removeClass("subMenuOnClick")
+         $('#lnkQcESISpecifics').addClass("subMenuOnClick");
+     }
+
+     function toggleWAVsFlag() {
+
+         $("input[name='ChecklistBanijayRights.AllAssociatedWAVSPresent']").change(function () {
+             if ($(this).val() === 'False') {
+                 $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').show();
+             } else if ($(this).val() === 'True') {
+                 $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').hide();
+                 $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').val('');
+             }
+         });
+
+     }
+
+     function initializeWAVsFlag() {
+
+
+         if ($('#ChecklistBanijayRights_AllAssociatedWAVSPresent:checked').val() == 'False') {
+             $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').show();;
+         }
+     }
+
+
+     $(function () {
+         $(function () {
+
+             setActiveButton();
+             initializeWAVsFlag();
+             toggleWAVsFlag();
+
+             $('#btnSave').on("click", function () {
+
+                 //$('.cssload-preloader').fadeIn();
+                 var myModel = $('#form_jobdetails').serializeObject();
+
+                 $.post('/Job/SaveESISpecifics', { model: myModel }).done(function (data) {
+
+                     if (data.success == true) {
+                         Msg.success(data.msg, 2 * 1000);
+                     }
+                     else {
+                         Msg.error(data.msg, 5 * 1000);
+                     }
+                 })
+                     .fail(function (xdata) {
+
+                         Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                     })
+                     .always(function () {
+
+                         $('.cssload-preloader').hide();
+                     });
+             });
+
+
+
+
+         });
+     });
+
+
+
+
+</script>

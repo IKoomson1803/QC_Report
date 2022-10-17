@@ -1,0 +1,734 @@
+﻿@model Deluxe.QCReport.Web.Models.SearchParamsVM
+
+@{ 
+    var statuses = Model.StatusList;
+    var statusCount = Model.StatusList.Count;
+
+ }
+
+<div class="bs-callout bs-callout-info">
+
+
+    <b style="font-size:14px;">Advanced Search</b>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <label class="control-label">&nbsp;</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label class="control-label">File Name:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.Filename, new { @class = "form-control" })
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">Work Order Number:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.WorkOrderNumber, new { @class = "form-control", @style = "width:90px" })
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label class="control-label">QC Operator #1:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.QCUser, new { @class = "form-control" })
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">QC Operator #2:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.QCUser2, new { @class = "form-control" })
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label class="control-label">Revised By #1:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.RevisedBy, new { @class = "form-control" })
+                </div>
+
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">Revised By #2:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.RevisedBy2, new { @class = "form-control" })
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">Client:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.ClientName, new { @class = "form-control" })
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">Title:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">Episode Name:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.EpisodeName, new { @class = "form-control" })
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">Episode Number:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.EpisodeNumber, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label class="control-label">Tape Number:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.TapeNumber, new { @class = "form-control" })
+                </div>
+
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">Status:</label>
+                </div>
+
+
+                <div class="col-sm-4 form-group">
+                    @*&nbsp;&nbsp;  <span id="ClearStatus" onclick="clearStatuses()" class="glyphicon glyphicon-remove-circle" style="color:red;cursor:pointer;" title="Clear Statuses"></span>*@
+                    @Html.DropDownListFor(m => m.Statuses, new SelectList(Model.StatusList, "value", "value"), "")
+
+
+                    @*<select id="Statuses" name="Statuses" style="display:none;">
+
+
+            @if (statuses != null)
+            {
+                <option value="">--Select Status--- </option>
+
+
+
+                foreach (var item in statuses)
+                {
+                    <option value="@item.Value.Trim()">
+                        @item.Value.Trim()
+                    </option>
+                }
+            }
+        </select>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">Date From:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.From_Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @style = "width:90px" })
+                        <span class="input-group-btn float-left">
+                            <button class="btn btn-xs btn-default" type="button" id="btn_qcFromDate"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">Date To:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.To_Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @style = "width:90px" })
+                        <span class="input-group-btn float-left">
+                            <button class="btn btn-xs btn-default" type="button" id="btn_qcToDate"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">Grade:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    <label class="control-label col-sm-2">&nbsp;</label>
+                    <span style="display:inline-block; ">1</span>
+                    <span style="display:inline-block; margin-left: 8px">2</span>
+                    <span style="display:inline-block;margin-left: 8px">3</span>
+                    <span style="display:inline-block; margin-left: 8px"> 4</span>
+                    <span style="display:inline-block; margin-left: 8px">5</span>
+
+                    <br /><br />
+
+                    <label class="control-label col-sm-2">Video:</label>
+                    <input type="checkbox" id="VideoGrade1" name="VideoGrade1" value="1">
+                    <input type="checkbox" id="VideoGrade2" name="VideoGrade2" value="2">
+                    <input type="checkbox" id="VideoGrade3" name="VideoGrade3" value="3">
+                    <input type="checkbox" id="VideoGrade4" name="VideoGrade4" value="4">
+                    <input type="checkbox" id="VideoGrade5" name="VideoGrade5" value="5">
+
+                    <br /><br />
+
+                    <label class="control-label col-sm-2">Audio:</label>
+                    <input type="checkbox" id="AudioGrade1" name="AudioGrade1" value="1">
+                    <input type="checkbox" id="AudioGrade2" name="AudioGrade2" value="2">
+                    <input type="checkbox" id="AudioGrade3" name="AudioGrade3" value="3">
+                    <input type="checkbox" id="AudioGrade4" name="AudioGrade4" value="4">
+                    <input type="checkbox" id="AudioGrade5" name="AudioGrade5" value="5">
+
+                    <br /><br />
+
+                    <label class="control-label col-sm-2">Overall:</label>
+                    <input type="checkbox" id="OverallGrade1" name="OverallGrade1" value="1">
+                    <input type="checkbox" id="OverallGrade2" name="OverallGrade2" value="2">
+                    <input type="checkbox" id="OverallGrade3" name="OverallGrade3" value="3">
+                    <input type="checkbox" id="OverallGrade4" name="OverallGrade4" value="4">
+                    <input type="checkbox" id="OverallGrade5" name="OverallGrade5" value="5">
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label class="control-label">&nbsp;</label>
+                </div>
+
+                <div class="col-sm-4 form-group text-left">
+                    <button class="btn btn-sm btn-primary" id="btnSearch">Search</button>
+                    <button class="btn btn-sm btn-danger" id="btnResetFilter">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label class="control-label">&nbsp;</label>
+                </div>
+
+                <div class="col-sm-10 form-group text-left">
+                    <span class="col-sm-12 text-right" id="divFilterMessage"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    var users = [];
+    var revisedByUsers = [];
+    var clients = [];
+
+   
+
+    function clearStatuses() {
+        if ($("#Statuses").val() != '') {
+            $("#Statuses")[0].selectize.clear();
+        }
+
+    }
+
+    $(function () {
+
+
+        initializeAdvanceSearch();
+        initializeMultiSelectChecboxList();
+
+        //$("#body-element").toggleClass("dark-mode");
+
+        //var calloutColor = $("#body-element").css("background-color");
+
+        //alert(calloutColor)
+
+        //if (calloutColor == 'rgb(42, 42, 42)') {
+        //    $("#SearchGrid").css("color", "#2a2a2a");
+        //    $("table.dataTable thead tr").css("color", "#ffffff");
+        //    $(".dataTables_lengthchange").css("color", "#ffffff");
+        //    $(".dataTables_filter").css("color", "#ffffff");
+
+        //}
+        //else {
+
+        //    $("table.dataTable thead tr").css("color", "#000000");
+        //    $(".dataTables_lengthchange").css("color", "#000000");
+        //    $(".dataTables_filter").css("color", "#000000");
+        //}
+
+
+
+
+        // setup date picker
+        var datePickerSettings = {
+            inline: true, showAnim: 'slideDown', dateFormat: 'dd/mm/yy'
+        };
+
+        $('#@Html.IdFor(m => m.From_Date)').datepicker(datePickerSettings);
+
+        $("#btn_qcFromDate").on('click', function () {
+            $('#From_Date').focus();
+        });
+
+        $('#@Html.IdFor(m => m.To_Date)').datepicker(datePickerSettings);
+        $("#btn_qcToDate").on('click', function () {
+             $('#To_Date').focus();
+        });
+
+        $('#btnSearch').on("click", function () {
+
+
+
+            var pageValid = isPageValid();
+
+
+
+            /*******Split and rebuild as comma delimited string**************************************************/
+
+            //var statuses = '';
+
+            //if ($('#Statuses').val() != null) {
+
+            //    var aStatuses = $('#Statuses').val();
+
+            //    //Build comma delited string
+            //    $.each(aStatuses, function (index, status) {
+            //        statuses += status + ','
+            //    });
+            //}
+
+            //console.log('statuses: ' + statuses)
+
+        /*************************************************************************************************** */
+            // submit form if valid
+            if (pageValid) {
+
+                $.blockUI({ message: 'Please wait...' });
+
+
+                //$('.cssload-preloader').fadeIn();
+                //$('#form_AdvanceSearch').submit();
+
+                var formData = $('#form_AdvanceSearch').serializeObject();
+
+                var myStatuses = '';
+                var aStatuses = $('#Statuses').val();
+
+                //Build ',' delimited string
+                $.each(aStatuses, function (index, status) {
+                    myStatuses += status + ','
+                });
+
+                //var formData = {
+                //    QCUser: $('#QCUser').val()
+
+
+                //}
+
+                //$.ajax({
+                //    url: '/AdvancedSearch/Search',
+                //    cache: false,
+                //    data: formData,
+                //    //contentType: "application/json",
+                //    type: 'POST',
+                //    success: searchSuccessful,
+                //    error: function (xhr, textStatus, errorThrown) {
+                //        //console.log(errorThrown);
+                //    }
+                //});
+
+                //data: {status: status, name: name}
+
+
+                $.ajax({
+                    url: '/AdvancedSearch/Search',
+                    cache: false,
+                    data: { model: formData, statuses: myStatuses }, //JSON.stringify(formData),
+                    type: 'POST',
+                    //dataType: "json",
+                    //contentType: "application/json",
+                    success: function (data) {
+
+                        $('.cssload-preloader').hide();
+
+                        if (data.partial != '') {
+                            $('#divContent').html(data.partial);
+                        }
+
+                        $.unblockUI();
+                    },
+                    error: function (xhr, status) {
+                        console.log(xhr.responseText);
+                        $.unblockUI();
+                    }
+                }).fail(function (xhr, status) {
+                    console.log(xhr.responseText);
+                    $.unblockUI();
+                });
+
+
+            }
+
+            return false;
+
+
+        });
+
+        //$('body').on('click', '#btnResetFilter', function () {
+        //$('#btnResetFilter').on("click", function () {
+
+        //      $.get('/AdvancedSearch/ResetForm', { model: null }).done(function (data) {
+
+        //          resetFilter();
+        //        if (data.success == true) {
+
+        //           // resetFilter();
+        //        }
+        //        else {
+        //        //    //Msg.error(data.msg, 5 * 1000);
+        //       }
+        //    })
+        //        .fail(function (xdata) {
+
+        //           // Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+        //        })
+        //        .always(function () {
+
+        //           // $('.cssload-preloader').hide();
+        //        });
+
+        //});
+
+        $('#btnResetFilter').click(function (event) {
+            resetFilter();
+        });
+
+
+
+
+
+    });
+
+
+    function searchSuccessful(data) {
+        alert(data)
+
+        if (data.Partial != '') {
+            alert(data.Partial)
+                 $('.cssload-preloader').hide();
+                $('#divContent').html(data.Partial);
+
+       }
+        else {
+            Msg.error(data.msg, 5 * 1000);;
+        }
+    }
+
+
+
+    function isPageValid() {
+        var pageValid = true;
+
+
+        if ( $('#Filename').val() != ''
+            && $('#ClientName').val() != ''
+            && $('#TapeNumber').val() != ''
+            && $('#QCUser').val() != ''
+            && $('#RevisedBy').val() != ''
+            && $('#RevisedBy2').val() != ''
+            && $('#Title').val() != ''
+            && $('#EpisodeName').val() != ''
+            && $('#EpisodeNumber').val() != ''
+            && $('#From_Date').val() != ''
+            && $('#To_Date').val() != ''
+
+            && $('#AudioGrade1').val() != ''
+            && $('#AudioGrade2').val() != ''
+            && $('#AudioGrade3').val() != ''
+            && $('#AudioGrade4').val() != ''
+            && $('#AudioGrade5').val() != ''
+
+            && $('#VideoGrade1').val() != ''
+            && $('#VideoGrade2').val() != ''
+            && $('#VideoGrade3').val() != ''
+            && $('#VideoGrade4').val() != ''
+            && $('#VideoGrade5').val() != ''
+
+            && $('#OverallGrade1').val() != ''
+            && $('#OverallGrade2').val() != ''
+            && $('#OverallGrade3').val() != ''
+            && $('#OverallGrade4').val() != ''
+            && $('#OverallGrade5').val() != '')
+        {
+            pageValid = false;
+        }
+
+
+        return pageValid;
+
+
+    }
+
+
+    function resetFilter() {
+
+       // alert('resetFilter')
+
+        $('#divFilterMessage').html("");
+
+       // $('#form_AdvanceSearch').reset();
+      //$("#form_AdvanceSearch")[0].reset()
+       // $('#form_AdvanceSearch').trigger("reset");
+
+                //$('input[type=text]').val('');
+
+          //   $("#form_AdvanceSearch").reset()
+
+        $('#Filename').val('')
+        $('#ClientName').val('')
+        $('#TapeNumber').val('')
+        $('#QCUser').val('')
+        $('#RevisedBy').val('')
+        $('#RevisedBy2').val('')
+        $('#Title').val('')
+        $('#EpisodeName').val('')
+        $('#EpisodeNumber').val('')
+        $('#From_Date').val('')
+        $('#To_Date').val('')
+
+        $('#AudioGrade1').val('')
+        $('#AudioGrade2').val('')
+        $('#AudioGrade3').val('')
+        $('#AudioGrade4').val('')
+        $('#AudioGrade5').val('')
+
+        $('#VideoGrade1').val('')
+        $('#VideoGrade2').val('')
+        $('#VideoGrade3').val('')
+        $('#VideoGrade4').val('')
+        $('#VideoGrade5').val('')
+
+        $('#OverallGrade1').val('')
+        $('#OverallGrade2').val('')
+        $('#OverallGrade3').val('')
+        $('#OverallGrade4').val('')
+        $('#OverallGrade5').val('')
+
+
+
+
+        /***********Reset Multi-Select DDL*****************************************/
+        //$('#Statuses option:selected').each(function () {
+        //    $(this).prop('selected', false);
+        //})
+        //$('#Statuses').multiselect('rebuild');
+        //$('#Statuses').multiselect('refresh');
+
+        clearStatuses();
+
+    /****************************************************/
+
+        var table = $('#tblSearchResult').DataTable();
+
+        if (table != null) {
+            table.destroy();
+        }
+
+        $('#divSearchResult').visible = false;
+        $('#divSearchResult').html('');
+
+
+    }
+
+    function initializeAdvanceSearch() {
+
+        $.ajax({
+            url: '/Administration/GetUsers',
+            async: true,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+
+                $.each(data, function (k, u) {
+                    users.push(u);
+                });
+
+            }
+        });
+
+        $.ajax({
+            url: '/Administration/GetRevisedByUsers',
+            async: true,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+
+                $.each(data, function (k, u) {
+                    revisedByUsers.push(u);
+                });
+
+            }
+        });
+
+
+        $.ajax({
+            url: '/Administration/GetClients',
+            async: true,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+
+                $.each(data, function (k, u) {
+                    clients.push(u);
+                });
+
+            }
+        });
+
+        $('#QCUser').autocomplete({
+            minLength: 3,
+            minDelay: 250,
+            source: users,
+        });
+
+        $('#QCUser2').autocomplete({
+            minLength: 3,
+            minDelay: 250,
+            source: users,
+        });
+
+        $('#RevisedBy').autocomplete({
+            minLength: 3,
+            minDelay: 250,
+            source: revisedByUsers,
+        });
+
+        $('#RevisedBy2').autocomplete({
+            minLength: 3,
+            minDelay: 250,
+            source: revisedByUsers,
+        });
+
+        $('#ClientName').autocomplete({
+            minLength: 3,
+            minDelay: 250,
+            source: clients,
+        });
+
+    }
+
+    function initializeMultiSelectChecboxList() {
+
+        //$('#Statuses').multiselect({
+        //     multiple: true,
+        //    includeSelectAllOption: true,
+        //    enableCaseInsensitiveFiltering: true,
+        //    maxHeight: 200,
+        //    nonSelectedText: 'Select Status...',
+        //    allSelectedText: 'No option left ...',
+        //    delimiterText: '\n',
+        //    numberDisplayed: 1,
+        //    buttonWidth: '200px',
+
+        //});
+
+        $("#Statuses").selectize({
+            maxItems: @statusCount,
+            plugins: ['remove_button']
+        });
+
+    }
+
+
+
+</script>
+
+@*<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>*@
+<script type="text/javascript" src="~/Scripts/Custom/advanceSearch.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>

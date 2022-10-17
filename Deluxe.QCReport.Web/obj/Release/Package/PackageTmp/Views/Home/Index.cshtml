@@ -1,0 +1,346 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+@{
+    Layout = "~/Views/Shared/_LayoutWithNav.cshtml";
+
+
+
+}
+
+
+
+
+<div class="row" style="margin-top:-25px;">
+
+    <div class="col-sm-2">
+        <div class="bs-callout bs-callout-info">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal", @id = "form_search" }))
+            {
+                <div class="form-group">
+                    <label class="control-label col-sm-5" style="font-size:11px">Job #:</label>
+                    <div class="col-sm-7">
+                        @Html.TextBoxFor(m => m.SearchWONumber, new { @class = "form-control", @style = "font-size:11px; height: 25px; line-height: 1.2;width:80px" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-5" style="font-size:11px">QC #:</label>
+                    <div class="col-sm-7">
+                        @Html.TextBoxFor(m => m.SearchQCNumber, new { @class = "form-control", @style = "font-size:11px; height: 25px; line-height: 1.2;width:80px" })
+                    </div>
+                </div>
+            }
+
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-xs btn-info" id="btnSearch">Select</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-xs btn-danger" id="btnReset">Reset</button>
+                </div>
+
+                @if (ViewBag.SecLevel >= 1)
+                {
+
+                    <div class="col-sm-6 text-right">
+                        <button type="button" class="btn btn-xs btn-primary" id="btnNewQC">New QC</button>
+                    </div>
+                }
+
+
+            </div>
+
+
+
+            @*@if (ViewBag.SecLevel >= 1)
+                {
+                  <div class="row">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-xs btn-primary" id="btnNewQC">New QC</button>
+                        </div>
+
+                        <div class="col-sm-6" style="display:none;">
+                            <button type="button" class="btn btn-xs btn-default" id="btnCopyQC">Copy QC</button>
+                        </div>
+
+                    </div>
+                }*@
+
+
+
+
+
+
+            @*<div>
+                    <button type="button" class="btn btn-xs btn-info" id="btnSearch">Select</button>
+                    <button type="button" class="btn btn-xs btn-danger" id="btnReset">Reset</button>
+                </div>*@
+
+
+            @*<div>
+                    @if (ViewBag.SecLevel >= 1)
+                    {
+                        <button type="button" class="btn btn-xs btn-primary" id="btnNewQC">New QC</button>
+                        <button type="button" class="btn btn-xs btn-default" id="btnCopyQC">Copy QC</button>
+                    }
+                </div>*@
+
+
+
+        </div>
+
+        <div class="bs-callout bs-callout-info" style="font-size:9px;color:red;height:40px;padding-bottom:5px;padding-top:5px;display:none;">
+            User Name: @ViewBag.Username<br />
+            Security Level: @ViewBag.SecLevel
+        </div>
+
+
+        @if (Model.JobTVVM == null)
+        {
+
+            <div class="bs-callout bs-callout-danger" style="font-size:12px;">
+                QC does not exist.
+            </div>
+        }
+        else
+        {
+            Html.RenderPartial("~/Views/Home/_JobNavigation.cshtml", Model.JobTVVM);
+        }
+
+    </div>
+
+    <div class="col-sm-10">
+        <div id="divTopSubMenu"></div>
+        <div id="divContent"></div>
+
+        @*<div id="divTCC" class="bs-callout bs-callout-warning" style="visibility:hidden">
+            <span id="tcc1"></span>
+            <span id="tccButtons"></span>
+
+        </div>*@
+        <div>&nbsp;</div>
+
+        @*<div class="footer">
+                <div class="FooterLeft">
+                    Copyright ©
+                    @DateTime.Now.Year.ToString()
+                    Deluxe Media Inc.  All Rights Reserved. Deluxe QC Report v2.1.3.0
+            </div>
+        </div>*@
+
+
+    </div>
+
+</div>
+
+
+
+<div id="modalNE"></div>
+<div id="modalCopyQC"></div>
+
+
+<script>
+    function setActiveButton() {
+        $(".topMenuOnClick").removeClass("topMenuOnClick")
+        $("#btnNavigate").addClass("topMenuOnClick");
+    }
+
+    $(function () {
+   
+
+       $(function () {
+
+           setActiveButton();
+
+        $('#btnSearch').on('click', function () {
+
+            var pageValid = true;
+            var sWONum = $('#@Html.IdFor(m => m.SearchWONumber)');
+            var sQCNum = $('#@Html.IdFor(m => m.SearchQCNumber)');
+
+
+            if (sWONum.val().trim() == '' && sQCNum.val().trim() == '') {
+                pageValid = false;
+
+                sWONum.popover({ placement: 'bottom', content: "Please provide at least one search value!", trigger: "manual" }).popover('show')
+                .on('shown.bs.popover', function () {
+                    setTimeout("$('#@Html.IdFor(m => m.SearchWONumber)').popover('destroy');", 3000);
+                });
+            }
+
+            if (sQCNum.val().trim() != '' && !($.isNumeric(sQCNum.val().trim()) && Math.floor(sQCNum.val().trim()) == sQCNum.val().trim())) {
+                pageValid = false;
+
+                sQCNum.popover({ placement: 'bottom', content: "QC number must be a numeric number!", trigger: "manual" }).popover('show')
+                .on('shown.bs.popover', function () {
+                    setTimeout("$('#@Html.IdFor(m => m.SearchQCNumber)').popover('destroy');", 3000);
+                });
+            }
+
+            // submit form if valid
+            if (pageValid) {
+
+               // //$('.cssload-preloader').fadeIn();
+                $('#form_search').submit();
+            }
+
+            return false;
+        });
+
+
+        $('#btnReset').on("click", function () {
+
+            $('#@Html.IdFor(m => m.SearchWONumber)').val('');
+            $('#@Html.IdFor(m => m.SearchQCNumber)').val('');
+        });
+
+        $('#btnNewQC').on("click", function () {
+
+
+            var calloutColor = $("#body-element").css("background-color");
+
+            //alert(calloutColor)
+
+            if (calloutColor == 'rgb(21, 28, 64)') {
+
+
+
+                $(".modal-content").css("background-color", "#151c40 !important");
+                $(".modal-content select").css("color", "#000000");
+                $(".modal-content").css("color", "#ecefe9");
+            }
+
+            var newQC = {
+                qcWONo: $('#@Html.IdFor(m => m.SearchWONumber)').val(),
+                qcNo: null,
+                qcRev: null
+            };
+
+            $('#modalNE').load("/Home/NewEditQCReport", newQC, function () {
+
+                var bodyBackGround = $("#body-element").css("background-color");
+
+                //alert(bodyBackGround)
+
+                if (bodyBackGround == 'rgb(42, 42, 42)') {
+                    $('.modal-content').css('background-color', '#2a2a2a')
+                }
+                else {
+                   // $('.modal-content').css('background-color', '#CDCDD5')
+                }
+
+
+               $('#newQCReportModal').modal('show');
+
+
+            });
+        });
+
+
+        $('body').on('click', '#btnCopyQC', function () {
+
+            var wono = $('#@Html.IdFor(m => m.SearchWONumber)').val();
+            var qcno = $('#@Html.IdFor(m => m.SearchQCNumber)').val();
+            var rno = 1;
+
+            ////$('.cssload-preloader').fadeIn();
+
+            $.post('/Job/CopyQC', { wonum: wono, qcnum: qcno, revnum: rno }).done(function (data) {
+
+                if (data.msg) {
+                    Msg.success(data.msg, 5 * 1000);
+                }
+                else {
+                    $("#divContent").html(data);
+                }
+
+
+                //if (data.woNum != '') {
+
+                //    wono = data.woNum
+                //    location.href = '/home/Index?woNumber=' + wono;
+                //}
+                //else {
+
+                //    $('.cssload-preloader').hide();
+
+                //    Msg.success(data.msg, 5 * 1000);
+
+                //    //alert(data.msg)
+                //}
+
+
+
+            })
+                .fail(function (xdata) {
+
+                    Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                })
+                .always(function () {
+
+                    $('.cssload-preloader').hide();
+                });
+        });
+
+
+
+
+    /************Check is the query string contains the Job  Number *************************************** */
+
+        var urlParams = window.location.search // E.g.   ?woNumber=1053983-1&qcNumber=76595;
+        urlParams = new URLSearchParams(urlParams);
+
+        ////console.log(urlParams.has('woNumber')); // true
+        //console.log('woNumber: ' + urlParams.get('woNumber')); // edit
+        //console.log('qcNumber: ' + urlParams.get('qcNumber')); // edit
+
+        //console.log('woNumber: ' +  getUrlParameter('woNumber'));
+       // console.log('qcNumber: ' +  getUrlParameter('qcNumber'));
+
+        var woNumber = urlParams.get('woNumber');
+        var qcNumber = urlParams.get('qcNumber');
+
+        if (woNumber != null || qcNumber != null)
+        {
+           // alert(woNumber);
+            //alert(qcNumber);
+
+            $('#@Html.IdFor(m => m.SearchWONumber)').val(woNumber);
+            $('#@Html.IdFor(m => m.SearchQCNumber)').val(qcNumber);
+            $('#form_search').submit();
+
+        }
+
+
+
+    });
+
+    });
+
+    $('#SearchWONumber').keyup(function (event) {
+        if (event.key == 'Enter') {
+            $('#btnSearch').click();
+        }
+    });
+
+    $('#SearchQCNumber').keyup(function (event) {
+        if (event.key == 'Enter') {
+            $('#btnSearch').click();
+        }
+
+
+    });
+
+
+    /**
+     * **************************************************
+     * Querystring Polyfill from https://davidwalsh.name/query-string-javascript
+     */
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+
+</script>

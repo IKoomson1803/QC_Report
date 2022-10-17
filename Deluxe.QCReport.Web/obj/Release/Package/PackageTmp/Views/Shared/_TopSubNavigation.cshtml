@@ -1,0 +1,177 @@
+﻿@*@model Tuple<int, int, string, string>*@
+@model  Deluxe.QCReport.Web.Models.TopSubNavigationVM
+
+@{
+    int SecLvl = Convert.ToInt32(ViewBag.SecLevel);
+
+}
+
+
+
+
+@if (Model.CustomerName.ToLower().Contains("dpp eyeball"))
+{
+
+    <button type="button" class="btn btn-sm btn-primary lnkDPPProgDetails" id="lnkDPPProgDetails" onclick="PopulateJobDetails('/DPP/DPPProgDetails', 'lnkDPPProgDetails')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Programme Details</button>
+    <button type="button" class="btn btn-sm btn-default lnkDPPProdDetails" id="lnkDPPProdDetails" onclick="PopulateJobDetails('/DPP/DPPProdDetails', 'lnkDPPProdDetails')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Production Details</button>
+    <button type="button" class="btn btn-sm btn-info lnkDPPChecklist" id="lnkDPPChecklist" onclick="PopulateJobDetails('/DPP/DPPChecklist', 'lnkDPPChecklist')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Checklist</button>
+    <button type="button" class="btn btn-sm btn-warning lnkDPPCommBroadcasters" id="lnkDPPCommBroadcasters" onclick="PopulateJobDetails('/DPP/DPPCommBroadcasters', 'lnkDPPCommBroadcasters')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Commercial Broadcasters</button>
+    <button type="button" class="btn btn-sm btn-primary lnkDPPProdAndTechLog" id="lnkDPPProdAndTechLog" onclick="PopulateJobDetails('/DPP/DPPProdAndTechLog', 'lnkDPProdAndTechLog')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Log</button>
+    <button type="button" class="btn btn-sm btn-success lnkDPPProdSignOff" id="lnkDPPProdSignOff" onclick="PopulateJobDetails('/DPP/DPPProdSignOff', 'lnkDPPProdSignOff')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Final</button>
+    <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+    <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+
+    if (SecLvl >= 1)
+    {
+        <button type="button" class="btn btn-sm btn-info col-sm-offset-1 lnkQcCopy" id="lnkQcCopy" onclick="PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">
+            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+            Copy
+        </button>
+
+    }
+
+    <button type="button" class="btn btn-sm btn-outline-primary" style="border:none;">&nbsp;</button>
+
+    <button type="button" class="btn btn-sm btn-danger lnkQcClientSpecs" id="lnkQcClientSpecs" onclick="PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Specs</button>
+
+    <button type="button" class="btn btn-sm btn-outline-primary" style="border:none;">&nbsp;</button>
+    @*<button type="button" class="btn btn-sm btn-outline-primary" style="border:none;">&nbsp;</button>*@
+
+    <button type="button" id="btnReport" class="btn btn-sm btn-default col-sm-offset-1 btnReport" onclick="PopulateJobDetails('/Report/LoadReportTypes', 'btnReport')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-qctype="@Model.QCType">
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        Report
+    </button>
+
+}
+else
+{
+
+
+    @*Not ESI or Banijah Rights *@
+    if (Model.QCType != "E")
+    {
+        <button type="button" class="btn btn-sm btn-primary lnkQcHeader" id="lnkQcHeader" onclick="PopulateJobDetails('/Job/HeaderDetails', 'lnkQcHeader')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Header</button>
+
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-sm btn-primary lnkESIQcHeader" id="lnkESIQcHeader" onclick="PopulateJobDetails('/Job/HeaderDetails', 'lnkESIQcHeader')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Header</button>
+    }
+
+
+    @*Not ESI or Banijah Rights *@
+    if (Model.QCType != "E")
+    {
+        <button type="button" class="btn btn-sm btn-default lnkQcHistory" id="lnkQcHistory" onclick="PopulateJobDetails('/Job/HistoryDetails', 'lnkQcHistory')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">History</button>
+
+    }
+    else
+    {
+        <button type="button" class="btn btn-sm btn-default lnkESIQcHistory" id="lnkESIQcHistory" onclick="PopulateJobDetails('/Job/HistoryDetails', 'lnkESIQcHistory')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">History</button>
+
+    }
+
+
+
+    <button type="button" class="btn btn-sm btn-info lnkQcTapeLayout" id="lnkQcTapeLayout" onclick="PopulateJobDetails('/Job/TapeLayoutDetails', 'lnkQcTapeLayout')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Layout</button>
+
+    @*Not ESI or Banijah Rights or Runtime QC or Runtime QC With Log *@
+    if (Model.QCType != "E" && Model.QCType != "A" && Model.QCType != "L")
+    {
+        <button type="button" class="btn btn-sm btn-danger lnkQcTextInfo" id="lnkQcTextInfo" onclick="PopulateJobDetails('/Job/TextInfoDetails', 'lnkQcTextInfo')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Text Info</button>
+
+    }
+
+
+
+    <button type="button" class="btn btn-sm btn-warning lnkQcAudioAndTC" id="lnkQcAudioAndTC" onclick="PopulateJobDetails('/Job/AudioTCDetails', 'lnkQcAudioAndTC')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Audio</button>
+
+    @* ESI or Banijah Rights *@
+    if (Model.QCType == "E")
+    {
+
+        <button type="button" class="btn btn-sm btn-success lnkQcESISpecifics" id="lnkQcESISpecifics" onclick="PopulateJobDetails('/Job/ESISpecifics', 'lnkQcESISpecifics')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Specifics</button>
+    }
+
+
+
+
+    @*<button type="button" class="btn btn-sm btn-info lnkQcIndividualSpecs" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber">Individual Specs</button>*@
+
+
+    @*Not ESI or Banijah Rights *@
+    if (@Model.QCType != "E")
+    {
+        <button type="button" class="btn btn-sm btn-primary lnkQcOverallSpecs" id="lnkQcOverallSpecs" onclick="PopulateJobDetails('/Job/OverallSpecsDetails', 'lnkQcOverallSpecs')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Measurements</button>
+    }
+    else
+    {
+        <button type="button" class="btn btn-sm btn-primary lnkESIMeasurements" id="lnkESIMeasurements" onclick="PopulateJobDetails('/Job/ESIMeasurements', 'lnkESIMeasurements')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Measurements</button>
+    }
+
+
+    <button type="button" class="btn btn-sm btn-info lnkQcCkecklist" id="lnkQcCkecklist" onclick="PopulateJobDetails('/Job/Checklist', 'lnkQcCkecklist')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Checkist</button>
+
+    @*Not Runtime QC  or Runtime QC With Text Info *@
+    if (@Model.QCType != "A" && Model.QCType != "T")
+    {
+        <button type="button" class="btn btn-sm btn-primary lnkQcLog" id="lnkQcLog" onclick="PopulateJobDetails('/Job/LogDetails', 'lnkQcLog')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Log</button>
+
+    }
+
+
+
+    @*Not ESI or Banijah Rights *@
+    if (@Model.QCType != "E")
+    {
+
+        <button type="button" class="btn btn-sm btn-success lnkQcFinal" id="lnkQcFinal" onclick="PopulateJobDetails('/Job/FinalDetails', 'lnkQcFinal')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Final</button>
+    }
+    else
+    {
+        <button type="button" class="btn btn-sm btn-success lnkQcESIFinal" id="lnkQcESIFinal" onclick="PopulateJobDetails('/Job/ESIFinal', 'lnkQcESIFinal')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Final</button>
+    }
+
+
+    <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+
+    <button type="button" id="btnFaultImage" class="btn btn-sm btn-light col-sm-offset-1 btnFaultImage" onclick="PopulateJobDetails('/FaultImage/LoadFaultsImages', 'btnFaultImage')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        Image Upload
+    </button>
+
+    <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+
+
+    if (SecLvl >= 1)
+    {
+        <button type="button" class="btn btn-sm btn-info col-sm-offset-1 lnkQcCopy" id="lnkQcCopy" onclick="PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">
+            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+            Copy
+        </button>
+
+    }
+
+    <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+    @*<button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+        <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+        <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>*@
+
+    <button type="button" class="btn btn-sm btn-danger lnkQcClientSpecs" id="lnkQcClientSpecs" onclick="PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Specs</button>
+
+    <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+    @*<button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+        <button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>*@
+
+
+
+    <button type="button" class="btn btn-sm btn-outline-primary" style="border:none;">&nbsp;</button>
+
+    <button type="button" id="btnReport" class="btn btn-sm btn-default col-sm-offset-1 btnReport" onclick="PopulateJobDetails('/Report/LoadReportTypes', 'btnReport')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-qctype="@Model.QCType">
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        Report
+    </button>
+
+
+}

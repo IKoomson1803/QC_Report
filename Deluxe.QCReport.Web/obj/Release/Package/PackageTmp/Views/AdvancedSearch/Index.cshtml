@@ -1,0 +1,51 @@
+﻿@model Deluxe.QCReport.Web.Models.SearchParamsVM
+
+@{
+    Layout = "~/Views/Shared/_LayoutWithNav.cshtml";
+    var statuses = Model.StatusList;
+
+}
+
+@*@using (Html.BeginForm("Index", "AdvancedSearch", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_AdvanceSearch" }))
+{*@
+
+<form id="form_AdvanceSearch" name="form_AdvanceSearch">
+
+    <div class="row">
+        @{Html.RenderPartial("_Search", Model);}
+    </div>
+
+    <div id="divContent"></div>
+
+    @*@if (Model.Headers != null && Model.Headers.Any())
+        {
+        <div class="row" id="SearchGrid">
+            @{Html.RenderPartial("_SearchGrid", Model);}
+        </div>
+        }*@
+
+</form>
+
+    @*}*@
+
+<script type="text/javascript">
+
+    function setActiveButton() {
+        $(".topMenuOnClick").removeClass("topMenuOnClick")
+        $("#btnAdvSearch").addClass("topMenuOnClick");
+    }
+
+    $(function () {
+        $(function () {
+            setActiveButton()
+        });
+    });
+
+</script>
+
+
+
+
+
+
+

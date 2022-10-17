@@ -1,0 +1,61 @@
+﻿
+/********* https://stackoverflow.com/questions/61129638/tab-controls-in-asp-net-mvc  - Tabs Widget MVC *******************/
+
+.tabs {
+  /*  height: 1475px;*/
+    width: 100%;
+    text-align: left;
+}
+
+.tab-nav-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    position: relative !important;
+    z-index: 999 !important;
+    top: 3px;
+}
+
+.tabs ul {
+    display: block;
+    /*width: max-content;*/
+    overflow-y: hidden;
+    margin: 0px;
+    padding-inline-start: 5px;
+}
+
+    .tabs ul li {
+        display: inline-block;
+        /*   border: 1px solid grey;
+        border-bottom: 1px solid #808080;*/
+        border-right: 1px solid #808080;
+        border-left: 1px solid #808080;
+        border-top: 3px solid #808080;
+        background-color: darkgrey;
+    }
+
+        .tabs ul li.active {
+            /* border: 1px solid black;
+             border-bottom: 3px solid white;*/
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+            border-top: 3px solid lightyellow;
+            background-color: #604040;
+        }
+
+        .tabs ul li a {
+            text-decoration: none;
+            color:  white;
+            padding: 10px;
+            line-height: 25px;
+            position: relative;
+            font-weight: bold;
+        }
+
+.tab-content-wrapper {
+    position: relative !important;
+  /*  z-index: 1 !important;*/
+    border: 2px solid #808080;
+    padding: 20px;
+    min-height: 40px;
+}
+

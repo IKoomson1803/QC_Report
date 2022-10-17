@@ -1,0 +1,145 @@
+﻿@model Deluxe.QCReport.Common.Models.NewQCReport
+
+<!-- Modal -->
+<div class="modal fade" id="newQCReportModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Add new QC Report</h4>
+            </div>
+            <div class="modal-body" style="font-size:14px;font-weight:bold;">
+
+
+                @using (Html.BeginForm("SaveNewQCReport", "Home", FormMethod.Post, new { @id = "NewQCForm" }))
+                {
+                    @Html.HiddenFor(m => m.Qcnum)
+                    @Html.HiddenFor(m => m.subQcnum)
+
+                    <div class="bs-callout bs-callout-warning">
+
+                        <div class="row">
+                            <div class="col-sm-2 text-right">
+                                <b>*Job #:</b>
+                            </div>
+
+                            <div class="col-sm-10 form-group">
+
+                                @Html.TextBoxFor(m => m.QCWONumber, new { maxlength = "50", @class = "form-control", @style = "width:150px;font-size:14px; font-weight:normal; height: 25px; line-height: 1.2;" })
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top:10px;">
+                            <div class="col-sm-2 text-right">
+                                <b>*Customer:</b>
+                            </div>
+
+                            <div class="col-sm-10 form-group">
+                                @Html.DropDownListFor(m => m.Customer, new SelectList(Model.ClientNameList, "value", "value"), new {maxlength = "50", @style = "font-size:14px; font-weight:normal;" })
+                             </div>
+
+                        </div>
+                    </div>
+
+                    <div class="bs-callout bs-callout-warning">
+
+                        <div class="row">
+                            <div class="col-sm-2 text-right" style="margin-top:10px;">
+                                <b>*QC Type:</b>
+                            </div>
+
+                            <div class="col-sm-10">
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "B") Broadcast QC</label>
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "A") Runtime QC</label>
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "L") Runtime QC With Log</label>
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "E") Runtime / Broadcast QC for Banijay Rights</label>
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "T") Runtime QC With Text Info</label>
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "M") Master QC</label>
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "D") DPP Eyeball QC Report</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bs-callout bs-callout-warning">
+
+                        <div class="row">
+                            <div class="col-sm-2 text-right" style="margin-top:10px;">
+                                <b>*Asset Type:</b>
+                            </div>
+
+                            <div class="col-sm-10">
+                                <label class="radio">@Html.RadioButtonFor(m => m.AssetType, "File") File</label>
+                                <label class="radio">@Html.RadioButtonFor(m => m.AssetType, "Tape") Tape</label>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-primary" id="btnAddNewQC">Add New QC</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+               
+        function AddNewQC(myModel) {
+
+            $.post('/Home/SaveNewQCReport', { model: myModel }).done(function (data) {
+
+              
+                if (data.success == true) {
+                    Msg.success(data.msg, 5 * 1000);
+
+                    $('#SearchWONumber').val(data.woNum);
+
+                    //$('.cssload-preloader').fadeIn();
+                    $('#form_search').submit();
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+               // $('#newQCReportModal').modal('hide');
+            });
+        }
+
+
+
+       // $('#eDdlClientNameNQC').editableSelect();
+
+        var qcNum = '@Model.Qcnum';
+    
+        if(qcNum > 0){
+           
+            $('#gridSystemModalLabel').text('Update QC Report');
+            $('#btnAddNewQC').text('Update QC');
+            
+        }
+
+        $('#btnAddNewQC').on("click", function () {
+
+            //$('.cssload-preloader').fadeIn();
+            var myModel = $('#NewQCForm').serializeObject();
+
+            console.log(myModel)
+
+            AddNewQC(myModel);
+        });
+
+    });
+</script>

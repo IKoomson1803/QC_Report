@@ -1,0 +1,56 @@
+﻿@model Deluxe.QCReport.Web.Models.CopyQCVM
+
+<div class="bs-callout bs-callout-warning">
+
+    <b style="font-size:14px;">@string.Format("{0} - {1}: Copy QC", Model.QCNumber, Model.RevNumber)</b>
+    <p>&nbsp;</p>
+    <form id="frmCopyQC">
+        <input type="hidden" id="txtJobNum" name="txtJobNum" value="@Model.JobNumber" />
+        <input type="hidden" id="txtQCNum" name="txtQCNum" value="@Model.QCNumber" />
+        <input type="hidden" id="txtRev" name="txtRev" value="@Model.RevNumber" />
+
+        <table>
+            <tr>
+                <th align="left">&nbsp;Job #:&nbsp;&nbsp;</th>
+                <td>@Html.TextBoxFor(m => m.JobNumber, new { @class = "form-control", @style = "font-size:12px; height: 25px; line-height: 1.2;", @id = "txtNewJobNumber" })</td>
+            </tr>
+
+        </table>
+    </form>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="float-left">
+                <button type="button" id="btnSaveCopyQC" class="btn btn-xs btn-primary  CRUDButton" onclick="CopyQC()">Copy QC</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+     
+
+
+<div id="divCopyMessage"></div>
+
+<script type="text/javascript">
+
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $('#lnkQcCopy').addClass("subMenuOnClick");
+    }
+
+
+   
+    $(function () {
+
+        $(function () {
+            setActiveButton();
+        });
+    });
+
+</script>    

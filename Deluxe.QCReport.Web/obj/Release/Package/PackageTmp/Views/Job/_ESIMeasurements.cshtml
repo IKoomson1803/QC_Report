@@ -1,0 +1,133 @@
+﻿
+@model Deluxe.QCReport.Web.Models.HomeVM
+
+
+<div class="bs-callout bs-callout-warning">
+
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Measurements", Model.OverallSpecs_VM.Qcnum, Model.OverallSpecs_VM.subQcnum)</b>
+        </div>
+
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-6 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    @using (Html.BeginForm("SaveOverallSpecsDetails", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => m.OverallSpecs_VM.Qcnum);
+        @Html.HiddenFor(m => m.OverallSpecs_VM.subQcnum);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.Qcnum);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.subQcnum);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.ChecklistId);
+        @Html.HiddenFor(m => m.ChecklistBanijayRights.CustId);
+               
+
+        <div class="tab-content-wrapper">
+            @{  Html.RenderPartial("_ChecklistBanijayRightsMeasurements", Model); }
+        </div>
+
+
+
+    }
+
+
+
+    <div class="row">
+        <div class="col-sm-8">
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $('#lnkMeasurementsESI').addClass("subMenuOnClick");
+    }
+
+    function toggleInterlacedOrProgressiveFlag() {
+
+
+        $("input[name='ChecklistBanijayRights.InterlacedOrProgressiveCorrectlyFlagged']").change(function () {
+            if ($(this).val() === 'False') {
+                $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').show();
+            } else if ($(this).val() === 'True') {
+                $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').hide();
+                $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').val('');
+            }
+        });
+
+    }
+
+    function initializeInterlacedOrProgressive() {
+        if ($('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyFlagged:checked').val() == 'False') {
+            $('#ChecklistBanijayRights_InterlacedOrProgressiveCorrectlyNotFlaggedReason').show();
+        }
+
+    }
+
+
+
+  $(function () {
+    $(function () {
+
+        setActiveButton();
+        initializeInterlacedOrProgressive();
+        toggleInterlacedOrProgressiveFlag();
+
+
+        $('#btnSave').on("click", function () {
+                       
+            var myModel = $('#form_jobdetails').serializeObject();
+
+            $.post('/Job/SaveOverallSpecsDetails', { model: myModel }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                
+            });
+        });
+
+
+       
+
+
+
+    });
+
+  });
+
+     
+
+</script>
