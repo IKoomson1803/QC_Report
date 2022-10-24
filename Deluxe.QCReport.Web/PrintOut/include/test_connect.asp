@@ -11,12 +11,12 @@ dim cnQCS
 Set cnQCS = server.CreateObject ("ADODB.Connection")
 						
 cnQCS.ConnectionString ="Driver=SQL Server" & _
-						";Server=10.100.9.137" & _
+						";Server=dln-s-mssql-204.services.bydeluxe.net" & _
 						";UID=bward" & _
 						";PWD=qcuser" & _
 						";Regional=No" & _
 						";Language=British" & _
-						";DATABASE=QCS_UK"
+						";DATABASE=QCSUK"
 cnQCS.Open
 
 '*********************************************

@@ -86,10 +86,11 @@ rsVidAud.Open sqlVidAud
          </tr>
 		 <tr>
               <td >Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
-              <td>&nbsp;</td>
-			  <td >&nbsp;</td>
+              
+			  
    		</tr> 
-		<!-- <tr>
+		
+		 <tr>
 			  <tr> 
                 <td colspan="3">&nbsp;</td>
          </tr>
@@ -114,7 +115,7 @@ rsVidAud.Open sqlVidAud
 			 <td >&nbsp;</td>
 			 <td >&nbsp;</td>
 		
-			 </tr>-->
+			 </tr>
 		 </table>
 	</td>
   </tr>
@@ -573,7 +574,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			   <% End If %>
 			-->
 			
-            <td  align="center" class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Time_Code")%>&nbsp;&nbsp;</td>
+            <td  align="center" class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Time Code_Code")%>&nbsp;&nbsp;</td>
             <td  align="center"  class="left_top_border">&nbsp;
 			<%
 			
