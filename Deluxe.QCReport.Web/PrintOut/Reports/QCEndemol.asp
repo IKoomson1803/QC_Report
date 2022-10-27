@@ -131,7 +131,11 @@ rsVidAud.Open sqlVidAud
 
 
  
-<table width="100%" class="blackSquare">
+<table width="100%" border="1" cellspacing="0" cellpadding="1">
+ <tr>
+	    <td colspan="5" style="font-weight:bold;font-size:12px;text-align:center;">QC DETAILS </td>
+	  </tr>
+	  
 <%  If Not IsNull(rsHeader.Fields("FullName")) Then  %>
   <tr>
      <td>QC Date: &nbsp;<b><%=rsHeader.Fields("QC_Date")%></b></td>
@@ -574,7 +578,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			   <% End If %>
 			-->
 			
-            <td  align="center" class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Time Code_Code")%>&nbsp;&nbsp;</td>
+            <td  align="center" class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Time_Code")%>&nbsp;&nbsp;</td>
             <td  align="center"  class="left_top_border">&nbsp;
 			<%
 			

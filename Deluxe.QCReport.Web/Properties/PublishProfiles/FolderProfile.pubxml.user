@@ -30,10 +30,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/14/2022 13:18:49</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>10/14/2022 14:10:50</publishTime>
+      <publishTime>10/27/2022 09:36:02</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>10/14/2022 14:10:50</publishTime>
+      <publishTime>10/27/2022 09:36:02</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>08/04/2013 13:21:24</publishTime>
@@ -570,7 +570,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/18/2021 11:58:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/14/2022 13:18:50</publishTime>
+      <publishTime>10/27/2022 09:36:02</publishTime>
     </File>
   </ItemGroup>
 </Project>

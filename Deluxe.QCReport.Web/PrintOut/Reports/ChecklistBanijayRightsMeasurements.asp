@@ -1,13 +1,14 @@
- <% If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %>
-       <table width="100%" border="1" cellspacing="0" cellpadding="0" >	 
+  <%  If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
+  
+   
+    <!--   **************** FILE DETAILS ********************************    -->
+       <table width="100%" border="1" cellspacing="0" cellpadding="2" >	 
 	        <tr >
-			    <td align="center" colspan="4" ><font class="txt_italic" size="3"><b>FILE</b></font></td>
+			    <td align="center" colspan="4" style="font-weight:bold;font-size:12px;text-align:center;" ><b>FILE</b></td>
 	      </tr>
 	       <tr>
-		     	 
-			 <td colspan="2" style="padding-left:2px;">Filename:&nbsp;<b><%=rsHeader.Fields("Filename")%></b></td>
-	  
-		   </tr>
+	     	 <td colspan="2" style="padding-left:2px;">Filename:&nbsp;<b><%=rsHeader.Fields("Filename")%></b></td>
+	      </tr>
 		   <tr>
 		     <td style="width:70%;padding-left:2px;">Banijay file to Spec:&nbsp;
 			  <b>
@@ -32,331 +33,149 @@
 					
 	          </td>
 		   </tr>
-     <table>
+     </table>
 	   
+
 	   
      <table width="100%" border="0" cellspacing="0" cellpadding="0" >	 
 	        <tr>
 			<td>&nbsp; </td>
 	    </tr>
-	 <table>
- 
- 
-     <table width="100%" border="1" cellspacing="0" cellpadding="0" >	 
-           <tr >
-			<td align="center" colspan="4" > 
-            <font class="txt_italic" size="3"><b>MEASUREMENTS</b></font>
-          </td>
+	 </table>
+	 
+	 
+	 <!-- *********************** MEASUREMENTS ******************************   -->
+      <table width="100%" border="1" cellspacing="0" cellpadding="2">
+	    <tr> 
+	            <td colspan="4" align="center"><b>MEASUREMENTS</b></td>
 	    </tr>
-     <!--<tr>
-	       <td style="font-weight:bold;text-align:center;width:25%" >&nbsp;File Details</td>
-	       <td  style="font-weight:bold;text-align:center;width:25%" >&nbsp;Video Codec</td>
-		   <td style="font-weight:bold;text-align:center;width:25%"  >&nbsp;Audio Codec</td>
-	       <td  style="font-weight:bold;text-align:center;width:25%" >&nbsp;Metadata</td>
-	 </tr>
-	 -->
-     <tr>
-       
-	       <td  style="width:25%" >
-	          <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Codec:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("VideoCodec")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("VideoCodec") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-		   </td>
-		   
-		   <td style="width:25%"  >
-		       <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Codec:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("AudioCodec")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("AudioCodec") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-		   </td>
-	       <td  style="width:25%" >
-		       <table style="width:100%" cellspacing="0">
-			        <tr>
-					   <td style="width:60%;padding-left:3px">Is the file Metadata correct:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
+	   <tr> 
+			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Format:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("Format")%></b></td>
+			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Standard:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("Standard")%></b></td>
+			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Aspect Ratio:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("AspectRatio")%></b></td>
+			   <td width="25%"><span style="font-size:14px; font-weight:bold;">Frame Size:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("FrameSizeOrResolution")%></b></td>
+			</tr>
+	  
+	         <tr> 
+			   <td width="25%">Video Codec:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("VideoCodec")%></b></td>
+			  <td width="25%">Video Bit Rate:&nbsp;<b><b>   <% =rsChecklistBanijayRights.Fields("VideoBitRate")%></b> </td>
+			  <td width="25%">Frame Rate:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("FrameRate")%></b></td>
+			  <td width="25%">Bit Depth:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("BitDepth")%></b></td>	
+			</tr>
+	  
+ <tr> 
+			   <td width="25%">Audio Codec:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("AudioCodec")%></b></td>
+			  <td width="25%">Audio Bit Rate:&nbsp;<b><b>   <% =rsChecklistBanijayRights.Fields("AudioBitRate")%></b> </td>
+			  <td width="25%">Sample Rate:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("SampleRate")%></b></td>
+			  <td width="25%">Discrete:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("Discrete")%></b></td>	
+			</tr>
+	  
+ 
+ 
+ 
+     </table>
+   
+    <!--       *************** METADATA *****************************      -->
+   
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" >	 
+	        <tr>
+			<td>&nbsp; </td>
+	    </tr>
+	 </table>
+	 
+	
+	 
+	 
+	 <table width="100%" border="1" cellspacing="0" cellpadding="2" >
+	   <tr >
+			    <td align="center" colspan="3" style="font-weight:bold;font-size:12px;text-align:center;" ><b>METADATA</b></td>
+	      </tr>
+	        <tr>
+			    <td  style="width:33%; padding-left:2px" >
+		 
+					   Is the file Metadata correct:
+					   		  
+						   <b>   <% 
 							   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheFileMetadataCorrect")) Then
 				                    Response.Write  rsChecklistBanijayRights.Fields("IsTheFileMetadataCorrect") 
 				               End If
-						  %>
-						</td>
-			     </tr>
-			 </table>
-		   </td>
-
-      </tr>	 
-       <tr>
-	      
-	      <td  style="width:25%" >
-	          <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Format:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("Format")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("Format") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-		   </td>
-		    <td style="width:25%"  >
-		       <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Bit Depth:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("BitDepth")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("BitDepth") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-		   </td>
-	
-	       <td  style="width:25%" >
-		       <table style="width:100%" cellspacing="0">
-			        <tr>
-					   <td style="width:60%;padding-left:3px">Interlaced / Progressive correctly flagged:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
+						  %> </b>
+			              
+		        </td>
+				<td  style="width:33%; padding-left:2px" >
+		 
+					   Interlaced / Progressive correctly flagged:
+					   		  
+						   <b>   <% 
 							   If Not IsNull(rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyFlagged")) Then
-				                    Response.Write  rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyFlagged")
-									 Response.Write  "<br/><span> " & rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyNotFlaggedReason") & "</span>" 
+				                    Response.Write  rsChecklistBanijayRights.Fields("InterlacedOrProgressiveCorrectlyFlagged") 
 				               End If
-						  %>
-						</td>
-			     </tr>
-			 </table>
-		   </td>
-	   </tr>
- 
-	  <tr>
-	        
-	         <td  style="width:25%" >
-		       <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Standard:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("Standard")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("Standard") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-	      </td>
-		  <td style="width:25%"  >
-		        <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Bit Rate:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("AudioBitRate")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("AudioBitRate") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-		   </td>
-		
+						  %> </b>
+			  
+		        </td>
+				
+				<td  style="width:33%; padding-left:2px" >
 		 
-	       <td  style="width:25%" >
-		          <table style="width:100%" cellspacing="0">
-			        <tr>
-					   <td style="width:60%;padding-left:3px">CLAP Present:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
+					   CLAP Present:
+					   		  
+						   <b>   <% 
 							   If Not IsNull(rsChecklistBanijayRights.Fields("CLAPPresent")) Then
-				                    Response.Write  rsChecklistBanijayRights.Fields("CLAPPresent")
+				                    Response.Write  rsChecklistBanijayRights.Fields("CLAPPresent") 
 				               End If
-						  %>
-						</td>
-			     </tr>
-			 </table>
-		   </td>
-	
-	  </tr>
-    <tr>
-	    
-		   
-		   <td  style="width:25%" >
-		     <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Frame rate:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("FrameRate")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("FrameRate") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-	      </td>
-		    <td style="width:25%"  >
-		        <table style="width:100%" cellspacing="0">
-			     <tr>
-					   <td style="width:60%;padding-left:3px">Sample Rate:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							   If Not IsNull(rsChecklistBanijayRights.Fields("SampleRate")) Then
-								  Response.Write  rsChecklistBanijayRights.Fields("SampleRate") 
-							  End If
-						  %>
-						</td>
-			     </tr>
-			 </table>
-		   </td>
-	  
-		   
-	       <td  style="width:25%" >
-		       <table style="width:100%" cellspacing="0">
-			        <tr>
-					   <td style="width:60%;padding-left:3px">Colour Primaries Present:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							   If Not IsNull(rsChecklistBanijayRights.Fields("ColourPrimariesPresent")) Then
-				                    Response.Write  rsChecklistBanijayRights.Fields("ColourPrimariesPresent")
-				               End If
-						  %>
-						</td>
-			     </tr>
-			 </table>
-		   </td>
-	</tr>
-     <tr>
-	    
-		<td  style="width:25%" >
-		     <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Bit Rate Video:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("VideoBitRate")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("VideoBitRate") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-	      </td>
-	    
-		   <td style="width:25%"  >
-		       <table style="width:100%" cellspacing="0">
-			     <tr>
-					   <td style="width:60%;padding-left:3px">Discrete:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							    If Not IsNull(rsChecklistBanijayRights.Fields("Discrete")) Then
-				                    Response.Write  rsChecklistBanijayRights.Fields("Discrete")
-				               End If
-						  %>
-						</td>
-			     </tr>
-			 </table>
-		   </td>
-		  <td style="width:25%"  >
-		       <table style="width:100%" cellspacing="0">
-			        <tr>
-					   <td style="width:60%;padding-left:3px">Transfer Characteristics Present:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							   If Not IsNull(rsChecklistBanijayRights.Fields("TransferCharacteristicsPresent")) Then
-				                    Response.Write  rsChecklistBanijayRights.Fields("TransferCharacteristicsPresent")
-				               End If
-						  %>
-						</td>
-			     </tr>
-			 </table>
-		  </td>
-	 </tr>
-      <tr>
-         
-		 <td  style="width:25%" >
-		     <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Frame size / Resolution:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("FrameSizeOrResolution")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("FrameSizeOrResolution") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-	      </td>
+						  %> </b>
+			  
+		        </td>
+				
+					
+
+	      </tr>
+		  
+		  <tr>
+		  
+		      <td  style="width:33%; padding-left:2px" >
 		 
-	       
-		   <td style="width:25%"  >&nbsp;</td>
-	       <td  style="width:25%" >
-		      <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Matrix Coefficients Present:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("MatrixCoefficientsPresent")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("MatrixCoefficientsPresent") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-		   </td>      
-      </tr>	
- <tr>
-         
-	      <td  style="width:25%" >
-		     <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px">Aspect Ratio:</td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   <%
-							 If Not IsNull(rsChecklistBanijayRights.Fields("AspectRatio")) Then
-					           Response.Write  rsChecklistBanijayRights.Fields("AspectRatio") 
-					        End If
-						  %>
-						</td>
-				   </tr>
-			 </table> 
-	      </td>
-		   <td style="width:25%"  >&nbsp;</td>
-	       <td  style="width:25%" >
-		      <table style="width:100%" cellspacing="0">
-				     <tr>
-					   <td style="width:60%;padding-left:3px"></td>
-					   <td style="width:40%;font-weight:bold;padding-left:3px">		  
-						   
-						</td>
-				   </tr>
-			 </table> 
-		   </td>      
-      </tr>	  	  
-   
-   </table>	
+					   Colour Primaries Present:
+					   		  
+						   <b>   <% 
+							   If Not IsNull(rsChecklistBanijayRights.Fields("ColourPrimariesPresent")) Then
+				                    Response.Write  rsChecklistBanijayRights.Fields("ColourPrimariesPresent") 
+				               End If
+						  %> </b>
+			  
+		        </td>
+		  
+		   <td  style="width:33%; padding-left:2px" >
+		 
+					   Transfer Characteristics Present:
+					   		  
+						   <b>   <% 
+							   If Not IsNull(rsChecklistBanijayRights.Fields("TransferCharacteristicsPresent")) Then
+				                    Response.Write  rsChecklistBanijayRights.Fields("TransferCharacteristicsPresent") 
+				               End If
+						  %> </b>
+			  
+		        </td>
+		 
+		   <td  style="width:33%; padding-left:2px" >
+		 
+					   Matrix Coefficients Present:
+					   		  
+						   <b>   <% 
+							   If Not IsNull(rsChecklistBanijayRights.Fields("MatrixCoefficientsPresent")) Then
+				                    Response.Write  rsChecklistBanijayRights.Fields("MatrixCoefficientsPresent") 
+				               End If
+						  %> </b>
+			  
+		        </td>
+		  
+	
+		  
+		  </tr>
+		  
+		  
+		  
+	 </table>
  
- <%   End If  %>	  
+  <%    End If  %> 	  
  
  

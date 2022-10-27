@@ -55,6 +55,7 @@ namespace Deluxe.QCReport.Common.Models
         public string BumpersPresentAndLogged { get; set; }
         public string InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments { get; set; }
         public string DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram { get; set; }
+        public string AllEndLogos { get; set; }
 
         // Textless
         public string AreTextlessElementsPresent { get; set; }
