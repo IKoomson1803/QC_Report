@@ -55,7 +55,7 @@ namespace Deluxe.QCReport.Common.Models
         public string BumpersPresentAndLogged { get; set; }
         public string InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments { get; set; }
         public string DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram { get; set; }
-        public string AllEndLogos { get; set; }
+        public string AllEndLogos { get; set; }  //New 
 
         // Textless
         public string AreTextlessElementsPresent { get; set; }
@@ -84,6 +84,7 @@ namespace Deluxe.QCReport.Common.Models
         public bool? FlashingLightsOrEpilepsyWarningPresent { get; set; }
         public bool? VideoContentCensoredBleepedOrBlurred { get; set; }
         public bool? NudityPresent { get; set; }
+        public bool? RudeGestures { get; set; }  // New
         public bool? TimeSpecificTextPresent { get; set; }
         public bool? ProductPlacementPresent { get; set; }
         public bool? CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags { get; set; }

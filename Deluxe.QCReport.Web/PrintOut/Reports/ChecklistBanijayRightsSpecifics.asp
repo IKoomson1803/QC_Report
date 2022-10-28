@@ -1,12 +1,12 @@
- <%  If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
+ '' <%  If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
     <table width="100%" border="1" cellspacing="0" cellpadding="2" >	 
             <tr> 
 	            <td colspan="3" align="center"><b>SPECIFICS</b></td>
 	          </tr>
            <tr>
 				<td style="font-weight:bold;text-align:center;width:33%" >&nbsp;Video</td>
-			   <td  style="font-weight:bold;text-align:center;width:33%" >&nbsp;Textless</td>
-			   <td style="font-weight:bold;text-align:center;width:33%"  >&nbsp;Audio</td>
+			   <td  style="font-weight:bold;text-align:center;width:33%" >&nbsp;Audio</td>
+			   <td style="font-weight:bold;text-align:center;width:33%"  >&nbsp;Textless</td>
 			</tr> 
           <tr>
 		      <td>Display Aspect Ratio correct:&nbsp;
@@ -16,6 +16,13 @@
 					End If
 				  %> </b>
 		    </td>
+			 <td>Is audio layout correct:&nbsp;
+				 <b>   <% 
+					  If Not IsNull(rsChecklistBanijayRights.Fields("IsAudioLlayoutCorrect")) Then
+					   Response.Write  IIf(rsChecklistBanijayRights.Fields("IsAudioLlayoutCorrect"), "Yes", "No") 
+					  End If
+				  %> </b>
+		   </td>
 	         <td>Are textless elements present:&nbsp;
 				 <b>   <% 
 					  If Not IsNull(rsChecklistBanijayRights.Fields("AreTextlessElementsPresent")) Then
@@ -23,13 +30,7 @@
 					  End If
 				  %> </b>
 		   </td>
-		   <td>Is audio layout correct:&nbsp;
-				 <b>   <% 
-					  If Not IsNull(rsChecklistBanijayRights.Fields("IsAudioLlayoutCorrect")) Then
-					   Response.Write  IIf(rsChecklistBanijayRights.Fields("IsAudioLlayoutCorrect"), "Yes", "No") 
-					  End If
-				  %> </b>
-		   </td>
+		  
 	      
 	       
 	  </tr>
@@ -41,19 +42,21 @@
 					End If
 				  %> </b>
 		   </td>
-	       <td>Are there textless covers for all texted shots:&nbsp;
-				 <b>   <% 
-					   If Not IsNull(rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots")) Then
-							Response.Write  rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots")
-					   End If
-				  %> </b>
-		   </td>
+	      
 		   <td>Is line up tone correct:&nbsp;
 			 <b>   <% 
 				   If Not IsNull(rsChecklistBanijayRights.Fields("IsLineupToneCorrect")) Then
 						Response.Write  IIf(rsChecklistBanijayRights.Fields("IsLineupToneCorrect"), "Yes", "No") 
 				   End If
 			  %> </b>
+		   </td>
+		   
+		    <td>Are there textless covers for all texted shots:&nbsp;
+				 <b>   <% 
+					   If Not IsNull(rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots")) Then
+							Response.Write  rsChecklistBanijayRights.Fields("AreThereTextlessCoversForAllTextedShots")
+					   End If
+				  %> </b>
 		   </td>
       </tr>
        <tr>
@@ -64,17 +67,19 @@
 				   End If
 			  %> </b>
 		   </td>
-	       <td>Are the textless covers the same timing as texted shots:&nbsp;
-			 <b>   <% 
-				   If Not IsNull(rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots")) Then
-						Response.Write  rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots") 
-				   End If
-			  %> </b>
-		   </td>
+	      
 		   <td>Is Loudness (R128) a pass:&nbsp;
 			  <b>   <% 
 				   If Not IsNull(rsChecklistBanijayRights.Fields("IsLoudnessR128APass")) Then
 						Response.Write  IIf(rsChecklistBanijayRights.Fields("IsLoudnessR128APass"), "Yes", "No") 
+				   End If
+			  %> </b>
+		   </td>
+		   
+		    <td>Are the textless covers the same timing as texted shots:&nbsp;
+			 <b>   <% 
+				   If Not IsNull(rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots")) Then
+						Response.Write  rsChecklistBanijayRights.Fields("AreTheTextlessCoversTheSameTimingAsTextedShots") 
 				   End If
 			  %> </b>
 		   </td>
@@ -88,13 +93,7 @@
 					   End If
 				  %> </b>
 		  </td>
-	       <td>Is the grade and aspect ratio the same as texted shots:&nbsp;
-			  <b>   <% 
-				   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots")) Then
-						Response.Write  rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots")
-				   End If
-			  %> </b>
-		   </td>
+		  
 		   <td>Is M&E present and complete:&nbsp;
 				 <b>   <% 
 					   If Not IsNull(rsChecklistBanijayRights.Fields("IsMAndEPresentAndComplete")) Then
@@ -102,6 +101,15 @@
 					   End If
 				  %> </b>
 		   </td>
+		   
+	       <td>Is the grade and aspect ratio the same as texted shots:&nbsp;
+			  <b>   <% 
+				   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots")) Then
+						Response.Write  rsChecklistBanijayRights.Fields("IsTheGradeAndAspectRatioTheSameAsTextedShots")
+				   End If
+			  %> </b>
+		   </td>
+		  
 	      
 	      
 	   </tr>
@@ -113,6 +121,14 @@
 					   End If
 				  %> </b>
 		   </td>
+		   <td>Is Mix Minus Narration present and complete:&nbsp;
+				 <b>   <% 
+					   If Not IsNull(rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete")) Then
+							Response.Write  IIf(rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete"), "Yes", "No") 
+					   End If
+				  %> </b>
+		   </td>
+		   
 		   <td>Is there 10 seconds of black between programme & Textless:&nbsp;
 			  <b>   <% 
 				   If Not IsNull(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBetweenProgrammeAndTextless")) Then
@@ -120,13 +136,7 @@
 				   End If
 			  %> </b>
 		   </td>
-	       <td>Is Mix Minus Narration present and complete:&nbsp;
-				 <b>   <% 
-					   If Not IsNull(rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete")) Then
-							Response.Write  IIf(rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete"), "Yes", "No") 
-					   End If
-				  %> </b>
-		   </td>
+	       
 	       
 		 </tr>
          <tr>
@@ -137,6 +147,15 @@
 				   End If
 			  %> </b>
 		   </td>
+		   
+		    <td>Mono vs Stereo Checked?&nbsp;
+			 <b>   <% 
+				   If Not IsNull(rsChecklistBanijayRights.Fields("MonoVsStereoChecked")) Then
+						Response.Write  IIf(rsChecklistBanijayRights.Fields("MonoVsStereoChecked"), "Yes", "No") 
+				   End If
+			  %> </b>
+		   </td>
+		   
 	       <td>Is there 10 seconds of black before end of file:&nbsp;
 			  <b>   <% 
 				   If Not IsNull(rsChecklistBanijayRights.Fields("IsThere10SecondsOfBlackBeforeEndOfFile")) Then
@@ -144,13 +163,7 @@
 				   End If
 			  %> </b>
 		   </td>
-		   <td>Mono vs Stereo Checked?&nbsp;
-			 <b>   <% 
-				   If Not IsNull(rsChecklistBanijayRights.Fields("MonoVsStereoChecked")) Then
-						Response.Write  IIf(rsChecklistBanijayRights.Fields("MonoVsStereoChecked"), "Yes", "No") 
-				   End If
-			  %> </b>
-		   </td>
+		  
    	 
 		 </tr>
           <tr>
@@ -178,6 +191,7 @@
 					   End If
 				  %> </b>
 		   </td>
+		   
 	        <td>WAVS supplied:&nbsp;
 				 <b>   <% 
 					  If Not IsNull(rsChecklistBanijayRights.Fields("WAVSSupplied")) Then
@@ -344,4 +358,4 @@
  </table>
  
  
-  <%    End If  %> 
+ '' <%    End If  %> 

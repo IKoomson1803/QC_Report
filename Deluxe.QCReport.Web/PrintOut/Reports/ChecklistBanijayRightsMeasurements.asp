@@ -1,4 +1,4 @@
-  <%  If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
+ '' <%  If Not rsChecklistBanijayRights.BOF= True And Not rsChecklistBanijayRights.EOF= True Then %> 
   
    
     <!--   **************** FILE DETAILS ********************************    -->
@@ -50,24 +50,24 @@
 	            <td colspan="4" align="center"><b>MEASUREMENTS</b></td>
 	    </tr>
 	   <tr> 
-			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Format:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("Format")%></b></td>
-			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Standard:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("Standard")%></b></td>
-			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Aspect Ratio:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("AspectRatio")%></b></td>
-			   <td width="25%"><span style="font-size:14px; font-weight:bold;">Frame Size:<b>&nbsp; <b>   <% =rsChecklistBanijayRights.Fields("FrameSizeOrResolution")%></b></td>
+			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Format:<b>&nbsp; <b>   <%=rsHeader.Fields("Format")%></b></td>
+			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Standard:<b>&nbsp; <b>   <%=rsHeader.Fields("Standard")%></b></td>
+			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Aspect Ratio:<b>&nbsp; <b>   <%=rsHeader.Fields("Aspect")%></b></td>
+			   <td width="25%"><span style="font-size:14px; font-weight:bold;">Frame Size:<b>&nbsp; <b>   <%=rsChecklistBanijayRights.Fields("FrameSizeOrResolution")%></b></td>
 			</tr>
 	  
 	         <tr> 
-			   <td width="25%">Video Codec:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("VideoCodec")%></b></td>
-			  <td width="25%">Video Bit Rate:&nbsp;<b><b>   <% =rsChecklistBanijayRights.Fields("VideoBitRate")%></b> </td>
-			  <td width="25%">Frame Rate:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("FrameRate")%></b></td>
-			  <td width="25%">Bit Depth:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("BitDepth")%></b></td>	
+			   <td width="25%">Video Codec:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("VideoCodec")%></b></td>
+			  <td width="25%">Video Bit Rate:&nbsp;<b><b>   <%=rsChecklistBanijayRights.Fields("VideoBitRate")%></b> </td>
+			  <td width="25%">Frame Rate:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("FrameRate")%></b></td>
+			  <td width="25%">Bit Depth:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("BitDepth")%></b></td>	
 			</tr>
 	  
  <tr> 
-			   <td width="25%">Audio Codec:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("AudioCodec")%></b></td>
-			  <td width="25%">Audio Bit Rate:&nbsp;<b><b>   <% =rsChecklistBanijayRights.Fields("AudioBitRate")%></b> </td>
-			  <td width="25%">Sample Rate:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("SampleRate")%></b></td>
-			  <td width="25%">Discrete:&nbsp; <b><b>   <% =rsChecklistBanijayRights.Fields("Discrete")%></b></td>	
+			   <td width="25%">Audio Codec:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("AudioCodec")%></b></td>
+			  <td width="25%">Audio Bit Rate:&nbsp;<b><b>   <%=rsChecklistBanijayRights.Fields("AudioBitRate")%></b> </td>
+			  <td width="25%">Sample Rate:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("SampleRate")%></b></td>
+			  <td width="25%">Discrete:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("Discrete")%></b></td>	
 			</tr>
 	  
  
@@ -176,6 +176,6 @@
 		  
 	 </table>
  
-  <%    End If  %> 	  
+''  <%    End If  %> 	  
  
  
