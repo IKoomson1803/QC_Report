@@ -1,7 +1,7 @@
 ﻿USE [QCSUK]
 GO
 
-/****** Object:  Table [bward].[ChecklistBanijayRights]    Script Date: 12/10/2022 12:55:00 ******/
+/****** Object:  Table [bward].[ChecklistBanijayRights]    Script Date: 31/10/2022 12:22:09 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -53,21 +53,21 @@ CREATE TABLE [bward].[ChecklistBanijayRights](
 	[IsAudioLlayoutCorrect] [bit] NULL,
 	[IsLineupToneCorrect] [bit] NULL,
 	[IsLoudnessR128APass] [bit] NULL,
-	[IsMAndEPresentAndComplete] [bit] NULL,
-	[IsMixMinusNarrationPresentAndComplete] [bit] NULL,
+	[IsMAndEPresentAndComplete] [varchar](3)NULL,
+	[IsMixMinusNarrationPresentAndComplete] [varchar](3) NULL,
 	[MonoVsStereoChecked] [bit] NULL,
 	[AudioInSync] [bit] NULL,
 	[WAVSSupplied] [bit] NULL,
-	[AllAssociatedWAVSPresent] [bit] NULL,
+	[AllAssociatedWAVSPresent] [varchar](3) NULL,
 	[VideoComplianceCheckedAndLogged] [bit] NULL,
 	[FlashingLightsOrEpilepsyWarningPresent] [bit] NULL,
-	[VideoContentCensoredBleepedOrBlurred] [bit] NULL,
+	[VideoContentCensoredBleepedOrBlurred] [varchar](10) NULL,
 	[NudityPresent] [bit] NULL,
 	[TimeSpecificTextPresent] [bit] NULL,
 	[ProductPlacementPresent] [bit] NULL,
 	[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags] [bit] NULL,
 	[AudioComplianceCheckedAndLogged] [bit] NULL,
-	[AudioContentCensoredBleepedOrBlurred] [bit] NULL,
+	[AudioContentCensoredBleepedOrBlurred] [varchar](10) NULL,
 	[ExtremeLanguagePresent] [bit] NULL,
 	[TimeSpecificAudioPresent] [bit] NULL,
 	[IsTheSlatePresentAndInformationCorrect] [varchar](3) NULL,
@@ -75,6 +75,9 @@ CREATE TABLE [bward].[ChecklistBanijayRights](
 	[ConfirmVideoFormat] [varchar](50) NULL,
 	[VideoCodec] [varchar](100) NULL,
 	[AudioCodec] [varchar](100) NULL,
+	[AllEndLogos] [varchar](3) NULL,
+	[RudeGestures] [bit] NULL,
+	[HarmOrOffencePresentIncludingDrugAndAlcholAbuse] [bit] NULL,
  CONSTRAINT [PK_ChecklistBanijayRights] PRIMARY KEY CLUSTERED 
 (
 	[ChecklistId] ASC
@@ -111,17 +114,14 @@ BEGIN
 	AND [subQCNum] = @subQcnum
 END
 
-
 GO
-USE [QCSUK]
-GO
-/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 12/10/2022 11:37:42 ******/
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 31/10/2022 13:11:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
+CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 (
     @IsMeasurements BIT, 
     @ChecklistId INT = 0,
@@ -194,14 +194,16 @@ ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 	-- Video Compliance
 	@VideoComplianceCheckedAndLogged BIT = NULL,
 	@FlashingLightsOrEpilepsyWarningPresent BIT = NULL,
-	@VideoContentCensoredBleepedOrBlurred BIT = NULL,
+	@VideoContentCensoredBleepedOrBlurred VARCHAR(10) = NULL,
 	@NudityPresent BIT = NULL,
+	@RudeGestures BIT = NULL,
+	@HarmOrOffencePresentIncludingDrugAndAlcholAbuse BIT = NULL,
 	@TimeSpecificTextPresent BIT = NULL,
 	@ProductPlacementPresent BIT = NULL,
 	@CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags BIT = NULL,
 	-- Audio Compliance
 	@AudioComplianceCheckedAndLogged BIT = NULL,
-	@AudioContentCensoredBleepedOrBlurred BIT = NULL,
+	@AudioContentCensoredBleepedOrBlurred VARCHAR(10) = NULL,
 	@ExtremeLanguagePresent BIT = NULL,
 	@TimeSpecificAudioPresent BIT = NULL
 )
@@ -277,6 +279,8 @@ BEGIN TRY
 				[FlashingLightsOrEpilepsyWarningPresent],
 				[VideoContentCensoredBleepedOrBlurred],
 				[NudityPresent],
+			    RudeGestures,
+	            HarmOrOffencePresentIncludingDrugAndAlcholAbuse,
 				[TimeSpecificTextPresent],
 				[ProductPlacementPresent],
 				[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags],
@@ -343,6 +347,8 @@ BEGIN TRY
 				@FlashingLightsOrEpilepsyWarningPresent,
 				@VideoContentCensoredBleepedOrBlurred,
 				@NudityPresent,
+				@RudeGestures,
+	            @HarmOrOffencePresentIncludingDrugAndAlcholAbuse,
 				@TimeSpecificTextPresent,
 				@ProductPlacementPresent,
 				@CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,
@@ -422,6 +428,8 @@ BEGIN TRY
 						[FlashingLightsOrEpilepsyWarningPresent] = @FlashingLightsOrEpilepsyWarningPresent,
 						[VideoContentCensoredBleepedOrBlurred] = @VideoContentCensoredBleepedOrBlurred,
 						[NudityPresent] = @NudityPresent,
+						RudeGestures  = @RudeGestures,
+	                    HarmOrOffencePresentIncludingDrugAndAlcholAbuse = @HarmOrOffencePresentIncludingDrugAndAlcholAbuse,
 						[TimeSpecificTextPresent] = @TimeSpecificTextPresent,
 						[ProductPlacementPresent] = @ProductPlacementPresent,
 						[CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags] = @CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags,

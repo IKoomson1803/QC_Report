@@ -82,16 +82,17 @@ namespace Deluxe.QCReport.Common.Models
         // Compliance Video 
         public bool? VideoComplianceCheckedAndLogged { get; set; }
         public bool? FlashingLightsOrEpilepsyWarningPresent { get; set; }
-        public bool? VideoContentCensoredBleepedOrBlurred { get; set; }
+        public string VideoContentCensoredBleepedOrBlurred { get; set; }
         public bool? NudityPresent { get; set; }
         public bool? RudeGestures { get; set; }  // New
+        public bool? HarmOrOffencePresentIncludingDrugAndAlcholAbuse { get; set; }  // New
         public bool? TimeSpecificTextPresent { get; set; }
         public bool? ProductPlacementPresent { get; set; }
         public bool? CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags { get; set; }
 
         // Compliance Audio 
         public bool? AudioComplianceCheckedAndLogged { get; set; }
-        public bool? AudioContentCensoredBleepedOrBlurred { get; set; }
+        public string AudioContentCensoredBleepedOrBlurred { get; set; }
         public bool? ExtremeLanguagePresent { get; set; }
         public bool? TimeSpecificAudioPresent { get; set; }
     }

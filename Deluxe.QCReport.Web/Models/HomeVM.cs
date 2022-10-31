@@ -57,6 +57,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> FullSpotCheckList { get; set; }
         public Dictionary<string, string> YesNoList { get; set; }
         public Dictionary<string, string> YesNoNAList { get; set; }
+        public Dictionary<string, string> YesNoNotAllList { get; set; }
         public Dictionary<string, string>  SeamlessOrPartedList { get; set; }
         public Dictionary<int, string> ChannelPhaseList { get; set; }
         public Dictionary<int, string> TCIntegrityList { get; set; }

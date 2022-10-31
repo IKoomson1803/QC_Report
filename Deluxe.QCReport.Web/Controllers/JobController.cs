@@ -1830,6 +1830,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.YesNoList = LookUpsService.GetYesNo();
             model.YesNoNAList = LookUpsService.GetYesNoNA();
+            model.YesNoNotAllList = LookUpsService.GetYesNoNotAll();
             model.SeamlessOrPartedList = LookUpsService.GetSeamlessOrParted();
 
             /****************Log User Activity******************************************************/

@@ -219,6 +219,16 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<string, string> GetYesNoNotAll()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("Y", "Yes");
+            result.Add("N", "No");
+            result.Add("NA", "Not All");
+            return result;
+        }
+
         public static Dictionary<int, string> GetCloseCap()
         {
             Dictionary<int, string> result = new Dictionary<int, string>();

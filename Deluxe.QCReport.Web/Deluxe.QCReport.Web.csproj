@@ -276,6 +276,7 @@
     <Content Include="Views\Report\_UncompletedChecklist.cshtml" />
     <Content Include="Views\Job\_ESISpecifics.cshtml" />
     <Content Include="Views\Job\_ESIMeasurements.cshtml" />
+    <Content Include="Specifications\BanijayRights\Banijay Rights QC Guidelines - Updated 26 October 2022.pdf" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />
@@ -299,7 +300,6 @@
     <Content Include="Views\Administration\_FormatPartial.cshtml" />
     <Content Include="Views\Administration\_ControlRoomPartial.cshtml" />
     <Content Include="Views\Job\_ChecklistBanijayRights.cshtml" />
-    <Content Include="Specifications\BanijayRights\Banijay - QC Guidelines -  04 AUG 2022 --.pdf" />
     <Content Include="Views\DPP\_DPPProgDetails.cshtml" />
     <Content Include="Views\DPP\_DPPProdDetails.cshtml" />
     <Content Include="Views\DPP\_DPPChecklist.cshtml" />
