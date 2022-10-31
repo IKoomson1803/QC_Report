@@ -239,14 +239,18 @@
 		   </td>
 
 		</tr>
-		<!--
+		
 		<tr>
 		   <td  colspan="3">Noted in Log:  All End Logos:
-			  
+			   <b>   <% 
+					If Not IsNull(rsChecklistBanijayRights.Fields("AllEndLogos")) Then
+						Response.Write  rsChecklistBanijayRights.Fields("AllEndLogos") 
+				   End If
+			  %> </b>
 		   </td>
 
 		</tr>
-         -->
+         
  </table>
  
  <table width="100%" border="0" cellspacing="0" cellpadding="0" >	 
@@ -286,7 +290,7 @@
 		   <td  style="width:50%" > Audio Compliance checked and logged:
                  <b>   <% 
 					  If Not IsNull(rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")) Then
-					   Response.Write  IIf(rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred"), "Yes", "No") 
+					   Response.Write  rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred") 
 					  End If
 				  %> </b>
 		   </td>
@@ -295,7 +299,7 @@
 		 <td  style="width:50%" > Content Censored - Bleeped Or Blurred:
                <b>   <% 
 				  If Not IsNull(rsChecklistBanijayRights.Fields("VideoContentCensoredBleepedOrBlurred")) Then
-				   Response.Write  IIf(rsChecklistBanijayRights.Fields("VideoContentCensoredBleepedOrBlurred"), "Yes", "No") 
+				   Response.Write  rsChecklistBanijayRights.Fields("VideoContentCensoredBleepedOrBlurred")
 				  End If
 			    %> </b>
 		   </td>
@@ -323,6 +327,28 @@
 				  %> </b>
 		   </td>
 	  </tr>
+	  <tr>
+	    <td  style="width:50%" > Rude Gestures: 
+				 <b>   <% 
+					  If Not IsNull(rsChecklistBanijayRights.Fields("RudeGestures")) Then
+					   Response.Write  IIf(rsChecklistBanijayRights.Fields("RudeGestures"), "Yes", "No") 
+					  End If
+				  %> </b>
+		   </td>
+	       <td style="width:50%">&nbsp;</td>
+	  </tr>
+	   <tr>
+	      <td  style="width:50%" > Harm or Offence Present: (Including Drug And Alchol Abuse): 
+				 <b>   <% 
+					  If Not IsNull(rsChecklistBanijayRights.Fields("HarmOrOffencePresentIncludingDrugAndAlcholAbuse")) Then
+					   Response.Write  IIf(rsChecklistBanijayRights.Fields("HarmOrOffencePresentIncludingDrugAndAlcholAbuse"), "Yes", "No") 
+					  End If
+				  %> </b>
+		   </td>
+	       <td style="width:50%">&nbsp;</td>
+	  
+	  </tr>
+	  
 	   <tr> 
 		 <td  style="width:50%" > Time Specific: Text Present:
 			  <b>   <% 

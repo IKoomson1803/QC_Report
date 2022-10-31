@@ -115,7 +115,9 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 31/10/2022 13:11:27 ******/
+USE [QCSUK]
+GO
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 31/10/2022 16:52:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,6 +174,7 @@ CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 	@BumpersPresentAndLogged VARCHAR(3) = NULL,
 	@InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments VARCHAR(3) = NULL,
 	@DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram VARCHAR(3) = NULL,
+	@AllEndLogos VARCHAR(3) = NULL,
 	--Textless
 	@AreTextlessElementsPresent VARCHAR(3) = NULL,
 	@AreThereTextlessCoversForAllTextedShots VARCHAR(3) = NULL,
@@ -183,13 +186,13 @@ CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 	@IsAudioLlayoutCorrect BIT = NULL,
 	@IsLineupToneCorrect BIT = NULL,
 	@IsLoudnessR128APass BIT = NULL,
-	@IsMAndEPresentAndComplete BIT = NULL,
-	@IsMixMinusNarrationPresentAndComplete BIT = NULL,
+	@IsMAndEPresentAndComplete VARCHAR(3) = NULL,
+	@IsMixMinusNarrationPresentAndComplete VARCHAR(3) = NULL,
 	@MonoVsStereoChecked BIT = NULL,
 	@AudioInSync BIT = NULL,
 	-- WAV
 	@WAVSSupplied BIT = NULL,
-	@AllAssociatedWAVSPresent BIT = NULL,
+	@AllAssociatedWAVSPresent VARCHAR(3) = NULL,
 	@AllAssociatedWAVSNotPresentReason VARCHAR(50) = NULL,
 	-- Video Compliance
 	@VideoComplianceCheckedAndLogged BIT = NULL,
@@ -259,6 +262,7 @@ BEGIN TRY
 				[BumpersPresentAndLogged],
 				[InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments],
 				[DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram],
+				AllEndLogos,
 				[AreTextlessElementsPresent],
 				[AreThereTextlessCoversForAllTextedShots],
 				[AreTheTextlessCoversTheSameTimingAsTextedShots],
@@ -327,6 +331,7 @@ BEGIN TRY
 				@BumpersPresentAndLogged,
 				@InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments,
 				@DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram,
+				@AllEndLogos,
 				@AreTextlessElementsPresent,
 				@AreThereTextlessCoversForAllTextedShots,
 				@AreTheTextlessCoversTheSameTimingAsTextedShots,
@@ -408,6 +413,7 @@ BEGIN TRY
 						[BumpersPresentAndLogged] = @BumpersPresentAndLogged,
 						[InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments] = @InternationalSalesAndDistributionBanijayRightsORESICreditPresentOrNotPresentWithinTheEndCreditRollerCheckedAndAddedToComments,
 						[DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram] = @DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram,
+						AllEndLogos = @AllEndLogos,
 						[AreTextlessElementsPresent] = @AreTextlessElementsPresent,
 						[AreThereTextlessCoversForAllTextedShots] = @AreThereTextlessCoversForAllTextedShots,
 						[AreTheTextlessCoversTheSameTimingAsTextedShots] = @AreTheTextlessCoversTheSameTimingAsTextedShots,
@@ -449,6 +455,7 @@ BEGIN TRY
     END CATCH		 		
 
 END
+
 
 
 GO

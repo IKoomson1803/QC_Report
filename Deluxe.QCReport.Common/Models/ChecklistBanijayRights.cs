@@ -69,14 +69,14 @@ namespace Deluxe.QCReport.Common.Models
         public bool? IsAudioLlayoutCorrect { get; set; }
         public bool? IsLineupToneCorrect { get; set; }
         public bool? IsLoudnessR128APass { get; set; }
-        public bool? IsMAndEPresentAndComplete { get; set; }
-        public bool? IsMixMinusNarrationPresentAndComplete { get; set; }
+        public string IsMAndEPresentAndComplete { get; set; }
+        public string IsMixMinusNarrationPresentAndComplete { get; set; }
         public bool? MonoVsStereoChecked { get; set; }
         public bool? AudioInSync { get; set; }
 
         // WAV
         public bool? WAVSSupplied { get; set; }
-        public bool? AllAssociatedWAVSPresent { get; set; }
+        public string AllAssociatedWAVSPresent { get; set; }
         public string AllAssociatedWAVSNotPresentReason { get; set; }
 
         // Compliance Video 

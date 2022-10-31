@@ -35,16 +35,16 @@
                         <label class="control-label">Does the file contain line-up: </label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
-                      
-                      @Html.DropDownListFor(
-                       m => m.ChecklistBanijayRights.DoesTheFileContainLineup,
-                       new SelectList(
-                           Model.YesNoList,
-                           "value",
-                           "value",
-                           Model.ChecklistBanijayRights.DoesTheFileContainLineup),
-                       "",
-                       new { @class = "form-control", @style = "width:50px" })
+
+                        @Html.DropDownListFor(
+                         m => m.ChecklistBanijayRights.DoesTheFileContainLineup,
+                         new SelectList(
+                             Model.YesNoList,
+                             "value",
+                             "value",
+                             Model.ChecklistBanijayRights.DoesTheFileContainLineup),
+                         "",
+                         new { @class = "form-control", @style = "width:50px" })
 
                     </div>
 
@@ -55,19 +55,19 @@
                         <label class="control-label">Is the Slate present and information correct: </label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
-                     
-                     @Html.DropDownListFor(
-                     m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect,
-                        new SelectList(
-                            Model.YesNoList,
-                            "value",
-                            "value",
-                            Model.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect),
-                    "",
-                    new { @class = "form-control", @style = "width:50px" })
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
                     </div>
-                  </div>
+                </div>
 
                 <div class="row">
                     <div class="col-sm-7">
@@ -106,7 +106,7 @@
                        new { @class = "form-control", @style = "width:90px" })
 
                     </div>
-                    
+
                 </div>
 
                 <div class="row">
@@ -127,7 +127,7 @@
 
                     </div>
 
-                 </div>
+                </div>
 
                 <div class="row">
                     <div class="col-sm-7">
@@ -147,7 +147,7 @@
 
                     </div>
 
-                    
+
                 </div>
 
                 <div class="row">
@@ -167,7 +167,7 @@
                        new { @class = "form-control", @style = "width:50px" })
 
                     </div>
-                    
+
 
                 </div>
 
@@ -193,7 +193,7 @@
                        new { @class = "form-control", @style = "width:50px" })
 
                     </div>
-                                       
+
                 </div>
 
                 <div class="row">
@@ -209,6 +209,26 @@
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">All End Logos: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.AllEndLogos,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.AllEndLogos),
                        "",
                        new { @class = "form-control", @style = "width:50px" })
 
