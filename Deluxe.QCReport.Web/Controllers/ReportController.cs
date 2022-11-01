@@ -144,7 +144,7 @@ namespace Deluxe.QCReport.Web.Controllers
                     checklistRequired = true;
                 }
 
-                /************************** DPP Eyeball *******************************************************/
+                /************************** Banijay Rights - Checklist no longer reqiured *******************************************************/
                 //else if (customerName.ToLower().Contains("banijay")
                 //   || customerName.ToLower().Contains("endemol"))
                 //{

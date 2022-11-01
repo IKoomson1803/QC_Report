@@ -97,7 +97,7 @@
 		   <td>Is M&E present and complete:&nbsp;
 				 <b>   <% 
 					   If Not IsNull(rsChecklistBanijayRights.Fields("IsMAndEPresentAndComplete")) Then
-							Response.Write  IIf(rsChecklistBanijayRights.Fields("IsMAndEPresentAndComplete"), "Yes", "No") 
+							Response.Write  rsChecklistBanijayRights.Fields("IsMAndEPresentAndComplete") 
 					   End If
 				  %> </b>
 		   </td>
@@ -124,7 +124,7 @@
 		   <td>Is Mix Minus Narration present and complete:&nbsp;
 				 <b>   <% 
 					   If Not IsNull(rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete")) Then
-							Response.Write  IIf(rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete"), "Yes", "No") 
+							Response.Write  rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete")
 					   End If
 				  %> </b>
 		   </td>
@@ -212,8 +212,8 @@
 	       <td>All associated WAVS present:&nbsp;
 				 <b>   <% 
 					  If Not IsNull(rsChecklistBanijayRights.Fields("AllAssociatedWAVSPresent")) Then
-					   Response.Write  IIf(rsChecklistBanijayRights.Fields("AllAssociatedWAVSPresent"), "Yes", "No") 
-					   Response.Write  "<br/><span> " & rsChecklistBanijayRights.Fields("AllAssociatedWAVSNotPresentReason") & "</span>" 
+					   Response.Write  rsChecklistBanijayRights.Fields("AllAssociatedWAVSPresent")
+					  '' Response.Write  "<br/><span> " & rsChecklistBanijayRights.Fields("AllAssociatedWAVSNotPresentReason") & "</span>" 
 					  End If
 				  %> </b>
 		   </td>
