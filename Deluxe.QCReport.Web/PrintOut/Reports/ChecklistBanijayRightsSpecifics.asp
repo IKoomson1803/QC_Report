@@ -212,8 +212,12 @@
 	       <td>All associated WAVS present:&nbsp;
 				 <b>   <% 
 					  If Not IsNull(rsChecklistBanijayRights.Fields("AllAssociatedWAVSPresent")) Then
-					   Response.Write  rsChecklistBanijayRights.Fields("AllAssociatedWAVSPresent")
-					  '' Response.Write  "<br/><span> " & rsChecklistBanijayRights.Fields("AllAssociatedWAVSNotPresentReason") & "</span>" 
+					    Response.Write  rsChecklistBanijayRights.Fields("AllAssociatedWAVSPresent")
+					   
+					     If rsChecklistBanijayRights.Fields("AllAssociatedWAVSNotPresentReason") <> "" Then
+					          Response.Write  "<br/><span> " & rsChecklistBanijayRights.Fields("AllAssociatedWAVSNotPresentReason") & "</span>" 
+					     End If	  
+							  
 					  End If
 				  %> </b>
 		   </td>

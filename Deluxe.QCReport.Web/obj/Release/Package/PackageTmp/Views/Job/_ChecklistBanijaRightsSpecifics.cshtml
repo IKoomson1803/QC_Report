@@ -35,16 +35,16 @@
                         <label class="control-label">Does the file contain line-up: </label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
-                      
-                      @Html.DropDownListFor(
-                       m => m.ChecklistBanijayRights.DoesTheFileContainLineup,
-                       new SelectList(
-                           Model.YesNoList,
-                           "value",
-                           "value",
-                           Model.ChecklistBanijayRights.DoesTheFileContainLineup),
-                       "",
-                       new { @class = "form-control", @style = "width:50px" })
+
+                        @Html.DropDownListFor(
+                         m => m.ChecklistBanijayRights.DoesTheFileContainLineup,
+                         new SelectList(
+                             Model.YesNoList,
+                             "value",
+                             "value",
+                             Model.ChecklistBanijayRights.DoesTheFileContainLineup),
+                         "",
+                         new { @class = "form-control", @style = "width:50px" })
 
                     </div>
 
@@ -55,19 +55,19 @@
                         <label class="control-label">Is the Slate present and information correct: </label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
-                     
-                     @Html.DropDownListFor(
-                     m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect,
-                        new SelectList(
-                            Model.YesNoList,
-                            "value",
-                            "value",
-                            Model.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect),
-                    "",
-                    new { @class = "form-control", @style = "width:50px" })
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
 
                     </div>
-                  </div>
+                </div>
 
                 <div class="row">
                     <div class="col-sm-7">
@@ -106,7 +106,7 @@
                        new { @class = "form-control", @style = "width:90px" })
 
                     </div>
-                    
+
                 </div>
 
                 <div class="row">
@@ -118,7 +118,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.PartedBreaksLogged,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.PartedBreaksLogged),
@@ -127,7 +127,7 @@
 
                     </div>
 
-                 </div>
+                </div>
 
                 <div class="row">
                     <div class="col-sm-7">
@@ -147,7 +147,7 @@
 
                     </div>
 
-                    
+
                 </div>
 
                 <div class="row">
@@ -159,7 +159,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.BumpersPresentAndLogged,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.BumpersPresentAndLogged),
@@ -167,7 +167,7 @@
                        new { @class = "form-control", @style = "width:50px" })
 
                     </div>
-                    
+
 
                 </div>
 
@@ -193,7 +193,7 @@
                        new { @class = "form-control", @style = "width:50px" })
 
                     </div>
-                                       
+
                 </div>
 
                 <div class="row">
@@ -216,6 +216,26 @@
 
                 </div>
 
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">All End Logos: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.AllEndLogos,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.AllEndLogos),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+
+                </div>
+
 
             </div>
         </div>
@@ -229,6 +249,7 @@
                 </div>
 
                 <div class="row">
+                    Textless covers for all texted shots
                     <div class="col-sm-7">
                         <label class="control-label">Are textless elements present: </label>
                     </div>
@@ -237,7 +258,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.AreTextlessElementsPresent,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.AreTextlessElementsPresent),
@@ -246,7 +267,7 @@
 
                     </div>
 
-                    
+
                 </div>
 
                 <div class="row">
@@ -258,7 +279,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.AreThereTextlessCoversForAllTextedShots,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.AreThereTextlessCoversForAllTextedShots),
@@ -278,7 +299,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.AreTheTextlessCoversTheSameTimingAsTextedShots,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.AreTheTextlessCoversTheSameTimingAsTextedShots),
@@ -300,7 +321,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.IsTheGradeAndAspectRatioTheSameAsTextedShots,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.IsTheGradeAndAspectRatioTheSameAsTextedShots),
@@ -321,7 +342,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless),
@@ -340,7 +361,7 @@
                         @Html.DropDownListFor(
                         m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBeforeEndOfFile,
                            new SelectList(
-                               Model.YesNoList,
+                               Model.YesNoNAList,
                                "value",
                                "value",
                                Model.ChecklistBanijayRights.IsThere10SecondsOfBlackBeforeEndOfFile),
@@ -413,12 +434,48 @@
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, true) Yes
-                        </label>
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, false) No
-                        </label>
+
+                        @Html.DropDownListFor(
+                         m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete,
+                         new SelectList(
+                             Model.YesNoNAList,
+                             "value",
+                             "value",
+                             Model.ChecklistBanijayRights.IsMAndEPresentAndComplete),
+                         "",
+                         new { @class = "form-control", @style = "width:50px" })
+
+
+                           @*<label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, true) Yes
+                    </label>
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMAndEPresentAndComplete, false) No
+                    </label>*@
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Is there 10 seconds of black between programme & Textless: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless,
+                           new SelectList(
+                               Model.YesNoNAList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsThere10SecondsOfBlackBetweenProgrammeAndTextless),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
                     </div>
                 </div>
 
@@ -428,13 +485,28 @@
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, true) Yes
-                        </label>
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, false) No
-                        </label>
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete,
+                           new SelectList(
+                               Model.YesNoNAList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
                     </div>
+
+                            @*<div class="col-sm-5 form-group float-left">
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, true) Yes
+                    </label>
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.ChecklistBanijayRights.IsMixMinusNarrationPresentAndComplete, false) No
+                    </label>
+                </div>*@
+
                 </div>
 
                 <div class="row">
@@ -498,12 +570,26 @@
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, true) Yes
-                        </label>
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, false) No
-                        </label>
+
+                        @Html.DropDownListFor(
+                       m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent,
+                          new SelectList(
+                              Model.YesNoNAList,
+                              "value",
+                              "value",
+                              Model.ChecklistBanijayRights.AllAssociatedWAVSPresent),
+                      "",
+                      new { @class = "form-control", @style = "width:50px" })
+
+
+
+
+                        @*<label class="radio-inline">
+            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, true) Yes
+        </label>
+        <label class="radio-inline">
+            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSPresent, false) No
+        </label>*@
 
                         @Html.TextBoxFor(m => m.ChecklistBanijayRights.AllAssociatedWAVSNotPresentReason,
                       new { @class = "form-control", @style = "display:none" })
@@ -567,12 +653,27 @@
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, true) Yes
-                        </label>
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, false) No
-                        </label>
+                        @Html.DropDownListFor(
+                    m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred,
+                       new SelectList(
+                           Model.YesNoNAList,
+                           "value",
+                           "value",
+                           Model.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred),
+                   "",
+                   new { @class = "form-control", @style = "width:50px" })
+
+
+
+                        @*<label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, true) Yes
+                </label>
+                <label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred, false) No
+                </label>*@
+
+
+
                     </div>
 
                 </div>
@@ -592,6 +693,42 @@
                     </div>
 
                 </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Rude Gestures:  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.RudeGestures, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.RudeGestures, false) No
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Harm or Offence Present: (Including Drug And Alchol Abuse):  </label>
+                    </div>
+
+                    <div class="col-sm-5 form-group float-left">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.HarmOrOffencePresentIncludingDrugAndAlcholAbuse, true) Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.HarmOrOffencePresentIncludingDrugAndAlcholAbuse, false) No
+                        </label>
+                    </div>
+
+                </div>
+
+
+
+
 
                 <div class="row">
                     <div class="col-sm-7">
@@ -673,12 +810,28 @@
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, true) Yes
-                        </label>
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, false) No
-                        </label>
+
+
+                        @Html.DropDownListFor(
+                    m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred,
+                       new SelectList(
+                           Model.YesNoNAList,
+                           "value",
+                           "value",
+                           Model.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred),
+                   "",
+                   new { @class = "form-control", @style = "width:50px" })
+
+
+
+                        @*<label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, true) Yes
+                </label>
+                <label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred, false) No
+                </label>*@
+
+
                     </div>
                 </div>
 

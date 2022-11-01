@@ -21,19 +21,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/26/2015 12:09:03</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll">
-      <publishTime>10/14/2022 13:18:49</publishTime>
+      <publishTime>11/01/2022 13:52:55</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll.config">
       <publishTime>05/17/2021 17:40:06</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.pdb">
-      <publishTime>10/14/2022 13:18:49</publishTime>
+      <publishTime>11/01/2022 13:52:55</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>10/27/2022 09:36:02</publishTime>
+      <publishTime>11/01/2022 13:52:55</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>10/27/2022 09:36:02</publishTime>
+      <publishTime>11/01/2022 13:52:55</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>08/04/2013 13:21:24</publishTime>
@@ -338,6 +338,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Specifications/BanijayRights/Banijay - QC Guidelines -  04 AUG 2022 --.pdf">
       <publishTime>08/04/2022 11:03:53</publishTime>
     </File>
+    <File Include="Specifications/BanijayRights/Banijay Rights QC Guidelines - Updated 26 October 2022.pdf">
+      <publishTime>10/26/2022 10:05:03</publishTime>
+    </File>
     <File Include="Specifications/Disney/NEW- Disney_DMED_AcquisitionSpecs-International_v2.0_2020.pdf">
       <publishTime>04/26/2021 11:04:34</publishTime>
     </File>
@@ -453,13 +456,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/02/2021 16:49:22</publishTime>
     </File>
     <File Include="Views/Job/_ChecklistBanijaRightsSpecifics.cshtml">
-      <publishTime>10/12/2022 14:29:48</publishTime>
+      <publishTime>10/31/2022 17:05:15</publishTime>
     </File>
     <File Include="Views/Job/_ChecklistBanijayRights.cshtml">
-      <publishTime>09/28/2022 13:01:37</publishTime>
+      <publishTime>10/31/2022 13:57:56</publishTime>
     </File>
     <File Include="Views/Job/_ChecklistBanijayRightsMeasurements.cshtml">
-      <publishTime>10/13/2022 13:05:07</publishTime>
+      <publishTime>10/28/2022 10:31:33</publishTime>
     </File>
     <File Include="Views/Job/_ChecklistDisney.cshtml">
       <publishTime>08/02/2022 16:36:29</publishTime>
@@ -492,7 +495,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/13/2022 12:24:21</publishTime>
     </File>
     <File Include="Views/Job/_ESISpecifics.cshtml">
-      <publishTime>10/12/2022 14:26:05</publishTime>
+      <publishTime>11/01/2022 13:44:10</publishTime>
     </File>
     <File Include="Views/Job/_Final.cshtml">
       <publishTime>05/24/2022 14:50:08</publishTime>

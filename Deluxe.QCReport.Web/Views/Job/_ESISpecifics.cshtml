@@ -63,9 +63,9 @@
          $('#lnkQcESISpecifics').addClass("subMenuOnClick");
      }
 
-     function toggleWAVsFlag() {
+    function toggleWAVsFlag() {
 
-         $('#ChecklistBanijayRights.AllAssociatedWAVSPresent').change(function () {
+        $('#ChecklistBanijayRights_AllAssociatedWAVSPresent').change(function () {
              if ($(this).val() === 'No') {
                  $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').show();
              } else  {
@@ -77,7 +77,6 @@
      }
 
      function initializeWAVsFlag() {
-
 
          if ($('#ChecklistBanijayRights_AllAssociatedWAVSPresent').val() == 'No') {
              $('#ChecklistBanijayRights_AllAssociatedWAVSNotPresentReason').show();;
