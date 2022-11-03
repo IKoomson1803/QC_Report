@@ -52,17 +52,36 @@
 
                 <div class="row">
                     <div class="col-sm-7">
-                        <label class="control-label">Is the Slate present and information correct: </label>
+                        <label class="control-label">Slate present: </label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
 
                         @Html.DropDownListFor(
-                        m => m.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect,
+                        m => m.ChecklistBanijayRights.SlatePresent,
                            new SelectList(
                                Model.YesNoList,
                                "value",
                                "value",
-                               Model.ChecklistBanijayRights.IsTheSlatePresentAndInformationCorrect),
+                               Model.ChecklistBanijayRights.SlatePresent),
+                       "",
+                       new { @class = "form-control", @style = "width:50px" })
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label class="control-label">Slate information correct: </label>
+                    </div>
+                    <div class="col-sm-5 form-group float-left">
+
+                        @Html.DropDownListFor(
+                        m => m.ChecklistBanijayRights.SlateInformationCorrect,
+                           new SelectList(
+                               Model.YesNoList,
+                               "value",
+                               "value",
+                               Model.ChecklistBanijayRights.SlateInformationCorrect),
                        "",
                        new { @class = "form-control", @style = "width:50px" })
 
@@ -175,9 +194,8 @@
                 <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
-                            "International Sales and Distribution Banijay  Rights"
-                            (OR ESI) credit <br />present (or Not Present)
-                            within the end credit roller. Checked and added to comments?
+                            Noted in comments: "International Sales and Distribution Banijay Rights"
+                            <br /> credit present (or Not Present) within the end Credit roller:
                         </label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
@@ -198,7 +216,7 @@
 
                 <div class="row">
                     <div class="col-sm-7">
-                        <label class="control-label">Does the file contain ESI / Banijay logo at the end of program: </label>
+                        <label class="control-label">Noted in Log: ESI / Banijay logo at the end of program:</label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
 
@@ -218,7 +236,7 @@
 
                 <div class="row">
                     <div class="col-sm-7">
-                        <label class="control-label">All End Logos: </label>
+                        <label class="control-label">Noted in Log: - All end Logos: </label>
                     </div>
                     <div class="col-sm-5 form-group float-left">
 
@@ -249,7 +267,6 @@
                 </div>
 
                 <div class="row">
-                    Textless covers for all texted shots
                     <div class="col-sm-7">
                         <label class="control-label">Are textless elements present: </label>
                     </div>
@@ -460,7 +477,7 @@
 
                 </div>
 
-                <div class="row">
+                @*<div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">Is there 10 seconds of black between programme & Textless: </label>
                     </div>
@@ -477,7 +494,7 @@
                        new { @class = "form-control", @style = "width:50px" })
 
                     </div>
-                </div>
+                </div>*@
 
                 <div class="row">
                     <div class="col-sm-7">
@@ -609,16 +626,9 @@
                         Compliance:
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-xs-12  ChecklistHeaderUnderline">
-                        Video:
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col-sm-7">
-                        <label class="control-label">Compliance checked and logged: </label>
+                        <label class="control-label">All Compliance in programme checked and logged : </label>
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
@@ -630,6 +640,13 @@
                         </label>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-xs-12  ChecklistHeaderUnderline">
+                        Video:
+                    </div>
+                </div>
+
 
                 <div class="row">
                     <div class="col-sm-7">
@@ -649,14 +666,14 @@
 
                 <div class="row">
                     <div class="col-sm-7">
-                        <label class="control-label">Content Censored - Bleeped Or Blurred:  </label>
+                        <label class="control-label">Content Censored - Blurred:  </label>
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
                         @Html.DropDownListFor(
                     m => m.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred,
                        new SelectList(
-                           Model.YesNoNAList,
+                           Model.YesNoNotAllList,
                            "value",
                            "value",
                            Model.ChecklistBanijayRights.VideoContentCensoredBleepedOrBlurred),
@@ -788,25 +805,25 @@
                     </div>
                 </div>
 
+                @*<div class="row">
+            <div class="col-sm-7">
+                <label class="control-label">Audio Compliance checked and logged:  </label>
+            </div>
+
+            <div class="col-sm-5 form-group float-left">
+                <label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, true) Yes
+                </label>
+                <label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, false) No
+                </label>
+            </div>
+        </div>*@
+
+
                 <div class="row">
                     <div class="col-sm-7">
-                        <label class="control-label">Audio Compliance checked and logged:  </label>
-                    </div>
-
-                    <div class="col-sm-5 form-group float-left">
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, true) Yes
-                        </label>
-                        <label class="radio-inline">
-                            @Html.RadioButtonFor(m => m.ChecklistBanijayRights.AudioComplianceCheckedAndLogged, false) No
-                        </label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-sm-7">
-                        <label class="control-label">Content Censored - Bleeped Or Blurred:  </label>
+                        <label class="control-label">Content Censored - Bleeped:  </label>
                     </div>
 
                     <div class="col-sm-5 form-group float-left">
@@ -815,7 +832,7 @@
                         @Html.DropDownListFor(
                     m => m.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred,
                        new SelectList(
-                           Model.YesNoNAList,
+                           Model.YesNoNotAllList,
                            "value",
                            "value",
                            Model.ChecklistBanijayRights.AudioContentCensoredBleepedOrBlurred),

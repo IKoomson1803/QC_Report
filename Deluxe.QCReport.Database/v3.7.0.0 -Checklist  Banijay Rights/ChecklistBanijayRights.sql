@@ -70,7 +70,8 @@ CREATE TABLE [bward].[ChecklistBanijayRights](
 	[AudioContentCensoredBleepedOrBlurred] [varchar](10) NULL,
 	[ExtremeLanguagePresent] [bit] NULL,
 	[TimeSpecificAudioPresent] [bit] NULL,
-	[IsTheSlatePresentAndInformationCorrect] [varchar](3) NULL,
+	[SlatePresent] [varchar](3) NULL,
+	[SlateInformationCorrect] [varchar](3) NULL,
 	[AllAssociatedWAVSNotPresentReason] [varchar](50) NULL,
 	[ConfirmVideoFormat] [varchar](50) NULL,
 	[VideoCodec] [varchar](100) NULL,
@@ -115,15 +116,14 @@ BEGIN
 END
 
 GO
-USE [QCSUK]
-GO
-/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 31/10/2022 16:52:24 ******/
+
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]    Script Date: 02/11/2022 12:56:22 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
+ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 (
     @IsMeasurements BIT, 
     @ChecklistId INT = 0,
@@ -166,7 +166,8 @@ CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 	@DisplayAspectRatioCorrect VARCHAR(50) = NULL,
 	@InterlacedVsProgressiveCheckedAndCorrect VARCHAR(50) = NULL,
 	@DoesTheFileContainLineup VARCHAR(3) = NULL,
-	@IsTheSlatePresentAndInformationCorrect VARCHAR(3) = NULL,
+	@SlatePresent VARCHAR(3) = NULL,
+	@SlateInformationCorrect VARCHAR(3) = NULL,
 	@DoesTheProgrammeStartOnTheHour VARCHAR(3) = NULL,
 	@IsTheProgrammeSeamlessOrParted VARCHAR(10) = NULL,
 	@PartedBreaksLogged VARCHAR(3) = NULL, 
@@ -254,7 +255,8 @@ BEGIN TRY
 				[DisplayAspectRatioCorrect],
 				[InterlacedVsProgressiveCheckedAndCorrect],
 				[DoesTheFileContainLineup],
-				[IsTheSlatePresentAndInformationCorrect],
+				SlatePresent,
+	            SlateInformationCorrect,
 				[DoesTheProgrammeStartOnTheHour],
 				[IsTheProgrammeSeamlessOrParted],
 				[PartedBreaksLogged],
@@ -323,7 +325,8 @@ BEGIN TRY
 				@DisplayAspectRatioCorrect,
 				@InterlacedVsProgressiveCheckedAndCorrect,
 				@DoesTheFileContainLineup,
-				@IsTheSlatePresentAndInformationCorrect,
+				@SlatePresent,
+	            @SlateInformationCorrect,
 				@DoesTheProgrammeStartOnTheHour,
 				@IsTheProgrammeSeamlessOrParted,
 				@PartedBreaksLogged,
@@ -405,7 +408,8 @@ BEGIN TRY
 						[DisplayAspectRatioCorrect] = @DisplayAspectRatioCorrect,
 						[InterlacedVsProgressiveCheckedAndCorrect] = @InterlacedVsProgressiveCheckedAndCorrect,
 						[DoesTheFileContainLineup] = @DoesTheFileContainLineup,
-						[IsTheSlatePresentAndInformationCorrect] = @IsTheSlatePresentAndInformationCorrect,
+						SlatePresent = @SlatePresent,
+	                    SlateInformationCorrect =  @SlateInformationCorrect,
 						[DoesTheProgrammeStartOnTheHour] = @DoesTheProgrammeStartOnTheHour,
 						[IsTheProgrammeSeamlessOrParted] = @IsTheProgrammeSeamlessOrParted,
 						[PartedBreaksLogged] = @PartedBreaksLogged,
@@ -455,7 +459,6 @@ BEGIN TRY
     END CATCH		 		
 
 END
-
 
 
 GO

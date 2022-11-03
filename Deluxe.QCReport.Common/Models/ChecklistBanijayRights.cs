@@ -47,7 +47,9 @@ namespace Deluxe.QCReport.Common.Models
         public string DisplayAspectRatioCorrect { get; set; }
         public string InterlacedVsProgressiveCheckedAndCorrect { get; set; }
         public string DoesTheFileContainLineup { get; set; }
-        public string IsTheSlatePresentAndInformationCorrect { get; set; }
+        public string SlatePresent { get; set; }
+        public string SlateInformationCorrect { get; set; }
+
         public string DoesTheProgrammeStartOnTheHour { get; set; }
         public string IsTheProgrammeSeamlessOrParted { get; set; }
         public string PartedBreaksLogged { get; set; }

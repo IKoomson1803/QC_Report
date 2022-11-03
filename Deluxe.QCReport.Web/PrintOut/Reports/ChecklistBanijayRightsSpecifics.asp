@@ -86,10 +86,10 @@
     
 	   </tr>
        <tr>
-	         <td>Is the Slate present and information correct:&nbsp;
+	         <td>Slate present:&nbsp;
 				  <b>   <% 
-					   If Not IsNull(rsChecklistBanijayRights.Fields("IsTheSlatePresentAndInformationCorrect")) Then
-							Response.Write  rsChecklistBanijayRights.Fields("IsTheSlatePresentAndInformationCorrect")
+					   If Not IsNull(rsChecklistBanijayRights.Fields("SlatePresent")) Then
+							Response.Write  rsChecklistBanijayRights.Fields("SlatePresent")
 					   End If
 				  %> </b>
 		  </td>
@@ -114,13 +114,14 @@
 	      
 	   </tr>
          <tr>
-		     <td>Does the programme start on the hour:&nbsp;
+		     <td>Slate information correct:&nbsp;
 				  <b>   <% 
-					   If Not IsNull(rsChecklistBanijayRights.Fields("DoesTheProgrammeStartOnTheHour")) Then
-							Response.Write  rsChecklistBanijayRights.Fields("DoesTheProgrammeStartOnTheHour")
+					   If Not IsNull(rsChecklistBanijayRights.Fields("SlateInformationCorrect")) Then
+							Response.Write  rsChecklistBanijayRights.Fields("SlateInformationCorrect")
 					   End If
 				  %> </b>
-		   </td>
+		  </td>
+		
 		   <td>Is Mix Minus Narration present and complete:&nbsp;
 				 <b>   <% 
 					   If Not IsNull(rsChecklistBanijayRights.Fields("IsMixMinusNarrationPresentAndComplete")) Then
@@ -140,13 +141,15 @@
 	       
 		 </tr>
          <tr>
-		     <td>Is the programme Seamless or Parted:&nbsp;
-			  <b>   <% 
-					If Not IsNull(rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted")) Then
-						Response.Write  rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted")
-				   End If
-			  %> </b>
+		    
+		     <td>Does the programme start on the hour:&nbsp;
+				  <b>   <% 
+					   If Not IsNull(rsChecklistBanijayRights.Fields("DoesTheProgrammeStartOnTheHour")) Then
+							Response.Write  rsChecklistBanijayRights.Fields("DoesTheProgrammeStartOnTheHour")
+					   End If
+				  %> </b>
 		   </td>
+		 
 		   
 		    <td>Mono vs Stereo Checked?&nbsp;
 			 <b>   <% 
@@ -167,13 +170,14 @@
    	 
 		 </tr>
           <tr>
-		     <td>Parted breaks logged:&nbsp;
+		       <td>Is the programme Seamless or Parted:&nbsp;
 			  <b>   <% 
-					If Not IsNull(rsChecklistBanijayRights.Fields("PartedBreaksLogged")) Then
-						Response.Write  rsChecklistBanijayRights.Fields("PartedBreaksLogged")
+					If Not IsNull(rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted")) Then
+						Response.Write  rsChecklistBanijayRights.Fields("IsTheProgrammeSeamlessOrParted")
 				   End If
 			  %> </b>
 		   </td>
+		  
 	       <td>Audio in sync:&nbsp;
 			  <b>   <% 
 					If Not IsNull(rsChecklistBanijayRights.Fields("AudioInSync")) Then
@@ -202,13 +206,15 @@
 		   <td>&nbsp;</td>
 		   </tr>
            <tr>
-		      <td>Bumpers present and logged:&nbsp;
-				 <b>   <% 
-						If Not IsNull(rsChecklistBanijayRights.Fields("BumpersPresentAndLogged")) Then
-							Response.Write  rsChecklistBanijayRights.Fields("BumpersPresentAndLogged")
-					   End If
-				  %> </b>
+		      <td>Parted breaks logged:&nbsp;
+			  <b>   <% 
+					If Not IsNull(rsChecklistBanijayRights.Fields("PartedBreaksLogged")) Then
+						Response.Write  rsChecklistBanijayRights.Fields("PartedBreaksLogged")
+				   End If
+			  %> </b>
 		   </td>
+		   
+		
 	       <td>All associated WAVS present:&nbsp;
 				 <b>   <% 
 					  If Not IsNull(rsChecklistBanijayRights.Fields("AllAssociatedWAVSPresent")) Then
@@ -223,6 +229,17 @@
 		   </td>
 		    <td>&nbsp;</td>
 	    </tr>
+		<tr>
+		       <td>Bumpers present and logged:&nbsp;
+				 <b>   <% 
+						If Not IsNull(rsChecklistBanijayRights.Fields("BumpersPresentAndLogged")) Then
+							Response.Write  rsChecklistBanijayRights.Fields("BumpersPresentAndLogged")
+					   End If
+				  %> </b>
+		   </td>
+		    <td>&nbsp;</td>
+			 <td>&nbsp;</td>
+		</tr>
 		<tr>
 		     <td  colspan="3"> Noted in comments:  "International Sales and Distribution Banijay Rights" credit present (or Not Present) within the end Credit roller:
 				  <b>   <% 
@@ -300,17 +317,17 @@
 		   </td>
 	  </tr>
 	   <tr> 
-		 <td  style="width:50%" > Content Censored - Bleeped Or Blurred:
+		 <td  style="width:50%" > Content Censored - Blurred:
                <b>   <% 
 				  If Not IsNull(rsChecklistBanijayRights.Fields("VideoContentCensoredBleepedOrBlurred")) Then
 				   Response.Write  rsChecklistBanijayRights.Fields("VideoContentCensoredBleepedOrBlurred")
 				  End If
 			    %> </b>
 		   </td>
-		   <td  style="width:50%" > Extreme Language Present:
+		   <td  style="width:50%" >Content Censored - Bleeped:
              <b>   <% 
-				  If Not IsNull(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent")) Then
-				   Response.Write  IIf(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent"), "Yes", "No") 
+				  If Not IsNull(rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")) Then
+				   Response.Write  rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")
 				  End If
 			  %> </b>
 		   </td>
@@ -323,13 +340,15 @@
 					  End If
 				  %> </b>
 		   </td>
-		   <td  style="width:50%" > Time Specific:  Audio Present:
-				  <b>   <% 
-					  If Not IsNull(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent")) Then
-					   Response.Write  IIf(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent"), "Yes", "No") 
-					  End If
-				  %> </b>
+		    <td  style="width:50%" > Extreme Language Present:
+             <b>   <% 
+				  If Not IsNull(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent")) Then
+				   Response.Write  IIf(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent"), "Yes", "No") 
+				  End If
+			  %> </b>
 		   </td>
+		   
+		   
 	  </tr>
 	  <tr>
 	    <td  style="width:50%" > Rude Gestures: 
@@ -339,7 +358,16 @@
 					  End If
 				  %> </b>
 		   </td>
-	       <td style="width:50%">&nbsp;</td>
+		     <td  style="width:50%" > Time Specific:  Audio Present:
+				  <b>   <% 
+					  If Not IsNull(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent")) Then
+					   Response.Write  IIf(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent"), "Yes", "No") 
+					  End If
+				  %> </b>
+		   </td>
+		   
+		   
+	       
 	  </tr>
 	   <tr>
 	      <td  style="width:50%" > Harm or Offence Present: (Including Drug And Alchol Abuse): 
