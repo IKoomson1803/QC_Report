@@ -57,7 +57,7 @@ End Function
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 	<tr>
-	  <td class="left_right_top_border" style="padding:2px" align="center" colspan="5">
+	  <td class="left_right_top_border" style="padding:2px; font-size:14px;" align="center" colspan="5">
 	    <b>AUDIO LAYOUT (F/S = Full or Spot Check QC) </b>
 	  </td>
 	<tr>

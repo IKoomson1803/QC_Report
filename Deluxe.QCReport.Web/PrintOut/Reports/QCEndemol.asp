@@ -133,7 +133,7 @@ rsVidAud.Open sqlVidAud
  
 <table width="100%" border="1" cellspacing="0" cellpadding="1">
  <tr>
-	    <td colspan="5" style="font-weight:bold;font-size:12px;text-align:center;">QC DETAILS </td>
+	    <td colspan="5" style="font-weight:bold;font-size:14px;text-align:center;">QC DETAILS </td>
 	  </tr>
 	  
 <%  If Not IsNull(rsHeader.Fields("FullName")) Then  %>
@@ -323,8 +323,8 @@ Set rsSpecifics = Nothing
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
         <tr>
-          <td align="center" class="blackSquare" colspan="4" > 
-            <font class="txt_italic" size="3"><b>PROGRAM FORMAT</b></font>
+          <td align="center" class="blackSquare" colspan="4" style="font-size:14px" > 
+            <b>PROGRAM FORMAT</b>
           </td>
         </tr>
         <tr>
@@ -368,8 +368,8 @@ Set rsSpecifics = Nothing
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
         <tr>
-          <td align="center" class="blackSquare" colspan="3" > 
-            <font class="txt_italic" size="3"><b>VIDEO & AUDIO</b></font>
+          <td align="center" class="blackSquare" colspan="3" style="font-size:14px" > 
+            <b>VIDEO & AUDIO</b>
           </td>
         </tr>
         <tr>
@@ -672,7 +672,7 @@ rsComments.Open sqlComments
 
 <table width="100%" class="left_right_top_border" >
    <tr>
-    <td style="text-align:center;"> <font class="txt_italic" size="2"><b>OVERALL COMMENTS</b></font</td>
+    <td style="text-align:center;font-size:14px;"> <b>OVERALL COMMENTS</b></td>
   </tr>
  </table>
 <table width="100%" class="blacksquare" >

@@ -1,7 +1,7 @@
- '' <%  If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
+  <%  ' If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
     <table width="100%" border="1" cellspacing="0" cellpadding="2" >	 
             <tr> 
-	            <td colspan="3" align="center"><b>SPECIFICS</b></td>
+	            <td colspan="3" align="center" style="font-size:14px"><b>SPECIFICS</b></td>
 	          </tr>
            <tr>
 				<td style="font-weight:bold;text-align:center;width:33%" >&nbsp;Video</td>
@@ -280,6 +280,7 @@
 	          </tr>
  </table>
  
+ <div class="PageBreak"></div>
  
  <table width="100%" border="1" cellspacing="0" cellpadding="2" >	 
 	<tr> 
@@ -308,12 +309,12 @@
 					  End If
 			   %> </b>
 		   </td>
-		   <td  style="width:50%" > Audio Compliance checked and logged:
-                 <b>   <% 
-					  If Not IsNull(rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")) Then
-					   Response.Write  rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred") 
-					  End If
-				  %> </b>
+		 <td  style="width:50%" >Content Censored - Bleeped:
+             <b>   <% 
+				  If Not IsNull(rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")) Then
+				   Response.Write  rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")
+				  End If
+			  %> </b>
 		   </td>
 	  </tr>
 	   <tr> 
@@ -324,13 +325,14 @@
 				  End If
 			    %> </b>
 		   </td>
-		   <td  style="width:50%" >Content Censored - Bleeped:
+		     <td  style="width:50%" > Extreme Language Present:
              <b>   <% 
-				  If Not IsNull(rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")) Then
-				   Response.Write  rsChecklistBanijayRights.Fields("AudioContentCensoredBleepedOrBlurred")
+				  If Not IsNull(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent")) Then
+				   Response.Write  IIf(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent"), "Yes", "No") 
 				  End If
 			  %> </b>
 		   </td>
+		   
 	  </tr>
 	   <tr> 
 		 <td  style="width:50%" > Nudity Present: 
@@ -340,14 +342,13 @@
 					  End If
 				  %> </b>
 		   </td>
-		    <td  style="width:50%" > Extreme Language Present:
-             <b>   <% 
-				  If Not IsNull(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent")) Then
-				   Response.Write  IIf(rsChecklistBanijayRights.Fields("ExtremeLanguagePresent"), "Yes", "No") 
-				  End If
-			  %> </b>
+		    <td  style="width:50%" > Time Specific:  Audio Present:
+				  <b>   <% 
+					  If Not IsNull(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent")) Then
+					   Response.Write  IIf(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent"), "Yes", "No") 
+					  End If
+				  %> </b>
 		   </td>
-		   
 		   
 	  </tr>
 	  <tr>
@@ -358,13 +359,7 @@
 					  End If
 				  %> </b>
 		   </td>
-		     <td  style="width:50%" > Time Specific:  Audio Present:
-				  <b>   <% 
-					  If Not IsNull(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent")) Then
-					   Response.Write  IIf(rsChecklistBanijayRights.Fields("TimeSpecificAudioPresent"), "Yes", "No") 
-					  End If
-				  %> </b>
-		   </td>
+		    <td style="width:50%">&nbsp;</td>
 		   
 		   
 	       
@@ -403,7 +398,7 @@
 	  </tr>
 	 
 	   <tr> 
-		<td colspan="2" >Country specific phone numbers, competitions, websites hashtags:&nbsp;
+		<td colspan="2" >Country specific phone numbers, competitions, websites & hashtags:&nbsp;
 				 <b>   <% 
 					  If Not IsNull(rsChecklistBanijayRights.Fields("CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags")) Then
 					   Response.Write  IIf(rsChecklistBanijayRights.Fields("CountrySpecificPhoneNumbersCompetitionsWebsitesHashtags"), "Yes", "No") 
@@ -416,4 +411,4 @@
  </table>
  
  
- '' <%    End If  %> 
+ <%    'End If  %> 

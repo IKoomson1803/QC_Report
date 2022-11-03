@@ -1,10 +1,10 @@
- '' <%  If Not rsChecklistBanijayRights.BOF= True And Not rsChecklistBanijayRights.EOF= True Then %> 
+ <%  'If Not rsChecklistBanijayRights.BOF= True And Not rsChecklistBanijayRights.EOF= True Then %> 
   
    
     <!--   **************** FILE DETAILS ********************************    -->
        <table width="100%" border="1" cellspacing="0" cellpadding="2" >	 
 	        <tr >
-			    <td align="center" colspan="4" style="font-weight:bold;font-size:12px;text-align:center;" ><b>FILE</b></td>
+			    <td align="center" colspan="4" style="font-weight:bold;font-size:14px;text-align:center;" ><b>FILE</b></td>
 	      </tr>
 	       <tr>
 	     	 <td colspan="2" style="padding-left:2px;">Filename:&nbsp;<b><%=rsHeader.Fields("Filename")%></b></td>
@@ -47,7 +47,7 @@
 	 <!-- *********************** MEASUREMENTS ******************************   -->
       <table width="100%" border="1" cellspacing="0" cellpadding="2">
 	    <tr> 
-	            <td colspan="4" align="center"><b>MEASUREMENTS</b></td>
+	            <td colspan="4" align="center" style="font-size:14px"><b>MEASUREMENTS</b></td>
 	    </tr>
 	   <tr> 
 			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Format:<b>&nbsp; <b>   <%=rsHeader.Fields("Format")%></b></td>
@@ -88,7 +88,7 @@
 	 
 	 <table width="100%" border="1" cellspacing="0" cellpadding="2" >
 	   <tr >
-			    <td align="center" colspan="3" style="font-weight:bold;font-size:12px;text-align:center;" ><b>METADATA</b></td>
+			    <td align="center" colspan="3" style="font-weight:bold;font-size:14px;text-align:center;" ><b>METADATA</b></td>
 	      </tr>
 	        <tr>
 			    <td  style="width:33%; padding-left:2px" >
@@ -176,6 +176,6 @@
 		  
 	 </table>
  
-''  <%    End If  %> 	  
+<%    'End If  %> 	  
  
  
