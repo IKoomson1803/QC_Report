@@ -1462,7 +1462,7 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 checklistPartial = "_ChecklistLionsGate";
                 model.ChecklistLionsGate = _checklistService.GetChecklistLionsGate(qcnum, revnum, customerId);
-            }
+                                                                                                 }
 
             /******************* Warner Bros. ****************************************************/
 

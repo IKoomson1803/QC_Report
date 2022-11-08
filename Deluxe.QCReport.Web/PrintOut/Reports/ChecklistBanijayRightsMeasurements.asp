@@ -7,7 +7,7 @@
 			    <td align="center" colspan="4" style="font-weight:bold;font-size:14px;text-align:center;" ><b>FILE</b></td>
 	      </tr>
 	       <tr>
-	     	 <td colspan="2" style="padding-left:2px;">Filename:&nbsp;<b><%=rsHeader.Fields("Filename")%></b></td>
+	     	 <td colspan="2" style="padding-left:2px;font-size:14px;font-weight:bold; ">Filename:&nbsp;<%=rsHeader.Fields("Filename")%></td>
 	      </tr>
 		   <tr>
 		     <td style="width:70%;padding-left:2px;">Banijay file to Spec:&nbsp;

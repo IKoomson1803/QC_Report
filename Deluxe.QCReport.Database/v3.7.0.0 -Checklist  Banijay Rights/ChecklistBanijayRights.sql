@@ -123,7 +123,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
+CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateChecklistBanijayRights]
 (
     @IsMeasurements BIT, 
     @ChecklistId INT = 0,
@@ -1418,7 +1418,8 @@ BEGIN
 				[DisplayAspectRatioCorrect],
 				[InterlacedVsProgressiveCheckedAndCorrect],
 				[DoesTheFileContainLineup],
-				[IsTheSlatePresentAndInformationCorrect],
+				[SlatePresent],
+	            [SlateInformationCorrect] ,
 				[DoesTheProgrammeStartOnTheHour],
 				[IsTheProgrammeSeamlessOrParted],
 				[PartedBreaksLogged],
@@ -1452,7 +1453,10 @@ BEGIN
 				[AudioComplianceCheckedAndLogged],
 				[AudioContentCensoredBleepedOrBlurred],
 				[ExtremeLanguagePresent],
-				[TimeSpecificAudioPresent]
+				[TimeSpecificAudioPresent],
+				[AllEndLogos],
+	            [RudeGestures],
+	            [HarmOrOffencePresentIncludingDrugAndAlcholAbuse]
 				) 
              SELECT
 			    @newQCNumber,
@@ -1485,7 +1489,8 @@ BEGIN
 				[DisplayAspectRatioCorrect],
 				[InterlacedVsProgressiveCheckedAndCorrect],
 				[DoesTheFileContainLineup],
-				[IsTheSlatePresentAndInformationCorrect],
+				[SlatePresent],
+	            [SlateInformationCorrect] ,
 				[DoesTheProgrammeStartOnTheHour],
 				[IsTheProgrammeSeamlessOrParted],
 				[PartedBreaksLogged],
@@ -1519,7 +1524,10 @@ BEGIN
 				[AudioComplianceCheckedAndLogged],
 				[AudioContentCensoredBleepedOrBlurred],
 				[ExtremeLanguagePresent],
-				[TimeSpecificAudioPresent] 
+				[TimeSpecificAudioPresent],
+				[AllEndLogos],
+	            [RudeGestures],
+	            [HarmOrOffencePresentIncludingDrugAndAlcholAbuse]
                 FROM [bward].[ChecklistBanijayRights] 
 			   	WHERE QCNum = @qcNumber AND subQCNum = @subQCNumber
 

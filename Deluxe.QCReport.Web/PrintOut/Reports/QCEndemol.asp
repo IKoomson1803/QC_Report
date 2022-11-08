@@ -507,7 +507,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
   </table>
   
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
-  <tr>
+  <tr style="line-height:20px;">
    	<td class="blackSquare" style="font-weight:bold;text-align:center;">
 	<span>Severity Grades:&nbsp;&nbsp;</span>
 	<span>1 = Fail</span>
@@ -571,15 +571,19 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			    elseif rsBVMastLog.EOF = false then 
 			    
 		  %>
-          <tr>
+          <tr style="line-height:20px;">
 		  <!--
 		      <% If itemNumberCount >  0 Then %>
 		         <td width="4%" align="center"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("item_num")%>&nbsp;</td> 
 			   <% End If %>
 			-->
 			
-            <td  align="center" class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Time_Code")%>&nbsp;&nbsp;</td>
-            <td  align="center"  class="left_top_border">&nbsp;
+            <td  style="vertical-align:middle;" class="left_top_border">
+			
+			  &nbsp;<%=rsBVMastLog.Fields("Time_Code")%>&nbsp;&nbsp;
+		
+			</td>
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
 			<%
 			
 			      If IsNull(rsBVMastLog.Fields("QC_Codename").Value) Then
@@ -598,10 +602,10 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			%>
 			
 			&nbsp;&nbsp;</td>
-            <td  align="left"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
-            <td  align="center"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
-			<td  align="center"  class="left_top_border" >&nbsp;<%=rsBVMastLog.Fields("item_duratn")%>&nbsp;</td>
-            <td  align="center"  class="left_top_border">&nbsp;
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
+			<td  style="vertical-align:middle;"  class="left_top_border" >&nbsp;<%=rsBVMastLog.Fields("item_duratn")%>&nbsp;</td>
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
 			
 			      <%
 				  
@@ -617,7 +621,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			
 			&nbsp;</td>
 			
-            <td  align="center"  class="left_right_top_border">&nbsp;
+            <td  style="vertical-align:middle;"  class="left_right_top_border">&nbsp;
 			                                        <%
 													if rsBVMastLog.Fields("in_master") = -1 then
 														Response.write("Yes")

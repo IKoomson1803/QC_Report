@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Deluxe.QCReport.Common.Abstractions;
 using Deluxe.QCReport.Common.LINQ;
 using Deluxe.QCReport.Common.Models;
+using Deluxe.QCReport.Common.Services;
 using Dapper;
 
 
@@ -361,13 +362,112 @@ namespace Deluxe.QCReport.Common.Repositories
 
             if (result == null)
             {
+                // Map existing Fields here and save to he checklist
+
+                OverallSpecsRepository OldESIMeasurementsRepo = new OverallSpecsRepository();
+                var oldESIMeasurements = OldESIMeasurementsRepo.GetOverallSpecsDetails(qcNum, subQCNum);
+
+                var loggerRepository = new LoggerRepository(_conn);
+                var loggerService = new LoggerService(loggerRepository);
+                var oldESISpecificsRepo = new ESISpecificsRepository(_conn, loggerService);
+                var oldESISpecifics = oldESISpecificsRepo.GetESISpecifics(qcNum, subQCNum);
+
                 result = new ChecklistBanijayRights()
                 {
                     Qcnum = qcNum,
                     subQcnum = subQCNum,
                     CustId = customerId
-            };
-                
+                };
+
+                if (oldESIMeasurements != null && oldESISpecifics != null)
+                {
+                    //Old ESI Measurements
+                    result.VideoCodec = oldESIMeasurements.VideoCodec;
+                    result.SampleRate = oldESIMeasurements.SampleRate;
+                    result.FrameSizeOrResolution = oldESIMeasurements.FrameSize;
+                    result.AudioCodec = oldESIMeasurements.AudioCodec;
+                    result.BitDepth = oldESIMeasurements.AudioBitDepth;
+
+                    //Old ESI Specifics
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.ESIEndCreditOrLogo))
+                    {
+                         result.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram = (oldESISpecifics.ESIEndCreditOrLogo == "Y") ? "Yes" : "No";
+                     }
+                   
+                    result.IsTheProgrammeSeamlessOrParted = oldESISpecifics.SeamlessOrParted;
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.IsTextlessPresent))
+                    {
+                        result.AreTextlessElementsPresent = (oldESISpecifics.IsTextlessPresent == "Y") ? "Yes" : "No";
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.ContentCensoredBleepedOrBlurred))
+                    {
+                        result.AudioContentCensoredBleepedOrBlurred = (oldESISpecifics.ContentCensoredBleepedOrBlurred == "Y") ? "Yes" : "No" ;
+                        result.VideoContentCensoredBleepedOrBlurred = (oldESISpecifics.ContentCensoredBleepedOrBlurred == "Y") ? "Yes" : "No";
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.FlashingLightsOrEpilepsyWarningPresent))
+                    {
+                        result.FlashingLightsOrEpilepsyWarningPresent = (oldESISpecifics.FlashingLightsOrEpilepsyWarningPresent == "Y") ? true : false;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.TimeSpecificTextOrAudioPresent))
+                    {
+                        result.TimeSpecificAudioPresent = (oldESISpecifics.TimeSpecificTextOrAudioPresent == "Y") ? true : false;
+                        result.TimeSpecificTextPresent = (oldESISpecifics.TimeSpecificTextOrAudioPresent == "Y") ? true : false;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.ExtremeLanguagePresent))
+                    {
+                        result.ExtremeLanguagePresent = (oldESISpecifics.ExtremeLanguagePresent == "Y") ? true : false;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.NudityPresent))
+                    {
+                        result.NudityPresent = (oldESISpecifics.NudityPresent == "Y") ? true : false;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.IsMandEComplete))
+                    {
+                        if (oldESISpecifics.IsMandEComplete == "Y")
+                        {
+                            result.IsMAndEPresentAndComplete = "Yes";
+                        }
+                        else if (oldESISpecifics.IsMandEComplete == "N")
+                        {
+                            result.IsMAndEPresentAndComplete = "No";
+                        }
+                        else
+                        {
+                            result.IsMAndEPresentAndComplete = "N/A";
+                        }
+
+                    }
+
+
+                    if (!string.IsNullOrWhiteSpace(oldESISpecifics.IsMixMinusNarrationPresentandComplete))
+                    {
+                        if (oldESISpecifics.IsMixMinusNarrationPresentandComplete == "Y")
+                        {
+                            result.IsMixMinusNarrationPresentAndComplete = "Yes";
+                        }
+                        else if (oldESISpecifics.IsMixMinusNarrationPresentandComplete == "N")
+                        {
+                            result.IsMixMinusNarrationPresentAndComplete = "No";
+                        }
+                        else
+                        {
+                            result.IsMixMinusNarrationPresentAndComplete = "N/A";
+                        }
+
+                    }
+
+                    //Update 
+                    SaveChecklistBanijayRights(result);
+                }
+               
+              
             }
 
             return result;
