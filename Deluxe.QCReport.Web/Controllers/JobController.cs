@@ -898,17 +898,17 @@ namespace Deluxe.QCReport.Web.Controllers
         [HttpPost]
         public ActionResult SaveOverallSpecsDetails(HomeVM model)
         {
-            bool result = false;
-            bool result1 = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
+            
+            bool result = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
 
             /****** Save Banijay Rights Measurments. Split the Save method into Measurements and Specifics *****************************************************************/
-            model.ChecklistBanijayRights.IsMeasurements = true;// Should be modified and replace IsFile to FileToSpec across all the checklists
-            model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
-            bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
+            //model.ChecklistBanijayRights.IsMeasurements = true;// Should be modified and replace IsFile to FileToSpec across all the checklists
+            //model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
+            //bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
 
             string resultMsg = "Measurements saved successfully.";
 
-            result = (result1 && result2);
+            
 
             if (!result) 
             { 
