@@ -362,7 +362,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
             if (result == null)
             {
-                // Map existing Fields here and save to he checklist
+                // Map existing Fields here and save 
 
                 OverallSpecsRepository OldESIMeasurementsRepo = new OverallSpecsRepository();
                 var oldESIMeasurements = OldESIMeasurementsRepo.GetOverallSpecsDetails(qcNum, subQCNum);
@@ -463,7 +463,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     }
 
-                    //Update 
+                    //Save
                     SaveChecklistBanijayRights(result);
                 }
                
