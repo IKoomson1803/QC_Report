@@ -391,41 +391,110 @@ namespace Deluxe.QCReport.Common.Repositories
                     //Old ESI Specifics
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.ESIEndCreditOrLogo))
                     {
-                         result.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram = (oldESISpecifics.ESIEndCreditOrLogo == "Y") ? "Yes" : "No";
-                     }
-                   
+                        if (oldESISpecifics.ESIEndCreditOrLogo == "Y")
+                        {
+                            result.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram = "Yes";
+                        }
+                        else if (oldESISpecifics.ESIEndCreditOrLogo == "N")
+                        {
+                            result.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram = "No";
+                        }
+                        else
+                        {
+                            result.DoesTheFileContainESIOrBanijayLogoAtTheEndOfProgram = oldESISpecifics.ESIEndCreditOrLogo;
+                        }
+                    }
+
                     result.IsTheProgrammeSeamlessOrParted = oldESISpecifics.SeamlessOrParted;
 
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.IsTextlessPresent))
                     {
-                        result.AreTextlessElementsPresent = (oldESISpecifics.IsTextlessPresent == "Y") ? "Yes" : "No";
+                        if (oldESISpecifics.IsTextlessPresent == "Y")
+                        {
+                            result.AreTextlessElementsPresent = "Yes";
+                        }
+                        else if (oldESISpecifics.IsTextlessPresent == "N")
+                        {
+                            result.AreTextlessElementsPresent = "No";
+                        }
+                        else
+                        {
+                            result.AreTextlessElementsPresent = oldESISpecifics.IsTextlessPresent;
+                        }
                     }
 
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.ContentCensoredBleepedOrBlurred))
                     {
-                        result.AudioContentCensoredBleepedOrBlurred = (oldESISpecifics.ContentCensoredBleepedOrBlurred == "Y") ? "Yes" : "No" ;
-                        result.VideoContentCensoredBleepedOrBlurred = (oldESISpecifics.ContentCensoredBleepedOrBlurred == "Y") ? "Yes" : "No";
+
+                        if (oldESISpecifics.ContentCensoredBleepedOrBlurred == "Y")
+                        {
+                            result.AudioContentCensoredBleepedOrBlurred =  "Yes" ;
+                            result.VideoContentCensoredBleepedOrBlurred = "Yes" ;
+                        }
+                        else if (oldESISpecifics.ContentCensoredBleepedOrBlurred == "N")
+                        {
+                            result.AudioContentCensoredBleepedOrBlurred = "No";
+                            result.VideoContentCensoredBleepedOrBlurred = "No";
+                        }
+                        else
+                        {
+                            result.AudioContentCensoredBleepedOrBlurred = oldESISpecifics.ContentCensoredBleepedOrBlurred;
+                            result.VideoContentCensoredBleepedOrBlurred = oldESISpecifics.ContentCensoredBleepedOrBlurred;
+                        }
                     }
 
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.FlashingLightsOrEpilepsyWarningPresent))
                     {
-                        result.FlashingLightsOrEpilepsyWarningPresent = (oldESISpecifics.FlashingLightsOrEpilepsyWarningPresent == "Y") ? true : false;
+                        if(oldESISpecifics.FlashingLightsOrEpilepsyWarningPresent == "Y" || oldESISpecifics.FlashingLightsOrEpilepsyWarningPresent == "Yes")
+                        {
+                            result.FlashingLightsOrEpilepsyWarningPresent = true;
+                        }
+                        else
+                        {
+                            result.FlashingLightsOrEpilepsyWarningPresent = false;
+                        }
+                        
                     }
 
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.TimeSpecificTextOrAudioPresent))
                     {
-                        result.TimeSpecificAudioPresent = (oldESISpecifics.TimeSpecificTextOrAudioPresent == "Y") ? true : false;
-                        result.TimeSpecificTextPresent = (oldESISpecifics.TimeSpecificTextOrAudioPresent == "Y") ? true : false;
+                        if (oldESISpecifics.TimeSpecificTextOrAudioPresent == "Y" || oldESISpecifics.TimeSpecificTextOrAudioPresent == "Yes")
+                        {
+                            result.TimeSpecificAudioPresent =  true;
+                            result.TimeSpecificTextPresent = true ;
+                        }
+                        else
+                        {
+                            result.TimeSpecificAudioPresent = false;
+                            result.TimeSpecificTextPresent = false;
+                        }
+                       
                     }
 
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.ExtremeLanguagePresent))
                     {
-                        result.ExtremeLanguagePresent = (oldESISpecifics.ExtremeLanguagePresent == "Y") ? true : false;
+                        if (oldESISpecifics.ExtremeLanguagePresent == "Y" || oldESISpecifics.ExtremeLanguagePresent == "Yes")
+                        {
+                            result.ExtremeLanguagePresent = true;
+                        }
+                        else
+                        {
+                            result.ExtremeLanguagePresent = false;
+                        }
+
                     }
 
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.NudityPresent))
                     {
-                        result.NudityPresent = (oldESISpecifics.NudityPresent == "Y") ? true : false;
+                        if (oldESISpecifics.NudityPresent == "Y" || oldESISpecifics.NudityPresent == "Yes")
+                        {
+                            result.NudityPresent = true;
+                        }
+                        else
+                        {
+                            result.NudityPresent = false;
+                        }
+                  
                     }
 
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.IsMandEComplete))
@@ -440,7 +509,7 @@ namespace Deluxe.QCReport.Common.Repositories
                         }
                         else
                         {
-                            result.IsMAndEPresentAndComplete = "N/A";
+                            result.IsMAndEPresentAndComplete = oldESISpecifics.IsMandEComplete;
                         }
 
                     }
@@ -458,7 +527,7 @@ namespace Deluxe.QCReport.Common.Repositories
                         }
                         else
                         {
-                            result.IsMixMinusNarrationPresentAndComplete = "N/A";
+                            result.IsMixMinusNarrationPresentAndComplete = oldESISpecifics.IsMixMinusNarrationPresentandComplete;
                         }
 
                     }

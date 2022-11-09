@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\DEVELOPEMENT - Bonobo Git Server\PUBLISH APPS\QC New</_PublishTargetUrl>
-    <History>True|2022-11-08T13:56:35.3139472Z;True|2022-10-14T14:10:51.2623362+01:00;True|2022-10-14T14:07:30.4970369+01:00;True|2022-10-14T14:05:48.5628302+01:00;True|2022-10-14T13:18:51.5725366+01:00;True|2022-10-03T16:12:47.1616292+01:00;True|2022-09-28T14:31:15.1717678+01:00;True|2022-08-31T10:27:38.4112046+01:00;True|2022-08-30T17:17:41.4694635+01:00;True|2022-08-22T16:38:52.2194885+01:00;True|2022-08-22T10:51:06.9769738+01:00;False|2022-08-22T10:49:16.5813765+01:00;False|2022-08-22T10:41:48.2690037+01:00;True|2022-08-19T12:26:17.8924139+01:00;</History>
+    <History>True|2022-11-09T10:34:02.1445858Z;True|2022-11-08T13:56:35.3139472+00:00;True|2022-10-14T14:10:51.2623362+01:00;True|2022-10-14T14:07:30.4970369+01:00;True|2022-10-14T14:05:48.5628302+01:00;True|2022-10-14T13:18:51.5725366+01:00;True|2022-10-03T16:12:47.1616292+01:00;True|2022-09-28T14:31:15.1717678+01:00;True|2022-08-31T10:27:38.4112046+01:00;True|2022-08-30T17:17:41.4694635+01:00;True|2022-08-22T16:38:52.2194885+01:00;True|2022-08-22T10:51:06.9769738+01:00;False|2022-08-22T10:49:16.5813765+01:00;False|2022-08-22T10:41:48.2690037+01:00;True|2022-08-19T12:26:17.8924139+01:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -21,19 +21,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/26/2015 12:09:03</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll">
-      <publishTime>11/08/2022 13:56:33</publishTime>
+      <publishTime>11/09/2022 10:34:00</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll.config">
       <publishTime>05/17/2021 17:40:06</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.pdb">
-      <publishTime>11/08/2022 13:56:33</publishTime>
+      <publishTime>11/09/2022 10:34:00</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>11/08/2022 13:56:34</publishTime>
+      <publishTime>11/09/2022 10:34:00</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>11/08/2022 13:56:34</publishTime>
+      <publishTime>11/09/2022 10:34:00</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>08/04/2013 13:21:24</publishTime>
@@ -462,7 +462,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/31/2022 13:57:56</publishTime>
     </File>
     <File Include="Views/Job/_ChecklistBanijayRightsMeasurements.cshtml">
-      <publishTime>10/28/2022 10:31:33</publishTime>
+      <publishTime>11/08/2022 14:06:03</publishTime>
     </File>
     <File Include="Views/Job/_ChecklistDisney.cshtml">
       <publishTime>08/02/2022 16:36:29</publishTime>
@@ -573,7 +573,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/18/2021 11:58:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/27/2022 09:36:02</publishTime>
+      <publishTime>11/09/2022 10:34:01</publishTime>
     </File>
   </ItemGroup>
 </Project>
