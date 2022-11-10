@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Deluxe.QCReport.Common.Services
 {
+    /// <summary>
+    /// It's now called MEASUREMENTS
+    /// </summary>
     public class OverallSpecsService
     {
         OverallSpecsRepository _repSql = new OverallSpecsRepository();

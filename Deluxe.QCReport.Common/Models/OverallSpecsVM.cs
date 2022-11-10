@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Deluxe.QCReport.Common.Models
 {
+    /// <summary>
+    /// It's now called MEASUREMENTS
+    /// </summary>
     public class OverallSpecsVM
     {
         public int Qcnum { get; set; }

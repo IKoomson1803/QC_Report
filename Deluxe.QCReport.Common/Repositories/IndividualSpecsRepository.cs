@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Deluxe.QCReport.Common.Repositories
 {
+    /// <summary>
+    /// It's now called MEASUREMENTS
+    /// </summary>
     public class IndividualSpecsRepository : BaseRepository
     {
         public IndividualSpecsVM GetIndividualSpecsDetails(int QCNum, int SubQCNum)

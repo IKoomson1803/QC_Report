@@ -828,7 +828,12 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
 
-        
+        /// <summary>
+        /// It's now called MEASUREMENTS
+        /// </summary>
+        /// <param name="qcnum"></param>
+        /// <param name="revnum"></param>
+        /// <returns></returns>
         public ActionResult OverallSpecsDetails(int qcnum, int revnum)
         {
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
@@ -860,6 +865,11 @@ namespace Deluxe.QCReport.Web.Controllers
             return PartialView("_Overall", model);
         }
 
+        /// <summary>
+        /// It's now called MEASUREMENTS
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult SaveOverallSpecsDetails(HomeVM model)
         {
