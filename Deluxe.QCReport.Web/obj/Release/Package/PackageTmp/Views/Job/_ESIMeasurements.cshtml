@@ -100,7 +100,7 @@
                        
             var myModel = $('#form_jobdetails').serializeObject();
 
-            $.post('/Job/SaveOverallSpecsDetails', { model: myModel }).done(function (data) {
+            $.post('/Job/SaveESIMeasurements', { model: myModel }).done(function (data) {
 
                 if (data.success == true) {
                     Msg.success(data.msg, 2 * 1000);

@@ -860,7 +860,47 @@ namespace Deluxe.QCReport.Web.Controllers
             return PartialView("_Overall", model);
         }
 
-        
+        [HttpPost]
+        public ActionResult SaveOverallSpecsDetails(HomeVM model)
+        {
+
+            bool result = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
+
+            /****** Save Banijay Rights Measurments. Split the Save method into Measurements and Specifics *****************************************************************/
+
+            //if(model.ChecklistBanijayRights != null)
+            //{
+            //    model.ChecklistBanijayRights.IsMeasurements = true;// Should be modified and replace IsFile to FileToSpec across all the checklists
+            //    model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
+            //    bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
+            //}
+
+
+            string resultMsg = "Measurements saved successfully.";
+
+            if (!result)
+            {
+                resultMsg = "Measurements saving failed !";
+            }
+            else
+            {
+                /****************Log User Activity******************************************************/
+
+                WebSystemUtility.LogUserActivity(
+                                            string.Format(
+                                                "Measurements for QC with Id {0} and Rev No {1} was updated.",
+                                                 model.OverallSpecs_VM.Qcnum,
+                                                model.OverallSpecs_VM.subQcnum),
+                                                Constants.ActivityType.UpdatedMeasurements);
+
+                /*******************************************************************************************/
+
+            }
+
+            return Json(new { success = result, msg = resultMsg });
+        }
+
+
         public ActionResult ESIMeasurements(int qcnum, int revnum)
         {
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
@@ -868,7 +908,7 @@ namespace Deluxe.QCReport.Web.Controllers
             var customerId = customerDetails.CustID;
 
             HomeVM model = new HomeVM();
-            model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
+            //model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);  // Not required anymore
             model.ChecklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.VideoCodecList = LookUpsService.GetVideoCodec();
@@ -896,22 +936,17 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveOverallSpecsDetails(HomeVM model)
+        public ActionResult SaveESIMeasurements(HomeVM model)
         {
+                        
+            model.ChecklistBanijayRights.IsMeasurements = true;// Should be modified and replace IsFile to FileToSpec across all the checklists
+            model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
+            bool result = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
             
-            bool result = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
-
-            /****** Save Banijay Rights Measurments. Split the Save method into Measurements and Specifics *****************************************************************/
-            //model.ChecklistBanijayRights.IsMeasurements = true;// Should be modified and replace IsFile to FileToSpec across all the checklists
-            //model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
-            //bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
-
             string resultMsg = "Measurements saved successfully.";
 
-            
-
-            if (!result) 
-            { 
+            if (!result)
+            {
                 resultMsg = "Measurements saving failed !";
             }
             else
@@ -931,6 +966,10 @@ namespace Deluxe.QCReport.Web.Controllers
 
             return Json(new { success = result, msg = resultMsg });
         }
+
+
+
+        
 
         //[HttpPost]
         //public ActionResult SaveMeasurementsESI(HomeVM model)

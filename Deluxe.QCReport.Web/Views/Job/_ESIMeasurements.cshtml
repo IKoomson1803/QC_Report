@@ -32,8 +32,8 @@
 
     @using (Html.BeginForm("SaveOverallSpecsDetails", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
-        @Html.HiddenFor(m => m.OverallSpecs_VM.Qcnum);
-        @Html.HiddenFor(m => m.OverallSpecs_VM.subQcnum);
+        @*@Html.HiddenFor(m => m.OverallSpecs_VM.Qcnum);
+        @Html.HiddenFor(m => m.OverallSpecs_VM.subQcnum);*@
         @Html.HiddenFor(m => m.ChecklistBanijayRights.Qcnum);
         @Html.HiddenFor(m => m.ChecklistBanijayRights.subQcnum);
         @Html.HiddenFor(m => m.ChecklistBanijayRights.ChecklistId);
@@ -100,7 +100,7 @@
                        
             var myModel = $('#form_jobdetails').serializeObject();
 
-            $.post('/Job/SaveOverallSpecsDetails', { model: myModel }).done(function (data) {
+            $.post('/Job/SaveESIMeasurements', { model: myModel }).done(function (data) {
 
                 if (data.success == true) {
                     Msg.success(data.msg, 2 * 1000);
