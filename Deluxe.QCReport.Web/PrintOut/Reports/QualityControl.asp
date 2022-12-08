@@ -409,32 +409,32 @@ do while not rsBVMastLog.EOF or j=1
     <tr> 
       <td class="blackSquare" style="font-weight:bold;text-align:center;">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
-	  <span>1=Pass&nbsp;&nbsp;</span>
-	  <span>2=Referral&nbsp;&nbsp;</span>
+	  <span>1=Pass&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>2=Referral&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>3=Fail&nbsp;&nbsp;</span>
 	  </td>
      </tr>
     <%end if%>
-    <%if rsHeader.Fields("GradingScale") = 4 then %>
+    <%If rsHeader.Fields("GradingScale") = 4 then %>
     <tr> 
 	  <td class="blackSquare" style="font-weight:bold;text-align:center;">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
-	  <span>1=Standard/Non Detectable&nbsp;&nbsp;</span>
-	  <span>2=Acceptable&nbsp;&nbsp;</span>
-	  <span>3=Marginal/Intrusive&nbsp;&nbsp;</span>
+	  <span>1=Standard/Non Detectable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>2=Acceptable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>3=Marginal/Intrusive&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>4=Unacceptable&nbsp;&nbsp;</span>
 	  </td>
     </tr>
     <%end if%>
-    <%if rsHeader.Fields("GradingScale") = 5 then %>
+    <%If rsHeader.Fields("GradingScale") = 5 then %>
     <tr> 
 	  <td class="blackSquare" style="font-weight:bold;text-align:center;">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
-	  <span>1=Very Annoying&nbsp;&nbsp;</span>
-	  <span>2=Annoying&nbsp;&nbsp;</span>
-	  <span>3=Slightly Annoying&nbsp;&nbsp;</span>
-	  <span>4=Perceptible but not Annoying&nbsp;&nbsp;</span>
-	  <span>5=Imperceptible&nbsp;&nbsp;</span>
+	  <span>1=Severe Fail &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>2=Fail / Refer &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>3=Slightly Annoying &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>4=Perceptible &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>5=Imperceptible &nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  </td>
      </tr>
     <%end if%>

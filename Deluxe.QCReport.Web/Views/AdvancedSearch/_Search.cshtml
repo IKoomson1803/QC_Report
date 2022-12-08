@@ -34,7 +34,31 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.WorkOrderNumber, new { @class = "form-control", @style = "width:90px" })
+                    @Html.TextBoxFor(m => m.WorkOrderNumber, new { @class = "form-control", @style = "width:130px" })
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-2">
+                    <label class="control-label">Language:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.Language, new { @class = "form-control", @style = "width:270px" })
+                </div>
+
+                <div class="col-sm-2 text-right">
+                    <label class="control-label">QC Number:</label>
+                </div>
+
+                <div class="col-sm-4 form-group">
+                    @Html.TextBoxFor(m => m.QCNumber, new { @class = "form-control", @style = "width:130px" })
                 </div>
 
             </div>
@@ -50,7 +74,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.QCUser, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.QCUser, new { @class = "form-control", @style = "width:270px" })
                 </div>
 
                 <div class="col-sm-2 text-right">
@@ -58,7 +82,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.QCUser2, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.QCUser2, new { @class = "form-control", @style = "width:270px" })
                 </div>
 
 
@@ -76,7 +100,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.RevisedBy, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.RevisedBy, new { @class = "form-control", @style = "width:270px" })
                 </div>
 
 
@@ -85,7 +109,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.RevisedBy2, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.RevisedBy2, new { @class = "form-control", @style = "width:270px" })
                 </div>
 
             </div>
@@ -100,7 +124,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.ClientName, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.ClientName, new { @class = "form-control", @style = "width:270px" })
                 </div>
 
                 <div class="col-sm-2 text-right">
@@ -122,7 +146,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.EpisodeName, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.EpisodeName, new { @class = "form-control", @style = "width:270px" })
                 </div>
 
                 <div class="col-sm-2 text-right">
@@ -130,7 +154,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.EpisodeNumber, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.EpisodeNumber, new { @class = "form-control", @style = "width:130px" })
                 </div>
             </div>
         </div>
@@ -145,7 +169,7 @@
                 </div>
 
                 <div class="col-sm-4 form-group">
-                    @Html.TextBoxFor(m => m.TapeNumber, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.TapeNumber, new { @class = "form-control", @style = "width:130px" })
                 </div>
 
 
@@ -162,20 +186,20 @@
                     @*<select id="Statuses" name="Statuses" style="display:none;">
 
 
-            @if (statuses != null)
-            {
-                <option value="">--Select Status--- </option>
+                            @if (statuses != null)
+                            {
+                                <option value="">--Select Status--- </option>
 
 
 
-                foreach (var item in statuses)
-                {
-                    <option value="@item.Value.Trim()">
-                        @item.Value.Trim()
-                    </option>
-                }
-            }
-        </select>*@
+                                foreach (var item in statuses)
+                                {
+                                    <option value="@item.Value.Trim()">
+                                        @item.Value.Trim()
+                                    </option>
+                                }
+                            }
+                        </select>*@
 
                 </div>
             </div>
@@ -192,7 +216,7 @@
 
                 <div class="col-sm-4 form-group">
                     <div class="input-group">
-                        @Html.TextBoxFor(m => m.From_Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @style = "width:90px" })
+                        @Html.TextBoxFor(m => m.From_Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @style = "width:130px" })
                         <span class="input-group-btn float-left">
                             <button class="btn btn-xs btn-default" type="button" id="btn_qcFromDate"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
                         </span>
@@ -206,7 +230,7 @@
                 <div class="col-sm-4 form-group">
 
                     <div class="input-group">
-                        @Html.TextBoxFor(m => m.To_Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @style = "width:90px" })
+                        @Html.TextBoxFor(m => m.To_Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @style = "width:130px" })
                         <span class="input-group-btn float-left">
                             <button class="btn btn-xs btn-default" type="button" id="btn_qcToDate"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
                         </span>

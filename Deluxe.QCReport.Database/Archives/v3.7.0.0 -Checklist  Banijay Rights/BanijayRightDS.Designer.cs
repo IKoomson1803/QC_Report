@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Deluxe.QCReport.Database.v3._7._0._0__Checklist__Banijay_Rights {
+namespace Deluxe.QCReport.Database.Archives.v3._7._0._0__Checklist__Banijay_Rights {
     
     
     /// <summary>

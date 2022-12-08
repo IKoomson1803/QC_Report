@@ -86,7 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.Designer.cs">
+    <Compile Include="Archives\v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BanijayRightDS.xsd</DependentUpon>
@@ -95,15 +95,15 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.xsc">
+    <None Include="Archives\v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.xsc">
       <DependentUpon>BanijayRightDS.xsd</DependentUpon>
     </None>
-    <None Include="v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.xsd">
+    <None Include="Archives\v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>BanijayRightDS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.xss">
+    <None Include="Archives\v3.7.0.0 -Checklist  Banijay Rights\BanijayRightDS.xss">
       <DependentUpon>BanijayRightDS.xsd</DependentUpon>
     </None>
   </ItemGroup>
@@ -150,7 +150,8 @@
     <Content Include="Archives\v3.4.0.0 - Rich Textboxes\Alter_Header.sql" />
     <Content Include="Archives\v3.5.0.0 -  Fault Description Images\FaultDescriptionImages.sql" />
     <Content Include="Archives\v3.6.0.0 - DPP Eyeball\DPPEyeball_DBScripts.sql" />
-    <Content Include="v3.7.0.0 -Checklist  Banijay Rights\ChecklistBanijayRights.sql" />
+    <Content Include="Archives\v3.7.0.0 -Checklist  Banijay Rights\ChecklistBanijayRights.sql" />
+    <Content Include="v3.8.0.0 - Enhancements\Enhancements_DBScripts.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

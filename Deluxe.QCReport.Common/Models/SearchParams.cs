@@ -7,6 +7,8 @@ namespace Deluxe.QCReport.Common.Models
     public class SearchParams : ISearchParams
     {
         public string WorkOrderNumber { get; set; }
+        public int? QCNumber { get; set; }
+        public string Language { get; set; }
         public string TapeNumber { get; set; }
         public string QCUser { get; set; }
         public string QCUser2 { get; set; }

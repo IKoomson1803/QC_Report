@@ -224,6 +224,8 @@
             var revno = '@Model.TextInfo_VM.subQcnum';
             var myModel = $('#form_jobdetails').serializeObject();
 
+            console.log(myModel)
+
             $.post('/Job/SaveTextInfoDetails', { model: myModel }).done(function (data) {
 
                 if (data.success == true) {
@@ -341,7 +343,7 @@
             PopulateTextInoItemDetails(qcno, revno, tino);
            /* LoadTextInfoDetails(qcno, revno, tino);*/
 
-            $('.cssload-preloader').hide();
+            //$('.cssload-preloader').hide();
         });
 
 

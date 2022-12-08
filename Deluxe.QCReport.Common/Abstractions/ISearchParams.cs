@@ -9,6 +9,8 @@ namespace Deluxe.QCReport.Common.Abstractions
     public interface ISearchParams
     {
         string WorkOrderNumber { get; set; }
+        int? QCNumber { get; set; }
+        string Language { get; set; }
         string TapeNumber { get; set; }
         string QCUser { get; set; }
         string QCUser2 { get; set; }
@@ -24,6 +26,8 @@ namespace Deluxe.QCReport.Common.Abstractions
        
         DateTime? FromDate { get; set; }
         DateTime? ToDate { get; set; }
+
+        /*****TO DO :: QC # and language ***************************************/
 
         int? AudioGrade1 { get; set; }
         int? AudioGrade2 { get; set; }
