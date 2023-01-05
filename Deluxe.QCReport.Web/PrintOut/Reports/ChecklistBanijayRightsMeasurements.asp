@@ -59,8 +59,8 @@
 	         <tr> 
 			   <td width="25%">Video Codec:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("VideoCodec")%></b></td>
 			  <td width="25%">Video Bit Rate:&nbsp;<b><b>   <%=rsChecklistBanijayRights.Fields("VideoBitRate")%></b> </td>
-			  <td width="25%">Frame Rate:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("FrameRate")%></b></td>
-			  <td width="25%">Bit Depth:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("BitDepth")%></b></td>	
+			  <td width="25%">Video Bit Depth:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("BitDepth")%></b></td>	
+			   <td width="25%">Frame Rate:&nbsp; <b><b>   <%=rsChecklistBanijayRights.Fields("FrameRate")%></b></td>
 			</tr>
 	  
  <tr> 

@@ -82,12 +82,14 @@ function populateClientForm() {
 
 
 function showClientForm(result){
+    console.log(result);
 
     $('#CustID ').val(result.CustID );
     $('#CustCode').val(result.CustCode);
     $('#CustName').val(null ?? result.CustName);
     $('#CustAddress').val(null ?? result.CustAddress);
     $('#CustPhone').val(null ?? result.CustPhone);
+    $('#GradingScale').val(null ?? result.GradingScale);
 
     $("#SaveClient").html('Update');
 
@@ -105,6 +107,7 @@ function resetClientFields(search) {
     $('#CustName').val('');
     $('#CustAddress').val('');
     $('#CustPhone').val('');
+    $('#GradingScale').val('');
 
     $("#SaveClient").html('Add New');
 

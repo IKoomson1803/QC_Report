@@ -236,8 +236,14 @@ namespace Deluxe.QCReport.Web.Controllers
                 RevisedBy2 = StringUtil.EnsureIsNull(searchParams.RevisedBy2),
                 ClientName = StringUtil.EnsureIsNull(searchParams.ClientName),
                 Title = StringUtil.EnsureIsNull(searchParams.Title),
+                Language = StringUtil.EnsureIsNull(searchParams.Language)
             };
-         
+
+            if (searchParams.QCNumber.HasValue)
+            {
+                searchCriteria.QCNumber = searchParams.QCNumber.Value;
+            }
+
             if (searchParams.AudioGrade1.HasValue)
             {
                 searchCriteria.AudioGrade1 = searchParams.AudioGrade1.Value;
@@ -373,6 +379,9 @@ namespace Deluxe.QCReport.Web.Controllers
                      && !searchParams.OverallGrade3.HasValue
                      && !searchParams.OverallGrade4.HasValue
                      && !searchParams.OverallGrade5.HasValue
+
+                     && !searchParams.QCNumber.HasValue
+                      && string.IsNullOrWhiteSpace(searchParams.Language)
                  )
             {
                 canSearch = false;
@@ -421,7 +430,8 @@ namespace Deluxe.QCReport.Web.Controllers
                                  Revised_By = item.Revised_By,
                                  Revised_By_2 = item.Revised_By_2,
                                  subQcnum = item.subQcnum,
-                                 Wonum = item.Wonum
+                                 Wonum = item.Wonum,
+                                 HLanguage = item.HLanguage
                             };
             }
                        
@@ -430,21 +440,21 @@ namespace Deluxe.QCReport.Web.Controllers
             nameof(Header.Wonum),
             nameof(Header.Qcnum),
             nameof(Header.subQcnum),
+             nameof(Header.Eval_Stat),
+             nameof(Header.CustName),
+            nameof(Header.Show),
+            nameof(Header.Epis_Name),
+            nameof(Header.Epis_no),
+            nameof(Header.Filename),
+            nameof(Header.HLanguage),
             nameof(Header.FullName),
             nameof(Header.QC_date),
             nameof(Header.FullName2),
             nameof(Header.QC_Date_2),
             nameof(Header.Revised_By),
             nameof(Header.Revised_By_2),
-            nameof(Header.CustName),
-            nameof(Header.Show),
-            nameof(Header.Epis_Name),
-            nameof(Header.Epis_no),
-            nameof(Header.Filename),
-            nameof(Header.Version),
-            nameof(Header.Eval_Stat)
-
-            };
+            nameof(Header.Version)
+           };
 
             //  CreateExcelFile.CreateExcelDocument<Header>(list, "QC Report.xlsx");
 

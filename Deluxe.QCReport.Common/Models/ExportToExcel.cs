@@ -12,7 +12,7 @@ namespace Deluxe.QCReport.Common.Models
         [DisplayName("Title")]
         public string Show { get; set; }
 
-        [DisplayName("Episode No.")]
+        [DisplayName("Episode #")]
         public string Epis_no { get; set; }
 
         [DisplayName("Episode Name")]
@@ -23,14 +23,14 @@ namespace Deluxe.QCReport.Common.Models
 
         public string Filename { get; set; }
 
-        [DisplayName("QC No.")]
+        [DisplayName("Work Order #")]
+        public string Wonum { get; set; }
+
+        [DisplayName("QC #")]
         public int Qcnum { get; set; }
 
-        [DisplayName("Revision No.")]
+        [DisplayName("Revision #")]
         public int subQcnum { get; set; }
-
-        [DisplayName("Work Order No.")]
-        public string Wonum { get; set; }
 
         [DisplayName("QC Operator #1")]
         public string FullName { get; set; }
@@ -57,6 +57,9 @@ namespace Deluxe.QCReport.Common.Models
         //public DateTime revised_date_2 { get; set; }
       
         public string Version { get; set; }
-      
+
+        [DisplayName("Language")]
+        public string HLanguage { get; set; }
+
     }
 }

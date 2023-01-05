@@ -41,23 +41,24 @@
                 <th class="tblHeaderCell tblHeaderNumberCell">Item No.</th>
                 <th class="tblHeaderCell">Job #</th>
                 <th class="tblHeaderCell">QC #</th>
-                <th class="tblHeaderCell">Rev. #</th>
-                <th class="tblHeaderCell">QC Op #1</th>
-                <th class="tblHeaderCell">QC Date #1</th>
-                <th class="tblHeaderCell">QC Op #2</th>
-                <th class="tblHeaderCell">QC Date #2</th>
-                <th class="tblHeaderCell">Rev. By #1</th>
-                <th class="tblHeaderCell">Rev. By #2</th>
+                <th class="tblHeaderCell tblHeaderNumberCell">Rev. #</th>
                 <th class="tblHeaderCell">Client</th>
                 <th class="tblHeaderCell">Title</th>
                 <th class="tblHeaderCell">Ep. Name</th>
                 <th class="tblHeaderCell">Ep. #</th>
-                <th class="tblHeaderCell">File Name</th>
-                <th class="tblHeaderCell">Version</th>
+                <th class="tblHeaderCell" >File Name</th>
+                <th class="tblHeaderCell">Language</th>
+                <th class="tblHeaderCell">QC Op #1</th>
+                <th class="tblHeaderCell">QC Date #1</th>
+                @*<th class="tblHeaderCell">QC Op #2</th>
+        <th class="tblHeaderCell">QC Date #2</th>*@
+                <th class="tblHeaderCell">Rev. By #1</th>
+                @*<th class="tblHeaderCell">Rev. By #2</th>*@
+                @*<th class="tblHeaderCell">Version</th>*@
                 <th class="tblHeaderCell">Status</th>
-                <th class="tblHeaderCell">Grd. Video </th>
-                <th class="tblHeaderCell">Grd. Audio </th>
-                <th class="tblHeaderCell">Grd. Overall </th>
+                @*<th class="tblHeaderCell">Grd. Video </th>
+        <th class="tblHeaderCell">Grd. Audio </th>
+        <th class="tblHeaderCell">Grd. Overall </th>*@
             </tr>
         </thead>
         <tbody>
@@ -66,68 +67,74 @@
                 itemNo++;
 
 
-                <tr>
-                    <td>@itemNo</td>
-                    <td>
-                        <a href="/home/index?woNumber=@seachResult[i].Wonum">@seachResult[i].Wonum</a>
-                    </td>
-                    <td>
-                        <a href="/home/index?qcNumber=@seachResult[i].Qcnum">@seachResult[i].Qcnum</a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].subQcnum)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].QC_date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].FullName2)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].QC_Date_2)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Revised_By)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Revised_By_2)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].CustName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Show)
-                    </td>
+            <tr>
+                <td>@itemNo</td>
+                <td>
+                    <a href="/home/index?woNumber=@seachResult[i].Wonum">@seachResult[i].Wonum</a>
+                </td>
+                <td>
+                    <a href="/home/index?qcNumber=@seachResult[i].Qcnum">@seachResult[i].Qcnum</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].subQcnum)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].CustName)
+                </td>
 
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Epis_Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Epis_no)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Filename)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Version)
-                    </td>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].Show)
+                </td>
 
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].Eval_Stat)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].grdVideo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].grdAudio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => m.Headers[i].grdOverall)
-                    </td>
-                </tr>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].Epis_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].Epis_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].Filename)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].HLanguage)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].FullName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].QC_date)
+                </td>
+                @*<td>
+            @Html.DisplayFor(m => m.Headers[i].FullName2)
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Headers[i].QC_Date_2)
+        </td>*@
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].Revised_By)
+                </td>
+                @*<td>
+            @Html.DisplayFor(m => m.Headers[i].Revised_By_2)
+        </td>*@
+
+                @*<td>
+            @Html.DisplayFor(m => m.Headers[i].Version)
+        </td>*@
+
+                <td>
+                    @Html.DisplayFor(m => m.Headers[i].Eval_Stat)
+                </td>
+                @*<td>
+            @Html.DisplayFor(m => m.Headers[i].grdVideo)
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Headers[i].grdAudio)
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Headers[i].grdOverall)
+        </td>*@
+            </tr>
             }
 
         </tbody>

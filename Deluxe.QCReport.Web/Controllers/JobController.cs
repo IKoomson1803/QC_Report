@@ -1838,6 +1838,13 @@ namespace Deluxe.QCReport.Web.Controllers
                 clientSpecFiles = GetClientSpecFiles(customerName);
             }
 
+            /***********************AMAZON ORIGINAL ************************************************************/
+            else if (customerName.ToUpper().Contains("AMAZON ORIGINAL"))
+            {
+                customerName = "AmazonOriginal";
+                clientSpecFiles = GetClientSpecFiles(customerName);
+            }
+
 
             if (clientSpecFiles != null && clientSpecFiles.Any())
             {

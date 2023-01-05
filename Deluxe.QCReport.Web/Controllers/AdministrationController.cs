@@ -255,6 +255,11 @@ namespace Deluxe.QCReport.Web.Controllers
                     });
             }
 
+            // Grade Scale default = 5
+            if (!client.GradingScale.HasValue)
+            {
+                client.GradingScale = 5;
+            }
 
             bool result = _clientService.SaveClient(client);
             string resultMsg = "Client saved successfully";

@@ -61,32 +61,32 @@
                     </div>
                 </div>
                 <div class="row">
-                    
+
                     <div class="col-xs-5">
                         <label class="control-label">Codec: </label>
                     </div>
                     <div class="col-sm-6 form-group float-left">
                         @Html.DropDownListFor(m => m.ChecklistBanijayRights.VideoCodec,
-                       new SelectList(Model.VideoCodecList, "value", "value"), 
+                       new SelectList(Model.VideoCodecList, "value", "value"),
                        "-- Select Video Codec --",
                        new { @class = "form-control" })
                     </div>
 
                     @*<div class="col-xs-5">
-                        <label class="control-label">Format: </label>
-                    </div>
-                    <div class="col-sm-6 form-group float-left">
-                        @Html.TextBoxFor(m => m.ChecklistBanijayRights.Format, new { @class = "form-control" })
-                    </div>*@
+                <label class="control-label">Format: </label>
+            </div>
+            <div class="col-sm-6 form-group float-left">
+                @Html.TextBoxFor(m => m.ChecklistBanijayRights.Format, new { @class = "form-control" })
+            </div>*@
                 </div>
                 @*<div class="row">
-                    <div class="col-xs-5">
-                        <label class="control-label">Standard: </label>
-                    </div>
-                    <div class="col-sm-6 form-group float-left">
-                        @Html.TextBoxFor(m => m.ChecklistBanijayRights.Standard, new { @class = "form-control" })
-                    </div>
-                </div>*@
+            <div class="col-xs-5">
+                <label class="control-label">Standard: </label>
+            </div>
+            <div class="col-sm-6 form-group float-left">
+                @Html.TextBoxFor(m => m.ChecklistBanijayRights.Standard, new { @class = "form-control" })
+            </div>
+        </div>*@
                 <div class="row">
                     <div class="col-sm-5">
                         <label class="control-label">Frame rate:</label>
@@ -99,10 +99,21 @@
 
                 <div class="row">
                     <div class="col-sm-5">
-                        <label class="control-label">Bit Rate:</label>
+                        <label class="control-label">Video Bit Rate:</label>
                     </div>
                     <div class="col-sm-6 form-group float-left">
                         @Html.TextBoxFor(m => m.ChecklistBanijayRights.VideoBitRate, new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label class="control-label">Video Bit Depth:</label>
+                    </div>
+                    <div class="col-sm-6 form-group float-left">
+                        <input />
+                        @*@Html.TextBoxFor(m => m.ChecklistBanijayRights.VideoBitDepth, new { @class = "form-control" })*@
                     </div>
 
                 </div>
@@ -117,13 +128,13 @@
                 </div>
 
                 @*<div class="row">
-                    <div class="col-sm-5">
-                        <label class="control-label">Aspect Ratio:  </label>
-                    </div>
-                    <div class="col-sm-6 form-group float-left">
-                        @Html.TextBoxFor(m => m.ChecklistBanijayRights.AspectRatio, new { @class = "form-control" })
-                    </div>
-                </div>*@
+            <div class="col-sm-5">
+                <label class="control-label">Aspect Ratio:  </label>
+            </div>
+            <div class="col-sm-6 form-group float-left">
+                @Html.TextBoxFor(m => m.ChecklistBanijayRights.AspectRatio, new { @class = "form-control" })
+            </div>
+        </div>*@
 
 
             </div>
@@ -152,7 +163,7 @@
 
                 <div class="row">
                     <div class="col-xs-5">
-                        <label class="control-label">Bit Depth: </label>
+                        <label class="control-label">Audio Bit Depth: </label>
                     </div>
                     <div class="col-sm-6 form-group float-left">
                         @Html.TextBoxFor(m => m.ChecklistBanijayRights.BitDepth, new { @class = "form-control" })
@@ -160,7 +171,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-5">
-                        <label class="control-label">Bit Rate:  </label>
+                        <label class="control-label">Audio Bit Rate:  </label>
                     </div>
                     <div class="col-sm-6 form-group float-left">
                         @Html.TextBoxFor(m => m.ChecklistBanijayRights.AudioBitRate, new { @class = "form-control" })
