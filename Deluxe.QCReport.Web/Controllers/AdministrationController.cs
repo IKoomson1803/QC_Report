@@ -261,15 +261,14 @@ namespace Deluxe.QCReport.Web.Controllers
                 client.GradingScale = 5;
             }
 
-            bool result = _clientService.SaveClient(client);
-            string resultMsg = "Client saved successfully";
+            string resultMsg = string.Empty;
+            bool result = false;
 
-            if (!result)
+            try
             {
-                resultMsg = "Client saving failed!";
-            }
-            else
-            {
+                result = _clientService.SaveClient(client);
+                resultMsg = "Client saved successfully";
+
 
                 /****************Log User Activity******************************************************/
 
@@ -291,7 +290,12 @@ namespace Deluxe.QCReport.Web.Controllers
 
                 /*******************************************************************************************/
             }
+            catch (Exception ex)
+            {
+                resultMsg = ex.Message;
+            }
 
+         
             return Json(
                 new { 
                     success = result, 

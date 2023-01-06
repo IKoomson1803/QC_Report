@@ -51,9 +51,10 @@
     margin-top: -5px;
 }
 
-input, select, textarea, option, input[type="radio"], .table {
+input, select, textarea, option, input[type="radio"], .table, p, span  {
     font-weight: bold !important;
     font-size: 13px !important;
+    color: #000000;
 }
 
 
@@ -651,3 +652,16 @@ table.dataTable thead .sorting_desc:after {
 /*.selectize-input{
     width:350px !important;
 }*/
+
+::-webkit-input-placeholder { /* Edge */
+    color: red;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+}
+
+::placeholder {
+    color: red;
+}
+

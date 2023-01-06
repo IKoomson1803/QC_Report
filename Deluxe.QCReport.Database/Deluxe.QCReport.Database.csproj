@@ -151,7 +151,8 @@
     <Content Include="Archives\v3.5.0.0 -  Fault Description Images\FaultDescriptionImages.sql" />
     <Content Include="Archives\v3.6.0.0 - DPP Eyeball\DPPEyeball_DBScripts.sql" />
     <Content Include="Archives\v3.7.0.0 -Checklist  Banijay Rights\ChecklistBanijayRights.sql" />
-    <Content Include="v3.8.0.0 - Enhancements\Enhancements_DBScripts.sql" />
+    <Content Include="Archives\v3.8.0.0 - Enhancements\Enhancements_DBScripts.sql" />
+    <Content Include="V3.8.2.0 - Banijay Rights Enhancements\CRUD.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

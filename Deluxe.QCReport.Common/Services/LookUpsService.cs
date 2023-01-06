@@ -304,9 +304,10 @@ namespace Deluxe.QCReport.Common.Services
             result.Add(2, "File");
             result.Add(3, "Film");
             result.Add(4, "Metadata");
-            result.Add(5, "Tape");
-            result.Add(6, "Timecode");
-            result.Add(7, "Video");
+            result.Add(5, "Subtitle");
+            result.Add(6, "Tape");
+            result.Add(7, "Timecode");
+            result.Add(8, "Video");
 
 
             return result;

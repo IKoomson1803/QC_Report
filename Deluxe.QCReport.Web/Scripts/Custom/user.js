@@ -6,9 +6,7 @@ $().ready(function () {
 });
 
 function initializeUserForm() {
-
-   
-
+    
     $.ajax({
         url: '/Administration/GetUsers',
         async: true,

@@ -236,7 +236,7 @@ namespace Deluxe.QCReport.Common.Repositories
             {
                 ILoggerItem loggerItem = PopulateLoggerItem(ex);
                 _logger.LogSystemActivity(loggerItem);
-                //throw;
+                throw;
             }
 
             return inserted;
@@ -267,7 +267,7 @@ namespace Deluxe.QCReport.Common.Repositories
             {
                 ILoggerItem loggerItem = PopulateLoggerItem(ex);
                 _logger.LogSystemActivity(loggerItem);
-                //throw;
+                throw;
             }
 
             return updated;

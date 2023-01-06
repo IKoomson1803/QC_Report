@@ -83,7 +83,7 @@ namespace Deluxe.QCReport.Common.Repositories
                     }
                     catch (Exception)
                     {
-
+                        throw;
                     }
 
                 }
@@ -106,7 +106,7 @@ namespace Deluxe.QCReport.Common.Repositories
             {
                 ILoggerItem loggerItem = PopulateLoggerItem(ex);
                 _logger.LogSystemActivity(loggerItem);
-                //throw;
+                 throw;
             }
 
             return saved;

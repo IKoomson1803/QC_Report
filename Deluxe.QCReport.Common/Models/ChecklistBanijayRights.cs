@@ -22,6 +22,7 @@ namespace Deluxe.QCReport.Common.Models
         public string Standard { get; set; }
         public string FrameRate { get; set; }
         public string VideoBitRate { get; set; }
+        public string VideoBitDepth { get; set; }
         public string FrameSizeOrResolution { get; set; }
         public string AspectRatio { get; set; }
 

@@ -89,7 +89,7 @@ function showClientForm(result){
     $('#CustName').val(null ?? result.CustName);
     $('#CustAddress').val(null ?? result.CustAddress);
     $('#CustPhone').val(null ?? result.CustPhone);
-    $('#GradingScale').val(null ?? result.GradeScale);
+    $('#GradingScale').val(null ?? result.GradingScale);
 
     $("#SaveClient").html('Update');
 

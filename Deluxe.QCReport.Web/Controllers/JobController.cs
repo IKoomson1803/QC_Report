@@ -966,8 +966,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 WebSystemUtility.LogUserActivity(
                                             string.Format(
                                                 "Measurements for QC with Id {0} and Rev No {1} was updated.",
-                                                 model.OverallSpecs_VM.Qcnum,
-                                                model.OverallSpecs_VM.subQcnum),
+                                                 model.ChecklistBanijayRights.Qcnum,
+                                                model.ChecklistBanijayRights.subQcnum),
                                                 Constants.ActivityType.UpdatedMeasurements);
 
                 /*******************************************************************************************/

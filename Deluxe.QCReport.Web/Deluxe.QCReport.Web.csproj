@@ -279,6 +279,7 @@
     <Content Include="Specifications\BanijayRights\Banijay Rights QC Guidelines - Updated 26 October 2022.pdf" />
     <Content Include="Specifications\AmazonOriginal\Amazon Studios Post Delivery Guidelines_Live Action Series_v10.2.2_20210930.pdf" />
     <Content Include="Specifications\AmazonOriginal\AMAZON STUDIOS SPEC CUT DOWN 03 Jan 2023.pdf" />
+    <Content Include="Specifications\BanijayRights\AMAZON CONTENT FOR BANIJAY.pdf" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />
