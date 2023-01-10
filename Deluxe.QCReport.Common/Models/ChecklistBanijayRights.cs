@@ -28,7 +28,7 @@ namespace Deluxe.QCReport.Common.Models
 
         // Audio Codec
         public string AudioCodec { get; set; }
-        public string BitDepth { get; set; }
+        public string AudioBitDepth { get; set; }
         public string AudioBitRate { get; set; }
         public string SampleRate { get; set; }
         public string Discrete { get; set; }

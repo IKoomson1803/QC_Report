@@ -43,17 +43,18 @@
 
 #spanHeader {
     display: inline-block;
-    font-size: 2.5em;
-    color: red;
+    font-size: 2.5em !important;
+    color: red !important;
     width: 90%;
-    text-align: center;
-    margin: auto;
-    margin-top: -5px;
+    text-align: center !important;
+    margin: auto !important;
+    margin-top: -5px !important;
 }
 
-input, select, textarea, option, input[type="radio"], .table {
+input, select, textarea, option, input[type="radio"], .table, p, #myDropzone {
     font-weight: bold !important;
     font-size: 13px !important;
+    color: #000000;
 }
 
 
@@ -651,3 +652,10 @@ table.dataTable thead .sorting_desc:after {
 /*.selectize-input{
     width:350px !important;
 }*/
+
+::placeholder {
+    font-weight: bold !important;
+    font-size: 13px !important;
+    color: #000000 !important;
+    opacity: 1;
+}

@@ -386,7 +386,7 @@ namespace Deluxe.QCReport.Common.Repositories
                     result.SampleRate = oldESIMeasurements.SampleRate;
                     result.FrameSizeOrResolution = oldESIMeasurements.FrameSize;
                     result.AudioCodec = oldESIMeasurements.AudioCodec;
-                    result.BitDepth = oldESIMeasurements.AudioBitDepth;
+                    result.AudioBitDepth = oldESIMeasurements.AudioBitDepth;
 
                     //Old ESI Specifics
                     if (!string.IsNullOrWhiteSpace(oldESISpecifics.ESIEndCreditOrLogo))

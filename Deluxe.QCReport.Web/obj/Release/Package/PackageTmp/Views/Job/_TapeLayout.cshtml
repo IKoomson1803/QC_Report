@@ -81,7 +81,7 @@
                     <label class="control-label">Duration:</label>
                     @Html.TextBoxFor(m => m.TapeLayout_VM.CurrentTimecodes.Length, new { @class = "form-control", maxlength = "16", @style = "width:70px" })
                 </div>
-                <div class="col-xs-1 form-group text-right" style="margin-left:5px;">
+                <div class="col-xs-1 form-group text-left" style="margin-left:5px;">
 
                     <label class="control-label">T.C.</label>
                     @Html.TextBoxFor(m => m.TapeLayout_VM.CurrentTimecodes.Time_Code, new { @class = "form-control timecode", placeholder = "hh:mm:ss:ff", maxlength = "11", @style = "width:90px" })

@@ -88,7 +88,7 @@ rsVidAud.Open sqlVidAud
          </tr>
 		 <tr>
               <td >Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
-              
+               <td>Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
 			  
    		</tr> 
 		

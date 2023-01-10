@@ -82,17 +82,7 @@
              <tr> 
                 <td colspan="4">&nbsp;</td>
              </tr>
-			  <td>Time Code:&nbsp;<b>
-			 
-			 <% If Not IsNull(rsHeader.Fields("Timecode")) Then
-			    Response.Write rsHeader.Fields("Timecode")
-			  Else
-			    Response.Write rsHeader.Fields("Time_code")
-			 End If
-			 %>
-			 </b>
-			 
-			 </td>
+			  <td>Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
 			 
 			 <td >Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
 			 <td>UID No. / Production ID:&nbsp;<b><%=rsHeader.Fields("CatalogueID")%></b></td>

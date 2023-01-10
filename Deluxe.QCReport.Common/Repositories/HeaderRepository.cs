@@ -80,12 +80,12 @@ namespace Deluxe.QCReport.Common.Repositories
                             result.QCType = DR["QC_Type"].ToString().Trim();
                             result.Timecode = DR["Timecode"].ToString().Trim();
 
-                            if (string.IsNullOrWhiteSpace(result.Timecode))
-                            {
-                                var audioTCRepository = new AudioTCRepository();
-                                result.Timecode = audioTCRepository.GetAudioTCDetails(QCNum, SubQCNum)?.TimeCode;
+                            //if (string.IsNullOrWhiteSpace(result.Timecode))
+                            //{
+                            //    var audioTCRepository = new AudioTCRepository();
+                            //    result.Timecode = audioTCRepository.GetAudioTCDetails(QCNum, SubQCNum)?.TimeCode;
 
-                            }
+                            //}
 
 
 
