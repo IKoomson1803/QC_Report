@@ -66,20 +66,11 @@ rsVidAud.Open sqlVidAud
 	     <tr>
               <td >Description:&nbsp; <b><%=rsHeader.Fields("TapeDesc1")%></b></td>
               <td>TRT:&nbsp;<b><%=rsHeader.Fields("TRT")%></b></b></td>
-			  <td >Subtitles:&nbsp; <b>
-
-			  <%
-			   If Not IsNull(rsHeader.Fields("Subtitle")) Then
-			      Response.Write  rsHeader.Fields("Subtitle")
-               Else 
-				 Response.Write rsHeader.Fields("Subtitle_QC")
-			   End If
-			  %>
+			  <!-- <td >Subtitles:&nbsp; <b><%=rsHeader.Fields("Subtitle")%></b></td> -->
+               <td>Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
 					  
-			  </b>
 			  
 			  
-			  </td>
 			  
    		</tr> 
 		<tr>
@@ -88,7 +79,7 @@ rsVidAud.Open sqlVidAud
          </tr>
 		 <tr>
               <td >Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
-               <td>Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
+              
 			  
    		</tr> 
 		
