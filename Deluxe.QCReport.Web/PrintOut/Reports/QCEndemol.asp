@@ -519,7 +519,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
             <td width="3%" align="center" class="left_top_border"><b>Grade</b></td>
 			<td width="8%" align="center" class="left_top_border" ><b>Item Duration</b></td>
             <td width="7%" align="center" class="left_top_border"><b>Sector</b></td>
-		     <td width="3%" align="center" class="left_right_top_border" ><b>Approved</b></td>
+		     <td width="3%" align="center" class="left_right_top_border" ><b>Signed Off</b></td>
 			
             
           </tr>

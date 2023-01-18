@@ -1776,11 +1776,11 @@ namespace Deluxe.QCReport.Web.Controllers
 
         public ActionResult ClientSpecs(int qcnum, int revnum)
         {
-            HomeVM model = new HomeVM();
+            HomeVM model = new HomeVM() { qc };
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.Specifications = new List<string>();
-           // model.Header_VM = _headSrv.GetHeaderDetails(qcnum, revnum);
+            model.Header_VM = new HeaderVM { Qcnum = qcnum, subQcnum = revnum };
             var customerName = _clientService.GetClientDetails(qcnum, revnum).CustName; //model.Header_VM.CustName;
             var specs = "NoSpecs.html";
             FileInfo[] clientSpecFiles = null;
