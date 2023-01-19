@@ -1,9 +1,60 @@
 ﻿@model Deluxe.QCReport.Web.Models.HomeVM
-
-@{ 
+ @using  Deluxe.QCReport.Common.Utilities
+@{
 
 
 }
+
+<div class="bs-callout bs-callout-warning">
+
+    <b style="font-size:14px;">@string.Format("{0} - {1}: Specifications", Model.Header_VM.Qcnum, Model.Header_VM.subQcnum)</b>
+    <p>&nbsp;</p>
+    <form id="frmSpec">
+       
+        <table>
+
+
+
+
+            @foreach (var spec in Model.Specifications)
+            {
+                var filename = spec;
+
+                if (filename.Contains("/"))
+                {
+                    filename = spec.Split('/')[1];
+                    var filenameWithoutExtension =  filename.Substring(0, spec.Split('/')[1].LastIndexOf("."));
+
+                    <tr>
+                        <td style=" font-weight:bold;font-size:14px;">Spec:  @filenameWithoutExtension</td>
+                    </tr>
+                    <tr>
+                        <td style=" font-weight:bold;font-size:14px;"> <a href="@ConfigManager.WebsiteUrl/Specifications/@spec" target="_blank">@filename</a></td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                }
+                else
+                {
+                    <tr>
+                        <td style=" font-weight:bold;font-size:14px;"><span>No spec available for @Model.CustomerName</span> </td>
+                    </tr>
+                }
+
+
+
+            }
+
+        </table>
+    </form>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+</div>
+
+
+
 
 <script type="text/javascript">
 
@@ -19,9 +70,9 @@
 
         setActiveButton();
 
-       @foreach (var item in Model.Specifications) {
+       @*@foreach (var item in Model.Specifications) {
         @:AddHyperlink('@item');
-       }
+       }*@
 
 
         function AddHyperlink(filename) {

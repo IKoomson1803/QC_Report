@@ -17,6 +17,8 @@ namespace Deluxe.QCReport.Web.Models
 
         public string QCType { get; set; }
 
+        public string CustomerName { get; set; }
+
         public string Specification { get; set; }
         public List<string> Specifications { get; set; }
 

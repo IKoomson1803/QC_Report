@@ -1776,12 +1776,13 @@ namespace Deluxe.QCReport.Web.Controllers
 
         public ActionResult ClientSpecs(int qcnum, int revnum)
         {
-            HomeVM model = new HomeVM() { qc };
+            HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.Specifications = new List<string>();
             model.Header_VM = new HeaderVM { Qcnum = qcnum, subQcnum = revnum };
             var customerName = _clientService.GetClientDetails(qcnum, revnum).CustName; //model.Header_VM.CustName;
+            model.CustomerName = customerName;
             var specs = "NoSpecs.html";
             FileInfo[] clientSpecFiles = null;
 
@@ -1845,6 +1846,12 @@ namespace Deluxe.QCReport.Web.Controllers
                 clientSpecFiles = GetClientSpecFiles(customerName);
             }
 
+            /***********************AMAZON ORIGINAL ************************************************************/
+            else if (customerName.ToLower().Contains("renegade pictures"))
+            {
+                customerName = "RenegadePictures";
+                clientSpecFiles = GetClientSpecFiles(customerName);
+            }
 
             if (clientSpecFiles != null && clientSpecFiles.Any())
             {
@@ -1866,10 +1873,11 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             var specsLocation = Server.MapPath("~/Specifications/" + customerName);
             DirectoryInfo clientSpecsDir = new DirectoryInfo(specsLocation);
-            //return clientSpecsDir.GetFiles().Where(
-            //f => f.Name.ToLower().Contains(customerName))
-            ///.OrderByDescending(f => f.LastWriteTime).ToArray(); // retruns just the latest spec
-            return clientSpecsDir.GetFiles().ToArray();  // returns all the specs
+            // return clientSpecsDir.GetFiles().ToArray();  // returns all the specs
+
+            return clientSpecsDir.GetFiles()
+            .OrderBy(f => f.LastWriteTime).ToArray(); // retruns just the latest spec
+
         }
 
         public ActionResult ESISpecifics(int qcnum, int revnum)
