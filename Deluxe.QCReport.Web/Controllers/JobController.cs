@@ -1873,10 +1873,10 @@ namespace Deluxe.QCReport.Web.Controllers
         {
             var specsLocation = Server.MapPath("~/Specifications/" + customerName);
             DirectoryInfo clientSpecsDir = new DirectoryInfo(specsLocation);
-            // return clientSpecsDir.GetFiles().ToArray();  // returns all the specs
+            // return clientSpecsDir.GetFiles().ToArray();  
 
             return clientSpecsDir.GetFiles()
-            .OrderBy(f => f.LastWriteTime).ToArray(); // retruns just the latest spec
+            .OrderBy(f => f.CreationTime).ToArray(); 
 
         }
 

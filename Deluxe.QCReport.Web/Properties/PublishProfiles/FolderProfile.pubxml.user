@@ -30,10 +30,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/10/2023 13:44:51</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>01/19/2023 14:32:02</publishTime>
+      <publishTime>01/20/2023 10:47:30</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>01/19/2023 14:32:02</publishTime>
+      <publishTime>01/20/2023 10:47:30</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>08/04/2013 13:21:24</publishTime>
@@ -367,6 +367,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Specifications/NoSpecs.html">
       <publishTime>07/20/2021 09:58:09</publishTime>
+    </File>
+    <File Include="Specifications/RenegadePictures/BBC Spec Main Points.pdf">
+      <publishTime>01/19/2023 14:45:39</publishTime>
+    </File>
+    <File Include="Specifications/RenegadePictures/BBC STUDIOS DISTRIBUTION QAR CHECKLIST - May 2021.pdf">
+      <publishTime>01/19/2023 14:45:39</publishTime>
+    </File>
+    <File Include="Specifications/RenegadePictures/Content_Delivery_Book_July-2020.pdf">
+      <publishTime>01/19/2023 14:45:39</publishTime>
     </File>
     <File Include="Specifications/Warner/Warner Bros QC Guide - Notes – 28 09 2021.pdf">
       <publishTime>09/28/2021 17:27:17</publishTime>

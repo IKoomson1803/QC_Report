@@ -283,6 +283,7 @@
     <Content Include="Specifications\RenegadePictures\BBC Spec Main Points.pdf" />
     <Content Include="Specifications\RenegadePictures\BBC STUDIOS DISTRIBUTION QAR CHECKLIST - May 2021.pdf" />
     <Content Include="Specifications\RenegadePictures\Content_Delivery_Book_July-2020.pdf" />
+    <Content Include="Specifications\RenegadePictures\New Sting Layouts.pdf" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />
