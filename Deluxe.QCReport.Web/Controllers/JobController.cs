@@ -1784,74 +1784,17 @@ namespace Deluxe.QCReport.Web.Controllers
             var customerName = _clientService.GetClientDetails(qcnum, revnum).CustName; //model.Header_VM.CustName;
             model.CustomerName = customerName;
             var specs = "NoSpecs.html";
-            FileInfo[] clientSpecFiles = null;
-
+            
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
                                             $"Client specs for QC with  Id {0} and Rev No {1} for customer {customerName} was viewed.",
                                             Constants.ActivityType.ClientSpecsViewed);
 
-            /*********************** Disney ************************************************************/
 
-            if (customerName.ToLower().Contains("disney"))
-            {
-                customerName = "Disney";
-                clientSpecFiles = GetClientSpecFiles(customerName); 
-            }
-            
-            /*********************** Warner Bros. ************************************************************/
-            else if (customerName.ToLower().Contains("warner"))
-            {
-                customerName = "Warner";
-                clientSpecFiles = GetClientSpecFiles(customerName);
-            }
+            /***********************************************************************************************/
 
-            /*********************** Lionsgate ************************************************************/
-            else if (customerName.ToLower().Contains("lionsgate")
-                || (customerName.ToLower().Contains("lions gate")))
-            {
-                customerName = "Lionsgate";
-                clientSpecFiles = GetClientSpecFiles(customerName);
-            }
-
-            /*********************** Wild Bunch ************************************************************/
-            else if (customerName.ToLower().Contains("wild bunch")
-                || (customerName.ToLower().Contains("versatile"))
-                || (customerName.ToLower().Contains("elle driver")))
-            {
-                customerName = "WildBunch";
-                clientSpecFiles = GetClientSpecFiles(customerName);
-            }
-
-            /*********************** Banijay Rights ************************************************************/
-            else if (customerName.ToLower().Contains("banijay")
-                || customerName.ToLower().Contains("endemol"))
-            {
-                customerName = "BanijayRights";
-                clientSpecFiles = GetClientSpecFiles(customerName);
-            }
-
-            /*********************** DPP Eyeball ************************************************************/
-            else if (customerName.ToLower().Contains("dpp eyeball"))
-            {
-                customerName = "DPPEyeball";
-                clientSpecFiles = GetClientSpecFiles(customerName);
-            }
-
-            /***********************AMAZON ORIGINAL ************************************************************/
-            else if (customerName.ToUpper().Contains("AMAZON ORIGINAL"))
-            {
-                customerName = "AmazonOriginal";
-                clientSpecFiles = GetClientSpecFiles(customerName);
-            }
-
-            /***********************AMAZON ORIGINAL ************************************************************/
-            else if (customerName.ToLower().Contains("renegade pictures"))
-            {
-                customerName = "RenegadePictures";
-                clientSpecFiles = GetClientSpecFiles(customerName);
-            }
+            FileInfo[] clientSpecFiles = GetClientSpecs(qcnum, revnum, ref customerName);
 
             if (clientSpecFiles != null && clientSpecFiles.Any())
             {
@@ -1864,9 +1807,67 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 model.Specifications.Add(specs);
             }
-                       
+                    
 
             return PartialView("_ClientSpecifications", model);
+        }
+
+        private FileInfo[] GetClientSpecs(int qcnum, int revnum, ref string customerName)
+        {
+             FileInfo[] clientSpecFiles = null;
+
+            try
+            {
+
+                switch (customerName)
+                {
+                    case var _ when customerName.ToLower().Contains("disney"):
+                        customerName = "Disney";
+                        break;
+                    case var _ when customerName.ToLower().Contains("warner"):
+                        customerName = "Warner";
+                        break;
+
+                    case var _ when customerName.ToLower().Contains("lionsgate"):
+                    case var _ when customerName.ToLower().Contains("lions gate"):
+                        customerName = "Lionsgate";
+                        break;
+
+                    case var _ when customerName.ToLower().Contains("wild bunch"):
+                    case var _ when customerName.ToLower().Contains("versatile"):
+                    case var _ when customerName.ToLower().Contains("elle driver"):
+                        customerName = "WildBunch";
+                        break;
+
+                    case var _ when customerName.ToLower().Contains("banijay"):
+                    case var _ when customerName.ToLower().Contains("endemol"):
+                        customerName = "BanijayRights";
+                        break;
+
+                    case var _ when customerName.ToLower().Contains("dpp eyeball"):
+                        customerName = "DPPEyeball";
+                        break;
+
+                    case var _ when customerName.ToLower().Contains("amazon original"):
+                        customerName = "AmazonOriginal";
+                        break;
+
+                    case var _ when customerName.ToLower().Contains("renegade pictures"):
+                        customerName = "RenegadePictures";
+                        break;
+
+                }
+
+                clientSpecFiles = GetClientSpecFiles(customerName);
+
+            }
+            catch
+            {
+
+                // Do nothing
+            }
+
+            return clientSpecFiles;
         }
 
         private FileInfo[] GetClientSpecFiles(string customerName)
