@@ -153,6 +153,7 @@
     <Content Include="Archives\v3.7.0.0 -Checklist  Banijay Rights\ChecklistBanijayRights.sql" />
     <Content Include="Archives\v3.8.0.0 - Enhancements\Enhancements_DBScripts.sql" />
     <Content Include="Archives\V3.8.2.0 - Banijay Rights Enhancements\CRUD.sql" />
+    <Content Include="v4.0.0.0 - Banijay Rights - New template\DB_Scripts.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

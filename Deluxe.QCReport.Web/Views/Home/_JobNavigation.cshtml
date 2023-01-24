@@ -1,4 +1,6 @@
 ﻿@model Deluxe.QCReport.Common.Models.JobTreeViewVM
+@using Deluxe.QCReport.Common.Models;
+
 
 @{
 
@@ -24,7 +26,6 @@
             </button>
             <b> QC #: <a href="#" class="aQCDetails" data-wonum="@Model.WONumber" data-qcnum="@qcItem.QCNumber">@qcItem.QCNumber</a></b>
 
-
             <ul class="list-group" style="margin-bottom:0;display:none;">
                 @foreach (KeyValuePair<int, DateTime?> revItem in qcItem.Review)
                 {
@@ -32,168 +33,68 @@
                     <button type="button" class="btn btn-default btn-xs btnTVRev" aria-label="Left Align">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </button>
-                    <b>Rev: <a href="#" class="aRevDetails" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key)" data-wonum="@Model.WONumber" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">@revItem.Key.ToString() (@revItem.Value.ToString())</a></b>
+                    <b>
+                        Rev: <a href="#" class="aRevDetails"
+                                onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key)"
+                                data-wonum="@Model.WONumber"
+                                data-qcnum="@qcItem.QCNumber"
+                                data-revnum="@revItem.Key">@revItem.Key.ToString() (@revItem.Value.ToString())</a>
+                            </b>
 
-                    <input type="hidden" id="currentQCNumber" />
-                    <input type="hidden" id="currentRevNumber" />
+                            <input type="hidden" id="currentQCNumber" />
+                            <input type="hidden" id="currentRevNumber" />
+                            <ul class="list-group" style="margin:10px 0 0 20px;  display:none;">
 
-                    @if (Model.CustomerName.ToLower().Contains("dpp eyeball"))
-                    {
-                <ul class="list-group" style="margin:10px 0 0 20px;  display:none;">
-                    <li class="list-group-item list-group-item">
-                        <b><a href="#" class="lnkDPPProgDetails" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/DPP/DPPProgDetails', 'lnkDPPProgDetails')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Programme Details</a></b>
-                    </li>
-                    <li class="list-group-item list-group-item">
-                        <b><a href="#" class="lnkDPPProdDetails" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/DPP/DPPProdDetails', 'lnkDPPProdDetails')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Production Details</a></b>
-                    </li>
-                    <li class="list-group-item list-group-item">
-                        <b><a href="#" class="lnkDPPChecklist" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/DPP/DPPChecklist', 'lnkDPPChecklist')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Checklist</a></b>
-                    </li>
-                    <li class="list-group-item list-group-item">
-                        <b><a href="#" class="lnkDPPCommBroadcasters" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/DPP/DPPCommBroadcasters', 'lnkDPPCommBroadcasters')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Commercial Broadcaster</a></b>
-                    </li>
-                    <li class="list-group-item list-group-item">
-                        <b><a href="#" class="lnkDPPProdAndTechLog" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/DPP/DPPProdAndTechLog', 'lnkDPPProdAndTechLog')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Log</a></b>
-                    </li>
-                    <li class="list-group-item list-group-item">
-                        <b><a href="#" class="lnkDPPProdSignOff" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/DPP/DPPProdSignOff', 'lnkDPPProgrammeDetails')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Final</a></b>
-                    </li>
+                                @if (Model.CustomerName.ToLower().Contains("dpp eyeball"))
+                                {
 
-                    @if (SecLvl >= 1)
-                    {
-                        <li class="list-group-item list-group-item">
-                            <b><a href="#" class="lnkQcCopy" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')" data-wonum="@Model.WONumber" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Copy</a></b>
-                        </li>
-                    }
+                                    Html.RenderPartial("_DPPJobNavigation",
+                                        new Review
+                                        {
+                                            QCNumber = qcItem.QCNumber,
+                                            ReviewNumber = revItem.Key,
+                                            QCType = qcItem.QCType,
+                                         });
+                                }
+                                else
+                                {
+                                    Html.RenderPartial("_GenericJobNavigation",
+                                        new Review
+                                        {
+                                            QCNumber = qcItem.QCNumber,
+                                            ReviewNumber = revItem.Key,
+                                            QCType = qcItem.QCType,
+                                        });
 
-                    <li class="list-group-item list-group-item">
-                        <b><a href="#" class="lnkQcClientSpecs" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Specs</a></b>
-                    </li>
+                                }
 
-                </ul>
-
-                    }
-                    else
-                    {
-                        <ul class="list-group" style="margin:10px 0 0 20px;  display:none;">
-
-                            @if (qcItem.QCType != "E")
-                            {
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkQcHeader" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key); PopulateJobDetails('/Job/HeaderDetails', 'lnkQcHeader'); " data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Header</a></b>
-                                    @*<b><span class="lnkQcHeader" style="cursor:pointer; color:cornflowerblue" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/HeaderDetails', 'lnkQcHeader')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Header</span></b>*@
-                                    @*<b><button  class="lnkQcHeader" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/HeaderDetails', 'lnkQcHeader')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Header</button></b>*@
-
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkESIQcHeader" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/HeaderDetails', 'lnkESIQcHeader')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Header</a></b>
-                                </li>
-                            }
-
-                            @if (qcItem.QCType != "E")
-                            {
+                                @if (SecLvl >= 1)
+                                {
+                                    <li class="list-group-item list-group-item">
+                                        <b>
+                                            <a href="#"
+                                               class="lnkQcCopy"
+                                               onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')"
+                                               data-wonum="@Model.WONumber"
+                                               data-qcnum="@qcItem.QCNumber"
+                                               data-revnum="@revItem.Key">Copy</a>
+                                        </b>
+                                    </li>
+                                }
 
                                 <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkQcHistory" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/HistoryDetails', 'lnkQcHistory')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">History</a></b>
-                                </li>
-                            }
-                            else
-                            {
-
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkESIQcHistory" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/HistoryDetails', 'lnkESIQcHistory')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">History</a></b>
-                                </li>
-                            }
-
-                            <li class="list-group-item list-group-item">
-                                <b><a href="#" class="lnkQcTapeLayout" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/TapeLayoutDetails', 'lnkQcTapeLayout')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Layout</a></b>
-                            </li>
-
-                            @if (qcItem.QCType != "E")
-                            {
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkQcTextInfo" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/TextInfoDetails', 'lnkQcTextInfo')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Text Info</a></b>
-                                </li>
-                            }
-
-
-
-                            <li class="list-group-item list-group-item">
-                                <b><a href="#" class="lnkQcAudioAndTC" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/AudioTCDetails', 'lnkQcAudioAndTC')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Audio</a></b>
-                            </li>
-
-                            @if (qcItem.QCType == "E")
-                            {
-
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkQcESISpecifics" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/ESISpecifics', 'lnkQcESISpecifics')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Specifics</a></b>
-                                </li>
-                            }
-
-
-                            @if (qcItem.QCType != "E")
-                            {
-                                <li class="list-group-item list-group-item" style="word-break:break-word;">
-                                    <b> <a href="#" class="lnkQcOverallSpecs" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/OverallSpecsDetails', 'lnkQcOverallSpecs')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Measurements</a></b>
+                                    <b>
+                                        <a href="#"
+                                           class="lnkQcClientSpecs"
+                                           onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')"
+                                           data-qcnum="@qcItem.QCNumber"
+                                           data-revnum="@revItem.Key">Specs</a>
+                                    </b>
                                 </li>
 
-                            }
-                            else
-                            {
-                                <li class="list-group-item list-group-item" style="word-break:break-word;">
-                                    <b> <a href="#" class="lnkESIMeasurements" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/ESIMeasurements', 'lnkESIMeasurements')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Measurements</a></b>
-                                </li>
+                            </ul>
 
-                            }
-
-
-                            <li class="list-group-item list-group-item">
-                                <b><a href="#" class="lnkQcCkecklist" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/Checklist', 'lnkQcCkecklist')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Checklist</a></b>
-                            </li>
-
-
-
-                            <li class="list-group-item list-group-item">
-                                <b> <a href="#" class="lnkQcLog" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/LogDetails', 'lnkQcLog')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Log</a></b>
-                            </li>
-
-                            @if (qcItem.QCType != "E")
-                            {
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkQcFinal" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/FinalDetails', 'lnkQcFinal')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Final</a></b>
-                                </li>
-
-                            }
-                            else
-                            {
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkQcESIFinal" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/ESIFinal', 'lnkQcESIFinal')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Final</a></b>
-                                </li>
-                            }
-
-
-
-                            @if (SecLvl >= 1)
-                            {
-                                <li class="list-group-item list-group-item">
-                                    <b><a href="#" class="lnkQcCopy" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')" data-wonum="@Model.WONumber" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Copy</a></b>
-                                </li>
-                            }
-
-                            <li class="list-group-item list-group-item">
-                                <b><a href="#" class="lnkQcClientSpecs" onclick="setQCAndRevNumbers(@qcItem.QCNumber,@revItem.Key);PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')" data-qcnum="@qcItem.QCNumber" data-revnum="@revItem.Key">Specs</a></b>
-                            </li>
-                        </ul>
-
-                    }
-
-
-
-
-                </li>
+                     </li>
                 }
             </ul>
         </li>

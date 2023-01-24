@@ -1,0 +1,173 @@
+﻿@model Deluxe.QCReport.Common.Models.Review
+
+
+@{
+   
+    var qcNumber = Model.QCNumber;
+    var revNumber = Model.ReviewNumber;
+    var qcType = Model.QCType;
+ 
+}
+
+
+
+    @if (qcType != "E")
+    {
+        <li class="list-group-item list-group-item">
+            <b><a href="#" class="lnkQcHeader" 
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber); PopulateJobDetails('/Job/HeaderDetails', 'lnkQcHeader'); " 
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">Header</a></b>
+
+        </li>
+    }
+    else
+    {
+        <li class="list-group-item list-group-item">
+            <b><a href="#" 
+                  class="lnkESIQcHeader"
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/HeaderDetails', 'lnkESIQcHeader')"
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">Header</a></b>
+        </li>
+    }
+
+    @if (qcType != "E")
+    {
+
+        <li class="list-group-item list-group-item">
+            <b><a href="#" 
+                  class="lnkQcHistory" 
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/HistoryDetails', 'lnkQcHistory')" 
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">History</a></b>
+        </li>
+    }
+    else
+    {
+
+        <li class="list-group-item list-group-item">
+            <b><a 
+                  href="#" 
+                  class="lnkESIQcHistory" 
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/HistoryDetails', 'lnkESIQcHistory')" 
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">History</a></b>
+        </li>
+    }
+
+    <li class="list-group-item list-group-item">
+        <b><a 
+              href="#" 
+              class="lnkQcTapeLayout" 
+              onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/TapeLayoutDetails', 'lnkQcTapeLayout')" 
+              data-qcnum="@qcNumber" 
+              data-revnum="@revNumber">Layout</a></b>
+    </li>
+
+    @if (qcType != "E")
+    {
+        <li class="list-group-item list-group-item">
+            <b><a 
+                  href="#" 
+                  class="lnkQcTextInfo" 
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/TextInfoDetails', 'lnkQcTextInfo')" 
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">Text Info</a></b>
+        </li>
+    }
+
+
+
+    <li class="list-group-item list-group-item">
+        <b><a href="#" 
+              class="lnkQcAudioAndTC" 
+              onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/AudioTCDetails', 'lnkQcAudioAndTC')" 
+              data-qcnum="@qcNumber" 
+              data-revnum="@revNumber">Audio</a></b>
+    </li>
+
+    @if (qcType == "E")
+    {
+
+        <li class="list-group-item list-group-item">
+            <b><a 
+                  href="#" 
+                  class="lnkQcESISpecifics" 
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/ESISpecifics', 'lnkQcESISpecifics')" 
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">Specifics</a></b>
+        </li>
+    }
+
+
+    @if (qcType != "E")
+    {
+        <li class="list-group-item list-group-item" style="word-break:break-word;">
+            <b> <a 
+                   href="#" 
+                   class="lnkQcOverallSpecs" 
+                   onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/OverallSpecsDetails', 'lnkQcOverallSpecs')" 
+                   data-qcnum="@qcNumber" 
+                   data-revnum="@revNumber">Measurements</a></b>
+        </li>
+
+    }
+    else
+    {
+        <li class="list-group-item list-group-item" style="word-break:break-word;">
+            <b> <a 
+                   href="#" 
+                   class="lnkESIMeasurements" 
+                   onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/ESIMeasurements', 'lnkESIMeasurements')" 
+                   data-qcnum="@qcNumber" 
+                   data-revnum="@revNumber">Measurements</a></b>
+        </li>
+
+    }
+
+
+    <li class="list-group-item list-group-item">
+        <b><a 
+              href="#"
+              class="lnkQcCkecklist" 
+              onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/Checklist', 'lnkQcCkecklist')" 
+              data-qcnum="@qcNumber" 
+              data-revnum="@revNumber">Checklist</a></b>
+    </li>
+
+
+
+    <li class="list-group-item list-group-item">
+        <b> <a 
+               href="#" 
+               class="lnkQcLog" 
+               onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/LogDetails', 'lnkQcLog')" 
+               data-qcnum="@qcNumber" 
+               data-revnum="@revNumber">Log</a></b>
+    </li>
+
+    @if (qcType != "E")
+    {
+        <li class="list-group-item list-group-item">
+            <b><a 
+                  href="#" 
+                  class="lnkQcFinal" 
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/FinalDetails', 'lnkQcFinal')" 
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">Final</a></b>
+        </li>
+
+    }
+    else
+    {
+        <li class="list-group-item list-group-item">
+            <b><a 
+                  href="#" 
+                  class="lnkQcESIFinal" 
+                  onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/Job/ESIFinal', 'lnkQcESIFinal')" 
+                  data-qcnum="@qcNumber" 
+                  data-revnum="@revNumber">Final</a></b>
+        </li>
+    }
+

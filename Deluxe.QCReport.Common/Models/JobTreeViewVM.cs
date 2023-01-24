@@ -19,4 +19,12 @@ namespace Deluxe.QCReport.Common.Models
         public string QCType { get; set; }
         public Dictionary<int, DateTime?> Review { get; set; }
     }
+
+    public class Review
+    {
+        public int QCNumber { get; set; }
+        public string QCType { get; set; }
+        public int ReviewNumber { get; set; }
+    }
+
 }
