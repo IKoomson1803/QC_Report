@@ -213,6 +213,7 @@
     <Compile Include="Autofac\StandardModule.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\AdvancedSearchController.cs" />
+    <Compile Include="Controllers\BanijayRightsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DPPController.cs" />
     <Compile Include="Controllers\FaultImageController.cs" />
@@ -287,6 +288,13 @@
     <Content Include="Views\Home\_DPPJobNavigation.cshtml" />
     <Content Include="Views\Home\_BanijayRightsJobNavigation.cshtml" />
     <Content Include="Views\Home\_GenericJobNavigation.cshtml" />
+    <Content Include="Views\BanijayRights\_ProgrammeDetails.cshtml" />
+    <Content Include="Views\BanijayRights\_Audio.cshtml" />
+    <Content Include="Views\BanijayRights\_Video.cshtml" />
+    <Content Include="Views\BanijayRights\_ProgrammeLayout.cshtml" />
+    <Content Include="Views\BanijayRights\_TextDetails.cshtml" />
+    <Content Include="Views\BanijayRights\_Faults.cshtml" />
+    <Content Include="Views\BanijayRights\_Notes.cshtml" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />

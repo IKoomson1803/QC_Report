@@ -29,18 +29,45 @@ else
 
  @if (SecLvl >= 1)
 {
-    <button type="button" class="btn btn-sm btn-info col-sm-offset-1 lnkQcCopy" id="lnkQcCopy" onclick="PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">
+    <button type="button" class="btn btn-sm btn-info col-sm-offset-1 lnkQcCopy" 
+            id="lnkQcCopy" 
+            onclick="PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')" 
+            data-qcnum="@Model.QCNumber"
+            data-revnum="@Model.RevNumber"
+            data-wonum="@Model.WONumber">
         <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
         Copy
     </button>
 
 }
 
-<button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
-<button type="button" class="btn btn-sm btn-danger lnkQcClientSpecs" id="lnkQcClientSpecs" onclick="PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Specs</button>
-<button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
-<button type="button" class="btn btn-sm btn-outline-primary" style="border:none;">&nbsp;</button>
-<button type="button" id="btnReport" class="btn btn-sm btn-default col-sm-offset-1 btnReport" onclick="PopulateJobDetails('/Report/LoadReportTypes', 'btnReport')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-qctype="@Model.QCType">
+<button type="button" 
+        class="btn btn-sm btn-outline-light" 
+        style="border:none;">&nbsp;</button>
+
+<button type="button" 
+        class="btn btn-sm btn-danger lnkQcClientSpecs"
+        id="lnkQcClientSpecs"
+        onclick="PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-wonum="@Model.WONumber">Specs</button>
+
+<button type="button" 
+        class="btn btn-sm btn-outline-light" 
+        style="border:none;">&nbsp;</button>
+
+<button type="button" 
+        class="btn btn-sm btn-outline-primary" 
+        style="border:none;">&nbsp;</button>
+
+<button type="button" 
+        id="btnReport" 
+        class="btn btn-sm btn-default col-sm-offset-1 btnReport" 
+        onclick="PopulateJobDetails('/Report/LoadReportTypes', 'btnReport')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-qctype="@Model.QCType">
     <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
     Report
 </button>

@@ -1,0 +1,20 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+    @using (Html.BeginForm("SaveAudio", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
+                Audio  @*@string.Format("{0} - {1}: DPP Checklist", Model.ChecklistDPP.QCNum, Model.ChecklistDPP.SubQCNum)*@
+            </div>
+        </div>
+
+
+
+
+    }
+
+
+
+</div>
+

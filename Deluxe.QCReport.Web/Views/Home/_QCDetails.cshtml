@@ -79,12 +79,11 @@
             .done(function (data) {
 
                // $("#divTopSubMenu").html(data);
-
-                console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
+                //console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
                                 
                 if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                    && !$("#TopMenu").find('.lnkDPPProgDetails').length)
-                {
+                    && !$("#TopMenu").find('.lnkDPPProgDetails').length
+                    && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
                     $("#TopMenu").append(data);
                 }
             })

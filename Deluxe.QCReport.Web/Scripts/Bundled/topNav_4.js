@@ -25,10 +25,10 @@
 
                 // console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
                // alert(!$("#TopMenu").find('.lnkDPPProgDetails').length)
-              
 
                 if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                    && !$("#TopMenu").find('.lnkDPPProgDetails').length) {
+                    && !$("#TopMenu").find('.lnkDPPProgDetails').length
+                    && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
                     $("#TopMenu").append(data);
                 }
             })

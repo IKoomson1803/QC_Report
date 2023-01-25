@@ -52,7 +52,8 @@
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "B") Broadcast QC</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "A") Runtime QC</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "L") Runtime QC With Log</label>
-                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "E") Runtime / Broadcast QC for Banijay Rights</label>
+                                @*<label class="radio">@Html.RadioButtonFor(m => m.QCType, "E") Runtime / Broadcast QC for Banijay Rights</label>*@ @* Banijay Rights - Old Template *@
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "BNJR") Runtime / Broadcast QC for Banijay Rights</label> @* Banijay Rights - New Template *@
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "T") Runtime QC With Text Info</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "M") Master QC</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "D") DPP Eyeball QC Report</label>

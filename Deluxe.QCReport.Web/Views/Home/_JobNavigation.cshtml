@@ -54,17 +54,28 @@
                                             QCNumber = qcItem.QCNumber,
                                             ReviewNumber = revItem.Key,
                                             QCType = qcItem.QCType,
-                                         });
+                                        });
+                                }
+                                else if (qcItem.QCType.ToUpper().Equals("BNJR")) /*Banijay Rights - New Template*/
+                                {
+
+                                    Html.RenderPartial("_BanijayRightsJobNavigation",
+                                    new Review
+                                    {
+                                        QCNumber = qcItem.QCNumber,
+                                        ReviewNumber = revItem.Key,
+                                        QCType = qcItem.QCType,
+                                    });
                                 }
                                 else
                                 {
                                     Html.RenderPartial("_GenericJobNavigation",
-                                        new Review
-                                        {
-                                            QCNumber = qcItem.QCNumber,
-                                            ReviewNumber = revItem.Key,
-                                            QCType = qcItem.QCType,
-                                        });
+                                    new Review
+                                    {
+                                        QCNumber = qcItem.QCNumber,
+                                        ReviewNumber = revItem.Key,
+                                        QCType = qcItem.QCType,
+                                    });
 
                                 }
 

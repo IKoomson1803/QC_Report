@@ -1,1 +1,83 @@
 ﻿@model  Deluxe.QCReport.Web.Models.TopSubNavigationVM
+
+<button type="button"
+        class="btn btn-sm btn-primary lnkBNJRProgDetails"
+        id="lnkBNJRProgDetails"
+        onclick="PopulateJobDetails('/BanijayRights/GetProgrammeDetails', 'lnkBNJRProgDetails')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Programme Details
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-default lnkBNJRAudio"
+        id="lnkBNJRAudio"
+        onclick="PopulateJobDetails('/BanijayRights/GetAudio', 'lnkBNJRAudio')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Audio
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-info lnkBNJRVideo"
+        id="lnkBNJRVideo"
+        onclick="PopulateJobDetails('/BanijayRights/GetVideo', 'lnkBNJRVideo')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Video
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-warning lnkBNJRProgrammeLayout"
+        id="lnkBNJRProgrammeLayout"
+        onclick="PopulateJobDetails('/BanijayRights/GetProgrammeLayout', 'lnkBNJRProgrammeLayout')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Programme Layout
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-primary lnkBNJRTextDetails"
+        id="lnkBNJRTextDetails"
+        onclick="PopulateJobDetails('/BanijayRights/GetTextDetails', 'lnkBNJRTextDetails')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Text Details
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-danger lnkBNJRFaults"
+        id="lnkBNJRFaults"
+        onclick="PopulateJobDetails('/BanijayRights/GetFaults', 'lnkBNJRFaults')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Faults
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-success lnkBNJRNotes"
+        id="lnkBNJRNotes"
+        onclick="PopulateJobDetails('/BanijayRights/GetNotes', 'lnkBNJRNotes')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Notes
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-outline-light"
+        style="border:none;">
+    &nbsp;
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-outline-light"
+        style="border:none;">
+    &nbsp;
+</button>

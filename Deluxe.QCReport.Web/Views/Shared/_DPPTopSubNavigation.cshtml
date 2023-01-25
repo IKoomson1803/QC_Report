@@ -1,10 +1,54 @@
 ﻿@model  Deluxe.QCReport.Web.Models.TopSubNavigationVM
 
-<button type="button" class="btn btn-sm btn-primary lnkDPPProgDetails" id="lnkDPPProgDetails" onclick="PopulateJobDetails('/DPP/DPPProgDetails', 'lnkDPPProgDetails')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Programme Details</button>
-<button type="button" class="btn btn-sm btn-default lnkDPPProdDetails" id="lnkDPPProdDetails" onclick="PopulateJobDetails('/DPP/DPPProdDetails', 'lnkDPPProdDetails')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Production Details</button>
-<button type="button" class="btn btn-sm btn-info lnkDPPChecklist" id="lnkDPPChecklist" onclick="PopulateJobDetails('/DPP/DPPChecklist', 'lnkDPPChecklist')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Checklist</button>
-<button type="button" class="btn btn-sm btn-warning lnkDPPCommBroadcasters" id="lnkDPPCommBroadcasters" onclick="PopulateJobDetails('/DPP/DPPCommBroadcasters', 'lnkDPPCommBroadcasters')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Commercial Broadcasters</button>
-<button type="button" class="btn btn-sm btn-primary lnkDPPProdAndTechLog" id="lnkDPPProdAndTechLog" onclick="PopulateJobDetails('/DPP/DPPProdAndTechLog', 'lnkDPProdAndTechLog')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Log</button>
-<button type="button" class="btn btn-sm btn-success lnkDPPProdSignOff" id="lnkDPPProdSignOff" onclick="PopulateJobDetails('/DPP/DPPProdSignOff', 'lnkDPPProdSignOff')" data-qcnum="@Model.QCNumber" data-revnum="@Model.RevNumber" data-wonum="@Model.WONumber">Final</button>
-<button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
-<button type="button" class="btn btn-sm btn-outline-light" style="border:none;">&nbsp;</button>
+<button type="button" 
+        class="btn btn-sm btn-primary lnkDPPProgDetails" 
+        id="lnkDPPProgDetails" 
+        onclick="PopulateJobDetails('/DPP/DPPProgDetails', 'lnkDPPProgDetails')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-wonum="@Model.WONumber">Programme Details</button>
+
+<button type="button"
+        class="btn btn-sm btn-default lnkDPPProdDetails" 
+        id="lnkDPPProdDetails" onclick="PopulateJobDetails('/DPP/DPPProdDetails', 'lnkDPPProdDetails')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-wonum="@Model.WONumber">Production Details</button>
+
+<button type="button" 
+        class="btn btn-sm btn-info lnkDPPChecklist" 
+        id="lnkDPPChecklist" 
+        onclick="PopulateJobDetails('/DPP/DPPChecklist', 'lnkDPPChecklist')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-wonum="@Model.WONumber">Checklist</button>
+
+<button type="button" 
+        class="btn btn-sm btn-warning lnkDPPCommBroadcasters" 
+        id="lnkDPPCommBroadcasters" onclick="PopulateJobDetails('/DPP/DPPCommBroadcasters', 'lnkDPPCommBroadcasters')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-wonum="@Model.WONumber">Commercial Broadcasters</button>
+
+<button type="button" 
+        class="btn btn-sm btn-primary lnkDPPProdAndTechLog"
+        id="lnkDPPProdAndTechLog" onclick="PopulateJobDetails('/DPP/DPPProdAndTechLog', 'lnkDPProdAndTechLog')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-wonum="@Model.WONumber">Log</button>
+
+<button type="button" 
+        class="btn btn-sm btn-success lnkDPPProdSignOff" 
+        id="lnkDPPProdSignOff" 
+        onclick="PopulateJobDetails('/DPP/DPPProdSignOff', 'lnkDPPProdSignOff')" 
+        data-qcnum="@Model.QCNumber" 
+        data-revnum="@Model.RevNumber" 
+        data-wonum="@Model.WONumber">Final</button>
+
+<button type="button" 
+        class="btn btn-sm btn-outline-light" 
+        style="border:none;">&nbsp;</button>
+
+<button type="button"
+        class="btn btn-sm btn-outline-light" 
+        style="border:none;">&nbsp;</button>

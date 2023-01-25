@@ -151,7 +151,25 @@ namespace Deluxe.QCReport.Common
             DPPChecklistUpdated,
             DPPLogViewed,
             DPPLogUpdated,
-            DPPLogDeleted
+            DPPLogDeleted,
+
+            BanijayRightsProgrammeDetailsViewed,
+            BanijayRightsProgrammeDetailsUpdated,
+            BanijayRightsAudioViewed,
+            BanijayRightsAudioUpdated,
+            BanijayRightsAudioDeleted,
+            BanijayRightsVideoViewed,
+            BanijayRightsVideoUpdated,
+            BanijayRightsProgrammeLayoutViewed,
+            BanijayRightsProgrammeLayoutUpdated,
+            BanijayRightsTextDetailsViewed,
+            BanijayRightsTextDetailsUpdated,
+            BanijayRightsFaultsViewed,
+            BanijayRightsFaultsUpdated,
+            BanijayRightsFaultsDeleted,
+            BanijayRightsNotesViewed,
+            BanijayRightsNotesUpdated
+
 
         }
 
