@@ -34,3 +34,4 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.csproj.CopyComplete
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Database\obj\Debug\Deluxe.QCReport.Database.csproj.AssemblyReference.cache

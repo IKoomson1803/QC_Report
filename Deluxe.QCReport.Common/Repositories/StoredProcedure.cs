@@ -26,7 +26,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
         public enum Client
         {
-             sel_GetClients,
+            sel_GetClients,
             ins_up_InsertOrUpdateClient,
             sel_GetClientDetails,
             sel_GetClientDetailsByQCNum
@@ -96,6 +96,14 @@ namespace Deluxe.QCReport.Common.Repositories
             sel_GetDPPLog,
             ins_up_InsertOrUpdateDPPLog,
             del_DeleteDPPLog
+        }
+
+        public enum BanijayRights
+        {
+            sel_GetBanijayRightsProgrammeDetails,
+            ins_up_InsertOrUpdateBanijayRightsProgrammeDetails,
+
+
         }
     }
 }

@@ -3,6 +3,13 @@ USE [QCSUK]
 GO
 
 ALTER TABLE [bward].[qcHeader] ALTER COLUMN [qc_type] VARCHAR(4) NULL
+ALTER TABLE [bward].[qcHeader] ADD FileWrapper VARCHAR(15) NULL
+ALTER TABLE [bward].[qcHeader] ADD SDROrHDR VARCHAR(3) NULL
+ALTER TABLE [bward].[qcHeader] ADD FrameRate VARCHAR(15) NULL
+ALTER TABLE [bward].[qcHeader] ADD VideoLines VARCHAR(20) NULL
+ALTER TABLE [bward].[qcHeader] ADD TypeOfHDR VARCHAR(50) NULL
+ALTER TABLE [bward].[qcHeader] ADD CaptionSafe VARCHAR(15) NULL
+ALTER TABLE [bward].[qcHeader] ADD EmbeddedCCTrack VARCHAR(3) NULL
 
 GO
 
@@ -374,7 +381,9 @@ BEGIN
 		OTPercent, OTVer, CTPercent, CTVer, CapPercent, CapVer, grdVideo, grdAudio, grdOverall,
 		Duration, [ProgrammeDetails], [ProductionNumber], [ProgrammeTitleAndNumber], [ProductionCompany],
         [ContactPhoneNumber], [PostCompany], [ProductPlacementLogoPresentAndInSafeArea],
-		[SponsorshipHeadAndTailPresent],[TAndCsWithinSafeArea]
+		[SponsorshipHeadAndTailPresent],[TAndCsWithinSafeArea],
+		  [FileWrapper],[SDROrHDR], [FrameRate], [VideoLines], 
+        [TypeOfHDR], [CaptionSafe], [EmbeddedCCTrack]
 		 
 		 )  
 	SELECT @newQCNumber, @newSubQCNumber,@qcWONumber, CustID, Show, Epis_no,  
@@ -408,7 +417,9 @@ BEGIN
 		OTPercent, OTVer, CTPercent, CTVer, CapPercent, CapVer, grdVideo, grdAudio, grdOverall,
 		Duration, [ProgrammeDetails], [ProductionNumber], [ProgrammeTitleAndNumber], [ProductionCompany],
         [ContactPhoneNumber], [PostCompany], [ProductPlacementLogoPresentAndInSafeArea],
-		[SponsorshipHeadAndTailPresent],[TAndCsWithinSafeArea]
+		[SponsorshipHeadAndTailPresent],[TAndCsWithinSafeArea],
+		 [FileWrapper],[SDROrHDR], [FrameRate], [VideoLines], 
+        [TypeOfHDR], [CaptionSafe], [EmbeddedCCTrack]
 	FROM bward.qcHeader  
 	WHERE QCNum = @qcNumber AND subQCNum = @subQCNumber
 	
