@@ -2,7 +2,7 @@
 
 namespace Deluxe.QCReport.Common.Models
 {
-    public class DPPProgDetails : DPPBase, IDPPProgDetails
+    public class DPPProgDetails : QCBase, IDPPProgDetails
     {
       
         public string ProgrammeDetails { get; set; }

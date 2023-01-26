@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Deluxe.QCReport.Common.Models
 {
-    public class DPPBase
+    public class QCBase
     {
         public int QCNum { get; set; }
         public int SubQCNum { get; set; }

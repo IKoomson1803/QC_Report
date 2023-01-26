@@ -101,7 +101,7 @@ namespace Deluxe.QCReport.Common.Repositories
         public enum BanijayRights
         {
             sel_GetBanijayRightsProgrammeDetails,
-            ins_up_InsertOrUpdateBanijayRightsProgrammeDetails,
+            up_UpdateBanijayRightsProgrammeDetails,
 
 
         }

@@ -6,7 +6,7 @@ namespace Deluxe.QCReport.Common.Abstractions
     /// <summary>
     ///  Banijay Rights Programme Details repository interface
     /// </summary>
-    public interface IBNJRRepository
+    public interface IBNJRProgrammeDetailsRepository
     {
         IBNJRProgrammeDetails GetProgrammeDetails(int qcNum, int subQCNum);
 

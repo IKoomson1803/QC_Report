@@ -3,7 +3,7 @@ using Deluxe.QCReport.Common.Abstractions;
 
 namespace Deluxe.QCReport.Common.Models
 {
-    public class DPPProdSignOff : DPPBase, IDPPProdSignOff
+    public class DPPProdSignOff : QCBase, IDPPProdSignOff
     {
 
         public string AuthorisedBy { get; set; }

@@ -10,13 +10,13 @@ using Dapper;
 
 namespace Deluxe.QCReport.Common.Repositories
 {
-    public class BNJRRepository :  BaseRepository, IBNJRRepository
+    public class BNJRProgrammeDetailsRepository :  BaseRepository, IBNJRProgrammeDetailsRepository
     {
 
         private readonly ConnectionStringSettings _conn;
         private readonly ILoggerService _logger;
 
-        public BNJRRepository(ConnectionStringSettings connString, ILoggerService logger)
+        public BNJRProgrammeDetailsRepository(ConnectionStringSettings connString, ILoggerService logger)
         {
             this._conn = connString ?? throw new ArgumentNullException(
                        $"BNJRPRepository expects ctor injection: {nameof(ConnectionStringSettings)}");
@@ -75,7 +75,7 @@ namespace Deluxe.QCReport.Common.Repositories
                 {
 
                     connection.Execute(
-                                   StoredProcedure.BanijayRights.ins_up_InsertOrUpdateBanijayRightsProgrammeDetails.ToString(),
+                                   StoredProcedure.BanijayRights.up_UpdateBanijayRightsProgrammeDetails.ToString(),
                                    programmeDetails,
                                    null,
                                    null,

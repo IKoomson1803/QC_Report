@@ -5,14 +5,14 @@ using Deluxe.QCReport.Common.Models;
 
 namespace Deluxe.QCReport.Common.Services
 {
-    public class BNJRService : IBNJRService
+    public class BNJRProgrammeDetailsService : IBNJRProgrammeDetailsService
     {
-        private readonly IBNJRRepository _rep;
+        private readonly IBNJRProgrammeDetailsRepository _rep;
 
-        public BNJRService(IBNJRRepository rep)
+        public BNJRProgrammeDetailsService(IBNJRProgrammeDetailsRepository rep)
         {
             this._rep = rep ?? throw new ArgumentNullException(
-                      $"BNJRService expects ctor injection: {nameof(IBNJRRepository)}");
+                      $"BNJRService expects ctor injection: {nameof(IBNJRProgrammeDetailsRepository)}");
 
         }
 

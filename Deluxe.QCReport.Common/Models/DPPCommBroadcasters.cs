@@ -2,7 +2,7 @@
 
 namespace Deluxe.QCReport.Common.Models
 {
-    public class DPPCommBroadcasters : DPPBase, IDPPCommBroadcasters
+    public class DPPCommBroadcasters : QCBase, IDPPCommBroadcasters
     {
         public string ProductPlacementLogoPresentAndInSafeArea { get; set; }
         public string SponsorshipHeadAndTailPresent { get; set; }

@@ -21,6 +21,7 @@ namespace Deluxe.QCReport.Web.Controllers
     public class BanijayRightsController : BaseController
     {
         private readonly ILoggerService _loggerService = null;
+        private readonly IBNJRProgrammeDetailsService _progDetailsService = null;
 
 
         public BanijayRightsController()
@@ -29,7 +30,12 @@ namespace Deluxe.QCReport.Web.Controllers
 
             var loggerRepository = new LoggerRepository(conn);
             _loggerService = new LoggerService(loggerRepository);
-       
+
+            _progDetailsService = new BNJRProgrammeDetailsService(
+                                  new BNJRProgrammeDetailsRepository(
+                                      conn,
+                                      _loggerService));
+
         }
 
         // GET: BanijayRights
@@ -44,7 +50,7 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-          
+            model.BNJRProgrammeDetails = _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BNJRProgrammeDetails;
 
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(
@@ -60,7 +66,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveProgrammeDetails(HomeVM model)
         {
 
-            bool result = false;
+            bool result = _progDetailsService.SaveProgrammeDetails(model.BNJRProgrammeDetails);
             string resultMsg = "Banijay Rights Programme Details saved successfully.";
 
             if (!result)

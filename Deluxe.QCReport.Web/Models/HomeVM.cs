@@ -97,6 +97,12 @@ namespace Deluxe.QCReport.Web.Models
         public ChecklistDPP ChecklistDPP { get; set; }
         public List<DPPLog> DPPLogs { get; set; }
         public DPPLog DPPLog { get; set; }
+
+        /**************** Add Banijah Rights **********************************************/
+        public BNJRProgrammeDetails BNJRProgrammeDetails { get; set; }
+
+
+
     }
 
 }

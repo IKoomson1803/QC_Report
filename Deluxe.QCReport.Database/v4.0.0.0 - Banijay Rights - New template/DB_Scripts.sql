@@ -4,12 +4,76 @@ GO
 
 ALTER TABLE [bward].[qcHeader] ALTER COLUMN [qc_type] VARCHAR(4) NULL
 ALTER TABLE [bward].[qcHeader] ADD FileWrapper VARCHAR(15) NULL
-ALTER TABLE [bward].[qcHeader] ADD SDROrHDR VARCHAR(3) NULL
+ALTER TABLE [bward].[qcHeader] ADD SDROrHDR VARCHAR(10) NULL
 ALTER TABLE [bward].[qcHeader] ADD FrameRate VARCHAR(15) NULL
 ALTER TABLE [bward].[qcHeader] ADD VideoLines VARCHAR(20) NULL
 ALTER TABLE [bward].[qcHeader] ADD TypeOfHDR VARCHAR(50) NULL
 ALTER TABLE [bward].[qcHeader] ADD CaptionSafe VARCHAR(15) NULL
 ALTER TABLE [bward].[qcHeader] ADD EmbeddedCCTrack VARCHAR(3) NULL
+
+GO
+
+
+
+CREATE PROCEDURE [bward].[up_UpdateBanijayRightsProgrammeDetails]
+	@QCNum INT,
+	@SubQCNum INT,			
+	@ProgrammeTitle NVARCHAR(255) = NULL,
+	@Filename NVARCHAR(255) = NULL,
+    @EpisodeTitle NVARCHAR(255) = NULL,
+    @EpisodeNumber VARCHAR(150) = NULL,
+    @FileWrapper VARCHAR(15) = NULL,
+    @VideoCodec VARCHAR(100) = NULL,
+    @SDROrHDR VARCHAR(10) = NULL,
+    @FrameRate VARCHAR(15) = NULL,
+    @AspectRatio VARCHAR(8) = NULL,
+    @Version VARCHAR(60) = NULL,
+    @VideoLines VARCHAR(50) = NULL,
+    @TypeOfHDR VARCHAR(50) = NULL,
+    @Timecode VARCHAR(50) = NULL,
+    @CaptionSafe VARCHAR(15) = NULL,
+    @EmbeddedCCTrack VARCHAR(3) = NULL
+	
+AS
+BEGIN
+	DECLARE @ErrorMsg VARCHAR(300)
+	
+	UPDATE 
+		[bward].[qcHeader] 
+	SET 
+	    Show = @ProgrammeTitle,
+		[Filename] = @Filename,
+		Epis_Name = @EpisodeTitle,
+		Epis_No = @EpisodeNumber,
+        [FileWrapper] = @FileWrapper,
+		Video_Codec = @VideoCodec,
+        [SDROrHDR] = @SDROrHDR,
+        [FrameRate] = @FrameRate,
+		[Version]  = @Version,
+        [VideoLines] = @VideoLines,
+        [TypeOfHDR] = @TypeOfHDR,
+		Timecode = @Timecode,
+        [CaptionSafe] = @CaptionSafe,
+        [EmbeddedCCTrack] = @EmbeddedCCTrack
+		WHERE 
+		Qcnum = @QCNum
+		AND subQcnum = @SubQCNum
+		
+IF @@ERROR <> 0
+	BEGIN
+		SET @errorMsg = 'up_UpdateBanijayRightsProgrammeDetails Failed'
+		GOTO Error
+	END
+		
+Error:
+
+	IF (@errorMsg IS NOT NULL)
+	BEGIN
+		RAISERROR(@errorMsg, 16, 1)
+	END
+	
+END
+
 
 GO
 
@@ -285,8 +349,6 @@ END
 
 GO
 
-USE [QCSUK]
-GO
 /****** Object:  StoredProcedure [bward].[sp_CopyQCReport]    Script Date: 24/01/2023 15:37:53 ******/
 SET ANSI_NULLS ON
 GO

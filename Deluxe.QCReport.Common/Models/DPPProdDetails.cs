@@ -2,7 +2,7 @@
 
 namespace Deluxe.QCReport.Common.Models
 {
-    public class DPPProdDetails : DPPBase, IDPPProdDetails
+    public class DPPProdDetails : QCBase, IDPPProdDetails
     {
         public string ProductionCompany { get; set; }
         public string ContactPhoneNumber { get; set; }
