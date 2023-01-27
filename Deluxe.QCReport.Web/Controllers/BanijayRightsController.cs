@@ -51,6 +51,7 @@ namespace Deluxe.QCReport.Web.Controllers
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.BNJRProgrammeDetails = _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BNJRProgrammeDetails;
+            model.YesNoNAList = LookUpsService.GetYesNoNA();
 
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(

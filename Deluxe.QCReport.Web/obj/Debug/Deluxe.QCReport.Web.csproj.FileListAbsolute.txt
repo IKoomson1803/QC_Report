@@ -29,7 +29,6 @@ C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCRepo
 C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CopyComplete
 C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.dll
 C:\DEVELOPMENT - TFS\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.pdb
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CoreCompileInputs.cache
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.dll.config
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Web.pdb
@@ -47,6 +46,9 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Syst
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Webpages.Razor.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\WebGrease.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\ClosedXML.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\DocumentFormat.OpenXml.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\FastMember.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Dapper.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.pdb
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Deluxe.QCReport.Common.dll.config
@@ -62,9 +64,7 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\Syst
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Helpers.xml
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\System.Web.Mvc.xml
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.AssemblyReference.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CoreCompileInputs.cache
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CopyComplete
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.pdb
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\ClosedXML.dll
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\FastMember.dll
-D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\DocumentFormat.OpenXml.dll

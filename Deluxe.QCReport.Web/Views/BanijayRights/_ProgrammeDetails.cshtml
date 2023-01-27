@@ -2,16 +2,16 @@
 
 <div class="bs-callout bs-callout-warning">
 
-    <div class="row" style="margin-top: -25px;">
+    <div class="row">
 
-        <div class="col-xs-7" style="font-size:14px;font-weight:bold">
+        <div class="col-xs-3" style="font-size:14px;font-weight:bold">
             @string.Format("{0} - {1}: Banijay Rights - Programme Details ", Model.BNJRProgrammeDetails.QCNum, Model.BNJRProgrammeDetails.SubQCNum)
         </div>
 
         @if (Model.SecurityLevel >= 1)
         {
 
-            <div class="col-xs-5 text-center">
+            <div class="col-xs-3 text-center">
 
                 <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
             </div>
@@ -26,10 +26,138 @@
         @Html.HiddenFor(m => m.BNJRProgrammeDetails.QCNum);
         @Html.HiddenFor(m => m.BNJRProgrammeDetails.SubQCNum);
 
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Programme Title:</label>
+            </div>
 
+            <div class="col-sm-5 form-group">
+                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.ProgrammeTitle, 2, 3, new { @class = "form-control", maxlength = "255", @title = Model.BNJRProgrammeDetails.ProgrammeTitle })
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">File Name:</label>
+            </div>
+            <div class="col-sm-5 form-group">
+                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.Filename, 2, 3, new { @class = "form-control", maxlength = "255", @title = Model.BNJRProgrammeDetails.Filename })
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Episode Title:</label>
+            </div>
+            <div class="col-sm-5 form-group">
+                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.EpisodeTitle, 3, 3, new { @class = "form-control", maxlength = "255", @title = Model.BNJRProgrammeDetails.EpisodeTitle })
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Episode Number:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.EpisodeNumber, new { @class = "form-control", @style = "width:130px", maxlength = "150" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Version:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.Version, new { @class = "form-control", @style = "width:130px", maxlength = "60" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">File Wrapper:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.FileWrapper, new { @class = "form-control", @style = "width:130px", maxlength = "15" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Video Lines:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.VideoLines, new { @class = "form-control", @style = "width:130px", maxlength = "20" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Codec:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.VideoCodec, new { @class = "form-control", @style = "width:130px", maxlength = "100" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Type of HDR:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.TypeOfHDR, new { @class = "form-control", @style = "width:130px", maxlength = "50" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">SDR / HDR:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.SDROrHDR, new { @class = "form-control", @style = "width:130px", maxlength = "10" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Timecode:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.Timecode, new { @class = "form-control", @style = "width:130px", maxlength = "50" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Frame Rate:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.FrameRate, new { @class = "form-control", @style = "width:130px", maxlength = "15" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Caption Safe:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.CaptionSafe, new { @class = "form-control", @style = "width:130px", maxlength = "15" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Aspect Ratio:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.AspectRatio, new { @class = "form-control", @style = "width:130px", maxlength = "8" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Embedded CC Track?</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.EmbeddedCCTrack,
+                new SelectList(Model.YesNoNAList, "value", "value", Model.BNJRProgrammeDetails.EmbeddedCCTrack),
+                "", 
+                new { @class = "form-control", @style = "width:50px" })
+            </div>
+
+        </div>
 
 
     }

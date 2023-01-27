@@ -15,6 +15,57 @@ GO
 
 
 
+CREATE PROCEDURE [bward].[sel_GetBanijayRightsProgrammeDetails]
+    @QCNum INT,
+	@SubQCNum INT
+	
+AS
+BEGIN
+	DECLARE @ErrorMsg VARCHAR(300)
+	
+	SELECT 
+		QCNum,
+		subQCNum ,
+        [Show] 'ProgrammeTitle',
+        [Filename],
+        [Epis_Name] 'EpisodeTitle',
+		Epis_No 'EpisodeNumber',
+		FileWrapper,
+		Video_Codec,
+		SDROrHDR,
+		FrameRate,
+		Aspect 'AspectRatio',
+		[Version],
+		VideoLines,
+		TypeOfHDR,
+		Timecode,
+		CaptionSafe,
+		EmbeddedCCTrack
+ 
+	FROM 
+		[bward].[qcHeader]
+	WHERE 
+		qcNum = @QCNum
+		AND subQCNum = @SubQCNum
+	
+		
+IF @@ERROR <> 0
+	BEGIN
+		SET @errorMsg = 'sel_GetBanijayRightsProgrammeDetails Failed '
+		GOTO Error
+	END
+		
+Error:
+
+	IF (@errorMsg IS NOT NULL)
+	BEGIN
+		RAISERROR(@errorMsg, 16, 1)
+	END
+	
+END
+
+GO
+
 CREATE PROCEDURE [bward].[up_UpdateBanijayRightsProgrammeDetails]
 	@QCNum INT,
 	@SubQCNum INT,			
@@ -45,6 +96,7 @@ BEGIN
 		[Filename] = @Filename,
 		Epis_Name = @EpisodeTitle,
 		Epis_No = @EpisodeNumber,
+		Aspect = @AspectRatio,
         [FileWrapper] = @FileWrapper,
 		Video_Codec = @VideoCodec,
         [SDROrHDR] = @SDROrHDR,
