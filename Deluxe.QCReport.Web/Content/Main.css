@@ -210,6 +210,10 @@ th{
    /* width: 50px !important;*/
 }
 
+#BNJRProgrammeDetails_ProgrammeTitle, #BNJRProgrammeDetails_Filename, #BNJRProgrammeDetails_EpisodeTitle {
+    width: 725px !important;
+}
+
 .environmentfooter {
     height: 30px;
     text-align: center;

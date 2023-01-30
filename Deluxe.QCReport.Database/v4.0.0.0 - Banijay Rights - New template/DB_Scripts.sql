@@ -3,12 +3,13 @@ USE [QCSUK]
 GO
 
 ALTER TABLE [bward].[qcHeader] ALTER COLUMN [qc_type] VARCHAR(4) NULL
+ALTER TABLE [bward].[qcHeader] ALTER COLUMN [Aspect] VARCHAR(20) NULL
 ALTER TABLE [bward].[qcHeader] ADD FileWrapper VARCHAR(15) NULL
 ALTER TABLE [bward].[qcHeader] ADD SDROrHDR VARCHAR(10) NULL
 ALTER TABLE [bward].[qcHeader] ADD FrameRate VARCHAR(15) NULL
 ALTER TABLE [bward].[qcHeader] ADD VideoLines VARCHAR(20) NULL
 ALTER TABLE [bward].[qcHeader] ADD TypeOfHDR VARCHAR(50) NULL
-ALTER TABLE [bward].[qcHeader] ADD CaptionSafe VARCHAR(15) NULL
+ALTER TABLE [bward].[qcHeader] ADD CaptionSafe VARCHAR(50) NULL
 ALTER TABLE [bward].[qcHeader] ADD EmbeddedCCTrack VARCHAR(3) NULL
 
 GO
@@ -1023,9 +1024,37 @@ Error:
 		SET @errorMsg = @errorMsg + ' in sp_CopyQCReport'
 		RAISERROR(@errorMsg, 16, 1)
 	END	
-	
-	
-	
+		
 END
 
 GO
+
+
+/****** Object:  StoredProcedure [dbo].[sel_GetLookup]    Script Date: 27/01/2023 12:38:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [bward].[sel_GetLookup]
+	-- Add the parameters for the stored procedure here
+	@TableName VARCHAR(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+DECLARE @str_SQL VARCHAR(5000)
+
+SET  @str_SQL  = 'SELECT Type FROM ' + @TableName + ' -- ORDER BY  Type'
+
+EXEC(@str_SQL)
+
+--print(@str_SQL)
+
+END
+
+GO
+

@@ -1,14 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
 using Deluxe.QCReport.Common.LINQ;
+using Deluxe.QCReport.Common.Abstractions;
+using Dapper;
 
 namespace Deluxe.QCReport.Common.Repositories
 {
-    public class LookUpsRepository
+    public class LookUpsRepository : BaseRepository, ILookupsRepository
     {
+        private readonly ConnectionStringSettings _conn;
+        private readonly ILoggerService _logger;
+
+        public LookUpsRepository()
+        {
+
+        }
+
+        public LookUpsRepository(ConnectionStringSettings connString, ILoggerService logger)
+        {
+            this._conn = connString ?? throw new ArgumentNullException(
+                       $"LookupsRepository expects ctor injection: {nameof(ConnectionStringSettings)}");
+
+            this._logger = logger ?? throw new ArgumentNullException(
+                       $"LookupsRepository expects ctor injection: {nameof(ILoggerService)}");
+        }
+
+        public IList<string> GetLookups(StoredProcedure.Lookup lookup)
+        {
+            var result = new List<string>();
+            try
+            {
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+
+                    result = connection.Query<string>(
+                    StoredProcedure.Lookup.sel_GetLookup.ToString(),
+                    new { TableName = lookup.ToString() },
+                    null,
+                    false,
+                    commandTimeout: 120,
+                    commandType: CommandType.StoredProcedure).ToList();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+            }
+
+            return result;
+        }
+
+
         public static Dictionary<int, string> GetLookupList(Constants.LookupType type)
         {
             Dictionary<int, string> result = null;
@@ -310,5 +360,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
             return result.ToDictionary(dic => dic.StandardID, dic => dic.Standard.Trim());
         }
+
+        
     }
 }

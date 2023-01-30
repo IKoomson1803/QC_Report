@@ -105,5 +105,24 @@ namespace Deluxe.QCReport.Common.Repositories
 
 
         }
+
+        public enum Lookup
+        {
+            sel_GetLookup,
+            BanijayRightsAspectRatio,
+            BanijayRightsCaptionSafe,
+            BanijayRightsCodec,
+            BanijayRightsFileWrapper,
+            BanijayRightsFrameRate,
+            BanijayRightsInShowAndAfterProg,
+            BanijayRightsLanguage,
+            BanijayRightsPosition,
+            BanijayRightsSDROrHDR,
+            BanijayRightsTimecode,
+            BanijayRightsTone,
+            BanijayRightsTrackContent,
+            BanijayRightsTypeOfHDR,
+            BanijayRightsVideoLines
+        }
     }
 }

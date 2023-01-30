@@ -22,6 +22,7 @@ namespace Deluxe.QCReport.Web.Controllers
     {
         private readonly ILoggerService _loggerService = null;
         private readonly IBNJRProgrammeDetailsService _progDetailsService = null;
+        private readonly ILookupsService _lookupsService = null;
 
 
         public BanijayRightsController()
@@ -35,6 +36,11 @@ namespace Deluxe.QCReport.Web.Controllers
                                   new BNJRProgrammeDetailsRepository(
                                       conn,
                                       _loggerService));
+
+            _lookupsService = new LookUpsService(
+                                 new LookUpsRepository(
+                                     conn,
+                                     _loggerService));
 
         }
 
@@ -52,6 +58,16 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.BNJRProgrammeDetails = _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BNJRProgrammeDetails;
             model.YesNoNAList = LookUpsService.GetYesNoNA();
+            model.BanijayRightsAspectRatioList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsAspectRatio).ToList();
+            model.BanijayRightsCaptionSafeList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsCaptionSafe).ToList();
+            model.BanijayRightsCodecList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsCodec).ToList();
+            model.BanijayRightsFileWrapperList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsFileWrapper).ToList();
+            model.BanijayRightsFrameRateList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsFrameRate).ToList();
+            model.BanijayRightsInShowAndAfterProgList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsInShowAndAfterProg).ToList();
+            model.BanijayRightsSDROrHDRList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsSDROrHDR).ToList();
+            model.BanijayRightsTimecodeList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTimecode).ToList();
+            model.BanijayRightsTypeOfHDRList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTypeOfHDR).ToList();
+            model.BanijayRightsVideoLinesList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsVideoLines).ToList();
 
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(

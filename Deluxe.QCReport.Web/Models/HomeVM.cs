@@ -100,8 +100,22 @@ namespace Deluxe.QCReport.Web.Models
 
         /**************** Add Banijah Rights **********************************************/
         public BNJRProgrammeDetails BNJRProgrammeDetails { get; set; }
+        public List<string> BanijayRightsAspectRatioList { get; set; }
+        public List<string> BanijayRightsCaptionSafeList { get; set; }
+        public List<string> BanijayRightsCodecList { get; set; }
+        public List<string> BanijayRightsFileWrapperList { get; set; }
+        public List<string> BanijayRightsFrameRateList { get; set; }
+        public List<string> BanijayRightsInShowAndAfterProgList { get; set; }
+        public List<string> BanijayRightsLanguageList { get; set; }
+        public List<string> BanijayRightsPositionList { get; set; }
+        public List<string> BanijayRightsSDROrHDRList { get; set; }
+        public List<string> BanijayRightsTimecodeList { get; set; }
+        public List<string> BanijayRightsToneList { get; set; }
+        public List<string> BanijayRightsTrackContentList { get; set; }
+        public List<string> BanijayRightsTypeOfHDRList { get; set; }
+        public List<string> BanijayRightsVideoLinesList { get; set; }
 
-
+        /*************************************************************************/
 
     }
 

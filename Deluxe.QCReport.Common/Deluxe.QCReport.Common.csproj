@@ -105,6 +105,8 @@
     <Compile Include="Abstractions\ILoggerItem.cs" />
     <Compile Include="Abstractions\ILoggerRepository.cs" />
     <Compile Include="Abstractions\ILoggerService.cs" />
+    <Compile Include="Abstractions\ILookupsRepository.cs" />
+    <Compile Include="Abstractions\ILookupsService.cs" />
     <Compile Include="Abstractions\IReportRepository.cs" />
     <Compile Include="Abstractions\IReportService.cs" />
     <Compile Include="Abstractions\ISearchParams.cs" />

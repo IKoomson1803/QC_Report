@@ -1,14 +1,32 @@
-﻿using Deluxe.QCReport.Common.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Deluxe.QCReport.Common.Repositories;
+using Deluxe.QCReport.Common.Abstractions;
+
 
 namespace Deluxe.QCReport.Common.Services
 {
-    public static class LookUpsService
+    public  class LookUpsService : ILookupsService
     {
+        private readonly ILookupsRepository _rep;
+
+        public LookUpsService()
+        {
+
+        }
+
+        public LookUpsService(ILookupsRepository rep)
+        {
+            this._rep = rep ?? throw new ArgumentNullException(
+                    $"LookUpsService expects ctor injection: {nameof(ILookupsRepository)}");
+
+        }
+
+        public IList<string> GetLookups(StoredProcedure.Lookup lookup)
+        {
+            return _rep.GetLookups(lookup);
+        }
+
         public static Dictionary<int, string> GetAspectRatio()
         {
 
@@ -329,5 +347,7 @@ namespace Deluxe.QCReport.Common.Services
             result.Add(10, "L-R");
             return result;
         }
+
+       
     }
 }
