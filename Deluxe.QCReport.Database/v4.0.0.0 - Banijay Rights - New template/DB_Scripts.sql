@@ -32,7 +32,7 @@ BEGIN
         [Epis_Name] 'EpisodeTitle',
 		Epis_No 'EpisodeNumber',
 		FileWrapper,
-		Video_Codec,
+		Video_Codec 'VideoCodec',
 		SDROrHDR,
 		FrameRate,
 		Aspect 'AspectRatio',
@@ -78,12 +78,12 @@ CREATE PROCEDURE [bward].[up_UpdateBanijayRightsProgrammeDetails]
     @VideoCodec VARCHAR(100) = NULL,
     @SDROrHDR VARCHAR(10) = NULL,
     @FrameRate VARCHAR(15) = NULL,
-    @AspectRatio VARCHAR(8) = NULL,
+    @AspectRatio VARCHAR(20) = NULL,
     @Version VARCHAR(60) = NULL,
     @VideoLines VARCHAR(50) = NULL,
     @TypeOfHDR VARCHAR(50) = NULL,
     @Timecode VARCHAR(50) = NULL,
-    @CaptionSafe VARCHAR(15) = NULL,
+    @CaptionSafe VARCHAR(50) = NULL,
     @EmbeddedCCTrack VARCHAR(3) = NULL
 	
 AS
@@ -107,7 +107,8 @@ BEGIN
         [TypeOfHDR] = @TypeOfHDR,
 		Timecode = @Timecode,
         [CaptionSafe] = @CaptionSafe,
-        [EmbeddedCCTrack] = @EmbeddedCCTrack
+        [EmbeddedCCTrack] = @EmbeddedCCTrack,
+		Aspect = @AspectRatio
 		WHERE 
 		Qcnum = @QCNum
 		AND subQcnum = @SubQCNum

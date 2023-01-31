@@ -80,7 +80,7 @@
              new SelectList(Model.BanijayRightsFileWrapperList), "",
               new { @class = "form-control", @style = "width:80px" })
 
-           </div>
+            </div>
 
             <div class="col-sm-2 text-right">
                 <label class="control-label"> Video Lines:</label>
@@ -149,9 +149,9 @@
                 <label class="control-label"> Caption Safe:</label>
             </div>
             <div class="col-sm-2 form-group">
-                     @Html.DropDownListFor(m => m.BNJRProgrammeDetails.CaptionSafe,
-                new SelectList(Model.BanijayRightsCaptionSafeList), "",
-                 new { @class = "form-control", @style = "width:250px" })
+                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.CaptionSafe,
+           new SelectList(Model.BanijayRightsCaptionSafeList), "",
+            new { @class = "form-control", @style = "width:250px" })
             </div>
 
         </div>
@@ -172,7 +172,7 @@
             <div class="col-sm-2 form-group">
                 @Html.DropDownListFor(m => m.BNJRProgrammeDetails.EmbeddedCCTrack,
                 new SelectList(Model.YesNoNAList, "value", "value", Model.BNJRProgrammeDetails.EmbeddedCCTrack),
-                "", 
+                "",
                 new { @class = "form-control", @style = "width:50px" })
             </div>
 
@@ -184,3 +184,54 @@
 
 
 </div>
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkBNJRProgDetails").addClass("subMenuOnClick");
+    }
+
+
+    $(function () {
+        $(function () {
+
+            setActiveButton();
+
+            $('#btnSave').on("click", function () {
+
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                $.post('/BanijayRights/SaveProgrammeDetails', { model: myModel }).done(function (data) {
+
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+
+                    });
+            });
+
+
+
+        });
+
+
+
+    });
+
+
+
+
+
+</script>
+

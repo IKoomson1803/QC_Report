@@ -128,7 +128,7 @@ CREATE TABLE [bward].[BanijayRightsVideoLines](
 GO
 INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'1.33:1')
 GO
-INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'1.66:1 ')
+INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'1.66:1')
 GO
 INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'1.55:1')
 GO
@@ -182,7 +182,7 @@ INSERT [bward].[BanijayRightsCodec] ([Type]) VALUES (N'ProRes 4444')
 GO
 INSERT [bward].[BanijayRightsCodec] ([Type]) VALUES (N'ProRes 4444 (XQ)')
 GO
-INSERT [bward].[BanijayRightsCodec] ([Type]) VALUES (N'DNxHD ')
+INSERT [bward].[BanijayRightsCodec] ([Type]) VALUES (N'DNxHD')
 GO
 INSERT [bward].[BanijayRightsCodec] ([Type]) VALUES (N'DNxHD 185x')
 GO
@@ -210,7 +210,7 @@ INSERT [bward].[BanijayRightsCodec] ([Type]) VALUES (N'SDR')
 GO
 INSERT [bward].[BanijayRightsCodec] ([Type]) VALUES (N'HDR')
 GO
-INSERT [bward].[BanijayRightsFileWrapper] ([Type]) VALUES (N'MOV ')
+INSERT [bward].[BanijayRightsFileWrapper] ([Type]) VALUES (N'MOV')
 GO
 INSERT [bward].[BanijayRightsFileWrapper] ([Type]) VALUES (N'MXF')
 GO
