@@ -8,7 +8,7 @@
         <div class="row" style="margin-top:-20px;">
 
             <div class="col-sm-3">
-                <b style="font-size:14px;">@string.Format("{0} - {1}: Audio", Model.AudioTC_VM.Qcnum, Model.AudioTC_VM.subQcnum)</b>
+                <b style="font-size:14px;">@string.Format("{0} - {1}:Banijay Rights Audio", Model.AudioTC_VM.Qcnum, Model.AudioTC_VM.subQcnum)</b>
             </div>
 
             @if (Model.SecurityLevel >= 1)
@@ -30,7 +30,9 @@
             </div>
             <div class="col-sm-2 form-group">
 
-                @Html.DropDownListFor(m => m.AudioTC_VM.ChannelCount, new SelectList(Model.ChannelCountList, "value", "value"), new { @id = "ddlChannelCnt", @class = "form-control" })
+                @Html.DropDownListFor(m => m.AudioTC_VM.ChannelCount, 
+               new SelectList(Model.ChannelCountList, "value", "value"),
+               new { @id = "ddlChannelCnt", @class = "form-control" })
             </div>
             <div class="col-sm-1">
 
@@ -49,9 +51,9 @@
                 <tr>
                     <th style="width:5%; text-align:left !important;margin-left:0">Ch. No.</th>
                     <th style="width:18%">Track Content</th>
-                    <th style="width:16%">Language</th>
-                    <th style="width:5%">Position</th>
-                    <th style="width:5%">Tone</th>
+                    <th style="width:10%">Language</th>
+                    <th style="width:10%">Position</th>
+                    <th style="width:8%">Tone</th>
                     <th style="width:5%">Average db</th>
                     <th style="width:5%">Peak</th>
                     <th style="width:5%">True Peak</th>
@@ -73,70 +75,48 @@
                     </td>
                     <td>
                         @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].TrackContent,
-                           new SelectList(Model.BanijayRightsTrackContentList, "value", "value",
-                           Model.AudioTC_VM.ChannelsList[i].TrackContent), "",
+                           new SelectList(Model.BanijayRightsTrackContentList), "",
                              new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].TrackContent })
                     </td>
                     <td>
                         @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Language,
-                          new SelectList(Model.LanguageList, "value", "value",
-                          Model.AudioTC_VM.ChannelsList[i].Language), "",
-                          new
-                               {
-                                   @class = "form-control",
-                                  @title = Model.AudioTC_VM.ChannelsList[i].Language
-                               })
+                           new SelectList(Model.BanijayRightsLanguageList), "",
+                             new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Language })
                     </td>
                     <td>
                         @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Description,
-                           new SelectList(Model.BanijayRightsPositionList, Model.AudioTC_VM.ChannelsList[i].Description), "",
-                             new
-                                  {
-                                      @class = "form-control",
-                                 @title = Model.AudioTC_VM.ChannelsList[i].Description
-                                  })
+                          new SelectList(Model.BanijayRightsPositionList), "",
+                            new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Description })
                     </td>
                     <td>
-                        @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Tone,
-                       new
-                            {
-                                @class = "form-control",
-                           @title = Model.AudioTC_VM.ChannelsList[i].Tone
-                            })
+                        @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Tone,
+                         new SelectList(Model.BanijayRightsToneList), "",
+                           new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Tone })
                     </td>
 
                     <td>
 
                         @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Average, 
-                               new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Average })
+                          new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Average })
                     </td>
 
 
                     <td>
 
                         @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Peak,
-                       new
-                            {
-                                @class = "form-control",
-                           @title = Model.AudioTC_VM.ChannelsList[i].Peak
-                            })
+                       new {@class = "form-control", 
+                           @title = Model.AudioTC_VM.ChannelsList[i].Peak})
                     </td>
                     <td>
                         @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].TruePeak,
-                       new
-                            {
-                                @class = "form-control",
-                             @title = Model.AudioTC_VM.ChannelsList[i].TruePeak
-                            })
+                       new { @class = "form-control", 
+                           @title = Model.AudioTC_VM.ChannelsList[i].TruePeak})
                     </td>
 
                     <td>
                         @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].LKFS,
-                       new
-                            {
-                                @class = "form-control",
-                           @title = Model.AudioTC_VM.ChannelsList[i].LKFS
-                            })
+                       new {@class = "form-control", 
+                           @title = Model.AudioTC_VM.ChannelsList[i].LKFS })
                     </td>
 
                     <td style="width:10px">
