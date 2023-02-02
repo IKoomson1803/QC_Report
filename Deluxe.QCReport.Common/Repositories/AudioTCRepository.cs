@@ -79,9 +79,10 @@ namespace Deluxe.QCReport.Common.Repositories
                                 //result.CompMESync = DR["Comp_Sync"].ToString().Trim();
                                 //result.LTCVITCMatch = DR["LTC_VITC_Match"].ToString().Trim();
                                 //result.AudioPhaseTone = DR["Tone_Phase"].ToString().Trim();
-                                
+                                result.BitRate = DR["BitRate"].ToString().Trim();
 
-                                while(hasMoreChannels)
+
+                                while (hasMoreChannels)
                                 {
                                     string thisLang = string.Format("Language{0}", channelNo);
                                     string thisDesc = string.Format("ch{0}_desc", channelNo);
@@ -95,6 +96,8 @@ namespace Deluxe.QCReport.Common.Repositories
 
                                     string thisInPhase = string.Format("InPhase{0}", channelNo);
                                     string thisDiscreate = string.Format("Discreate{0}", channelNo);
+
+                                    string thisTrackContent = string.Format("TrackContent{0}", channelNo); // Banijay Rights new template
 
 
                                     if (channelNo > channelCount)
@@ -120,6 +123,8 @@ namespace Deluxe.QCReport.Common.Repositories
 
                                             tcItem.InPhase = DR[thisInPhase].ToString().Trim();
                                             tcItem.Discreate =  DR[thisDiscreate].ToString().Trim();
+
+                                            tcItem.TrackContent = DR[thisTrackContent].ToString().Trim(); // Banijay Rights new template
 
                                         string _fsQC = string.Empty;
                                             if (tcItem.FullQC) { _fsQC = "Full"; }
@@ -180,8 +185,9 @@ namespace Deluxe.QCReport.Common.Repositories
             }
             catch (Exception ex)
             {
-
-                throw;
+               
+                var errorMessage = ex.Message;
+                //throw;
             }
 
             return result;
@@ -266,6 +272,8 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Parameters.Add(GetSqlParameterString("@_surroundSound", audioTCDetails.SurroundSound));
                     _cmd.Parameters.Add(GetSqlParameterString("@_ltcMatch", audioTCDetails.LTCVITCMatch));
 
+                    _cmd.Parameters.Add(GetSqlParameterString("@BitRate", audioTCDetails.BitRate));
+
 
                     int index = 1;
                     if(audioTCDetails.ChannelsList != null && audioTCDetails.ChannelsList.Any())
@@ -285,6 +293,8 @@ namespace Deluxe.QCReport.Common.Repositories
                             string thisInPhase = string.Format("@_ch{0}_InPhase", index);
                             string thisDiscreate = string.Format("@_ch{0}_Discreate", index);
 
+                            string thisTrackContent = string.Format("@_ch{0}_TrackContent", index); // Banijay Rights new template
+
                             bool _fqc = false;
                             bool _sqc = false;
                             if (item.FullSpotQC == "Full") { _fqc = true; }
@@ -300,6 +310,8 @@ namespace Deluxe.QCReport.Common.Repositories
 
                             _cmd.Parameters.Add(GetSqlParameterString(thisInPhase, item.InPhase));
                             _cmd.Parameters.Add(GetSqlParameterString(thisDiscreate, item.Discreate));
+
+                            _cmd.Parameters.Add(GetSqlParameterString(thisTrackContent, item.TrackContent)); // Banijay Rights new template
 
                             _cmd.Parameters.Add(GetSqlParameterBool(thisFQC, _fqc));
                             _cmd.Parameters.Add(GetSqlParameterBool(thisSQC, _sqc));
@@ -323,7 +335,8 @@ namespace Deluxe.QCReport.Common.Repositories
             catch (Exception ex)
             {
                 result = false;
-                throw;
+                var errorMessage = ex.Message;
+               // throw;
             }
 
             return result;

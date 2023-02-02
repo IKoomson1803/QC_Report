@@ -122,7 +122,8 @@ namespace Deluxe.QCReport.Common.Repositories
             BanijayRightsTone,
             BanijayRightsTrackContent,
             BanijayRightsTypeOfHDR,
-            BanijayRightsVideoLines
+            BanijayRightsVideoLines,
+            BanijayRightsBitRate
         }
     }
 }

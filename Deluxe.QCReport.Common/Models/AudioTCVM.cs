@@ -21,6 +21,7 @@ namespace Deluxe.QCReport.Common.Models
         public string CompMESync { get; set; }
         public string LTCVITCMatch { get; set; }
         public string AudioPhaseTone { get; set; }
+        public string BitRate { get; set; }
 
         public AudioTCChannel Cue { get; set; }
 
@@ -44,6 +45,7 @@ namespace Deluxe.QCReport.Common.Models
         public bool FullQC { get; set; }
         public bool SpotQC { get; set; }
         public string FullSpotQC { get; set; }
+        public string TrackContent { get; set; } 
         
     }
 }

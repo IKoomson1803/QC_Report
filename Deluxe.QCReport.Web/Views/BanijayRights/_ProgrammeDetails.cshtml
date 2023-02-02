@@ -32,7 +32,10 @@
             </div>
 
             <div class="col-sm-8 form-group">
-                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.ProgrammeTitle, 2, 2, new { @class = "form-control", maxlength = "255", @title = Model.BNJRProgrammeDetails.ProgrammeTitle })
+                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.ProgrammeTitle, 2, 2, 
+               new { @class = "form-control", 
+                   maxlength = "255", 
+                   @title = Model.BNJRProgrammeDetails.ProgrammeTitle })
             </div>
         </div>
 
@@ -41,7 +44,10 @@
                 <label class="control-label">File Name:</label>
             </div>
             <div class="col-sm-8 form-group">
-                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.Filename, 2, 2, new { @class = "form-control", maxlength = "255", @title = Model.BNJRProgrammeDetails.Filename })
+                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.Filename, 2, 2,
+               new { @class = "form-control",
+                   maxlength = "255", 
+                   @title = Model.BNJRProgrammeDetails.Filename })
             </div>
         </div>
 
@@ -50,7 +56,10 @@
                 <label class="control-label">Episode Title:</label>
             </div>
             <div class="col-sm-8 form-group">
-                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.EpisodeTitle, 2, 2, new { @class = "form-control", maxlength = "255", @title = Model.BNJRProgrammeDetails.EpisodeTitle })
+                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.EpisodeTitle, 2, 2,
+               new { @class = "form-control",
+                   maxlength = "255", 
+                   @title = Model.BNJRProgrammeDetails.EpisodeTitle })
             </div>
         </div>
 
@@ -59,14 +68,20 @@
                 <label class="control-label">Episode Number:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.EpisodeNumber, new { @class = "form-control", @style = "width:250px", maxlength = "150" })
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.EpisodeNumber, 
+               new { @class = "form-control", 
+                   @style = "width:250px", 
+                   maxlength = "150" })
             </div>
 
             <div class="col-sm-2 text-right">
                 <label class="control-label">Version:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.Version, new { @class = "form-control", @style = "width:250px", maxlength = "60" })
+                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.Version, 
+               new { @class = "form-control", 
+                   @style = "width:250px", 
+                   maxlength = "60" })
             </div>
 
         </div>

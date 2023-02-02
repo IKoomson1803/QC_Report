@@ -760,9 +760,9 @@ namespace Deluxe.QCReport.Web.Controllers
 
                 WebSystemUtility.LogUserActivity(
                                             string.Format(
-                                                "Text Info for QC with Id {0} and Rev No {1} was updated.",
-                                                 model.AudioTC_VM.Qcnum,
-                                                model.AudioTC_VM.subQcnum),
+                                                "Audio TC for QC with Id {0} and Rev No {1} was updated.",
+                                                 model.AudioTC_VM?.Qcnum,
+                                                model.AudioTC_VM?.subQcnum),
                                                 Constants.ActivityType.UpdatedAudioTC);
 
                 /*******************************************************************************************/

@@ -23,7 +23,7 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly ILoggerService _loggerService = null;
         private readonly IBNJRProgrammeDetailsService _progDetailsService = null;
         private readonly ILookupsService _lookupsService = null;
-
+        AudioTCService _atcSrv = new AudioTCService();
 
         public BanijayRightsController()
         {
@@ -41,6 +41,8 @@ namespace Deluxe.QCReport.Web.Controllers
                                  new LookUpsRepository(
                                      conn,
                                      _loggerService));
+
+
 
         }
 
@@ -118,6 +120,18 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+           
+            model.AudioTC_VM = _atcSrv.GetAudioTCDetails(qcnum, revnum);
+
+            model.ChannelCountList = LookUpsService.GetChannelCount();
+            model.BanijayRightsBitRateList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsBitRate).ToList(); // new
+            model.BanijayRightsTrackContentList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTrackContent).ToList(); // new 
+            model.BanijayRightsLanguageList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
+            model.BanijayRightsPositionList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsPosition).ToList(); // Description
+            model.BanijayRightsToneList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTone).ToList();
+
+
+           
 
 
             /****************Log User Activity******************************************************/
@@ -131,31 +145,215 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveAudio(HomeVM model)
+        public ActionResult AudioTCChannelCountChanged(HomeVM model)
         {
 
-            bool result = false;
-            string resultMsg = "Banijay Rights Audio saved successfully.";
+            WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
+            model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+
+            model.ChannelCountList = LookUpsService.GetChannelCount();
+            model.BanijayRightsBitRateList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsBitRate).ToList(); // new
+            model.BanijayRightsTrackContentList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTrackContent).ToList(); // new 
+            model.BanijayRightsLanguageList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
+            model.BanijayRightsPositionList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsPosition).ToList(); // Description
+            model.BanijayRightsToneList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTone).ToList();
+
+
+
+            int rowCnt = Convert.ToInt32(model.AudioTC_VM.ChannelCount.Replace("Channels", "").Trim());
+
+            // make sure channels list is not null
+            if (model.AudioTC_VM.ChannelsList == null) { model.AudioTC_VM.ChannelsList = new List<AudioTCChannel>(); }
+
+            /****************Log User Activity******************************************************/
+
+            WebSystemUtility.LogUserActivity(
+                                        string.Format(
+                                            "Audio TC was changed. QC [Id: {0}]; Rev No; {1}",
+                                             model.AudioTC_VM?.Qcnum,
+                                            model.AudioTC_VM?.subQcnum),
+                                        Constants.ActivityType.AudioTCChanged);
+
+            /*******************************************************************************************/
+
+
+            // if row count didn't changed, it's an update
+            if (model.AudioTC_VM.ChannelsList.Count == rowCnt)
+            {
+
+                model.ResponseSuccess = _atcSrv.SaveAudioTCDetails(model.AudioTC_VM);
+                model.ResponseText = "Audio TC data saved successfully.";
+
+                if (!model.ResponseSuccess) { model.ResponseText = "Audio TC saving failed !"; }
+
+
+            }
+            else if (model.AudioTC_VM.ChannelsList.Count < rowCnt)
+            {
+                while (model.AudioTC_VM.ChannelsList.Count != rowCnt)
+                {
+                    int chNo = model.AudioTC_VM.ChannelsList.Count + 1;
+
+                    model.AudioTC_VM.ChannelsList.Add(
+                        new AudioTCChannel()
+                        {
+                            ChannelNo = chNo
+                        }
+                    );
+
+                }
+            }
+            else if (model.AudioTC_VM.ChannelsList.Count > rowCnt)
+            {
+                while (model.AudioTC_VM.ChannelsList.Count != rowCnt)
+                {
+                    int chNo = model.AudioTC_VM.ChannelsList.Count - 1;
+                    model.AudioTC_VM.ChannelsList.RemoveAt(chNo);
+
+                }
+            }
+
+
+            return PartialView("_Audio", model);
+        }
+
+        [HttpPost]
+        public ActionResult SaveAudio(HomeVM model, string modelAsJSONString)
+        {
+
+            var audioChannelEnumerable = modelAsJSONString.Replace(@"""", "").Split(',').Where(c => c.Contains("AudioTC_VM.ChannelsList"));
+            var audioChannelArrayList = audioChannelEnumerable.ToArray();
+
+
+            if (model.AudioTC_VM?.ChannelsList == null)
+            {
+
+                int rowCnt = Convert.ToInt32(model.AudioTC_VM.ChannelCount.Replace("Channels", "").Trim());
+                var channelList = new List<AudioTCChannel>();
+                int i = 0;
+                var channelsFields = 10; 
+                var channelsFieldNo = 0;
+                var channelNo = 0;
+                var trackContent = string.Empty;
+                var description = string.Empty;
+                var LKFS = string.Empty;
+                var tone = string.Empty;
+                var language = string.Empty;
+                var average = string.Empty;
+                var peak = string.Empty;
+                var truePeak = string.Empty;
+
+                for (var index = 0; index < audioChannelArrayList.Length; index++)
+                {
+                    if (i == rowCnt)
+                    {
+                        break;
+                    }
+
+                    var audioChanneItem = audioChannelArrayList[index].Replace(@"""", "");
+                    var audioChannelArray = audioChanneItem.Split(':');  //AudioTC_VM.ChannelsList[0].Description: MO
+
+
+                    if (audioChanneItem.Contains("[" + i + "].ChannelNo"))
+                    {
+                        channelNo = Convert.ToInt32(audioChannelArray[1]);
+                        channelsFieldNo++;
+                    }
+                    else if (audioChanneItem.Contains("[" + i + "].Description"))
+                    {
+                        description = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+                    else if (audioChanneItem.Contains("[" + i + "].LKFS"))
+                    {
+                        LKFS = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+                    else if (audioChanneItem.Contains("[" + i + "].Tone"))
+                    {
+                        tone = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+                    else if (audioChanneItem.Contains("[" + i + "].Language"))
+                    {
+                        language = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+                                        
+                    else if (audioChanneItem.Contains("[" + i + "].Average"))
+                    {
+                        average = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+                    else if (audioChanneItem.Contains("[" + i + "].Peak"))
+                    {
+                        peak = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+                    else if (audioChanneItem.Contains("[" + i + "].TruePeak"))
+                    {
+                        truePeak = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+                    else if (audioChanneItem.Contains("[" + i + "].TrackContent"))
+                    {
+                        trackContent = audioChannelArray[1];
+                        channelsFieldNo++;
+                    }
+
+                    if (channelsFieldNo == channelsFields)
+                    {
+                        AudioTCChannel channel = new AudioTCChannel()
+                        {
+                            ChannelNo = channelNo,
+                            Description = description,
+                            LKFS = LKFS,
+                            Tone = tone,
+                            Language = language,
+                            Average = average,
+                            Peak = peak,
+                            TruePeak = truePeak,
+                            TrackContent = trackContent
+                        };
+
+                        channelList.Add(channel);
+                        channelsFieldNo = 0;
+                        i++;
+                    }
+
+
+                }
+
+                model.AudioTC_VM.ChannelsList = channelList;
+
+
+            }
+
+
+            bool result = _atcSrv.SaveAudioTCDetails(model.AudioTC_VM);
+
+            string resultMsg = "Audio TC data saved successfully.";
 
             if (!result)
             {
-                resultMsg = "Banijay Rights Audio failed to save !";
+                resultMsg = "Audio TC saving failed !";
             }
             else
             {
                 /****************Log User Activity******************************************************/
 
-                //WebSystemUtility.LogUserActivity(
-                //                          $"Banijay Rights Programme Details for QC # {model.}" +
-                //                          $" and Rev # {model.} was updated.",
-                //                          Constants.ActivityType.BanijayRightsAudioUpdated);
+                WebSystemUtility.LogUserActivity(
+                                            string.Format(
+                                                "Audio for QC with Id {0} and Rev No {1} was updated.",
+                                                 model.AudioTC_VM?.Qcnum,
+                                                model.AudioTC_VM?.subQcnum),
+                                                Constants.ActivityType.UpdatedAudioTC);
 
                 /*******************************************************************************************/
-
             }
 
-
             return Json(new { success = result, msg = resultMsg });
+
         }
 
         public ActionResult GetVideo(int qcnum, int revnum)

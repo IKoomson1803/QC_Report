@@ -114,6 +114,7 @@ namespace Deluxe.QCReport.Web.Models
         public List<string> BanijayRightsTrackContentList { get; set; }
         public List<string> BanijayRightsTypeOfHDRList { get; set; }
         public List<string> BanijayRightsVideoLinesList { get; set; }
+        public List<string> BanijayRightsBitRateList { get; set; }
 
         /*************************************************************************/
 
