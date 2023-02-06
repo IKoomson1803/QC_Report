@@ -630,6 +630,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 int i = 0;
                 var channelsFields = 11; // Used to be 9 + 2 (In Phase and Discrete)
                 var channelsFieldNo = 0;
+                
+                // Fields
                 var channelNo = 0;
                 var description = string.Empty;
                 var LKFS = string.Empty;
@@ -639,7 +641,6 @@ namespace Deluxe.QCReport.Web.Controllers
                 var peak = string.Empty;
                 var truePeak = string.Empty;
                 var fullSpotQC = string.Empty;
-
                 var inPhase = string.Empty;
                 var discreate = string.Empty;
 
@@ -719,10 +720,8 @@ namespace Deluxe.QCReport.Web.Controllers
                         {
                             ChannelNo = channelNo,
                             Description = description,
-
                             InPhase = inPhase,
                             Discreate = discreate,
-
                             LKFS = LKFS,
                             Tone = tone,
                             Language = language,

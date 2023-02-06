@@ -231,8 +231,10 @@ namespace Deluxe.QCReport.Web.Controllers
                 int rowCnt = Convert.ToInt32(model.AudioTC_VM.ChannelCount.Replace("Channels", "").Trim());
                 var channelList = new List<AudioTCChannel>();
                 int i = 0;
-                var channelsFields = 10; 
+                var channelsFields = 9; 
                 var channelsFieldNo = 0;
+
+                //Fields
                 var channelNo = 0;
                 var trackContent = string.Empty;
                 var description = string.Empty;
@@ -244,11 +246,11 @@ namespace Deluxe.QCReport.Web.Controllers
                 var truePeak = string.Empty;
 
                 for (var index = 0; index < audioChannelArrayList.Length; index++)
-                {
-                    if (i == rowCnt)
                     {
-                        break;
-                    }
+                        if (i == rowCnt)
+                        {
+                            break;
+                        }
 
                     var audioChanneItem = audioChannelArrayList[index].Replace(@"""", "");
                     var audioChannelArray = audioChanneItem.Split(':');  //AudioTC_VM.ChannelsList[0].Description: MO

@@ -246,20 +246,25 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Parameters.Add(GetSqlParameterInt("@_QCNum", audioTCDetails.Qcnum));
                     _cmd.Parameters.Add(GetSqlParameterInt("@_rev", audioTCDetails.subQcnum));
                     _cmd.Parameters.Add(GetSqlParameterString("@_chCount", audioTCDetails.ChannelCount));
-                    
-                    bool _fqc_cue = false;
-                    bool _sqc_cue = false;
-                    if (audioTCDetails.Cue.FullSpotQC == "Full") { _fqc_cue = true; }
-                    if (audioTCDetails.Cue.FullSpotQC == "Spot") { _sqc_cue = true; }
+                                      
 
-                    _cmd.Parameters.Add(GetSqlParameterString("@_cue_Desc", audioTCDetails.Cue.Description));
-                    _cmd.Parameters.Add(GetSqlParameterString("@_cue_LKFS", audioTCDetails.Cue.LKFS));
-                    _cmd.Parameters.Add(GetSqlParameterString("@_cue_Tone", audioTCDetails.Cue.Tone));
-                    _cmd.Parameters.Add(GetSqlParameterString("@_cue_Avg", audioTCDetails.Cue.Average));
-                    _cmd.Parameters.Add(GetSqlParameterString("@_cue_Peak", audioTCDetails.Cue.Peak));
-                    _cmd.Parameters.Add(GetSqlParameterString("@_cue_TruePeak", audioTCDetails.Cue.TruePeak));
-                    _cmd.Parameters.Add(GetSqlParameterBool("@_fullQC_cue", _fqc_cue));
-                    _cmd.Parameters.Add(GetSqlParameterBool("@_spotQC_cue", _sqc_cue));
+                    if(audioTCDetails.Cue != null)
+                    {
+                        bool _fqc_cue = false;
+                        bool _sqc_cue = false;
+                        if (audioTCDetails.Cue.FullSpotQC == "Full") { _fqc_cue = true; }
+                        if (audioTCDetails.Cue.FullSpotQC == "Spot") { _sqc_cue = true; }
+
+                        _cmd.Parameters.Add(GetSqlParameterString("@_cue_Desc", audioTCDetails.Cue.Description));
+                        _cmd.Parameters.Add(GetSqlParameterString("@_cue_LKFS", audioTCDetails.Cue.LKFS));
+                        _cmd.Parameters.Add(GetSqlParameterString("@_cue_Tone", audioTCDetails.Cue.Tone));
+                        _cmd.Parameters.Add(GetSqlParameterString("@_cue_Avg", audioTCDetails.Cue.Average));
+                        _cmd.Parameters.Add(GetSqlParameterString("@_cue_Peak", audioTCDetails.Cue.Peak));
+                        _cmd.Parameters.Add(GetSqlParameterString("@_cue_TruePeak", audioTCDetails.Cue.TruePeak));
+                        _cmd.Parameters.Add(GetSqlParameterBool("@_fullQC_cue", _fqc_cue));
+                        _cmd.Parameters.Add(GetSqlParameterBool("@_spotQC_cue", _sqc_cue));
+                    }
+                                       
 
                     _cmd.Parameters.Add(GetSqlParameterString("@_nr", audioTCDetails.NoiseReduction));
                     _cmd.Parameters.Add(GetSqlParameterString("@_ch12Phase", audioTCDetails.CH1and2Phase));

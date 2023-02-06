@@ -314,9 +314,9 @@ INSERT [bward].[BanijayRightsTimecode] ([Type]) VALUES (N'LTC ONLY')
 GO
 INSERT [bward].[BanijayRightsTimecode] ([Type]) VALUES (N'Embedded In File')
 GO
-INSERT [bward].[BanijayRightsTimecode] ([Type]) VALUES (N'Unusable ')
+INSERT [bward].[BanijayRightsTimecode] ([Type]) VALUES (N'Unusable')
 GO
-INSERT [bward].[BanijayRightsTone] ([Type]) VALUES (N'-18dBFS ')
+INSERT [bward].[BanijayRightsTone] ([Type]) VALUES (N'-18dBFS')
 GO
 INSERT [bward].[BanijayRightsTone] ([Type]) VALUES (N'-20dBFS')
 GO
