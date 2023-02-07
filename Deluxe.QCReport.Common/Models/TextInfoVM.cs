@@ -13,6 +13,10 @@ namespace Deluxe.QCReport.Common.Models
         public TimeCodeVM CurrentTimecodes { get; set; }
         public List<TimeCodeVM> Timecodes { get; set; }
 
+        public TextInfoVM()
+        {
+            Timecodes = new List<TimeCodeVM>();
+        }
     }
 
     public class TimeCodeVM

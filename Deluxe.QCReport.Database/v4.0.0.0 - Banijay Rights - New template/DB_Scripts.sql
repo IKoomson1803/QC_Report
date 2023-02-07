@@ -2010,3 +2010,52 @@ END
 
 GO
 
+/****** Object:  Table [bward].[BanijahRightsProgrammeLayout]    Script Date: 07/02/2023 13:08:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [bward].[BanijahRightsTapeLayout](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[QCNum] [int] NOT NULL,
+	[SubQCNum] [int] NOT NULL,
+	[Type] [varchar](50) NULL,
+	[TimecodeIn] [varchar](11) NULL,
+	[TimecodeOut] [varchar](11) NULL,
+	[PartDurationExcludingHolds] [varchar](11) NULL,
+	[CountAsShow] [varchar](3) NULL,
+ CONSTRAINT [PK_BanijahRightsTapeLayout] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [bward].[BanijahRightsProgrammeLayout]    Script Date: 07/02/2023 13:18:31 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [bward].[BanijahRightsProgrammeLayout](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[QCNum] [int] NOT NULL,
+	[SubQCNum] [int] NOT NULL,
+	[ProgrammeIn] [varchar](11) NULL,
+	[ProgrammeOut] [varchar](11) NULL,
+	[TotalLengthIncludingBreaks] [varchar](11) NULL,
+	[ProgrammeDuration] [varchar](11) NULL,
+	[NumberOfParts] [int] NULL,
+ CONSTRAINT [PK_BanijahRightsProgrammeLayout] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+

@@ -21,7 +21,8 @@ namespace Deluxe.QCReport.Web.Controllers
     public class BanijayRightsController : BaseController
     {
         private readonly ILoggerService _loggerService = null;
-        private readonly IBNJRProgrammeDetailsService _progDetailsService = null;
+        private readonly IBanijahRightsProgrammeDetailsService _progDetailsService = null;
+        private readonly IBanijahRightsProgrammeLayoutService _progLayoutService = null;
         private readonly ILookupsService _lookupsService = null;
         AudioTCService _atcSrv = new AudioTCService();
         OverallSpecsService _oasSrv = new OverallSpecsService();
@@ -33,8 +34,8 @@ namespace Deluxe.QCReport.Web.Controllers
             var loggerRepository = new LoggerRepository(conn);
             _loggerService = new LoggerService(loggerRepository);
 
-            _progDetailsService = new BNJRProgrammeDetailsService(
-                                  new BNJRProgrammeDetailsRepository(
+            _progDetailsService = new BanijahRightsProgrammeDetailsService(
+                                  new BanijahRightsProgrammeDetailsRepository(
                                       conn,
                                       _loggerService));
 
@@ -59,7 +60,7 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            model.BNJRProgrammeDetails = _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BNJRProgrammeDetails;
+            model.BanijahRightsProgrammeDetails = _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BanijahRightsProgrammeDetails;
             model.YesNoNAList = LookUpsService.GetYesNoNA();
             model.BanijayRightsAspectRatioList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsAspectRatio).ToList();
             model.BanijayRightsCaptionSafeList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsCaptionSafe).ToList();
@@ -86,7 +87,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveProgrammeDetails(HomeVM model)
         {
 
-            bool result = _progDetailsService.SaveProgrammeDetails(model.BNJRProgrammeDetails);
+            bool result = _progDetailsService.SaveProgrammeDetails(model.BanijahRightsProgrammeDetails);
             string resultMsg = "Banijay Rights Programme Details saved successfully.";
 
             if (!result)
@@ -97,10 +98,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 /****************Log User Activity******************************************************/
 
-                //WebSystemUtility.LogUserActivity(
-                //                          $"Banijay Rights Programme Details for QC # {model.}" +
-                //                          $" and Rev # {model.} was updated.",
-                //                          Constants.ActivityType.BanijayRightsProgrammeDetailsUpdated);
+                WebSystemUtility.LogUserActivity(
+                                          $"Banijay Rights Programme Details for QC # {model.BanijahRightsProgrammeDetails.QCNum}" +
+                                          $" and Rev # {model.BanijahRightsProgrammeDetails.SubQCNum} was updated.",
+                                          Constants.ActivityType.BanijayRightsProgrammeDetailsUpdated);
 
                 /*******************************************************************************************/
 
@@ -415,7 +416,7 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-
+            model.BanijahRightsProgrammeLayout = _progLayoutService.GetProgrammeLayout(qcnum, revnum) as BanijahRightsProgrammeLayout;
 
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(

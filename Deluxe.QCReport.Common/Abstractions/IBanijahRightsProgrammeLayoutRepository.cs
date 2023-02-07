@@ -1,0 +1,13 @@
+﻿using System;
+
+
+namespace Deluxe.QCReport.Common.Abstractions
+{
+    public interface IBanijahRightsProgrammeLayoutRepository
+    {
+        IBanijahRightsProgrammeLayout GetProgrammeLayout(int qcNum, int subQCNum);
+
+        bool SaveProgrammeLayout(IBanijahRightsProgrammeLayout programmeLayout);
+
+    }
+}

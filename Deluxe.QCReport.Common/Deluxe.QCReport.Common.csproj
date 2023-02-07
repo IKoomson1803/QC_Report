@@ -68,12 +68,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutRepository.cs" />
+    <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutService.cs" />
+    <Compile Include="Abstractions\IBanijahRightsTapeLayout.cs" />
+    <Compile Include="Abstractions\IBanijahRightsProgrammeLayout.cs" />
     <Compile Include="Abstractions\IAspectRatio.cs" />
     <Compile Include="Abstractions\IAspectRatioRepository.cs" />
     <Compile Include="Abstractions\IAspectRatioService.cs" />
-    <Compile Include="Abstractions\IBNJRProgrammeDetails.cs" />
-    <Compile Include="Abstractions\IBNJRProgrammeDetailsRepository.cs" />
-    <Compile Include="Abstractions\IBNJRProgrammeDetailsService.cs" />
+    <Compile Include="Abstractions\IBanijahRightsProgrammeDetails.cs" />
+    <Compile Include="Abstractions\IBanijahRightsProgrammeDetailsRepository.cs" />
+    <Compile Include="Abstractions\IBanijahRightsProgrammeDetailsService.cs" />
     <Compile Include="Abstractions\IChecklistDPP.cs" />
     <Compile Include="Abstractions\IClient.cs" />
     <Compile Include="Abstractions\IClientRepository.cs" />
@@ -123,7 +127,9 @@
     <Compile Include="Models\AudioChecklist.cs" />
     <Compile Include="Models\AudioTC.cs" />
     <Compile Include="Models\AudioTCVM.cs" />
-    <Compile Include="Models\BNJRProgrammeDetails.cs" />
+    <Compile Include="Models\BanijahRightsProgrammeLayout.cs" />
+    <Compile Include="Models\BanijahRightsProgrammeDetails.cs" />
+    <Compile Include="Models\BanijahRightsTapeLayout.cs" />
     <Compile Include="Models\ChecklistBanijayRights.cs" />
     <Compile Include="Models\ChecklistBase.cs" />
     <Compile Include="Models\ChecklistDisney.cs" />
@@ -160,7 +166,8 @@
     <Compile Include="Models\ProgrammeLayout.cs" />
     <Compile Include="Models\QCReport.cs" />
     <Compile Include="Repositories\AspectRatioRepository.cs" />
-    <Compile Include="Repositories\BNJRProgrammeDetailsRepository.cs" />
+    <Compile Include="Repositories\BanijahRightsProgrammeLayoutRepository.cs" />
+    <Compile Include="Repositories\BanijahRightsProgrammeDetailsRepository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\DPPRepository.cs" />
     <Compile Include="Repositories\FaultDescriptionImageRepository.cs" />
@@ -189,7 +196,8 @@
     <Compile Include="Repositories\FinalRepository.cs" />
     <Compile Include="Repositories\LoggerRepository.cs" />
     <Compile Include="Services\AspectRatioService.cs" />
-    <Compile Include="Services\BNJRProgrammeDetailsService.cs" />
+    <Compile Include="Services\BanijahRightsProgrammeDetailsService.cs" />
+    <Compile Include="Services\BanijahRightsProgrammeLayoutService.cs" />
     <Compile Include="Services\ChecklistService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\DPPService.cs" />

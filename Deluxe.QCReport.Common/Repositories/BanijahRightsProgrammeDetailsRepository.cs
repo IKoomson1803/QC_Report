@@ -10,13 +10,13 @@ using Dapper;
 
 namespace Deluxe.QCReport.Common.Repositories
 {
-    public class BNJRProgrammeDetailsRepository :  BaseRepository, IBNJRProgrammeDetailsRepository
+    public class BanijahRightsProgrammeDetailsRepository :  BaseRepository, IBanijahRightsProgrammeDetailsRepository
     {
 
         private readonly ConnectionStringSettings _conn;
         private readonly ILoggerService _logger;
 
-        public BNJRProgrammeDetailsRepository(ConnectionStringSettings connString, ILoggerService logger)
+        public BanijahRightsProgrammeDetailsRepository(ConnectionStringSettings connString, ILoggerService logger)
         {
             this._conn = connString ?? throw new ArgumentNullException(
                        $"BNJRPRepository expects ctor injection: {nameof(ConnectionStringSettings)}");
@@ -28,16 +28,16 @@ namespace Deluxe.QCReport.Common.Repositories
         }
 
 
-        public IBNJRProgrammeDetails GetProgrammeDetails(int qcNum, int subQCNum)
+        public IBanijahRightsProgrammeDetails GetProgrammeDetails(int qcNum, int subQCNum)
         {
 
-            IBNJRProgrammeDetails programmeDetails   = null;
+            IBanijahRightsProgrammeDetails programmeDetails   = null;
 
             try
             {
                 using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
                 {
-                    programmeDetails = new BNJRProgrammeDetails();
+                    programmeDetails = new BanijahRightsProgrammeDetails();
 
                      var parameters = new
                     {
@@ -45,7 +45,7 @@ namespace Deluxe.QCReport.Common.Repositories
                         SubQCNum = subQCNum
                     };
 
-                    programmeDetails = connection.Query<BNJRProgrammeDetails>(
+                    programmeDetails = connection.Query<BanijahRightsProgrammeDetails>(
                                      StoredProcedure.BanijayRights.sel_GetBanijayRightsProgrammeDetails.ToString(),
                                      parameters,
                                      null,
@@ -64,7 +64,7 @@ namespace Deluxe.QCReport.Common.Repositories
             return programmeDetails;
         }
 
-        public bool SaveProgrammeDetails(IBNJRProgrammeDetails programmeDetails)
+        public bool SaveProgrammeDetails(IBanijahRightsProgrammeDetails programmeDetails)
         {
             bool saved = false;
 

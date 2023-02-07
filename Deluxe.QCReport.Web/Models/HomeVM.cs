@@ -100,7 +100,8 @@ namespace Deluxe.QCReport.Web.Models
         public DPPLog DPPLog { get; set; }
 
         /**************** Add Banijah Rights **********************************************/
-        public BNJRProgrammeDetails BNJRProgrammeDetails { get; set; }
+        public BanijahRightsProgrammeDetails BanijahRightsProgrammeDetails { get; set; }
+        public BanijahRightsProgrammeLayout BanijahRightsProgrammeLayout  { get; set; }
         public List<string> BanijayRightsAspectRatioList { get; set; }
         public List<string> BanijayRightsCaptionSafeList { get; set; }
         public List<string> BanijayRightsCodecList { get; set; }

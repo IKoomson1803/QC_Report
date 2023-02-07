@@ -9,7 +9,7 @@ namespace Deluxe.QCReport.Common.Abstractions
     /// <summary>
     /// Banijay Rights Programme Details interface
     /// </summary>
-    public interface IBNJRProgrammeDetails
+    public interface IBanijahRightsProgrammeDetails
     {
         string ProgrammeTitle { get; set; }
         string Filename { get; set; }

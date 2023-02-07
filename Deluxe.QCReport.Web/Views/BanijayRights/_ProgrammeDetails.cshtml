@@ -5,7 +5,8 @@
     <div class="row">
 
         <div class="col-xs-3" style="font-size:14px;font-weight:bold">
-            @string.Format("{0} - {1}: Banijay Rights - Programme Details ", Model.BNJRProgrammeDetails.QCNum, Model.BNJRProgrammeDetails.SubQCNum)
+            @string.Format("{0} - {1}: Banijay Rights - Programme Details ", 
+           Model.BanijahRightsProgrammeDetails.QCNum, Model.BanijahRightsProgrammeDetails.SubQCNum)
         </div>
 
         @if (Model.SecurityLevel >= 1)
@@ -21,10 +22,11 @@
     </div>
 
 
-    @using (Html.BeginForm("SaveProgrammeDetails", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    @using (Html.BeginForm("SaveProgrammeDetails", "BanijayRights", FormMethod.Post, 
+        new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
-        @Html.HiddenFor(m => m.BNJRProgrammeDetails.QCNum);
-        @Html.HiddenFor(m => m.BNJRProgrammeDetails.SubQCNum);
+        @Html.HiddenFor(m => m.BanijahRightsProgrammeDetails.QCNum);
+        @Html.HiddenFor(m => m.BanijahRightsProgrammeDetails.SubQCNum);
 
         <div class="row">
             <div class="col-sm-2 text-right">
@@ -32,10 +34,10 @@
             </div>
 
             <div class="col-sm-8 form-group">
-                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.ProgrammeTitle, 2, 2, 
+                @Html.TextAreaFor(m => m.BanijahRightsProgrammeDetails.ProgrammeTitle, 2, 2, 
                new { @class = "form-control", 
                    maxlength = "255", 
-                   @title = Model.BNJRProgrammeDetails.ProgrammeTitle })
+                   @title = Model.BanijahRightsProgrammeDetails.ProgrammeTitle })
             </div>
         </div>
 
@@ -44,10 +46,10 @@
                 <label class="control-label">File Name:</label>
             </div>
             <div class="col-sm-8 form-group">
-                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.Filename, 2, 2,
+                @Html.TextAreaFor(m => m.BanijahRightsProgrammeDetails.Filename, 2, 2,
                new { @class = "form-control",
                    maxlength = "255", 
-                   @title = Model.BNJRProgrammeDetails.Filename })
+                   @title = Model.BanijahRightsProgrammeDetails.Filename })
             </div>
         </div>
 
@@ -56,10 +58,10 @@
                 <label class="control-label">Episode Title:</label>
             </div>
             <div class="col-sm-8 form-group">
-                @Html.TextAreaFor(m => m.BNJRProgrammeDetails.EpisodeTitle, 2, 2,
+                @Html.TextAreaFor(m => m.BanijahRightsProgrammeDetails.EpisodeTitle, 2, 2,
                new { @class = "form-control",
                    maxlength = "255", 
-                   @title = Model.BNJRProgrammeDetails.EpisodeTitle })
+                   @title = Model.BanijahRightsProgrammeDetails.EpisodeTitle })
             </div>
         </div>
 
@@ -68,7 +70,7 @@
                 <label class="control-label">Episode Number:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.EpisodeNumber, 
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeDetails.EpisodeNumber, 
                new { @class = "form-control", 
                    @style = "width:250px", 
                    maxlength = "150" })
@@ -78,7 +80,7 @@
                 <label class="control-label">Version:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.BNJRProgrammeDetails.Version, 
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeDetails.Version, 
                new { @class = "form-control", 
                    @style = "width:250px", 
                    maxlength = "60" })
@@ -91,7 +93,7 @@
                 <label class="control-label">File Wrapper:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.FileWrapper,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.FileWrapper,
              new SelectList(Model.BanijayRightsFileWrapperList), "",
               new { @class = "form-control", @style = "width:80px" })
 
@@ -101,7 +103,7 @@
                 <label class="control-label"> Video Lines:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.VideoLines,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.VideoLines,
                  new SelectList(Model.BanijayRightsVideoLinesList), "",
                   new { @class = "form-control", @style = "width:250px" })
             </div>
@@ -113,7 +115,7 @@
                 <label class="control-label">Codec:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.VideoCodec,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.VideoCodec,
                  new SelectList(Model.BanijayRightsCodecList), "",
                   new { @class = "form-control", @style = "width:150px" })
             </div>
@@ -122,7 +124,7 @@
                 <label class="control-label"> Type of HDR:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.TypeOfHDR,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.TypeOfHDR,
                 new SelectList(Model.BanijayRightsTypeOfHDRList), "",
                  new { @class = "form-control", @style = "width:250px" })
             </div>
@@ -134,7 +136,7 @@
                 <label class="control-label">SDR / HDR:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.SDROrHDR,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.SDROrHDR,
                new SelectList(Model.BanijayRightsSDROrHDRList), "",
                 new { @class = "form-control", @style = "width:80px" })
             </div>
@@ -143,7 +145,7 @@
                 <label class="control-label"> Timecode:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.Timecode,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.Timecode,
              new SelectList(Model.BanijayRightsTimecodeList), "",
               new { @class = "form-control", @style = "width:250px" })
             </div>
@@ -155,7 +157,7 @@
                 <label class="control-label">Frame Rate:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.FrameRate,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.FrameRate,
                 new SelectList(Model.BanijayRightsFrameRateList), "",
                  new { @class = "form-control", @style = "width:130px" })
             </div>
@@ -164,7 +166,7 @@
                 <label class="control-label"> Caption Safe:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.CaptionSafe,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.CaptionSafe,
            new SelectList(Model.BanijayRightsCaptionSafeList), "",
             new { @class = "form-control", @style = "width:250px" })
             </div>
@@ -176,7 +178,7 @@
                 <label class="control-label">Aspect Ratio:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.AspectRatio,
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.AspectRatio,
                new SelectList(Model.BanijayRightsAspectRatioList), "",
                 new { @class = "form-control", @style = "width:130px" })
             </div>
@@ -185,8 +187,8 @@
                 <label class="control-label"> Embedded CC Track?</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.BNJRProgrammeDetails.EmbeddedCCTrack,
-                new SelectList(Model.YesNoNAList, "value", "value", Model.BNJRProgrammeDetails.EmbeddedCCTrack),
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.EmbeddedCCTrack,
+                new SelectList(Model.YesNoNAList, "value", "value", Model.BanijahRightsProgrammeDetails.EmbeddedCCTrack),
                 "",
                 new { @class = "form-control", @style = "width:50px" })
             </div>

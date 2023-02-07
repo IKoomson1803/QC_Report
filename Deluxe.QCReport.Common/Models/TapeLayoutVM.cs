@@ -12,6 +12,12 @@ namespace Deluxe.QCReport.Common.Models
         public int subQcnum { get; set; }
         public List<TLTimeCodeVM> Timecodes { get; set; }
         public TLTimeCodeVM CurrentTimecodes { get; set; }
+
+        public TapeLayoutVM()
+        {
+            Timecodes = new List<TLTimeCodeVM>();
+        }
+
     }
 
     public class TLTimeCodeVM

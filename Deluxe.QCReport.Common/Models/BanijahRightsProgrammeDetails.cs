@@ -2,7 +2,7 @@
 
 namespace Deluxe.QCReport.Common.Models
 {
-    public class BNJRProgrammeDetails : QCBase, IBNJRProgrammeDetails
+    public class BanijahRightsProgrammeDetails : QCBase, IBanijahRightsProgrammeDetails
     {
         /// <summary>
         ///  Banijay Rights Programme Details model
