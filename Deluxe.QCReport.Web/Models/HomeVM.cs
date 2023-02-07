@@ -79,6 +79,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> ScrtList { get; set; }
         public Dictionary<int, string> TimecodeList { get; set; }
         public Dictionary<string, string> PassOrFailList { get; set; }
+        public Dictionary<string, string> PassedOrFailedList { get; set; }
 
         public ChecklistDisney ChecklistDisney { get; set; }
         public ChecklistLionsGate ChecklistLionsGate { get; set; }

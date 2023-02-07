@@ -1,20 +1,194 @@
 ﻿@model Deluxe.QCReport.Web.Models.HomeVM
 
+
+
 <div class="bs-callout bs-callout-warning">
-    @using (Html.BeginForm("SaveVideo", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
-    {
-        <div class="row" style="margin-top: -25px;">
-            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
-                Video  @*@string.Format("{0} - {1}: DPP Checklist", Model.ChecklistDPP.QCNum, Model.ChecklistDPP.SubQCNum)*@
-            </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Banijay Rights Video", Model.OverallSpecs_VM.Qcnum, Model.OverallSpecs_VM.subQcnum)</b>
         </div>
 
 
+        @if (Model.SecurityLevel >= 1)
+        {
 
+            <div class="col-xs-6 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+
+    @using (Html.BeginForm("SaveVideo", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => m.OverallSpecs_VM.Qcnum);
+        @Html.HiddenFor(m => m.OverallSpecs_VM.subQcnum);
+
+        <div class="row" style="margin-top: -20px;">
+            <div class="col-sm-4">
+                <div class="bs-callout bs-callout-default">
+                    <b style="font-size:14px;">Bars / Line-up</b>
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-3 text-right">
+
+                            <label class="control-label">Video Gain:</label>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.VideoGain, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+
+                            <label class="control-label">Chroma Gain:</label>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+
+
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaGain, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 text-right">
+
+                            <label class="control-label">Set up:</label>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.SetUp, new { @class = "form-control", maxlength = "40" })
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="bs-callout bs-callout-default">
+                    <b style="font-size:14px;">Programme Overall Technical Spec</b>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Lum. Peak:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminancePeak, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Chroma Peak:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaPeak, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Lum. Avg:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminanceAvg, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Chroma Avg:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaAvg, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Black Level:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.BlackLevel, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">PSE Result:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.OverallSpecs_VM.PSEResult,
+                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.PSEResult), "",
+                           new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
 
     }
 
 
 
 </div>
+
+
+
+<script>
+
+ function setActiveButton() {
+    $(".subMenuOnClick").removeClass("subMenuOnClick")
+     $('#lnkBNJRVideo').addClass("subMenuOnClick");
+}
+
+      $(function () {
+
+        $(function () {
+
+            setActiveButton();
+         
+        $('#btnSave').on("click", function () {
+
+            var myModel = $('#form_jobdetails').serializeObject();
+
+            $.post('/BanijayRights/SaveVideo', { model: myModel }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+            });
+        });
+
+       });
+
+  });
+
+</script>
 

@@ -24,6 +24,7 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly IBNJRProgrammeDetailsService _progDetailsService = null;
         private readonly ILookupsService _lookupsService = null;
         AudioTCService _atcSrv = new AudioTCService();
+        OverallSpecsService _oasSrv = new OverallSpecsService();
 
         public BanijayRightsController()
         {
@@ -360,9 +361,13 @@ namespace Deluxe.QCReport.Web.Controllers
 
         public ActionResult GetVideo(int qcnum, int revnum)
         {
-            HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
+
+            HomeVM model = new HomeVM();
+            model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+
+            model.PassedOrFailedList = LookUpsService.GetPassedOrFailed();
 
 
             /****************Log User Activity******************************************************/
@@ -379,7 +384,8 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveVideo(HomeVM model)
         {
 
-            bool result = false;
+            bool result = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
+
             string resultMsg = "Banijay Rights Video saved successfully.";
 
             if (!result)
@@ -390,10 +396,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 /****************Log User Activity******************************************************/
 
-                //WebSystemUtility.LogUserActivity(
-                //                          $"Banijay Rights Programme Details for QC # {model.}" +
-                //                          $" and Rev # {model.} was updated.",
-                //                          Constants.ActivityType.BanijayRightsVideoUpdated);
+                WebSystemUtility.LogUserActivity(
+                                          $"Banijay Rights Programme Details for QC # {model.OverallSpecs_VM.Qcnum}" +
+                                          $" and Rev # {model.OverallSpecs_VM.subQcnum} was updated.",
+                                          Constants.ActivityType.BanijayRightsVideoUpdated);
 
                 /*******************************************************************************************/
 

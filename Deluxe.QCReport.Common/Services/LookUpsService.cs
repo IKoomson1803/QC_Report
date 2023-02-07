@@ -196,6 +196,16 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<string, string> GetPassedOrFailed()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("P", "Passed");
+            result.Add("F", "Failed");
+            return result;
+        }
+
+
         public static Dictionary<int, string> GetNoiseReduction()
         {
             Dictionary<int, string> result = new Dictionary<int, string>();

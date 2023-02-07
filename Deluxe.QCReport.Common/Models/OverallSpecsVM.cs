@@ -44,5 +44,6 @@ namespace Deluxe.QCReport.Common.Models
 
         public string HBlanking { get; set; }
         public string VBlanking { get; set; }
+        public string PSEResult { get; set; }
     }
 }

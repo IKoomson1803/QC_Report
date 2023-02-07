@@ -76,6 +76,8 @@ namespace Deluxe.QCReport.Common.Repositories
                             result.HBlanking = DR["HBlanking"].ToString().Trim();
                             result.VBlanking = DR["VBlanking"].ToString().Trim();
 
+                            result.PSEResult = DR["PSEResult"].ToString().Trim();
+
                             var individualSpecsRepository = new IndividualSpecsRepository();
                             var individualSpecsVM = individualSpecsRepository.GetIndividualSpecsDetails(QCNum, SubQCNum);
 
@@ -149,6 +151,8 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     _cmd.Parameters.Add(GetSqlParameterString("@_hblanking", oasDetails.HBlanking));
                     _cmd.Parameters.Add(GetSqlParameterString("@_vblanking", oasDetails.VBlanking));
+
+                    _cmd.Parameters.Add(GetSqlParameterString("@_pseresult", oasDetails.PSEResult));
 
                     _cmd.Connection.Open();
 

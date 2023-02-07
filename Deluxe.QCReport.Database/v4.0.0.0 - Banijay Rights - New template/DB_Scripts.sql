@@ -36,6 +36,7 @@ ALTER TABLE [bward].qcAudioTC ADD TrackContent22 VARCHAR(50) NULL
 ALTER TABLE [bward].qcAudioTC ADD TrackContent23 VARCHAR(50) NULL
 ALTER TABLE [bward].qcAudioTC ADD TrackContent24 VARCHAR(50) NULL
 ALTER TABLE [bward].[qcHeader] ADD BitRate VARCHAR(20) NULL
+ALTER TABLE [bward].[qcHeader] ADD PSEResult VARCHAR(10) NULL
 
 GO
 
@@ -531,7 +532,7 @@ BEGIN
         [ContactPhoneNumber], [PostCompany], [ProductPlacementLogoPresentAndInSafeArea],
 		[SponsorshipHeadAndTailPresent],[TAndCsWithinSafeArea],
 		  [FileWrapper],[SDROrHDR], [FrameRate], [VideoLines], 
-        [TypeOfHDR], [CaptionSafe], [EmbeddedCCTrack],BitRate
+        [TypeOfHDR], [CaptionSafe], [EmbeddedCCTrack],BitRate,PSEResult
 		 
 		 )  
 	SELECT @newQCNumber, @newSubQCNumber,@qcWONumber, CustID, Show, Epis_no,  
@@ -567,7 +568,7 @@ BEGIN
         [ContactPhoneNumber], [PostCompany], [ProductPlacementLogoPresentAndInSafeArea],
 		[SponsorshipHeadAndTailPresent],[TAndCsWithinSafeArea],
 		 [FileWrapper],[SDROrHDR], [FrameRate], [VideoLines], 
-        [TypeOfHDR], [CaptionSafe], [EmbeddedCCTrack],BitRate
+        [TypeOfHDR], [CaptionSafe], [EmbeddedCCTrack],BitRate,PSEResult
 	FROM bward.qcHeader  
 	WHERE QCNum = @qcNumber AND subQCNum = @subQCNumber
 	
@@ -1886,3 +1887,126 @@ Error:
 END
 
 GO
+
+/****** Object:  StoredProcedure [bward].[sp_SelectOverallSpecs]    Script Date: 07/02/2023 10:57:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [bward].[sp_SelectOverallSpecs]
+	@_QCNum int,
+	@_Rev int
+AS
+BEGIN
+	
+	SELECT	
+			Lum_Peak, Chroma_Peak, Bar_Vid, Lum_Avg,
+			Chroma_Avg, Bar_Chr, Black, IRE_MV, Bar_Set,
+			Video_Codec,Video_Bit_Rate,Video_Bit_Depth,Bit_Rate_Mode,
+			Audio_Codec,Audio_Bit_Rate,Audio_Bit_Depth,Sample_Rate,
+			GOP_Structure,Gamut,Colour_Encoding,File_Size,
+			Active_Picture,AssetType,Frame_Size,
+			Timecode, HBlanking, VBlanking, PSEResult 
+	FROM 
+			[bward].qcHeader
+	WHERE 
+			Qcnum= @_QCNum AND subQcnum = @_Rev
+
+END
+
+GO
+
+/****** Object:  StoredProcedure [bward].[sp_UpdateOverallSpecs]    Script Date: 07/02/2023 10:57:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [bward].[sp_UpdateOverallSpecs]
+	@_QCNum int,
+	@_Rev int,
+	@_lumPeak VARCHAR(15) = NULL,
+	@_chPeak VARCHAR(15) = NULL,
+	@_barVid VARCHAR(15) = NULL,
+	@_lumAvg VARCHAR(15) = NULL,
+	@_chAvg VARCHAR(15) = NULL,
+	@_barChr VARCHAR(15) = NULL,
+	@_black VARCHAR(15) = NULL,
+	@_ireMv CHAR(1) = NULL,
+	@_barSet VARCHAR(15) = NULL,
+	@_vidCodec VARCHAR(100) = NULL,
+	@_vidRate VARCHAR(100) = NULL,
+	@_vidDepth VARCHAR(100) = NULL,
+	@_bitRateMode VARCHAR(100) = NULL,
+	@_auCodec VARCHAR(100) = NULL,
+	@_auRate VARCHAR(100) = NULL,
+	@_auDepth VARCHAR(100) = NULL,
+	@_sampleRate VARCHAR(100) = NULL,
+	@_gop VARCHAR(100) = NULL,
+	@_gamut VARCHAR(100) = NULL,
+	@_colEnc VARCHAR(100) = NULL,
+	@_fileSize VARCHAR(100) = NULL,
+	@_actPic VARCHAR(100) = NULL,
+	@_frSize VARCHAR(100) = NULL,
+
+    @_timecode VARCHAR(11) = NULL,
+	@_hblanking VARCHAR(50) = NULL,
+	@_vblanking VARCHAR(50) = NULL,
+	@_pseresult VARCHAR(10) = NULL
+	
+AS
+BEGIN
+	DECLARE @ErrorMsg VARCHAR(300)
+	
+	
+	UPDATE 
+		[bward].qcHeader
+	SET 
+		Lum_Peak = @_lumPeak,
+		Chroma_Peak = @_chPeak,
+		Bar_Vid = @_barVid,
+		Lum_Avg = @_lumAvg,
+		Chroma_Avg = @_chAvg,
+		Bar_Chr = @_barChr,
+		Black = @_black,
+		IRE_MV = @_ireMv,
+		Bar_Set = @_barSet,
+		Video_Codec = @_vidCodec,
+		Video_Bit_Rate = @_vidRate,
+		Video_Bit_Depth = @_vidDepth,
+		Bit_Rate_Mode = @_bitRateMode,
+		Audio_Codec = @_auCodec,
+		Audio_Bit_Rate = @_auRate,
+		Audio_Bit_Depth = @_auDepth,
+		Sample_Rate = @_sampleRate,
+		GOP_Structure = @_gop,
+		Gamut = @_gamut,
+		Colour_Encoding = @_colEnc,
+		File_Size = @_fileSize,
+		Active_Picture = @_actPic,
+		Frame_Size = @_frSize,
+		--Timecode = @_timecode,
+		HBlanking = @_hblanking,
+		VBlanking = @_vblanking,
+		PSEResult = @_pseresult
+		
+	WHERE 
+		Qcnum= @_QCNum AND subQcnum = @_Rev
+
+	
+IF @@ERROR <> 0
+	BEGIN
+		SET @errorMsg = 'Could not update qcHeader (sp_UpdateHeaderDetails)'
+		GOTO Error
+	END
+		
+Error:
+
+	IF (@errorMsg IS NOT NULL)
+	BEGIN
+		RAISERROR(@errorMsg, 16, 1)
+	END
+	
+END
+
+GO
+
