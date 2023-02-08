@@ -443,10 +443,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 /****************Log User Activity******************************************************/
 
-                //WebSystemUtility.LogUserActivity(
-                //                          $"Banijay Rights Programme Details for QC # {model.}" +
-                //                          $" and Rev # {model.} was updated.",
-                //                          Constants.ActivityType.BanijayRightsProgrammeLayoutUpdated);
+                WebSystemUtility.LogUserActivity(
+                                          $"Banijay Rights Programme Details for QC # {model.BanijahRightsProgrammeDetails.QCNum}" +
+                                          $" and Rev # {model.BanijahRightsProgrammeDetails.SubQCNum} was updated.",
+                                          Constants.ActivityType.BanijayRightsProgrammeLayoutUpdated);
 
                 /*******************************************************************************************/
 

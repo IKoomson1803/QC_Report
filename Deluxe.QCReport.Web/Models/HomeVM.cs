@@ -102,6 +102,7 @@ namespace Deluxe.QCReport.Web.Models
         /**************** Add Banijah Rights **********************************************/
         public BanijahRightsProgrammeDetails BanijahRightsProgrammeDetails { get; set; }
         public BanijahRightsProgrammeLayout BanijahRightsProgrammeLayout  { get; set; }
+        public BanijahRightsTapeLayout BanijahRightsTapeLayout { get; set; }
         public List<string> BanijayRightsAspectRatioList { get; set; }
         public List<string> BanijayRightsCaptionSafeList { get; set; }
         public List<string> BanijayRightsCodecList { get; set; }

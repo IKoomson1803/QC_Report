@@ -14,6 +14,8 @@ namespace Deluxe.QCReport.Common.Models
         public string TotalLengthIncludingBreaks { get; set; }
         public string ProgrammeDuration { get; set; }
         public int? NumberOfParts { get; set; }
+        public string SlateAccurate { get; set; }
+        public string NextWeekOrTrailerPresent { get; set; }
         public IList<BanijahRightsTapeLayout> TapeLayouts { get; set; }
 
         public BanijahRightsProgrammeLayout()

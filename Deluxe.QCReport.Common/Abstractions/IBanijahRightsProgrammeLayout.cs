@@ -14,6 +14,8 @@ namespace Deluxe.QCReport.Common.Abstractions
         string TotalLengthIncludingBreaks { get; set; }
         string ProgrammeDuration { get; set; }
         int? NumberOfParts { get; set; }
+        string SlateAccurate { get; set; }
+        string NextWeekOrTrailerPresent { get; set; }
         IList<BanijahRightsTapeLayout> TapeLayouts { get; set; }
     }
 }

@@ -103,6 +103,9 @@ namespace Deluxe.QCReport.Common.Repositories
             sel_GetBanijayRightsProgrammeDetails,
             up_UpdateBanijayRightsProgrammeDetails,
 
+            sel_GetBanijayRightsProgrammeLayout,
+            ins_up_InsertOrUpdateBanijayRightsProgrammeLayout,
+            ins_up_InsertOrUpdateBanijayRightsTapeLayout
 
         }
 
@@ -125,5 +128,7 @@ namespace Deluxe.QCReport.Common.Repositories
             BanijayRightsVideoLines,
             BanijayRightsBitRate
         }
+
+       
     }
 }
