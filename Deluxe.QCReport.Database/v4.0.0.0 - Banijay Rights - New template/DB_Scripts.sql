@@ -2750,4 +2750,186 @@ END
 
 GO
 
+/****** Object:  StoredProcedure [bward].[sel_GetBanijayRightsProgrammeLayout]    Script Date: 09/02/2023 10:28:30 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [bward].[sel_GetBanijayRightsProgrammeLayout] 
+	-- Add the parameters for the stored procedure here
+	@QCNum INT,
+	@SubQCNum INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+   -- Programme Layout 
+   SELECT * FROM [bward].[BanijahRightsProgrammeLayout]
+   WHERE [QCNum] =  @QCNum
+   AND [SubQCNum]  = @SubQCNum
+
+   --Tape Layout
+  SELECT * FROM [bward].[BanijahRightsTapeLayout]
+  WHERE [QCNum] =  @QCNum
+   AND [SubQCNum]  = @SubQCNum
+
+END
+
+GO
+
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateDPPLog]    Script Date: 09/02/2023 10:29:48 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateBanijayRightsProgrammeLayout]
+	-- Add the parameters for the stored procedure here
+    @Id INT = 0,
+	@QCNum INT,
+    @SubQCNum INT,
+    @ProgrammeIn VARCHAR(11) = NULL,
+	@ProgrammeOut VARCHAR(11) = NULL,
+    @TotalLengthIncludingBreaks VARCHAR(11) = NULL,
+    @ProgrammeDuration VARCHAR(11) = NULL,
+    @NumberOfParts INT = NULL,
+    @SlateAccurate VARCHAR(3) = NULL,
+    @NextWeekOrTrailerPresent VARCHAR(20) = NULL
+	
+AS
+BEGIN
+	
+	DECLARE @ErrorMsg VARCHAR(2000)
+					
+	BEGIN TRY
+		 
+	   IF (SELECT COUNT(*) FROM [bward].[BanijahRightsProgrammeLayout]
+	       WHERE [QCNum] =  @QCNum
+		   AND [SubQCNum]  = @SubQCNum) = 0
+	     BEGIN
+	        INSERT INTO [bward].[BanijahRightsProgrammeLayout](
+			QCNum,
+            SubQCNum,
+            [ProgrammeIn],
+            [ProgrammeOut],
+            [TotalLengthIncludingBreaks],
+            [ProgrammeDuration],
+            [NumberOfParts],
+            [SlateAccurate],
+            [NextWeekOrTrailerPresent]
+			)
+	        SELECT
+			@QCNum,
+            @subQCNum,
+            @ProgrammeIn ,
+			@ProgrammeOut,
+			@TotalLengthIncludingBreaks,
+			@ProgrammeDuration,
+			@NumberOfParts,
+			@SlateAccurate,
+			@NextWeekOrTrailerPresent
+
+	     END
+	   ELSE 
+	     BEGIN
+	     	       
+	        UPDATE [bward].[BanijahRightsProgrammeLayout]
+			SET 
+			ProgrammeIn = @ProgrammeIn ,
+			ProgrammeOut = 	@ProgrammeOut,
+			TotalLengthIncludingBreaks = @TotalLengthIncludingBreaks,
+			ProgrammeDuration = @ProgrammeDuration,
+			NumberOfParts =	@NumberOfParts,
+			SlateAccurate =	@SlateAccurate,
+			NextWeekOrTrailerPresent = @NextWeekOrTrailerPresent
+       		WHERE [QCNum] =  @QCNum
+            AND [SubQCNum]  = @SubQCNum
+	        
+	     END 
+	 
+    END TRY
+    BEGIN CATCH
+             SET @errorMsg = 'ins_up_InsertOrUpdateBanijayRightsProgrammeLayout failed: ' + ERROR_MESSAGE()
+        RAISERROR(@errorMsg, 16, 1)
+    END CATCH
+		
+END
+
+GO
+
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateBanijayRightsTapeLayout]    Script Date: 09/02/2023 10:29:48 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateBanijayRightsTapeLayout]
+	-- Add the parameters for the stored procedure here
+    @Id INT = 0,
+	@QCNum INT,
+    @SubQCNum INT,
+    @Type VARCHAR(50) = NULL,
+    @TimecodeIn VARCHAR(11) = NULL,
+	@TimecodeOut VARCHAR(11) = NULL,
+	@PartDurationExcludingHolds VARCHAR(11) = NULL,
+	@CountAsShow VARCHAR(3) = NULL
+	
+AS
+BEGIN
+	
+	DECLARE @ErrorMsg VARCHAR(2000)
+					
+	BEGIN TRY
+		 
+	   IF @Id = 0
+	     BEGIN
+	        INSERT INTO [bward].[BanijahRightsTapeLayout](
+			QCNum,
+            SubQCNum,
+            [Type],
+            TimecodeIn,
+	        TimecodeOut,
+	        PartDurationExcludingHolds,
+	        CountAsShow
+			)
+	        SELECT
+			@QCNum,
+            @subQCNum,
+            @Type,
+            @TimecodeIn,
+	        @TimecodeOut,
+	        @PartDurationExcludingHolds,
+	        @CountAsShow
+
+	     END
+	   ELSE 
+	     BEGIN
+	     	       
+	        UPDATE [bward].[BanijahRightsTapeLayout]
+			SET 
+			[Type] = @Type,
+            TimecodeIn = @TimecodeIn,
+	        TimecodeOut  =@TimecodeOut,
+	        PartDurationExcludingHolds = @PartDurationExcludingHolds,
+	        CountAsShow = @CountAsShow
+       		WHERE Id =  @Id
+     
+	     END 
+	 
+    END TRY
+    BEGIN CATCH
+             SET @errorMsg = 'ins_up_InsertOrUpdateBanijayRightsTapeLayout failed: ' + ERROR_MESSAGE()
+        RAISERROR(@errorMsg, 16, 1)
+    END CATCH
+		
+END
+
+GO

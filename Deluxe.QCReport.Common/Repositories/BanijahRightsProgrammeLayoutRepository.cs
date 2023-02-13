@@ -43,7 +43,15 @@ namespace Deluxe.QCReport.Common.Repositories
                       commandType: CommandType.StoredProcedure))
                 {
                     result = multi.Read<BanijahRightsProgrammeLayout>().FirstOrDefault();
-                    result.TapeLayouts = multi.Read<BanijahRightsTapeLayout>().ToList();
+                    
+                    if(result != null)
+                    {
+                        result.TapeLayouts = multi.Read<BanijahRightsTapeLayout>().ToList();
+                    }
+                    else
+                    {
+                        result = new BanijahRightsProgrammeLayout() { QCNum = qcNum, SubQCNum = subQCNum };
+                    }
                 }
 
             }

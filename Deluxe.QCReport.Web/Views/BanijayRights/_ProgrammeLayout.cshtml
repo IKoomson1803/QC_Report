@@ -1,20 +1,300 @@
 ﻿@model Deluxe.QCReport.Web.Models.HomeVM
 
+@{
+    var itemNo = 0;
+    var itemCount = Model.BanijahRightsProgrammeLayout.TapeLayouts.Count;
+}
+
 <div class="bs-callout bs-callout-warning">
     @using (Html.BeginForm("SaveProgrammeLayout", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
+
+
         <div class="row" style="margin-top: -25px;">
             <div class="col-xs-8" style="font-size:14px;font-weight:bold">
-                Programme Layout  @*@string.Format("{0} - {1}: DPP Checklist", Model.ChecklistDPP.QCNum, Model.ChecklistDPP.SubQCNum)*@
+                @string.Format("{0} - {1}: Banijay Rights - Programme Layout", Model.BanijahRightsProgrammeLayout.QCNum, Model.BanijahRightsProgrammeLayout.SubQCNum)
             </div>
         </div>
 
+        @Html.HiddenFor(m => m.BanijahRightsProgrammeLayout.QCNum);
+        @Html.HiddenFor(m => m.BanijahRightsProgrammeLayout.SubQCNum);
+        @Html.HiddenFor(m => m.BanijahRightsTapeLayout.Id)
+
+        <div class="row" style="margin-top: -25px;">
+            <div class="col-xs-8">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-1 form-group" style="margin-left:5px;">
+                <label class="control-label">Programme:</label>
+            </div>
+
+            <div class="col-xs-2 form-group " style="margin-left:5px;">
+                <label class="control-label">Programme In:</label>
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeLayout.ProgrammeIn,
+               new { @class = "form-control timecode programme", placeholder = "hh:mm:ss", maxlength = "11", @style = "width:80px" })
+
+            </div>
+
+            <div class="col-xs-2 form-group" style="margin-left:12px;">
+                <label class="control-label">Programme Out:</label>
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeLayout.ProgrammeOut,
+               new { @class = "form-control timecode programme", placeholder = "hh:mm:ss", maxlength = "11", @style = "width:80px" })
+            </div>
+
+            <div class="col-xs-2 form-group" style="margin-left:12px;">
+                <label class="control-label">Total Length Including Breaks:</label>
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeLayout.TotalLengthIncludingBreaks,
+               new { @class = "form-control timecode programme", placeholder = "hh:mm:ss", maxlength = "11", @style = "width:80px" })
+            </div>
 
 
+        </div>
+
+        <hr />
+
+        if (Model.SecurityLevel >= 1)
+        {
+            <div class="row">
+                <div class="col-xs-4">
+                    &nbsp;
+                </div>
+                <div class="col-xs-4">
+                    <div>
+                        <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                        <button type="button" class="btn btn-xs btn-danger CRUDButton" id="#btnReset" onclick="Reset()">Reset</button>
+                        <button type="button" class="btn btn-xs btn-warning CRUDButton" id="btnDeletePrompt" disabled>Delete</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        }
+
+        <div class="row">
+
+            <div class="col-xs-2 form-group" style="margin-left:5px;">
+                <label class="control-label">Tape Layout:</label>
+                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.Type,
+              new { @class = "form-control", @style = "width:200px" })
+            </div>
+
+            <div class="col-xs-2 form-group " style="margin-left:5px;">
+                <label class="control-label">Timecode In:</label>
+                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.TimecodeIn,
+               new { @class = "form-control timecode", placeholder = "hh:mm:ss", maxlength = "11", @style = "width:80px" })
+
+            </div>
+
+            <div class="col-xs-2 form-group" style="margin-left:12px;">
+                <label class="control-label">Timecode Out:</label>
+                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.TimecodeOut,
+               new { @class = "form-control timecode", placeholder = "hh:mm:ss", maxlength = "11", @style = "width:80px" })
+            </div>
+
+            <div class="col-xs-2 form-group" style="margin-left:12px;">
+                <label class="control-label">Part Duration ex holds:</label>
+                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.PartDurationExcludingHolds,
+               new { @class = "form-control timecode", placeholder = "hh:mm:ss", maxlength = "11", @style = "width:80px" })
+            </div>
+
+            <div class="col-xs-2 form-group" style="margin-left:12px;">
+                <label class="control-label">Count As Show:</label>
+                @Html.DropDownListFor(m => m.BanijahRightsTapeLayout.CountAsShow,
+                          new SelectList(Model.CountAsShowList, "value", "value", Model.BanijahRightsTapeLayout.CountAsShow), "",
+                          new { @class = "form-control", @style = "width:80px" })
+            </div>
+        </div>
+
+        <div id="divTapeLayoutGrid">
+            @{Html.RenderPartial("_TapeLayoutGrid", Model);}
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Programme Duration:</label>
+            </div>
+            <div class="col-sm-1 text-right form-group">
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeLayout.ProgrammeDuration,
+               new { @class = "form-control timecode programme", placeholder = "hh:mm:ss", maxlength = "11", @style = "width:80px" })
+            </div>
+            <div class="col-sm-1 text-right">
+                <label class="control-label">Number of parts:</label>
+            </div>
+            <div class="col-sm-1 text-right form-group">
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeLayout.NumberOfParts,
+               new { @class = "form-control programme", @style = "width:80px" })
+            </div>
+
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-1 text-right">
+                <label class="control-label">Slate Accurate?</label>
+            </div>
+            <div class="col-sm-1 text-right form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeLayout.SlateAccurate,
+                         new SelectList(Model.YesNoNAList, "value", "value", Model.BanijahRightsProgrammeLayout.SlateAccurate), "",
+                         new { @class = "form-control", @style = "width:80px" })
+            </div>
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Next week / trailer present:</label>
+            </div>
+            <div class="col-sm-1 text-right form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeLayout.NextWeekOrTrailerPresent,
+                          new SelectList(Model.NextWeekOrTrailerPresentList, "value", "value", Model.BanijahRightsProgrammeLayout.NextWeekOrTrailerPresent), "",
+                          new { @class = "form-control", @style = "width:100px" })
+            </div>
+
+        </div>
 
     }
 
 
 
 </div>
+
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $('#lnkBNJRProgrammeLayout').addClass("subMenuOnClick");
+    }
+
+    $(function () {
+        $(function () {
+            setActiveButton();
+
+            var securityLevel = @Model.SecurityLevel
+
+            $(".timecode").mask("99:99:99");
+
+            $(".programme").blur(function () {
+
+                if (securityLevel >= 1)
+                {
+                    saveProgramme();
+                }
+
+            });
+
+        });
+
+    });
+
+    function saveProgramme() {
+
+        var myModel = $('#form_jobdetails').serializeObject();
+
+        $.post('/BanijayRights/SaveProgrammeLayout', { model: myModel}).done(function (data) {
+
+            if (data.success == true) {
+
+                // Msg.success(data.msg, 2 * 1000);
+            }
+            else {
+                Msg.error(data.msg, 5 * 1000);
+            }
+        })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+
+            });
+    }
+
+    $('#btnSave').on("click", function () {
+
+        var myModel = $('#form_jobdetails').serializeObject();
+        var qcno = '@Model.BanijahRightsProgrammeLayout.QCNum';
+            var revno = '@Model.BanijahRightsProgrammeLayout.SubQCNum';
+
+        $.post('/BanijayRights/SaveTapeLayout(', { model: myModel }).done(function (data) {
+
+            if (data.success == true) {
+
+                Msg.success(data.msg, 2 * 1000);
+                LoadTapeLayouts(qcno, revno);
+            }
+            else {
+                Msg.error(data.msg, 5 * 1000);
+            }
+        })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+
+            });
+    });
+
+    function LoadTapeLayouts(qcNumber, revNumber) {
+
+        $.post('/BanijayRights/LoadTapeLayouts', { qcnum: qcNumber, revnum: revNumber }).done(function (data) {
+
+            $("#divTapeLayoutGrid").html(data);
+        })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+            });
+    }
+
+    function PopulateTapeLayout(qcno, revno, Id) {
+
+       // var scrollPosition = $('#divscroll').scrollTop();
+
+        $.post('/BanijayRights/PopulateTapeLayout', { qcnum: qcno, revnum: revno, id: id }).done(function (data) {
+
+            console.log(data)
+
+            //$('#TextInfo_VM_CurrentTimecodes_TextInfoId').val(tino);
+            //$('#TextInfo_VM_CurrentTimecodes_TimecodeIn').val(data.TimecodeIn);
+            //$('#TextInfo_VM_CurrentTimecodes_TimecodeOut').val(data.TimecodeOut);
+            //$('#TextInfo_VM_CurrentTimecodes_TextInfo').val(data.TextInfo);
+
+        })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+               // $('#divscroll').scrollTop(scrollPosition);
+
+            });
+    }
+
+     function Reset() {
+
+            $('table tr').removeClass("selectedRow");
+
+            @*$('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfoId)').val('');
+            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfo)').val('');
+            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TimecodeIn)').val('');
+            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TimecodeOut)').val('');*@
+
+            //$('#btnDeletePrompt').prop('disabled', true);
+            $('#btnSave').text('Add');
+    }
+
+
+
+</script>
 

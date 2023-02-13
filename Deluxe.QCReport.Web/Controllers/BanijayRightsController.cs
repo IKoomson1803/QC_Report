@@ -46,6 +46,11 @@ namespace Deluxe.QCReport.Web.Controllers
 
 
 
+            _progLayoutService = new BanijahRightsProgrammeLayoutService(
+                                  new BanijahRightsProgrammeLayoutRepository(
+                                      conn,
+                                      _loggerService));
+
         }
 
         // GET: BanijayRights
@@ -417,13 +422,18 @@ namespace Deluxe.QCReport.Web.Controllers
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.BanijahRightsProgrammeLayout = _progLayoutService.GetProgrammeLayout(qcnum, revnum) as BanijahRightsProgrammeLayout;
+            model.BanijahRightsTapeLayouts = model.BanijahRightsProgrammeLayout.TapeLayouts.ToList();
+            model.BanijahRightsTapeLayout = new BanijahRightsTapeLayout();
+            model.CountAsShowList = LookUpsService.GetCountAsShow();
+            model.YesNoNAList = LookUpsService.GetYesNoNA();
+            model.NextWeekOrTrailerPresentList = LookUpsService.GetNextWeekOrTrailerPresent();
+
 
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(
                                             $"Banijay Rights Programme Layout for QC # {qcnum} and Rev # {revnum} was viewed.",
                                             Constants.ActivityType.BanijayRightsProgrammeLayoutViewed);
             /*******************************************************************************************/
-
 
             return PartialView("_ProgrammeLayout", model);
         }
@@ -432,7 +442,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveProgrammeLayout(HomeVM model)
         {
 
-            bool result = false;
+            bool result = _progLayoutService.SaveProgrammeLayout(model.BanijahRightsProgrammeLayout);
             string resultMsg = "Banijay Rights Programme Layout saved successfully.";
 
             if (!result)
@@ -444,8 +454,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 /****************Log User Activity******************************************************/
 
                 WebSystemUtility.LogUserActivity(
-                                          $"Banijay Rights Programme Details for QC # {model.BanijahRightsProgrammeDetails.QCNum}" +
-                                          $" and Rev # {model.BanijahRightsProgrammeDetails.SubQCNum} was updated.",
+                                          $"Banijay Rights Programme Layout for QC # {model.BanijahRightsProgrammeLayout.QCNum}" +
+                                          $" and Rev # {model.BanijahRightsProgrammeLayout.SubQCNum} was updated.",
                                           Constants.ActivityType.BanijayRightsProgrammeLayoutUpdated);
 
                 /*******************************************************************************************/
@@ -455,6 +465,54 @@ namespace Deluxe.QCReport.Web.Controllers
 
             return Json(new { success = result, msg = resultMsg });
         }
+
+        [HttpPost]
+        public ActionResult SaveTapeLayout(HomeVM model)
+        {
+
+            bool result = _progLayoutService.SaveTapeLayout(model.BanijahRightsTapeLayout);
+            string resultMsg = "Banijay Rights Tape Layout saved successfully.";
+
+            if (!result)
+            {
+                resultMsg = "Banijay Rights Tape Layout failed to save !";
+            }
+            else
+            {
+                /****************Log User Activity******************************************************/
+
+                WebSystemUtility.LogUserActivity(
+                                        $"Banijay Rights Programme Layout for QC # {model.BanijahRightsProgrammeLayout.QCNum}" +
+                                        $" and Rev # {model.BanijahRightsProgrammeLayout.SubQCNum} was updated.",
+                                        Constants.ActivityType.BanijayRightsProgrammeLayoutUpdated);
+
+                /*******************************************************************************************/
+
+            }
+
+
+            return Json(new { success = result, msg = resultMsg });
+        }
+
+        [HttpPost]
+        public ActionResult LoadTapeLayouts(int qcnum, int revnum)
+        {
+            HomeVM model = new HomeVM();
+            model.BanijahRightsProgrammeLayout = _progLayoutService.GetProgrammeLayout(qcnum, revnum) as BanijahRightsProgrammeLayout;
+            model.BanijahRightsTapeLayouts = model.BanijahRightsProgrammeLayout.TapeLayouts.ToList();
+
+            return PartialView("_TapeLayoutGrid", model);
+        }
+
+        [HttpPost]
+        public ActionResult PopulateTapeLayout(int qcnum, int revnum, int id)
+        {
+            HomeVM model = new HomeVM();
+            model.BanijahRightsProgrammeLayout = _progLayoutService.GetProgrammeLayout(qcnum, revnum) as BanijahRightsProgrammeLayout;
+            var tapeLayout = model.BanijahRightsProgrammeLayout.TapeLayouts.ToList().Where(t => t.Id == id).FirstOrDefault();
+            return Json(tapeLayout, JsonRequestBehavior.AllowGet);
+        }
+
 
 
         public ActionResult GetTextDetails(int qcnum, int revnum)

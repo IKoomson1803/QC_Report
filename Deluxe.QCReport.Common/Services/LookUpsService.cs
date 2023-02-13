@@ -205,6 +205,26 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<string, string> GetCountAsShow()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("Y", "Y");
+            result.Add("N", "N");
+            return result;
+        }
+        public static Dictionary<string, string> GetNextWeekOrTrailerPresent()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("Y", "Yes");
+            result.Add("N", "No");
+            result.Add("DTB", "Dip to Black");
+           result.Add("N/A", "N/A");
+            return result;
+        }
+        //Next week / trailer present
+
 
         public static Dictionary<int, string> GetNoiseReduction()
         {

@@ -1787,7 +1787,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
-                                            $"Client specs for QC with  Id {0} and Rev No {1} for customer {customerName} was viewed.",
+                                            $"Client specs for QC with  Id {qcnum} and Rev No {1} for customer {customerName} was viewed.",
                                             Constants.ActivityType.ClientSpecsViewed);
 
 

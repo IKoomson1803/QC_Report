@@ -59,6 +59,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> FullSpotCheckList { get; set; }
         public Dictionary<string, string> YesNoList { get; set; }
         public Dictionary<string, string> YesNoNAList { get; set; }
+        public Dictionary<string, string> NextWeekOrTrailerPresentList { get; set; }
         public Dictionary<string, string> YesNoNotAllList { get; set; }
         public Dictionary<string, string>  SeamlessOrPartedList { get; set; }
         public Dictionary<int, string> ChannelPhaseList { get; set; }
@@ -80,6 +81,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> TimecodeList { get; set; }
         public Dictionary<string, string> PassOrFailList { get; set; }
         public Dictionary<string, string> PassedOrFailedList { get; set; }
+        public Dictionary<string, string>  CountAsShowList { get; set; }
 
         public ChecklistDisney ChecklistDisney { get; set; }
         public ChecklistLionsGate ChecklistLionsGate { get; set; }
@@ -103,6 +105,7 @@ namespace Deluxe.QCReport.Web.Models
         public BanijahRightsProgrammeDetails BanijahRightsProgrammeDetails { get; set; }
         public BanijahRightsProgrammeLayout BanijahRightsProgrammeLayout  { get; set; }
         public BanijahRightsTapeLayout BanijahRightsTapeLayout { get; set; }
+        public List<BanijahRightsTapeLayout> BanijahRightsTapeLayouts { get; set; }
         public List<string> BanijayRightsAspectRatioList { get; set; }
         public List<string> BanijayRightsCaptionSafeList { get; set; }
         public List<string> BanijayRightsCodecList { get; set; }

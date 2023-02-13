@@ -337,7 +337,7 @@
         if ('@Model.TapeLayout_VM.CurrentTimecodes' != '') {
 
             $('#btnDeletePrompt').prop('disabled', false);
-            $('#btnSave').text('Save');
+            $('#btnSave').text('Update');
         }
         else {
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum)').val(@nextItemNo);
