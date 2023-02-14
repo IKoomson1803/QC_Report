@@ -28,5 +28,15 @@ namespace Deluxe.QCReport.Common.Services
         {
             return _rep.SaveTapeLayout(tapeLayout);
         }
+
+        public bool DeleteBanijahRightsTapeLayout(int id)
+        {
+            return _rep.DeleteBanijahRightsTapeLayout(id);
+        }
+
+        public IBanijahRightsTapeLayout GetBanijahRightsTapeLayoutById(int id)
+        {
+            return _rep.GetBanijahRightsTapeLayoutById(id);
+        }
     }
 }

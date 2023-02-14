@@ -381,7 +381,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
                 WebSystemUtility.LogUserActivity(
                                             string.Format(
-                                                "Tapa layout TC details for QC with Id {0} and Rev No {1} was deleted.",
+                                                "Tape layout TC details for QC with Id {0} and Rev No {1} was deleted.",
                                                  model.TapeLayout_VM.Qcnum,
                                                 model.TapeLayout_VM.subQcnum),
                                                 Constants.ActivityType.DeletedTapeLayout);

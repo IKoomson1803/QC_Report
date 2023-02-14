@@ -442,6 +442,9 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveProgrammeLayout(HomeVM model)
         {
 
+            
+            
+            
             bool result = _progLayoutService.SaveProgrammeLayout(model.BanijahRightsProgrammeLayout);
             string resultMsg = "Banijay Rights Programme Layout saved successfully.";
 
@@ -484,7 +487,7 @@ namespace Deluxe.QCReport.Web.Controllers
                 WebSystemUtility.LogUserActivity(
                                         $"Banijay Rights Programme Layout for QC # {model.BanijahRightsProgrammeLayout.QCNum}" +
                                         $" and Rev # {model.BanijahRightsProgrammeLayout.SubQCNum} was updated.",
-                                        Constants.ActivityType.BanijayRightsProgrammeLayoutUpdated);
+                                        Constants.ActivityType.BanijayRightsTapeLayoutUpdated);
 
                 /*******************************************************************************************/
 
@@ -505,14 +508,40 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult PopulateTapeLayout(int qcnum, int revnum, int id)
+        public ActionResult PopulateTapeLayout(int id)
         {
             HomeVM model = new HomeVM();
-            model.BanijahRightsProgrammeLayout = _progLayoutService.GetProgrammeLayout(qcnum, revnum) as BanijahRightsProgrammeLayout;
-            var tapeLayout = model.BanijahRightsProgrammeLayout.TapeLayouts.ToList().Where(t => t.Id == id).FirstOrDefault();
+            var tapeLayout = _progLayoutService.GetBanijahRightsTapeLayoutById(id) as BanijahRightsTapeLayout;
             return Json(tapeLayout, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpPost]
+        public ActionResult DeleteTapeLayout(int id)
+        {
+
+            bool result = _progLayoutService.DeleteBanijahRightsTapeLayout(id);
+
+            string resultMsg = "Banijah Rights tape layout deleted successfully.";
+
+            if (!result)
+            {
+                resultMsg = "Banijah Rights tape layout deletion failed !";
+            }
+            else
+            {
+                /****************Log User Activity******************************************************/
+
+                WebSystemUtility.LogUserActivity(
+                                                $"Banijay Rights tape layout TC details for Id {id}  was deleted.",
+                                                 Constants.ActivityType.BanijayRightsTapeLayoutDeleted);
+
+                /*******************************************************************************************/
+            }
+
+
+            return Json(new { success = result, msg = resultMsg });
+        }
 
 
         public ActionResult GetTextDetails(int qcnum, int revnum)

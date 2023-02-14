@@ -2933,3 +2933,47 @@ BEGIN
 END
 
 GO
+
+
+
+CREATE PROCEDURE [bward].[sel_GetBanijayRightsTapeLayoutById]
+	-- Add the parameters for the stored procedure here
+   @Id INT
+AS
+BEGIN
+	
+	DECLARE @ErrorMsg VARCHAR(2000)
+	 
+	BEGIN TRY
+	 SELECT * FROM [bward].[BanijahRightsTapeLayout] WHERE Id  = @Id
+    END TRY
+    BEGIN CATCH
+        SET @errorMsg = 'Could not get sel_GetBanijayRightsTapeLayoutById details: ' + ERROR_MESSAGE()
+        RAISERROR(@errorMsg, 16, 1)
+    END CATCH
+		
+END
+
+GO
+
+CREATE PROCEDURE [bward].[del_DeleteBanijayRightsTapeLayoutById]
+	-- Add the parameters for the stored procedure here
+   @Id INT
+AS
+BEGIN
+	
+	DECLARE @ErrorMsg VARCHAR(2000)
+	 
+	BEGIN TRY
+	 DELETE FROM [bward].[BanijahRightsTapeLayout] WHERE Id  = @Id
+    END TRY
+    BEGIN CATCH
+        SET @errorMsg = 'Could not delete del_DeleteBanijayRightsTapeLayoutById details: ' + ERROR_MESSAGE()
+        RAISERROR(@errorMsg, 16, 1)
+    END CATCH
+		
+END
+
+GO
+
+

@@ -162,6 +162,8 @@ namespace Deluxe.QCReport.Common
             BanijayRightsVideoUpdated,
             BanijayRightsProgrammeLayoutViewed,
             BanijayRightsProgrammeLayoutUpdated,
+            BanijayRightsTapeLayoutUpdated,
+            BanijayRightsTapeLayoutDeleted,
             BanijayRightsTextDetailsViewed,
             BanijayRightsTextDetailsUpdated,
             BanijayRightsFaultsViewed,

@@ -26,6 +26,8 @@ namespace Deluxe.QCReport.Common.Repositories
 
         }
 
+       
+
         public IBanijahRightsProgrammeLayout GetProgrammeLayout(int qcNum, int subQCNum)
         {
             var result = new BanijahRightsProgrammeLayout();
@@ -70,13 +72,29 @@ namespace Deluxe.QCReport.Common.Repositories
 
             try
             {
+                var parameters = new
+                {
+                     programmeLayout.Id,
+                     programmeLayout.QCNum,
+                     programmeLayout.SubQCNum,
+                     programmeLayout.ProgrammeIn,
+                     programmeLayout.ProgrammeOut,
+                     programmeLayout.TotalLengthIncludingBreaks,
+                     programmeLayout.ProgrammeDuration,
+                     programmeLayout.NumberOfParts,
+                     programmeLayout.SlateAccurate,
+                     programmeLayout.NextWeekOrTrailerPresent
+                };
+
+
+
 
                 using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
                 {
 
                     connection.Execute(
                                    StoredProcedure.BanijayRights.ins_up_InsertOrUpdateBanijayRightsProgrammeLayout.ToString(),
-                                   programmeLayout,
+                                   parameters,
                                    null,
                                    null,
                                    commandType: CommandType.StoredProcedure);
@@ -115,13 +133,72 @@ namespace Deluxe.QCReport.Common.Repositories
 
                 }
             }
-            catch (Exception ex)
+           klmhu catch (Exception ex)
             {
                 ILoggerItem loggerItem = PopulateLoggerItem(ex);
                 _logger.LogSystemActivity(loggerItem);
             }
 
             return saved;
+        }
+
+        public bool DeleteBanijahRightsTapeLayout(int id)
+        {
+            bool deleted = false;
+
+            try
+            {
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+
+                    connection.Execute(
+                                   StoredProcedure.BanijayRights.del_DeleteBanijayRightsTapeLayoutById.ToString(),
+                                    new { Id = id },
+                                   null,
+                                   null,
+                                   commandType: CommandType.StoredProcedure);
+
+                    deleted = true;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+                //throw;
+            }
+
+            return deleted;
+        }
+
+        public IBanijahRightsTapeLayout GetBanijahRightsTapeLayoutById(int id)
+        {
+            IBanijahRightsTapeLayout item = null;
+
+            try
+            {
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+
+                    item = connection.Query<BanijahRightsTapeLayout>(
+                                     StoredProcedure.BanijayRights.sel_GetBanijayRightsTapeLayoutById.ToString(),
+                                     new { Id = id },
+                                     null,
+                                     false,
+                                     null,
+                                     commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+                //throw;
+            }
+
+            return item;
         }
     }
 }
