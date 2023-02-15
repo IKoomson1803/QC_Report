@@ -133,7 +133,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                 }
             }
-           klmhu catch (Exception ex)
+            catch (Exception ex)
             {
                 ILoggerItem loggerItem = PopulateLoggerItem(ex);
                 _logger.LogSystemActivity(loggerItem);

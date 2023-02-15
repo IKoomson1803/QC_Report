@@ -19,27 +19,14 @@
 
             <div class="col-xs-4">
                 <div>
-                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Add</button>
-                    <button type="button" class="btn btn-xs btn-danger CRUDButton" id="#btnReset" onclick="Reset()">Reset</button>
+                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                    <button type="button" class="btn btn-xs btn-danger CRUDButton" id="btnReset" onclick="Reset()">Reset</button>
                     <button type="button" class="btn btn-xs btn-warning CRUDButton" id="btnDeletePrompt" disabled>Delete</button>
                 </div>
 
             </div>
 
         }
-
-
-        @*@if (itemCount > 0)
-            {
-                <div class="col-xs-4 text-right">
-
-                    <div class="btn btn-xs btn-primary">
-                        Total Items
-                        <span class="badge"> @itemCount</span>
-                    </div>
-
-                </div>
-            }*@
 
     </div>
 
@@ -190,14 +177,6 @@
 
         $(".timecode").mask("99:99:99:99");
 
-        $('#deletePromptModal').on('shown.bs.modal', function () {
-
-            var itemInfo = $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfo)').val();
-            var modal = $(this);
-            modal.find('.modal-body').text('Are you sure you want to delete record "' + itemInfo + '"?');
-
-        });
-
         $('#btnSave').on("click", function () {
 
 
@@ -231,7 +210,6 @@
 
                 if (data.success == true) {
                     Msg.success(data.msg, 2 * 1000);
-
                     LoadTextInfoDetails(qcno, revno, null);
                 }
                 else {
@@ -247,6 +225,15 @@
                 $('.cssload-preloader').hide();
 
             });
+        });
+
+
+        $('#deletePromptModal').on('shown.bs.modal', function () {
+
+            var itemInfo = $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfo)').val();
+            var modal = $(this);
+            modal.find('.modal-body').text('Are you sure you want to delete record "' + itemInfo + '"?');
+
         });
 
         $('#btnDeletePrompt').on("click", function () {
@@ -274,8 +261,8 @@
 
                 if (data.success == true) {
                     Msg.success(data.msg, 2 * 1000);
-
                     LoadTextInfoDetails(qcno, revno, null);
+
                 }
                 else {
                     Msg.error(data.msg, 5 * 1000);
@@ -294,19 +281,6 @@
 
             });
         });
-
-        @*$('#btnReset').on("click", function () {
-
-
-
-            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfoId)').val('');
-            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfo)').val('');
-            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TimecodeIn)').val('');
-            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TimecodeOut)').val('');
-
-            $('#btnDeletePrompt').prop('disabled', true);
-            $('#btnSave').text('Add');
-        });*@
 
         $('#btnTCIn').on("click", function () {
 
@@ -335,24 +309,21 @@
 
             $('table tr').removeClass("selectedRow");
             $(this).addClass("selectedRow");
-
-            //$('.cssload-preloader').fadeIn();
             var qcno = '@Model.TextInfo_VM.Qcnum';
             var revno = '@Model.TextInfo_VM.subQcnum';
             var tino = $(this).data('tiid');
-
+            $('#btnDeletePrompt').prop('disabled', false);
+            $('#btnSave').text('Update');
             PopulateTextInoItemDetails(qcno, revno, tino);
-           /* LoadTextInfoDetails(qcno, revno, tino);*/
 
-            //$('.cssload-preloader').hide();
         });
 
 
-        if ('@Model.TextInfo_VM.CurrentTimecodes' != '') {
+        @*if ('@Model.TextInfo_VM.CurrentTimecodes' != '') {
 
             $('#btnDeletePrompt').prop('disabled', false);
             $('#btnSave').text('Update');
-        }
+        }*@
 
 
 
@@ -391,14 +362,12 @@
     function Reset() {
 
             $('table tr').removeClass("selectedRow");
-
-            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfoId)').val('');
+            $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfoId)').val('0');
             $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TextInfo)').val('');
             $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TimecodeIn)').val('');
             $('#@Html.IdFor(m => m.TextInfo_VM.CurrentTimecodes.TimecodeOut)').val('');
-
-            //$('#btnDeletePrompt').prop('disabled', true);
-            $('#btnSave').text('Add');
+            $('#btnDeletePrompt').prop('disabled', true);
+            $('#btnSave').text('Save');
     }
 
 
@@ -410,6 +379,7 @@
         $.post('/Job/TextInfoDetails', { qcnum: qcno, revnum: revno, tiid: tino }).done(function (data) {
 
             $("#divContent").html(data);
+            Reset();
         })
         .fail(function (xdata) {
 
@@ -423,7 +393,6 @@
     function PopulateTextInoItemDetails(qcno, revno, tino) {
 
         var scrollPosition = $('#divscroll').scrollTop();
-
 
         $.post('/Job/PopulateTextInfoItemDetails', { qcnum: qcno, revnum: revno, tiid: tino }).done(function (data) {
 

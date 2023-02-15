@@ -44,24 +44,11 @@
             <div class="col-xs-4">
 
                 <div>
-                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Add</button>
+                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
                     <button type="button" class="btn btn-xs btn-danger CRUDButton" id="btnReset" onclick="Reset()">Reset</button>
                     <button type="button" class="btn btn-xs btn-warning CRUDButton" id="btnDeletePrompt" disabled>Delete</button>
                 </div>
 
-
-            </div>
-        }
-
-
-        @if (itemCount > 0)
-        {
-            <div class="col-xs-4 text-right">
-
-                <div class="btn btn-xs btn-primary">
-                    Total Items
-                    <span class="badge"> @itemCount</span>
-                </div>
 
             </div>
         }
@@ -234,7 +221,7 @@
     <div class="col-xs-1 form-group">
 
         <label class="control-label" style="margin-left:5px;">Type</label>
-        @Html.DropDownListFor(m => m.Log_VM.CurrentQCTimes.QCCodename, new SelectList(Model.QCTypeList, "value", "value"), "", new { @class = "form-control", @style = "width:90px" })
+        @Html.DropDownListFor(m => m.Log_VM.CurrentQCTimes.QCCodename, new SelectList(Model.QCTypeList, "value", "value"), "", new { @class = "form-control", @style = "width:80px" })
     </div>
 
 
@@ -287,18 +274,21 @@
     <div class="col-xs-1 form-group" style="margin-left:5px;">
 
         <label class="control-label">Duration</label>
-        @Html.TextBoxFor(m => m.Log_VM.CurrentQCTimes.Duration, new { @class = "form-control", maxlength = "16", @style = "width:130px" })
+        @Html.TextBoxFor(m => m.Log_VM.CurrentQCTimes.Duration, new { @class = "form-control", maxlength = "16", @style = "width:100px" })
     </div>
 
-    <div class="col-xs-1 form-group" style="margin-left:40px;">
+    <div class="col-xs-1 form-group" style="width:120px; margin-left:20px;">
 
-        <label class="control-label">Sector(s)</label>
-        &nbsp;&nbsp;  <span id="ClearSectors" onclick="clearSectors()" class="glyphicon glyphicon-remove-circle" style="color:red;cursor:pointer;" title="Clear sector(s)"></span>
-        @Html.DropDownListFor(m => m.Log_VM.CurrentQCTimes.Action, new SelectList(Model.ScrtList, "value", "value"), "", new {@style= "width:100px"})   @*new { @class = "form-control" }*@    @*SearchableDropdown_4 @multiple = "multiple"*@
+        <label class="control-label">
+            Sector(s)
+            &nbsp; <span id="ClearSectors" onclick="clearSectors()" class="glyphicon glyphicon-remove-circle" style="color:red;cursor:pointer;" title="Clear sector(s)"></span>
+        </label>
+
+        @Html.DropDownListFor(m => m.Log_VM.CurrentQCTimes.Action, new SelectList(Model.ScrtList, "value", "value"), "", new { @style = "width:80px" })   @*new { @class = "form-control" }*@    @*SearchableDropdown_4 @multiple = "multiple"*@
     </div>
 
 
-    <div class="col-xs-1 form-group float-right">
+    <div class="col-xs-1 form-group text-left">
 
         <label class="control-label">Signed Off</label>
         @Html.CheckBoxFor(m => m.Log_VM.CurrentQCTimes.InMaster, new { @class = "checkbox" })
@@ -311,41 +301,50 @@
     }
 
 
-    <div class="row">
-        @if (Model.Log_VM != null && Model.Log_VM.QCTimes != null && Model.Log_VM.QCTimes.Any())
-        {
+<div class="row">
+    @if (Model.Log_VM != null && Model.Log_VM.QCTimes != null && Model.Log_VM.QCTimes.Any())
+    {
+        <div class="row">
+            <div class="col-xs-4 float-left">
 
-            <div id="divscroll" style="height:700px; overflow-y:auto">
+                <div class="btn btn-xs btn-primary">
+                    Total Items
+                    <span class="badge"> @itemCount</span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="divscroll" style="height:700px; overflow-y:auto">
 
-                <table class="table table-striped table-condensed" >
-                    <thead>
-                        <tr>
+            <table class="table table-striped table-condensed">
+                <thead>
+                    <tr>
 
-                            @*@if (itemNumbersCheck == true)
-        {
-        <td>Item No.</td>
-        }*@
+                        @*@if (itemNumbersCheck == true)
+                            {
+                            <td>Item No.</td>
+                            }*@
 
-                            <td>T.C.</td>
-                            <td>Type</td>
-                            <td>Fault Description</td>
-                            <td>Grade</td>
-                            <td>Duration</td>
-                            <td>Sector</td>
-                            <td>Signed Off</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Log_VM.QCTimes)
-                        {
-                            itemNo++;
+                        <td>T.C.</td>
+                        <td>Type</td>
+                        <td>Fault Description</td>
+                        <td>Grade</td>
+                        <td>Duration</td>
+                        <td>Sector</td>
+                        <td>Signed Off</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Log_VM.QCTimes)
+                    {
+                        itemNo++;
 
                         <tr class='clickable-row' style="cursor:pointer;" data-tcno="@item.TimeID">
 
                             @*@if (itemNumbersCheck == true)
-        {
-            <td class="col-xs-1">@item.ItemNum</td>
-        }*@
+                                {
+                                    <td class="col-xs-1">@item.ItemNum</td>
+                                }*@
 
                             <td class="col-xs-1">@item.TC</td>
 
@@ -409,14 +408,14 @@
                             </td>
                         </tr>
 
-                        }
-                    </tbody>
-                </table>
-            </div>
-        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
 
 
-    </div>
+</div>
 
 
 
@@ -544,15 +543,6 @@
 
         $(".timecode").mask("99:99:99:99");
 
-
-        $('#deletePromptModal').on('shown.bs.modal', function () {
-
-                            var itemInfo = $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.Note)').val();
-                            var modal = $(this);
-                            modal.find('.modal-body').text('Are you sure you want to delete record "' + itemInfo + '"?');
-
-                        });
-
         $('#btnSave').on("click", function () {
 
             var mySectors = '';
@@ -564,10 +554,10 @@
                 });
 
 
-            //$('.cssload-preloader').fadeIn();
-                            var qcno = '@Model.Log_VM.Qcnum';
-                            var revno = '@Model.Log_VM.subQcnum';
-                            var myModel = $('#form_jobdetails').serializeObject();
+          
+                var qcno = '@Model.Log_VM.Qcnum';
+                var revno = '@Model.Log_VM.subQcnum';
+                var myModel = $('#form_jobdetails').serializeObject();
 
 
             $.post('/Job/SaveLogDetails', { model: myModel, sectors: mySectors }).done(function (data) {
@@ -587,8 +577,17 @@
                             })
             .always(function () {
 
-                $('.cssload-preloader').hide();
+                
                             });
+        });
+
+
+        $('#deletePromptModal').on('shown.bs.modal', function () {
+
+                            var itemInfo = $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.Note)').val();
+                            var modal = $(this);
+                            modal.find('.modal-body').text('Are you sure you want to delete record "' + itemInfo + '"?');
+
                         });
 
         $('#btnDeletePrompt').on("click", function () {
@@ -606,23 +605,20 @@
 
             $('#deletePromptModal').modal('hide');
 
-
-            //$('.cssload-preloader').fadeIn();
-                            var qcno = '@Model.Log_VM.Qcnum';
-                            var revno = '@Model.Log_VM.subQcnum';
-                            var myModel = $('#form_jobdetails').serializeObject();
+            var qcno = '@Model.Log_VM.Qcnum';
+            var revno = '@Model.Log_VM.subQcnum';
+            var myModel = $('#form_jobdetails').serializeObject();
 
             $.post('/Job/DeleteLogDetails', { model: myModel }).done(function (data) {
 
-                                if (data.success == true) {
-                                    Msg.success(data.msg, 2 * 1000);
-
-                                    LoadLogDetails(qcno, revno, null);
-                                }
-                                else {
-                                    Msg.error(data.msg, 5 * 1000);
-                                }
-                            })
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+                    LoadLogDetails(qcno, revno, null);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
             .fail(function (xdata) {
 
                                 Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
@@ -669,28 +665,23 @@
 
         $('.clickable-row').on('click', function () {
 
-
             $('table tr').removeClass("selectedRow");
             $(this).addClass("selectedRow");
-
-             //$('.cssload-preloader').fadeIn();
             var qcno = '@Model.Log_VM.Qcnum';
             var revno = '@Model.Log_VM.subQcnum';
             var tcno = $(this).data('tcno');
-
+            $('#btnDeletePrompt').prop('disabled', false);
+            $('#btnSave').text('Update');
             PopulateLogItemDetails(qcno, revno, tcno);
 
-            //LoadLogDetails(qcno, revno, tcno);
-
-          //  $('.cssload-preloader').hide();
         });
 
 
-        if ('@Model.Log_VM.CurrentQCTimes' != '') {
+        @*if ('@Model.Log_VM.CurrentQCTimes' != '') {
 
             $('#btnDeletePrompt').prop('disabled', false);
             $('#btnSave').text('Update');
-        }
+        }*@
 
 
         $('#btnTCOffset').on('click', function () {
@@ -809,7 +800,7 @@
 
         $('table tr').removeClass("selectedRow");
 
-            $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.TimeID)').val('');
+            $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.TimeID)').val('0');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.TC)').val('');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.QCCode)').val('');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.QCCodename)').val('');
@@ -818,7 +809,6 @@
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.Action)').val('');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.Duration)').val('');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.InMaster)').prop("checked", false);
-
            $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.ItemNum)').val(@nextItemNo);
 
         /***********Reset Multi-Select DDL*****************************************/
@@ -829,8 +819,8 @@
             //$('#Log_VM_CurrentQCTimes_Action').multiselect('refresh');
         /*******************************************************************************/
 
-            //$('#btnDeletePrompt').prop('disabled', true);
-            $('#btnSave').text('Add');
+            $('#btnDeletePrompt').prop('disabled', true);
+            $('#btnSave').text('Save');
 
 
     }
@@ -843,7 +833,7 @@
         $.post('/Job/LogDetails', { qcnum: qcno, revnum: revno, timeid: tcno }).done(function (data) {
 
             $("#divContent").html(data);
-
+            Reset();
 
         })
         .fail(function (xdata) {
@@ -867,9 +857,9 @@
             $('#Log_VM_CurrentQCTimes_TimeID').val(tcno);
             $('#Log_VM_CurrentQCTimes_TC').val(data.TC);
             $('#Log_VM_CurrentQCTimes_QCCode').val(data.QCCode);
-                        
+
             var qcCode = data.QCCode;
-           
+
             if (qcCode != '') {
 
                 if (qcCode == 'A') {

@@ -423,7 +423,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.BanijahRightsProgrammeLayout = _progLayoutService.GetProgrammeLayout(qcnum, revnum) as BanijahRightsProgrammeLayout;
             model.BanijahRightsTapeLayouts = model.BanijahRightsProgrammeLayout.TapeLayouts.ToList();
-            model.BanijahRightsTapeLayout = new BanijahRightsTapeLayout();
+            model.BanijahRightsTapeLayout = new BanijahRightsTapeLayout() {  QCNum = qcnum, SubQCNum = revnum };
             model.CountAsShowList = LookUpsService.GetCountAsShow();
             model.YesNoNAList = LookUpsService.GetYesNoNA();
             model.NextWeekOrTrailerPresentList = LookUpsService.GetNextWeekOrTrailerPresent();
@@ -440,10 +440,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
         [HttpPost]
         public ActionResult SaveProgrammeLayout(HomeVM model)
-        {
-
-            
-            
+        {      
             
             bool result = _progLayoutService.SaveProgrammeLayout(model.BanijahRightsProgrammeLayout);
             string resultMsg = "Banijay Rights Programme Layout saved successfully.";

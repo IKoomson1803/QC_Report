@@ -2,24 +2,35 @@
 
 @{
     var tapeLayouts = Model.BanijahRightsTapeLayouts;
-    var count = tapeLayouts.Count;
+    var itemCount = tapeLayouts.Count;
     var itemNo = 0;
 }
 
 @if (tapeLayouts != null && tapeLayouts.Any())
 {
+<div class="col-xs-10">
 
-    <div id="divscroll" style="height:700px; overflow-y:auto;">
+
+    <div class="row">
+        <div class="col-xs-4 float-left">
+            <div class="btn btn-xs btn-primary">
+                Tape Layout Items
+                <span class="badge"> @itemCount</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="divscroll" style="height:200px; overflow-y:auto;">
 
         <table id="tblTimecodes" cellspacing="0" class="table table-striped table-condensed">
             <thead>
                 <tr>
-                    <td class="tblHeaderCell tblHeaderNumberCell">Item No.</td>
-                    <td class="tblHeaderCell">Tape Layout</td>
-                    <td class="tblHeaderCell">Timecode In</td>
-                    <td class="tblHeaderCell">Timecode Out</td>
-                    <td class="tblHeaderCell"> Part Duration ex holds</td>
-                    <td class="tblHeaderCell"> Count As Show</td>
+                    @*<td class="tblHeaderCell tblHeaderNumberCell">Item No.</td>*@
+                    <td>Tape Layout</td>
+                    <td>Timecode In</td>
+                    <td>Timecode Out</td>
+                    <td> Part Duration ex holds</td>
+                    <td> Count As Show</td>
                 </tr>
             </thead>
             <tbody>
@@ -27,19 +38,22 @@
                 {
                     itemNo++;
 
-                    <tr class='timecode-clickable-row' style="cursor:pointer;" data-id="@tapeLayout.Id" title="Click the row to update the tape layout">
-                        <td>@itemNo</td>
+                    <tr class='clickable-row' style="cursor:pointer;" data-id="@tapeLayout.Id" title="Click the row to update the tape layout">
+                        @*<td>@itemNo</td>*@
 
-                        <td>
+                        <td class="col-xs-2">
                             @tapeLayout.Type
                         </td>
-                        <td>
+                        <td class="col-xs-2">
                             @tapeLayout.TimecodeIn
                         </td>
-                        <td>
+                        <td class="col-xs-2">
                             @tapeLayout.TimecodeOut
                         </td>
-                        <td>
+                        <td class="col-xs-2">
+                            @tapeLayout.PartDurationExcludingHolds
+                        </td>
+                        <td class="col-xs-2">
                             @tapeLayout.CountAsShow
                         </td>
                     </tr>
@@ -49,6 +63,10 @@
         </table>
 
     </div>
+
+
+</div>
+
 
 }
 
