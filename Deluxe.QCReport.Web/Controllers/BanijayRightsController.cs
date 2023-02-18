@@ -23,6 +23,7 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly ILoggerService _loggerService = null;
         private readonly IBanijahRightsProgrammeDetailsService _progDetailsService = null;
         private readonly IBanijahRightsProgrammeLayoutService _progLayoutService = null;
+        private readonly IBanijayRightsTextDetailsService _textDetailsService = null;
         private readonly ILookupsService _lookupsService = null;
         AudioTCService _atcSrv = new AudioTCService();
         OverallSpecsService _oasSrv = new OverallSpecsService();
@@ -50,6 +51,11 @@ namespace Deluxe.QCReport.Web.Controllers
                                   new BanijahRightsProgrammeLayoutRepository(
                                       conn,
                                       _loggerService));
+
+            _textDetailsService = new BanijayRightsTextDetailsService(
+                                 new BanijayRightsTextDetailsRepository(
+                                     conn,
+                                     _loggerService));
 
         }
 
@@ -546,6 +552,9 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+            model.BanijayRightsTextDetails = _textDetailsService.Get(qcnum, revnum) as BanijayRightsTextDetails;
+            model.YesNoNAList = LookUpsService.GetYesNoNA();
+            model.BanijayRightsInShowAndAfterProgList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsInShowAndAfterProg).ToList();
 
 
             /****************Log User Activity******************************************************/
@@ -573,10 +582,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 /****************Log User Activity******************************************************/
 
-                //WebSystemUtility.LogUserActivity(
-                //                          $"Banijay Rights Programme Details for QC # {model.}" +
-                //                          $" and Rev # {model.} was updated.",
-                //                          Constants.ActivityType.BanijayRightsTextDetailsUpdated);
+                WebSystemUtility.LogUserActivity(
+                                          $"Banijay Rights Programme Details for QC # {model.BanijayRightsTextDetails.QCNum}" +
+                                          $" and Rev # {model.BanijayRightsTextDetails.SubQCNum} was updated.",
+                                          Constants.ActivityType.BanijayRightsTextDetailsUpdated);
 
                 /*******************************************************************************************/
 

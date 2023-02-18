@@ -106,6 +106,7 @@ namespace Deluxe.QCReport.Web.Models
         public BanijahRightsProgrammeLayout BanijahRightsProgrammeLayout  { get; set; }
         public BanijahRightsTapeLayout BanijahRightsTapeLayout { get; set; }
         public List<BanijahRightsTapeLayout> BanijahRightsTapeLayouts { get; set; }
+        public BanijayRightsTextDetails  BanijayRightsTextDetails { get; set; }
         public List<string> BanijayRightsAspectRatioList { get; set; }
         public List<string> BanijayRightsCaptionSafeList { get; set; }
         public List<string> BanijayRightsCodecList { get; set; }
