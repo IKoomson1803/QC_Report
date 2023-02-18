@@ -78,6 +78,9 @@
     <Compile Include="Abstractions\IBanijahRightsProgrammeDetails.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeDetailsRepository.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeDetailsService.cs" />
+    <Compile Include="Abstractions\IBanijayRightsTextDetails.cs" />
+    <Compile Include="Abstractions\IBanijayRightsTextDetailsRepository.cs" />
+    <Compile Include="Abstractions\IBanijayRightsTextDetailsService.cs" />
     <Compile Include="Abstractions\IChecklistDPP.cs" />
     <Compile Include="Abstractions\IClient.cs" />
     <Compile Include="Abstractions\IClientRepository.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="Abstractions\ILoggerService.cs" />
     <Compile Include="Abstractions\ILookupsRepository.cs" />
     <Compile Include="Abstractions\ILookupsService.cs" />
+    <Compile Include="Abstractions\Interface1.cs" />
     <Compile Include="Abstractions\IReportRepository.cs" />
     <Compile Include="Abstractions\IReportService.cs" />
     <Compile Include="Abstractions\ISearchParams.cs" />
@@ -137,6 +141,7 @@
     <Compile Include="Models\ChecklistLionsGate.cs" />
     <Compile Include="Models\ChecklistWarner.cs" />
     <Compile Include="Models\ChecklistWildBunch.cs" />
+    <Compile Include="Models\BanijayRightsTextDetails.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ControlRoomVM.cs" />
     <Compile Include="Models\DetailsVMs.cs" />
@@ -168,6 +173,7 @@
     <Compile Include="Repositories\AspectRatioRepository.cs" />
     <Compile Include="Repositories\BanijahRightsProgrammeLayoutRepository.cs" />
     <Compile Include="Repositories\BanijahRightsProgrammeDetailsRepository.cs" />
+    <Compile Include="Repositories\BanijayRightsTextDetailsRepository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\DPPRepository.cs" />
     <Compile Include="Repositories\FaultDescriptionImageRepository.cs" />
@@ -198,6 +204,7 @@
     <Compile Include="Services\AspectRatioService.cs" />
     <Compile Include="Services\BanijahRightsProgrammeDetailsService.cs" />
     <Compile Include="Services\BanijahRightsProgrammeLayoutService.cs" />
+    <Compile Include="Services\BanijayRightsTextDetailsService.cs" />
     <Compile Include="Services\ChecklistService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\DPPService.cs" />

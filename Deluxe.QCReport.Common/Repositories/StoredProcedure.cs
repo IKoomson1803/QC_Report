@@ -102,12 +102,13 @@ namespace Deluxe.QCReport.Common.Repositories
         {
             sel_GetBanijayRightsProgrammeDetails,
             up_UpdateBanijayRightsProgrammeDetails,
-
             sel_GetBanijayRightsProgrammeLayout,
             ins_up_InsertOrUpdateBanijayRightsProgrammeLayout,
             ins_up_InsertOrUpdateBanijayRightsTapeLayout,
             sel_GetBanijayRightsTapeLayoutById,
-            del_DeleteBanijayRightsTapeLayoutById
+            del_DeleteBanijayRightsTapeLayoutById,
+            ins_up_InsertOrUpdateBanijayRightsTextDetails,
+            sel_GetBanijayRightsTextDetails
 
         }
 
