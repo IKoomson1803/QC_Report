@@ -59,6 +59,12 @@ namespace Deluxe.QCReport.Common.Repositories
 
             }
 
+            if(textDetails == null)
+            {
+                textDetails = new BanijayRightsTextDetails() { QCNum = qcNum, SubQCNum = subQCNum };
+            }
+
+
             return textDetails;
         }
 
