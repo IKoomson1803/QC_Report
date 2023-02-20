@@ -571,7 +571,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveTextDetails(HomeVM model)
         {
 
-            bool result = false;
+            bool result = _textDetailsService.Save(model.BanijayRightsTextDetails);
             string resultMsg = "Banijay Rights Text Details saved successfully.";
 
             if (!result)

@@ -3916,3 +3916,126 @@ END
 GO
 
 
+ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateBanijayRightsTextDetails]
+	-- Add the parameters for the stored procedure here
+    @Id INT = 0,
+	@QCNum INT,
+    @SubQCNum INT,
+    @TitleBoardInShow VARCHAR(30) = NULL,
+	@TitleBoardAfterProg VARCHAR(30) = NULL,
+    @InAndOutOfPartInShow VARCHAR(30) = NULL,
+	@InAndOutOfPartAfterProg VARCHAR(30) = NULL,
+    @EndCreditsInShow VARCHAR(30) = NULL,
+	@EndCreditsAfterProg VARCHAR(30) = NULL,
+    @AstonsNamestrapsEtcInShow VARCHAR(30) = NULL,
+    @AstonsNamestrapsEtcAfterProg VARCHAR(30) = NULL,
+    @SubtitlesOrClosedCaptionsInShow VARCHAR(30) = NULL,
+	@SubtitlesOrClosedCaptionsAfterProg VARCHAR(30) = NULL,
+    @IsThereASecondTextedOrTextlessVersionInShow VARCHAR(30) = NULL,
+    @IsThereASecondTextedOrTextlessVersionAfterProg VARCHAR(30) = NULL,
+    @BurntInSubtitlesOrCC VARCHAR(10) = NULL,
+    @Violence VARCHAR(10) = NULL,
+    @Nudity VARCHAR(10) = NULL,
+    @Swearing VARCHAR(10) = NULL,
+    @BleepedOrUnBleeped VARCHAR(10) = NULL,
+    @UnbleepedSplitTrackAvailable VARCHAR(10) = NULL,
+    @SponsorshipOrProductPlacement VARCHAR(10) = NULL
+AS
+BEGIN
+	
+	DECLARE @ErrorMsg VARCHAR(2000)
+					
+	BEGIN TRY
+		 
+	   IF (SELECT COUNT(*) FROM [bward].[BanijayRightsTextDetails]
+	       WHERE [QCNum] =  @QCNum
+		   AND [SubQCNum]  = @SubQCNum) = 0
+	     BEGIN
+	        INSERT INTO [bward].[BanijayRightsTextDetails](
+			QCNum,
+            SubQCNum,
+            TitleBoardInShow,
+			[TitleBoardAfterProg],
+			InAndOutOfPartInShow,
+			InAndOutOfPartAfterProg,
+			EndCreditsInShow,
+			EndCreditsAfterProg,
+			AstonsNamestrapsEtcInShow,
+			AstonsNamestrapsEtcAfterProg,
+			SubtitlesOrClosedCaptionsInShow,
+			SubtitlesOrClosedCaptionsAfterProg,
+			IsThereASecondTextedOrTextlessVersionInShow,
+			IsThereASecondTextedOrTextlessVersionAfterProg,
+			BurntInSubtitlesOrCC,
+			Violence,
+			Nudity,
+			Swearing,
+			BleepedOrUnBleeped,
+			UnbleepedSplitTrackAvailable,
+			SponsorshipOrProductPlacement
+			)
+	        SELECT
+			@QCNum,
+            @subQCNum,
+            @TitleBoardInShow,
+			@TitleBoardAfterProg,
+			@InAndOutOfPartInShow,
+			@InAndOutOfPartAfterProg,
+			@EndCreditsInShow,
+			@EndCreditsAfterProg,
+			@AstonsNamestrapsEtcInShow,
+			@AstonsNamestrapsEtcAfterProg,
+			@SubtitlesOrClosedCaptionsInShow,
+			@SubtitlesOrClosedCaptionsAfterProg,
+			@IsThereASecondTextedOrTextlessVersionInShow,
+			@IsThereASecondTextedOrTextlessVersionAfterProg,
+			@BurntInSubtitlesOrCC,
+			@Violence,
+			@Nudity,
+			@Swearing,
+			@BleepedOrUnBleeped,
+			@UnbleepedSplitTrackAvailable,
+			@SponsorshipOrProductPlacement
+
+	     END
+	   ELSE 
+	     BEGIN
+	     	       
+	        UPDATE [bward].[BanijayRightsTextDetails]
+			SET 
+			TitleBoardInShow = @TitleBoardInShow,
+			[TitleBoardAfterProg] = @TitleBoardAfterProg,
+			InAndOutOfPartInShow = @InAndOutOfPartInShow,
+			InAndOutOfPartAfterProg = @InAndOutOfPartAfterProg,
+			EndCreditsInShow = @EndCreditsInShow,
+			EndCreditsAfterProg = @EndCreditsAfterProg,
+			AstonsNamestrapsEtcInShow = @AstonsNamestrapsEtcInShow,
+			AstonsNamestrapsEtcAfterProg = @AstonsNamestrapsEtcAfterProg,
+			SubtitlesOrClosedCaptionsInShow = @SubtitlesOrClosedCaptionsInShow,
+			SubtitlesOrClosedCaptionsAfterProg = @SubtitlesOrClosedCaptionsAfterProg,
+			IsThereASecondTextedOrTextlessVersionInShow = @IsThereASecondTextedOrTextlessVersionInShow,
+			IsThereASecondTextedOrTextlessVersionAfterProg = @IsThereASecondTextedOrTextlessVersionAfterProg,
+			BurntInSubtitlesOrCC = @BurntInSubtitlesOrCC,
+			Violence = @Violence,
+			Nudity = @Nudity,
+			Swearing = @Swearing,
+			BleepedOrUnBleeped = @BleepedOrUnBleeped,
+			UnbleepedSplitTrackAvailable = @UnbleepedSplitTrackAvailable,
+			SponsorshipOrProductPlacement =  @SponsorshipOrProductPlacement
+       		WHERE [QCNum] =  @QCNum
+            AND [SubQCNum]  = @SubQCNum
+	        
+	     END 
+	 
+    END TRY
+    BEGIN CATCH
+             SET @errorMsg = 'ins_up_InsertOrUpdateBanijayRightsProgrammeLayout failed: ' + ERROR_MESSAGE()
+        RAISERROR(@errorMsg, 16, 1)
+    END CATCH
+		
+END
+
+
+GO
+
+
