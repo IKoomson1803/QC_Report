@@ -24,9 +24,11 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly IBanijahRightsProgrammeDetailsService _progDetailsService = null;
         private readonly IBanijahRightsProgrammeLayoutService _progLayoutService = null;
         private readonly IBanijayRightsTextDetailsService _textDetailsService = null;
+        private readonly LogService _logSrv = null;
         private readonly ILookupsService _lookupsService = null;
         AudioTCService _atcSrv = new AudioTCService();
         OverallSpecsService _oasSrv = new OverallSpecsService();
+        HeaderService _headSrv = new HeaderService();
 
         public BanijayRightsController()
         {
@@ -56,6 +58,12 @@ namespace Deluxe.QCReport.Web.Controllers
                                  new BanijayRightsTextDetailsRepository(
                                      conn,
                                      _loggerService));
+
+            _logSrv = new LogService(
+                               new LogRepository(
+                                   conn,
+                                   _loggerService));
+
 
         }
 
@@ -596,47 +604,137 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
 
-        public ActionResult GetFaults(int qcnum, int revnum)
+        public ActionResult LogDetails(int qcnum, int revnum, int? timeid)
         {
-            HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
+            HomeVM model = new HomeVM();
+            model.Log_VM = _logSrv.GetLogDetails(qcnum, revnum);
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-
+            model.QCTypeList = LookUpsService.GetQCType();
+            model.ScrtList = LookUpsService.GetScrt();
+            model.FinalGradesList = LookUpsService.GetFinalGrades(model.Log_VM.GradingScale);
+            var qcType = _headSrv.GetHeaderDetails(qcnum, revnum).QCType;
+            model.QCType = qcType;
 
             /****************Log User Activity******************************************************/
+
             WebSystemUtility.LogUserActivity(
-                                            $"Banijay Rights Faults for QC # {qcnum} and Rev # {revnum} was viewed.",
-                                            Constants.ActivityType.BanijayRightsFaultsViewed);
+                                           $"Log QC [Id: {qcnum}]; Rev No; {revnum} was viewed.",
+                                            Constants.ActivityType.LogViewed);
+
             /*******************************************************************************************/
 
+
+            if (timeid.HasValue)
+            {
+                model.Log_VM.CurrentQCTimes = model.Log_VM.QCTimes.FirstOrDefault(i => i.TimeID == timeid.Value);
+            }
+            else
+            {
+                model.Log_VM.CurrentQCTimes = new QCTime();
+            }
 
             return PartialView("_Faults", model);
         }
 
         [HttpPost]
-        public ActionResult SaveFaults(HomeVM model)
+        public ActionResult PopulateLogItemDetails(int qcnum, int revnum, int timeid)
+        {
+            var logVM = _logSrv.GetLogDetails(qcnum, revnum);
+            var qcTimes = logVM.QCTimes.FirstOrDefault(i => i.TimeID == timeid);
+
+            if (qcTimes != null && !string.IsNullOrWhiteSpace(qcTimes.Action))
+            {
+                var oldChar = @" / ";
+                var newChar = @",";
+                qcTimes.Action = qcTimes.Action.Replace(oldChar, newChar).Trim();
+            }
+
+            return Json(qcTimes, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+
+        [HttpPost]
+        public ActionResult SaveLogDetails(HomeVM model, string sectors)
         {
 
-            bool result = false;
-            string resultMsg = "Banijay Rights Faults saved successfully.";
+            //if (!model.Log_VM.CurrentQCTimes.ItemNum.HasValue)
+            //{
+            //    return Json(new { success = false, msg = "Please add an item number and continue... " });
+            // }
+
+            //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes?.TC))
+            //{
+            //    return Json(new { success = false, msg = "Please add a timecode and continue... " });
+            //}
+
+            //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes?.Note))
+            //{
+            //    return Json(new { success = false, msg = "Please add a fault description and continue..." });
+            //}
+
+
+            if (!string.IsNullOrWhiteSpace(sectors))
+            {
+                char[] trimChars = { '/' };
+                sectors = sectors.Trim().TrimEnd(trimChars);
+                model.Log_VM.CurrentQCTimes.Action = sectors;
+            }
+
+
+            bool result = _logSrv.SaveLogDetails(model.Log_VM);
+
+            string resultMsg = "Log data saved successfully.";
 
             if (!result)
             {
-                resultMsg = "Banijay Rights Faults failed to save !";
+                resultMsg = "Log data saving failed !";
             }
             else
             {
                 /****************Log User Activity******************************************************/
 
-                //WebSystemUtility.LogUserActivity(
-                //                          $"Banijay Rights Programme Details for QC # {model.}" +
-                //                          $" and Rev # {model.} was updated.",
-                //                          Constants.ActivityType.BanijayRightsFaultsUpdated);
+                WebSystemUtility.LogUserActivity(
+                                            string.Format(
+                                                "Log details for QC with Id {0} and Rev No {1} was updated.",
+                                                 model.Log_VM.Qcnum,
+                                                model.Log_VM.subQcnum),
+                                                Constants.ActivityType.UpdatedLog);
 
                 /*******************************************************************************************/
-
             }
 
+            return Json(new { success = result, msg = resultMsg });
+        }
+
+        [HttpPost]
+        public ActionResult DeleteLogDetails(HomeVM model)
+        {
+
+            bool result = _logSrv.DeleteLogDetails(model.Log_VM);
+
+            string resultMsg = "Log data deleted successfully.";
+
+            if (!result)
+            {
+                resultMsg = "Log data deletion failed !";
+            }
+            else
+            {
+
+                /****************Log User Activity******************************************************/
+
+                WebSystemUtility.LogUserActivity(
+                                            string.Format(
+                                                "Log details for QC with Id {0} and Rev No {1} was deleted.",
+                                                 model.Log_VM.Qcnum,
+                                                model.Log_VM.subQcnum),
+                                                Constants.ActivityType.DeletedLog);
+
+                /*******************************************************************************************/
+            }
 
             return Json(new { success = result, msg = resultMsg });
         }
