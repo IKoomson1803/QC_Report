@@ -4035,6 +4035,136 @@ BEGIN
 		
 END
 
+GO
+
+/****** Object:  StoredProcedure [bward].[sp_SelectLog]    Script Date: 21/02/2023 10:44:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [bward].[sp_SelectLog]
+	@_QCNum int,
+	@_rev int
+	
+AS
+BEGIN
+	DECLARE @ErrorMsg VARCHAR(300)
+	DECLARE @ItemNumberCount INT
+
+	SELECT @ItemNumberCount = count(item_num)  FROM [bward].[qcTime] WHERE qcNum = @_QCNum AND subQCNum = @_rev 
+	
+	SELECT
+		H.Qcnum, H.subQcnum, C.GradingScale, h.Eval_Stat
+	FROM 
+		[bward].qcHeader H
+	JOIN 
+		[bward].[qcClients] C on H.CustID = C.CustID
+	WHERE 
+		qcNum = @_QCNum
+		AND subQCNum = @_rev
+		
+--IF @ItemNumberCount = 0 -- For old Logs
+	-- BEGIN 	
+		SELECT 
+			Time_Code, QC_Code, Note, QC_Grade, [Action], 
+			item_duratn, in_master, TimeID, item_num, ActionsForDisplay, QC_Codename
+		FROM 
+			[bward].qcTime T
+		WHERE 
+			qcNum = @_QCNum
+			AND subQCNum = @_rev
+		ORDER BY 
+			Time_Code
+  --  END
+--ELSE
+--    BEGIN
+--	     SELECT 
+--			Time_Code, QC_Code, Note, QC_Grade, [Action], 
+--			item_duratn, in_master, TimeID, item_num, ActionsForDisplay, QC_Codename
+--		FROM 
+--			[bward].qcTime T
+--		WHERE 
+--			qcNum = @_QCNum
+--			AND subQCNum = @_rev
+--		ORDER BY 
+--			  COALESCE( item_num, 1000), Time_Code -- the NULL item numbers will be placed last in the result set
+--	END
+
+IF @@ERROR <> 0
+	BEGIN
+		SET @errorMsg = 'Could not select qcTime (sp_SelectLog)'
+		GOTO Error
+	END
+		
+Error:
+
+	IF (@errorMsg IS NOT NULL)
+	BEGIN
+		RAISERROR(@errorMsg, 16, 1)
+	END
+	
+END
+
+GO
+
+/****** Object:  StoredProcedure [bward].[up_UpdateESIFinal]    Script Date: 21/02/2023 10:45:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [bward].[up_UpdateQCStatus]
+   @Qcnum INT,
+   @subQcnum INT,
+   @Status VARCHAR(40)=NULL 
+  
+AS
+BEGIN
+		DECLARE @ErrorMsg VARCHAR(300)
+		
+
+	
+	UPDATE 
+		[bward].[qcHeader]
+	SET 
+	   [Eval_Stat] = @Status 
+	WHERE 
+		[QCNum] = @Qcnum AND
+	    [SubQCNum] =  @subQcnum
+
+   
+  	/**********Insert into Status History table ***************************************************/
+
+	IF @Status IS NOT NULL
+	 BEGIN
+	      IF (SELECT COUNT(*) FROM [bward].[StatusHistory] WHERE [Status] = @Status AND QCNum = @Qcnum AND  SubQCNum = @subQcnum) = 0
+				 BEGIN 	 
+					 INSERT INTO [bward].[StatusHistory]([QCNum], [SubQCNum], [Status])
+					 SELECT @Qcnum, @subQcnum, @Status
+				     WHERE NOT EXISTS (SELECT NULL FROM [bward].[StatusHistory] WHERE [Status] = @Status)
+				 END
+          ELSE
+		    BEGIN
+			   UPDATE [bward].[StatusHistory]
+			   SET DateAdded = CURRENT_TIMESTAMP
+			   WHERE [Status] = @Status AND QCNum = @Qcnum AND  SubQCNum = @subQcnum
+			END
+	       
+	 END
+	
+  IF @@ERROR <> 0
+	 BEGIN
+		SET @errorMsg = 'Could not update up_UpdateQCFinal'
+		GOTO Error
+	END
+		
+Error:
+
+	IF (@errorMsg IS NOT NULL)
+	BEGIN
+		RAISERROR(@errorMsg, 16, 1)
+	END
+	
+END
 
 GO
 

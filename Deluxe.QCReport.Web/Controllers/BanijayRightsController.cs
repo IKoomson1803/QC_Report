@@ -613,6 +613,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.QCTypeList = LookUpsService.GetQCType();
             model.ScrtList = LookUpsService.GetScrt();
             model.FinalGradesList = LookUpsService.GetFinalGrades(model.Log_VM.GradingScale);
+            model.QCStatusList = LookUpsService.GetQCStatus();
             var qcType = _headSrv.GetHeaderDetails(qcnum, revnum).QCType;
             model.QCType = qcType;
 
@@ -710,6 +711,36 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
         [HttpPost]
+        public ActionResult SaveFaultsStatus(HomeVM model)
+        {
+            bool result = _logSrv.SaveFaultsStatus(model.Log_VM);
+
+            string resultMsg = "QC status saved successfully.";
+
+            if (!result)
+            {
+                resultMsg = "QC Status saving failed !";
+            }
+            else
+            {
+                /****************Log User Activity******************************************************/
+
+                WebSystemUtility.LogUserActivity(
+                                            string.Format(
+                                                "Status for QC with Id {0} and Rev No {1} was updated.",
+                                                 model.Log_VM.Qcnum,
+                                                model.Log_VM.subQcnum),
+                                                Constants.ActivityType.UpdatedLog);
+
+                /*******************************************************************************************/
+            }
+
+            return Json(new { success = result, msg = resultMsg });
+        }
+
+   
+
+            [HttpPost]
         public ActionResult DeleteLogDetails(HomeVM model)
         {
 

@@ -57,8 +57,17 @@ namespace Deluxe.QCReport.Common.Repositories
 
                             while (DR.Read())
                             {
-                                if (DBNull.Value != DR["GradingScale"]) { result.GradingScale = Convert.ToInt32(DR["GradingScale"]); }
+                                if (DBNull.Value != DR["GradingScale"]) 
+                                { 
+                                    result.GradingScale = Convert.ToInt32(DR["GradingScale"]); 
+                                }
 
+                                if (DBNull.Value != DR["Eval_Stat"])
+                                {
+                                    result.QCStatus = DR["Eval_Stat"].ToString().Trim();
+                                }
+
+                                
                             }
                         
 
@@ -78,6 +87,7 @@ namespace Deluxe.QCReport.Common.Repositories
                                 qct.Duration = DR["item_duratn"].ToString().Trim();
                                 qct.ActionsForDisplay = DR["ActionsForDisplay"].ToString().Trim();
                                 qct.QCCodename = DR["QC_Codename"].ToString().Trim();
+
 
                                     // qct.InMaster = Convert.ToBoolean(DR["in_master"]);
 
@@ -205,6 +215,46 @@ namespace Deluxe.QCReport.Common.Repositories
                         loggerItem);
 
                 }
+            }
+
+
+            return result;
+        }
+
+        public bool SaveFaultsStatus(LogVM logVM)
+        {
+            bool result = false;
+
+            try
+            {
+                using (SqlCommand _cmd = new SqlCommand())
+                {
+                    _cmd.Connection = _connection;
+                    _cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    _cmd.CommandText = "[bward].[up_UpdateQCStatus]";
+
+                    _cmd.Parameters.AddWithValue("@Qcnum", logVM.Qcnum);
+                    _cmd.Parameters.AddWithValue("@subQcnum", logVM.subQcnum);
+                    _cmd.Parameters.AddWithValue("@Status", logVM.QCStatus);
+
+                    _cmd.Connection.Open();
+
+                    _cmd.ExecuteNonQuery();
+
+                     result = true;
+                   
+                    _cmd.Connection.Close();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(
+                    ex);
+                _logger.LogSystemActivity(
+                    loggerItem);
+
             }
 
 

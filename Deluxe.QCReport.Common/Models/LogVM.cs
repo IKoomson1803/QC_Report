@@ -13,6 +13,7 @@ namespace Deluxe.QCReport.Common.Models
         public int GradingScale { get; set; }
         public int SourceFPS { get; set; }
         public string TCOffset { get; set; }
+        public string QCStatus { get; set; } // Banijay Rights new template
         public QCTime CurrentQCTimes { get; set; }
         public List<QCTime> QCTimes { get; set; }
     }

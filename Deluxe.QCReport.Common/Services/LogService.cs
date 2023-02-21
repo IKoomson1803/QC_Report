@@ -41,6 +41,13 @@ namespace Deluxe.QCReport.Common.Services
             }
         }
 
+        public bool SaveFaultsStatus(LogVM logVM)
+        {
+            return _repSql.SaveFaultsStatus(logVM);
+
+
+        }
+
         public bool BatchUpdateLogDetails(LogVM logDetails)
         {
             return _repSql.BatchUpdateLogDetails(logDetails);

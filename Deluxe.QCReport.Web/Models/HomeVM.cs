@@ -75,6 +75,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> ColourEncodingList { get; set; }
         public Dictionary<int, string> ClosedCapsList { get; set; }
         public Dictionary<int, string> EvalStatusList { get; set; }
+        public Dictionary<string, string> QCStatusList { get; set; }
         public Dictionary<int, string> FinalGradesList { get; set; }
         public Dictionary<int, string> QCTypeList { get; set; }
         public Dictionary<int, string> ScrtList { get; set; }

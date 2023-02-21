@@ -205,6 +205,17 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<string, string> GetQCStatus()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("P", "Passed");
+            result.Add("PF", "Passed with faults");
+            result.Add("F", "Failed");
+            result.Add("N/A", "N/A");
+            return result;
+        }
+
         public static Dictionary<string, string> GetCountAsShow()
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
