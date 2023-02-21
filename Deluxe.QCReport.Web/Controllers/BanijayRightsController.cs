@@ -24,8 +24,9 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly IBanijahRightsProgrammeDetailsService _progDetailsService = null;
         private readonly IBanijahRightsProgrammeLayoutService _progLayoutService = null;
         private readonly IBanijayRightsTextDetailsService _textDetailsService = null;
-        private readonly LogService _logSrv = null;
         private readonly ILookupsService _lookupsService = null;
+        private readonly IESIFinalService _esiFinalService = null;
+        private readonly LogService _logSrv = null;
         AudioTCService _atcSrv = new AudioTCService();
         OverallSpecsService _oasSrv = new OverallSpecsService();
         HeaderService _headSrv = new HeaderService();
@@ -63,6 +64,11 @@ namespace Deluxe.QCReport.Web.Controllers
                                new LogRepository(
                                    conn,
                                    _loggerService));
+
+            _esiFinalService = new ESIFinalService(
+                                 new ESIFinalRepository(
+                                     conn,
+                                     _loggerService));
 
 
         }
@@ -776,6 +782,9 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+            model.ESIFinalVM = _esiFinalService.GetESIFinal(qcnum, revnum) as ESIFinal;
+            model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+            model.QCActionList = LookUpsService.GetQCActionType();
 
 
             /****************Log User Activity******************************************************/
@@ -792,7 +801,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveNotes(HomeVM model)
         {
 
-            bool result = false;
+            bool result = _esiFinalService.SaveESIFinal(model.ESIFinalVM);
             string resultMsg = "Banijay Rights Notes saved successfully.";
 
             if (!result)
@@ -801,22 +810,22 @@ namespace Deluxe.QCReport.Web.Controllers
             }
             else
             {
-                /****************Log User Activity******************************************************/
+                /***************Log User Activity******************************************************/
 
-                //WebSystemUtility.LogUserActivity(
-                //                          $"Banijay Rights Programme Details for QC # {model.}" +
-                //                          $" and Rev # {model.} was updated.",
-                //                          Constants.ActivityType.BanijayRightsNotesUpdated);
+                WebSystemUtility.LogUserActivity(
+                                          $"Banijay Rights Programme Details for QC # {model.ESIFinalVM.Qcnum}" +
+                                          $" and Rev # {model.ESIFinalVM.subQcnum} was updated.",
+                                          Constants.ActivityType.BanijayRightsNotesUpdated);
 
-                /*******************************************************************************************/
+          /******************************************************************************************/
 
-            }
-
-
-            return Json(new { success = result, msg = resultMsg });
-        }
+}
 
 
+return Json(new { success = result, msg = resultMsg });
+}
 
-    }
+
+
+}
 }

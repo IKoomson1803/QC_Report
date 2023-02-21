@@ -333,6 +333,17 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<string, string> GetQCActionType()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("Full QC", "Full QC");
+            result.Add("Spot", "Spot");
+            result.Add("Clone of QCed master", "Clone of QCed master");
+            result.Add("5 Point Spot Check", "5 Point Spot Check");
+            return result;
+        }
+
 
         public static Dictionary<int, string> GetFinalGrades(int? gradeScale)
         {
