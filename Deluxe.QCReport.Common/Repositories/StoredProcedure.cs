@@ -70,7 +70,9 @@ namespace Deluxe.QCReport.Common.Repositories
         public enum ESIFinal
         {
             sel_GetESIFinal,
-            up_UpdateESIFinal
+            up_UpdateESIFinal,
+            up_UpdateBanijayRightsNotes,
+            sel_GetBanijayRightsNotes
         }
 
         public enum FaultDescriptionImage

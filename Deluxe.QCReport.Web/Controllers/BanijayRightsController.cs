@@ -746,7 +746,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
    
 
-            [HttpPost]
+         [HttpPost]
         public ActionResult DeleteLogDetails(HomeVM model)
         {
 
@@ -782,9 +782,10 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            model.ESIFinalVM = _esiFinalService.GetESIFinal(qcnum, revnum) as ESIFinal;
+            model.ESIFinalVM = _esiFinalService.GetBanijayRightsNotes(qcnum, revnum) as ESIFinal;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            model.QCActionList = LookUpsService.GetQCActionType();
+            model.QCActionTypeList = LookUpsService.GetQCActionType();
+            model.OperatorList = LookUpsService.GetOperator();
 
 
             /****************Log User Activity******************************************************/
@@ -798,10 +799,11 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult SaveNotes(HomeVM model)
         {
 
-            bool result = _esiFinalService.SaveESIFinal(model.ESIFinalVM);
+            bool result = _esiFinalService.SaveBanijayRightsNotes(model.ESIFinalVM);
             string resultMsg = "Banijay Rights Notes saved successfully.";
 
             if (!result)
@@ -819,13 +821,12 @@ namespace Deluxe.QCReport.Web.Controllers
 
           /******************************************************************************************/
 
-}
+             }
+
+           return Json(new { success = result, msg = resultMsg });
+        }
 
 
-return Json(new { success = result, msg = resultMsg });
-}
 
-
-
-}
+    }
 }

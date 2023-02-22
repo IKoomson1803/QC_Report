@@ -1,12 +1,99 @@
 ﻿@model Deluxe.QCReport.Web.Models.HomeVM
 
 <div class="bs-callout bs-callout-warning">
+
+
+
+    <div class="row">
+        <div class="col-xs-3">
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Banijay Rights - Notes", Model.ESIFinalVM.Qcnum, Model.ESIFinalVM.subQcnum)</b>
+        </div>
+
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-6 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+
+    </div>
+
+
     @using (Html.BeginForm("SaveNotes", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
-        <div class="row" style="margin-top: -25px;">
-            <div class="col-xs-8" style="font-size:14px;font-weight:bold">
-                Notes  @*@string.Format("{0} - {1}: DPP Checklist", Model.ChecklistDPP.QCNum, Model.ChecklistDPP.SubQCNum)*@
+        @Html.HiddenFor(m => Model.ESIFinalVM.Qcnum)
+        @Html.HiddenFor(m => Model.ESIFinalVM.subQcnum)
+
+        <div class="row">
+            <div class="col-xs-11 form-group" style="margin-left:5px;">
+                <label class="control-label">Notes:</label>
+                <div style="white-space: pre-line">@Html.TextAreaFor(m => m.ESIFinalVM.Comments, 15, 500, new { @class = "form-control", @style = "height:300px" })</div>
             </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-1 text-right">
+                <label class="control-label">QC Date:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.ESIFinalVM.QCDate, new { @class = "form-control", @style = "width:150px" })
+                    <span class="input-group-btn float-left">
+                        <button class="btn btn-xs btn-default" type="button" id="btn_qcDate">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true" onclick="setDatePicker('ESIFinalVM_QCDate')">
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="col-sm-1 text-right">
+                <label class="control-label">QC Type:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.ESIFinalVM.QCActionType,
+               new SelectList(Model.QCActionTypeList, "value", "value"),
+               "-- Select QC Type --",
+               new { @class = "form-control" })
+            </div>
+
+            <div class="col-sm-1 text-right">
+                <label class="control-label">QC Vendor:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.ESIFinalVM.QCVendor, new { @class = "form-control", maxlength = "150" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1 text-right">
+                <label class="control-label">QC Operator:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.ESIFinalVM.QCOperator,
+               new SelectList(Model.OperatorList, "key", "value"), "-- Select QC Operator --",
+               new { @class = "form-control SearchableDropdown" })
+            </div>
+
+            <div class="col-sm-1 text-right">
+                <label class="control-label">QC Kit:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.ESIFinalVM.QCKit, new { @class = "form-control", maxlength = "150" })
+            </div>
+
+
+
+
+
         </div>
 
 
@@ -17,4 +104,133 @@
 
 
 </div>
+
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkBNJRNotes").addClass("subMenuOnClick");
+    }
+
+    function setDatePicker(element) {
+
+        $('#' + element).datepicker({
+            inline: true,
+            showAnim: 'slideDown',
+            dateFormat: 'dd/mm/yy ',
+            onSelect: function (date) {
+                var d = new Date();
+                var localtime = d.toLocaleTimeString([], {
+                    hourCycle: 'h23',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                $('#' + element).val(date + localtime)
+            }
+        });
+
+        $('#' + element).focus();
+    }
+
+
+    function initializeSummerNote(id) {
+        $('#' + id).summernote({
+            height: 200,
+            focus: true,
+            disableDragAndDrop: true,
+            spellCheck: true,
+            disableGrammar: false,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['style']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                /*['insert', ['picture', 'video', 'table']],*/
+                /* ['insert', ['picture']], */
+                ['search', ['findnreplace', 'changecolor']],
+                ['view', ['help']]
+            ],
+            callbacks: {
+                onImageUpload: function (files, editor, welEditable) {
+                    sendFile(files[0], id);
+                }
+            }
+
+
+        });
+    }
+
+    function initializeMultiSelectChecboxList() {
+
+        $('.SearchableDropdown').multiselect({
+            multiple: false,
+            includeSelectAllOption: true,
+            enableCaseInsensitiveFiltering: true,
+            maxHeight: 200,
+            nonSelectedText: '',
+            allSelectedText: 'No option left ...',
+            delimiterText: '\n',
+            numberDisplayed: 1,
+            buttonWidth: '175px',
+
+        });
+     
+
+    }
+
+
+    $(function () {
+
+        $(function () {
+
+            setActiveButton();
+            initializeSummerNote('@Html.IdFor(m => m.ESIFinalVM.Comments)');
+            initializeMultiSelectChecboxList();
+
+            $('#btnSave').on("click", function () {
+
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                console.log(myModel)
+
+                $.post('/BanijayRights/SaveNotes', { model: myModel }).done(function (data) {
+
+                    
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+                       
+                    });
+            });
+
+
+
+
+        });
+
+    });
+
+
+
+
+
+
+</script>
 

@@ -4142,7 +4142,7 @@ BEGIN
 				 BEGIN 	 
 					 INSERT INTO [bward].[StatusHistory]([QCNum], [SubQCNum], [Status])
 					 SELECT @Qcnum, @subQcnum, @Status
-				     WHERE NOT EXISTS (SELECT NULL FROM [bward].[StatusHistory] WHERE [Status] = @Status)
+				     WHERE NOT EXISTS (SELECT NULL FROM [bward].[StatusHistory]  WHERE [Status] = @Status AND QCNum = @Qcnum AND  SubQCNum = @subQcnum)
 				 END
           ELSE
 		    BEGIN
@@ -4924,32 +4924,14 @@ END
 
 GO
 
-/****** Object:  StoredProcedure [bward].[up_UpdateESIFinal]    Script Date: 21/02/2023 17:07:02 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [bward].[up_UpdateESIFinal]
-   @Qcnum INT,
-   @subQcnum INT,
-   @Status VARCHAR(40)=NULL, 
+CREATE PROCEDURE [bward].[up_UpdateBanijayRightsNotes]
+   @QCNum INT,
+   @SubQCNum INT,
    @Comments VARCHAR(MAX) = NULL,
-
-
-   @LuminanceLevelsRating VARCHAR(6) = NULL,
-   @LuminanceLevelsDetails VARCHAR(255) = NULL,
-   @BlackLevelsRating VARCHAR(6) = NULL,
-   @BlackLevelsDetails VARCHAR(255) = NULL,
-   @ChrominanceLevelsRating VARCHAR(6) = NULL,
-   @ChrominanceLevelsDetails VARCHAR(255) = NULL,
-   @AudioPeaksAndLoudnessRating VARCHAR(6) = NULL,
-   @AudioPeaksAndLoudnessDetails VARCHAR(255) = NULL,
-   @TitleSafeRating VARCHAR(6) = NULL,
-   @TitleSafeDetails VARCHAR(255) = NULL,
-   @QCResult VARCHAR(6) = NULL,
-
-
-   /**** Banijay Rights new template ********************************/
    @QCDate DateTime = NULLL,
    @QCActionType VARCHAR(50)  = NULL,
    @QCVendor VARCHAR(150) = NULL,
@@ -4961,29 +4943,11 @@ AS
 BEGIN
 		DECLARE @ErrorMsg VARCHAR(300)
 		
-
-		IF @Status IS NOT NULL
-		 BEGIN
-		      IF @Status = 'PASSED'
-			    BEGIN
-				  SET @QCResult = 'PASS'
-				END
-              ELSE IF @Status = 'FAILED'
-			    BEGIN
-				  SET @QCResult = 'FAIL'
-				END
-              ELSE  IF @Status = 'HOLD'
-			    BEGIN
-				  SET @QCResult = 'HOLD'
-				END
-		 END
 	
 	UPDATE 
 		[bward].[qcHeader]
 	SET 
-	   [Eval_Stat] = @Status, 
-       [Comments]  = @Comments,
-
+	   [Comments]  = @Comments,
        [QC_date] = @QCDate,
        [QCVendor] = @QCVendor,
        [QCActionType] = @QCActionType,
@@ -4991,49 +4955,12 @@ BEGIN
        [QC_VTR] =  @QCKit
 	WHERE 
 		[QCNum] = @Qcnum AND
-	    [SubQCNum] =  @subQcnum
+	    [SubQCNum] =  @SubQCNum
 
-    UPDATE 
-		[bward].[qcEndemolVideoAndAudio]
-	SET 
-	   LuminanceLevelsRating = @LuminanceLevelsRating,
-	   LuminanceLevelsDetails = @LuminanceLevelsDetails,
-	   BlackLevelsRating = @BlackLevelsRating,
-	   BlackLevelsDetails =  @BlackLevelsDetails,
-	   ChrominanceLevelsRating = @ChrominanceLevelsRating,
-	   ChrominanceLevelsDetails = @ChrominanceLevelsDetails,
-	   AudioPeaksAndLoudnessRating = @AudioPeaksAndLoudnessRating,
-	   AudioPeaksAndLoudnessDetails = @AudioPeaksAndLoudnessDetails,
-	   TitleSafeRating = @TitleSafeRating,
-	   TitleSafeDetails = @TitleSafeDetails,
-	   QCResult =  @QCResult,
-	   QCResultDate = CURRENT_tIMESTAMP
-	WHERE 
-		[QCNum] = @Qcnum AND
-	    [SubQCNum] =  @subQcnum
-
-  	/**********Insert into Status History table ***************************************************/
-
-	IF @Status IS NOT NULL
-	 BEGIN
-	      IF (SELECT COUNT(*) FROM [bward].[StatusHistory] WHERE [Status] = @Status AND QCNum = @Qcnum AND  SubQCNum = @subQcnum) = 0
-				 BEGIN 	 
-					 INSERT INTO [bward].[StatusHistory]([QCNum], [SubQCNum], [Status])
-					 SELECT @Qcnum, @subQcnum, @Status
-				     WHERE NOT EXISTS (SELECT NULL FROM [bward].[StatusHistory] WHERE [Status] = @Status)
-				 END
-          ELSE
-		    BEGIN
-			   UPDATE [bward].[StatusHistory]
-			   SET DateAdded = CURRENT_TIMESTAMP
-			   WHERE [Status] = @Status AND QCNum = @Qcnum AND  SubQCNum = @subQcnum
-			END
-	       
-	 END
 	
   IF @@ERROR <> 0
 	 BEGIN
-		SET @errorMsg = 'Could not update up_UpdateESIFinal'
+		SET @errorMsg = 'Could not update [up_UpdateBanijayRightsNotes'
 		GOTO Error
 	END
 		
@@ -5044,6 +4971,42 @@ Error:
 		RAISERROR(@errorMsg, 16, 1)
 	END
 	
+END
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [bward].[sel_GetBanijayRightsNotes] 
+	-- Add the parameters for the stored procedure here
+	@Qcnum INT,
+    @subQcnum INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT 
+	[Qcnum] ,
+   [subQcnum] ,
+	Comments,
+	QC_date 'QCDate',
+    [Operator] 'QCOperator',
+	[QC_VTR] 'QCKit',
+    [QCActionType],
+    [QCVendor]
+	FROM [bward].[qcHeader] h
+	WHERE  QCNum  = @Qcnum
+	AND subQCNum = @subQcnum
 END
 
 GO

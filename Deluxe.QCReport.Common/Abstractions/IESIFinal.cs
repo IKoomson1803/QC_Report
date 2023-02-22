@@ -24,5 +24,12 @@ namespace Deluxe.QCReport.Common.Abstractions
         string TitleSafeDetails { get; set; }
         string Comments { get; set; }
 
+        /******* Banijay Rights new template ***********************/
+        DateTime? QCDate { get; set; }
+        string QCActionType { get; set; }
+        string QCVendor { get; set; }
+        int QCOperator { get; set; }
+        string QCKit { get; set; }
+
     }
 }
