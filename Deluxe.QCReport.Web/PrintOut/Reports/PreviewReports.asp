@@ -15,6 +15,7 @@ Dim rsChecklistWarner, sqlChecklistWarner,rsChecklistWildBunch, sqlChecklistWild
 Dim positionDisney, positionLionsGate, positionWarner, positionWildBunch 
 Dim IsChecklistCompleted 
 Dim rsFaultImage, sqlFaultImage, nFaultImages, nTotalImages
+Dim sQCBNJR
 
 sBVMaster = Request.QueryString("sBVMaster")
 sBVTech1 = Request.QueryString("sBVTech1")
@@ -29,6 +30,7 @@ sQCWLR1Pg = Request.QueryString("sQCRWL1Pg") '' Runtime QC With Log Report added
 sQCWTR1Pg = Request.QueryString("sQCRWT1Pg") '' Runtime QC With Text Info Report added by Isaac Koomson 16/05/2016
 sQCRWLE = Request.QueryString("sQCRWLE") '' Runtime QC With Log For ESI Report added by Isaac Koomson 26/05/2016
 sQCRWLDPP = Request.QueryString("sQCRWLDPP") ''Runtime QC With Log For DPP Eyeball Report added by Isaac Koomson 16/08/2022
+sQCBNJR = Request.Form("chkQCBNJR") ''Runtime QC With Log For Banijay Rights Report - New Tempalte - added by Isaac Koomson 22/02/2023
 
 ''response.write "Preview - sQCWTR1Pg: " & sQCWTR1Pg
 ''response.end
@@ -124,7 +126,9 @@ sqlBVIMaster = "SELECT " & _
 					"u2.qcUserID 'qcUserID2', u2.FullName 'FullName2', QC_Date_2, Operator_Activity, Operator_2_Activity, Bay_Num_2, QC_VTR_2, " & _
 					"ProgrammeDetails, ProductionNumber, ProgrammeTitleAndNumber,ProductionCompany, ContactPhoneNumber, PostCompany,   " & _
 					"ProductPlacementLogoPresentAndInSafeArea, SponsorshipHeadAndTailPresent, TAndCsWithinSafeArea,   " & _
-					"AuthorisedBy, AuthorisedDate, JobTitle   " & _
+					"AuthorisedBy, AuthorisedDate, JobTitle,   " & _
+					"FileWrapper, SDROrHDR, FrameRate, VideoLines, TypeOfHDR, CaptionSafe, " & _
+					"EmbeddedCCTrack, BitRate, PSEResult, QCActionType, QCVendor " & _
      			"FROM qcHeader " & _
 				"INNER JOIN qcAudioTC ON qcHeader.QCNum = qcAudioTC.QCNum AND qcHeader.SubQCNum = qcAudioTC.SubQCNum " & _
 				"INNER JOIN qcElement ON qcHeader.QCNum = qcElement.QCNum AND qcHeader.SubQCNum = qcElement.SubQCNum " & _
@@ -184,7 +188,9 @@ sqlBVIMaster = "SELECT " & _
                     "u2.qcUserID, u2.FullName, QC_Date_2, Operator_Activity, Operator_2_Activity, Bay_Num_2, QC_VTR_2, " & _
                     "ProgrammeDetails, ProductionNumber, ProgrammeTitleAndNumber,ProductionCompany, ContactPhoneNumber, PostCompany,   " & _
 					"ProductPlacementLogoPresentAndInSafeArea, SponsorshipHeadAndTailPresent, TAndCsWithinSafeArea,   " & _
-					"AuthorisedBy, AuthorisedDate, JobTitle   " & _					
+					"AuthorisedBy, AuthorisedDate, JobTitle,  " & _	
+  					"FileWrapper, SDROrHDR, FrameRate, VideoLines, TypeOfHDR, CaptionSafe, " & _
+					"EmbeddedCCTrack, BitRate, PSEResult, QCActionType, QCVendor " & _
 				"HAVING qcheader.Qcnum= " & clng(sQCNum) & " AND qcheader.subQcnum = " & cint(sRev)
 	
 
@@ -455,6 +461,10 @@ rsDPPLog.Open sqlDPPLog
 <!-- Runtime QC with Log For ESI-->
 <%if sQCRWLE = "1" then %>
 	<!--#include file="QCEndemol.asp" -->
+<%end if%>
+
+<%if sQCBNJR = "1" then %>
+	<!--#include file="QCBanijayRights.asp" -->
 <%end if%>
 
 <!-- Runtime QC with Log For DPP Eyeball-->
