@@ -79,6 +79,35 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
 				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("VideoLines")%></td>
          </tr>
 		 
+		 <tr > 
+                <td class="BanijayRightsProgramme">&nbsp;Codec:&nbsp; </td>
+				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Video_Codec")%></td>
+				<td class="BanijayRightsProgramme">&nbsp; Type of HDR:&nbsp; </td>
+				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("TypeOfHDR")%></td>
+         </tr>
+		 
+		 <tr > 
+                <td class="BanijayRightsProgramme">&nbsp;SDR / HDR:&nbsp; </td>
+				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("SDROrHDR")%></td>
+				<td class="BanijayRightsProgramme">&nbsp; Time code:&nbsp; </td>
+				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("Timecode")%></td>
+         </tr>
+		 
+		  <tr > 
+                <td class="BanijayRightsProgramme">&nbsp;Frame Rate:&nbsp; </td>
+				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("FrameRate")%></td>
+				<td class="BanijayRightsProgramme">&nbsp; Caption Safe:&nbsp; </td>
+				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("CaptionSafe")%></td>
+         </tr>
+		 
+		   <tr > 
+                <td class="BanijayRightsProgramme">&nbsp;Aspect Ratio:&nbsp; </td>
+				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Aspect")%></td>
+				<td class="BanijayRightsProgramme">&nbsp; Embedded CC Track?&nbsp; </td>
+				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("EmbeddedCCTrack")%></td>
+         </tr>
+		 
+		 
 		  
      </table>
 	 
