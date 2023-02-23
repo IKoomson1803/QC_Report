@@ -22,7 +22,7 @@
 
             <div class="col-xs-4">
                 <div>
-                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Add</button>
+                    <button type="button" class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
                     <button type="button" class="btn btn-xs btn-danger CRUDButton" id="btnReset" onclick="Reset()">Reset</button>
                     <button type="button" class="btn btn-xs btn-warning CRUDButton" id="btnDeletePrompt" disabled>Delete</button>
                 </div>
@@ -32,18 +32,6 @@
 
 
 
-
-        @if (itemCount > 0)
-        {
-            <div class="col-xs-4 text-right">
-
-                <div class="btn btn-xs btn-primary">
-                    Total Items
-                    <span class="badge"> @itemCount</span>
-                </div>
-
-            </div>
-        }
 
     </div>
 
@@ -91,43 +79,48 @@
 
         }
 
-
-
-
-
     }
 
 
     @if (Model.TapeLayout_VM != null && Model.TapeLayout_VM.Timecodes != null && Model.TapeLayout_VM.Timecodes.Any())
     {
+        <div class="row">
+            <div class="col-xs-4 float-left">
+
+                <div class="btn btn-xs btn-primary">
+                    Total Items
+                    <span class="badge"> @itemCount</span>
+                </div>
+            </div>
+        </div>
+        <br />
 
         <div id="divscroll" style="margin: 1px 0; height: 700px; overflow-y: auto; ">
 
-
-        <table class="table table-striped table-condensed" style="margin-top:-5px;">
-            <thead>
-                <tr>
-                    <td>Item No.</td>
-                    <td>Description</td>
-                    <td>Duration</td>
-                    <td>Time Code</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.TapeLayout_VM.Timecodes)
-                {
-                    itemNo++;
-
-                    <tr class='clickable-row' style="cursor:pointer;" data-tfid="@item.TapeFormatId" >
-                        <td class="col-xs-1">@item.ItemNum</td>
-                        <td class="col-xs-7">@item.Description</td>
-                        <td class="col-xs-1">@item.Length</td>
-                        <td class="col-xs-3">@item.Time_Code</td>
+            <table class="table table-striped table-condensed" style="margin-top:-5px;">
+                <thead>
+                    <tr>
+                        <td>Item No.</td>
+                        <td>Description</td>
+                        <td>Duration</td>
+                        <td>Time Code</td>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TapeLayout_VM.Timecodes)
+                    {
+                        itemNo++;
 
-                }
-            </tbody>
-        </table>
+                        <tr class='clickable-row' style="cursor:pointer;" data-tfid="@item.TapeFormatId">
+                            <td class="col-xs-1">@item.ItemNum</td>
+                            <td class="col-xs-7">@item.Description</td>
+                            <td class="col-xs-1">@item.Length</td>
+                            <td class="col-xs-3">@item.Time_Code</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
 
         </div>
 
@@ -182,14 +175,6 @@
 
          $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum)').val(@nextItemNo);
 
-        $('#deletePromptModal').on('shown.bs.modal', function () {
-
-            var itemNo = $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum)').val();
-            var modal = $(this);
-            modal.find('.modal-body').text('Are you sure you want to delete record ' + itemNo + '?');
-
-        });
-
         $('#btnSave').on("click", function () {
 
             if ($('#TapeLayout_VM_CurrentTimecodes_ItemNum').val() == '') {
@@ -228,7 +213,6 @@
 
                 if (data.success == true) {
                     Msg.success(data.msg, 2 * 1000);
-
                     LoadTapeLayoutDetails(qcno, revno, null);
                 }
                 else {
@@ -243,6 +227,14 @@
 
                 $('.cssload-preloader').hide();
             });
+        });
+
+        $('#deletePromptModal').on('shown.bs.modal', function () {
+
+            var itemNo = $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum)').val();
+            var modal = $(this);
+            modal.find('.modal-body').text('Are you sure you want to delete record ' + itemNo + '?');
+
         });
 
         $('#btnDeletePrompt').on("click", function () {
@@ -261,7 +253,6 @@
 
             $('#deletePromptModal').modal('hide');
 
-            //$('.cssload-preloader').fadeIn();
             var qcno = '@Model.TapeLayout_VM.Qcnum';
             var revno = '@Model.TapeLayout_VM.subQcnum';
             var myModel = $('#form_jobdetails').serializeObject();
@@ -270,7 +261,6 @@
 
                 if (data.success == true) {
                     Msg.success(data.msg, 2 * 1000);
-
                     LoadTapeLayoutDetails(qcno, revno, null);
                 }
                 else {
@@ -282,8 +272,6 @@
                 Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
             })
             .always(function () {
-
-                $('.cssload-preloader').hide();
 
                 $('#deletePromptModal').modal('hide');
                 $('body').removeClass('modal-open');
@@ -327,17 +315,16 @@
             var qcno = '@Model.TapeLayout_VM.Qcnum';
             var revno = '@Model.TapeLayout_VM.subQcnum';
             var tfno = $(this).data('tfid');
-
+            $('#btnDeletePrompt').prop('disabled', false);
+            $('#btnSave').text('Update');
             PopulateLayoutItemDetails(qcno, revno, tfno);
-           // LoadTapeLayoutDetails(qcno, revno, tfno);
 
-            $('.cssload-preloader').hide();
         });
 
         if ('@Model.TapeLayout_VM.CurrentTimecodes' != '') {
 
-            $('#btnDeletePrompt').prop('disabled', false);
-            $('#btnSave').text('Save');
+            //$('#btnDeletePrompt').prop('disabled', false);
+            //$('#btnSave').text('Update');
         }
         else {
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum)').val(@nextItemNo);
@@ -378,10 +365,9 @@
 
         var scrollPosition = $('#divscroll').scrollTop();
 
-
         $.post('/Job/TapeLayoutDetails', { qcnum: qcno, revnum: revno, tfid: tfno }).done(function (data) {
-
             $("#divContent").html(data);
+            Reset();
         })
         .fail(function (xdata) {
 
@@ -406,9 +392,6 @@
             $('#TapeLayout_VM_CurrentTimecodes_Description').val(data.Description);
             $('#TapeLayout_VM_CurrentTimecodes_Time_Code').val(data.Time_Code);
             $('#TapeLayout_VM_CurrentTimecodes_Length').val(data.Length);
-
-
-
         })
             .fail(function (xdata) {
 
@@ -420,23 +403,15 @@
     }
 
     function Reset() {
-
-        $('table tr').removeClass("selectedRow");
-
-
+     
             $('table tr').removeClass("selectedRow");
-
-            $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.TapeFormatId)').val('');
+            $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.TapeFormatId)').val('0');
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum)').val(@nextItemNo);
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.Description)').val('');
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.Length)').val('');
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.Time_Code)').val('');
-
-          //$('#btnDeletePrompt').prop('disabled', true);
-
-            $('#btnSave').text('Add');
-
-
+            $('#btnDeletePrompt').prop('disabled', true);
+            $('#btnSave').text('Save');
 
     }
 </script>

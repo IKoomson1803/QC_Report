@@ -87,7 +87,8 @@ function GetNavDetails(qcno, rno, wono, element) {
           //  alert(!$("#TopMenu").find('.lnkDPPProgDetails').length)
 
             if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                && !$("#TopMenu").find('.lnkDPPProgDetails').length) {
+                && !$("#TopMenu").find('.lnkDPPProgDetails').length
+                && !$("#TopMenu").find('.lnkBNJRProgDetails').length ) {
                 $("#TopMenu").append(data);
             }
 

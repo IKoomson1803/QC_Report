@@ -391,3 +391,11 @@ text-decoration:underline;
   display:none;
 }
 
+.BanijayRightsProgramme{
+	background-color:#5C013F;
+	color: #fff;
+	font-size:14px;
+	font-weight:bold;width:20%;
+	text-align:right;
+}
+

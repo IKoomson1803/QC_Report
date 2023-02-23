@@ -78,18 +78,31 @@
                             @string.Format("CH {0}:", Model.AudioTC_VM.ChannelsList[i].ChannelNo)
                         </td>
                         <td>
-                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Description, new SelectList(Model.AudioDescList, "value", "value", Model.AudioTC_VM.ChannelsList[i].Description), "", new { @class = "form-control", @title= Model.AudioTC_VM.ChannelsList[i].Description })
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Description, 
+                           new SelectList(Model.AudioDescList, "value", "value", 
+                           Model.AudioTC_VM.ChannelsList[i].Description), "", 
+                           new { @class = "form-control", @title= Model.AudioTC_VM.ChannelsList[i].Description })
                         </td>
                         <td>
-                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Language, new SelectList(Model.LanguageList, "value", "value", Model.AudioTC_VM.ChannelsList[i].Language), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Language })
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Language, 
+                           new SelectList(Model.LanguageList, "value", "value",
+                           Model.AudioTC_VM.ChannelsList[i].Language), "", 
+                           new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Language })
                         </td>
 
                         <td>
-                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].InPhase, new SelectList(Model.YesNoList, "value", "value", Model.AudioTC_VM.ChannelsList[i].InPhase), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].InPhase })
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].InPhase, 
+                           new SelectList(Model.YesNoList, "value", "value", 
+                           Model.AudioTC_VM.ChannelsList[i].InPhase), "", 
+                           new { @class = "form-control",
+                               @title = Model.AudioTC_VM.ChannelsList[i].InPhase })
                         </td>
 
                         <td>
-                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Discreate, new SelectList(Model.YesNoList, "value", "value", Model.AudioTC_VM.ChannelsList[i].Discreate), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Discreate })
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Discreate, 
+                           new SelectList(Model.YesNoList, "value", "value", 
+                           Model.AudioTC_VM.ChannelsList[i].Discreate), "", 
+                           new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Discreate })
                         </td>
 
                         <td>
@@ -111,7 +124,10 @@
                         </td>
                         <td>
 
-                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].FullSpotQC, new SelectList(Model.FullSpotCheckList, "value", "value", Model.AudioTC_VM.ChannelsList[i].FullSpotQC), "", new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].FullSpotQC, @style = "width:80px;" })
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].FullSpotQC,
+                           new SelectList(Model.FullSpotCheckList, "value", "value",
+                           Model.AudioTC_VM.ChannelsList[i].FullSpotQC), "", 
+                           new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].FullSpotQC, @style = "width:80px;" })
                         </td>
 
                         <td style="width:10px">

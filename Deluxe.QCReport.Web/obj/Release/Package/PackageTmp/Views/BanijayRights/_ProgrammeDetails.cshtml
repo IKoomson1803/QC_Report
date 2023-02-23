@@ -1,0 +1,254 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+
+    <div class="row">
+
+        <div class="col-xs-3" style="font-size:14px;font-weight:bold">
+            @string.Format("{0} - {1}: Banijay Rights - Programme Details ", 
+           Model.BanijahRightsProgrammeDetails.QCNum, Model.BanijahRightsProgrammeDetails.SubQCNum)
+        </div>
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-3 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+    </div>
+
+
+    @using (Html.BeginForm("SaveProgrammeDetails", "BanijayRights", FormMethod.Post, 
+        new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => m.BanijahRightsProgrammeDetails.QCNum);
+        @Html.HiddenFor(m => m.BanijahRightsProgrammeDetails.SubQCNum);
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Programme Title:</label>
+            </div>
+
+            <div class="col-sm-8 form-group">
+                @Html.TextAreaFor(m => m.BanijahRightsProgrammeDetails.ProgrammeTitle, 2, 2, 
+               new { @class = "form-control", 
+                   maxlength = "255", 
+                   @title = Model.BanijahRightsProgrammeDetails.ProgrammeTitle })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">File Name:</label>
+            </div>
+            <div class="col-sm-8 form-group">
+                @Html.TextAreaFor(m => m.BanijahRightsProgrammeDetails.Filename, 2, 2,
+               new { @class = "form-control",
+                   maxlength = "255", 
+                   @title = Model.BanijahRightsProgrammeDetails.Filename })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Episode Title:</label>
+            </div>
+            <div class="col-sm-8 form-group">
+                @Html.TextAreaFor(m => m.BanijahRightsProgrammeDetails.EpisodeTitle, 2, 2,
+               new { @class = "form-control",
+                   maxlength = "255", 
+                   @title = Model.BanijahRightsProgrammeDetails.EpisodeTitle })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Episode Number:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeDetails.EpisodeNumber, 
+               new { @class = "form-control", 
+                   @style = "width:250px", 
+                   maxlength = "150" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Version:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.BanijahRightsProgrammeDetails.Version, 
+               new { @class = "form-control", 
+                   @style = "width:250px", 
+                   maxlength = "60" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">File Wrapper:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.FileWrapper,
+             new SelectList(Model.BanijayRightsFileWrapperList), "",
+              new { @class = "form-control", @style = "width:80px" })
+
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Video Lines:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.VideoLines,
+                 new SelectList(Model.BanijayRightsVideoLinesList), "",
+                  new { @class = "form-control", @style = "width:250px" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Codec:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.VideoCodec,
+                 new SelectList(Model.BanijayRightsCodecList), "",
+                  new { @class = "form-control", @style = "width:150px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Type of HDR:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.TypeOfHDR,
+                new SelectList(Model.BanijayRightsTypeOfHDRList), "",
+                 new { @class = "form-control", @style = "width:250px" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">SDR / HDR:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.SDROrHDR,
+               new SelectList(Model.BanijayRightsSDROrHDRList), "",
+                new { @class = "form-control", @style = "width:80px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Timecode:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.Timecode,
+             new SelectList(Model.BanijayRightsTimecodeList), "",
+              new { @class = "form-control", @style = "width:250px" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Frame Rate:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.FrameRate,
+                new SelectList(Model.BanijayRightsFrameRateList), "",
+                 new { @class = "form-control", @style = "width:130px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Caption Safe:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.CaptionSafe,
+           new SelectList(Model.BanijayRightsCaptionSafeList), "",
+            new { @class = "form-control", @style = "width:250px" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Aspect Ratio:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.AspectRatio,
+               new SelectList(Model.BanijayRightsAspectRatioList), "",
+                new { @class = "form-control", @style = "width:130px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label"> Embedded CC Track?</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.BanijahRightsProgrammeDetails.EmbeddedCCTrack,
+                new SelectList(Model.YesNoNAList, "value", "value", Model.BanijahRightsProgrammeDetails.EmbeddedCCTrack),
+                "",
+                new { @class = "form-control", @style = "width:50px" })
+            </div>
+
+        </div>
+
+
+    }
+
+
+
+</div>
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkBNJRProgDetails").addClass("subMenuOnClick");
+    }
+
+
+    $(function () {
+        $(function () {
+
+            setActiveButton();
+
+            $('#btnSave').on("click", function () {
+
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                $.post('/BanijayRights/SaveProgrammeDetails', { model: myModel }).done(function (data) {
+
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+
+                    });
+            });
+
+
+
+        });
+
+
+
+    });
+
+
+
+
+
+</script>
+

@@ -32,7 +32,7 @@
             </tr>
 
             @{
-                if (QCType != "E" && QCType != "D")
+                if (QCType != "E" && QCType != "D" && QCType != "BNJR")
                 {
 
                     if (QCType != "A" && QCType != "L" && QCType != "T")
@@ -40,11 +40,11 @@
                         <tr>
                             <td class="ReportCell"><input type="checkbox" name="chkQCR" id="chkQCR" value="1"></td>
                             <th class="ReportCell">&nbsp;Broadcast QC&nbsp;&nbsp;</th>
-                         </tr>
+                        </tr>
                         <tr>
                             <td class="ReportCell"> <input type="checkbox" name="chkMQCR" id="chkMQCR" value="1"></td>
                             <th class="ReportCell">&nbsp;Master QC&nbsp;&nbsp;</th>
-                         </tr>
+                        </tr>
 
                     }
 
@@ -54,7 +54,7 @@
                         <tr>
                             <td class="ReportCell"><input type="checkbox" name="chkQCR1Pg" id="chkQCR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC&nbsp;&nbsp;</th>
-                         </tr>
+                        </tr>
                     }
 
 
@@ -65,7 +65,7 @@
                         <tr>
                             <td class="ReportCell"><input type="checkbox" name="chkQCWLR1Pg" id="chkQCWLR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC With Log&nbsp;&nbsp;</th>
-                         </tr>
+                        </tr>
 
                     }
 
@@ -100,6 +100,16 @@
 
                     </tr>
                 }
+                else if (QCType == "BNJR")
+                {
+
+                    <tr>
+                        <td class="ReportCell"><input type="checkbox" name="chkQCBNJR" id="chkQCBNJR" value="1"></td>
+                        <th class="ReportCell">&nbsp;QC report for Banijay Rights&nbsp;&nbsp;</th>
+                    </tr>
+                }
+
+
                 else if (QCType == "D")
                 {
 

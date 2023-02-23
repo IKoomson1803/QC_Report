@@ -1,0 +1,260 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+
+
+    @using (Ajax.BeginForm("AudioTCChannelCountChanged", "BanijayRights",
+        new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "divContent", OnComplete = "ajaxFormCompleted", OnFailure = "ajaxFormFailure", OnSuccess = "ajaxFormSuccess" },
+        new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        <div class="row" style="margin-top:-20px;">
+
+            <div class="col-sm-3">
+                <b style="font-size:14px;">@string.Format("{0} - {1}:Banijay Rights Audio", Model.AudioTC_VM.Qcnum, Model.AudioTC_VM.subQcnum)</b>
+            </div>
+
+            @if (Model.SecurityLevel >= 1)
+            {
+
+                <div class="col-xs-5 text-center">
+
+                    <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                </div>
+
+            }
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1">
+
+                <label class="control-label">Ch. Count:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.ChannelCount,
+               new SelectList(Model.ChannelCountList, "value", "value"),
+               new { @id = "ddlChannelCnt", @class = "form-control" })
+            </div>
+            <div class="col-sm-1">
+
+                <label class="control-label">Bit Rate:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.AudioTC_VM.BitRate,
+                 new SelectList(Model.BanijayRightsBitRateList), "",
+                  new { @class = "form-control", @style = "width:80px" })
+            </div>
+        </div>
+
+        <table style="margin-top: 1px;  width: 100%">
+            <thead>
+                <tr>
+                    <th style="width:5%; text-align:left !important;margin-left:0">Ch. No.</th>
+                    <th style="width:18%">Track Content</th>
+                    <th style="width:10%">Language</th>
+                    <th style="width:10%">Position</th>
+                    <th style="width:8%">Tone</th>
+                    <th style="width:5%">Average db</th>
+                    <th style="width:5%">Peak</th>
+                    <th style="width:5%">True Peak</th>
+                    <th style="width:5%">LKFS</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @Html.HiddenFor(m => m.AudioTC_VM.Qcnum)
+                @Html.HiddenFor(m => m.AudioTC_VM.subQcnum)
+
+                @for (var i = 0; i < Model.AudioTC_VM.ChannelsList.Count; i++)
+                {
+
+                    <tr>
+                        <td style="width:10px">
+                            @Html.HiddenFor(m => m.AudioTC_VM.ChannelsList[i].ChannelNo)
+                            @string.Format("CH {0}:", Model.AudioTC_VM.ChannelsList[i].ChannelNo)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].TrackContent,
+                           new SelectList(Model.BanijayRightsTrackContentList,
+                           Model.AudioTC_VM.ChannelsList[i].TrackContent), "",
+                           new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].TrackContent })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Language,
+                               new SelectList(Model.BanijayRightsLanguageList, 
+                               Model.AudioTC_VM.ChannelsList[i].Language),"",
+                                 new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Language })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Description,
+                              new SelectList(Model.BanijayRightsPositionList, 
+                              Model.AudioTC_VM.ChannelsList[i].Description), "",
+                                new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Description })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(m => m.AudioTC_VM.ChannelsList[i].Tone,
+                             new SelectList(Model.BanijayRightsToneList, 
+                               Model.AudioTC_VM.ChannelsList[i].Tone), "",
+                               new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Tone })
+                        </td>
+
+                        <td>
+
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Average,
+                              new { @class = "form-control", @title = Model.AudioTC_VM.ChannelsList[i].Average })
+                        </td>
+
+
+                        <td>
+
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].Peak,
+                           new
+                                {
+                                    @class = "form-control",
+                               @title = Model.AudioTC_VM.ChannelsList[i].Peak
+                                })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].TruePeak,
+                           new
+                                {
+                                    @class = "form-control",
+                               @title = Model.AudioTC_VM.ChannelsList[i].TruePeak
+                                })
+                        </td>
+
+                        <td>
+                            @Html.TextBoxFor(m => m.AudioTC_VM.ChannelsList[i].LKFS,
+                           new
+                                {
+                                    @class = "form-control",
+                               @title = Model.AudioTC_VM.ChannelsList[i].LKFS
+                                })
+                        </td>
+
+                        <td style="width:10px">
+                            &nbsp;&nbsp;  <span id="ClearChannel" onclick="clearChannelItem(@i)" class="glyphicon glyphicon-remove-circle" style="color:red;cursor:pointer;" title="Clear row entries"></span>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+        <br />
+
+
+    }
+
+
+</div>
+
+<script>
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkBNJRAudio").addClass("subMenuOnClick");
+    }
+
+    $(function () {
+        $(function () {
+
+            setActiveButton()
+
+            $('#ddlChannelCnt').on('change', function () {
+                 $('#form_jobdetails').submit();
+            });
+
+            $('#btnSave').on("click", function () {
+
+             var qcno = '@Model.AudioTC_VM.Qcnum';
+            var revno = '@Model.AudioTC_VM.subQcnum';
+            var myModel = $('#form_jobdetails').serializeObject();
+
+                console.log("model As JSON String: " + JSON.stringify(myModel));
+                //console.log("model: " + myModel);
+               
+            
+                $.post('/BanijayRights/SaveAudio', { model: myModel, modelAsJSONString: JSON.stringify(myModel) }).done(function (data) {
+
+                if (data.success == true) {
+                    Msg.success(data.msg, 2 * 1000);
+                    LoadAudioTC(qcno, revno);
+                }
+                else {
+                    Msg.error(data.msg, 5 * 1000);
+                }
+            })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+            });
+        });
+
+        function LoadAudioTC(qcNumber,revNumber) {
+
+            $.post('/BanijayRights/GetAudio', { qcnum: qcNumber, revnum: revNumber }).done(function (data) {
+
+                $("#divContent").html(data);
+            })
+                .fail(function (xdata) {
+
+                    Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                })
+                .always(function () {
+
+                });
+        }
+       });
+
+   });
+
+
+    function ajaxFormCompleted(xdata) {
+
+        $('.cssload-preloader').hide();
+
+    }
+
+    function ajaxFormSuccess(xdata) {
+
+        var resSuccess = '@Model.ResponseSuccess';
+        var resMsg = '@Model.ResponseText';
+
+        if (resMsg != '') {
+
+            if (resSuccess == 'True') {
+
+                Msg.success(resMsg, 2 * 1000);
+            }
+            else {
+
+                Msg.error(resMsg, 5 * 1000);
+            }
+        }
+    }
+
+    function ajaxFormFailure(xdata) {
+
+        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+    }
+
+    function clearChannelItem(i) {
+        
+        $('#AudioTC_VM_ChannelsList_' + i + '__TrackContent').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Description').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Language').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Tone').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Average').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__Peak').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__TruePeak').val('');
+        $('#AudioTC_VM_ChannelsList_' + i + '__LKFS').val('');
+    
+    }
+
+</script>

@@ -4,26 +4,81 @@
 BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: none; }
 DIV.PageBreak {break-after: always; page-break-before: always; }
 TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
+
+.BanijayRightsProgramme{
+	background-color:#5C013F;
+	color: #fff;
+	font-size:14px;
+	font-weight:bold;
+	width:20%;
+	text-align:right;
+	border-style:none;
+}
+
+.BanijayRightsText{
+	font-size:14px;
+
+}
+
 </style>
 
 <%
 
+''Response.Write "BANIJAY RIGHTS QC REPORT"
 
 %>
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#5C013F; border-style:none">
   <tr>
-     <td align="center"> 
-      <h2 class="txt_boldtype_header">BANIJAY RIGHTS QC REPORT</h2>
+     <td  align="right" style="font-size:35px;font-weight:bold;width:40%; color:#fff"> 
+      BANIJAY RIGHTS QC REPORT
     </td>
-	<td width="180"><img SRC="../images/Logos/BanijayRights_Logo.png" border="0"></td>
+	<td   style="width:10%"> 
+      &nbsp;
+    </td>
+	<td width="40%" align="left">
+	 <img SRC="../images/Logos/BanijayRights_Logo_3.png" border="0">
+	</td>
 	
   </tr>
  </table> 
-  
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+
+
+  <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none">
+	    
+	     <tr>
+             <td class="BanijayRightsProgramme">&nbsp;Programme Title:&nbsp;</td>
+			 <td colspan="3" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Show")%></td>
+         </tr> 
+		 
+		 <tr> 
+                <td class="BanijayRightsProgramme">&nbsp;File Name:&nbsp;</td>
+				<td colspan="3" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Filename")%></td>
+				
+         </tr>
+		
+		 <tr> 
+                <td class="BanijayRightsProgramme">&nbsp;Episode Title:&nbsp;</td>
+				<td colspan="3" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Epis_Name")%></td>
+				
+         </tr>
+		 
+		 
+         <tr > 
+                <td class="BanijayRightsProgramme">&nbsp;Episode Number:&nbsp; </td>
+				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Epis_No")%></td>
+				<td class="BanijayRightsProgramme">&nbsp;Version:&nbsp; </td>
+				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("Version")%></td>
+         </tr>
+		 
+		 <tr > 
+                <td class="BanijayRightsProgramme">&nbsp;File Wrapper:&nbsp; </td>
+				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("FileWrapper")%></td>
+				<td class="BanijayRightsProgramme">&nbsp; Video Lines:&nbsp; </td>
+				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("VideoLines")%></td>
+         </tr>
+		 
+		  
+     </table>
+	 

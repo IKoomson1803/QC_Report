@@ -1,0 +1,317 @@
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+
+
+
+
+<div class="bs-callout bs-callout-warning">
+
+
+    <div class="row">
+
+        <div class="col-xs-3" style="font-size:14px;font-weight:bold">
+            @string.Format("{0} - {1}: Banijay Rights - Text Details ",
+           Model.BanijayRightsTextDetails.QCNum, Model.BanijayRightsTextDetails.SubQCNum)
+        </div>
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-3 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+            </div>
+
+        }
+
+    </div>
+
+
+
+
+
+
+    @using (Html.BeginForm("SaveTextDetails", "BanijayRights", FormMethod.Post,
+        new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => m.BanijayRightsTextDetails.QCNum);
+        @Html.HiddenFor(m => m.BanijayRightsTextDetails.SubQCNum);
+
+        <div class="row" style="margin-top: -20px;">
+            <div class="col-sm-6">
+                <div class="bs-callout bs-callout-default">
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <label class="control-label">&nbsp;</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label class="control-label">In Show</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label class="control-label">After Prog</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <label class="control-label">Title Board:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.TitleBoardInShow,
+                             new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                              new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.TitleBoardAfterProg,
+                            new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                             new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <label class="control-label">In and out of part:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.InAndOutOfPartInShow,
+                             new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                              new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.InAndOutOfPartAfterProg,
+                            new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                             new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <label class="control-label">End Credits:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.EndCreditsInShow,
+                             new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                              new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.EndCreditsAfterProg,
+                            new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                             new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <label class="control-label">Astons, namestraps etc:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.AstonsNamestrapsEtcInShow,
+                             new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                              new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.AstonsNamestrapsEtcAfterProg,
+                            new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                             new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <label class="control-label">Subtitles / Closed Captions?</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.SubtitlesOrClosedCaptionsInShow,
+                             new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                              new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.SubtitlesOrClosedCaptionsAfterProg,
+                            new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                             new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <label class="control-label">Is there a second texted / textless version?</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.IsThereASecondTextedOrTextlessVersionInShow,
+                             new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                              new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.IsThereASecondTextedOrTextlessVersionAfterProg,
+                            new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
+                             new { @class = "form-control", @style = "width:130px" })
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-6">
+                <div class="bs-callout bs-callout-default">
+
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <label class="control-label">Burnt in Subtitles / CC:</label>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.BurntInSubtitlesOrCC,
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.BurntInSubtitlesOrCC),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <label class="control-label">Violence?</label>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.Violence,
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.Violence),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <label class="control-label">Nudity?</label>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.Nudity,
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.Nudity),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <label class="control-label">Swearing?</label>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.Swearing,
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.Swearing),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <label class="control-label">Bleeped / Un-bleeped:</label>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.BleepedOrUnBleeped,
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.BleepedOrUnBleeped),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <label class="control-label">Unbleeped split track available?</label>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.UnbleepedSplitTrackAvailable,
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.UnbleepedSplitTrackAvailable),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <label class="control-label">Sponsorship / Product Placement?</label>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.SponsorshipOrProductPlacement,
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.SponsorshipOrProductPlacement),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
+
+                        </div>
+                    </div>
+
+
+               </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+    }
+
+
+</div>
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkBNJRTextDetails").addClass("subMenuOnClick");
+    }
+
+
+    $(function () {
+        $(function () {
+
+            setActiveButton();
+
+            $('#btnSave').on("click", function () {
+
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                $.post('/BanijayRights/SaveTextDetails', { model: myModel }).done(function (data) {
+
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+
+                    });
+            });
+
+
+
+        });
+
+
+
+    });
+
+
+
+
+
+</script>
+

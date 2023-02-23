@@ -30,7 +30,7 @@ sQCWLR1Pg = Request.QueryString("sQCRWL1Pg") '' Runtime QC With Log Report added
 sQCWTR1Pg = Request.QueryString("sQCRWT1Pg") '' Runtime QC With Text Info Report added by Isaac Koomson 16/05/2016
 sQCRWLE = Request.QueryString("sQCRWLE") '' Runtime QC With Log For ESI Report added by Isaac Koomson 26/05/2016
 sQCRWLDPP = Request.QueryString("sQCRWLDPP") ''Runtime QC With Log For DPP Eyeball Report added by Isaac Koomson 16/08/2022
-sQCBNJR = Request.Form("chkQCBNJR") ''Runtime QC With Log For Banijay Rights Report - New Tempalte - added by Isaac Koomson 22/02/2023
+sQCBNJR = Request.QueryString("sQCBNJR") ''Runtime QC With Log For Banijay Rights Report - New Tempalte - added by Isaac Koomson 22/02/2023
 
 ''response.write "Preview - sQCWTR1Pg: " & sQCWTR1Pg
 ''response.end
@@ -389,6 +389,7 @@ rsDPPLog.Open sqlDPPLog
 	self.focus();
 </script>
 
+
 	<!--#include file="GetLines.asp"-->
 <%if sBVMaster = "1" then %>
 	<!--#include file="BVMasteringQC.asp" -->
@@ -427,7 +428,7 @@ rsDPPLog.Open sqlDPPLog
 
 
 <%if sQCR = "1" then %>
-	<!--#include file="QualityControl.asp" -->
+  	<!--#include file="QualityControl.asp" -->
 	<%if (sQCR100 = "1")or(sQCR1Pg = "1") or(sWBQCR = "1") then%>
 	<DIV class=PageBreak>
 	<%end if%>
@@ -463,8 +464,10 @@ rsDPPLog.Open sqlDPPLog
 	<!--#include file="QCEndemol.asp" -->
 <%end if%>
 
+<!-- Runtime QC with Log For Banijah Rights new template-->
 <%if sQCBNJR = "1" then %>
 	<!--#include file="QCBanijayRights.asp" -->
+	
 <%end if%>
 
 <!-- Runtime QC with Log For DPP Eyeball-->
