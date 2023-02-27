@@ -380,3 +380,17 @@ INSERT [bward].[BanijayRightsVideoLines] ([Type]) VALUES (N'UHD 3840x2160 BT2020
 GO
 INSERT [bward].[BanijayRightsVideoLines] ([Type]) VALUES (N'UHD 3840x2160 BT709')
 GO
+
+/****** Object:  Table [bward].[BanijayRightsBitRate]    Script Date: 27/02/2023 11:04:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [bward].[BanijayRightsBitRate](
+	[Type] [varchar](50) NOT NULL
+) ON [PRIMARY]
+GO
+INSERT [bward].[BanijayRightsBitRate] ([Type]) VALUES (N'16bit')
+GO
+INSERT [bward].[BanijayRightsBitRate] ([Type]) VALUES (N'24bit')
+GO

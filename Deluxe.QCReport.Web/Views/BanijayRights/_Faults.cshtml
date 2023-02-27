@@ -361,6 +361,8 @@
                     </table>
                 </div>
 
+                <br/>
+
                 <div class="row">
                     <div class="col-xs-1 form-group text-right" style="margin-left:5px;">
                         <label class="control-label">Status:</label>
@@ -647,7 +649,7 @@
 
         $('table tr').removeClass("selectedRow");
 
-            $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.TimeID)').val('0');
+            $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.TimeID)').val('');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.TC)').val('');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.QCCode)').val('');
             $('#@Html.IdFor(m => m.Log_VM.CurrentQCTimes.QCCodename)').val('');
