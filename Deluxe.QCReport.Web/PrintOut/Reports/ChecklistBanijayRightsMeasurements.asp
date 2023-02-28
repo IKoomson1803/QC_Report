@@ -13,7 +13,7 @@
 		     <td style="width:70%;padding-left:2px;">Banijay file to Spec:&nbsp;
 			  <b>
 			       <%
-					  If Not IsNull(rsChecklistBanijayRights.Fields("FileToSpec")) Then
+					  If rsChecklistBanijayRights.Fields("FileToSpec") <> "" Then
 					   Response.Write  IIf(rsChecklistBanijayRights.Fields("FileToSpec"), "Yes", "No") 
 					  End If
 				  %>
@@ -25,7 +25,7 @@
 			  <td style="width:30%; padding-left:2px;" >Decode check pass:
 					   	  <b>
 						   <%
-							  If Not IsNull(rsChecklistBanijayRights.Fields("DecodeCheckPass")) Then
+							  If rsChecklistBanijayRights.Fields("DecodeCheckPass") <> "" Then
 							   Response.Write  IIf(rsChecklistBanijayRights.Fields("DecodeCheckPass"), "Yes", "No") 
 							  End If
 						  %>
