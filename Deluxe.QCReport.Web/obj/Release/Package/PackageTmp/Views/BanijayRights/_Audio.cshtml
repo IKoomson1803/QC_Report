@@ -7,6 +7,9 @@
         new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "divContent", OnComplete = "ajaxFormCompleted", OnFailure = "ajaxFormFailure", OnSuccess = "ajaxFormSuccess" },
         new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
+        @Html.HiddenFor(m => m.AudioTC_VM.Qcnum)
+        @Html.HiddenFor(m => m.AudioTC_VM.subQcnum)
+
         <div class="row" style="margin-top:-20px;">
 
             <div class="col-sm-3">
@@ -67,8 +70,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @Html.HiddenFor(m => m.AudioTC_VM.Qcnum)
-                    @Html.HiddenFor(m => m.AudioTC_VM.subQcnum)
+
 
                     @for (var i = 0; i < Model.AudioTC_VM.ChannelsList.Count; i++)
                     {
