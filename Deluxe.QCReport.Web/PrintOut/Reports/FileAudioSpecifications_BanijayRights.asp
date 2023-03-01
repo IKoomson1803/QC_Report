@@ -58,7 +58,7 @@ End Function
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 <tr>
 	  <td class="left_right_top_border" style="padding:2px; font-size:14px;background-color:#5C013F;color:#fff;" align="center" colspan="5">
-	    Bit Rate: <b&nbsp;<%=rsHeader.Fields("BitRate")%></b>
+	    <b>Bit Rate: &nbsp;<%=rsHeader.Fields("BitRate")%></b>
 	  </td>
 	 
 	<tr>
@@ -71,74 +71,71 @@ End Function
 						   <table width="100%" border="1" cellspacing="0" cellpadding="0" height="100%" >
 							   <tr>
 									<td height="17px" width="6%" class="txt_boldtype2 left_bottom_border">&nbsp;</td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Track</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Track Content</b></td>
 									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Language</b></td>
-									
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;In Phase</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Discrete</b></td>
-									
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;LUFS</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Tone</b></td>
+								    <td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Position</b></td>
+								   	<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Tone</b></td>
 									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Average db</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Peak db</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Peak</b></td>
 									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;True Peak</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;F/S</b></td>
+									 <td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;LKFS</b></td>
 							  </tr>
-							  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
-						         <!--#include file="AudioSpecifications_1_2.asp" -->
-							 <% ElseIf bIsFourChannels = True And bIsSixChannels = False Then %>
-							    <!--#include file="AudioSpecifications_1_2.asp" -->
-							<% ElseIf bIsSixChannels = True And bIsEightChannels = False Then %>
-							    <!--#include file="AudioSpecifications_1_3.asp" -->	
-							 <% ElseIf bIsEightChannels = True  And bIsTenChannels = False Then %>	
-								<!--#include file="AudioSpecifications_1_4.asp" -->
-							 <% ElseIf bIsTenChannels = True  And bIsTwelveChannels = False Then %>	
-								<!--#include file="AudioSpecifications_1_5.asp" -->	
-							<% ElseIf bIsTwelveChannels = True And bIsFourteenChannels = False Then %>		
-								<!--#include file="AudioSpecifications_1_6.asp" -->
-							<% ElseIf bIsFourteenChannels = True And bIsSixteenChannels = False Then %>		
-								<!--#include file="AudioSpecifications_1_7.asp" -->	
-							<% ElseIf bIsSixteenChannels = True And bIsEighteenChannels = False Then %>	
-								<!--#include file="AudioSpecifications_1_8.asp" -->
-							<% ElseIf bIsEighteenChannels = True And bIsTwentyChannels = False Then %>	
-								<!--#include file="AudioSpecifications_1_9.asp" -->	
-							<% ElseIf bIsTwentyChannels  = True And bIsTwentyTwoChannels = False Then %>		
-								<!--#include file="AudioSpecifications_1_10.asp" -->
-							<% ElseIf bIsTwentyTwoChannels = True And bIsTwentyFourChannels = False Then %>		
-								<!--#include file="AudioSpecifications_1_11.asp" -->	
-							<% ElseIf bIsTwentyFourChannels = True Then %>		
-								<!--#include file="AudioSpecifications_1_12.asp" -->
-    						<% End If %>
-						 					 
-							   
-							 <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
-						           <!--#include file="AudioSpecifications_3_4.asp" -->
-							<% ElseIf bIsFourChannels = True And bIsSixChannels = False Then %>
-							    <!--#include file="AudioSpecifications_3_4.asp" -->
-							<% ElseIf bIsSixChannels = True And bIsEightChannels = False Then %>
-							    <!--#include file="AudioSpecifications_4_6.asp" -->	
-							 <% ElseIf bIsEightChannels = True = True And bIsTenChannels = False Then %>	
-								<!--#include file="AudioSpecifications_5_8.asp" -->
-							 <% ElseIf bIsTenChannels = True  And bIsTwelveChannels = False Then %>	
-								<!--#include file="AudioSpecifications_6_10.asp" -->	
-							<% ElseIf bIsTwelveChannels = True  And bIsFourteenChannels = False Then %>		
-								<!--#include file="AudioSpecifications_7_12.asp" -->
-							<% ElseIf bIsFourteenChannels = True  And bIsSixteenChannels = False Then %>		
-								<!--#include file="AudioSpecifications_8_14.asp" -->	
-							<% ElseIf bIsSixteenChannels = True And bIsEighteenChannels = False Then %>	
-								<!--#include file="AudioSpecifications_9_16.asp" -->
-							<% ElseIf bIsEighteenChannels = True  And bIsTwentyChannels  = False Then %>	
-								<!--#include file="AudioSpecifications_10_18.asp" -->	
-							<% ElseIf bIsTwentyChannels  = True  And bIsTwentyTwoChannels = False Then %>		
-								<!--#include file="AudioSpecifications_11_20.asp" -->
-							<% ElseIf bIsTwentyTwoChannels = True  And bIsTwentyFourChannels = False Then %>		
-								<!--#include file="AudioSpecifications_12_22.asp" -->	
-							<% ElseIf bIsTwentyFourChannels = True Then %>		
-								<!--#include file="AudioSpecifications_13_24.asp" -->
-    						<% End If %>
-							
-								
-
+								  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
+										 <!--#include file="Audio_BanijayRights_1_2.asp" -->
+									 <% ElseIf bIsFourChannels = True And bIsSixChannels = False Then %>
+										<!--#include file="Audio_BanijayRights_1_2.asp" -->
+									<% ElseIf bIsSixChannels = True And bIsEightChannels = False Then %>
+										<!--#include file="Audio_BanijayRights_1_3.asp" -->	
+									 <% ElseIf bIsEightChannels = True  And bIsTenChannels = False Then %>	
+										<!--#include file="Audio_BanijayRights_1_4.asp" -->
+									 <% ElseIf bIsTenChannels = True  And bIsTwelveChannels = False Then %>	
+										<!--#include file="Audio_BanijayRights_1_5.asp" -->	
+									<% ElseIf bIsTwelveChannels = True And bIsFourteenChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_1_6.asp" -->
+									<% ElseIf bIsFourteenChannels = True And bIsSixteenChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_1_7.asp" -->	
+									<% ElseIf bIsSixteenChannels = True And bIsEighteenChannels = False Then %>	
+										<!--#include file="Audio_BanijayRights_1_8.asp" -->
+									<% ElseIf bIsEighteenChannels = True And bIsTwentyChannels = False Then %>	
+										<!--#include file="Audio_BanijayRights_1_9.asp" -->	
+									<% ElseIf bIsTwentyChannels  = True And bIsTwentyTwoChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_1_10.asp" -->
+									<% ElseIf bIsTwentyTwoChannels = True And bIsTwentyFourChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_1_11.asp" -->	
+									<% ElseIf bIsTwentyFourChannels = True Then %>		
+										<!--#include file="Audio_BanijayRights_1_12.asp" -->
+									<% End If %>
+													 
+								 
+             
+						            <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
+						           <!--#include file="Audio_BanijayRights_3_4.asp" -->
+									<% ElseIf bIsFourChannels = True And bIsSixChannels = False Then %>
+										<!--#include file="Audio_BanijayRights_3_4.asp" -->
+									<% ElseIf bIsSixChannels = True And bIsEightChannels = False Then %>
+										<!--#include file="Audio_BanijayRights_4_6.asp" -->	
+									<% ElseIf bIsEightChannels = True = True And bIsTenChannels = False Then %>	
+										<!--#include file="Audio_BanijayRights_5_8.asp" -->
+									 <% ElseIf bIsTenChannels = True  And bIsTwelveChannels = False Then %>	
+										<!--#include file="Audio_BanijayRights_6_10.asp" -->
+                                     <% ElseIf bIsTwelveChannels = True  And bIsFourteenChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_7_12.asp" -->
+                                      <% ElseIf bIsFourteenChannels = True  And bIsSixteenChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_8_14.asp" -->	
+                                     <% ElseIf bIsSixteenChannels = True And bIsEighteenChannels = False Then %>	
+										<!--#include file="Audio_BanijayRights_9_16.asp" -->
+									<% ElseIf bIsEighteenChannels = True  And bIsTwentyChannels  = False Then %>	
+										<!--#include file="Audio_BanijayRights_10_18.asp" -->	
+									<% ElseIf bIsTwentyChannels  = True  And bIsTwentyTwoChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_11_20.asp" -->	
+										<% ElseIf bIsTwentyTwoChannels = True  And bIsTwentyFourChannels = False Then %>		
+										<!--#include file="Audio_BanijayRights_12_22.asp" -->	
+									<% ElseIf bIsTwentyFourChannels = True Then %>		
+										<!--#include file="Audio_BanijayRights_13_24.asp" -->
+										
+									<% End If %>
+								   
+								   
                              </table>
    						   </td>
 	                    </tr>
