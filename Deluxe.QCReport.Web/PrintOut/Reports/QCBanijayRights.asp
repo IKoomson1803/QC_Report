@@ -15,9 +15,21 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
 	border-style:none;
 }
 
-.BanijayRightsText{
+.BanijayRightsText, .BanijayRightsLable{
 	font-size:14px;
+}
 
+.BanijayRightsLable{
+	font-weight:bold;
+}
+
+.BanijayRightsVideoLable{
+font-weight:bold;
+}
+
+.BanijayRightsVideoLable, .BanijayRightsVideoText {
+width:12%;
+font-size:14px;
 }
 
 </style>
@@ -167,40 +179,40 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
        </tr>
 	   
 	   
-	   <tr>
+	   <tr >
 	   
-	       <td style="width:12%">&nbsp;Video Gain: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Bar_Vid")%></td>
+	       <td  class="BanijayRightsVideoLable">&nbsp;Video Gain: &nbsp;</td>
+		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Bar_Vid")%></td>
 	       <td style="background-color:#BFBFBF; border:none;width:10%">&nbsp;</td>
-	       <td style="width:12%">&nbsp;Lum. Peak: &nbsp;</td>
+	       <td class="BanijayRightsVideoLable">&nbsp;Lum. Peak: &nbsp;</td>
 		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Lum_Peak")%></td>
 		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
-		   <td style="width:12%">&nbsp;Chroma Peak: &nbsp;</td>
+		   <td class="BanijayRightsVideoLable">&nbsp;Chroma Peak: &nbsp;</td>
 		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Peak")%></td>
 	   </tr>
 	   
 	    <tr>
 	   
-	       <td style="width:12%">&nbsp;Chroma Gain: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Bar_Chr")%></td>
+	       <td class="BanijayRightsVideoLable">&nbsp;Chroma Gain: &nbsp;</td>
+		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Bar_Chr")%></td>
 	       <td style="background-color:#BFBFBF; border:none;width:10%">&nbsp;</td>
-	       <td style="width:12%">&nbsp;Lum. Avg: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Lum_Avg")%></td>
+	       <td class="BanijayRightsVideoLable">&nbsp;Lum. Avg: &nbsp;</td>
+		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Lum_Avg")%></td>
 		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
-		   <td style="width:12%">&nbsp;Chroma Avg: &nbsp;</td>
+		   <td class="BanijayRightsVideoLable">&nbsp;Chroma Avg: &nbsp;</td>
 		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Avg")%></td>
 	   </tr>
 	   
 	    <tr>
 	   
-	       <td style="width:12%">&nbsp;Set Up: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Bar_Set")%></td>
+	       <td class="BanijayRightsVideoLable">&nbsp;Set Up: &nbsp;</td>
+		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Bar_Set")%></td>
 	       <td style="background-color:#BFBFBF; border:none;width:10%">&nbsp;</td>
-	       <td style="width:12%">&nbsp;Black Level: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Black")%></td>
+	       <td class="BanijayRightsVideoLable">&nbsp;Black Level: &nbsp;</td>
+		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Black")%></td>
 		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
-		   <td style="width:12%">&nbsp;PSE Result: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("PSEResult")%></td>
+		   <td class="BanijayRightsVideoLable">&nbsp;PSE Result: &nbsp;</td>
+		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("PSEResult")%></td>
 	   </tr>
 	   
      </table>

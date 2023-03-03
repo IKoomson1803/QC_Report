@@ -64,21 +64,21 @@ End Function
 	<tr>
 	
 	<tr>
-		  <td colspan="5" height="100%"  >
+		  <td colspan="5" height="100%"   >
 				 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 					   <tr>
-						 <td  width="100%" border="0" height="100%" valign="top"  >
+						 <td  width="100%" border="0" height="100%" valign="top" >
 						   <table width="100%" border="1" cellspacing="0" cellpadding="0" height="100%" >
 							   <tr>
 									<td height="17px" width="6%" class="txt_boldtype2 left_bottom_border">&nbsp;</td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Track Content</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Language</b></td>
-								    <td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Position</b></td>
-								   	<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Tone</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Average db</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Peak</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;True Peak</b></td>
-									 <td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;LKFS</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Track Content</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Language</b></td>
+								    <td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Position</b></td>
+								   	<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Tone</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Average db</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Peak</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;True Peak</b></td>
+									 <td height="17px" width="9%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;LKFS</b></td>
 							  </tr>
 								  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
 										 <!--#include file="Audio_BanijayRights_1_2.asp" -->
