@@ -5,7 +5,7 @@ BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: non
 DIV.PageBreak {break-after: always; page-break-before: always; }
 TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
 
-.BanijayRightsProgramme{
+.BanijayRightsProgrammeDetails{
 	background-color:#5C013F;
 	color: #fff;
 	font-size:14px;
@@ -15,15 +15,21 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
 	border-style:none;
 }
 
+.BanijayRightsProgrammeLayout{
+	background-color:#5C013F;
+	color: #fff;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	border-style:none;
+}
+
+
 .BanijayRightsText, .BanijayRightsLable{
 	font-size:14px;
 }
 
-.BanijayRightsLable{
-	font-weight:bold;
-}
-
-.BanijayRightsVideoLable{
+.BanijayRightsVideoLable, .BanijayRightsLable{
 font-weight:bold;
 }
 
@@ -56,73 +62,11 @@ font-size:14px;
   </tr>
  </table> 
 
+  <!--  Programme Details -->
+   <!-- #include file="ProgrammeDetails_BanijayRights.asp" -->
 
-  <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none">
-	    
-	     <tr>
-             <td class="BanijayRightsProgramme">&nbsp;Programme Title:&nbsp;</td>
-			 <td colspan="3" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Show")%></td>
-         </tr> 
-		 
-		 <tr> 
-                <td class="BanijayRightsProgramme">&nbsp;File Name:&nbsp;</td>
-				<td colspan="3" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Filename")%></td>
-				
-         </tr>
-		
-		 <tr> 
-                <td class="BanijayRightsProgramme">&nbsp;Episode Title:&nbsp;</td>
-				<td colspan="3" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Epis_Name")%></td>
-				
-         </tr>
-		 
-		 
-         <tr > 
-                <td class="BanijayRightsProgramme">&nbsp;Episode Number:&nbsp; </td>
-				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Epis_No")%></td>
-				<td class="BanijayRightsProgramme">&nbsp;Version:&nbsp; </td>
-				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("Version")%></td>
-         </tr>
-		 
-		 <tr > 
-                <td class="BanijayRightsProgramme">&nbsp;File Wrapper:&nbsp; </td>
-				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("FileWrapper")%></td>
-				<td class="BanijayRightsProgramme">&nbsp; Video Lines:&nbsp; </td>
-				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("VideoLines")%></td>
-         </tr>
-		 
-		 <tr > 
-                <td class="BanijayRightsProgramme">&nbsp;Codec:&nbsp; </td>
-				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Video_Codec")%></td>
-				<td class="BanijayRightsProgramme">&nbsp; Type of HDR:&nbsp; </td>
-				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("TypeOfHDR")%></td>
-         </tr>
-		 
-		 <tr > 
-                <td class="BanijayRightsProgramme">&nbsp;SDR / HDR:&nbsp; </td>
-				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("SDROrHDR")%></td>
-				<td class="BanijayRightsProgramme">&nbsp; Time code:&nbsp; </td>
-				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("Timecode")%></td>
-         </tr>
-		 
-		  <tr > 
-                <td class="BanijayRightsProgramme">&nbsp;Frame Rate:&nbsp; </td>
-				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("FrameRate")%></td>
-				<td class="BanijayRightsProgramme">&nbsp; Caption Safe:&nbsp; </td>
-				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("CaptionSafe")%></td>
-         </tr>
-		 
-		   <tr > 
-                <td class="BanijayRightsProgramme">&nbsp;Aspect Ratio:&nbsp; </td>
-				<td class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Aspect")%></td>
-				<td class="BanijayRightsProgramme">&nbsp; Embedded CC Track?&nbsp; </td>
-				<td class="BanijayRightsText"> &nbsp;<%=rsHeader.Fields("EmbeddedCCTrack")%></td>
-         </tr>
-		 
-		 
-		  
-     </table>
-	 
+    <!-- AUDIO -->
+	
 	 
 	 <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
 	   <tr>
@@ -141,17 +85,17 @@ font-size:14px;
       </tr> 
 	 </table>
 	 
-	 <!-- AUDIO -->
-		 
-	  <!-- #include file="FileAudioSpecifications_BanijayRights.asp" -->
+	<!-- #include file="FileAudioSpecifications_BanijayRights.asp" -->
+	
+	<!-- VIDEO -->
 	  
-	  	 <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
+	 <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
 	   <tr>
           <td>&nbsp;</td>
       </tr> 
 	 </table>
 	 	  
-	  <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
+      <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
 	   <tr>
           <td style="font-size:14px; font-weight: bold; text-align:center;padding: 5px 5px 5px 5px;">VIDEO</td>
       </tr> 
@@ -162,63 +106,27 @@ font-size:14px;
       </tr> 
 	 </table>
 	 
-	  <!-- VIDEO -->
 	  
-		 
-	 <table width="100%" border="1" cellspacing="0" cellpadding="0" >
-        <tr>
-			<td colspan="2" style="background-color:#5C013F;width:30%;color:#fff;font-weight:bold; font-size:14px;text-align:center; ">
-				 Bars / Line-up
-			</td>
-			 <td style="background-color:#BFBFBF; width:10%;border:none">
-				 &nbsp;
-			</td>  
-			<td colspan="5" style="background-color:#5C013F; width:60%; color:#fff;font-weight:bold; font-size:14px; text-align:center; ">
-				Programme Overall Technical Spec
-			</td>
-       </tr>
-	   
-	   
-	   <tr >
-	   
-	       <td  class="BanijayRightsVideoLable">&nbsp;Video Gain: &nbsp;</td>
-		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Bar_Vid")%></td>
-	       <td style="background-color:#BFBFBF; border:none;width:10%">&nbsp;</td>
-	       <td class="BanijayRightsVideoLable">&nbsp;Lum. Peak: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Lum_Peak")%></td>
-		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
-		   <td class="BanijayRightsVideoLable">&nbsp;Chroma Peak: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Peak")%></td>
-	   </tr>
-	   
-	    <tr>
-	   
-	       <td class="BanijayRightsVideoLable">&nbsp;Chroma Gain: &nbsp;</td>
-		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Bar_Chr")%></td>
-	       <td style="background-color:#BFBFBF; border:none;width:10%">&nbsp;</td>
-	       <td class="BanijayRightsVideoLable">&nbsp;Lum. Avg: &nbsp;</td>
-		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Lum_Avg")%></td>
-		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
-		   <td class="BanijayRightsVideoLable">&nbsp;Chroma Avg: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Avg")%></td>
-	   </tr>
-	   
-	    <tr>
-	   
-	       <td class="BanijayRightsVideoLable">&nbsp;Set Up: &nbsp;</td>
-		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Bar_Set")%></td>
-	       <td style="background-color:#BFBFBF; border:none;width:10%">&nbsp;</td>
-	       <td class="BanijayRightsVideoLable">&nbsp;Black Level: &nbsp;</td>
-		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Black")%></td>
-		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
-		   <td class="BanijayRightsVideoLable">&nbsp;PSE Result: &nbsp;</td>
-		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("PSEResult")%></td>
-	   </tr>
-	   
-     </table>
+	  <!-- #include file="Video_BanijayRights.asp" -->
+	
+	 <!--  PROGRAMME LAYOUT -->
 	 
 	 
+	  <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
+	 	  
+	  <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
+	   <tr>
+          <td style="font-size:14px; font-weight: bold; text-align:center;padding: 5px 5px 5px 5px;">PROGRAMME LAYOUT</td>
+      </tr> 
+	 </table>
+	 <table width="100%" border="0" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
 	 
-	 
-	 
-	  
+   <!-- #include file="ProgrammeLayout_BanijayRights.asp" -->
