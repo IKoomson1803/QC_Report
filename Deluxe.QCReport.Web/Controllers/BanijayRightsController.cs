@@ -618,7 +618,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.QCTypeList = LookUpsService.GetQCType();
             model.ScrtList = LookUpsService.GetScrt();
-            model.FinalGradesList = LookUpsService.GetFinalGrades(model.Log_VM.GradingScale);
+            model.FinalGradesList = LookUpsService.GetSeverityGrades();
             model.QCStatusList = LookUpsService.GetQCStatus();
             var qcType = _headSrv.GetHeaderDetails(qcnum, revnum).QCType;
             model.QCType = qcType;

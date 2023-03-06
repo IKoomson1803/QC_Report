@@ -55,6 +55,25 @@ End Function
 
 %>
 
+
+	 
+	 <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
+	 	  
+	  <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
+	   <tr>
+          <td style="font-size:14px; font-weight: bold; text-align:center;padding: 5px 5px 5px 5px;">AUDIO</td>
+      </tr> 
+	 </table>
+	 <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 <tr>
 	  <td class="left_right_top_border" style="padding:2px; font-size:14px;background-color:#5C013F;color:#fff;" align="center" colspan="5">

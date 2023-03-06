@@ -20,6 +20,23 @@ rsTapeLayout.Open sqlTapeLayout
 
 %>
 
+ <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
+	 	  
+	  <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
+	   <tr>
+          <td style="font-size:14px; font-weight: bold; text-align:center;padding: 5px 5px 5px 5px;">PROGRAMME LAYOUT</td>
+      </tr> 
+	 </table>
+	 <table width="100%" border="0" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
+
 <table width="100%" border="1" cellspacing="0" cellpadding="0" >
         <tr>
           <td  class="bottom_border BanijayRightsProgrammeLayout"> &nbsp;</td>

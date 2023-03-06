@@ -362,6 +362,19 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<int, string> GetSeverityGrades()
+        {
+            Dictionary<int, string> result = new Dictionary<int, string>();
+           
+            result.Add(1, "1");
+            result.Add(2, "2");
+            result.Add(3, "3");
+            result.Add(4, "4");
+            result.Add(5, "5");
+
+            return result;
+        }
+
         public static Dictionary<int, string> GetQCType()
         {
             Dictionary<int, string> result = new Dictionary<int, string>();
