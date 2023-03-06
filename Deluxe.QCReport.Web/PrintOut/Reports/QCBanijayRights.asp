@@ -130,3 +130,6 @@ font-size:14px;
 	 </table>
 	 
    <!-- #include file="ProgrammeLayout_BanijayRights.asp" -->
+   
+    <!-- #include file="TextDetails_BanijayRights.asp" -->
+   

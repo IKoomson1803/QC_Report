@@ -202,6 +202,7 @@ namespace Deluxe.QCReport.Common.Services
 
             result.Add("P", "Passed");
             result.Add("F", "Failed");
+            result.Add("N/A", "N/A");
             return result;
         }
 
