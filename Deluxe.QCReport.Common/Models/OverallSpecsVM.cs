@@ -44,6 +44,10 @@ namespace Deluxe.QCReport.Common.Models
 
         public string HBlanking { get; set; }
         public string VBlanking { get; set; }
-        public string PSEResult { get; set; }
+
+        public string PSEResult { get; set; }  // Banijay Rights new template
+        public string DecodeCheck { get; set; }  // Banijay Rights new template
+        public string MaxCLL { get; set; } // Banijay Rights new template
+        public string MaxFALL { get; set; } // Banijay Rights new template
     }
 }

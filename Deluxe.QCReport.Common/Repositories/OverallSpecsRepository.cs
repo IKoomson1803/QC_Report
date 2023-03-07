@@ -77,6 +77,9 @@ namespace Deluxe.QCReport.Common.Repositories
                             result.VBlanking = DR["VBlanking"].ToString().Trim();
 
                             result.PSEResult = DR["PSEResult"].ToString().Trim();
+                            result.DecodeCheck = DR["DecodeCheck"].ToString().Trim();
+                            result.MaxCLL = DR["MaxCLL"].ToString().Trim();
+                            result.MaxFALL = DR["MaxFALL"].ToString().Trim();
 
                             var individualSpecsRepository = new IndividualSpecsRepository();
                             var individualSpecsVM = individualSpecsRepository.GetIndividualSpecsDetails(QCNum, SubQCNum);
@@ -153,6 +156,9 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Parameters.Add(GetSqlParameterString("@_vblanking", oasDetails.VBlanking));
 
                     _cmd.Parameters.Add(GetSqlParameterString("@_pseresult", oasDetails.PSEResult));
+                    _cmd.Parameters.Add(GetSqlParameterString("@_decodecheck", oasDetails.DecodeCheck));
+                    _cmd.Parameters.Add(GetSqlParameterString("@_maxcll", oasDetails.MaxCLL));
+                    _cmd.Parameters.Add(GetSqlParameterString("@_maxfall", oasDetails.MaxFALL));
 
                     _cmd.Connection.Open();
 
@@ -168,8 +174,9 @@ namespace Deluxe.QCReport.Common.Repositories
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                var erorMessage = ex.Message;
                 result = false;
                 throw;
             }
