@@ -5,22 +5,42 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 
 %>
 
-<div class="PageBreak"></div>
-
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>&nbsp;</td>
   </tr>
 
-  <!--  Header -->
-  <!-- #include file="Header_BanijayRights.asp" -->
   
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>&nbsp;</td>
   </tr>
+
+<div class="PageBreak"></div>
+
+  <!--  Header -->
+  <!-- #include file="Header_BanijayRights.asp" -->
+
+<table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
+	 	  
+      <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
+	   <tr>
+          <td style="font-size:14px; font-weight: bold; text-align:center;padding: 5px 5px 5px 5px;">FAULTS</td>
+      </tr> 
+	 </table>
+	 <table width="100%" border="0" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
+	   <tr>
+          <td>&nbsp;</td>
+      </tr> 
+	 </table>
+
+
   
-  
+  <!--
  <table width="100%" border="0" cellspacing="0" cellpadding="0" >
   <tr style="line-height:20px;">
    	<td class="blackSquare" style="font-weight:bold;text-align:center;">
@@ -40,15 +60,34 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
   </tr>
   
 </table> 
-
-
- <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+-->
 
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr style="line-height:20px;">
+		   <td class="blackSquare" style="font-weight:bold;text-align:center;">
+				<span>Severity Grades:&nbsp;&nbsp;</span>
+				<span>1 = Very Annoying</span>
+				 &nbsp;&nbsp;
+				<span>2 = Annoying</span>
+				 &nbsp;&nbsp;
+				<span>3 = Slightly Annoying</span>
+				 &nbsp;&nbsp;
+				 <span>4 = Perceptible but not Annoying</span>
+				 &nbsp;&nbsp;
+				 <span>5 = Imperceptible</span>
+				 &nbsp;&nbsp;
+			</td>
+		
+	  </tr>
+	  <tr style="line-height:20px;">
+		   <td class="blackSquare" style="font-weight:bold;font-size:16px; text-align:center;">
+				<span>Status:&nbsp;&nbsp;</span>
+				<span><%=rsHeader.Fields("Eval_Stat")%></span>
+				
+			</td>
+		
+	  </tr>
+  
     
     <tr>
       <td>
@@ -56,13 +95,13 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
           <tr> 
 		 		  
 			
-            <td width="9%" align="center" class="left_top_border"><b>Time Code</b></td>
-            <td width="6%" align="center" class="left_top_border"><b>Type</b></td>
-            <td width="64%" align="center" class="left_top_border"><b>Fault Description</b></td>
-            <td width="3%" align="center" class="left_top_border"><b>Grade</b></td>
-			<td width="8%" align="center" class="left_top_border" ><b>Item Duration</b></td>
-            <td width="7%" align="center" class="left_top_border"><b>Sector</b></td>
-		     <td width="3%" align="center" class="left_right_top_border" ><b>Signed Off</b></td>
+            <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Time Code</b></td>
+            <td width="6%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Type</b></td>
+            <td width="62%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Fault Description</b></td>
+            <td width="3%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Grade</b></td>
+			<td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"  ><b>Duration</b></td>
+            <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Sector</b></td>
+		     <td width="7%" align="center" class="left_right_top_border BanijayRightsProgrammeLayout" ><b>Signed Off</b></td>
 			
             
           </tr>
@@ -166,3 +205,5 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
       </td>
     </tr>
   </table>
+  
+  

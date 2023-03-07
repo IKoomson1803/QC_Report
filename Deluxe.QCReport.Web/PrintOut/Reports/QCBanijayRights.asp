@@ -66,3 +66,6 @@ font-size:12px;
 	
 	<!-- FAULTS -->
    <!-- #include file="Faults_BanijayRights.asp" -->
+   
+   <!-- NOTES -->
+   <!-- #include file="Notes_BanijayRights.asp" -->
