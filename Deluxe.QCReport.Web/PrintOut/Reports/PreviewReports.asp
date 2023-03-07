@@ -132,7 +132,8 @@ sqlBVIMaster = "SELECT " & _
 					"TrackContent1, TrackContent2, TrackContent3, TrackContent4, TrackContent5, TrackContent6,  " & _
 					"TrackContent7, TrackContent8, TrackContent9, TrackContent10, TrackContent11, TrackContent12,  " & _
 					"TrackContent13, TrackContent14, TrackContent15, TrackContent16, TrackContent17, TrackContent18, TrackContent19, TrackContent20,  " & _
-					"TrackContent21, TrackContent22, TrackContent23, TrackContent24 " & _
+					"TrackContent21, TrackContent22, TrackContent23, TrackContent24, " & _
+					"DecodeCheck, MaxCLL, MaxFALL " & _
 	
      			"FROM qcHeader " & _
 				"INNER JOIN qcAudioTC ON qcHeader.QCNum = qcAudioTC.QCNum AND qcHeader.SubQCNum = qcAudioTC.SubQCNum " & _
@@ -199,8 +200,8 @@ sqlBVIMaster = "SELECT " & _
 					"TrackContent1, TrackContent2, TrackContent3, TrackContent4, TrackContent5, TrackContent6,  " & _
 					"TrackContent7, TrackContent8, TrackContent9, TrackContent10, TrackContent11, TrackContent12,  " & _
 					"TrackContent13, TrackContent14, TrackContent15, TrackContent16, TrackContent17, TrackContent18, TrackContent19, TrackContent20,  " & _
-					"TrackContent21, TrackContent22, TrackContent23, TrackContent24 " & _
-	
+					"TrackContent21, TrackContent22, TrackContent23, TrackContent24, " & _
+	                "DecodeCheck, MaxCLL, MaxFALL " & _
 				"HAVING qcheader.Qcnum= " & clng(sQCNum) & " AND qcheader.subQcnum = " & cint(sRev)
 	
 
