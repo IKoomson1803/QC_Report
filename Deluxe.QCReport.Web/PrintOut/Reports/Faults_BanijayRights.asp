@@ -36,7 +36,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 	   <tr>
           <td>&nbsp;</td>
       </tr> 
-	 </table>
+ </table>
 
 
   
@@ -63,7 +63,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 -->
 
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
-		<tr style="line-height:20px;">
+		<!--<tr style="line-height:20px;">
 		   <td class="blackSquare" style="font-weight:bold;text-align:center;">
 				<span>Severity Grades:&nbsp;&nbsp;</span>
 				<span>1 = Very Annoying</span>
@@ -87,7 +87,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			</td>
 		
 	  </tr>
-  
+    -->
     
     <tr>
       <td>
@@ -95,13 +95,14 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
           <tr> 
 		 		  
 			
-            <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Time Code</b></td>
-            <td width="6%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Type</b></td>
-            <td width="62%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Fault Description</b></td>
-            <td width="3%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Grade</b></td>
-			<td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"  ><b>Duration</b></td>
-            <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>Sector</b></td>
-		     <td width="7%" align="center" class="left_right_top_border BanijayRightsProgrammeLayout" ><b>Signed Off</b></td>
+            <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>TIME CODE</b></td>
+            <td width="6%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>TYPE</b></td>
+            <td width="62%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>FAULT DESCRIPTION</b></td>
+            <td width="3%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>GRD</b></td>
+			
+            <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>SECTOR</b></td>
+		     <td width="7%" align="center" class=" left_top_border BanijayRightsProgrammeLayout" ><b>SAME AS MASTER</b></td>
+			 <td width="7%" align="center" class="left_right_top_border BanijayRightsProgrammeLayout"  ><b>ITEM DURATION</b></td>
 			
             
           </tr>
@@ -127,22 +128,22 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
           <tr style="line-height:20px;">
 		 
 			
-            <td  style="vertical-align:middle;" class="left_top_border">
+            <td  style="vertical-align:middle;" class="left_top_border BanijayRightsText">
 			
 			  &nbsp;<%=rsBVMastLog.Fields("Time_Code")%>&nbsp;&nbsp;
 		
 			</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
+            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;
 			<%
 			
 			      If IsNull(rsBVMastLog.Fields("QC_Codename").Value) Then
 				  
-				        If rsBVMastLog.Fields("QC_Code").Value = "A" Then
-						   Response.write("Audio")
-						ElseIf rsBVMastLog.Fields("QC_Code").Value = "F" Then
-						   Response.write("Film")    
-						ElseIf rsBVMastLog.Fields("QC_Code").Value = "V" Then
-						   Response.write("Video")  
+				        If rsBVMastLog.Fields("QC_Code").Value = "Audio" Then
+						   Response.write("A")
+						ElseIf rsBVMastLog.Fields("QC_Code").Value = "Film" Then
+						   Response.write("F")    
+						ElseIf rsBVMastLog.Fields("QC_Code").Value = "Video" Then
+						   Response.write("V")  
 				    	End If
 				  Else
 				    Response.write(rsBVMastLog.Fields("QC_Codename"))
@@ -151,10 +152,10 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			%>
 			
 			&nbsp;&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
-			<td  style="vertical-align:middle;"  class="left_top_border" >&nbsp;<%=rsBVMastLog.Fields("item_duratn")%>&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
+            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
+            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
+			
+            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;
 			
 			      <%
 				  
@@ -169,16 +170,19 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			
 			
 			&nbsp;</td>
-			
-            <td  style="vertical-align:middle;"  class="left_right_top_border">&nbsp;
-			                                        <%
-													if rsBVMastLog.Fields("in_master") = -1 then
-														Response.write("Yes")
-													else
-														Response.Write("")
-													end if
-												    %>&nbsp;
-		</td>
+					
+					<td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;
+															<%
+															if rsBVMastLog.Fields("in_master") = -1 then
+																Response.write("Yes")
+															else
+																Response.Write("")
+															end if
+															%>&nbsp;
+				</td>
+				
+				<td  style="vertical-align:middle;"  class="left_right_top_border  BanijayRightsText" >&nbsp;<%=rsBVMastLog.Fields("item_duratn")%>&nbsp;</td>
+				
             
           </tr>
           <%	
@@ -189,21 +193,73 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
                  ''if rsBVMastLog.EOF = false then rsBVMastLog.MoveNext 
 				 
              loop%>
-			 
-			<tr> 
-			   <td colspan=7 class="top_border">&nbsp;</td>
-			 
-			  <!--
-			   <% If itemNumberCount >  0 Then %>
-					<td colspan=8 class="top_border">&nbsp;</td>
-				 <% Else %>
-					<td colspan=7 class="top_border">&nbsp;</td>
-				<% End If %>
-			 -->
-		  </tr>
+	 
+			
         </table>
       </td>
     </tr>
+	<tr style="line-height:40px;" >
+	     <td class="left_right_top_border">
+			<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			   <tr> 
+		
+				   <td  class="BanijayRightsText" style="color:#A6A6A6">
+						<span>&nbsp;Type:&nbsp;</span>
+						<span> V = VIDEO </span>
+						 &nbsp;&nbsp;
+						<span>A = AUDIO</span>
+						 &nbsp;&nbsp;
+						
+					</td>
+			
+			   </tr>
+			</table>
+     
+	   </td>
+	
+	</tr>
+	
+	<tr  style="line-height:40px;">
+	    <td class="left_right_border">
+			<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr> 
+	              <td colspan="7" class="BanijayRightsText" style="color:#A6A6A6">
+						<span>&nbsp;Severity Grades:&nbsp;</span>
+						<span>1=Very Annoying</span>
+						 &nbsp;
+						<span>2=Annoying</span>
+						 &nbsp;
+						<span>3=Slightly Annoying</span>
+						 &nbsp;
+						 <span>4=Perceptible but not Annoying</span>
+						 &nbsp;
+						 <span>5=Imperceptible</span>
+						 &nbsp;&nbsp;
+						
+			     </td>
+	        </tr>
+			</table>
+     
+	   </td>
+	</tr>
+	
+	<tr style="line-height:30px;">
+	     <td>
+			<table width="100%" border="1" cellspacing="0" cellpadding="1">
+			  <tr> 
+				 <td style="width:20%" class="BanijayRightsProgrammeLayout" style="text-align:right;">
+				 Pass or Fail:&nbsp;									 
+				</td>
+				<td colspan="6" class="BanijayRightsText" style="font-weight:bold;font-size:25px; text-align:center; color:red;">
+				&nbsp;<%=rsHeader.Fields("Eval_Stat")%>	
+				</td>
+			  </tr>
+			</table>
+	   </td>   
+	</tr>
+	
+	
   </table>
+  
   
   

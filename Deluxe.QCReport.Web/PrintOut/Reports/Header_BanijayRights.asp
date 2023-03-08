@@ -9,7 +9,7 @@
       &nbsp;
     </td>
 	<td width="40%" align="left">
-	 <img SRC="../images/Logos/BanijayRights_Logo_3.png" border="0">
+	 <img SRC="../images/Logos/BanijayRights_Logo.png" border="0">
 	</td>
 	
   </tr>

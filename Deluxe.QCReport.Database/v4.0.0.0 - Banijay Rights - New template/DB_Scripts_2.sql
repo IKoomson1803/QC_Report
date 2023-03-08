@@ -5,6 +5,7 @@ GO
 ALTER TABLE [bward].[qcHeader] ADD DecodeCheck VARCHAR(10) NULL
 ALTER TABLE [bward].[qcHeader] ADD MaxCLL VARCHAR(50) NULL
 ALTER TABLE [bward].[qcHeader] ADD MaxFALL VARCHAR(50) NULL
+ALTER TABLE [bward].[BanijahRightsTapeLayout] ALTER COLUMN PartDurationExcludingHolds VARCHAR(100) NULL
 
 GO
 
@@ -63,7 +64,7 @@ ALTER PROCEDURE [bward].[sp_UpdateOverallSpecs]
 	@_hblanking VARCHAR(50) = NULL,
 	@_vblanking VARCHAR(50) = NULL,
 	@_pseresult VARCHAR(10) = NULL,
-	@_Decodedcheck VARCHAR(10) = NULL,
+	@_decodecheck VARCHAR(10) = NULL,
 	@_maxcll VARCHAR(50) = NULL,
 	@_maxfall VARCHAR(50) = NULL
 	
@@ -102,7 +103,7 @@ BEGIN
 		HBlanking = @_hblanking,
 		VBlanking = @_vblanking,
 		PSEResult = @_pseresult,
-		DecodeCheck = @_Decodedcheck, 
+		DecodeCheck = @_decodecheck, 
 		MaxCLL = @_maxcll, 
 		MaxFALL  = @_maxfall
 		
@@ -888,6 +889,76 @@ Error:
 	
 	
 	
+END
+
+GO
+
+
+/****** Object:  StoredProcedure [bward].[ins_up_InsertOrUpdateBanijayRightsTapeLayout]    Script Date: 08/03/2023 13:58:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [bward].[ins_up_InsertOrUpdateBanijayRightsTapeLayout]
+	-- Add the parameters for the stored procedure here
+    @Id INT = 0,
+	@QCNum INT,
+    @SubQCNum INT,
+    @Type VARCHAR(50) = NULL,
+    @TimecodeIn VARCHAR(11) = NULL,
+	@TimecodeOut VARCHAR(11) = NULL,
+	@PartDurationExcludingHolds VARCHAR(100) = NULL,
+	@CountAsShow VARCHAR(3) = NULL
+	
+AS
+BEGIN
+	
+	DECLARE @ErrorMsg VARCHAR(2000)
+					
+	BEGIN TRY
+		 
+	   IF @Id = 0
+	     BEGIN
+	        INSERT INTO [bward].[BanijahRightsTapeLayout](
+			QCNum,
+            SubQCNum,
+            [Type],
+            TimecodeIn,
+	        TimecodeOut,
+	        PartDurationExcludingHolds,
+	        CountAsShow
+			)
+	        SELECT
+			@QCNum,
+            @subQCNum,
+            @Type,
+            @TimecodeIn,
+	        @TimecodeOut,
+	        @PartDurationExcludingHolds,
+	        @CountAsShow
+
+	     END
+	   ELSE 
+	     BEGIN
+	     	       
+	        UPDATE [bward].[BanijahRightsTapeLayout]
+			SET 
+			[Type] = @Type,
+            TimecodeIn = @TimecodeIn,
+	        TimecodeOut  =@TimecodeOut,
+	        PartDurationExcludingHolds = @PartDurationExcludingHolds,
+	        CountAsShow = @CountAsShow
+       		WHERE Id =  @Id
+     
+	     END 
+	 
+    END TRY
+    BEGIN CATCH
+             SET @errorMsg = 'ins_up_InsertOrUpdateBanijayRightsTapeLayout failed: ' + ERROR_MESSAGE()
+        RAISERROR(@errorMsg, 16, 1)
+    END CATCH
+		
 END
 
 GO

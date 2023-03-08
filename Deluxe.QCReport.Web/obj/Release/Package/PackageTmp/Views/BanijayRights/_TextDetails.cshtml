@@ -140,14 +140,11 @@
                         </div>
                         <div class="col-sm-4 form-group">
                             @Html.DropDownListFor(m => m.BanijayRightsTextDetails.IsThereASecondTextedOrTextlessVersionInShow,
-                             new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
-                              new { @class = "form-control", @style = "width:130px" })
+                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.IsThereASecondTextedOrTextlessVersionInShow),
+                             "",
+                             new { @class = "form-control", @style = "width:50px" })
                         </div>
-                        <div class="col-sm-3 form-group">
-                            @Html.DropDownListFor(m => m.BanijayRightsTextDetails.IsThereASecondTextedOrTextlessVersionAfterProg,
-                            new SelectList(Model.BanijayRightsInShowAndAfterProgList), "",
-                             new { @class = "form-control", @style = "width:130px" })
-                        </div>
+                       
                     </div>
 
                 </div>
