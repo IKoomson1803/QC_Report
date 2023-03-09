@@ -29,30 +29,40 @@ rsComments.Open sqlComments
   <!--  Header -->
   <!-- #include file="Header_BanijayRights.asp" -->
 
-<table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
+<table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
 	   <tr>
           <td>&nbsp;</td>
       </tr> 
 	 </table>
 	 	  
-      <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
+      <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
 	   <tr>
           <td style="font-size:14px; font-weight: bold; text-align:center;padding: 5px 5px 5px 5px;">NOTES</td>
       </tr> 
 	 </table>
-	 <table width="100%" border="0" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
+	 <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
 	   <tr>
           <td>&nbsp;</td>
       </tr> 
 	 </table>
 	 
-<table width="100%" class="blacksquare" >
+<table width="100%" border="0" style="background-color:#5C013F"  >
    <tr>
-    <td style="padding:5px;" valign="top"><%=rsComments.Fields("Comments")%></td>
+    <td style="height:20px" colspan="3" >&nbsp;</td>
+  </tr>
+
+   <tr>
+    <td style="width:20px" >&nbsp;</td>
+    <td class="blacksquare" style="padding:5px;background-color:#fff;" valign="top"><%=rsComments.Fields("Comments")%></td>
+	<td style="width:20px" >&nbsp;</td>
+  </tr>
+  
+   <tr>
+    <td style="height:20px" colspan="3"  >&nbsp;</td>
   </tr>
  </table>
  
- <table width="100%" border="1" cellspacing="0" cellpadding="1" >
+ <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" >
    <tr>
     <td style="width:10%"  class="BanijayRightsProgrammeDetails">QC Date:&nbsp;</td>
 	<td style="width:10%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("QC_Date")%></td>

@@ -17,7 +17,7 @@ rsTextDetails.Open sqlTextDetails
 
 <table width="100%" border="1" cellspacing="0" cellpadding="1" >
    <tr>
-	  <td style="width:30%;text-align:left;" class="bottom_border BanijayRightsProgrammeLayout">Text Details</td>
+	  <td style="width:30%;text-align:left;font-weight:14px; border-left: 3px solid black;" class="BanijayRightsProgrammeLayout">&nbsp;Text Details</td>
 	  <td style="width:10%;" class="bottom_border BanijayRightsProgrammeLayout" >In Show</td>
 	  <td style="width:10%;" class="bottom_border BanijayRightsProgrammeLayout" >After Prog</td>
 	  <td style="width:30%;" class="bottom_border BanijayRightsProgrammeLayout" >Burnt in Subtitles / CC:</td>

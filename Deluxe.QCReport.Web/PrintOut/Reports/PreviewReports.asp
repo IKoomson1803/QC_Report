@@ -208,7 +208,7 @@ sqlBVIMaster = "SELECT " & _
 rsHeader.CursorType=1
 rsHeader.LockType=3
 
-	
+'' cnQCS.CommandTimeout  = 120	
 rsHeader.Open sqlBVIMaster
 	
 	''Response.Write "Record Count: " & rsHeader.RecordCount & "<br/>"

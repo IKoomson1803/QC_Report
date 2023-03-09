@@ -120,23 +120,7 @@
                         <div class="col-sm-4 form-group">
                             @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxCLL, new { @class = "form-control", maxlength = "50" })
                         </div>
-                        <div class="col-sm-2 text-right">
-                            <label class="control-label">Max FALL:</label>
-                        </div>
-                        <div class="col-sm-4 form-group">
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxFALL, new { @class = "form-control", maxlength = "50" })
-                        </div>
-                    </div>
 
-
-
-                    <div class="row">
-                        <div class="col-sm-2 text-right">
-                            <label class="control-label">Black Level:</label>
-                        </div>
-                        <div class="col-sm-4 form-group">
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.BlackLevel, new { @class = "form-control", maxlength = "40" })
-                        </div>
                         <div class="col-sm-2 text-right">
                             <label class="control-label">PSE Result:</label>
                         </div>
@@ -145,15 +129,18 @@
                            new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.PSEResult), "",
                            new { @class = "form-control" })
                         </div>
+
                     </div>
 
                     <div class="row">
+
                         <div class="col-sm-2 text-right">
-                            <span>&nbsp;</span>
+                            <label class="control-label">Max FALL:</label>
                         </div>
                         <div class="col-sm-4 form-group">
-                            <span>&nbsp;</span>
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxFALL, new { @class = "form-control", maxlength = "50" })
                         </div>
+
                         <div class="col-sm-2 text-right">
                             <label class="control-label">Decode Check:</label>
                         </div>
@@ -167,6 +154,16 @@
 
 
 
+
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Black Level:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.BlackLevel, new { @class = "form-control", maxlength = "40" })
+                        </div>
+                       
+                    </div>
 
 
                 </div>

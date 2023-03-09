@@ -21,18 +21,18 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
   <!--  Header -->
   <!-- #include file="Header_BanijayRights.asp" -->
 
-<table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
+<table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
 	   <tr>
           <td>&nbsp;</td>
       </tr> 
 	 </table>
 	 	  
-      <table width="100%" border="1" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
+      <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#FF4370">
 	   <tr>
           <td style="font-size:14px; font-weight: bold; text-align:center;padding: 5px 5px 5px 5px;">FAULTS</td>
       </tr> 
 	 </table>
-	 <table width="100%" border="0" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
+	 <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
 	   <tr>
           <td>&nbsp;</td>
       </tr> 
@@ -134,23 +134,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 		
 			</td>
             <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;
-			<%
-			
-			      If IsNull(rsBVMastLog.Fields("QC_Codename").Value) Then
-				  
-				        If rsBVMastLog.Fields("QC_Code").Value = "Audio" Then
-						   Response.write("A")
-						ElseIf rsBVMastLog.Fields("QC_Code").Value = "Film" Then
-						   Response.write("F")    
-						ElseIf rsBVMastLog.Fields("QC_Code").Value = "Video" Then
-						   Response.write("V")  
-				    	End If
-				  Else
-				    Response.write(rsBVMastLog.Fields("QC_Codename"))
-			      End If
-			
-			%>
-			
+			<%=rsBVMastLog.Fields("QC_Codename")%>			
 			&nbsp;&nbsp;</td>
             <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
             <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
@@ -198,7 +182,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
         </table>
       </td>
     </tr>
-	<tr style="line-height:40px;" >
+	<!-- <tr style="line-height:40px;" >
 	     <td class="left_right_top_border">
 			<table width="100%" border="0" cellspacing="0" cellpadding="1">
 			   <tr> 
@@ -217,10 +201,10 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
      
 	   </td>
 	
-	</tr>
+	</tr> --> 
 	
 	<tr  style="line-height:40px;">
-	    <td class="left_right_border">
+	    <td class="left_right_top_border">
 			<table width="100%" border="0" cellspacing="0" cellpadding="1">
 			  <tr> 
 	              <td colspan="7" class="BanijayRightsText" style="color:#A6A6A6">
@@ -247,11 +231,22 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 	     <td>
 			<table width="100%" border="1" cellspacing="0" cellpadding="1">
 			  <tr> 
-				 <td style="width:20%" class="BanijayRightsProgrammeLayout" style="text-align:right;">
-				 Pass or Fail:&nbsp;									 
+				 <td style="width:20%" class="BanijayRightsProgrammeLayout" style="text-align:right;">Pass or Fail:&nbsp;									 
 				</td>
-				<td colspan="6" class="BanijayRightsText" style="font-weight:bold;font-size:25px; text-align:center; color:red;">
-				&nbsp;<%=rsHeader.Fields("Eval_Stat")%>	
+				<td colspan="6" class="BanijayRightsText"
+				   <%
+			
+					  If rsHeader.Fields("Eval_Stat") <> "" Then
+					  
+							If rsHeader.Fields("Eval_Stat") = "Passed" Then
+							   Response.write(" style='font-weight:bold;font-size:25px; text-align:center; color: green'>" &  rsHeader.Fields("Eval_Stat") )
+							Else
+							   Response.write("style='font-weight:bold;font-size:25px; text-align:center; color: red'>" &  rsHeader.Fields("Eval_Stat"))    
+							End If
+					   End If
+				
+			       %>
+	
 				</td>
 			  </tr>
 			</table>

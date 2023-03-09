@@ -4,7 +4,7 @@
 
             <% If Not IsNull(rsHeader.Fields("Ch10_Desc").value) And Trim(rsHeader.Fields("Ch10_Desc").value) <> ""  Then %>
               <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;10&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;10&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent10")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language10")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH10_Desc")%>&nbsp;</td>
@@ -18,7 +18,7 @@
 			  
 			 <% If Not IsNull(rsHeader.Fields("Ch11_Desc").value) And Trim(rsHeader.Fields("Ch11_Desc").value) <> ""  Then %> 
                <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;11&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;11&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent11")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language11")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH11_Desc")%>&nbsp;</td>
@@ -32,7 +32,7 @@
 			  
 			 <% If Not IsNull(rsHeader.Fields("Ch12_Desc").value) And Trim(rsHeader.Fields("Ch12_Desc").value) <> ""  Then %> 
               <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;12&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;12&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent12")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language12")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH12_Desc")%>&nbsp;</td>
@@ -46,7 +46,7 @@
 			  
 			 <% If Not IsNull(rsHeader.Fields("Ch13_Desc").value) And Trim(rsHeader.Fields("Ch13_Desc").value) <> ""  Then %> 
                <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;13&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;13&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent13")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language13")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH13_Desc")%>&nbsp;</td>
@@ -60,7 +60,7 @@
 			  
 			 <% If Not IsNull(rsHeader.Fields("Ch14_Desc").value) And Trim(rsHeader.Fields("Ch14_Desc").value) <> ""  Then %> 
                 <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;14&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;14&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent14")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language14")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH14_Desc")%>&nbsp;</td>
@@ -74,7 +74,7 @@
                
                <% If Not IsNull(rsHeader.Fields("Ch15_Desc").value) And Trim(rsHeader.Fields("Ch15_Desc").value) <> ""  Then %>
              <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;15&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;15&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent15")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language15")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH15_Desc")%>&nbsp;</td>
@@ -88,7 +88,7 @@
                
                <% If Not IsNull(rsHeader.Fields("Ch16_Desc").value) And Trim(rsHeader.Fields("Ch16_Desc").value) <> ""  Then %>
                <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;16&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;16&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent16")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language16")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH16_Desc")%>&nbsp;</td>
@@ -103,7 +103,7 @@
                
                <% If Not IsNull(rsHeader.Fields("Ch17_Desc").value) And Trim(rsHeader.Fields("Ch17_Desc").value) <> ""  Then %>
                 <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;17&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;17&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent17")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language17")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH17_Desc")%>&nbsp;</td>
@@ -118,7 +118,7 @@
                
              <% If Not IsNull(rsHeader.Fields("Ch18_Desc").value)  And Trim(rsHeader.Fields("Ch18_Desc").value) <> ""  Then %>
                <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;18&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;18&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent18")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language18")%>&nbsp;</td>
 	    		<td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("CH18_Desc")%>&nbsp;</td>

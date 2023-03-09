@@ -38,6 +38,10 @@ width:12%;
 font-size:12px;
 }
 
+.SolidBorder{
+border: 2px solid black;
+}
+
 </style>
 
 <%

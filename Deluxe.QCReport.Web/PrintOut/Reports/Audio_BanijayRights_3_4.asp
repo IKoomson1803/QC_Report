@@ -2,7 +2,7 @@
 
         <% If Not IsNull(rsHeader.Fields("Ch3_Desc").value) And Trim(rsHeader.Fields("Ch3_Desc").value) <> ""   Then %>
               <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;3&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;3&nbsp;</b></td>
                 <td width="15%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent3")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language3")%>&nbsp;</td>
 	    		<td width="15%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Ch3_Desc")%>&nbsp;</td>
@@ -16,7 +16,7 @@
 				
 			<% If Not IsNull(rsHeader.Fields("Ch4_Desc").value) And Trim(rsHeader.Fields("Ch4_Desc").value) <> ""  Then %>	
               <tr>
-                <td width="4%" class="right_border BanijayRightsLable"><b>&nbsp;Channel&nbsp;4&nbsp;</b></td>
+                <td width="4%" class="right_border BanijayRightsProgrammeDetails"><b>&nbsp;Channel&nbsp;4&nbsp;</b></td>
                 <td width="15%" class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("TrackContent4")%>&nbsp;</td>
 				<td width="9%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Language4")%>&nbsp;</td>
 	    		<td width="15%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Ch4_Desc")%>&nbsp;</td>
