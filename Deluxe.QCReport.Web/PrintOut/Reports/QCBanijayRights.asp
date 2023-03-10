@@ -24,6 +24,14 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
 	border-style:none;
 }
 
+.BanijayRightsFaultLabel{
+	background-color:#5C013F;
+	color: #fff;
+	font-weight:bold;
+	text-align:center;
+	border-style:none;
+}
+
 
 .BanijayRightsText, .BanijayRightsLable{
 	font-size:12px;

@@ -45,7 +45,7 @@ rsTapeLayout.Open sqlTapeLayout
 		  <td  colspan = "2" align="center" class="bottom_border BanijayRightsProgrammeLayout" >Total Length including breaks</td>
         </tr>
 		 <tr>
-          <td style="width:20%;font-size:14px;" class="left_bottom_border BanijayRightsProgrammeLayout" >Programme</td>
+          <td style="width:20%;font-size:14px;text-align:left;" class="left_bottom_border BanijayRightsProgrammeLayout" >Programme</td>
 		  <td style="width:20%;" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
 		  <td style="width:20%;" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
 		  <td style="width:40%;" colspan = "2" align="center" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
@@ -58,7 +58,7 @@ rsTapeLayout.Open sqlTapeLayout
         </tr>
 	
         <tr>
-              <td style="width:20%; text-align:center;font-size:14px;" class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout" >Layout</td>
+              <td style="width:20%; text-align:center;font-size:14px;text-align:left;" class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout" >Layout</td>
                 <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Timecode In</td>
                 <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Timecode In</td>
 			     <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Part Duration ex holds</td>

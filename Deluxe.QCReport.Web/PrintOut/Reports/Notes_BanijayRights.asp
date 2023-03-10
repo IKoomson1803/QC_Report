@@ -24,7 +24,7 @@ rsComments.Open sqlComments
     <td>&nbsp;</td>
   </tr>
 
-<div class="PageBreak"></div>
+<!-- <div class="PageBreak"></div> -->
 
   <!--  Header -->
   <!-- #include file="Header_BanijayRights.asp" -->
@@ -47,19 +47,19 @@ rsComments.Open sqlComments
 	 </table>
 	 
 <table width="100%" border="0" style="background-color:#5C013F"  >
-   <tr>
-    <td style="height:20px" colspan="3" >&nbsp;</td>
-  </tr>
+  <!-- <tr>
+    <td colspan="3" >&nbsp;</td>
+  </tr> -->
 
    <tr>
-    <td style="width:20px" >&nbsp;</td>
+    <!-- <td style="width:1px" >&nbsp;</td> -->
     <td class="blacksquare" style="padding:5px;background-color:#fff;" valign="top"><%=rsComments.Fields("Comments")%></td>
-	<td style="width:20px" >&nbsp;</td>
+	<!--<td style="width:1px" >&nbsp;</td> -->
   </tr>
   
-   <tr>
-    <td style="height:20px" colspan="3"  >&nbsp;</td>
-  </tr>
+  <!-- <tr>
+    <td  colspan="3"  >&nbsp;</td>
+  </tr> -->
  </table>
  
  <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" >

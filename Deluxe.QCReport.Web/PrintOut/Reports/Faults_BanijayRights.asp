@@ -93,14 +93,14 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
       <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="1">
           <tr> 
-		 		  
+			 		  
 			
             <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>TIME CODE</b></td>
             <td width="6%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>TYPE</b></td>
-            <td width="62%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>FAULT DESCRIPTION</b></td>
+            <td width="55%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>FAULT DESCRIPTION</b></td>
             <td width="3%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>GRD</b></td>
 			
-            <td width="7%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>SECTOR</b></td>
+            <td width="14%" align="center" class="left_top_border BanijayRightsProgrammeLayout"><b>SECTOR</b></td>
 		     <td width="7%" align="center" class=" left_top_border BanijayRightsProgrammeLayout" ><b>SAME AS MASTER</b></td>
 			 <td width="7%" align="center" class="left_right_top_border BanijayRightsProgrammeLayout"  ><b>ITEM DURATION</b></td>
 			
@@ -128,18 +128,18 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
           <tr style="line-height:20px;">
 		 
 			
-            <td  style="vertical-align:middle;" class="left_top_border BanijayRightsText">
+            <td  style="vertical-align:middle;" class="left_top_border">
 			
 			  &nbsp;<%=rsBVMastLog.Fields("Time_Code")%>&nbsp;&nbsp;
 		
 			</td>
-            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
 			<%=rsBVMastLog.Fields("QC_Codename")%>			
 			&nbsp;&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
 			
-            <td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;
+            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
 			
 			      <%
 				  
@@ -155,7 +155,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			
 			&nbsp;</td>
 					
-					<td  style="vertical-align:middle;"  class="left_top_border BanijayRightsText">&nbsp;
+					<td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
 															<%
 															if rsBVMastLog.Fields("in_master") = -1 then
 																Response.write("Yes")
@@ -165,7 +165,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 															%>&nbsp;
 				</td>
 				
-				<td  style="vertical-align:middle;"  class="left_right_top_border  BanijayRightsText" >&nbsp;<%=rsBVMastLog.Fields("item_duratn")%>&nbsp;</td>
+				<td  style="vertical-align:middle;"  class="left_right_top_border " >&nbsp;<%=rsBVMastLog.Fields("item_duratn")%>&nbsp;</td>
 				
             
           </tr>
@@ -238,10 +238,10 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			
 					  If rsHeader.Fields("Eval_Stat") <> "" Then
 					  
-							If rsHeader.Fields("Eval_Stat") = "Passed" Then
-							   Response.write(" style='font-weight:bold;font-size:25px; text-align:center; color: #00FF00'>" &  rsHeader.Fields("Eval_Stat") )
+							If rsHeader.Fields("Eval_Stat") = "Failed" Then
+							   Response.write(" style='font-weight:bold;font-size:35px; text-align:center; color: #FF0000'>" &  rsHeader.Fields("Eval_Stat") )
 							Else
-							   Response.write("style='font-weight:bold;font-size:25px; text-align:center; color: #FF0000'>" &  rsHeader.Fields("Eval_Stat"))    
+							   Response.write("style='font-weight:bold;font-size:35px; text-align:center; color: #00FF00'>" &  rsHeader.Fields("Eval_Stat"))    
 							End If
 					   End If
 				
