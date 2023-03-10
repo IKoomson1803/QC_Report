@@ -239,9 +239,9 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 					  If rsHeader.Fields("Eval_Stat") <> "" Then
 					  
 							If rsHeader.Fields("Eval_Stat") = "Passed" Then
-							   Response.write(" style='font-weight:bold;font-size:25px; text-align:center; color: green'>" &  rsHeader.Fields("Eval_Stat") )
+							   Response.write(" style='font-weight:bold;font-size:25px; text-align:center; color: #00FF00'>" &  rsHeader.Fields("Eval_Stat") )
 							Else
-							   Response.write("style='font-weight:bold;font-size:25px; text-align:center; color: red'>" &  rsHeader.Fields("Eval_Stat"))    
+							   Response.write("style='font-weight:bold;font-size:25px; text-align:center; color: #FF0000'>" &  rsHeader.Fields("Eval_Stat"))    
 							End If
 					   End If
 				

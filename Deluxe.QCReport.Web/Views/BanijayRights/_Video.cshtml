@@ -82,6 +82,8 @@
             <div class="col-sm-6">
                 <div class="bs-callout bs-callout-default">
                     <b style="font-size:14px;">Programme Overall Technical Spec</b>
+
+
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-sm-2 text-right">
                             <label class="control-label">Lum. Peak:</label>
@@ -89,13 +91,23 @@
                         <div class="col-sm-4 form-group">
                             @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminancePeak, new { @class = "form-control", maxlength = "40" })
                         </div>
-                        <div class="col-sm-2 text-right">
-                            <label class="control-label">Chroma Peak:</label>
-                        </div>
-                        <div class="col-sm-4 form-group">
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaPeak, new { @class = "form-control", maxlength = "40" })
-                        </div>
+
+                     <div class="col-sm-2 text-right" style="width:150px">
+
+                        <label class="control-label">Colour Encoding:</label>
                     </div>
+
+                    <div class="col-sm-4 form-group">
+
+                        @Html.DropDownListFor(m => m.OverallSpecs_VM.ColourEncoding, 
+                       new SelectList(Model.ColourEncodingList, "value", "value"), "",
+                       new { @class = "form-control" })
+                    </div>
+
+
+
+
+                </div>
 
 
                     <div class="row">
@@ -105,12 +117,15 @@
                         <div class="col-sm-4 form-group">
                             @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminanceAvg, new { @class = "form-control", maxlength = "40" })
                         </div>
-                        <div class="col-sm-2 text-right">
-                            <label class="control-label">Chroma Avg:</label>
+
+                        <div class="col-sm-2 text-right" style="width:150px">
+                            <label class="control-label">Chroma Peak:</label>
                         </div>
                         <div class="col-sm-4 form-group">
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaAvg, new { @class = "form-control", maxlength = "40" })
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaPeak, new { @class = "form-control", maxlength = "40" })
                         </div>
+
+
                     </div>
 
                     <div class="row">
@@ -121,13 +136,11 @@
                             @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxCLL, new { @class = "form-control", maxlength = "50" })
                         </div>
 
-                        <div class="col-sm-2 text-right">
-                            <label class="control-label">PSE Result:</label>
+                        <div class="col-sm-2 text-right" style="width:150px">
+                            <label class="control-label">Chroma Avg:</label>
                         </div>
                         <div class="col-sm-4 form-group">
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.PSEResult,
-                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.PSEResult), "",
-                           new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaAvg, new { @class = "form-control", maxlength = "40" })
                         </div>
 
                     </div>
@@ -141,14 +154,17 @@
                             @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxFALL, new { @class = "form-control", maxlength = "50" })
                         </div>
 
-                        <div class="col-sm-2 text-right">
-                            <label class="control-label">Decode Check:</label>
+                        <div class="col-sm-2 text-right" style="width:150px">
+                            <label class="control-label">PSE Result:</label>
                         </div>
                         <div class="col-sm-4 form-group">
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.DecodeCheck,
-                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.DecodeCheck), "",
+                            @Html.DropDownListFor(m => m.OverallSpecs_VM.PSEResult,
+                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.PSEResult), "",
                            new { @class = "form-control" })
                         </div>
+
+
+
                     </div>
 
 
@@ -162,7 +178,19 @@
                         <div class="col-sm-4 form-group">
                             @Html.TextBoxFor(m => m.OverallSpecs_VM.BlackLevel, new { @class = "form-control", maxlength = "40" })
                         </div>
-                       
+
+                        <div class="col-sm-2 text-right" style="width:150px">
+                            <label class="control-label">Decode Check:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.OverallSpecs_VM.DecodeCheck,
+                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.DecodeCheck), "",
+                           new { @class = "form-control" })
+                        </div>
+
+
+
+
                     </div>
 
 

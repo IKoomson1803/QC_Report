@@ -392,8 +392,8 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-
             model.PassedOrFailedList = LookUpsService.GetPassedOrFailed();
+            model.ColourEncodingList = LookUpsService.GetColourEncoding();
 
 
             /****************Log User Activity******************************************************/
