@@ -231,7 +231,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 	     <td>
 			<table width="100%" border="1" cellspacing="0" cellpadding="1">
 			  <tr> 
-				 <td style="width:20%" class="BanijayRightsProgrammeLayout" style="text-align:right;">Pass or Fail:&nbsp;									 
+				 <td style="width:20%;font-size:25px" class="BanijayRightsProgrammeLayout" style="text-align:right;">Pass or Fail:&nbsp;									 
 				</td>
 				<td colspan="6" class="BanijayRightsText"
 				   <%
