@@ -82,15 +82,11 @@ End Function
 						     <td  width="100%" border="0" height="100%" valign="top" >
 						            <table width="100%" border="1" cellspacing="0" cellpadding="0" height="100%" >
 							          <tr>
-						                     <td class="left_right_top_border BanijayRightsProgrammeDetails" style="text-align:right;width:15%;">
-											    Bit Rate:&nbsp;
+						                     
+						                     <td colspan="9" style="text-align:center;" class="left_right_top_border BanijayRightsProgrammeDetails" style="text-align:center;width:40%;">
+											   Bit Rate:&nbsp;&nbsp;<%=rsHeader.Fields("BitRate")%>
 											 </td>
-						                     <td colspan="4" class="left_right_top_border BanijayRightsProgrammeDetails" style="text-align:center;width:40%;">
-											   &nbsp;<%=rsHeader.Fields("BitRate")%>
-											 </td>
-						                    <td colspan="4" class="left_right_top_border BanijayRightsProgrammeDetails" style="width:45%;" >
-											   &nbsp;
-											 </td>
+						                    
 						              </tr>
 						          </table>
 						     </td>
@@ -107,15 +103,15 @@ End Function
 						 <td  width="100%" border="0" height="100%" valign="top" >
 						   <table width="100%" border="1" cellspacing="0" cellpadding="0" height="100%" >
 							   <tr>
-									<td height="17px" width="6%" class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
-									<td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Track Content</b></td>
-									<td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Language</b></td>
-								    <td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Position</b></td>
-								   	<td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Tone</b></td>
-									<td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Average db</b></td>
-									<td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;Peak</b></td>
-									<td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;True Peak</b></td>
-									 <td height="17px" width="11.75%" class="txt_boldtype2 left_bottom_border BanijayRightsLable"><b>&nbsp;LKFS</b></td>
+									<td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
+									<td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;Track Content</b></td>
+									<td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;Language</b></td>
+								    <td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;Position</b></td>
+								   	<td height="17px" class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;Tone</b></td>
+									<td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;Average db</b></td>
+									<td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;Peak</b></td>
+									<td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;True Peak</b></td>
+									 <td height="17px"  class="txt_boldtype2 left_bottom_border BanijayRightsProgrammeLayout"><b>&nbsp;LKFS</b></td>
 							  </tr>
 								  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
 										 <!--#include file="Audio_BanijayRights_1_2.asp" -->

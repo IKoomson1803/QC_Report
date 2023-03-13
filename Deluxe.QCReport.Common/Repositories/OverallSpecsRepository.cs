@@ -138,7 +138,7 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Parameters.Add(GetSqlParameterString("@_ireMv", oasDetails.IreMv));
                     _cmd.Parameters.Add(GetSqlParameterString("@_barSet", oasDetails.SetUp));
                     _cmd.Parameters.Add(GetSqlParameterString("@_vidCodec", oasDetails.VideoCodec));
-                    _cmd.Parameters.Add(GetSqlParameterString("@_vidRate", oasDetails.VideoBitRate));
+                   _cmd.Parameters.Add(GetSqlParameterString("@_vidRate", oasDetails.VideoBitRate));
                     _cmd.Parameters.Add(GetSqlParameterString("@_vidDepth", oasDetails.VideoBitDepth));
                     _cmd.Parameters.Add(GetSqlParameterString("@_bitRateMode", oasDetails.BitRateMode));
                     _cmd.Parameters.Add(GetSqlParameterString("@_auCodec", oasDetails.AudioCodec));
