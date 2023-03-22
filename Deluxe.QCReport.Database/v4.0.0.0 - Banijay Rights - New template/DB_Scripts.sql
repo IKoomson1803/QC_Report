@@ -2052,6 +2052,7 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT 
+	[Wonum] 'WorkOrderNumber',
 	[Qcnum] ,
    [subQcnum] ,
 	Comments,

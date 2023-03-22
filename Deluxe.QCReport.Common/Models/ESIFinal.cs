@@ -28,7 +28,7 @@ namespace Deluxe.QCReport.Common.Models
         public string QCVendor { get; set; }
         public int QCOperator { get; set; }
         public string QCKit { get; set; }
-
+        public string WorkOrderNumber { get; set; }
 
     }
 }

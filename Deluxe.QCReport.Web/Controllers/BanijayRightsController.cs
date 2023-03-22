@@ -182,7 +182,8 @@ namespace Deluxe.QCReport.Web.Controllers
             model.ChannelCountList = LookUpsService.GetChannelCount();
             model.BanijayRightsBitRateList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsBitRate).ToList(); // new
             model.BanijayRightsTrackContentList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTrackContent).ToList(); // new 
-            model.BanijayRightsLanguageList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
+            //model.BanijayRightsLanguageList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
+            model.LanguageList = LookUpsService.GetLanguage();
             model.BanijayRightsPositionList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsPosition).ToList(); // Description
             model.BanijayRightsToneList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTone).ToList();
 

@@ -16,6 +16,7 @@ namespace Deluxe.QCReport.Common.Abstractions
         string TimecodeOut { get; set; }
         string PartDurationExcludingHolds { get; set; }
         string CountAsShow { get; set; }
+        int ItemNum { get; set; }
 
     }
 }

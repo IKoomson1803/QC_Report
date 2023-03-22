@@ -53,6 +53,7 @@ namespace Deluxe.QCReport.Common.Repositories
                     else
                     {
                         result = new BanijahRightsProgrammeLayout() { QCNum = qcNum, SubQCNum = subQCNum };
+                        result.TapeLayouts = multi.Read<BanijahRightsTapeLayout>().ToList();
                     }
                 }
 

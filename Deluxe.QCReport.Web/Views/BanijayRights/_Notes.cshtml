@@ -73,6 +73,13 @@
                 @Html.TextBoxFor(m => m.ESIFinalVM.QCVendor, new { @class = "form-control", maxlength = "150" })
             </div>
 
+            <div class="col-sm-1 text-right">
+                <label class="control-label">Deluxe WO:</label>
+            </div>
+            <div class="col-sm-1 form-group">
+                @Html.TextBoxFor(m => m.ESIFinalVM.WorkOrderNumber, new { @class = "form-control", maxlength = "150", @readonly = "readonly", @width = "60px" })
+            </div>
+
         </div>
 
         <div class="row">
@@ -89,14 +96,27 @@
                 <label class="control-label">QC Kit:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.ESIFinalVM.QCKit, new { @class = "form-control", maxlength = "150" })
+                @Html.TextBoxFor(m => m.ESIFinalVM.QCKit, new { @class = "form-control", maxlength = "150"  })
+            </div>
+
+            <div class="col-sm-1 text-right">
+                <label class="control-label">&nbsp;</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                &nbsp;
+            </div>
+
+            <div class="col-sm-1 text-right">
+                <label class="control-label">Deluxe QC:</label>
+            </div>
+            <div class="col-sm-1 form-group">
+                @Html.TextBoxFor(m => m.ESIFinalVM.Qcnum, new { @class = "form-control", maxlength = "150", @readonly = "readonly", @width = "60px" })
             </div>
 
 
-
-
-
         </div>
+
+      
 
 
 

@@ -76,8 +76,28 @@ rsComments.Open sqlComments
 	<td style="width:10%"  class="BanijayRightsProgrammeDetails">QC Operator:&nbsp;</td>
 	<td style="width:10%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Fullname")%></td>
 	
+
+	
+  </tr>
+ </table>
+ 
+ <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" >
+   <tr>
+    <td style="width:10%"  class="BanijayRightsProgrammeDetails">Deluxe WO:&nbsp;</td>
+	<td style="width:10%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Wonum")%></td>
+		
+	<td style="width:10%"  class="BanijayRightsProgrammeDetails">Deluxe QC:&nbsp;</td>
+	<td style="width:10%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("Qcnum")%></td>
+	
+		
 	<td style="width:10%"  class="BanijayRightsProgrammeDetails">QC Kit:&nbsp;</td>
 	<td style="width:10%"  class="BanijayRightsText">&nbsp;<%=rsHeader.Fields("QC_VTR")%></td>
+	
+	
+	<td style="width:10%"  class="BanijayRightsProgrammeDetails">&nbsp;</td>
+	<td style="width:10%"  class="BanijayRightsText">&nbsp;</td>
+	
+
 	
 	
 	

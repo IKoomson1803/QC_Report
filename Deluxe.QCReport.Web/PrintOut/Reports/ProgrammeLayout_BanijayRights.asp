@@ -42,19 +42,19 @@ rsTapeLayout.Open sqlTapeLayout
           <td  class="left_bottom_border BanijayRightsProgrammeLayout"> &nbsp;</td>
 		  <td  class="bottom_border BanijayRightsProgrammeLayout" >Programme In</td>
 		  <td  class="bottom_border BanijayRightsProgrammeLayout" >Programme Out</td>
-		  <td  colspan = "2" align="center" class="bottom_border BanijayRightsProgrammeLayout" >Total Length including breaks</td>
+		  <td  colspan = "3" align="center" class="bottom_border BanijayRightsProgrammeLayout" >Total Length including breaks</td>
         </tr>
 		 <tr>
           <td style="width:20%;font-size:14px;text-align:left;" class="left_bottom_border BanijayRightsProgrammeLayout" >Programme</td>
 		  <td style="width:20%;" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
 		  <td style="width:20%;" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
-		  <td style="width:40%;" colspan = "2" align="center" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
+		  <td style="width:40%;" colspan = "3" align="center" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
         </tr>
 		<tr>
           <td style="width:20%; text-align:center;" class="left_bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
 		  <td style="width:20%; text-align:center !important;" class="bottom_border BanijayRightsText" ><%=rsProgLayout.Fields("ProgrammeIn")%></td>
 		  <td style="width:20%; text-align:center;" class="bottom_border BanijayRightsText" ><%=rsProgLayout.Fields("ProgrammeOut")%></td>
-		  <td style="width:40%; text-align:center;" colspan = "2" align="center" class="bottom_border BanijayRightsText" ><%=rsProgLayout.Fields("TotalLengthIncludingBreaks")%></td>
+		  <td style="width:40%; text-align:center;" colspan = "3" align="center" class="bottom_border BanijayRightsText" ><%=rsProgLayout.Fields("TotalLengthIncludingBreaks")%></td>
         </tr>
 	
         <tr>
@@ -62,31 +62,41 @@ rsTapeLayout.Open sqlTapeLayout
                 <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Timecode In</td>
                 <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Timecode In</td>
 			     <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Part Duration ex holds</td>
-				 <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
-              </tr>
-			   <tr>
-				  <td style="width:20%; text-align:center;" class="left_bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
+				 <td style="width:20%; text-align:center;" colspan = "2" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
+          </tr>
+		  <tr>
+				  <td style="width:20%; text-align:center;"  class="left_bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
 				  <td style="width:20%; text-align:center;" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
 				  <td style="width:20%; text-align:center;" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
 				  <td style="width:20%; text-align:center;" class="bottom_border BanijayRightsProgrammeLayout" >H:M:S:F</td>
-				  <td style="width:20%; text-align:center;" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Count As Show</td>
-              </tr>
+				  <td style="width:20%; text-align:center;" colspan = "2" class="txt_boldtype2 bottom_border BanijayRightsProgrammeLayout">Count As Show</td>
+            </tr>
             <%while not rsTapeLayout.EOF%>
               <tr>
-			    <td style="width:20%; text-align:rights;" class="BanijayRightsProgrammeDetails"><%=rsTapeLayout.Fields("Type")%>&nbsp;</td>
-                <td style="width:20%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("TimecodeIn")%></td>
-                <td style="width:20%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("TimecodeOut")%></td>
-				 <td style="width:20%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("PartDurationExcludingHolds")%></td>
-                <td style="width:20%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("CountAsShow")%></td>
+			    
+			  
+			   <!-- <td style="width:4%; text-align:center;" class="BanijayRightsProgrammeDetails"><%=rsTapeLayout.Fields("ItemNum")%>&nbsp;</td> -->
+			    <td style="width:23%; text-align:center;" class="BanijayRightsProgrammeDetails">
+				<%=rsTapeLayout.Fields("ItemNum")%>:&nbsp;&nbsp;
+				<%=rsTapeLayout.Fields("Type")%>&nbsp;
+				
+				</td>
+                <td style="width:23%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("TimecodeIn")%></td>
+                <td style="width:23%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("TimecodeOut")%></td>
+				 <td style="width:23%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("PartDurationExcludingHolds")%></td>
+                <td style="width:4%; text-align:center;"   class="BanijayRightsText"><%=rsTapeLayout.Fields("CountAsShow")%></td>
+				
+				
+				
               </tr>
             <%rsTapeLayout.MoveNext
             wend%>
 			 <tr>
-			    <td style="width:20%; text-align:center;" class="BanijayRightsText">&nbsp;</td>
-                <td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Programme Duration:</td>
+			    <td style="width:20%; text-align:center;"  class="BanijayRightsProgrammeLayout">&nbsp;</td>
+                <td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Programme Duration:&nbsp;</td>
                 <td style="width:20%; text-align:center;" class="BanijayRightsText"><%=rsProgLayout.Fields("ProgrammeDuration")%></td>
-				 <td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Number of parts:</td>
-                <td style="width:20%; text-align:center;" class="BanijayRightsText"><%=rsProgLayout.Fields("NumberOfParts")%></td>
+				 <td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Number of parts:&nbsp;</td>
+                <td style="width:20%; text-align:center;" colspan = "2" class="BanijayRightsText"><%=rsProgLayout.Fields("NumberOfParts")%></td>
         </tr>
       </table>
 	  
@@ -98,9 +108,9 @@ rsTapeLayout.Open sqlTapeLayout
 	 	  
 	  <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" >
 	   <tr>
-          <td class="BanijayRightsProgrammeLayout" style="text-align:right;width:25%;">Slate Accurate?</td>
+          <td class="BanijayRightsProgrammeLayout" style="text-align:right;width:25%;">Slate / Clock Accurate:&nbsp;</td>
 		  <td class="BanijayRightsText" style="width:25%; text-align:center;"><%=rsProgLayout.Fields("SlateAccurate")%></td>
-		   <td class="BanijayRightsProgrammeLayout" style="text-align:right;;width:25%;">Next week / trailer present:</td>
+		   <td class="BanijayRightsProgrammeLayout" style="text-align:right;;width:25%;">Next week / trailer present:&nbsp;</td>
 		  <td class="BanijayRightsText" style="width:25%; text-align:center;"><%=rsProgLayout.Fields("NextWeekOrTrailerPresent")%></td>
       </tr> 
 	 </table>

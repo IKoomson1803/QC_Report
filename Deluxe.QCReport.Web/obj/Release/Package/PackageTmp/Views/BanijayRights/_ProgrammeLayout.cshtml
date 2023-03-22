@@ -3,6 +3,11 @@
 @{
     var itemNo = 0;
     var itemCount = Model.BanijahRightsProgrammeLayout.TapeLayouts.Count;
+
+    var nextItemNo = 1;
+    var lastItem = Model.BanijahRightsProgrammeLayout.TapeLayouts.OrderByDescending(m => m.ItemNum).FirstOrDefault();
+    if (lastItem != null) { nextItemNo = lastItem.ItemNum + 1; }
+   
 }
 
 <div class="bs-callout bs-callout-warning">
@@ -87,7 +92,7 @@
 
         <div class="row">
             <div class="col-xs-1 form-group" style="margin-left: 5px; width: 160px">
-                <label class="control-label">Slate Accurate?</label>
+                <label class="control-label"> Slate / Clock Accurate:</label>
             </div>
             <div class="col-xs-1 form-group " style="margin-left:5px;">
                 @Html.DropDownListFor(m => m.BanijahRightsProgrammeLayout.SlateAccurate,
@@ -131,66 +136,51 @@
             <br />
         }
 
-        <div class="row">
+<div class="row">
 
-            <div class="col-xs-2 form-group" style="margin-left:5px;">
-                <label class="control-label">Layout:</label>
-                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.Type,
-              new { @class = "form-control", @style = "width:150px" })
-            </div>
+    <div class="col-xs-1 form-group" style="margin-left:5px;">
 
-            <div class="col-xs-2 form-group " style="margin-left:5px;">
-                <label class="control-label">Timecode In:</label>
-                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.TimecodeIn,
-               new { @class = "form-control timecode", placeholder = "hh:mm:ss:ff", maxlength = "11", @style = "width:90px" })
+        <label class="control-label">Item No:</label>
+        @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.ItemNum, 
+       new { @class = "form-control", @type = "number", @width = "40px" })
+    </div>
 
-            </div>
+    <div class="col-xs-2 form-group" style="margin-left:5px;">
+        <label class="control-label">Layout:</label>
+        @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.Type,
+      new { @class = "form-control", @style = "width:150px" })
+    </div>
 
-            <div class="col-xs-2 form-group" style="margin-left:12px;">
-                <label class="control-label">Timecode Out:</label>
-                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.TimecodeOut,
-               new { @class = "form-control timecode", placeholder = "hh:mm:ss:ff", maxlength = "11", @style = "width:90px" })
-            </div>
+    <div class="col-xs-2 form-group " style="margin-left:5px;">
+        <label class="control-label">Timecode In:</label>
+        @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.TimecodeIn,
+       new { @class = "form-control timecode", placeholder = "hh:mm:ss:ff", maxlength = "11", @style = "width:90px" })
 
-            <div class="col-xs-2 form-group" style="margin-left:12px;">
-                <label class="control-label">Part Duration ex holds:</label>
-                @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.PartDurationExcludingHolds,
-               new { @class = "form-control", maxlength = "100", @style = "width:200px" })
-            </div>
+    </div>
 
-            <div class="col-xs-2 form-group" style="margin-left:12px;">
-                <label class="control-label">Count As Show:</label>
-                @Html.DropDownListFor(m => m.BanijahRightsTapeLayout.CountAsShow,
-                          new SelectList(Model.CountAsShowList, "value", "value", Model.BanijahRightsTapeLayout.CountAsShow), "",
-                          new { @class = "form-control", @style = "width:90px" })
-            </div>
-        </div>
+    <div class="col-xs-2 form-group" style="margin-left:12px;">
+        <label class="control-label">Timecode Out:</label>
+        @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.TimecodeOut,
+       new { @class = "form-control timecode", placeholder = "hh:mm:ss:ff", maxlength = "11", @style = "width:90px" })
+    </div>
+
+    <div class="col-xs-2 form-group" style="margin-left:12px;">
+        <label class="control-label">Part Duration ex holds:</label>
+        @Html.TextBoxFor(m => m.BanijahRightsTapeLayout.PartDurationExcludingHolds,
+       new { @class = "form-control", maxlength = "100", @style = "width:200px" })
+    </div>
+
+    <div class="col-xs-2 form-group" style="margin-left:12px;">
+        <label class="control-label">Count As Show:</label>
+        @Html.DropDownListFor(m => m.BanijahRightsTapeLayout.CountAsShow,
+                  new SelectList(Model.CountAsShowList, "value", "value", Model.BanijahRightsTapeLayout.CountAsShow), "",
+                  new { @class = "form-control", @style = "width:90px" })
+    </div>
+</div>
 
         <div id="divTapeLayoutGrid" class="row">
             @{Html.RenderPartial("_TapeLayoutGrid", Model);}
         </div>
-
-        @*<hr />
-
-            <div class="row">
-                <div class="col-sm-1 text-left">
-                    <label class="control-label">Programme Duration:</label>
-                </div>
-                <div class="col-sm-1 text-right form-group">
-                    @Html.TextBoxFor(m => m.BanijahRightsProgrammeLayout.ProgrammeDuration,
-                   new { @class = "form-control timecode programme", placeholder = "hh:mm:ss:ff", maxlength = "11", @style = "width:90px" })
-                </div>
-                <div class="col-sm-2 text-right">
-                    <label class="control-label">Number of parts:</label>
-                </div>
-                <div class="col-sm-1 text-right form-group">
-                    @Html.TextBoxFor(m => m.BanijahRightsProgrammeLayout.NumberOfParts,
-                   new { @class = "form-control programme", @style = "width:100px", @type = "number" })
-                </div>
-
-            </div>*@
-
-
 
     }
 
@@ -232,6 +222,8 @@
 
                 $(".timecode").mask("99:99:99:99");
 
+                  $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val(@nextItemNo);
+
                 $(".programme").blur(function () {
 
                     if (securityLevel >= 1)
@@ -242,7 +234,12 @@
                 });
 
 
-      $('#btnSave').on("click", function () {
+            $('#btnSave').on("click", function () {
+
+                if ($('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val() == '') {
+                    alert("Please add an item number and continue... ")
+                    return;
+                }
 
               if ($('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Type)').val() == '') {
                   Msg.success("Please add a tape layout type and continue... ", 2 * 1000);
@@ -429,6 +426,7 @@
             console.log(data)
 
             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Id)').val(data.Id)
+            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val(data.ItemNun)
             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Type)').val(data.Type)
             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeIn)').val(data.TimecodeIn)
             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeOut)').val(data.TimecodeOut)
@@ -452,6 +450,7 @@
          $('table tr').removeClass("selectedRow");
 
          $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Id)').val('0')
+           $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val(@nextItemNo)
         $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Type)').val('')
         $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeIn)').val('')
         $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeOut)').val('')

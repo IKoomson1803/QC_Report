@@ -12,6 +12,7 @@ namespace Deluxe.QCReport.Common.Models
         public string TimecodeOut { get; set; }
         public string PartDurationExcludingHolds { get; set; }
         public string CountAsShow { get; set; }
+        public int ItemNum { get; set; }
     }
 
 }

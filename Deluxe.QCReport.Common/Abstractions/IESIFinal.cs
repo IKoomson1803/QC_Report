@@ -30,6 +30,7 @@ namespace Deluxe.QCReport.Common.Abstractions
         string QCVendor { get; set; }
         int QCOperator { get; set; }
         string QCKit { get; set; }
+        string WorkOrderNumber { get; set; }
 
     }
 }
