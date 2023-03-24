@@ -395,7 +395,9 @@ namespace Deluxe.QCReport.Web.Controllers
             model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.PassedOrFailedList = LookUpsService.GetPassedOrFailed();
+            model.DecodeCheckList = LookUpsService.GetDecodeCheck();
             model.ColourEncodingList = LookUpsService.GetColourEncoding();
+            model.ColourSpaceList = LookUpsService.GetColourSpace();
 
 
             /****************Log User Activity******************************************************/
@@ -509,7 +511,7 @@ namespace Deluxe.QCReport.Web.Controllers
                                         Constants.ActivityType.BanijayRightsTapeLayoutUpdated);
 
                 /*******************************************************************************************/
-
+                    
             }
 
 
@@ -570,6 +572,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.BanijayRightsTextDetails = _textDetailsService.Get(qcnum, revnum) as BanijayRightsTextDetails;
             model.YesNoNAList = LookUpsService.GetYesNoNA();
+            model.YesNoNAList2 = LookUpsService.GetYesNoNotAll2();
             model.BanijayRightsInShowAndAfterProgList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsInShowAndAfterProg).ToList();
 
 

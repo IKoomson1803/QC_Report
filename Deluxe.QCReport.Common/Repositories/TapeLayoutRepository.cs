@@ -121,14 +121,16 @@ namespace Deluxe.QCReport.Common.Repositories
 
 
                         _cmd.Connection.Open();
+                        _cmd.ExecuteNonQuery();
+                        result = true;
 
-                        if (_cmd.ExecuteNonQuery() != 1)
-                        {
-                            result = false;
-                            // TO DO :: add loggig error here
+                        //if (_cmd.ExecuteNonQuery() != 1)
+                        //{
+                        //    result = false;
+                        //    // TO DO :: add loggig error here
 
-                        }
-                        else { result = true; }
+                        //}
+                        //else { result = true; }
 
                         _cmd.Connection.Close();
                     }
@@ -136,7 +138,7 @@ namespace Deluxe.QCReport.Common.Repositories
                 }
                 catch (Exception)
                 {
-                    result = false;
+                   
                     throw;
                 }
             }
@@ -177,14 +179,16 @@ namespace Deluxe.QCReport.Common.Repositories
 
 
                         _cmd.Connection.Open();
+                        _cmd.ExecuteNonQuery();
+                        result = true;
 
-                        if (_cmd.ExecuteNonQuery() != 1)
-                        {
-                            result = false;
-                            // TO DO :: add loggig error here
+                        //if (_cmd.ExecuteNonQuery() != 1)
+                        //{
+                        //    result = false;
+                        //    // TO DO :: add loggig error here
 
-                        }
-                        else { result = true; }
+                        //}
+                        //else { result = true; }
 
                         _cmd.Connection.Close();
                     }
@@ -192,8 +196,7 @@ namespace Deluxe.QCReport.Common.Repositories
                 }
                 catch (Exception)
                 {
-                    result = false;
-                    throw;
+                       throw;
                 }
             }
 
@@ -281,14 +284,16 @@ namespace Deluxe.QCReport.Common.Repositories
 
 
                         _cmd.Connection.Open();
+                        _cmd.ExecuteNonQuery();
+                        result = true;
 
-                        if (_cmd.ExecuteNonQuery() != 1)
-                        {
-                            result = false;
-                            // TO DO :: add loggig error here
+                        //if (_cmd.ExecuteNonQuery() != 1)
+                        //{
+                        //    result = false;
+                        //    // TO DO :: add loggig error here
 
-                        }
-                        else { result = true; }
+                        //}
+                        //else { result = true; }
 
                         _cmd.Connection.Close();
                     }
@@ -296,8 +301,7 @@ namespace Deluxe.QCReport.Common.Repositories
                 }
                 catch (Exception)
                 {
-                    result = false;
-                    throw;
+                   throw;
                 }
             }
 

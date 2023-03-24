@@ -80,6 +80,7 @@ namespace Deluxe.QCReport.Common.Repositories
                             result.DecodeCheck = DR["DecodeCheck"].ToString().Trim();
                             result.MaxCLL = DR["MaxCLL"].ToString().Trim();
                             result.MaxFALL = DR["MaxFALL"].ToString().Trim();
+                            result.ColourSpace = DR["ColourSpace"].ToString().Trim();
 
                             var individualSpecsRepository = new IndividualSpecsRepository();
                             var individualSpecsVM = individualSpecsRepository.GetIndividualSpecsDetails(QCNum, SubQCNum);
@@ -159,6 +160,7 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Parameters.Add(GetSqlParameterString("@_decodecheck", oasDetails.DecodeCheck));
                     _cmd.Parameters.Add(GetSqlParameterString("@_maxcll", oasDetails.MaxCLL));
                     _cmd.Parameters.Add(GetSqlParameterString("@_maxfall", oasDetails.MaxFALL));
+                    _cmd.Parameters.Add(GetSqlParameterString("@_colourspace", oasDetails.ColourSpace));
 
                     _cmd.Connection.Open();
 

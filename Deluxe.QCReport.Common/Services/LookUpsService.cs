@@ -88,6 +88,18 @@ namespace Deluxe.QCReport.Common.Services
 
             return LookUpsRepository.GetLookupList(Constants.LookupType.ColourEncoding);
         }
+        public static Dictionary<int, string> GetColourSpace()
+        {
+            Dictionary<int, string> result = new Dictionary<int, string>();
+
+            result.Add(1, "BT601");
+            result.Add(2, "BT709");
+            result.Add(3, "BT2020");
+            result.Add(4, "P3");
+            
+
+            return result;
+        }
         public static Dictionary<int, string> GetGamut()
         {
 
@@ -206,6 +218,18 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<string, string> GetDecodeCheck()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("PD", "Pending");
+            result.Add("P", "Passed");
+            result.Add("F", "Failed");
+            result.Add("N/A", "N/A");
+
+            return result;
+        }
+
         public static Dictionary<string, string> GetQCStatus()
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
@@ -286,6 +310,16 @@ namespace Deluxe.QCReport.Common.Services
             result.Add("Y", "Yes");
             result.Add("N", "No");
             result.Add("NA", "Not All");
+            return result;
+        }
+
+        public static Dictionary<string, string> GetYesNoNotAll2()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("Y", "Yes");
+            result.Add("N", "No");
+            result.Add("NA", "Some / Not All");
             return result;
         }
 

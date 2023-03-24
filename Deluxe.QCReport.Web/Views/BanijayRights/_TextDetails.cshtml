@@ -195,7 +195,7 @@
 
                     <div class="row">
                         <div class="col-sm-6 text-right">
-                            <label class="control-label">Swearing?</label>
+                            <label class="control-label">Extreme Language?</label>
                         </div>
                         <div class="col-sm-2 form-group">
                             @Html.DropDownListFor(m => m.BanijayRightsTextDetails.Swearing,
@@ -212,7 +212,7 @@
                         </div>
                         <div class="col-sm-2 form-group">
                             @Html.DropDownListFor(m => m.BanijayRightsTextDetails.BleepedOrUnBleeped,
-                             new SelectList(Model.YesNoNAList, "value", "value", Model.BanijayRightsTextDetails.BleepedOrUnBleeped),
+                             new SelectList(Model.YesNoNAList2, "value", "value", Model.BanijayRightsTextDetails.BleepedOrUnBleeped),
                              "",
                              new { @class = "form-control", @style = "width:50px" })
 

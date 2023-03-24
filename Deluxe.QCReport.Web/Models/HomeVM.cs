@@ -59,6 +59,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> FullSpotCheckList { get; set; }
         public Dictionary<string, string> YesNoList { get; set; }
         public Dictionary<string, string> YesNoNAList { get; set; }
+        public Dictionary<string, string> YesNoNAList2 { get; set; }
         public Dictionary<string, string> NextWeekOrTrailerPresentList { get; set; }
         public Dictionary<string, string> YesNoNotAllList { get; set; }
         public Dictionary<string, string>  SeamlessOrPartedList { get; set; }
@@ -73,6 +74,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> GOPStructureList { get; set; }
         public Dictionary<int, string> GamutList { get; set; }
         public Dictionary<int, string> ColourEncodingList { get; set; }
+        public Dictionary<int, string> ColourSpaceList { get; set; }
         public Dictionary<int, string> ClosedCapsList { get; set; }
         public Dictionary<int, string> EvalStatusList { get; set; }
         public Dictionary<string, string> QCStatusList { get; set; }
@@ -82,6 +84,7 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> TimecodeList { get; set; }
         public Dictionary<string, string> PassOrFailList { get; set; }
         public Dictionary<string, string> PassedOrFailedList { get; set; }
+        public Dictionary<string, string> DecodeCheckList { get; set; }
         public Dictionary<string, string>  CountAsShowList { get; set; }
         public Dictionary<string, string> QCActionTypeList { get; set; }
 

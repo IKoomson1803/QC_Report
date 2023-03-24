@@ -54,9 +54,9 @@
 		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Lum_Avg")%></td>
 		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
 		   
-		      <td class="BanijayRightsVideoLable">&nbsp;Chroma Peak: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Peak")%></td>
 		   
+		   <td class="BanijayRightsVideoLable">&nbsp;Colour Space: &nbsp;</td>
+		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("ColourSpace")%></td
 	   </tr>
 	   
 	    <tr>
@@ -69,9 +69,9 @@
 		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
 		   
 		  
+		      <td class="BanijayRightsVideoLable">&nbsp;Chroma Peak: &nbsp;</td>
+		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Peak")%></td>
 		   
-		   <td class="BanijayRightsVideoLable">&nbsp;Chroma Avg: &nbsp;</td>
-		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Avg")%></td>
 	   </tr>
 	   
 	    <tr>
@@ -83,9 +83,9 @@
 		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("MaxFALL")%></td>
 		   <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
 		   
-		    <td class="BanijayRightsVideoLable">&nbsp;PSE Result: &nbsp;</td>
-		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("PSEResult")%></td>
 		   
+		   <td class="BanijayRightsVideoLable">&nbsp;Chroma Avg: &nbsp;</td>
+		   <td style="width:12%">&nbsp;<%=rsHeader.Fields("Chroma_Avg")%></td>
 	   </tr>
 	   
 	    <tr>
@@ -95,6 +95,20 @@
 		   
 		   <td class="BanijayRightsVideoLable">&nbsp;Black Level: &nbsp;</td>
 		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("Black")%></td>
+	       <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
+		   
+		   
+		    <td class="BanijayRightsVideoLable">&nbsp;PSE Result: &nbsp;</td>
+		   <td class="BanijayRightsVideoText">&nbsp;<%=rsHeader.Fields("PSEResult")%></td>
+	   </tr>
+	   
+	   <tr>
+	   
+	       <td colspan = "2" style="background-color:#BFBFBF;">&nbsp;&nbsp;</td>
+	       <td style="background-color:#BFBFBF; border:none;width:10%">&nbsp;</td>
+		   
+		   <td class="BanijayRightsVideoLable">&nbsp; &nbsp;</td>
+		   <td class="BanijayRightsVideoLabel">&nbsp;</td>
 	       <td style="background-color:#BFBFBF;width:10%">&nbsp;</td>
 		   
 		   

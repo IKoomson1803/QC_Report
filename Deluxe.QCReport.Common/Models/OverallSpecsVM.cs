@@ -47,7 +47,8 @@ namespace Deluxe.QCReport.Common.Models
 
         public string PSEResult { get; set; }  // Banijay Rights new template
         public string DecodeCheck { get; set; }  // Banijay Rights new template
-        public string MaxCLL { get; set; } // Banijay Rights new template
-        public string MaxFALL { get; set; } // Banijay Rights new template
+        public string MaxCLL { get; set; } 
+        public string MaxFALL { get; set; }
+        public string ColourSpace { get; set; }
     }
 }

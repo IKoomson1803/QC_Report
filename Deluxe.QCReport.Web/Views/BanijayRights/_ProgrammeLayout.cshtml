@@ -1,15 +1,5 @@
 ﻿@model Deluxe.QCReport.Web.Models.HomeVM
 
-@{
-    var itemNo = 0;
-    var itemCount = Model.BanijahRightsProgrammeLayout.TapeLayouts.Count;
-
-    var nextItemNo = 1;
-    var lastItem = Model.BanijahRightsProgrammeLayout.TapeLayouts.OrderByDescending(m => m.ItemNum).FirstOrDefault();
-    if (lastItem != null) { nextItemNo = lastItem.ItemNum + 1; }
-   
-}
-
 <div class="bs-callout bs-callout-warning">
     @using (Html.BeginForm("SaveProgrammeLayout", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
@@ -178,11 +168,12 @@
     </div>
 </div>
 
-        <div id="divTapeLayoutGrid" class="row">
-            @{Html.RenderPartial("_TapeLayoutGrid", Model);}
-        </div>
+<div id="divTapeLayoutGrid" class="row">
+    @{Html.RenderPartial("_TapeLayoutGrid", Model);}
 
-    }
+</div>
+
+}
 
 
 
@@ -218,11 +209,9 @@
         $(function () {
                 setActiveButton();
 
-                var securityLevel = @Model.SecurityLevel
-
                 $(".timecode").mask("99:99:99:99");
 
-                  $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val(@nextItemNo);
+                 var securityLevel = @Model.SecurityLevel
 
                 $(".programme").blur(function () {
 
@@ -232,168 +221,11 @@
                     }
 
                 });
-
-
-            $('#btnSave').on("click", function () {
-
-                if ($('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val() == '') {
-                    alert("Please add an item number and continue... ")
-                    return;
-                }
-
-              if ($('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Type)').val() == '') {
-                  Msg.success("Please add a tape layout type and continue... ", 2 * 1000);
-                  return;
-              }
-
-              if ($('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeIn)').val() == '_:_:_'
-               && $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeIn)').val() == '') {
-                  Msg.success("Please add a tape layout timecode in and continue... ", 2 * 1000);
-                  return;
-              }
-
-              if ($('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeOut)').val() == '_:_:_'
-              && $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeOut)').val() == '') {
-                  Msg.success("Please add a tape layout timecode out and continue... ", 2 * 1000);
-                  return;
-              }
-
-            var qcno = '@Model.BanijahRightsProgrammeLayout.QCNum';
-            var revno = '@Model.BanijahRightsProgrammeLayout.SubQCNum';
-            var myModel = $('#form_jobdetails').serializeObject();
-
-            console.log(myModel)
-
-              $.post('/BanijayRights/SaveTapeLayout', { model: myModel }).done(function (data) {
-
-                if (data.success == true) {
-                    Msg.success(data.msg, 2 * 1000);
-                    LoadTapeLayouts(qcno, revno);
-                }
-                else {
-                    Msg.error(data.msg, 5 * 1000);
-                }
-            })
-            .fail(function (xdata) {
-
-                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
-            })
-            .always(function () {
-
-            });
-          });
-
-            rowOnClick();
-
-
-            $('#deletePromptModal').on('shown.bs.modal', function () {
-
-                var type = $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Type)').val();
-                var modal = $(this);
-                 modal.find('.modal-body').text('Are you sure you want to delete tape layout "' + type + '"?');
-
-            });
-
-              $('#btnDeletePrompt').on("click", function () {
-
-             if ( $('#@Html.IdFor(m => m.BanijahRightsProgrammeLayout)').val() == '0')
-            {
-                return;
-            }
-
-            $('#deletePromptModal').modal('show');
-
-        });
-
-           $('#btnDelete').on("click", function () {
-
-                $('#deletePromptModal').modal('hide');
-                $('table tr').removeClass("selectedRow");
-                var id = $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Id)').val()
-                var qcno = '@Model.BanijahRightsProgrammeLayout.QCNum';
-                var revno = '@Model.BanijahRightsProgrammeLayout.SubQCNum';
-
-               $.post('/BanijayRights/DeleteTapeLayout', { id: id }).done(function (data) {
-
-                if (data.success == true) {
-                    Msg.success(data.msg, 2 * 1000);
-                    LoadTapeLayouts(qcno, revno);
-
-                }
-                else {
-                    Msg.error(data.msg, 5 * 1000);
-                }
-            })
-            .fail(function (xdata) {
-
-                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
-            })
-            .always(function () {
-
-                $('#deletePromptModal').modal('hide');
-                $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();
-
-            });
-           });
-
-            //**************Save Layout Item on enter ********************************************
-
-
-             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').keyup(function (event) {
-                if (event.key == 'Enter') {
-                    SaveLayoutEnterClick();
-                }
-            });
-
-             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeIn)').keyup(function (event) {
-                if (event.key == 'Enter') {
-                    SaveLayoutEnterClick();
-                }
-            });
-
-             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeOut)').keyup(function (event) {
-                if (event.key == 'Enter') {
-                    SaveLayoutEnterClick();
-                }
-            });
-
-             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.PartDurationExcludingHolds)').keyup(function (event) {
-                if (event.key == 'Enter') {
-                    SaveLayoutEnterClick();
-                }
-            });
-
-             $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.CountAsShow)').keyup(function (event) {
-                if (event.key == 'Enter') {
-                    SaveLayoutEnterClick();
-                }
-            });
-
+            
 
         });
 
     });
-
-    function SaveLayoutEnterClick() {
-
-        $('#btnSave').click();
-
-    }
-
-    function rowOnClick() {
-
-        $('.clickable-row').on('click', function () {
-
-            $('table tr').removeClass("selectedRow");
-            $(this).addClass("selectedRow");
-            var id = $(this).data('id');
-            $('#btnDeletePrompt').prop('disabled', false);
-            $('#btnSave').text('Update');
-            PopulateTapeLayout(id);
-
-        });
-    }
 
     function saveProgramme() {
 
@@ -433,72 +265,6 @@
 
             });
     }
-
-
-
-
-
-    function LoadTapeLayouts(qcNumber, revNumber) {
-
-        var scrollPosition = $('#divscroll').scrollTop();
-
-        $.post('/BanijayRights/LoadTapeLayouts', { qcnum: qcNumber, revnum: revNumber }).done(function (data) {
-            $("#divTapeLayoutGrid").html(data);
-            Reset();
-            rowOnClick();
-        })
-            .fail(function (xdata) {
-
-                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
-            })
-            .always(function () {
-                $('#divscroll').scrollTop(scrollPosition);
-            });
-    }
-
-    function PopulateTapeLayout(id) {
-
-        var scrollPosition = $('#divscroll').scrollTop();
-
-        $.post('/BanijayRights/PopulateTapeLayout', { id: id }).done(function (data) {
-
-            console.log(data)
-
-            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Id)').val(data.Id)
-            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val(data.ItemNum)
-            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Type)').val(data.Type)
-            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeIn)').val(data.TimecodeIn)
-            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeOut)').val(data.TimecodeOut)
-            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.PartDurationExcludingHolds)').val(data.PartDurationExcludingHolds)
-            $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.CountAsShow)').val(data.CountAsShow)
-
-
-        })
-            .fail(function (xdata) {
-
-                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
-            })
-            .always(function () {
-                $('#divscroll').scrollTop(scrollPosition);
-
-            });
-    }
-
-     function Reset() {
-
-         $('table tr').removeClass("selectedRow");
-
-         $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Id)').val('0')
-         $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.ItemNum)').val(@nextItemNo)
-        $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.Type)').val('')
-        $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeIn)').val('')
-        $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.TimecodeOut)').val('')
-        $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.PartDurationExcludingHolds)').val('')
-        $('#@Html.IdFor(m => m.BanijahRightsTapeLayout.CountAsShow)').val('')
-        $('#btnDeletePrompt').prop('disabled', true);
-        $('#btnSave').text('Save');
-    }
-
 
 
 </script>

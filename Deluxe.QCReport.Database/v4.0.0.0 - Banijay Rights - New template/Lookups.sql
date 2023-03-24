@@ -126,7 +126,7 @@ CREATE TABLE [bward].[BanijayRightsVideoLines](
 	[Type] [varchar](50) NOT NULL
 ) ON [PRIMARY]
 GO
-INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'1.33:1')
+INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'1.33:1 (4:3)')
 GO
 INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'1.66:1')
 GO
@@ -148,9 +148,9 @@ INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'2.40:1')
 GO
 INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'2.55:1')
 GO
-INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'DUAL')
+INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'DUAL. See notes')
 GO
-INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'VARIOUS')
+INSERT [bward].[BanijayRightsAspectRatio] ([Type]) VALUES (N'VARIOUS. See notes')
 GO
 INSERT [bward].[BanijayRightsCaptionSafe] ([Type]) VALUES (N'16:9')
 GO
@@ -214,19 +214,19 @@ INSERT [bward].[BanijayRightsFileWrapper] ([Type]) VALUES (N'MOV')
 GO
 INSERT [bward].[BanijayRightsFileWrapper] ([Type]) VALUES (N'MXF')
 GO
-INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'23.98')
+INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'23.98p')
 GO
-INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'24')
+INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'24p')
 GO
-INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'25')
+INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'25p')
 GO
 INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'50p')
 GO
 INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'50i')
 GO
-INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'29.97')
+INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'29.97p')
 GO
-INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'59.94')
+INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'59.94i')
 GO
 INSERT [bward].[BanijayRightsFrameRate] ([Type]) VALUES (N'525')
 GO
@@ -315,6 +315,8 @@ GO
 INSERT [bward].[BanijayRightsTimecode] ([Type]) VALUES (N'Embedded In File')
 GO
 INSERT [bward].[BanijayRightsTimecode] ([Type]) VALUES (N'Unusable')
+GO
+INSERT [bward].[BanijayRightsTimecode] ([Type]) VALUES (N'Not present')
 GO
 INSERT [bward].[BanijayRightsTone] ([Type]) VALUES (N'-18dBFS')
 GO

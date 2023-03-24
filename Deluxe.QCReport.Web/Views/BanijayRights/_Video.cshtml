@@ -121,10 +121,15 @@
                         </div>
 
                         <div class="col-sm-2 text-right" style="width:150px">
-                            <label class="control-label">Chroma Peak:</label>
+
+                            <label class="control-label">Colour Space:</label>
                         </div>
+
                         <div class="col-sm-4 form-group">
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaPeak, new { @class = "form-control", maxlength = "40" })
+
+                            @Html.DropDownListFor(m => m.OverallSpecs_VM.ColourSpace,
+                           new SelectList(Model.ColourSpaceList, "value", "value"), "",
+                           new { @class = "form-control" })
                         </div>
 
 
@@ -139,10 +144,10 @@
                         </div>
 
                         <div class="col-sm-2 text-right" style="width:150px">
-                            <label class="control-label">Chroma Avg:</label>
+                            <label class="control-label">Chroma Peak:</label>
                         </div>
                         <div class="col-sm-4 form-group">
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaAvg, new { @class = "form-control", maxlength = "40" })
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaPeak, new { @class = "form-control", maxlength = "40" })
                         </div>
 
                     </div>
@@ -156,21 +161,17 @@
                             @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxFALL, new { @class = "form-control", maxlength = "50" })
                         </div>
 
+
                         <div class="col-sm-2 text-right" style="width:150px">
-                            <label class="control-label">PSE Result:</label>
+                            <label class="control-label">Chroma Avg:</label>
                         </div>
                         <div class="col-sm-4 form-group">
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.PSEResult,
-                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.PSEResult), "",
-                           new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaAvg, new { @class = "form-control", maxlength = "40" })
                         </div>
 
 
 
                     </div>
-
-
-
 
 
                     <div class="row">
@@ -182,16 +183,33 @@
                         </div>
 
                         <div class="col-sm-2 text-right" style="width:150px">
-                            <label class="control-label">Decode Check:</label>
+                            <label class="control-label">PSE Result:</label>
                         </div>
                         <div class="col-sm-4 form-group">
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.DecodeCheck,
-                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.DecodeCheck), "",
+                            @Html.DropDownListFor(m => m.OverallSpecs_VM.PSEResult,
+                           new SelectList(Model.PassedOrFailedList, "value", "value", Model.OverallSpecs_VM.PSEResult), "",
                            new { @class = "form-control" })
                         </div>
 
 
+                    </div>
 
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">&nbsp;</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            &nbsp;
+                        </div>
+
+                        <div class="col-sm-2 text-right" style="width:150px">
+                            <label class="control-label">Decode Check:</label>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            @Html.DropDownListFor(m => m.OverallSpecs_VM.DecodeCheck,
+                           new SelectList(Model.DecodeCheckList, "value", "value", Model.OverallSpecs_VM.DecodeCheck), "",
+                           new { @class = "form-control" })
+                        </div>
 
                     </div>
 
