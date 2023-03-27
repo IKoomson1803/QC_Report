@@ -56,13 +56,6 @@ rsTextDetails.Open sqlTextDetails
 	  <td style="width:10%;" class="bottom_border BanijayRightsText" >&nbsp;<%=rsTextDetails.Fields("BleepedOrUnBleeped")%></td>
 	</tr>
 	
-	 <tr>
-	  <td style="width:30%; text-align:right;" class="bottom_border BanijayRightsProgrammeLayout">Astons, namestraps etc: &nbsp;</td>
-	  <td style="width:10%;" class="bottom_border BanijayRightsText" >&nbsp;<%=rsTextDetails.Fields("AstonsNamestrapsEtcInShow")%></td>
-	  <td style="width:10%;" class="bottom_border BanijayRightsText" >&nbsp;<%=rsTextDetails.Fields("AstonsNamestrapsEtcAfterProg")%></td>
-	  <td style="width:30%;" class="bottom_border BanijayRightsProgrammeLayout" >Bleeped / Un-bleeped:</td>
-	  <td style="width:10%;" class="bottom_border BanijayRightsText" >&nbsp;<%=rsTextDetails.Fields("BleepedOrUnBleeped")%></td>
-	</tr>
 	
 	 <tr>
 	  <td style="width:30%; text-align:right;" class="bottom_border BanijayRightsProgrammeLayout">Subtitles / Closed Captions? &nbsp;</td>

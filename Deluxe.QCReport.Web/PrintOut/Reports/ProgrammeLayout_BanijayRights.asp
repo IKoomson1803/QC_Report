@@ -79,9 +79,9 @@ rsTapeLayout.Open sqlTapeLayout
 					
 				  
 				   <!-- <td style="width:4%; text-align:center;" class="BanijayRightsProgrammeDetails"><%=rsTapeLayout.Fields("ItemNum")%>&nbsp;</td> -->
-					<td style="width:23%; text-align:center;" class="BanijayRightsProgrammeDetails">
-					<span style="display:inline-block;"><%=rsTapeLayout.Fields("ItemNum")%>:&nbsp;</span>
-					<span style="display:inline-block;"><%=rsTapeLayout.Fields("Type")%>&nbsp; </span>
+					<td style="width:23%; text-align:right;" class="BanijayRightsProgrammeDetails">
+					
+					<%=rsTapeLayout.Fields("Type")%>&nbsp;
 					
 					</td>
 					<td style="width:23%; text-align:center;" class="BanijayRightsText"><%=rsTapeLayout.Fields("TimecodeIn")%></td>
