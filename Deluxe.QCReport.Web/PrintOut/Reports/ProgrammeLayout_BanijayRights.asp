@@ -20,8 +20,6 @@ rsTapeLayout.Open sqlTapeLayout
 
 %>
 
-
-<%   If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then  %>
 	 
 		 <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" style="border-top:none; border-bottom:none; background-color:#BFBFBF">
 		   <tr>
@@ -39,6 +37,8 @@ rsTapeLayout.Open sqlTapeLayout
 			  <td>&nbsp;</td>
 		  </tr> 
 		 </table>
+		 
+	 
 
 	<table width="100%" border="1" cellspacing="0" cellpadding="0" >
 			<tr>
@@ -55,9 +55,28 @@ rsTapeLayout.Open sqlTapeLayout
 			</tr>
 			<tr>
 			  <td style="width:20%; text-align:center;" class="left_bottom_border BanijayRightsProgrammeLayout">&nbsp;</td>
-			  <td style="width:20%; text-align:center !important;" class="bottom_border BanijayRightsText" ><%=rsProgLayout.Fields("ProgrammeIn")%></td>
-			  <td style="width:20%; text-align:center;" class="bottom_border BanijayRightsText" ><%=rsProgLayout.Fields("ProgrammeOut")%></td>
-			  <td style="width:40%; text-align:center;" colspan = "3" align="center" class="bottom_border BanijayRightsText" ><%=rsProgLayout.Fields("TotalLengthIncludingBreaks")%></td>
+			  <td style="width:20%; text-align:center !important;" class="bottom_border BanijayRightsText" >
+			  <%
+			      If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then
+					      Response.Write  rsProgLayout.Fields("ProgrammeIn")
+			      End If
+			  %>
+			  </td>
+			  <td style="width:20%; text-align:center;" class="bottom_border BanijayRightsText" >
+			  <%
+			      If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then
+					      Response.Write  rsProgLayout.Fields("ProgrammeOut")
+			      End If
+	
+			  %>
+			  </td>
+			  <td style="width:40%; text-align:center;" colspan = "3" align="center" class="bottom_border BanijayRightsText" >
+			  <% 
+			      If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then
+					      Response.Write  rsProgLayout.Fields("TotalLengthIncludingBreaks")
+			      End If
+			  %>
+			  </td>
 			</tr>
 		
 			<tr>
@@ -97,9 +116,13 @@ rsTapeLayout.Open sqlTapeLayout
 				 <tr>
 					<td style="width:20%; text-align:center;"  class="BanijayRightsProgrammeLayout">&nbsp;</td>
 					<td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Programme Duration:&nbsp;</td>
-					<td style="width:20%; text-align:center;" class="BanijayRightsText"><%=rsProgLayout.Fields("ProgrammeDuration")%></td>
+					<td style="width:20%; text-align:center;" class="BanijayRightsText">
+					<%=rsProgLayout.Fields("ProgrammeDuration")%>
+					</td>
 					 <td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Number of parts:&nbsp;</td>
-					<td style="width:20%; text-align:center;" colspan = "2" class="BanijayRightsText"><%=rsProgLayout.Fields("NumberOfParts")%></td>
+					<td style="width:20%; text-align:center;" colspan = "2" class="BanijayRightsText">
+					<%=rsProgLayout.Fields("NumberOfParts")%>
+					</td>
 			</tr>
 		  </table>
 		  
@@ -112,9 +135,26 @@ rsTapeLayout.Open sqlTapeLayout
 		  <table width="100%" class="SolidBorder" cellspacing="0" cellpadding="1" >
 		   <tr>
 			  <td class="BanijayRightsProgrammeLayout" style="text-align:right;width:25%;">Slate / Clock Accurate:&nbsp;</td>
-			  <td class="BanijayRightsText" style="width:25%; text-align:center;"><%=rsProgLayout.Fields("SlateAccurate")%></td>
+			  <td class="BanijayRightsText" style="width:25%; text-align:center;">
+			  <%
+			      If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then
+					      Response.Write  rsProgLayout.Fields("SlateAccurate")
+			      End If
+			  
+			  %>
+			  
+			  </td>
 			   <td class="BanijayRightsProgrammeLayout" style="text-align:right;;width:25%;">Next week / trailer present:&nbsp;</td>
-			  <td class="BanijayRightsText" style="width:25%; text-align:center;"><%=rsProgLayout.Fields("NextWeekOrTrailerPresent")%></td>
+			  <td class="BanijayRightsText" style="width:25%; text-align:center;">
+			  
+			  <%
+			       If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then
+					      Response.Write  rsProgLayout.Fields("NextWeekOrTrailerPresent")
+			      End If
+					  
+			  %>
+			  
+			  </td>
 		  </tr> 
 		 </table>
 		 <table width="100%" border="0" cellspacing="0" cellpadding="1" style="border-bottom:none; background-color:#BFBFBF">
@@ -126,7 +166,7 @@ rsTapeLayout.Open sqlTapeLayout
 	  
 <%
 
-   End If
+   
 
   rsProgLayout.Close
   Set rsProgLayout = Nothing

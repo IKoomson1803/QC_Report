@@ -1457,6 +1457,7 @@ BEGIN
   SELECT * FROM [bward].[BanijahRightsTapeLayout]
   WHERE [QCNum] =  @QCNum
    AND [SubQCNum]  = @SubQCNum
+    ORDER BY [ItemNum]
 
 END
 
