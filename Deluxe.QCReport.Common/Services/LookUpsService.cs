@@ -319,7 +319,8 @@ namespace Deluxe.QCReport.Common.Services
 
             result.Add("Y", "Yes");
             result.Add("N", "No");
-            result.Add("NA", "Some / Not All");
+            result.Add("SO", "Some");
+            result.Add("NA", "Not All");
             return result;
         }
 

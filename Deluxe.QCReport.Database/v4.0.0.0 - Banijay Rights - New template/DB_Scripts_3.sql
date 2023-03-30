@@ -855,7 +855,8 @@ BEGIN
              [TimecodeIn],
              [TimecodeOut],
              [PartDurationExcludingHolds],
-             [CountAsShow]
+             [CountAsShow],
+			 [ItemNum]
 			)
 			SELECT
 			@newQCNumber,
@@ -864,7 +865,8 @@ BEGIN
             [TimecodeIn],
             [TimecodeOut],
             [PartDurationExcludingHolds],
-            [CountAsShow]
+            [CountAsShow],
+			[ItemNum]
 			FROM [bward].[BanijahRightsTapeLayout]
 			 WHERE QCNum = @qcNumber AND subQCNum = @subQCNumber
 

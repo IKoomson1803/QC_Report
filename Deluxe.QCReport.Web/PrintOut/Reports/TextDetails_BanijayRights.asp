@@ -44,7 +44,7 @@ rsTextDetails.Open sqlTextDetails
 	  <td style="width:30%; text-align:right;" class="bottom_border BanijayRightsProgrammeLayout">End Credits: &nbsp;</td>
 	  <td style="width:10%;" class="bottom_border BanijayRightsText" >&nbsp;<%=rsTextDetails.Fields("EndCreditsInShow")%></td>
 	  <td style="width:10%;" class="bottom_border BanijayRightsText" >&nbsp;<%=rsTextDetails.Fields("EndCreditsAfterProg")%></td>
-	  <td style="width:30%;" class="bottom_border BanijayRightsProgrammeLayout" >Swearing?</td>
+	  <td style="width:30%;" class="bottom_border BanijayRightsProgrammeLayout" >Extreme Language?</td>
 	  <td style="width:10%;" class="bottom_border BanijayRightsText" >&nbsp;<%=rsTextDetails.Fields("Swearing")%></td>
 	</tr>
 	
