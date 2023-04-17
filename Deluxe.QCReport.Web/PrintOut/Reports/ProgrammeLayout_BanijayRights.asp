@@ -117,11 +117,26 @@ rsTapeLayout.Open sqlTapeLayout
 					<td style="width:20%; text-align:center;"  class="BanijayRightsProgrammeLayout">&nbsp;</td>
 					<td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Programme Duration:&nbsp;</td>
 					<td style="width:20%; text-align:center;" class="BanijayRightsText">
-					<%=rsProgLayout.Fields("ProgrammeDuration")%>
+					
+					  <% 
+						  If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then
+								  Response.Write  rsProgLayout.Fields("ProgrammeDuration")
+						  End If
+			           %>
+					
+					
 					</td>
 					 <td style="width:20%; text-align:center;" class="BanijayRightsProgrammeLayout">Number of parts:&nbsp;</td>
 					<td style="width:20%; text-align:center;" colspan = "2" class="BanijayRightsText">
-					<%=rsProgLayout.Fields("NumberOfParts")%>
+					  <% 
+						  If Not rsProgLayout.EOF And Not  rsProgLayout.BOF Then
+								  Response.Write  rsProgLayout.Fields("NumberOfParts")
+						  End If
+			           %>
+					
+					
+					
+					
 					</td>
 			</tr>
 		  </table>

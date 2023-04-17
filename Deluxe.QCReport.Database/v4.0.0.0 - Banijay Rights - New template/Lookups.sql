@@ -354,6 +354,8 @@ INSERT [bward].[BanijayRightsTrackContent] ([Type]) VALUES (N'M+E dipped')
 GO
 INSERT [bward].[BanijayRightsTrackContent] ([Type]) VALUES (N'N/A')
 GO
+INSERT [bward].[BanijayRightsTrackContent] ([Type]) VALUES (N'Dialogue')
+GO
 INSERT [bward].[BanijayRightsTypeOfHDR] ([Type]) VALUES (N'HDR 10')
 GO
 INSERT [bward].[BanijayRightsTypeOfHDR] ([Type]) VALUES (N'HDR 10+')
