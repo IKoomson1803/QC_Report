@@ -21,9 +21,9 @@ namespace Deluxe.QCReport.Web
             "~/Scripts/extensions.js",
              "~/Scripts/jquery.maskedinput.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jobNavigation").Include(
-            "~/Scripts/Bundled/topNav_4.js"));
-            //"~/Scripts/Bundled/jobDetailsNav.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jobNavigation").Include(
+            //"~/Scripts/Bundled/topNav_5.js"));
+            ////"~/Scripts/Bundled/jobDetailsNav.js"));
 
 
             bundles.Add(new StyleBundle("~/css/base").Include(

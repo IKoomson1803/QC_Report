@@ -24,12 +24,16 @@
                 // $("#divTopSubMenu").html(data);
 
                 // console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
-               // alert(!$("#TopMenu").find('.lnkDPPProgDetails').length)
+                //alert(!$("#TopMenu").find('.lnkBNJRProgDetails').length)
 
-                if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                    && !$("#TopMenu").find('.lnkDPPProgDetails').length
-                    && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
-                    $("#TopMenu").append(data);
+                //if (!$("#TopSubMenu").find('.lnkQcAudioAndTC').length
+                //    && !$("#TopSubMenu").find('.lnkDPPProgDetails').length
+                //    && !$("#TopSubMenu").find('.lnkBNJRProgDetails').length) {
+                //    $("#TopSubMenu").append(data);
+                //}
+
+                if (!$("#TopSubMenu").find('.topsubmenu').length) {
+                    $("#TopSubMenu").append(data);
                 }
             })
             .fail(function (xdata) {
@@ -94,6 +98,9 @@
         // //$('.cssload-preloader').fadeIn();
         var wono = $(this).data('wonum');
 
+    
+
+        $("#TopSubMenu").html('');
         GetTopNavigation('/Home/JobDetails', null, null, wono)
     });
 
@@ -103,6 +110,10 @@
         var wono = $(this).data('wonum');
         var qcno = $(this).data('qcnum');
 
+
+     
+
+        $("#TopSubMenu").html('');
         GetTopNavigation('/Home/QCDetails', qcno, null, wono)
     });
 
@@ -120,6 +131,8 @@
             return;
         }
 
+    
+        $("#TopSubMenu").html('');
         GetDetailsNav(qcno, rno);
         GetTopNavigation('/Home/RevDetails', qcno, rno, wono)
     });

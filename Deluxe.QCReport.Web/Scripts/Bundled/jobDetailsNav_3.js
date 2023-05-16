@@ -84,14 +84,18 @@ function GetNavDetails(qcno, rno, wono, element) {
         success: function (data) {
 
 
-          //  alert(!$("#TopMenu").find('.lnkDPPProgDetails').length)
+            //alert(!$("#TopMenu").find('.lnkBNJRProgDetails').length)
 
-            if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                && !$("#TopMenu").find('.lnkDPPProgDetails').length
-                && !$("#TopMenu").find('.lnkBNJRProgDetails').length ) {
-                $("#TopMenu").append(data);
+            //if (!$("#TopSubMenu").find('.lnkQcAudioAndTC').length
+            //    && !$("#TopSubMenu").find('.lnkDPPProgDetails').length
+            //    && !$("#TopSubMenu").find('.lnkBNJRProgDetails').length ) {
+            //    $("#TopSubMenu").append(data);
+            //}
+
+
+            if (!$("#TopSubMenu").find('.topsubmenu').length) {
+                $("#TopSubMenu").append(data);
             }
-
 
         },
         error: function (xdata) {
@@ -140,8 +144,7 @@ function PopulateJobDetails(url, element) {
         return;
     }
 
-    //alert(url)
-
+    $("#TopSubMenu").html('');
     GetNavDetails(qcno, rno, null, element);
     GetJobDetails(url, qcno, rno, null, element)
 

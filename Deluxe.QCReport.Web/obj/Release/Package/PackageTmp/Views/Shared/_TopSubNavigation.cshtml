@@ -29,7 +29,7 @@ else
 
  @if (SecLvl >= 1)
 {
-    <button type="button" class="btn btn-sm btn-info col-sm-offset-1 lnkQcCopy" 
+    <button type="button" class="btn btn-sm btn-info col-sm-offset-1 lnkQcCopy topsubmenu" 
             id="lnkQcCopy" 
             onclick="PopulateJobDetails('/Job/CopyQC', 'lnkQcCopy')" 
             data-qcnum="@Model.QCNumber"
@@ -42,11 +42,11 @@ else
 }
 
 <button type="button" 
-        class="btn btn-sm btn-outline-light" 
+        class="btn btn-sm btn-outline-light topsubmenu" 
         style="border:none;">&nbsp;</button>
 
 <button type="button" 
-        class="btn btn-sm btn-danger lnkQcClientSpecs"
+        class="btn btn-sm btn-danger lnkQcClientSpecs topsubmenu"
         id="lnkQcClientSpecs"
         onclick="PopulateJobDetails('/Job/ClientSpecs', 'lnkQcClientSpecs')" 
         data-qcnum="@Model.QCNumber" 
@@ -63,7 +63,7 @@ else
 
 <button type="button" 
         id="btnReport" 
-        class="btn btn-sm btn-default col-sm-offset-1 btnReport" 
+        class="btn btn-sm btn-default col-sm-offset-1 btnReport topsubmenu" 
         onclick="PopulateJobDetails('/Report/LoadReportTypes', 'btnReport')" 
         data-qcnum="@Model.QCNumber" 
         data-revnum="@Model.RevNumber" 

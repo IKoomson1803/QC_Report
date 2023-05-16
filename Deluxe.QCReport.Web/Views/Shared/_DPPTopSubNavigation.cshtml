@@ -1,7 +1,7 @@
 ﻿@model  Deluxe.QCReport.Web.Models.TopSubNavigationVM
 
 <button type="button" 
-        class="btn btn-sm btn-primary lnkDPPProgDetails" 
+        class="btn btn-sm btn-primary lnkDPPProgDetails topsubmenu" 
         id="lnkDPPProgDetails" 
         onclick="PopulateJobDetails('/DPP/DPPProgDetails', 'lnkDPPProgDetails')" 
         data-qcnum="@Model.QCNumber" 
@@ -9,14 +9,14 @@
         data-wonum="@Model.WONumber">Programme Details</button>
 
 <button type="button"
-        class="btn btn-sm btn-default lnkDPPProdDetails" 
+        class="btn btn-sm btn-default lnkDPPProdDetails topsubmenu" 
         id="lnkDPPProdDetails" onclick="PopulateJobDetails('/DPP/DPPProdDetails', 'lnkDPPProdDetails')" 
         data-qcnum="@Model.QCNumber" 
         data-revnum="@Model.RevNumber" 
         data-wonum="@Model.WONumber">Production Details</button>
 
 <button type="button" 
-        class="btn btn-sm btn-info lnkDPPChecklist" 
+        class="btn btn-sm btn-info lnkDPPChecklist topsubmenu" 
         id="lnkDPPChecklist" 
         onclick="PopulateJobDetails('/DPP/DPPChecklist', 'lnkDPPChecklist')" 
         data-qcnum="@Model.QCNumber" 
@@ -24,21 +24,21 @@
         data-wonum="@Model.WONumber">Checklist</button>
 
 <button type="button" 
-        class="btn btn-sm btn-warning lnkDPPCommBroadcasters" 
+        class="btn btn-sm btn-warning lnkDPPCommBroadcasters topsubmenu" 
         id="lnkDPPCommBroadcasters" onclick="PopulateJobDetails('/DPP/DPPCommBroadcasters', 'lnkDPPCommBroadcasters')" 
         data-qcnum="@Model.QCNumber" 
         data-revnum="@Model.RevNumber" 
         data-wonum="@Model.WONumber">Commercial Broadcasters</button>
 
 <button type="button" 
-        class="btn btn-sm btn-primary lnkDPPProdAndTechLog"
+        class="btn btn-sm btn-primary lnkDPPProdAndTechLog topsubmenu"
         id="lnkDPPProdAndTechLog" onclick="PopulateJobDetails('/DPP/DPPProdAndTechLog', 'lnkDPProdAndTechLog')" 
         data-qcnum="@Model.QCNumber" 
         data-revnum="@Model.RevNumber" 
         data-wonum="@Model.WONumber">Log</button>
 
 <button type="button" 
-        class="btn btn-sm btn-success lnkDPPProdSignOff" 
+        class="btn btn-sm btn-success lnkDPPProdSignOff topsubmenu" 
         id="lnkDPPProdSignOff" 
         onclick="PopulateJobDetails('/DPP/DPPProdSignOff', 'lnkDPPProdSignOff')" 
         data-qcnum="@Model.QCNumber" 

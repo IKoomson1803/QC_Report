@@ -1,7 +1,7 @@
 ﻿@model  Deluxe.QCReport.Web.Models.TopSubNavigationVM
 
 <button type="button"
-        class="btn btn-sm btn-primary lnkBNJRProgDetails"
+        class="btn btn-sm btn-primary lnkBNJRProgDetails topsubmenu"
         id="lnkBNJRProgDetails"
         onclick="PopulateJobDetails('/BanijayRights/GetProgrammeDetails', 'lnkBNJRProgDetails')"
         data-qcnum="@Model.QCNumber"
@@ -11,7 +11,7 @@
 </button>
 
 <button type="button"
-        class="btn btn-sm btn-default lnkBNJRAudio"
+        class="btn btn-sm btn-default lnkBNJRAudio  topsubmenu"
         id="lnkBNJRAudio"
         onclick="PopulateJobDetails('/BanijayRights/GetAudio', 'lnkBNJRAudio')"
         data-qcnum="@Model.QCNumber"
@@ -21,7 +21,7 @@
 </button>
 
 <button type="button"
-        class="btn btn-sm btn-info lnkBNJRVideo"
+        class="btn btn-sm btn-info lnkBNJRVideo  topsubmenu"
         id="lnkBNJRVideo"
         onclick="PopulateJobDetails('/BanijayRights/GetVideo', 'lnkBNJRVideo')"
         data-qcnum="@Model.QCNumber"
@@ -31,17 +31,17 @@
 </button>
 
 <button type="button"
-        class="btn btn-sm btn-warning lnkBNJRProgrammeLayout"
+        class="btn btn-sm btn-warning lnkBNJRProgrammeLayout  topsubmenu"
         id="lnkBNJRProgrammeLayout"
         onclick="PopulateJobDetails('/BanijayRights/GetProgrammeLayout', 'lnkBNJRProgrammeLayout')"
         data-qcnum="@Model.QCNumber"
         data-revnum="@Model.RevNumber"
         data-wonum="@Model.WONumber">
-        Layout
+    Layout
 </button>
 
 <button type="button"
-        class="btn btn-sm btn-primary lnkBNJRTextDetails"
+        class="btn btn-sm btn-primary lnkBNJRTextDetails  topsubmenu"
         id="lnkBNJRTextDetails"
         onclick="PopulateJobDetails('/BanijayRights/GetTextDetails', 'lnkBNJRTextDetails')"
         data-qcnum="@Model.QCNumber"
@@ -51,7 +51,7 @@
 </button>
 
 <button type="button"
-        class="btn btn-sm btn-danger lnkBNJRFaults"
+        class="btn btn-sm btn-danger lnkBNJRFaults  topsubmenu"
         id="lnkBNJRFaults"
         onclick="PopulateJobDetails('/BanijayRights/LogDetails', 'lnkBNJRFaults')"
         data-qcnum="@Model.QCNumber"
@@ -61,7 +61,7 @@
 </button>
 
 <button type="button"
-        class="btn btn-sm btn-success lnkBNJRNotes"
+        class="btn btn-sm btn-success lnkBNJRNotes  topsubmenu"
         id="lnkBNJRNotes"
         onclick="PopulateJobDetails('/BanijayRights/GetNotes', 'lnkBNJRNotes')"
         data-qcnum="@Model.QCNumber"
@@ -70,10 +70,22 @@
     Notes
 </button>
 
+
 <button type="button"
-        class="btn btn-sm btn-outline-light"
+        class="btn btn-sm btn-outline-light topsubmenu"
         style="border:none;">
     &nbsp;
+</button>
+
+<button type="button"
+        id="btnFaultImage"
+        class="btn btn-sm btn-light col-sm-offset-1 btnFaultImage topsubmenu"
+        onclick="PopulateJobDetails('/FaultImage/LoadFaultsImages', 'btnFaultImage')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+    Image Upload
 </button>
 
 <button type="button"

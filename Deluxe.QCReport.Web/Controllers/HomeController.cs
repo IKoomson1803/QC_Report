@@ -37,20 +37,7 @@ namespace Deluxe.QCReport.Web.Controllers3
             return View(model);
         }
 
-        private bool IsCheckListRequired(string woNumber, int? qcNumber)
-        {
-            var isChecklistRequried = false;
-
-
-
-
-
-
-
-
-            return isChecklistRequried;
-        }
-
+      
 
 
         [HttpPost]

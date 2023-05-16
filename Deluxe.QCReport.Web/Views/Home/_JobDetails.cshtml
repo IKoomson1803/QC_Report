@@ -88,10 +88,15 @@
 
                // $("#divTopSubMenu").html(data);
 
-                if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                    && !$("#TopMenu").find('.lnkDPPProgDetails').length
-                    && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
-                    $("#TopMenu").append(data);
+                //if (!$("#TopSubMenu").find('.lnkQcAudioAndTC').length
+                //    && !$("#TopSubMenu").find('.lnkDPPProgDetails').length
+                //    && !$("#TopSubMenu").find('.lnkBNJRProgDetails').length) {
+                //    $("#TopSubMenu").append(data);
+                //}
+
+
+                if (!$("#TopSubMenu").find('.topsubmenu').length) {
+                    $("#TopSubMenu").append(data);
                 }
 
             })
@@ -110,11 +115,6 @@
             var rno = $(this).data('revnum');
 
             setQCAndRevNumbers(qcno, rno)
-
-            //alert('wono: ' + wono)
-            //alert('qcno: ' + qcno)
-            //alert('rno: ' + rno)
-            //alert('qcno: ' + $('#currentQCNumber').val())
                       
             var isWONoValid = IsWONumberValid(wono);
 
@@ -129,6 +129,8 @@
                 return;
             }
 
+           
+            $("#TopSubMenu").html('');
             GetDetailsNav(qcno, rno);
 
             $.post('/Home/RevDetails', { wonum: wono, qcnum: qcno, revnum: rno }).done(function (data) {
@@ -141,7 +143,7 @@
             })
             .always(function () {
 
-                $('.cssload-preloader').hide();
+                //$('.cssload-preloader').hide();
             });
         });
 

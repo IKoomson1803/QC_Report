@@ -169,7 +169,7 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-multiselect.js" />
     <Content Include="Scripts\Bundled\jobDetailsNav_3.js" />
-    <Content Include="Scripts\Bundled\topNav_4.js" />
+    <Content Include="Scripts\Bundled\topNav_5.js" />
     <Content Include="Scripts\Custom\administration.js" />
     <Content Include="Scripts\bootstrap-msg.min.js" />
     <Content Include="Scripts\bootstrap.js" />

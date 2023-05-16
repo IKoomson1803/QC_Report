@@ -4,7 +4,7 @@
     @if (Model.QCType != "E")
     {
 <button type="button" 
-        class="btn btn-sm btn-primary lnkQcHeader" 
+        class="btn btn-sm btn-primary lnkQcHeader topsubmenu" 
         id="lnkQcHeader" 
         onclick="PopulateJobDetails('/Job/HeaderDetails', 'lnkQcHeader')" 
         data-qcnum="@Model.QCNumber"
@@ -15,7 +15,7 @@
     else
     {
 <button type="button" 
-        class="btn btn-sm btn-primary lnkESIQcHeader"
+        class="btn btn-sm btn-primary lnkESIQcHeader topsubmenu"
         id="lnkESIQcHeader" 
         onclick="PopulateJobDetails('/Job/HeaderDetails', 'lnkESIQcHeader')"
         data-qcnum="@Model.QCNumber" 
@@ -27,7 +27,7 @@
     @if (Model.QCType != "E")
     {
 <button type="button" 
-        class="btn btn-sm btn-default lnkQcHistory" 
+        class="btn btn-sm btn-default lnkQcHistory topsubmenu" 
         id="lnkQcHistory" 
         onclick="PopulateJobDetails('/Job/HistoryDetails', 'lnkQcHistory')" 
         data-qcnum="@Model.QCNumber" 
@@ -38,7 +38,7 @@
     else
     {
 <button type="button" 
-        class="btn btn-sm btn-default lnkESIQcHistory"
+        class="btn btn-sm btn-default lnkESIQcHistory topsubmenu"
         id="lnkESIQcHistory" 
         onclick="PopulateJobDetails('/Job/HistoryDetails', 'lnkESIQcHistory')" 
         data-qcnum="@Model.QCNumber" 
@@ -48,7 +48,7 @@
     }
 
 <button type="button" 
-        class="btn btn-sm btn-info lnkQcTapeLayout" 
+        class="btn btn-sm btn-info lnkQcTapeLayout topsubmenu" 
         id="lnkQcTapeLayout" 
         onclick="PopulateJobDetails('/Job/TapeLayoutDetails', 'lnkQcTapeLayout')"
         data-qcnum="@Model.QCNumber" 
@@ -59,7 +59,7 @@
     @if (Model.QCType != "E" && Model.QCType != "A" && Model.QCType != "L")
     {
 <button type="button" 
-        class="btn btn-sm btn-danger lnkQcTextInfo" 
+        class="btn btn-sm btn-danger lnkQcTextInfo topsubmenu" 
         id="lnkQcTextInfo" 
         onclick="PopulateJobDetails('/Job/TextInfoDetails', 'lnkQcTextInfo')"
         data-qcnum="@Model.QCNumber" 
@@ -69,7 +69,7 @@
     }
 
 <button type="button" 
-        class="btn btn-sm btn-warning lnkQcAudioAndTC" 
+        class="btn btn-sm btn-warning lnkQcAudioAndTC topsubmenu" 
         id="lnkQcAudioAndTC"
         onclick="PopulateJobDetails('/Job/AudioTCDetails', 'lnkQcAudioAndTC')" 
         data-qcnum="@Model.QCNumber" 
@@ -81,7 +81,7 @@
     {
 
 <button type="button" 
-        class="btn btn-sm btn-success lnkQcESISpecifics" 
+        class="btn btn-sm btn-success lnkQcESISpecifics topsubmenu" 
         id="lnkQcESISpecifics" 
         onclick="PopulateJobDetails('/Job/ESISpecifics', 'lnkQcESISpecifics')" 
         data-qcnum="@Model.QCNumber" 
@@ -94,7 +94,7 @@
     @if (@Model.QCType != "E")
     {
     <button type="button" 
-            class="btn btn-sm btn-primary lnkQcOverallSpecs"
+            class="btn btn-sm btn-primary lnkQcOverallSpecs topsubmenu"
             id="lnkQcOverallSpecs"
             onclick="PopulateJobDetails('/Job/OverallSpecsDetails', 'lnkQcOverallSpecs')"
             data-qcnum="@Model.QCNumber"
@@ -104,7 +104,7 @@
     else
     {
     <button type="button"
-            class="btn btn-sm btn-primary lnkESIMeasurements"
+            class="btn btn-sm btn-primary lnkESIMeasurements topsubmenu"
             id="lnkESIMeasurements" 
             onclick="PopulateJobDetails('/Job/ESIMeasurements', 'lnkESIMeasurements')" 
             data-qcnum="@Model.QCNumber"
@@ -113,7 +113,7 @@
     }
 
     <button type="button" 
-            class="btn btn-sm btn-info lnkQcCkecklist" 
+            class="btn btn-sm btn-info lnkQcCkecklist topsubmenu" 
             id="lnkQcCkecklist" 
             onclick="PopulateJobDetails('/Job/Checklist', 'lnkQcCkecklist')"
             data-qcnum="@Model.QCNumber" 
@@ -124,7 +124,7 @@
     @if (@Model.QCType != "A" && Model.QCType != "T")
     {
     <button type="button"
-            class="btn btn-sm btn-primary lnkQcLog" 
+            class="btn btn-sm btn-primary lnkQcLog topsubmenu" 
             id="lnkQcLog" 
             onclick="PopulateJobDetails('/Job/LogDetails', 'lnkQcLog')" 
             data-qcnum="@Model.QCNumber" 
@@ -138,7 +138,7 @@
     {
 
     <button type="button" 
-            class="btn btn-sm btn-success lnkQcFinal"
+            class="btn btn-sm btn-success lnkQcFinal topsubmenu"
             id="lnkQcFinal" 
             onclick="PopulateJobDetails('/Job/FinalDetails', 'lnkQcFinal')"
             data-qcnum="@Model.QCNumber" 
@@ -148,7 +148,7 @@
     else
     {
     <button type="button" 
-            class="btn btn-sm btn-success lnkQcESIFinal"
+            class="btn btn-sm btn-success lnkQcESIFina topsubmenul"
             id="lnkQcESIFinal" 
             onclick="PopulateJobDetails('/Job/ESIFinal', 'lnkQcESIFinal')" 
             data-qcnum="@Model.QCNumber" 
@@ -157,12 +157,12 @@
     }
 
     <button type="button" 
-            class="btn btn-sm btn-outline-light"
+            class="btn btn-sm btn-outline-light topsubmenu"
             style="border:none;">&nbsp;</button>
 
     <button type="button" 
             id="btnFaultImage" 
-            class="btn btn-sm btn-light col-sm-offset-1 btnFaultImage"
+            class="btn btn-sm btn-light col-sm-offset-1 btnFaultImage topsubmenu"
             onclick="PopulateJobDetails('/FaultImage/LoadFaultsImages', 'btnFaultImage')"
             data-qcnum="@Model.QCNumber" 
             data-revnum="@Model.RevNumber" 

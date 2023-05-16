@@ -1,5 +1,12 @@
 ﻿@model Deluxe.QCReport.Common.Models.NewQCReport
 
+
+@{
+    ViewBag.Title = "Settings Management";
+
+    var customers = Model.ClientNameList;
+}
+
 <!-- Modal -->
 <div class="modal fade" id="newQCReportModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -35,8 +42,24 @@
                             </div>
 
                             <div class="col-sm-10 form-group">
-                                @Html.DropDownListFor(m => m.Customer, new SelectList(Model.ClientNameList, "value", "value"), new {maxlength = "50", @style = "font-size:14px; font-weight:normal;" })
-                             </div>
+                                @*@Html.DropDownListFor(m => m.Customer, new SelectList(Model.ClientNameList, "value", "value"), new { maxlength = "50", @style = "font-size:14px; font-weight:normal;" })*@
+
+                                <select id="Customer" name="Customer" style="display:none; font-size:14px; font-weight:normal;">
+                                    @if (customers != null)
+                                    {
+                                        <option value="">... Select Customer ...</option>
+
+                                        foreach (var customer in customers)
+                                        {
+                                            <option value="@customer.Value">
+                                                @customer.Value
+                                            </option>
+                                        }
+                                    }
+                                </select>
+
+
+                            </div>
 
                         </div>
                     </div>
@@ -52,8 +75,8 @@
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "B") Broadcast QC</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "A") Runtime QC</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "L") Runtime QC With Log</label>
-                                @*<label class="radio">@Html.RadioButtonFor(m => m.QCType, "E") Runtime / Broadcast QC for Banijay Rights</label>*@ @* Banijay Rights - Old Template *@
-                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "BNJR") Runtime / Broadcast QC for Banijay Rights</label> @* Banijay Rights - New Template *@
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "E") Runtime / Broadcast QC for Banijay Rights - Old Template</label> @* Banijay Rights - Old Template *@
+                                <label class="radio">@Html.RadioButtonFor(m => m.QCType, "BNJR") Runtime / Broadcast QC for Banijay Rights - New Template</label> @* Banijay Rights - New Template *@
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "T") Runtime QC With Text Info</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "M") Master QC</label>
                                 <label class="radio">@Html.RadioButtonFor(m => m.QCType, "D") DPP Eyeball QC Report</label>
@@ -90,46 +113,18 @@
 
 <script>
     $(function () {
-               
-        function AddNewQC(myModel) {
-
-            $.post('/Home/SaveNewQCReport', { model: myModel }).done(function (data) {
-
-              
-                if (data.success == true) {
-                    Msg.success(data.msg, 5 * 1000);
-
-                    $('#SearchWONumber').val(data.woNum);
-
-                    //$('.cssload-preloader').fadeIn();
-                    $('#form_search').submit();
-                }
-                else {
-                    Msg.error(data.msg, 5 * 1000);
-                }
-            })
-            .fail(function (xdata) {
-
-                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
-            })
-            .always(function () {
-
-                $('.cssload-preloader').hide();
-               // $('#newQCReportModal').modal('hide');
-            });
-        }
-
-
 
        // $('#eDdlClientNameNQC').editableSelect();
 
+        initializeDDL();
+
         var qcNum = '@Model.Qcnum';
-    
+
         if(qcNum > 0){
-           
+
             $('#gridSystemModalLabel').text('Update QC Report');
             $('#btnAddNewQC').text('Update QC');
-            
+
         }
 
         $('#btnAddNewQC').on("click", function () {
@@ -137,10 +132,52 @@
             //$('.cssload-preloader').fadeIn();
             var myModel = $('#NewQCForm').serializeObject();
 
-            console.log(myModel)
+            //console.log(myModel)
 
             AddNewQC(myModel);
         });
 
     });
+
+    function initializeDDL() {
+
+        $('#Customer').multiselect({
+            multiple: false,
+            enableCaseInsensitiveFiltering: true,
+            nonSelectedText: '... Select Customer ...',
+            maxHeight: 300,
+            buttonWidth: '400px'
+        });
+
+
+    }
+
+
+    function AddNewQC(myModel) {
+
+        $.post('/Home/SaveNewQCReport', { model: myModel }).done(function (data) {
+
+
+            if (data.success == true) {
+                Msg.success(data.msg, 5 * 1000);
+
+                $('#SearchWONumber').val(data.woNum);
+
+                //$('.cssload-preloader').fadeIn();
+                $('#form_search').submit();
+            }
+            else {
+                Msg.error(data.msg, 5 * 1000);
+            }
+        })
+            .fail(function (xdata) {
+
+                Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+            })
+            .always(function () {
+
+                $('.cssload-preloader').hide();
+                // $('#newQCReportModal').modal('hide');
+            });
+    }
 </script>

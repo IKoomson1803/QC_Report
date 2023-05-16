@@ -269,10 +269,10 @@ BEGIN
 	 SELECT @qcType = qc_type FROM bward.qcHeader WHERE QCNum = @qcNumber AND subQCNum = @subQCNumber
 
 	 -- Copy Old Banijay Rights Template to the New Template
-	  IF @qcType = 'E'  -- Old Banijay Rights or ESI Template
-	   BEGIN
-	    SET @qcType = 'BNJR' -- New Banijay Rights Template
-	   END
+	  --IF @qcType = 'E'  -- Old Banijay Rights or ESI Template
+	  -- BEGIN
+	  --  SET @qcType = 'BNJR' -- New Banijay Rights Template
+	  -- END
 
 	 IF @operator IS NULL   
 	   BEGIN
@@ -932,9 +932,9 @@ BEGIN
 			END
 
 			/***** Update the QC Type to Banijay Rights new temlate*****************************/
-			UPDATE bward.qcHeader
-			SET qc_type = 'BNJR'
-			WHERE QCNum = @newQCNumber AND subQCNum = @newSubQCNumber
+			--UPDATE bward.qcHeader
+			--SET qc_type = 'BNJR'
+			--WHERE QCNum = @newQCNumber AND subQCNum = @newSubQCNumber
 			
 			 IF @@ERROR <> 0
 			 BEGIN

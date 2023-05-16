@@ -75,13 +75,17 @@ namespace Deluxe.QCReport.Common.Repositories
 
         public static UserAccount GetUserAccountDetails(string username)
         {
+            if (string.IsNullOrEmpty(username))
+            {
+                return null;
+            }
 
             using (DataClassesDataContext DC = new DataClassesDataContext())
             {
                 try
                 {
                     var rUser = (from u in DC.qcUsers
-                                 where u.FullName.Contains(username) && !u.Deleted.HasValue || (u.Deleted.HasValue && u.Deleted == 0)
+                                 where u.FullName.ToLower().Trim() == username.ToLower().Trim() && (!u.Deleted.HasValue || (u.Deleted.HasValue && u.Deleted == 0))
                                  select u).FirstOrDefault();
 
                     // var rUser = resultSql.Where(u => u.UserName == username && !u.Deleted.HasValue).FirstOrDefault();

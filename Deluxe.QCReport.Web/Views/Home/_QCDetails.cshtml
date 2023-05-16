@@ -81,10 +81,21 @@
                // $("#divTopSubMenu").html(data);
                 //console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
                                 
-                if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                    && !$("#TopMenu").find('.lnkDPPProgDetails').length
-                    && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
-                    $("#TopMenu").append(data);
+                //if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
+                //    && !$("#TopMenu").find('.lnkDPPProgDetails').length
+                //    && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
+                //    $("#TopMenu").append(data);
+                //}
+
+                //if (!$("#TopSubMenu").find('.lnkQcAudioAndTC').length
+                //    && !$("#TopSubMenu").find('.lnkDPPProgDetails').length
+                //    && !$("#TopSubMenu").find('.lnkBNJRProgDetails').length) {
+                //    $("#TopSubMenu").append(data);
+                //}
+
+
+                if (!$("#TopSubMenu").find('.topsubmenu').length) {
+                    $("#TopSubMenu").append(data);
                 }
             })
         .fail(function (xdata) {
@@ -139,7 +150,7 @@
 
                 var bodyBackGround = $("#body-element").css("background-color");
 
-                //alert(bodyBackGround)
+               
 
                 if (bodyBackGround == 'rgb(42, 42, 42)') {
                     $('.modal-content').css('background-color', '#2a2a2a')
