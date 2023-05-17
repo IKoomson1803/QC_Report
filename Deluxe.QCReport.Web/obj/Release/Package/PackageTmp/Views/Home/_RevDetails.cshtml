@@ -111,7 +111,7 @@
             $.post('/Home/DeleteRev', { qcnum: qcno, revnum: revno }).done(function (data) {
 
                 if (data.success == true) {
-                    Msg.success(data.msg, 5 * 1000);
+                    Msg.success(data.msg, 2 * 1000);
 
                     $('#SearchQCNumber').val('@Model.QCNumber');
 
@@ -119,7 +119,7 @@
                     $('#form_search').submit();
                 }
                 else {
-                    Msg.error(data.msg, 5 * 1000);
+                    Msg.error(data.msg, 3 * 1000);
                 }
             })
             .fail(function (xdata) {
@@ -128,7 +128,7 @@
             })
             .always(function () {
 
-                $('.cssload-preloader').hide();
+               // $('.cssload-preloader').hide();
             });
         });
     });

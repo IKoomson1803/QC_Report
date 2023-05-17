@@ -1,16 +1,21 @@
-﻿using Deluxe.QCReport.Common.LINQ;
-using Deluxe.QCReport.Common.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Deluxe.QCReport.Common.Abstractions;
+using Deluxe.QCReport.Common.LINQ;
+using Deluxe.QCReport.Common.Models;
+using Deluxe.QCReport.Common.Utilities;
+using Dapper;
+
 
 namespace Deluxe.QCReport.Common.Repositories
 {
     public class QCReportRepository : BaseRepository
     {
+        private readonly ILoggerRepository _logger = new LoggerRepository(ConfigManager.DatabaseConnection);
+
         public int CreateNewQCReport(NewQCReport newQCR)
         {
             int result = -1;
@@ -48,7 +53,8 @@ namespace Deluxe.QCReport.Common.Repositories
             }
             catch (Exception ex)
             {
-                throw;
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
             }
 
             return result;
@@ -95,7 +101,8 @@ namespace Deluxe.QCReport.Common.Repositories
             }
             catch (Exception ex)
             {
-                throw;
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
             }
 
             return result;
@@ -147,7 +154,8 @@ namespace Deluxe.QCReport.Common.Repositories
             }
             catch (Exception ex)
             {
-                throw;
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
             }
 
             return result;
@@ -156,7 +164,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
         public bool CopyQCReport(string qcWONo, int qcNo, int qcRev, int? qcUserId)
         {
-            bool result = true;
+            bool result = false;
 
 
             try
@@ -177,13 +185,14 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Connection.Open();
                     _cmd.ExecuteNonQuery();
                     _cmd.Connection.Close();
+                    result = true;
                 }
 
             }
             catch (Exception ex)
             {
-                result = false;
-                throw;
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
             }
 
             return result;
@@ -280,10 +289,11 @@ namespace Deluxe.QCReport.Common.Repositories
             }
             catch (Exception ex)
             {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
 
-                var errormessage = ex.Message;
-                return null;
-                throw;
+                result = null; 
+
             }
 
             return result;
@@ -324,28 +334,56 @@ namespace Deluxe.QCReport.Common.Repositories
         public bool DeleteJob(string qcWONo)
         {
 
-            bool result = true;
+            bool result = false;
 
-            using (DataClassesDataContext DC = new DataClassesDataContext())
+            //using (DataClassesDataContext DC = new DataClassesDataContext())
+            //{
+            //    var resultSql = from h in DC.qcHeaders
+            //                    where h.Wonum == qcWONo
+            //                    select h;
+
+            //    foreach (var item in resultSql)
+            //    {
+            //        item.Deleted = 1;
+            //    }
+
+            //    try
+            //    {
+            //        DC.SubmitChanges();
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        result = false;
+            //    }
+            //}
+
+            try
             {
-                var resultSql = from h in DC.qcHeaders
-                                where h.Wonum == qcWONo
-                                select h;
-                
-                foreach (var item in resultSql)
+                /******** Using Parameterized Query to Avoid SQL Injection attack *****************************************************************************/
+                var constr = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+                var sql = "UPDATE [bward].[qcHeader] ";
+                sql += "  SET Deleted = 1 ";
+                sql += " WHERE Wonum = @workOrderNumder";
+                               
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    item.Deleted = 1;
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@workOrderNumder", qcWONo));
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        result = true;
+                    }
+
                 }
 
-                try
-                {
-                    DC.SubmitChanges();
-                }
-                catch (Exception e)
-                {
-                    result = false;
-                }
             }
+            catch(Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+            }
+
 
             return result;
         }
@@ -385,28 +423,56 @@ namespace Deluxe.QCReport.Common.Repositories
         public bool DeleteQC(int qcNo)
         {
 
-            bool result = true;
+            bool result = false;
 
-            using (DataClassesDataContext DC = new DataClassesDataContext())
+            //using (DataClassesDataContext DC = new DataClassesDataContext())
+            //{
+            //    var resultSql = from h in DC.qcHeaders
+            //                    where h.Qcnum == qcNo
+            //                    select h;
+
+            //    foreach (var item in resultSql)
+            //    {
+            //        item.Deleted = 1;
+            //    }
+
+            //    try
+            //    {
+            //        DC.SubmitChanges();
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        result = false;
+            //    }
+            //}
+
+            try
             {
-                var resultSql = from h in DC.qcHeaders
-                                where h.Qcnum == qcNo
-                                select h;
+                /******** Using Parameterized Query to Avoid SQL Injection attack *****************************************************************************/
+                var constr = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+                var sql = "UPDATE [bward].[qcHeader] ";
+                sql += "  SET Deleted = 1 ";
+                sql += " WHERE Qcnum = @QCNumber";
 
-                foreach (var item in resultSql)
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    item.Deleted = 1;
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@QCNumber", qcNo));
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        result = true;
+                    }
+
                 }
 
-                try
-                {
-                    DC.SubmitChanges();
-                }
-                catch (Exception e)
-                {
-                    result = false;
-                }
             }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+            }
+
 
             return result;
         }
@@ -448,30 +514,58 @@ namespace Deluxe.QCReport.Common.Repositories
             return result;
         }
 
-        public bool DeleteRev(int qcNo, int revNo)
+        public bool        DeleteRev(int qcNo, int revNo)
         {
 
-            bool result = true;
+            bool result = false;
 
-            using (DataClassesDataContext DC = new DataClassesDataContext())
+            //using (DataClassesDataContext DC = new DataClassesDataContext())
+            //{
+            //    var resultSql = from h in DC.qcHeaders
+            //                    where h.Qcnum == qcNo && h.subQcnum == revNo
+            //                    select h;
+
+            //    foreach (var item in resultSql)
+            //    {
+            //        item.Deleted = 1;
+            //    }
+
+            //    try
+            //    {
+            //        DC.SubmitChanges();
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        result = false;
+            //    }
+            //}
+
+            try
             {
-                var resultSql = from h in DC.qcHeaders
-                                where h.Qcnum == qcNo && h.subQcnum == revNo
-                                select h;
+                /******** Using Parameterized Query to Avoid SQL Injection attack *****************************************************************************/
+                var constr = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
+                var sql = "UPDATE [bward].[qcHeader] ";
+                sql += "  SET Deleted = 1 ";
+                sql += " WHERE Qcnum = @QCNumber AND subQcnum = @SubQCNumber";
 
-                foreach (var item in resultSql)
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    item.Deleted = 1;
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@QCNumber", qcNo));
+                        cmd.Parameters.Add(new SqlParameter("@SubQCNumber", revNo));
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        result = true;
+                    }
+
                 }
 
-                try
-                {
-                    DC.SubmitChanges();
-                }
-                catch (Exception e)
-                {
-                    result = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
             }
 
             return result;
