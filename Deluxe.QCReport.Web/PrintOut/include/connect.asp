@@ -5,7 +5,7 @@
 'QCS database on your LAN.  Use this include
 'file to set an active connection to your ADO
 'Recordsets and Command objects.
-' Staging : dln-s-mssql-204.services.bydeluxe.net ; Prod: 10.100.114.62
+' Staging : dln-s-mssql-204.services.bydeluxe.net ; Prod: 10.100.114.62; Dev : warddev04
 ' Dev : warddev04
 '*********************************************
 dim cnQCS
@@ -13,7 +13,7 @@ dim cnQCS
 Set cnQCS = server.CreateObject ("ADODB.Connection")
 						
 cnQCS.ConnectionString ="Driver=SQL Server" & _
-						";Server=warddev04" & _
+						";Server=dln-s-mssql-204.services.bydeluxe.net" & _
 						";UID=bward" & _
 						";PWD=qcuser" & _
 						";Regional=No" & _

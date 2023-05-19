@@ -81,3 +81,7 @@ border: 2px solid black;
    
    <!-- NOTES -->
    <!-- #include file="Notes_BanijayRights.asp" -->
+   
+   <!-- Refrence Images -->
+   <!-- #include file="FaultImages_BanijayRights.asp" -->
+   
