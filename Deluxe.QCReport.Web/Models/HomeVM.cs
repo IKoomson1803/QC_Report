@@ -20,7 +20,8 @@ namespace Deluxe.QCReport.Web.Models
         public string CustomerName { get; set; }
 
         public string Specification { get; set; }
-        public List<string> Specifications { get; set; }
+        public List<string> ClientSpecifications { get; set; }
+        public List<string> GenericSpecifications { get; set; }
 
         public JobTreeViewVM JobTVVM { get; set; }
         public NewQCReport NewQC { get; set; }
@@ -40,6 +41,7 @@ namespace Deluxe.QCReport.Web.Models
         public FinalVM Final_VM { get; set; }
         public ESIFinal ESIFinalVM { get; set; }
         public ESISpecifics ESISpecificsVM { get; set; }
+       
 
 
         public Dictionary<int, string> AspectRatioList { get; set; }
@@ -112,6 +114,7 @@ namespace Deluxe.QCReport.Web.Models
         public BanijahRightsTapeLayout BanijahRightsTapeLayout { get; set; }
         public List<BanijahRightsTapeLayout> BanijahRightsTapeLayouts { get; set; }
         public BanijayRightsTextDetails  BanijayRightsTextDetails { get; set; }
+        public BanijayRightsNotes BanijayRightsNotes { get; set; }
         public List<string> BanijayRightsAspectRatioList { get; set; }
         public List<string> BanijayRightsCaptionSafeList { get; set; }
         public List<string> BanijayRightsCodecList { get; set; }

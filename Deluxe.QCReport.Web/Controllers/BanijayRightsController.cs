@@ -26,6 +26,7 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly IBanijayRightsTextDetailsService _textDetailsService = null;
         private readonly ILookupsService _lookupsService = null;
         private readonly IESIFinalService _esiFinalService = null;
+        private readonly IBanijayRightsNotesService _banijayRightsNotesService = null;
         private readonly LogService _logSrv = null;
         AudioTCService _atcSrv = new AudioTCService();
         OverallSpecsService _oasSrv = new OverallSpecsService();
@@ -69,6 +70,12 @@ namespace Deluxe.QCReport.Web.Controllers
                                  new ESIFinalRepository(
                                      conn,
                                      _loggerService));
+
+
+            _banijayRightsNotesService = new BanijayRightsNotesService(
+                                new BanijayRightsNotesRepository(
+                                    conn,
+                                    _loggerService));
 
 
         }
@@ -787,7 +794,7 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            model.ESIFinalVM = _esiFinalService.GetBanijayRightsNotes(qcnum, revnum) as ESIFinal;
+            model.BanijayRightsNotes = _banijayRightsNotesService.GetBanijayRightsNotes(qcnum, revnum) as BanijayRightsNotes;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.QCActionTypeList = LookUpsService.GetQCActionType();
             model.OperatorList = LookUpsService.GetOperator();
@@ -808,7 +815,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveNotes(HomeVM model)
         {
 
-            bool result = _esiFinalService.SaveBanijayRightsNotes(model.ESIFinalVM);
+            bool result = _banijayRightsNotesService.SaveBanijayRightsNotes(model.BanijayRightsNotes);
             string resultMsg = "Banijay Rights Notes saved successfully.";
 
             if (!result)

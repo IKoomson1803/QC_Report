@@ -68,3 +68,4 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debu
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.csproj.CopyComplete
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\obj\Debug\Deluxe.QCReport.Web.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Web\bin\DocumentFormat.OpenXml.xml

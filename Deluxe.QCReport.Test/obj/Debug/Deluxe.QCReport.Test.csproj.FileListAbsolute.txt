@@ -26,3 +26,4 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Deb
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.csproj.CopyComplete
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\obj\Debug\Deluxe.QCReport.Test.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Test\bin\Debug\DocumentFormat.OpenXml.xml

@@ -2,7 +2,7 @@
  @using  Deluxe.QCReport.Common.Utilities
 @{
 
-
+    var filename = string.Empty;
 }
 
 <div class="bs-callout bs-callout-warning">
@@ -13,17 +13,36 @@
        
         <table>
 
-
-
-
-            @foreach (var spec in Model.Specifications)
+            @foreach (var spec in Model.GenericSpecifications)
             {
-                var filename = spec;
+                filename = spec;
 
                 if (filename.Contains("/"))
                 {
                     filename = spec.Split('/')[1];
-                    var filenameWithoutExtension =  filename.Substring(0, spec.Split('/')[1].LastIndexOf("."));
+                    var filenameWithoutExtension = filename.Substring(0, spec.Split('/')[1].LastIndexOf("."));
+
+                    <tr>
+                        <td style=" font-weight:bold;font-size:14px;">Spec:  @filenameWithoutExtension</td>
+                    </tr>
+                    <tr>
+                        <td style=" font-weight:bold;font-size:14px;"> <a href="@ConfigManager.WebsiteUrl/Specifications/@spec" target="_blank">@filename</a></td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                }
+                
+
+            }
+
+
+            @foreach (var spec in Model.ClientSpecifications)
+            {
+                filename = spec;
+
+                if (filename.Contains("/"))
+                {
+                    filename = spec.Split('/')[1];
+                    var filenameWithoutExtension = filename.Substring(0, spec.Split('/')[1].LastIndexOf("."));
 
                     <tr>
                         <td style=" font-weight:bold;font-size:14px;">Spec:  @filenameWithoutExtension</td>
@@ -39,8 +58,6 @@
                         <td style=" font-weight:bold;font-size:14px;"><span>No spec available for @Model.CustomerName</span> </td>
                     </tr>
                 }
-
-
 
             }
 

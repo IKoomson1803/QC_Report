@@ -1778,11 +1778,12 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            model.Specifications = new List<string>();
+            model.ClientSpecifications = new List<string>();
+            model.GenericSpecifications = new List<string>();
             model.Header_VM = new HeaderVM { Qcnum = qcnum, subQcnum = revnum };
             var customerName = _clientService.GetClientDetails(qcnum, revnum).CustName; //model.Header_VM.CustName;
             model.CustomerName = customerName;
-            var specs = "NoSpecs.html";
+            var noSpecs = "NoSpecs.html";
             
             /****************Log User Activity******************************************************/
 
@@ -1793,20 +1794,41 @@ namespace Deluxe.QCReport.Web.Controllers
 
             /***********************************************************************************************/
 
+            var clientSpecsExist = false;
+            var genericSpecsExist = false;
+
+
+            // Get Generic Specs
+            FileInfo[] genericSpecFiles = GetGenericSpecFiles();
+
+            if (genericSpecFiles != null && genericSpecFiles.Any())
+            {
+                foreach (var genericSpecFile in genericSpecFiles)
+                {
+                    model.GenericSpecifications.Add("Generic/" + genericSpecFile.Name);
+                }
+
+                genericSpecsExist = true;
+            }
+
+            // Get Clients Specs
             FileInfo[] clientSpecFiles = GetClientSpecs(qcnum, revnum, ref customerName);
 
             if (clientSpecFiles != null && clientSpecFiles.Any())
             {
                 foreach(var clientSpecFile in clientSpecFiles)
                 {
-                    model.Specifications.Add(customerName  + "/" + clientSpecFile.Name);
+                    model.ClientSpecifications.Add(customerName  + "/" + clientSpecFile.Name);
                 }
+
+                clientSpecsExist = true;
             }
-            else
+         
+            // No Specs
+            if(!clientSpecsExist && !genericSpecsExist)
             {
-                model.Specifications.Add(specs);
+                model.ClientSpecifications.Add(noSpecs);
             }
-                    
 
             return PartialView("_ClientSpecifications", model);
         }
@@ -1875,8 +1897,20 @@ namespace Deluxe.QCReport.Web.Controllers
             DirectoryInfo clientSpecsDir = new DirectoryInfo(specsLocation);
             // return clientSpecsDir.GetFiles().ToArray();  
 
+           
             return clientSpecsDir.GetFiles()
             .OrderBy(f => f.CreationTime).ToArray(); 
+
+        }
+
+        private FileInfo[] GetGenericSpecFiles()
+        {
+            var specsLocation = Server.MapPath("~/Specifications/Generic");
+            DirectoryInfo genericSpecsDir = new DirectoryInfo(specsLocation);
+            // return clientSpecsDir.GetFiles().ToArray();  
+
+            return genericSpecsDir.GetFiles()
+            .OrderBy(f => f.CreationTime).ToArray();
 
         }
 

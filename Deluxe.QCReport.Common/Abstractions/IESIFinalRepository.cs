@@ -7,7 +7,6 @@ namespace Deluxe.QCReport.Common.Abstractions
 
         IESIFinal GetESIFinal(int QCNum, int SubQCNum);
         bool SaveESIFinal(IESIFinal esiFinal);
-        bool SaveBanijayRightsNotes(IESIFinal esiFinal);
-        IESIFinal GetBanijayRightsNotes(int QCNum, int SubQCNum);
+       
     }
 }

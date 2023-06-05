@@ -18,20 +18,13 @@ namespace Deluxe.QCReport.Common.Services
         {
             return _rep.GetESIFinal(QCNum, SubQCNum);
         }
-
-        public bool SaveBanijayRightsNotes(IESIFinal esiFinal)
-        {
-            return _rep.SaveBanijayRightsNotes(esiFinal);
-        }
+      
 
         public bool SaveESIFinal(IESIFinal esiFinal)
         {
             return _rep.SaveESIFinal(esiFinal);
         }
 
-        public IESIFinal GetBanijayRightsNotes(int QCNum, int SubQCNum)
-        {
-            return _rep.GetBanijayRightsNotes(QCNum, SubQCNum);
-        }
+       
     }
 }

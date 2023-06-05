@@ -297,6 +297,7 @@
     <Content Include="Views\BanijayRights\_Notes.cshtml" />
     <Content Include="Specifications\Disney\Update to the Disney requirements for QC on D Plus content  08 Feb 2023.pdf" />
     <Content Include="Views\BanijayRights\_TapeLayoutGrid.cshtml" />
+    <Content Include="Specifications\Generic\HOW TO QC HDR DOLBY VISION FILES, AND HOW TO APPLY TRIM PASS - MAY 26 2023.pdf" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />

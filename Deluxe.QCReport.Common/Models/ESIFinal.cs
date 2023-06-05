@@ -20,15 +20,5 @@ namespace Deluxe.QCReport.Common.Models
         public string TitleSafeRating { get; set; }
         public string TitleSafeDetails { get; set; }
         public string Comments { get; set; }
-
-
-        /******* Banijay Rights new template ***********************/
-        public DateTime? QCDate { get; set; }
-        public string QCActionType { get; set; }
-        public string QCVendor { get; set; }
-        public int QCOperator { get; set; }
-        public string QCKit { get; set; }
-        public string WorkOrderNumber { get; set; }
-
     }
 }

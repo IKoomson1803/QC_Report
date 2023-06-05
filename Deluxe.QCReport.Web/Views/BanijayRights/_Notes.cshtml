@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-xs-3">
-            <b style="font-size:14px;">@string.Format("{0} - {1}: Banijay Rights - Notes", Model.ESIFinalVM.Qcnum, Model.ESIFinalVM.subQcnum)</b>
+            <b style="font-size:14px;">@string.Format("{0} - {1}: Banijay Rights - Notes", Model.BanijayRightsNotes.QCNum, Model.BanijayRightsNotes.SubQCNum)</b>
         </div>
 
 
@@ -26,15 +26,15 @@
 
     @using (Html.BeginForm("SaveNotes", "BanijayRights", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
     {
-        @Html.HiddenFor(m => Model.ESIFinalVM.Qcnum)
-        @Html.HiddenFor(m => Model.ESIFinalVM.subQcnum)
+        @Html.HiddenFor(m => Model.BanijayRightsNotes.QCNum)
+        @Html.HiddenFor(m => Model.BanijayRightsNotes.SubQCNum)
 
 
 
         <div class="row">
             <div class="col-xs-11 form-group" style="margin-left:5px;">
                 <label class="control-label">Notes:</label>
-                <div style="white-space: pre-line">@Html.TextAreaFor(m => m.ESIFinalVM.Comments, 15, 500, new { @class = "form-control", @style = "height:300px" })</div>
+                <div style="white-space: pre-line">@Html.TextAreaFor(m => m.BanijayRightsNotes.Comments, 15, 500, new { @class = "form-control", @style = "height:300px" })</div>
             </div>
         </div>
 
@@ -45,10 +45,10 @@
             </div>
             <div class="col-sm-2 form-group">
                 <div class="input-group">
-                    @Html.TextBoxFor(m => m.ESIFinalVM.QCDate, new { @class = "form-control", @style = "width:150px" })
+                    @Html.TextBoxFor(m => m.BanijayRightsNotes.QCDate, new { @class = "form-control", @style = "width:150px" })
                     <span class="input-group-btn float-left">
                         <button class="btn btn-xs btn-default" type="button" id="btn_qcDate">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true" onclick="setDatePicker('ESIFinalVM_QCDate')">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true" onclick="setDatePicker('BanijayRightsNotes_QCDate')">
                             </span>
                         </button>
                     </span>
@@ -60,7 +60,7 @@
                 <label class="control-label">QC Type:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.ESIFinalVM.QCActionType,
+                @Html.DropDownListFor(m => m.BanijayRightsNotes.QCActionType,
                new SelectList(Model.QCActionTypeList, "value", "value"),
                "-- Select QC Type --",
                new { @class = "form-control" })
@@ -70,14 +70,14 @@
                 <label class="control-label">QC Vendor:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.ESIFinalVM.QCVendor, new { @class = "form-control", maxlength = "150" })
+                @Html.TextBoxFor(m => m.BanijayRightsNotes.QCVendor, new { @class = "form-control", maxlength = "150" })
             </div>
 
             <div class="col-sm-1 text-right">
                 <label class="control-label">Deluxe WO:</label>
             </div>
             <div class="col-sm-1 form-group">
-                @Html.TextBoxFor(m => m.ESIFinalVM.WorkOrderNumber, new { @class = "form-control", maxlength = "150", @readonly = "readonly", @width = "60px" })
+                @Html.TextBoxFor(m => m.BanijayRightsNotes.WorkOrderNumber, new { @class = "form-control", maxlength = "150", @readonly = "readonly", @width = "60px" })
             </div>
 
         </div>
@@ -87,7 +87,7 @@
                 <label class="control-label">QC Operator:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.DropDownListFor(m => m.ESIFinalVM.QCOperator,
+                @Html.DropDownListFor(m => m.BanijayRightsNotes.QCOperator,
                new SelectList(Model.OperatorList, "key", "value"), "-- Select QC Operator --",
                new { @class = "form-control SearchableDropdown" })
             </div>
@@ -96,7 +96,7 @@
                 <label class="control-label">QC Kit:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.ESIFinalVM.QCKit, new { @class = "form-control", maxlength = "150"  })
+                @Html.TextBoxFor(m => m.BanijayRightsNotes.QCKit, new { @class = "form-control", maxlength = "150"  })
             </div>
 
             <div class="col-sm-1 text-right">
@@ -110,7 +110,7 @@
                 <label class="control-label">Deluxe QC:</label>
             </div>
             <div class="col-sm-1 form-group">
-                @Html.TextBoxFor(m => m.ESIFinalVM.Qcnum, new { @class = "form-control", maxlength = "150", @readonly = "readonly", @width = "60px" })
+                @Html.TextBoxFor(m => m.BanijayRightsNotes.QCNum, new { @class = "form-control", maxlength = "150", @readonly = "readonly", @width = "60px" })
             </div>
 
 
@@ -213,7 +213,7 @@
         $(function () {
 
             setActiveButton();
-            initializeSummerNote('@Html.IdFor(m => m.ESIFinalVM.Comments)');
+            initializeSummerNote('@Html.IdFor(m => m.BanijayRightsNotes.Comments)');
             initializeMultiSelectChecboxList();
 
             $('#btnSave').on("click", function () {

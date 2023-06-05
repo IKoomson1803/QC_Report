@@ -78,6 +78,9 @@
     <Compile Include="Abstractions\IBanijahRightsProgrammeDetails.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeDetailsRepository.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeDetailsService.cs" />
+    <Compile Include="Abstractions\IBanijayRightsNotes.cs" />
+    <Compile Include="Abstractions\IBanijayRightsNotesRepository.cs" />
+    <Compile Include="Abstractions\IBanijayRightsNotesService.cs" />
     <Compile Include="Abstractions\IBanijayRightsTextDetails.cs" />
     <Compile Include="Abstractions\IBanijayRightsTextDetailsRepository.cs" />
     <Compile Include="Abstractions\IBanijayRightsTextDetailsService.cs" />
@@ -134,6 +137,7 @@
     <Compile Include="Models\BanijahRightsProgrammeLayout.cs" />
     <Compile Include="Models\BanijahRightsProgrammeDetails.cs" />
     <Compile Include="Models\BanijahRightsTapeLayout.cs" />
+    <Compile Include="Models\BanijayRightsNotes.cs" />
     <Compile Include="Models\ChecklistBanijayRights.cs" />
     <Compile Include="Models\ChecklistBase.cs" />
     <Compile Include="Models\ChecklistDisney.cs" />
@@ -173,6 +177,7 @@
     <Compile Include="Repositories\AspectRatioRepository.cs" />
     <Compile Include="Repositories\BanijahRightsProgrammeLayoutRepository.cs" />
     <Compile Include="Repositories\BanijahRightsProgrammeDetailsRepository.cs" />
+    <Compile Include="Repositories\BanijayRightsNotesRepository.cs" />
     <Compile Include="Repositories\BanijayRightsTextDetailsRepository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Repositories\DPPRepository.cs" />
@@ -204,6 +209,7 @@
     <Compile Include="Services\AspectRatioService.cs" />
     <Compile Include="Services\BanijahRightsProgrammeDetailsService.cs" />
     <Compile Include="Services\BanijahRightsProgrammeLayoutService.cs" />
+    <Compile Include="Services\BanijayRightsNotesService.cs" />
     <Compile Include="Services\BanijayRightsTextDetailsService.cs" />
     <Compile Include="Services\ChecklistService.cs" />
     <Compile Include="Services\ClientService.cs" />

@@ -70,9 +70,8 @@ namespace Deluxe.QCReport.Common.Repositories
         public enum ESIFinal
         {
             sel_GetESIFinal,
-            up_UpdateESIFinal,
-            up_UpdateBanijayRightsNotes,
-            sel_GetBanijayRightsNotes
+            up_UpdateESIFinal
+           
         }
 
         public enum FaultDescriptionImage
@@ -110,7 +109,9 @@ namespace Deluxe.QCReport.Common.Repositories
             sel_GetBanijayRightsTapeLayoutById,
             del_DeleteBanijayRightsTapeLayoutById,
             ins_up_InsertOrUpdateBanijayRightsTextDetails,
-            sel_GetBanijayRightsTextDetails
+            sel_GetBanijayRightsTextDetails,
+            up_UpdateBanijayRightsNotes,
+            sel_GetBanijayRightsNotes
 
         }
 
