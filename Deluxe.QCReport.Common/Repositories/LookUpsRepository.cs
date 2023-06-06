@@ -29,7 +29,7 @@ namespace Deluxe.QCReport.Common.Repositories
                        $"LookupsRepository expects ctor injection: {nameof(ILoggerService)}");
         }
 
-        public IList<string> GetLookups(StoredProcedure.Lookup lookup)
+        public IList<string> GetLookup(StoredProcedure.Lookup lookup)
         {
             var result = new List<string>();
             try

@@ -5,6 +5,7 @@ namespace Deluxe.QCReport.Common.Abstractions
 {
     public interface ILookupsService
     {
-        IList<string> GetLookups(StoredProcedure.Lookup lookup);
+        IList<string> GetLookup(StoredProcedure.Lookup lookup);
+        
     }
 }

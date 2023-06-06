@@ -1,0 +1,16 @@
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.csproj.AssemblyReference.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.csproj.CoreCompileInputs.cache
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\Deluxe.QCReport.ConsoleApp.exe.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\Deluxe.QCReport.ConsoleApp.exe
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\Deluxe.QCReport.ConsoleApp.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\Deluxe.QCReport.Common.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\ClosedXML.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\DocumentFormat.OpenXml.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\FastMember.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\Dapper.dll
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\Deluxe.QCReport.Common.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\Deluxe.QCReport.Common.dll.config
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\bin\Debug\DocumentFormat.OpenXml.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.csproj.CopyComplete
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.exe
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.pdb

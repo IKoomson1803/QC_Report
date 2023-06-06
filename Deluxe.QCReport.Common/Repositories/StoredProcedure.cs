@@ -71,7 +71,7 @@ namespace Deluxe.QCReport.Common.Repositories
         {
             sel_GetESIFinal,
             up_UpdateESIFinal
-           
+
         }
 
         public enum FaultDescriptionImage
@@ -99,6 +99,31 @@ namespace Deluxe.QCReport.Common.Repositories
             del_DeleteDPPLog
         }
 
+        public enum Lookup
+        {
+            sel_GetLookup,
+
+            //BanijayRights
+            BanijayRightsAspectRatio,
+            BanijayRightsCaptionSafe,
+            BanijayRightsCodec,
+            BanijayRightsFileWrapper,
+            BanijayRightsFrameRate,
+            BanijayRightsInShowAndAfterProg,
+            BanijayRightsLanguage,
+            BanijayRightsPosition,
+            BanijayRightsSDROrHDR,
+            BanijayRightsTimecode,
+            BanijayRightsTone,
+            BanijayRightsTrackContent,
+            BanijayRightsTypeOfHDR,
+            BanijayRightsVideoLines,
+            BanijayRightsBitRate
+
+            // DisneyTWDC
+
+        }
+
         public enum BanijayRights
         {
             sel_GetBanijayRightsProgrammeDetails,
@@ -115,26 +140,22 @@ namespace Deluxe.QCReport.Common.Repositories
 
         }
 
-        public enum Lookup
+        
+
+        public enum DisneyTWDC
         {
-            sel_GetLookup,
-            BanijayRightsAspectRatio,
-            BanijayRightsCaptionSafe,
-            BanijayRightsCodec,
-            BanijayRightsFileWrapper,
-            BanijayRightsFrameRate,
-            BanijayRightsInShowAndAfterProg,
-            BanijayRightsLanguage,
-            BanijayRightsPosition,
-            BanijayRightsSDROrHDR,
-            BanijayRightsTimecode,
-            BanijayRightsTone,
-            BanijayRightsTrackContent,
-            BanijayRightsTypeOfHDR,
-            BanijayRightsVideoLines,
-            BanijayRightsBitRate
+            //Lookups
+            
+
+
+
+
+
+            //CRUD
+
+
         }
 
-       
     }
 }
+

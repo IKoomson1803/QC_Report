@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deluxe.QCReport.Database", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deluxe.QCReport.Test", "Deluxe.QCReport.Test\Deluxe.QCReport.Test.csproj", "{57B8B4C2-9C6B-48ED-A0FF-555FC00AE86B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deluxe.QCReport.ConsoleApp", "Deluxe.QCReport.ConsoleApp\Deluxe.QCReport.ConsoleApp.csproj", "{EE93B450-2292-4470-B565-06803B8B78A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{57B8B4C2-9C6B-48ED-A0FF-555FC00AE86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57B8B4C2-9C6B-48ED-A0FF-555FC00AE86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57B8B4C2-9C6B-48ED-A0FF-555FC00AE86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE93B450-2292-4470-B565-06803B8B78A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE93B450-2292-4470-B565-06803B8B78A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE93B450-2292-4470-B565-06803B8B78A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE93B450-2292-4470-B565-06803B8B78A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

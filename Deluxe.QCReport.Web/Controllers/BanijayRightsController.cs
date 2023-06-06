@@ -94,16 +94,16 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
             model.BanijahRightsProgrammeDetails = _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BanijahRightsProgrammeDetails;
             model.YesNoNAList = LookUpsService.GetYesNoNA();
-            model.BanijayRightsAspectRatioList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsAspectRatio).ToList();
-            model.BanijayRightsCaptionSafeList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsCaptionSafe).ToList();
-            model.BanijayRightsCodecList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsCodec).ToList();
-            model.BanijayRightsFileWrapperList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsFileWrapper).ToList();
-            model.BanijayRightsFrameRateList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsFrameRate).ToList();
-            model.BanijayRightsInShowAndAfterProgList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsInShowAndAfterProg).ToList();
-            model.BanijayRightsSDROrHDRList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsSDROrHDR).ToList();
-            model.BanijayRightsTimecodeList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTimecode).ToList();
-            model.BanijayRightsTypeOfHDRList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTypeOfHDR).ToList();
-            model.BanijayRightsVideoLinesList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsVideoLines).ToList();
+            model.BanijayRightsAspectRatioList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsAspectRatio).ToList();
+            model.BanijayRightsCaptionSafeList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsCaptionSafe).ToList();
+            model.BanijayRightsCodecList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsCodec).ToList();
+            model.BanijayRightsFileWrapperList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsFileWrapper).ToList();
+            model.BanijayRightsFrameRateList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsFrameRate).ToList();
+            model.BanijayRightsInShowAndAfterProgList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsInShowAndAfterProg).ToList();
+            model.BanijayRightsSDROrHDRList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsSDROrHDR).ToList();
+            model.BanijayRightsTimecodeList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsTimecode).ToList();
+            model.BanijayRightsTypeOfHDRList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsTypeOfHDR).ToList();
+            model.BanijayRightsVideoLinesList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsVideoLines).ToList();
 
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(
@@ -158,12 +158,12 @@ namespace Deluxe.QCReport.Web.Controllers
             model.AudioTC_VM = _atcSrv.GetAudioTCDetails(qcnum, revnum);
 
             model.ChannelCountList = LookUpsService.GetChannelCount();
-            model.BanijayRightsBitRateList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsBitRate).ToList(); // new
-            model.BanijayRightsTrackContentList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTrackContent).ToList(); // new 
-           // model.BanijayRightsLanguageList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
+            model.BanijayRightsBitRateList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsBitRate).ToList(); // new
+            model.BanijayRightsTrackContentList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsTrackContent).ToList(); // new 
+           // model.BanijayRightsLanguageList = _lookupsService.GetLookup((StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
             model.LanguageList = LookUpsService.GetLanguage();
-            model.BanijayRightsPositionList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsPosition).ToList(); // Description
-            model.BanijayRightsToneList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTone).ToList();
+            model.BanijayRightsPositionList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsPosition).ToList(); // Description
+            model.BanijayRightsToneList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsTone).ToList();
 
 
            
@@ -187,12 +187,12 @@ namespace Deluxe.QCReport.Web.Controllers
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
 
             model.ChannelCountList = LookUpsService.GetChannelCount();
-            model.BanijayRightsBitRateList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsBitRate).ToList(); // new
-            model.BanijayRightsTrackContentList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTrackContent).ToList(); // new 
-            //model.BanijayRightsLanguageList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
+            model.BanijayRightsBitRateList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsBitRate).ToList(); // new
+            model.BanijayRightsTrackContentList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsTrackContent).ToList(); // new 
+            //model.BanijayRightsLanguageList = _lookupsService.GetLookup((StoredProcedure.Lookup.BanijayRightsLanguage).ToList();
             model.LanguageList = LookUpsService.GetLanguage();
-            model.BanijayRightsPositionList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsPosition).ToList(); // Description
-            model.BanijayRightsToneList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsTone).ToList();
+            model.BanijayRightsPositionList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsPosition).ToList(); // Description
+            model.BanijayRightsToneList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsTone).ToList();
 
 
 
@@ -580,7 +580,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.BanijayRightsTextDetails = _textDetailsService.Get(qcnum, revnum) as BanijayRightsTextDetails;
             model.YesNoNAList = LookUpsService.GetYesNoNA();
             model.YesNoNAList2 = LookUpsService.GetYesNoNotAll2();
-            model.BanijayRightsInShowAndAfterProgList = _lookupsService.GetLookups(StoredProcedure.Lookup.BanijayRightsInShowAndAfterProg).ToList();
+            model.BanijayRightsInShowAndAfterProgList = _lookupsService.GetLookup(StoredProcedure.Lookup.BanijayRightsInShowAndAfterProg).ToList();
 
 
             /****************Log User Activity******************************************************/

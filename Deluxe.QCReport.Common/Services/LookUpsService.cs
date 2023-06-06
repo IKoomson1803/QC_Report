@@ -22,9 +22,9 @@ namespace Deluxe.QCReport.Common.Services
 
         }
 
-        public IList<string> GetLookups(StoredProcedure.Lookup lookup)
+        public IList<string> GetLookup(StoredProcedure.Lookup lookup)
         {
-            return _rep.GetLookups(lookup);
+            return _rep.GetLookup(lookup);
         }
 
         public static Dictionary<int, string> GetAspectRatio()
