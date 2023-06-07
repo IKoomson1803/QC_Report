@@ -28,13 +28,13 @@ namespace Deluxe.QCReport.ConsoleApp
 
                         if (!string.IsNullOrWhiteSpace(lookup))
                         {
-                            var sql = $"INSERT INTO {tableName} ";
-                            sql += $" SELECT @type";
-                            sql += $" WHERE NOT EXISTS( SELECT NULL FROM {tableName} WHERE Type = @type)";
+                            var sql = $"INSERT INTO {tableName}(Type) ";
+                            sql += $" SELECT @type ";
+                            sql += $" WHERE NOT EXISTS(SELECT NULL FROM {tableName} WHERE  LTRIM(RTRIM(Type))  = '{lookup.Trim()}')";
 
                             using (var cmd = new SqlCommand(sql, connection))
                             {
-                                cmd.Parameters.Add("@type", SqlDbType.VarChar).Value = lookup;
+                                cmd.Parameters.Add("@type", SqlDbType.VarChar).Value = lookup.Trim();
                                 object res = cmd.ExecuteScalar();
                             }
 

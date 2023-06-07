@@ -157,6 +157,8 @@
     <Content Include="Archives\v4.0.0.0 - Banijay Rights - New template\Lookups.sql" />
     <Content Include="Archives\v4.0.0.0 - Banijay Rights - New template\DB_Scripts_2.sql" />
     <Content Include="Archives\v4.0.0.0 - Banijay Rights - New template\DB_Scripts_3.sql" />
+    <Content Include="v5.0.0.0 - Disney Plus Originals - TWDC\CRUD.sql" />
+    <Content Include="v5.0.0.0 - Disney Plus Originals - TWDC\Looups.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

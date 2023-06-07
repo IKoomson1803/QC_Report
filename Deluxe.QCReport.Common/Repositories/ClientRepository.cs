@@ -64,6 +64,11 @@ namespace Deluxe.QCReport.Common.Repositories
         {
             bool saved = false;
 
+            if (string.IsNullOrWhiteSpace(client.CustName))
+            {
+                return false;
+            }
+
             try
             {
                 using (DataClassesDataContext DC = new DataClassesDataContext())

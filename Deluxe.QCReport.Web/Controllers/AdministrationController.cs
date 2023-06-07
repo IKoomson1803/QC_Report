@@ -251,7 +251,17 @@ namespace Deluxe.QCReport.Web.Controllers
                 return Json(
                     new {
                         success = false, 
-                        msg = "Failed to save client, please contact system admin. " 
+                        msg = "Please supply a customer name and continue... "
+                    });
+            }
+
+            if (string.IsNullOrWhiteSpace(client.CustName))
+            {
+                return Json(
+                    new
+                    {
+                        success = false,
+                        msg = "Please supply a customer name and continue... "
                     });
             }
 
@@ -266,6 +276,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             try
             {
+                client.CustName = client.CustName.Trim();
                 result = _clientService.SaveClient(client);
                 resultMsg = "Client saved successfully";
 

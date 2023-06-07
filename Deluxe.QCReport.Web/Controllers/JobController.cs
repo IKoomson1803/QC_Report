@@ -158,22 +158,22 @@ namespace Deluxe.QCReport.Web.Controllers
                 model.Header_VM.CustId = selCustomer.Key;
             }
 
-            Dictionary<int, string> versionList = LookUpsService.GetVersion();
-            KeyValuePair<int, string> selVersion = versionList.FirstOrDefault(c => c.Value == model.Header_VM.Version);
-            if (selVersion.Key == 0 && string.IsNullOrEmpty(selVersion.Value))
-            {
-                return Json(new { success = false, msg = "Data not saved! Version not found." });
-            }
+            //Dictionary<int, string> versionList = LookUpsService.GetVersion();
+            //KeyValuePair<int, string> selVersion = versionList.FirstOrDefault(c => c.Value == model.Header_VM.Version);
+            //if (selVersion.Key == 0 && string.IsNullOrEmpty(selVersion.Value))
+            //{
+            //    return Json(new { success = false, msg = "Data not saved! Version not found." });
+            //}
 
-            if(string.IsNullOrWhiteSpace(qcType) && qcType != "E")
-            {
-                Dictionary<int, string> descList = LookUpsService.GetTapeDesc();
-                KeyValuePair<int, string> selDesc = descList.FirstOrDefault(c => c.Value == model.Header_VM.TapeDesc1);
-                if (selDesc.Key == 0 && string.IsNullOrEmpty(selDesc.Value))
-                {
-                    return Json(new { success = false, msg = "Data not saved! Description not found." });
-                }
-            }
+            //if(string.IsNullOrWhiteSpace(qcType) && qcType != "E")
+            //{
+            //    Dictionary<int, string> descList = LookUpsService.GetTapeDesc();
+            //    KeyValuePair<int, string> selDesc = descList.FirstOrDefault(c => c.Value == model.Header_VM.TapeDesc1);
+            //    if (selDesc.Key == 0 && string.IsNullOrEmpty(selDesc.Value))
+            //    {
+            //        return Json(new { success = false, msg = "Data not saved! Description not found." });
+            //    }
+            //}
            
             bool result = _headSrv.UpdateHeaderDetails(model.Header_VM);
             string resultMsg = "Header data saved successfully.";

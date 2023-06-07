@@ -12,15 +12,15 @@ namespace Deluxe.QCReport.ConsoleApp
         static void Main(string[] args)
         {
 
-
+            Insert_Disney_TWDC_LookupS();
         }
 
         static void Insert_Disney_TWDC_LookupS()
         {
             try
             {
-                string lookupPath = @"D:\DevFiles\BBC Coast\NMS Ingest Operational Task Management\Ingest - Xml Generator Tool\NMSIngestLookup.txt";
-                var tableName = String.Empty;//StoredProcedure..SubtitleImageFileFormatType.ToString();
+                string lookupPath = @"D:\DevFiles\QC\Disney\TWDC\Lookups\Lookups.txt";
+                var tableName = "[bward].[DisneyTWDCQCScope]";
                 DisneyTWDC.InsertLookups(lookupPath, tableName);
 
                 Console.WriteLine("Done");
