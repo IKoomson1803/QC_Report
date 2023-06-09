@@ -344,6 +344,38 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
+        public static Dictionary<string, string> GetFullHeadNA()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("F", "Full");
+            result.Add("N/A", "N/A");
+            result.Add("H", "Head");
+            return result;
+        }
+
+        public static Dictionary<string, string> GetQCSeverity()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("1", "1");
+            result.Add("2", "2");
+            result.Add("3", "3");
+            return result;
+        }
+
+        public static Dictionary<string, string> GetFinalSeverity()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result.Add("1", "1");
+            result.Add("2", "2");
+            result.Add("3", "3");
+            result.Add("I", "Invalid");
+            return result;
+        }
+
+
         public static Dictionary<int, string> GetEvalStatus()
         {
 

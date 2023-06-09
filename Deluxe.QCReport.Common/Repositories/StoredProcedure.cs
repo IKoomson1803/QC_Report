@@ -118,9 +118,33 @@ namespace Deluxe.QCReport.Common.Repositories
             BanijayRightsTrackContent,
             BanijayRightsTypeOfHDR,
             BanijayRightsVideoLines,
-            BanijayRightsBitRate
+            BanijayRightsBitRate,
 
             // DisneyTWDC
+            DisneyTWDCAssetType,
+            DisneyTWDCAudioBitDepth,
+            DisneyTWDCAudioSampleRate,
+            DisneyTWDCCanvasImageAspectRatio,
+            DisneyTWDCChromaSubSamplingRate,
+            DisneyTWDCClosedCaptionType,
+            DisneyTWDCColorEncoding,
+            DisneyTWDCCreatedFrom,
+            DisneyTWDCForensicWatermark,
+            DisneyTWDCFrameRate,
+            DisneyTWDCMainLanguage,
+            DisneyTWDCQCProcess,
+            DisneyTWDCQCScope,
+            DisneyTWDCQCStatus,
+            DisneyTWDCQCType,
+            DisneyTWDCResolutionStandard,
+            DisneyTWDCTextedLanguage,
+            DisneyTWDCAudioConfiguration,
+            DisneyTWDCComponentEvent,
+            DisneyTWDCFinalStatus,
+            DisneyTWDCQCEvaluation
+
+
+
 
         }
 

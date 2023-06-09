@@ -20,7 +20,7 @@ namespace Deluxe.QCReport.ConsoleApp
             try
             {
                 string lookupPath = @"D:\DevFiles\QC\Disney\TWDC\Lookups\Lookups.txt";
-                var tableName = "[bward].[DisneyTWDCQCScope]";
+                var tableName = "[bward].[DisneyTWDCQCEvaluation]";
                 DisneyTWDC.InsertLookups(lookupPath, tableName);
 
                 Console.WriteLine("Done");
