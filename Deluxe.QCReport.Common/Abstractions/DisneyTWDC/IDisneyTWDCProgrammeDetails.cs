@@ -12,7 +12,7 @@ namespace Deluxe.QCReport.Common.Abstractions.DisneyTWDC
         int SubQCNum { get; set; }
         string WonderlandShortID { get; set; }
         string QCType { get; set; }
-        string QCSope { get; set; }
+        string QCScope { get; set; }
         string QCProcess { get; set; }
         string ProcessNotes { get; set; }
         string QCVendor { get; set; }

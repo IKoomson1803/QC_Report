@@ -19,3 +19,4 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\D
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.dll
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.pdb
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\bin\Debug\DocumentFormat.OpenXml.xml
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.Common\obj\Debug\Deluxe.QCReport.Common.csproj.AssemblyReference.cache

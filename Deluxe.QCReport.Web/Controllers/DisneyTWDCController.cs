@@ -59,14 +59,23 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            model.DisneyTWDCProgrammeDetails = null; // _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BanijahRightsProgrammeDetails;
+            model.DisneyTWDCProgrammeDetails = new DisneyTWDCProgrammeDetails(); // _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BanijahRightsProgrammeDetails;
 
             model.DisneyTWDCQCTypeList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCType).ToList();
             model.DisneyTWDCQCScopeList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCScope).ToList();
             model.DisneyTWDCQCProcessList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCProcess).ToList();
 
+            model.DisneyTWDCProgrammeDetails.QCNum = qcnum;
+            model.DisneyTWDCProgrammeDetails.SubQCNum = revnum;
+
 
             return PartialView("_ProgrammeDetails",model);
+        }
+
+        [HttpPost]
+        public ActionResult SaveProgrammeDetails(HomeVM model)
+        {
+            return Json(new { success = false, msg = "Not implemented yet!" });
         }
 
         public ActionResult GetElementInformation(int qcnum, int revnum)

@@ -9,7 +9,7 @@ namespace Deluxe.QCReport.Common.Models.DisneyTWDC
         public int SubQCNum { get; set; }
         public string WonderlandShortID { get; set; }
         public string QCType { get; set; }
-        public string QCSope { get; set; }
+        public string QCScope { get; set; }
         public string QCProcess { get; set; }
         public string ProcessNotes { get; set; }
         public string QCVendor { get; set; }

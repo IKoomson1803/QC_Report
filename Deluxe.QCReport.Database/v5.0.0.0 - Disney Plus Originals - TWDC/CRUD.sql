@@ -20,7 +20,7 @@ CREATE TABLE [bward].[DisneyTWDCProgrammeDetails](
 	[SubQCNum] [int] NOT NULL,
 	[WonderlandShortID] [varchar](50) NULL,
 	[QCType] [varchar](100) NULL,
-	[QCSope] [varchar](30) NULL,
+	[QCScope] [varchar](30) NULL,
 	[QCProcess] [varchar](50) NULL,
 	[ProcessNotes] [varchar](255) NULL,
 	[QCVendor] [varchar](100) NULL,
