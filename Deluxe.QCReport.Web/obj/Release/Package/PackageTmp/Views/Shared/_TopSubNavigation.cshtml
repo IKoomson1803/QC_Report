@@ -8,22 +8,30 @@
 
 @if (Model.CustomerName.ToLower().Contains("dpp eyeball"))
 {
-    
-      Html.RenderPartial("_DPPTopSubNavigation", Model);
-    
+
+    Html.RenderPartial("_DPPTopSubNavigation", Model);
+
 }
+
 else if (Model.QCType.ToUpper().Equals("BNJR")) /*Banijay Rights new template*/
 {
-   
-      Html.RenderPartial("_BanijayRightsTopSubNavigation", Model);
-    
+
+    Html.RenderPartial("_BanijayRightsTopSubNavigation", Model);
+
+}
+
+else if (Model.QCType.ToUpper().Equals("TWDC")) /*Disney Plus Originals - TWDC*/
+{
+
+    Html.RenderPartial("_DisneyTWDCTopSubNavigation", Model);
+
 }
 
 else
 {
-    
+
     Html.RenderPartial("_GenericTopSubNavigation", Model);
-   
+
 }
 
 

@@ -68,6 +68,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCProgrammeDetails.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutRepository.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutService.cs" />
     <Compile Include="Abstractions\IBanijahRightsTapeLayout.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ControlRoomVM.cs" />
     <Compile Include="Models\DetailsVMs.cs" />
+    <Compile Include="Models\DisneyTWDC\DisneyTWDCProgrammeDetails.cs" />
     <Compile Include="Models\QCBase.cs" />
     <Compile Include="Models\DPPCommBroadcasters.cs" />
     <Compile Include="Models\DPPLog.cs" />
@@ -213,6 +215,7 @@
     <Compile Include="Services\BanijayRightsTextDetailsService.cs" />
     <Compile Include="Services\ChecklistService.cs" />
     <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\DisneyTWDC\DisneyTWDCService.cs" />
     <Compile Include="Services\DPPService.cs" />
     <Compile Include="Services\FaultDescriptionImageService.cs" />
     <Compile Include="Services\LocationService.cs" />
@@ -276,7 +279,9 @@
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Repositories\DisneyTWDC\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

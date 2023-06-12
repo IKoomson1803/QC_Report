@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Web.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Deluxe.QCReport.Common.Models;
-using System.Web.Mvc;
+using Deluxe.QCReport.Common.Models.DisneyTWDC;
+
 
 namespace Deluxe.QCReport.Web.Models
 {
@@ -99,7 +101,7 @@ namespace Deluxe.QCReport.Web.Models
         public List<FaultDescriptionImage> FaultDescriptionImages { get; set; }
         public string Message { get; set; }
 
-        /**************** Add DPP Models **********************************************/
+        /****************  DPP Models **********************************************/
         public DPPProgDetails DPPProgDetails { get; set; }
         public  DPPProdDetails DPPProdDetails { get; set; }
         public DPPCommBroadcasters DPPCommBroadcasters { get; set; }
@@ -108,7 +110,7 @@ namespace Deluxe.QCReport.Web.Models
         public List<DPPLog> DPPLogs { get; set; }
         public DPPLog DPPLog { get; set; }
 
-        /**************** Add Banijah Rights **********************************************/
+        /**************** Banijah Rights **********************************************/
         public BanijahRightsProgrammeDetails BanijahRightsProgrammeDetails { get; set; }
         public BanijahRightsProgrammeLayout BanijahRightsProgrammeLayout  { get; set; }
         public BanijahRightsTapeLayout BanijahRightsTapeLayout { get; set; }
@@ -132,6 +134,20 @@ namespace Deluxe.QCReport.Web.Models
         public List<string> BanijayRightsBitRateList { get; set; }
 
         /*************************************************************************/
+
+        /**************** Disney TWDC **********************************************/
+        public DisneyTWDCProgrammeDetails DisneyTWDCProgrammeDetails { get; set; }
+
+
+
+        public List<string> DisneyTWDCQCTypeList { get; set; }
+        public List<string> DisneyTWDCQCScopeList { get; set; }
+        public List<string> DisneyTWDCQCProcessList { get; set; }
+
+
+
+        /*************************************************************************/
+
 
     }
 

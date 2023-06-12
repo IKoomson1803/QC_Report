@@ -215,6 +215,7 @@
     <Compile Include="Controllers\AdvancedSearchController.cs" />
     <Compile Include="Controllers\BanijayRightsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DisneyTWDCController.cs" />
     <Compile Include="Controllers\DPPController.cs" />
     <Compile Include="Controllers\FaultImageController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
@@ -297,7 +298,14 @@
     <Content Include="Views\BanijayRights\_Notes.cshtml" />
     <Content Include="Specifications\Disney\Update to the Disney requirements for QC on D Plus content  08 Feb 2023.pdf" />
     <Content Include="Views\BanijayRights\_TapeLayoutGrid.cshtml" />
-    <Content Include="Specifications\Generic\HOW TO QC HDR DOLBY VISION FILES, AND HOW TO APPLY TRIM PASS - MAY 26 2023.pdf" />
+    <Content Include="Views\Home\_DisneyTWDCJobNavigation.cshtml" />
+    <Content Include="Views\DisneyTWDC\_ProgrammeDetails.cshtml" />
+    <Content Include="Views\DisneyTWDC\_ElementInformation.cshtml" />
+    <Content Include="Views\DisneyTWDC\_TechnicalSpecifications.cshtml" />
+    <Content Include="Views\DisneyTWDC\_Audio.cshtml" />
+    <Content Include="Views\DisneyTWDC\_Log.cshtml" />
+    <Content Include="Views\DisneyTWDC\_Comments.cshtml" />
+    <Content Include="Specifications\Generic\HOW TO QC HDR DOLBY VISION FILES, AND HOW TO APPLY TRIM PASS - June 07 2023.pdf" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />
@@ -333,6 +341,7 @@
     <Content Include="Views\Shared\_DPPTopSubNavigation.cshtml" />
     <Content Include="Views\Shared\_BanijayRightsTopSubNavigation.cshtml" />
     <Content Include="Views\Shared\_GenericTopSubNavigation.cshtml" />
+    <Content Include="Views\Shared\_DisneyTWDCTopSubNavigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -343,6 +352,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Specifications\DisneyTWDC\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

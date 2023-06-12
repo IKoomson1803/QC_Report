@@ -1842,7 +1842,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
                 switch (customerName)
                 {
-                    case var _ when customerName.ToLower().Contains("disney"):
+                    case var _ when customerName.ToLower().Trim().Equals("walt disney company"):
                         customerName = "Disney";
                         break;
                     case var _ when customerName.ToLower().Contains("warner"):

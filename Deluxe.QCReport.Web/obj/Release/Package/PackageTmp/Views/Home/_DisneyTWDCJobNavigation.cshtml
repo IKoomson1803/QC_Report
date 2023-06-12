@@ -1,0 +1,79 @@
+﻿@model Deluxe.QCReport.Common.Models.Review
+
+
+@{
+
+    var qcNumber = Model.QCNumber;
+    var revNumber = Model.ReviewNumber;
+    var qcType = Model.QCType;
+
+}
+
+<li class="list-group-item list-group-item">
+    <b>
+        <a href="#" class="lnkTWDCProgDetails"
+           onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/DisneyTWDC/GetProgrammeDetails', 'lnkTWDCProgDetails')"
+           data-qcnum="@qcNumber"
+           data-revnum="@revNumber">
+            Programme Details
+        </a>
+    </b>
+</li>
+
+<li class="list-group-item list-group-item">
+    <b>
+        <a href="#" class="lnkTWDCElementInfo"
+           onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/DisneyTWDC/GetElementInformation', 'lnkTWDCElementInfo')"
+           data-qcnum="@qcNumber"
+           data-revnum="@revNumber">
+            Element Info
+        </a>
+    </b>
+</li>
+
+<li class="list-group-item list-group-item">
+    <b>
+        <a href="#" class="lnkTWDCTechSpecs"
+           onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/DisneyTWDC/GetTechnicalSpecifications', 'lnkTWDCTechSpecs')"
+           data-qcnum="@qcNumber"
+           data-revnum="@revNumber">
+           Technical Specs
+        </a>
+    </b>
+</li>
+
+<li class="list-group-item list-group-item">
+    <b>
+        <a href="#" class="lnkTWDCAudioConfig"
+           onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/DisneyTWDC/GetAudio', 'lnkTWDCAudioConfig')"
+           data-qcnum="@qcNumber"
+           data-revnum="@revNumber">
+            Audio Configuration
+        </a>
+    </b>
+</li>
+
+
+<li class="list-group-item list-group-item">
+    <b>
+        <a href="#" class="lnkTWDCLog"
+           onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/DisneyTWDC/LogDetails', 'lnkTWDCLog')"
+           data-qcnum="@qcNumber"
+           data-revnum="@revNumber">
+            Log
+        </a>
+    </b>
+</li>
+
+<li class="list-group-item list-group-item">
+    <b>
+        <a href="#" class="lnkTWDCComments"
+           onclick="setQCAndRevNumbers(@qcNumber,@revNumber);PopulateJobDetails('/DisneyTWDC/GetComments', 'lnkTWDCComments')"
+           data-qcnum="@qcNumber"
+           data-revnum="@revNumber">
+            General Comments
+        </a>
+    </b>
+</li>
+
+

@@ -56,6 +56,7 @@
                                             QCType = qcItem.QCType,
                                         });
                                 }
+
                                 else if (qcItem.QCType.ToUpper().Equals("BNJR")) /*Banijay Rights - New Template*/
                                 {
 
@@ -67,6 +68,19 @@
                                         QCType = qcItem.QCType,
                                     });
                                 }
+
+                                else if (qcItem.QCType.ToUpper().Equals("TWDC")) /*Disney Plus Originals - TWDC*/
+                                {
+
+                                    Html.RenderPartial("_BanijayRightsJobNavigation",
+                                    new Review
+                                    {
+                                        QCNumber = qcItem.QCNumber,
+                                        ReviewNumber = revItem.Key,
+                                        QCType = qcItem.QCType,
+                                    });
+                                }
+
                                 else
                                 {
                                     Html.RenderPartial("_GenericJobNavigation",

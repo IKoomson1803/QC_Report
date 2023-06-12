@@ -1,0 +1,85 @@
+﻿@model  Deluxe.QCReport.Web.Models.TopSubNavigationVM
+
+<button type="button"
+        class="btn btn-sm btn-primary lnkTWDCProgDetails topsubmenu"
+        id="lnkTWDCProgDetails"
+        onclick="PopulateJobDetails('/DisneyTWDC/GetProgrammeDetails', 'lnkTWDCProgDetails')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Programme Details
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-default lnkTWDCAudio  topsubmenu"
+        id="lnkTWDCElementInfo"
+        onclick="PopulateJobDetails('/DisneyTWDC/GetElementInformation', 'lnkTWDCElementInfo')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Element Info
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-info lnkTWDCTechSpecs  topsubmenu"
+        id="lnkTWDCVideo"
+        onclick="PopulateJobDetails('/DisneyTWDC/GetTechnicalSpecifications', 'lnkTWDCTechSpecs')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Technical Specs
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-warning lnkTWDCAudioConfig  topsubmenu"
+        id="lnkTWDCProgrammeLayout"
+        onclick="PopulateJobDetails('/DisneyTWDC/GetAudio', 'lnkTWDCAudioConfig')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Audio Configuration
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-primary lnkTWDCLog  topsubmenu"
+        id="lnkTWDCTextDetails"
+        onclick="PopulateJobDetails('/DisneyTWDC/LogDetails', 'lnkTWDCLog')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    Log
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-success lnkTWDCNotes  topsubmenu"
+        id="lnkTWDCComments"
+        onclick="PopulateJobDetails('/DisneyTWDC/GetComments', 'lnkTWDCComments')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    General Comments
+</button>
+
+
+<button type="button"
+        class="btn btn-sm btn-outline-light topsubmenu"
+        style="border:none;">
+    &nbsp;
+</button>
+
+<button type="button"
+        id="btnFaultImage"
+        class="btn btn-sm btn-light col-sm-offset-1 btnFaultImage topsubmenu"
+        onclick="PopulateJobDetails('/FaultImage/LoadFaultsImages', 'btnFaultImage')"
+        data-qcnum="@Model.QCNumber"
+        data-revnum="@Model.RevNumber"
+        data-wonum="@Model.WONumber">
+    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+    Image Upload
+</button>
+
+<button type="button"
+        class="btn btn-sm btn-outline-light"
+        style="border:none;">
+    &nbsp;
+</button>
