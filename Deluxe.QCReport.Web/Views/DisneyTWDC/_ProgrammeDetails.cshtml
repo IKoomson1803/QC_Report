@@ -104,7 +104,7 @@
             <div class="col-sm-2 form-group">
                 @Html.DropDownListFor(m => m.DisneyTWDCProgrammeDetails.QCProcess,
              new SelectList(Model.DisneyTWDCQCProcessList), "",
-              new { @class = "form-control", @style = "width:200px" })
+              new { @class = "form-control", @style = "width:250px" })
 
             </div>
         </div>
@@ -130,13 +130,10 @@
                 <label class="control-label">QC Operator:</label>
             </div>
             <div class="col-sm-2 form-group">
-                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCOperator,
-                 new
-                      {
-                       @class = "form-control",
-                       @style = "width:250px",
-                       maxlength = "50"
-                      })
+                @Html.DropDownListFor(m => m.DisneyTWDCProgrammeDetails.QCOperatorId, 
+              new SelectList(Model.OperatorList, "key", "value"),
+              "-- Select QC Operator --", 
+              new { @class = "form-control SearchableDropdown" })
             </div>
 
             <div class="col-sm-1 text-right">
@@ -160,7 +157,7 @@
                   new
                        {
                         @class = "form-control",
-                         @style = "width:200px",
+                         @style = "width:250px",
                         maxlength = "50"
                        })
             </div>
@@ -186,7 +183,9 @@
             </div>
             <div class="col-sm-1 form-group" style="width:200px">
 
-                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCRoom, new { @class = "form-control", @style = "width:150px" })
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCRoom,
+               new { @class = "form-control", 
+                   @style = "width:250px" })
 
             </div>
 
@@ -198,7 +197,7 @@
                   new
                        {
                         @class = "form-control",
-                         @style = "width:200px",
+                         @style = "width:250px",
                         maxlength = "50"
                        })
             </div>
@@ -240,7 +239,7 @@
                   new
                        {
                         @class = "form-control",
-                         @style = "width:200px",
+                         @style = "width:250px",
                         maxlength = "50"
                        })
             </div>
@@ -295,11 +294,32 @@
     }
 
 
+    function initializeDDL() {
+
+        $('.SearchableDropdown').multiselect({
+            multiple: false,
+            includeSelectAllOption: true,
+            enableCaseInsensitiveFiltering: true,
+            maxHeight: 200,
+            nonSelectedText: '',
+            allSelectedText: 'No option left ...',
+            delimiterText: '\n',
+            numberDisplayed: 1,
+            buttonWidth: '250px',
+
+        });
+
+
+    }
+
+
     $(function () {
         $(function () {
 
             setActiveButton();
             initializeDatePicker();
+            initializeDDL();
+
 
             $('#btnSave').on("click", function () {
 

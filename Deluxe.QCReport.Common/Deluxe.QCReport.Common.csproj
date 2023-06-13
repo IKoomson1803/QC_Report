@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCProgrammeDetails.cs" />
+    <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCRepository.cs" />
+    <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCService.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutRepository.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutService.cs" />
     <Compile Include="Abstractions\IBanijahRightsTapeLayout.cs" />
@@ -182,6 +184,7 @@
     <Compile Include="Repositories\BanijayRightsNotesRepository.cs" />
     <Compile Include="Repositories\BanijayRightsTextDetailsRepository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
+    <Compile Include="Repositories\DisneyTWDC\DisneyTWDCRepository.cs" />
     <Compile Include="Repositories\DPPRepository.cs" />
     <Compile Include="Repositories\FaultDescriptionImageRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
@@ -279,9 +282,7 @@
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\DisneyTWDC\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

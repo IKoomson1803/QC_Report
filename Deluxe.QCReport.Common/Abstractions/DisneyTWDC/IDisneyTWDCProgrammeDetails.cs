@@ -15,17 +15,18 @@ namespace Deluxe.QCReport.Common.Abstractions.DisneyTWDC
         string QCScope { get; set; }
         string QCProcess { get; set; }
         string ProcessNotes { get; set; }
-        string QCVendor { get; set; }
         string CSRManager { get; set; }
         string FileCreationFacility { get; set; }
         string QCManager { get; set; }
 
         //From the Header Table
+        string QCVendor { get; set; }
         string WorkOrderNumber { get; set; }
         string Title { get; set; }
         string AssetName { get; set; }
-        string QCOperator { get; set; }
-        DateTime QCDate { get; set; }
+       // string QCOperator { get; set; }
+        int? QCOperatorId { get; set; }
+        DateTime? QCDate { get; set; }
         string QCPlaybackDevice { get; set; }
         string QCRoom { get; set; } // Bay_Num
     }

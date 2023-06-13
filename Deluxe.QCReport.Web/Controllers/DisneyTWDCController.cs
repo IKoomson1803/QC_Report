@@ -64,6 +64,7 @@ namespace Deluxe.QCReport.Web.Controllers
             model.DisneyTWDCQCTypeList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCType).ToList();
             model.DisneyTWDCQCScopeList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCScope).ToList();
             model.DisneyTWDCQCProcessList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCProcess).ToList();
+            model.OperatorList = LookUpsService.GetOperator();
 
             model.DisneyTWDCProgrammeDetails.QCNum = qcnum;
             model.DisneyTWDCProgrammeDetails.SubQCNum = revnum;
@@ -75,8 +76,31 @@ namespace Deluxe.QCReport.Web.Controllers
         [HttpPost]
         public ActionResult SaveProgrammeDetails(HomeVM model)
         {
-            return Json(new { success = false, msg = "Not implemented yet!" });
+
+            //bool result = _progDetailsService.SaveProgrammeDetails(model.BanijahRightsProgrammeDetails);
+            //string resultMsg = "Banijay Rights Programme Details saved successfully.";
+
+            //if (!result)
+            //{
+            //    resultMsg = "Banijay Rights Programme Details failed to save !";
+            //}
+            //else
+            //{
+            //    /****************Log User Activity******************************************************/
+
+            //    WebSystemUtility.LogUserActivity(
+            //                              $"Banijay Rights Programme Details for QC # {model.BanijahRightsProgrammeDetails.QCNum}" +
+            //                              $" and Rev # {model.BanijahRightsProgrammeDetails.SubQCNum} was updated.",
+            //                              Constants.ActivityType.BanijayRightsProgrammeDetailsUpdated);
+
+            //    /*******************************************************************************************/
+
+            //}
+
+
+            return Json(new { success = "", msg = "Not Implemented!" });
         }
+
 
         public ActionResult GetElementInformation(int qcnum, int revnum)
         {

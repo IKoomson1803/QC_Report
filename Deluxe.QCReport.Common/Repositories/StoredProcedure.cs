@@ -168,14 +168,8 @@ namespace Deluxe.QCReport.Common.Repositories
 
         public enum DisneyTWDC
         {
-            //Lookups
-            
-
-
-
-
-
-            //CRUD
+            sel_GetDisneyTWDCProgrammeDetails,
+            up_SaveDisneyTWDCProgrammeDetails
 
 
         }
