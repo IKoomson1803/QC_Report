@@ -62,8 +62,8 @@ BEGIN
     -- Insert statements for procedure here
 	
 	SELECT 
-	    p.QCNum,
-        p.SubQCNum,
+	    h.Qcnum,
+        h.subQcnum,
         WonderlandShortID,
         QCType,
         QCScope,
@@ -84,10 +84,12 @@ BEGIN
 	FROM 
 		[bward].qcHeader h
 		INNER JOIN [bward].qcUsers u ON h.Operator = u.qcUserID 
-	    INNER JOIN [bward].[DisneyTWDCProgrammeDetails] p on h.Qcnum = p.QCNum
+	    LEFT JOIN [bward].[DisneyTWDCProgrammeDetails] p on h.Qcnum = p.QCNum
 	
 	 WHERE
-		P.QCNum = @QCNum AND p.SubQCNum = @SubQcNum
+		h.Qcnum = @QCNum 
+		AND h.subQcnum = @SubQcNum
+
 
 END
 GO

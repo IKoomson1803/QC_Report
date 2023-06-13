@@ -19,10 +19,10 @@ namespace Deluxe.QCReport.Common.Repositories.DisneyTWDC
         public DisneyTWDCRepository(ConnectionStringSettings connString, ILoggerService logger)
         {
             this._conn = connString ?? throw new ArgumentNullException(
-                       $"BanijayRightsNotesRepository expects ctor injection: {nameof(ConnectionStringSettings)}");
+                       $"DisneyTWDCRepository expects ctor injection: {nameof(ConnectionStringSettings)}");
 
             this._logger = logger ?? throw new ArgumentNullException(
-                        $"BanijayRightsNotesRepository expects ctor injection: {nameof(ILoggerService)}");
+                        $"DisneyTWDCRepository expects ctor injection: {nameof(ILoggerService)}");
         }
 
 

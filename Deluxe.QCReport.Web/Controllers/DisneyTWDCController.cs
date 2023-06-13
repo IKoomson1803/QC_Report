@@ -12,7 +12,9 @@ using Deluxe.QCReport.Common.Services;
 using Deluxe.QCReport.Common.Services.DisneyTWDC;
 using Deluxe.QCReport.Common.Utilities;
 using Deluxe.QCReport.Common.Repositories;
+using Deluxe.QCReport.Common.Repositories.DisneyTWDC;
 using Deluxe.QCReport.Common.Abstractions;
+using Deluxe.QCReport.Common.Abstractions.DisneyTWDC;
 using Deluxe.QCReport.Web.Utilities;
 using Deluxe.QCReport.Web.Models;
 using Deluxe.QCReport.Web.Fillter;
@@ -24,6 +26,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
         private readonly ILoggerService _loggerService = null;
         private readonly ILookupsService _lookupsService = null;
+        private readonly IDisneyTWDCService _disneyTWDCService = null;
 
         public DisneyTWDCController()
         {
@@ -38,7 +41,10 @@ namespace Deluxe.QCReport.Web.Controllers
                                      _loggerService));
 
 
-
+            _disneyTWDCService = new DisneyTWDCService(
+                                new DisneyTWDCRepository(
+                                    conn,
+                                    _loggerService));
 
 
 
@@ -59,18 +65,14 @@ namespace Deluxe.QCReport.Web.Controllers
             HomeVM model = new HomeVM();
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
-            model.DisneyTWDCProgrammeDetails = new DisneyTWDCProgrammeDetails(); // _progDetailsService.GetProgrammeDetails(qcnum, revnum) as BanijahRightsProgrammeDetails;
+            model.DisneyTWDCProgrammeDetails = _disneyTWDCService.GetProgrammeDetails(qcnum, revnum) as DisneyTWDCProgrammeDetails;
 
             model.DisneyTWDCQCTypeList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCType).ToList();
             model.DisneyTWDCQCScopeList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCScope).ToList();
             model.DisneyTWDCQCProcessList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCProcess).ToList();
             model.OperatorList = LookUpsService.GetOperator();
 
-            model.DisneyTWDCProgrammeDetails.QCNum = qcnum;
-            model.DisneyTWDCProgrammeDetails.SubQCNum = revnum;
-
-
-            return PartialView("_ProgrammeDetails",model);
+           return PartialView("_ProgrammeDetails",model);
         }
 
         [HttpPost]
