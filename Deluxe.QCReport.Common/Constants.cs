@@ -139,6 +139,8 @@ namespace Deluxe.QCReport.Common
             ControlRoomDetailsSearched,
             ControlRoomDetailsUpdated,
             NewControlRoomAdded,
+
+            //DPP
             DPPProgDetailsViewed,
             DPPProgDetailsUpdated,
             DPPProdDetailsViewed,
@@ -153,6 +155,7 @@ namespace Deluxe.QCReport.Common
             DPPLogUpdated,
             DPPLogDeleted,
 
+            //Banijay Rights new template
             BanijayRightsProgrammeDetailsViewed,
             BanijayRightsProgrammeDetailsUpdated,
             BanijayRightsAudioViewed,
@@ -170,7 +173,11 @@ namespace Deluxe.QCReport.Common
             BanijayRightsFaultsUpdated,
             BanijayRightsFaultsDeleted,
             BanijayRightsNotesViewed,
-            BanijayRightsNotesUpdated
+            BanijayRightsNotesUpdated,
+
+            //Disney TWDC
+            DisneyTWDCProgrammeDetailsViewed,
+            DisneyTWDCProgrammeDetailsUpdated,
 
 
         }

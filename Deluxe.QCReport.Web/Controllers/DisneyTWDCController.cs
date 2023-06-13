@@ -72,35 +72,41 @@ namespace Deluxe.QCReport.Web.Controllers
             model.DisneyTWDCQCProcessList = _lookupsService.GetLookup(StoredProcedure.Lookup.DisneyTWDCQCProcess).ToList();
             model.OperatorList = LookUpsService.GetOperator();
 
-           return PartialView("_ProgrammeDetails",model);
+            /****************Log User Activity******************************************************/
+            WebSystemUtility.LogUserActivity(
+                                            $"Disney Plus Originals - TWDC: Programme  Details for QC # {qcnum} and Rev # {revnum} was viewed.",
+                                            Constants.ActivityType.DisneyTWDCProgrammeDetailsViewed;
+            /*******************************************************************************************/
+
+            return PartialView("_ProgrammeDetails",model);
         }
 
         [HttpPost]
         public ActionResult SaveProgrammeDetails(HomeVM model)
         {
 
-            //bool result = _progDetailsService.SaveProgrammeDetails(model.BanijahRightsProgrammeDetails);
-            //string resultMsg = "Banijay Rights Programme Details saved successfully.";
+            bool result = _disneyTWDCService.SaveProgrammeDetails(model.DisneyTWDCProgrammeDetails);
+            string resultMsg = "Disney Plus Originals - TWDC: Programme Details saved successfully.";
 
-            //if (!result)
-            //{
-            //    resultMsg = "Banijay Rights Programme Details failed to save !";
-            //}
-            //else
-            //{
-            //    /****************Log User Activity******************************************************/
+            if (!result)
+            {
+                resultMsg = "Disney Plus Originals - TWDC: Programme Details failed to save !";
+            }
+            else
+            {
+                /****************Log User Activity******************************************************/
 
-            //    WebSystemUtility.LogUserActivity(
-            //                              $"Banijay Rights Programme Details for QC # {model.BanijahRightsProgrammeDetails.QCNum}" +
-            //                              $" and Rev # {model.BanijahRightsProgrammeDetails.SubQCNum} was updated.",
-            //                              Constants.ActivityType.BanijayRightsProgrammeDetailsUpdated);
+                WebSystemUtility.LogUserActivity(
+                                          $"Disney Plus Originals - TWDC: Programme Details for QC # {model.DisneyTWDCProgrammeDetails.QCNum}" +
+                                          $" and Rev # {model.DisneyTWDCProgrammeDetails.SubQCNum} was updated.",
+                                          Constants.ActivityType.DisneyTWDCProgrammeDetailsUpdated);
 
-            //    /*******************************************************************************************/
+                /*******************************************************************************************/
 
-            //}
+            }
 
 
-            return Json(new { success = "", msg = "Not Implemented!" });
+            return Json(new { success = result, msg = resultMsg });
         }
 
 
