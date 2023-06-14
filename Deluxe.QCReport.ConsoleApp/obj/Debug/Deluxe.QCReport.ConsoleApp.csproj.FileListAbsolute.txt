@@ -14,3 +14,4 @@ D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\b
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.csproj.CopyComplete
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.exe
 D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.pdb
+D:\DEVELOPEMENT - Bonobo Git Server\Deluxe.QCReport\Deluxe.QCReport.ConsoleApp\obj\Debug\Deluxe.QCReport.ConsoleApp.csproj.SuggestedBindingRedirects.cache

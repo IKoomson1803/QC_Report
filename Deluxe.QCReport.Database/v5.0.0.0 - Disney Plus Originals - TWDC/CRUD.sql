@@ -192,3 +192,49 @@ BEGIN
 END
 
 GO
+
+
+/****** Object:  Table [bward].[DisneyTWDCElementInformation]    Script Date: 14/06/2023 16:39:24 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [bward].[DisneyTWDCElementInformation](
+	[QCNum] [int] NOT NULL,
+	[SubQCNum] [int] NOT NULL,
+	[AssetType] [varchar](100) NULL,
+	[AssetTypeNotes] [varchar](255) NULL,
+	[CreatedFrom] [varchar](50) NULL,
+	[CreatedFromNotes] [varchar](255) NULL,
+	[AssetCreationDate] [datetime] NULL,
+	[CanvasImageAspectRatio] [varchar](30) NULL,
+	[FrameRate] [varchar](20) NULL,
+	[ResolutionStandard] [varchar](30) NULL,
+	[FileSize] [bigint] NULL,
+	[TwoPopAtHead] [varchar](3) NULL,
+	[TwoPopAtTail] [varchar](3) NULL,
+	[CommercialBreaks] [varchar](3) NULL,
+	[HeadLogos] [varchar](255) NULL,
+	[TailLogos] [varchar](255) NULL,
+	[TotalRuntime] [varchar](30) NULL,
+	[ForensicWatermark] [varchar](10) NULL,
+	[AudioConformedLanguage] [varchar](50) NULL,
+	[AudioBitDepth] [varchar](10) NULL,
+	[AudioSampleRate] [varchar](15) NULL,
+	[ClosedCaptions] [varchar](3) NULL,
+	[ClosedCaptionType] [varchar](10) NULL,
+	[ValidAssetNaming] [varchar](3) NULL,
+	[TextlessAtTail] [varchar](3) NULL,
+	[LocalizedInserts] [varchar](3) NULL,
+	[LocalizedSubtitles] [varchar](3) NULL,
+	[SuperimposedText] [varchar](3) NULL,
+	[ForcedNarratives] [varchar](3) NULL,
+	[TextInTitleSafe] [varchar](3) NULL,
+	[Censored] [varchar](3) NULL,
+	[EDLProvided] [varchar](3) NULL
+) ON [PRIMARY]
+GO
+
+

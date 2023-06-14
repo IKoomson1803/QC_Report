@@ -315,7 +315,7 @@
 
     function save() {
 
-
+             //Validate
             if ($('#@Html.IdFor(m => m.DisneyTWDCProgrammeDetails.QCDate)').val() == ''){
                 Msg.error("Please add a QC Date and continue...", 2 * 1000);
                 return;
@@ -326,12 +326,6 @@
                 Msg.error("Please add a QC Operator and continue...", 2 * 1000);
                 return;
                }
-
-
-           // $('#btnSave').on("click", function () {
-
-
-                //Validate
 
                 var myModel = $('#form_jobdetails').serializeObject();
 
@@ -352,9 +346,7 @@
 
 
                     });
-           // });
-
-
+     
 
     }
 
