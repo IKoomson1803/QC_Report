@@ -169,7 +169,7 @@ namespace Deluxe.QCReport.Common.Repositories
         public enum DisneyTWDC
         {
             sel_GetDisneyTWDCProgrammeDetails,
-            up_SaveDisneyTWDCProgrammeDetails
+            ins_up_InsertOrUpdateDisneyTWDCProgrammeDetails
 
 
         }

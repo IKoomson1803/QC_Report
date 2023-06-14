@@ -84,7 +84,7 @@ namespace Deluxe.QCReport.Common.Repositories.DisneyTWDC
                 {
 
                     connection.Execute(
-                                   StoredProcedure.DisneyTWDC.up_SaveDisneyTWDCProgrammeDetails.ToString(),
+                                   StoredProcedure.DisneyTWDC.ins_up_InsertOrUpdateDisneyTWDCProgrammeDetails.ToString(),
                                    programmeDetails,
                                    null,
                                    null,

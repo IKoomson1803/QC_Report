@@ -75,7 +75,7 @@ namespace Deluxe.QCReport.Web.Controllers
             /****************Log User Activity******************************************************/
             WebSystemUtility.LogUserActivity(
                                             $"Disney Plus Originals - TWDC: Programme  Details for QC # {qcnum} and Rev # {revnum} was viewed.",
-                                            Constants.ActivityType.DisneyTWDCProgrammeDetailsViewed;
+                                            Constants.ActivityType.DisneyTWDCProgrammeDetailsViewed);
             /*******************************************************************************************/
 
             return PartialView("_ProgrammeDetails",model);
@@ -84,6 +84,16 @@ namespace Deluxe.QCReport.Web.Controllers
         [HttpPost]
         public ActionResult SaveProgrammeDetails(HomeVM model)
         {
+
+            if (!model.DisneyTWDCProgrammeDetails.QCDate.HasValue)
+            {
+                model.DisneyTWDCProgrammeDetails.QCDate = DateTime.Now;
+            }
+
+            if (!model.DisneyTWDCProgrammeDetails.QCOperatorId.HasValue)
+            {
+                model.DisneyTWDCProgrammeDetails.QCOperatorId = WebSystemUtility.GetLogonUserId;
+            }
 
             bool result = _disneyTWDCService.SaveProgrammeDetails(model.DisneyTWDCProgrammeDetails);
             string resultMsg = "Disney Plus Originals - TWDC: Programme Details saved successfully.";

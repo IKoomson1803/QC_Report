@@ -15,7 +15,7 @@
 
             <div class="col-xs-3 text-center">
 
-                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave">Save</button>
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave" onclick="save()">Save</button>
             </div>
 
         }
@@ -171,11 +171,11 @@
             <div class="col-sm-2 form-group">
                 @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCVendor,
                  new
-                      {
-                       @class = "form-control",
-                       @style = "width:250px",
-                       maxlength = "50"
-                      })
+                 {
+                     @class = "form-control",
+                     @style = "width:250px",
+                     maxlength = "50"
+                 })
             </div>
 
             <div class="col-sm-1 text-right">
@@ -224,11 +224,12 @@
             <div class="col-sm-1 form-group" style="width:200px">
                 @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.WorkOrderNumber,
                  new
-                      {
-                       @class = "form-control",
-                       @style = "width:250px",
-                       maxlength = "50"
-                      })
+                 {
+                     @class = "form-control",
+                     @style = "width:250px",
+                     maxlength = "50",
+                     @readonly = "readonly"
+                 })
             </div>
 
             <div class="col-sm-2 text-right">
@@ -244,18 +245,6 @@
                        })
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -320,8 +309,29 @@
             initializeDatePicker();
             initializeDDL();
 
+        });
 
-            $('#btnSave').on("click", function () {
+    });
+
+    function save() {
+
+
+            if ($('#@Html.IdFor(m => m.DisneyTWDCProgrammeDetails.QCDate)').val() == ''){
+                Msg.error("Please add a QC Date and continue...", 2 * 1000);
+                return;
+               }
+
+
+              if ($('#@Html.IdFor(m => m.DisneyTWDCProgrammeDetails.QCOperatorId)').val() == ''){
+                Msg.error("Please add a QC Operator and continue...", 2 * 1000);
+                return;
+               }
+
+
+           // $('#btnSave').on("click", function () {
+
+
+                //Validate
 
                 var myModel = $('#form_jobdetails').serializeObject();
 
@@ -342,10 +352,10 @@
 
 
                     });
-            });
+           // });
 
-        });
 
-    });
+
+    }
 
 </script>

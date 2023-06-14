@@ -75,7 +75,7 @@ BEGIN
 		h.QCVendor,
         h.Wonum 'WorkOrderNumber',
         h.Show 'Title' ,
-		h.Epis_Name 'AseetName',
+		h.Epis_Name 'AssetName',
         h.Operator    'QCOperatorId',
         h.QC_date  'QCDate',
         h.QC_VTR  'QCPlaybackDevice',
@@ -92,4 +92,103 @@ BEGIN
 
 
 END
+GO
+
+CREATE PROCEDURE [bward].[ins_up_InsertOrUpdateDisneyTWDCProgrammeDetails]
+	-- Add the parameters for the stored procedure here
+  	@QCNum INT,
+    @SubQCNum INT,
+    @WonderlandShortID VARCHAR(50) = NULL,
+    @QCType VARCHAR(100) = NULL,
+    @QCScope VARCHAR(30) = NULL,
+    @QCProcess VARCHAR(50) = NULL,
+    @ProcessNotes VARCHAR(255) = NULL,
+    @CSRManager VARCHAR(50) = NULL,
+    @FileCreationFacility VARCHAR(50) = NULL,
+    @QCManager VARCHAR(50) = NULL,
+
+    -- Header
+    @QCVendor VARCHAR(50) = NULL,
+    @WorkOrderNumber VARCHAR(50) = NULL,  -- Not updatedable
+    @Title NVARCHAR(255) = NULL,
+    @AssetName NVARCHAR(255) = NULL,
+    @QCOperatorId INT,
+    @QCDate DATETIME,
+    @QCPlaybackDevice  VARCHAR(20) = NULL,
+    @QCRoom  VARCHAR(30) = NULL
+AS
+BEGIN
+	
+	DECLARE @ErrorMsg VARCHAR(2000)
+					
+	BEGIN TRY
+		 
+	   IF (SELECT COUNT(*) FROM [bward].[DisneyTWDCProgrammeDetails]
+	       WHERE [QCNum] =  @QCNum
+		   AND [SubQCNum]  = @SubQCNum) = 0
+	     BEGIN
+	        INSERT INTO [bward].[DisneyTWDCProgrammeDetails](
+			QCNum,
+            SubQCNum,
+            WonderlandShortID,
+			QCType,
+			QCScope,
+			QCProcess,
+			ProcessNotes,
+			CSRManager,
+			FileCreationFacility,
+			QCManager
+			)
+	        SELECT
+			@QCNum,
+            @subQCNum,
+            @WonderlandShortID,
+			@QCType,
+			@QCScope,
+			@QCProcess,
+			@ProcessNotes,
+			@CSRManager,
+			@FileCreationFacility,
+			@QCManager
+	     END
+	   ELSE 
+	     BEGIN
+	        UPDATE [bward].[DisneyTWDCProgrammeDetails]
+			SET 
+			SubQCNum = @SubQCNum,
+            WonderlandShortID = @WonderlandShortID,
+			QCType = @QCType,
+			QCScope = @QCScope,
+			QCProcess = @QCProcess,
+			ProcessNotes = @ProcessNotes,
+			CSRManager = @CSRManager,
+			FileCreationFacility = @FileCreationFacility,
+			QCManager = @QCManager
+       		WHERE [QCNum] =  @QCNum
+            AND [SubQCNum]  = @SubQCNum
+	     END 
+
+     --Update Header
+	   BEGIN
+	     UPDATE [bward].[qcHeader]
+			SET 
+			QCVendor = @QCVendor,
+			Show = @Title,
+			Epis_Name  = @AssetName,
+			Operator =  @QCOperatorId,
+			QC_date = @QCDate,
+			QC_VTR =  @QCPlaybackDevice,
+			bay_num =   @QCRoom
+       		WHERE [QCNum] =  @QCNum
+            AND [SubQCNum]  = @SubQCNum
+         END
+	 
+    END TRY
+    BEGIN CATCH
+        SET @errorMsg = 'ins_up_InsertOrUpdateDisneyTWDCProgrammeDetails failed: ' + ERROR_MESSAGE()
+        RAISERROR(@errorMsg, 16, 1)
+    END CATCH
+		
+END
+
 GO
