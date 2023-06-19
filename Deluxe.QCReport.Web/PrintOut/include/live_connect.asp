@@ -11,7 +11,7 @@ dim cnQCS
 Set cnQCS = server.CreateObject ("ADODB.Connection")
 						
 cnQCS.ConnectionString ="Driver=SQL Server" & _
-						";Server=10.100.114.62" & _
+						";Server=172.26.128.26" & _
 						";UID=bward" & _
 						";PWD=qcuser" & _
 						";Regional=No" & _

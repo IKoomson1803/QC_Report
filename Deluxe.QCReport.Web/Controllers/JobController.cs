@@ -1171,7 +1171,7 @@ namespace Deluxe.QCReport.Web.Controllers
             //if (!model.Log_VM.CurrentQCTimes.ItemNum.HasValue)
             //{
             //    return Json(new { success = false, msg = "Please add an item number and continue... " });
-           // }
+            // }
 
             //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes?.TC))
             //{
@@ -1182,6 +1182,24 @@ namespace Deluxe.QCReport.Web.Controllers
             //{
             //    return Json(new { success = false, msg = "Please add a fault description and continue..." });
             //}
+
+            if (model.Log_VM.CurrentQCTimes != null)
+            {
+                if (!string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
+                {
+                    return Json(new { success = false, msg = "Please enter the time code and continue..." });
+                }
+
+                if (!string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.Note))
+                {
+                    return Json(new { success = false, msg = "Please enter the fault description and continue..." });
+                }
+
+                if (!string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.QCCodename))
+                {
+                    return Json(new { success = false, msg = "Please enter the type and continue..." });
+                }
+            }
 
 
             if (!string.IsNullOrWhiteSpace(sectors))

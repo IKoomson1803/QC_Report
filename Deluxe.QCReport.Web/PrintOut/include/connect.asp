@@ -13,7 +13,7 @@ dim cnQCS
 Set cnQCS = server.CreateObject ("ADODB.Connection")
 						
 cnQCS.ConnectionString ="Driver=SQL Server" & _
-						";Server=dln-s-mssql-204.services.bydeluxe.net" & _
+						";Server=warddev04" & _
 						";UID=bward" & _
 						";PWD=qcuser" & _
 						";Regional=No" & _

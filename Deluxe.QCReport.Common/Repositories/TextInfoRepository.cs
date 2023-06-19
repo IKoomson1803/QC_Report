@@ -79,10 +79,14 @@ namespace Deluxe.QCReport.Common.Repositories
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex )
             {
-
-                throw;
+                ILoggerItem loggerItem = PopulateLoggerItem(
+                      ex);
+                _logger.LogSystemActivity(
+                    loggerItem);
+            
+             throw;
             }
 
             return result;
@@ -133,10 +137,18 @@ namespace Deluxe.QCReport.Common.Repositories
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    ILoggerItem loggerItem = PopulateLoggerItem(
+                      ex);
+                    _logger.LogSystemActivity(
+                        loggerItem);
+
                     result = false;
+
                     throw;
+
+
                 }
             }
 
@@ -150,7 +162,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
             TimeCodeVM tcItem = tiDetails.CurrentTimecodes;
 
-            if (tcItem != null)
+            if (tcItem != null && tcItem.TextInfoId.HasValue)
             {
                 try
                 {
@@ -188,10 +200,17 @@ namespace Deluxe.QCReport.Common.Repositories
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    ILoggerItem loggerItem = PopulateLoggerItem(
+                      ex);
+                    _logger.LogSystemActivity(
+                        loggerItem);
+
                     result = false;
+
                     throw;
+
                 }
             }
 
@@ -291,9 +310,15 @@ namespace Deluxe.QCReport.Common.Repositories
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    ILoggerItem loggerItem = PopulateLoggerItem(
+                      ex);
+                    _logger.LogSystemActivity(
+                        loggerItem);
+
                     result = false;
+
                     throw;
                 }
             }

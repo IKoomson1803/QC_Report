@@ -1,1 +1,353 @@
-﻿
+﻿@model Deluxe.QCReport.Web.Models.HomeVM
+
+<div class="bs-callout bs-callout-warning">
+
+
+    <div class="row">
+
+        <div class="col-xs-3" style="font-size:14px;font-weight:bold">
+            @string.Format("{0} - {1}: Disney Plus Originals - TWDC: Programme Details ",
+           Model.DisneyTWDCProgrammeDetails.QCNum, Model.DisneyTWDCProgrammeDetails.SubQCNum)
+        </div>
+
+        @if (Model.SecurityLevel >= 1)
+        {
+
+            <div class="col-xs-3 text-center">
+
+                <button class="btn btn-xs btn-primary CRUDButton" id="btnSave" onclick="save()">Save</button>
+            </div>
+
+        }
+
+    </div>
+
+
+    @using (Html.BeginForm("SaveProgrammeDetails", "DisneyTWDC", FormMethod.Post,
+       new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+    {
+        @Html.HiddenFor(m => m.DisneyTWDCProgrammeDetails.QCNum);
+        @Html.HiddenFor(m => m.DisneyTWDCProgrammeDetails.SubQCNum);
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Wonderland Short ID:</label>
+            </div>
+
+            <div class="col-sm-8 form-group">
+                @Html.TextAreaFor(m => m.DisneyTWDCProgrammeDetails.WonderlandShortID, 1, 2,
+               new
+               {
+                   @class = "form-control",
+                   maxlength = "255",
+                   @title = Model.DisneyTWDCProgrammeDetails.WonderlandShortID
+               })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Title:</label>
+            </div>
+
+            <div class="col-sm-8 form-group">
+                @Html.TextAreaFor(m => m.DisneyTWDCProgrammeDetails.Title, 1, 2,
+               new
+               {
+                   @class = "form-control",
+                   maxlength = "255",
+                   @title = Model.DisneyTWDCProgrammeDetails.Title
+               })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Asset Name:</label>
+            </div>
+
+            <div class="col-sm-8 form-group">
+                @Html.TextAreaFor(m => m.DisneyTWDCProgrammeDetails.AssetName, 1, 2,
+               new
+               {
+                   @class = "form-control",
+                   maxlength = "255",
+                   @title = Model.DisneyTWDCProgrammeDetails.AssetName
+               })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">QC Type:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.DisneyTWDCProgrammeDetails.QCType,
+             new SelectList(Model.DisneyTWDCQCTypeList), "",
+              new { @class = "form-control", @style = "width:300px" })
+
+            </div>
+
+            <div class="col-sm-1 text-right" >
+                <label class="control-label">QC Scope:</label>
+            </div>
+            <div class="col-sm-1 form-group" style="width:200px">
+                @Html.DropDownListFor(m => m.DisneyTWDCProgrammeDetails.QCScope,
+             new SelectList(Model.DisneyTWDCQCScopeList), "",
+              new { @class = "form-control", @style = "width:100px" })
+
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">QC Process:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.DisneyTWDCProgrammeDetails.QCProcess,
+             new SelectList(Model.DisneyTWDCQCProcessList), "",
+              new { @class = "form-control", @style = "width:250px" })
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Process Notes:</label>
+            </div>
+
+            <div class="col-sm-8 form-group">
+                @Html.TextAreaFor(m => m.DisneyTWDCProgrammeDetails.ProcessNotes, 1, 2,
+               new
+               {
+                   @class = "form-control",
+                   maxlength = "255",
+                   @title = Model.DisneyTWDCProgrammeDetails.ProcessNotes
+               })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">QC Operator:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.DropDownListFor(m => m.DisneyTWDCProgrammeDetails.QCOperatorId, 
+              new SelectList(Model.OperatorList, "key", "value"),
+              "-- Select QC Operator --", 
+              new { @class = "form-control SearchableDropdown" })
+            </div>
+
+            <div class="col-sm-1 text-right">
+                <label class="control-label">QC Date:</label>
+            </div>
+            <div class="col-sm-1 form-group" style="width:200px">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCDate, new { @class = "form-control", @style = "width:150px" })
+                    <span class="input-group-btn float-left">
+                        <button class="btn btn-xs btn-default" type="button" id="btnQCDate"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">CSR Manager:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.CSRManager,
+                  new
+                       {
+                        @class = "form-control",
+                         @style = "width:250px",
+                        maxlength = "50"
+                       })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">QC Vendor:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCVendor,
+                 new
+                 {
+                     @class = "form-control",
+                     @style = "width:250px",
+                     maxlength = "50"
+                 })
+            </div>
+
+            <div class="col-sm-1 text-right">
+                <label class="control-label">QC Room:</label>
+            </div>
+            <div class="col-sm-1 form-group" style="width:200px">
+
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCRoom,
+               new { @class = "form-control", 
+                   @style = "width:250px" })
+
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">QC Playback Device:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCPlaybackDevice,
+                  new
+                       {
+                        @class = "form-control",
+                         @style = "width:250px",
+                        maxlength = "50"
+                       })
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">File Creation Facility:</label>
+            </div>
+            <div class="col-sm-2 form-group" >
+
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.FileCreationFacility, 
+               new { 
+                   @class = "form-control",
+                   @style = "width:250px" })
+
+            </div>
+
+
+            <div class="col-sm-1 text-right" >
+                <label class="control-label">Vendor W/O #:</label>
+            </div>
+            <div class="col-sm-1 form-group" style="width:200px">
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.WorkOrderNumber,
+                 new
+                 {
+                     @class = "form-control",
+                     @style = "width:250px",
+                     maxlength = "50",
+                     @readonly = "readonly"
+                 })
+            </div>
+
+            <div class="col-sm-2 text-right">
+                <label class="control-label">QC Manager:</label>
+            </div>
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.DisneyTWDCProgrammeDetails.QCManager,
+                  new
+                       {
+                        @class = "form-control",
+                         @style = "width:250px",
+                        maxlength = "50"
+                       })
+            </div>
+        </div>
+
+
+
+    }
+
+
+</div>
+
+<script>
+
+    function setActiveButton() {
+        $(".subMenuOnClick").removeClass("subMenuOnClick")
+        $("#lnkTWDCProgDetails").addClass("subMenuOnClick");
+    }
+
+
+    function initializeDatePicker() {
+        // setup date picker
+        var d = new Date();
+        var localtime = d.toLocaleTimeString([], {
+            hourCycle: 'h23',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+
+        // setup date picker
+        var datePickerSettings = {
+            inline: true, showAnim: 'slideDown', dateFormat: 'dd/mm/yy ' + localtime
+        };
+
+         $('#@Html.IdFor(m => m.DisneyTWDCProgrammeDetails.QCDate)').datepicker(datePickerSettings);
+        $("#btnQCDate").on('click', function () {
+            $('#@Html.IdFor(m => m.DisneyTWDCProgrammeDetails.QCDate)').focus();
+        });
+    }
+
+
+    function initializeDDL() {
+
+        $('.SearchableDropdown').multiselect({
+            multiple: false,
+            includeSelectAllOption: true,
+            enableCaseInsensitiveFiltering: true,
+            maxHeight: 200,
+            nonSelectedText: '',
+            allSelectedText: 'No option left ...',
+            delimiterText: '\n',
+            numberDisplayed: 1,
+            buttonWidth: '250px',
+
+        });
+
+
+    }
+
+
+    $(function () {
+        $(function () {
+
+            setActiveButton();
+            initializeDatePicker();
+            initializeDDL();
+
+        });
+
+    });
+
+    function save() {
+
+             //Validate
+            if ($('#@Html.IdFor(m => m.DisneyTWDCProgrammeDetails.QCDate)').val() == ''){
+                Msg.error("Please add a QC Date and continue...", 2 * 1000);
+                return;
+               }
+
+
+              if ($('#@Html.IdFor(m => m.DisneyTWDCProgrammeDetails.QCOperatorId)').val() == ''){
+                Msg.error("Please add a QC Operator and continue...", 2 * 1000);
+                return;
+               }
+
+                var myModel = $('#form_jobdetails').serializeObject();
+
+                $.post('/DisneyTWDC/SaveProgrammeDetails', { model: myModel }).done(function (data) {
+
+                    if (data.success == true) {
+                        Msg.success(data.msg, 2 * 1000);
+                    }
+                    else {
+                        Msg.error(data.msg, 5 * 1000);
+                    }
+                })
+                    .fail(function (xdata) {
+
+                        Msg.error('Error occured! <b>Status:</b> ' + xdata.status + ' <b>Error Message:</b> ' + xdata.statusText, 5 * 1000);
+                    })
+                    .always(function () {
+
+
+                    });
+     
+
+    }
+
+</script>

@@ -622,7 +622,7 @@ namespace Deluxe.QCReport.Web.Controllers
         }
 
 
-        public ActionResult LogDetails(int qcnum, int revnum, int? timeid)
+        public ActionResult GetLog(int qcnum, int revnum, int? timeid)
         {
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
             HomeVM model = new HomeVM();

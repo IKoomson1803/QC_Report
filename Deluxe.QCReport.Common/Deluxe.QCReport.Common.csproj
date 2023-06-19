@@ -69,9 +69,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCElementInformation.cs" />
+    <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCElementInformationService.cs" />
     <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCProgrammeDetails.cs" />
     <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCRepository.cs" />
     <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCService.cs" />
+    <Compile Include="Abstractions\DisneyTWDC\IDisneyTWDCElementInformationRepository.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutRepository.cs" />
     <Compile Include="Abstractions\IBanijahRightsProgrammeLayoutService.cs" />
     <Compile Include="Abstractions\IBanijahRightsTapeLayout.cs" />
