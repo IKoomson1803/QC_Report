@@ -405,7 +405,7 @@
     function Reset() {
      
             $('table tr').removeClass("selectedRow");
-            $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.TapeFormatId)').val('0');
+            $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.TapeFormatId)').val('');
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum)').val(@nextItemNo);
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.Description)').val('');
             $('#@Html.IdFor(m => m.TapeLayout_VM.CurrentTimecodes.Length)').val('');

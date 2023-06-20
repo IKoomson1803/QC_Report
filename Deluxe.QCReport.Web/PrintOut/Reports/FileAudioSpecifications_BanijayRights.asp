@@ -84,7 +84,7 @@ End Function
 							          <tr>
 						                     
 						                     <td colspan="9" style="text-align:center;" class="left_right_top_border BanijayRightsProgrammeDetails" style="text-align:center;width:40%;">
-											   Bit Rate:&nbsp;&nbsp;<%=rsHeader.Fields("BitRate")%>
+											   Bit Depth:&nbsp;&nbsp;<%=rsHeader.Fields("BitRate")%>
 											 </td>
 						                    
 						              </tr>

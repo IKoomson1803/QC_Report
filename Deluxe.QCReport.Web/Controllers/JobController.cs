@@ -325,16 +325,22 @@ namespace Deluxe.QCReport.Web.Controllers
         [HttpPost]
         public ActionResult SaveTapeLayoutDetails(HomeVM model)
         {
-          
+
+            //if (model.TapeLayout_VM.CurrentTimecodes?.ItemNum <= 0)
+            //{
+            //    return Json(new { success = false, msg = "Please add the item number and continue..." });
+            //}
+
+
             if (string.IsNullOrWhiteSpace(model.TapeLayout_VM.CurrentTimecodes?.Description))
             {
-                return Json(new { success = false, msg = "Please add a description and continue..." });
+                return Json(new { success = false, msg = "Please add the description and continue..." });
             }
 
-            //if (string.IsNullOrWhiteSpace(model.TapeLayout_VM.CurrentTimecodes?.Time_Code))
-            //{
-            //    return Json(new { success = false, msg = "Please add a timecode and continue..." });
-            //}
+            if (string.IsNullOrWhiteSpace(model.TapeLayout_VM.CurrentTimecodes?.Time_Code))
+            {
+                return Json(new { success = false, msg = "Please add the timecode and continue..." });
+            }
 
 
             bool result = _tlSrv.SaveTapeLayoutTCDetails(model.TapeLayout_VM);
@@ -438,15 +444,20 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveTextInfoDetails(HomeVM model)
         {
 
-            //if (string.IsNullOrWhiteSpace(model.TextInfo_VM.CurrentTimecodes?.TimecodeIn))
-            //{
-            //    return Json(new { success = false, msg = "Please add an in timecode and continue... " });
-            //}
+            if (string.IsNullOrWhiteSpace(model.TextInfo_VM.CurrentTimecodes?.TextInfo))
+            {
+                return Json(new { success = false, msg = "Please add tthe ext and continue... " });
+            }
 
-            //if (string.IsNullOrWhiteSpace(model.TextInfo_VM.CurrentTimecodes?.TimecodeOut))
-            //{
-            //    return Json(new { success = false, msg = "Please add an out timecode and continue... " });
-            //}
+            if (string.IsNullOrWhiteSpace(model.TextInfo_VM.CurrentTimecodes?.TimecodeIn))
+            {
+                return Json(new { success = false, msg = "Please add the timecode in and continue... " });
+            }
+
+            if (string.IsNullOrWhiteSpace(model.TextInfo_VM.CurrentTimecodes?.TimecodeOut))
+            {
+                return Json(new { success = false, msg = "Please add the timecode out and continue... " });
+            }
 
             bool result = _tiSrv.SaveTextInfoDetails(model.TextInfo_VM);
 
@@ -1168,41 +1179,28 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveLogDetails(HomeVM model, string sectors)
         {
 
-            //if (!model.Log_VM.CurrentQCTimes.ItemNum.HasValue)
-            //{
-            //    return Json(new { success = false, msg = "Please add an item number and continue... " });
-            // }
-
-            //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes?.TC))
-            //{
-            //    return Json(new { success = false, msg = "Please add a timecode and continue... " });
-            //}
-
-            //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes?.Note))
-            //{
-            //    return Json(new { success = false, msg = "Please add a fault description and continue..." });
-            //}
+          
 
             if (model.Log_VM.CurrentQCTimes != null)
             {
-                if (!string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
+                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
                 {
                     return Json(new { success = false, msg = "Please enter the time code and continue..." });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.Note))
-                {
-                    return Json(new { success = false, msg = "Please enter the fault description and continue..." });
-                }
-
-                if (!string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.QCCodename))
+                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.QCCodename))
                 {
                     return Json(new { success = false, msg = "Please enter the type and continue..." });
+                }
+
+                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.Note))
+                {
+                    return Json(new { success = false, msg = "Please enter the fault description and continue..." });
                 }
             }
 
 
-            if (!string.IsNullOrWhiteSpace(sectors))
+                if (!string.IsNullOrWhiteSpace(sectors))
             {
                 char[] trimChars =  { '/' };
                 sectors = sectors.Trim().TrimEnd(trimChars);

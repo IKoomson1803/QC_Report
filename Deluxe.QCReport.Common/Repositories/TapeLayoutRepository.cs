@@ -136,10 +136,14 @@ namespace Deluxe.QCReport.Common.Repositories
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                   
-                    throw;
+                    ILoggerItem loggerItem = PopulateLoggerItem(
+                     ex);
+                    _logger.LogSystemActivity(
+                        loggerItem);
+
+                    //throw;
                 }
             }
 
@@ -194,9 +198,14 @@ namespace Deluxe.QCReport.Common.Repositories
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                       throw;
+                    ILoggerItem loggerItem = PopulateLoggerItem(
+                     ex);
+                    _logger.LogSystemActivity(
+                        loggerItem);
+
+                   // throw;
                 }
             }
 

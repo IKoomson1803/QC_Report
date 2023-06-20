@@ -86,7 +86,7 @@ namespace Deluxe.QCReport.Common.Repositories
                 _logger.LogSystemActivity(
                     loggerItem);
             
-             throw;
+            // throw;
             }
 
             return result;
@@ -146,7 +146,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     result = false;
 
-                    throw;
+                   // throw;
 
 
                 }

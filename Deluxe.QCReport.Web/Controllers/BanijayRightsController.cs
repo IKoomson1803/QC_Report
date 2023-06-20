@@ -500,8 +500,35 @@ namespace Deluxe.QCReport.Web.Controllers
         [HttpPost]
         public ActionResult SaveTapeLayout(HomeVM model)
         {
+            var tapeLayout = model.BanijahRightsTapeLayout;
 
-            bool result = _progLayoutService.SaveTapeLayout(model.BanijahRightsTapeLayout);
+            if(tapeLayout != null)
+            {
+
+                //if (tapeLayout.ItemNum <= 0)
+                //{
+                //    return Json(new { success = false, msg = "Please enter the item number and continue..." });
+                //}
+
+
+                if (string.IsNullOrWhiteSpace(tapeLayout.Type))
+                {
+                    return Json(new { success = false, msg = "Please enter the layout and continue..." });
+                }
+
+                if (string.IsNullOrWhiteSpace(tapeLayout.TimecodeIn))
+                {
+                    return Json(new { success = false, msg = "Please enter the timecode in and continue..." });
+                }
+
+                if (string.IsNullOrWhiteSpace(tapeLayout.TimecodeOut))
+                {
+                    return Json(new { success = false, msg = "Please enter the timecode out and continue..." });
+                }
+            }
+
+
+            bool result = _progLayoutService.SaveTapeLayout(tapeLayout);
             string resultMsg = "Banijay Rights Tape Layout saved successfully.";
 
             if (!result)
@@ -597,6 +624,8 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveTextDetails(HomeVM model)
         {
 
+
+
             bool result = _textDetailsService.Save(model.BanijayRightsTextDetails);
             string resultMsg = "Banijay Rights Text Details saved successfully.";
 
@@ -679,20 +708,24 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult SaveLogDetails(HomeVM model, string sectors)
         {
 
-            //if (!model.Log_VM.CurrentQCTimes.ItemNum.HasValue)
-            //{
-            //    return Json(new { success = false, msg = "Please add an item number and continue... " });
-            // }
 
-            //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes?.TC))
-            //{
-            //    return Json(new { success = false, msg = "Please add a timecode and continue... " });
-            //}
+            if (model.Log_VM.CurrentQCTimes != null)
+            {
+                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
+                {
+                    return Json(new { success = false, msg = "Please enter the time code and continue..." });
+                }
 
-            //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes?.Note))
-            //{
-            //    return Json(new { success = false, msg = "Please add a fault description and continue..." });
-            //}
+                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.QCCodename))
+                {
+                    return Json(new { success = false, msg = "Please enter the type and continue..." });
+                }
+
+                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.Note))
+                {
+                    return Json(new { success = false, msg = "Please enter the fault description and continue..." });
+                }
+            }
 
 
             if (!string.IsNullOrWhiteSpace(sectors))

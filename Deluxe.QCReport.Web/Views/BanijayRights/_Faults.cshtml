@@ -616,7 +616,7 @@
 
         var scrollPosition = $('#divscroll').scrollTop();
 
-        $.post('/BanijayRights/LogDetails', { qcnum: qcno, revnum: revno, timeid: tcno }).done(function (data) {
+        $.post('/BanijayRights/GetLog', { qcnum: qcno, revnum: revno, timeid: tcno }).done(function (data) {
 
             $("#divContent").html(data);
             Reset();
