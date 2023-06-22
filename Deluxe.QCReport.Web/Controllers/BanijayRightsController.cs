@@ -860,8 +860,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 /***************Log User Activity******************************************************/
 
                 WebSystemUtility.LogUserActivity(
-                                          $"Banijay Rights Programme Details for QC # {model.ESIFinalVM.Qcnum}" +
-                                          $" and Rev # {model.ESIFinalVM.subQcnum} was updated.",
+                                          $"Banijay Rights Programme Details for QC # {model.BanijayRightsNotes.QCNum}" +
+                                          $" and Rev # {model.BanijayRightsNotes.SubQCNum} was updated.",
                                           Constants.ActivityType.BanijayRightsNotesUpdated);
 
           /******************************************************************************************/

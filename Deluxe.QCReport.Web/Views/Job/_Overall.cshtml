@@ -155,9 +155,15 @@
 
                         </div>
 
-
                         <div class="row">
                             <div class="col-sm-2 text-right">
+                                <label class="control-label">Max CLL:</label>
+                            </div>
+                            <div class="col-sm-2 form-group">
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxCLL, new { @class = "form-control", maxlength = "50" })
+                            </div>
+
+                            <div class="col-sm-4 text-right">
 
                                 <label class="control-label">H-Blanking:</label>
                             </div>
@@ -166,6 +172,19 @@
 
                                 @Html.TextBoxFor(m => m.OverallSpecs_VM.HBlanking, new { @class = "form-control", maxlength = "40" })
                             </div>
+
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-sm-2 text-right">
+                                <label class="control-label">Max FALL:</label>
+                            </div>
+                            <div class="col-sm-2 form-group">
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxFALL, new { @class = "form-control", maxlength = "50" })
+                            </div>
+
 
                             <div class="col-sm-4 text-right">
 

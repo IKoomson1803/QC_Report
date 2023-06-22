@@ -20,17 +20,21 @@
 			<td >Video Gain:&nbsp;<b><%=rsHeader.Fields("Bar_Vid")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp; </td>
 			</tr>
 	      <tr>
-		  <td>Chr Gain:&nbsp;<b><%=rsHeader.Fields("Bar_Chr")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</b></td>
+		  <td>Chroma Gain:&nbsp;<b><%=rsHeader.Fields("Bar_Chr")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</b></td>
 		  </tr>
 	  
 		  <tr>
 		   <td >Black Level:&nbsp;<b><%=rsHeader.Fields("Black")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
 		  </tr>
+		  
+		  <tr>
+		   <td >&nbsp;&nbsp</td>
+		  </tr>
 		</table>
    
    </td>
 
-     <td style="border-right-style::none">
+     <td style="border-right-style:none">
    
         <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		     
@@ -39,16 +43,24 @@
 	    	</tr>
 			
 			<tr>
-			<td>Luma Peak:&nbsp;<b><%=rsHeader.Fields("Lum_Peak")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
-			<td >Chroma Peak:&nbsp;<b><%=rsHeader.Fields("Chroma_Peak")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			  <td>Luma Peak:&nbsp;<b><%=rsHeader.Fields("Lum_Peak")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			  <td>Chroma Peak:&nbsp;<b><%=rsHeader.Fields("Chroma_Peak")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
 			</tr>
+			
 			<tr>
 			    <td>Luma Avg:&nbsp;<b><%=rsHeader.Fields("Lum_Avg")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
 				<td >Chroma Avg:&nbsp; <b><%=rsHeader.Fields("Chroma_Avg")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
 			</tr>
+			
 			<tr>
-			 <td >Black Level:&nbsp;<b><%=rsHeader.Fields("Black")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
-			 <td>&nbsp;</td>
+			    <td>Max CLL:&nbsp;<b><%=rsHeader.Fields("MaxCLL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+				 <td >Black Level:&nbsp;<b><%=rsHeader.Fields("Black")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			</tr>
+			
+			
+			<tr>
+			   <td >Max FALL:&nbsp; <b><%=rsHeader.Fields("MaxFALL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			   <td>&nbsp;</td>
 			</tr>
 	
 		</table>
@@ -83,6 +95,10 @@
 			
 			<tr>
 			 <td>Active Picture:&nbsp;<b><%=rsHeader.Fields("Active_Picture")%></b>&nbsp;</td>
+			</tr>
+			
+			<tr>
+			 <td>&nbsp;</td>
 			</tr>
 	
 		</table>

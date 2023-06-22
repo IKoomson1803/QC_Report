@@ -198,12 +198,12 @@ th{
     width: 100%;
 }
 
-#TapeLayout_VM_CurrentTimecodes_ItemNum {
-    width: 40px !important;
+#TapeLayout_VM_CurrentTimecodes_ItemNum, #BanijahRightsTapeLayout_ItemNum {
+    width: 50px !important;
 }
 
 #Log_VM_CurrentQCTimes_ItemNum {
-    width: 60px !important;
+    width: 50px !important;
 }
 
 #Log_VM_CurrentQCTimes_QCGrade {

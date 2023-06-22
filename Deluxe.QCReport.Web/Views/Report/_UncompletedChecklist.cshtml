@@ -43,15 +43,19 @@
 
             $.post('/Home/GetTopNavigation', { qcnum: qcno, revnum: rno, wonum: wono }).done(function (data) {
 
-                //$("#divTopSubMenu").html(data);
-
-               // console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
-
-                if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
-                    && !$("#TopMenu").find('.lnkDPPProgDetails').length
-                    && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
-                    $("#TopMenu").append(data);
+                if (!$("#TopSubMenu").find('.topsubmenu').length) {
+                    $("#TopSubMenu").append(data);
                 }
+
+               // //$("#divTopSubMenu").html(data);
+
+               //// console.log('Audio QC in Sub Menu: ' + $("#TopMenu").find('.lnkQcAudioAndTC').length)
+
+               // if (!$("#TopMenu").find('.lnkQcAudioAndTC').length
+               //     && !$("#TopMenu").find('.lnkDPPProgDetails').length
+               //     && !$("#TopMenu").find('.lnkBNJRProgDetails').length) {
+               //     $("#TopMenu").append(data);
+               // }
 
             })
                 .fail(function (xdata) {
