@@ -7,7 +7,7 @@ namespace Deluxe.QCReport.Common.Models
         public int Id { get; set; }
         public int QCNum { get; set; }
         public int SubQCNum { get; set; }
-        public bool NotRequred { get; set; }
+        public bool NotRequired { get; set; }
         public string HDRMetadataSupplied { get; set; }
         public string HDRMetadataType { get; set; }
         public string XmlAndBaseFileMetadataMatch { get; set; }

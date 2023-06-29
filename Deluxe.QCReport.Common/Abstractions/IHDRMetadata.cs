@@ -11,7 +11,7 @@ namespace Deluxe.QCReport.Common.Abstractions
         int Id { get; set; }
         int QCNum { get; set; }
         int SubQCNum { get; set; }
-        bool NotRequred { get; set; }
+        bool NotRequired { get; set; }
         string HDRMetadataSupplied { get; set; }
         string HDRMetadataType { get; set; }
         string XmlAndBaseFileMetadataMatch { get; set; }
