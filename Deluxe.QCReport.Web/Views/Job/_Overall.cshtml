@@ -25,7 +25,10 @@
 
     @*<div class="row" style="height:500px; overflow-y:auto;overflow-x:hidden;">*@
 
-        @using (Html.BeginForm("SaveOverallSpecsDetails", "Job", FormMethod.Post, new { @class = "form-horizontal form-group-sm", @style = "margin-top: 20px;", @id = "form_jobdetails" }))
+        @using (Html.BeginForm("SaveOverallSpecsDetails", "Job", FormMethod.Post,
+            new { @class = "form-horizontal form-group-sm", 
+                @style = "margin-top: 20px;", 
+                @id = "form_jobdetails" }))
         {
             @Html.HiddenFor(m => m.OverallSpecs_VM.Qcnum);
             @Html.HiddenFor(m => m.OverallSpecs_VM.subQcnum);
@@ -43,7 +46,8 @@
 
                             <div class="col-sm-6 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.VideoGain, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.VideoGain, 
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
                         </div>
 
@@ -56,7 +60,8 @@
                             <div class="col-sm-6 form-group">
 
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaGain, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaGain, 
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
                         </div>
 
@@ -68,7 +73,8 @@
 
                             <div class="col-sm-6 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.SetUp, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.SetUp, 
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
 
                         </div>
@@ -89,7 +95,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminancePeak, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminancePeak, 
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
 
                             <div class="col-sm-4 text-right">
@@ -99,7 +106,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaPeak, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaPeak,
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
                             <div class="col-sm-2">
 
@@ -114,7 +122,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminanceAvg, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.LuminanceAvg,
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
 
                             <div class="col-sm-4 text-right">
@@ -124,7 +133,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaAvg, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ChromaAvg,
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
                             <div class="col-sm-2">
 
@@ -139,7 +149,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.BlackLevel, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.BlackLevel,
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
 
                             <div class="col-sm-4 text-right">
@@ -149,7 +160,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ActivePicture, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.ActivePicture,
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
 
 
@@ -160,7 +172,8 @@
                                 <label class="control-label">Max CLL:</label>
                             </div>
                             <div class="col-sm-2 form-group">
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxCLL, new { @class = "form-control", maxlength = "50" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxCLL,
+                               new { @class = "form-control", maxlength = "50" })
                             </div>
 
                             <div class="col-sm-4 text-right">
@@ -170,7 +183,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.HBlanking, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.HBlanking,
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
 
                         </div>
@@ -182,7 +196,8 @@
                                 <label class="control-label">Max FALL:</label>
                             </div>
                             <div class="col-sm-2 form-group">
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxFALL, new { @class = "form-control", maxlength = "50" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.MaxFALL,
+                               new { @class = "form-control", maxlength = "50" })
                             </div>
 
 
@@ -193,7 +208,8 @@
 
                             <div class="col-sm-2 form-group">
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.VBlanking, new { @class = "form-control", maxlength = "40" })
+                                @Html.TextBoxFor(m => m.OverallSpecs_VM.VBlanking,
+                               new { @class = "form-control", maxlength = "40" })
                             </div>
 
                         </div>
@@ -205,172 +221,232 @@
             if (Model.OverallSpecs_VM.AssetType.ToLower() == "file")
             {
 
-                <div class="bs-callout bs-callout-default">
-                    <b style="font-size:14px;">File Measurements</b>
+<div class="bs-callout bs-callout-default">
+    <b style="font-size:14px;">File Measurements</b>
 
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-sm-2 text-right">
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-2 text-right">
 
-                            <label class="control-label">Video Codec:</label>
-                        </div>
+            <label class="control-label">Video Codec:</label>
+        </div>
 
-                        <div class="col-sm-2 form-group">
+        <div class="col-sm-2 form-group">
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.VideoCodec, new SelectList(Model.VideoCodecList, "value", "value"),"", new { @class = "form-control", @style = "width:150px" })
-                        </div>
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.VideoCodec,
+           new SelectList(Model.VideoCodecList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:150px" })
+        </div>
 
-                        <div class="col-sm-2 text-right">
+        <div class="col-sm-2 text-right">
 
-                            <label class="control-label">Video Bit Rate:</label>
-                        </div>
+            <label class="control-label">Video Bit Rate:</label>
+        </div>
 
-                        <div class="col-sm-2 form-group">
+        <div class="col-sm-2 form-group">
 
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.VideoBitRate, new { @class = "form-control", @style = "width:120px" })
-                        </div>
+            @Html.TextBoxFor(m => m.OverallSpecs_VM.VideoBitRate,
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
-                        <div class="col-sm-2 text-right">
+        <div class="col-sm-2 text-right">
 
-                            <label class="control-label">Video Bit Depth:</label>
-                        </div>
+            <label class="control-label">Video Bit Depth:</label>
+        </div>
 
-                        <div class="col-sm-2 form-group">
+        <div class="col-sm-2 form-group">
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.VideoBitDepth, new SelectList(Model.VideoBitDepthList, "value", "value"),"", new { @class = "form-control", @style = "width:120px" })
-                        </div>
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.VideoBitDepth,
+           new SelectList(Model.VideoBitDepthList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
 
-                    </div>
+    </div>
 
-                    <div class="row">
+    <div class="row">
 
 
-                        <div class="col-sm-2 text-right">
+        <div class="col-sm-2 text-right">
 
-                            <label class="control-label">Bit Rate Mode:</label>
-                        </div>
+            <label class="control-label">Bit Rate Mode:</label>
+        </div>
 
-                        <div class="col-sm-2 form-group">
+        <div class="col-sm-2 form-group">
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.BitRateMode, new SelectList(Model.BitRateModeList, "value", "value"),"" ,new { @class = "form-control", @style = "width:120px" })
-                        </div>
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.BitRateMode,
+           new SelectList(Model.BitRateModeList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
-                        <div class="col-sm-2 text-right">
+        <div class="col-sm-2 text-right">
 
-                            <label class="control-label">Audio Codec:</label>
-                        </div>
+            <label class="control-label">Audio Codec:</label>
+        </div>
 
-                        <div class="col-sm-2 form-group">
+        <div class="col-sm-2 form-group">
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.AudioCodec, new SelectList(Model.AudioCodecList, "value", "value"), "",new { @class = "form-control", @style = "width:120px" })
-                        </div>
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.AudioCodec,
+           new SelectList(Model.AudioCodecList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
-                        <div class="col-sm-2 text-right">
+        <div class="col-sm-2 text-right">
 
-                            <label class="control-label">Audio Bit Rate:</label>
-                        </div>
+            <label class="control-label">Audio Bit Rate:</label>
+        </div>
 
-                        <div class="col-sm-2 form-group">
+        <div class="col-sm-2 form-group">
 
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.AudioBitRate, new { @class = "form-control", @style = "width:120px" })
-                        </div>
+            @Html.TextBoxFor(m => m.OverallSpecs_VM.AudioBitRate,
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
 
-                    </div>
+    </div>
 
-                    <div class="row">
+    <div class="row">
 
-                        <div class="col-sm-2 text-right">
+        <div class="col-sm-2 text-right">
 
-                            <label class="control-label">Audio Bit Depth:</label>
-                        </div>
+            <label class="control-label">Audio Bit Depth:</label>
+        </div>
 
-                        <div class="col-sm-2 form-group">
+        <div class="col-sm-2 form-group">
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.AudioBitDepth, new SelectList(Model.AudioBitDepthList, "value", "value"), "" ,new { @class = "form-control", @style = "width:120px" })
-                        </div>
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.AudioBitDepth,
 
-                        <div class="col-sm-2 text-right">
+           new SelectList(Model.AudioBitDepthList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
-                            <label class="control-label">Sample Rate:</label>
-                        </div>
+        <div class="col-sm-2 text-right">
 
-                        <div class="col-sm-2 form-group">
+            <label class="control-label">Sample Rate:</label>
+        </div>
 
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.SampleRate, new { @class = "form-control", @style = "width:120px" })
-                        </div>
+        <div class="col-sm-2 form-group">
 
-                        <div class="col-sm-2 text-right">
+            @Html.TextBoxFor(m => m.OverallSpecs_VM.SampleRate,
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
-                            <label class="control-label">GOP Structure:</label>
-                        </div>
+        <div class="col-sm-2 text-right">
 
-                        <div class="col-sm-2 form-group">
+            <label class="control-label">GOP Structure:</label>
+        </div>
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.GOPStructure, new SelectList(Model.GOPStructureList, "value", "value"), "", new { @class = "form-control", @style = "width:120px" })
-                        </div>
+        <div class="col-sm-2 form-group">
 
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.GOPStructure,
+           new SelectList(Model.GOPStructureList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
 
-                    </div>
 
-                    <div class="row">
+    </div>
 
-                        <div class="col-sm-2 text-right">
+    <div class="row">
 
-                            <label class="control-label">Gamut:</label>
-                        </div>
+        <div class="col-sm-2 text-right">
 
-                        <div class="col-sm-2 form-group">
+            <label class="control-label">Gamut:</label>
+        </div>
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.Gamut, new SelectList(Model.GamutList, "value", "value"), "" ,new { @class = "form-control", @style = "width:120px" })
-                        </div>
+        <div class="col-sm-2 form-group">
 
-                        <div class="col-sm-2 text-right">
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.Gamut,
+           new SelectList(Model.GamutList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
-                            <label class="control-label">Colour Encoding:</label>
-                        </div>
+        <div class="col-sm-2 text-right">
 
-                        <div class="col-sm-2 form-group">
+            <label class="control-label">Colour Encoding:</label>
+        </div>
 
-                            @Html.DropDownListFor(m => m.OverallSpecs_VM.ColourEncoding, new SelectList(Model.ColourEncodingList, "value", "value"), "", new { @class = "form-control", @style = "width:120px" })
-                        </div>
+        <div class="col-sm-2 form-group">
 
-                        <div class="col-sm-2 text-right">
+            @Html.DropDownListFor(m => m.OverallSpecs_VM.ColourEncoding,
+           new SelectList(Model.ColourEncodingList, "value", "value"), "",
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
 
-                            <label class="control-label">File Size:</label>
-                        </div>
+        <div class="col-sm-2 text-right">
 
-                        <div class="col-sm-2 form-group">
+            <label class="control-label">File Size:</label>
+        </div>
 
-                            @Html.TextBoxFor(m => m.OverallSpecs_VM.Filesize, new { @class = "form-control", @style = "width:120px" })
-                        </div>
-                    </div>
+        <div class="col-sm-2 form-group">
 
-                    <div class="row">
-                        @if (Model.OverallSpecs_VM.AssetType.ToLower() == "file")
-                        {
-                            <div class="col-sm-2 text-right">
-                                <label class="control-label">Frame Size:</label>
-                            </div>
+            @Html.TextBoxFor(m => m.OverallSpecs_VM.Filesize,
+           new { @class = "form-control", @style = "width:120px" })
+        </div>
+    </div>
 
-                            <div class="col-sm-2 form-group">
+    <div class="row">
+        @if (Model.OverallSpecs_VM.AssetType.ToLower() == "file")
+        {
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Frame Size:</label>
+            </div>
 
-                                @Html.TextBoxFor(m => m.OverallSpecs_VM.FrameSize, new { @class = "form-control", @style = "width:120px" })
-                            </div>
+            <div class="col-sm-2 form-group">
 
-                        }
-                        else
-                        {
-                            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.OverallSpecs_VM.FrameSize,
+               new { @class = "form-control", @style = "width:120px" })
+            </div>
 
-                            </div>
-                        }
+            <div class="col-sm-2 text-right">
 
-                    </div>
+                <label class="control-label">Colour Range:</label>
+            </div>
 
-                </div>
-            }
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.OverallSpecs_VM.ColourSpace,
+               new SelectList(Model.ColourRangeList), "",
+               new
+                    {
+                        @class = "form-control",
+                   @style = "width:120px"
+               })
+            </div>
+
+        }
+        else
+        {
+            <div class="col-sm-6">
+
+            </div>
+        }
+
+    </div>
+    <br />
+
+    <div class="row">
+
+        <div class="col-sm-2 text-right form-group">
+            <b style="font-size:14px;">HDR Metadata</b>&nbsp;<input type="checkbox"/>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-2 text-right">
+          
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+ }
 
 
 

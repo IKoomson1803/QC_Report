@@ -21,10 +21,10 @@ namespace Deluxe.QCReport.Web.Controllers
     public class BanijayRightsController : BaseController
     {
         private readonly ILoggerService _loggerService = null;
+        private readonly ILookupsService _lookupsService = null;
         private readonly IBanijahRightsProgrammeDetailsService _progDetailsService = null;
         private readonly IBanijahRightsProgrammeLayoutService _progLayoutService = null;
         private readonly IBanijayRightsTextDetailsService _textDetailsService = null;
-        private readonly ILookupsService _lookupsService = null;
         private readonly IESIFinalService _esiFinalService = null;
         private readonly IBanijayRightsNotesService _banijayRightsNotesService = null;
         private readonly LogService _logSrv = null;
@@ -711,10 +711,10 @@ namespace Deluxe.QCReport.Web.Controllers
 
             if (model.Log_VM.CurrentQCTimes != null)
             {
-                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
-                {
-                    return Json(new { success = false, msg = "Please enter the time code and continue..." });
-                }
+                //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
+                //{
+                //    return Json(new { success = false, msg = "Please enter the time code and continue..." });
+                //}
 
                 if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.QCCodename))
                 {

@@ -79,6 +79,8 @@ namespace Deluxe.QCReport.Web.Models
         public Dictionary<int, string> GamutList { get; set; }
         public Dictionary<int, string> ColourEncodingList { get; set; }
         public Dictionary<int, string> ColourSpaceList { get; set; }
+        public List<string> ColourRangeList { get; set; }
+        public List<string> ColourRangeHDRMetadataList { get; set; }
         public Dictionary<int, string> ClosedCapsList { get; set; }
         public Dictionary<int, string> EvalStatusList { get; set; }
         public Dictionary<string, string> QCStatusList { get; set; }
@@ -146,7 +148,12 @@ namespace Deluxe.QCReport.Web.Models
 
 
 
-        /*************************************************************************/
+        /********************HDR Matadata***********************************************/
+
+        public List<string> HDRMetadataTypeList { get; set; }
+        public List<string> XmlAndBaseFileMetadataMatchList { get; set; }
+
+
 
 
     }

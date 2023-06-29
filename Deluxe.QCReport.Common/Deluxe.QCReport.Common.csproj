@@ -109,6 +109,9 @@
     <Compile Include="Abstractions\IFinalRepository.cs" />
     <Compile Include="Abstractions\IFinalService.cs" />
     <Compile Include="Abstractions\IFormat.cs" />
+    <Compile Include="Abstractions\IHDRMetadata.cs" />
+    <Compile Include="Abstractions\IHDRMetadataRepository.cs" />
+    <Compile Include="Abstractions\IHDRMetadataService.cs" />
     <Compile Include="Abstractions\ILocationRepository.cs" />
     <Compile Include="Abstractions\ILocationService.cs" />
     <Compile Include="Abstractions\IESIFinal.cs" />
@@ -157,6 +160,7 @@
     <Compile Include="Models\DetailsVMs.cs" />
     <Compile Include="Models\DisneyTWDC\DisneyTWDCElementInformation.cs" />
     <Compile Include="Models\DisneyTWDC\DisneyTWDCProgrammeDetails.cs" />
+    <Compile Include="Models\HDRMetadata.cs" />
     <Compile Include="Models\QCBase.cs" />
     <Compile Include="Models\DPPCommBroadcasters.cs" />
     <Compile Include="Models\DPPLog.cs" />
@@ -191,6 +195,7 @@
     <Compile Include="Repositories\DisneyTWDC\DisneyTWDCRepository.cs" />
     <Compile Include="Repositories\DPPRepository.cs" />
     <Compile Include="Repositories\FaultDescriptionImageRepository.cs" />
+    <Compile Include="Repositories\HDRMetadataRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\ESIFinalRepository.cs" />
     <Compile Include="Repositories\ESISpecificsRepository.cs" />
@@ -225,6 +230,7 @@
     <Compile Include="Services\DisneyTWDC\DisneyTWDCService.cs" />
     <Compile Include="Services\DPPService.cs" />
     <Compile Include="Services\FaultDescriptionImageService.cs" />
+    <Compile Include="Services\HDRMetadataService.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\ESIFinalService.cs" />
     <Compile Include="Services\ESISpecificsService.cs" />

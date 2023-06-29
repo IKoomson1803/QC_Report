@@ -141,9 +141,15 @@ namespace Deluxe.QCReport.Common.Repositories
             DisneyTWDCAudioConfiguration,
             DisneyTWDCComponentEvent,
             DisneyTWDCFinalStatus,
-            DisneyTWDCQCEvaluation
+            DisneyTWDCQCEvaluation,
 
-
+            // Measurements and HDR Metadata
+            ColourRange,
+            ColourRangeHDRMetadata,
+            HDRMetadataType,
+            XmlAndBaseFileMetadataMatch,
+            ColourPrimaries,
+            WhitePoint
 
 
         }
@@ -172,6 +178,12 @@ namespace Deluxe.QCReport.Common.Repositories
             ins_up_InsertOrUpdateDisneyTWDCProgrammeDetails
 
 
+        }
+
+        public enum HDRMMetadata
+        {
+            sel_GetHDRMMetadata,
+            ins_up_InsertOrUpdateHDRMMetadata
         }
 
     }

@@ -6,10 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Deluxe.QCReport.Common.Repositories
 {
     public class OverallSpecsRepository : BaseRepository
     {
+       
+
         public OverallSpecsVM GetOverallSpecsDetails(int QCNum, int SubQCNum)
         {
             OverallSpecsVM result = new OverallSpecsVM();

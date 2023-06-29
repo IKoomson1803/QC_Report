@@ -58,8 +58,17 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			  <td width="25%">GOP Structure:&nbsp; <b><%=rsHeader.Fields("GOP_Structure")%></b></td>
 			  <td width="25%">Gamut:&nbsp;<b><%=rsHeader.Fields("Gamut")%></b> </td>
 			  <td width="25%">Colour Encoding:&nbsp; <b><%=rsHeader.Fields("Colour_Encoding")%></b></td>
-			  <td width="25%">File Size:&nbsp; <b><%=rsHeader.Fields("File_Size")%></b></td>
+			  <td width="25%">Colour Space:&nbsp; <b><%=rsHeader.Fields("ColourSpace")%></b></td>
 			</tr>
+			
+			<tr> 
+			   <td width="25%">File Size:&nbsp; <b><%=rsHeader.Fields("File_Size")%></b></td>
+			  <td width="25%">&nbsp;</td>
+			  <td width="25%">&nbsp;</td>
+			  <td width="25%">&nbsp;</td>
+			  
+			</tr>
+			
 			
 			<tr> 
 			  	  

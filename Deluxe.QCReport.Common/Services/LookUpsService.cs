@@ -97,9 +97,20 @@ namespace Deluxe.QCReport.Common.Services
             result.Add(3, "BT2020");
             result.Add(4, "P3");
             
-
             return result;
         }
+
+        public static Dictionary<int, string> GetColourSpace_2()
+        {
+            Dictionary<int, string> result = new Dictionary<int, string>();
+
+            result.Add(1, "Full");
+            result.Add(2, "Limited");
+            result.Add(3, "N/A");
+          
+            return result;
+        }
+
         public static Dictionary<int, string> GetGamut()
         {
 
@@ -303,7 +314,7 @@ namespace Deluxe.QCReport.Common.Services
             return result;
         }
 
-        public static Dictionary<string, string> GetYesNoNotAll()
+         public static Dictionary<string, string> GetYesNoNotAll()
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
 
@@ -323,6 +334,8 @@ namespace Deluxe.QCReport.Common.Services
             result.Add("NA", "Not All");
             return result;
         }
+
+    
 
         public static Dictionary<int, string> GetCloseCap()
         {

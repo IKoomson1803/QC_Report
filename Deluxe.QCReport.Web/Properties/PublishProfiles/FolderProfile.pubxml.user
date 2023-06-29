@@ -21,19 +21,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/26/2015 12:09:03</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll">
-      <publishTime>06/20/2023 11:45:44</publishTime>
+      <publishTime>06/26/2023 13:39:50</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.dll.config">
       <publishTime>05/17/2021 17:40:06</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Common.pdb">
-      <publishTime>06/20/2023 11:45:44</publishTime>
+      <publishTime>06/26/2023 13:39:50</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.dll">
-      <publishTime>06/20/2023 15:47:55</publishTime>
+      <publishTime>06/26/2023 13:40:23</publishTime>
     </File>
     <File Include="bin/Deluxe.QCReport.Web.pdb">
-      <publishTime>06/20/2023 15:47:55</publishTime>
+      <publishTime>06/26/2023 13:40:23</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>03/15/2022 01:39:04</publishTime>
@@ -609,7 +609,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/21/2021 17:19:08</publishTime>
     </File>
     <File Include="Views/Job/_Overall.cshtml">
-      <publishTime>11/16/2021 10:32:31</publishTime>
+      <publishTime>06/26/2023 13:02:16</publishTime>
     </File>
     <File Include="Views/Job/_TapeLayout.cshtml">
       <publishTime>06/20/2023 11:32:17</publishTime>
@@ -636,7 +636,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/10/2019 13:35:51</publishTime>
     </File>
     <File Include="Views/Report/_UncompletedChecklist.cshtml">
-      <publishTime>01/25/2023 12:46:05</publishTime>
+      <publishTime>06/22/2023 13:01:33</publishTime>
     </File>
     <File Include="Views/Report/_VideoSpecifications.cshtml">
       <publishTime>06/10/2019 13:35:51</publishTime>
@@ -678,7 +678,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/18/2021 11:58:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/20/2023 15:47:55</publishTime>
+      <publishTime>06/22/2023 17:24:23</publishTime>
     </File>
   </ItemGroup>
 </Project>

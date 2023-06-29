@@ -40,7 +40,8 @@ namespace Deluxe.QCReport.Web.Controllers
         private readonly TextInfoService _tiSrv = null;
         private readonly LogService _logSrv = null;
         private readonly ILoggerService _loggerService = null;
-        private readonly IESISpecificsService _esiSpecificsService = null;
+        private readonly ILookupsService _lookupsService = null;
+         private readonly IESISpecificsService _esiSpecificsService = null;
         private readonly IESIFinalService _esiFinalService = null;
         private readonly IClientService _clientService = null;
 
@@ -50,6 +51,11 @@ namespace Deluxe.QCReport.Web.Controllers
 
             var loggerRepository = new LoggerRepository(conn);
             _loggerService = new LoggerService(loggerRepository);
+
+            _lookupsService = new LookUpsService(
+                                   new LookUpsRepository(
+                                    conn,
+                                   _loggerService));
 
             _checklistService = new ChecklistService(
                                    new ChecklistRepository(
@@ -860,6 +866,10 @@ namespace Deluxe.QCReport.Web.Controllers
             model.GOPStructureList = LookUpsService.GetGOPStructure();
             model.GamutList = LookUpsService.GetGamut();
             model.ColourEncodingList = LookUpsService.GetColourEncoding();
+            model.ColourRangeList = _lookupsService.GetLookup(StoredProcedure.Lookup.ColourRange).ToList();
+            model.ColourRangeHDRMetadataList = _lookupsService.GetLookup(StoredProcedure.Lookup.ColourRangeHDRMetadata).ToList();
+            model.HDRMetadataTypeList = _lookupsService.GetLookup(StoredProcedure.Lookup.HDRMetadataType).ToList();
+            model.XmlAndBaseFileMetadataMatchList = _lookupsService.GetLookup(StoredProcedure.Lookup.XmlAndBaseFileMetadataMatch).ToList();
 
             /****************Log User Activity******************************************************/
 
@@ -1183,10 +1193,10 @@ namespace Deluxe.QCReport.Web.Controllers
 
             if (model.Log_VM.CurrentQCTimes != null)
             {
-                if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
-                {
-                    return Json(new { success = false, msg = "Please enter the time code and continue..." });
-                }
+                //if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.TC))
+                //{
+                //    return Json(new { success = false, msg = "Please enter the time code and continue..." });
+                //}
 
                 if (string.IsNullOrWhiteSpace(model.Log_VM.CurrentQCTimes.QCCodename))
                 {
