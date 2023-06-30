@@ -56,6 +56,15 @@ namespace Deluxe.QCReport.Common.Repositories
 
             }
 
+            if(metadata == null)
+            {
+                metadata = new HDRMetadata() 
+                { 
+                 QCNum = qcNum,
+                 SubQCNum = subQCNum
+                };
+            }
+
 
             return metadata;
         }

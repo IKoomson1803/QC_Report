@@ -44,6 +44,7 @@ namespace Deluxe.QCReport.Web.Controllers
          private readonly IESISpecificsService _esiSpecificsService = null;
         private readonly IESIFinalService _esiFinalService = null;
         private readonly IClientService _clientService = null;
+        private readonly IHDRMetadataService _hdrMetadataService = null;
 
         public JobController()
         {
@@ -96,6 +97,11 @@ namespace Deluxe.QCReport.Web.Controllers
                                     conn,
                                     _loggerService));
 
+
+            _hdrMetadataService = new HDRMetadataService(
+                                       new HDRMetadataRepository(
+                                              conn,
+                                             _loggerService));
 
         }
 
@@ -855,8 +861,9 @@ namespace Deluxe.QCReport.Web.Controllers
             WindowsIdentity clientId = (WindowsIdentity)HttpContext.User.Identity;
 
             HomeVM model = new HomeVM();
-            model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
             model.SecurityLevel = UserAccountService.GetSecurityLevel(clientId.Name);
+            model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
+            model.HDRMetadata = _hdrMetadataService.Get(qcnum, revnum) as HDRMetadata;
 
             model.VideoCodecList = LookUpsService.GetVideoCodec();
             model.VideoBitDepthList = LookUpsService.GetVideoBitDepth();
@@ -866,10 +873,15 @@ namespace Deluxe.QCReport.Web.Controllers
             model.GOPStructureList = LookUpsService.GetGOPStructure();
             model.GamutList = LookUpsService.GetGamut();
             model.ColourEncodingList = LookUpsService.GetColourEncoding();
+            model.YesNoNAList = LookUpsService.GetYesNoNA();
+            model.YesNoList = LookUpsService.GetYesNo();
             model.ColourRangeList = _lookupsService.GetLookup(StoredProcedure.Lookup.ColourRange).ToList();
             model.ColourRangeHDRMetadataList = _lookupsService.GetLookup(StoredProcedure.Lookup.ColourRangeHDRMetadata).ToList();
             model.HDRMetadataTypeList = _lookupsService.GetLookup(StoredProcedure.Lookup.HDRMetadataType).ToList();
             model.XmlAndBaseFileMetadataMatchList = _lookupsService.GetLookup(StoredProcedure.Lookup.XmlAndBaseFileMetadataMatch).ToList();
+            model.ColourPrimariesList = _lookupsService.GetLookup(StoredProcedure.Lookup.ColourPrimaries).ToList();
+            model.WhitePointList = _lookupsService.GetLookup(StoredProcedure.Lookup.WhitePoint).ToList();
+
 
             /****************Log User Activity******************************************************/
 
@@ -893,18 +905,10 @@ namespace Deluxe.QCReport.Web.Controllers
         [HttpPost]
         public ActionResult SaveOverallSpecsDetails(HomeVM model)
         {
-
-            bool result = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
-
-            /****** Save Banijay Rights Measurments. Split the Save method into Measurements and Specifics *****************************************************************/
-
-            //if(model.ChecklistBanijayRights != null)
-            //{
-            //    model.ChecklistBanijayRights.IsMeasurements = true;// Should be modified and replace IsFile to FileToSpec across all the checklists
-            //    model.ChecklistBanijayRights.IsFile = model.ChecklistBanijayRights.FileToSpec;
-            //    bool result2 = _checklistService.SaveChecklistBanijayRights(model.ChecklistBanijayRights);
-            //}
-
+           
+            bool result1 = _oasSrv.SaveOverallSpecsDetails(model.OverallSpecs_VM);
+            bool result2 = _hdrMetadataService.Save(model.HDRMetadata);
+            bool result = (result1 && result2);
 
             string resultMsg = "Measurements saved successfully.";
 

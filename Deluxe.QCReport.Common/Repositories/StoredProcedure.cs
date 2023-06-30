@@ -150,6 +150,7 @@ namespace Deluxe.QCReport.Common.Repositories
             XmlAndBaseFileMetadataMatch,
             ColourPrimaries,
             WhitePoint
+            
 
 
         }

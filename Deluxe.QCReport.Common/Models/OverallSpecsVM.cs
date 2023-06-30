@@ -50,5 +50,6 @@ namespace Deluxe.QCReport.Common.Models
         public string MaxCLL { get; set; } 
         public string MaxFALL { get; set; }
         public string ColourSpace { get; set; }
+        public string ColourRange { get; set; }
     }
 }

@@ -72,7 +72,7 @@ CREATE TABLE [bward].[HDRMetadataType](
 GO
 INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'Dolby Vision xml')
 GO
-INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'ST.2086 -Embedded')
+INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'ST.2086 - Embedded')
 GO
 INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'ST.2086 Side Car xml')
 GO

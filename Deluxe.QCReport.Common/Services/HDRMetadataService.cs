@@ -24,7 +24,7 @@ namespace Deluxe.QCReport.Common.Services
 
         public bool Save(IHDRMetadata metadata)
         {
-            return Save(metadata);
+            return _rep.Save(metadata);
         }
     }
 }

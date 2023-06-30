@@ -149,11 +149,11 @@ namespace Deluxe.QCReport.Web.Models
 
 
         /********************HDR Matadata***********************************************/
-
+        public HDRMetadata HDRMetadata { get; set; }
         public List<string> HDRMetadataTypeList { get; set; }
         public List<string> XmlAndBaseFileMetadataMatchList { get; set; }
-
-
+        public List<string> ColourPrimariesList { get; set; }
+        public List<string> WhitePointList { get; set; }
 
 
     }
