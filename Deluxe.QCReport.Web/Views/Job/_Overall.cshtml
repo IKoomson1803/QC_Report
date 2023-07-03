@@ -443,160 +443,166 @@
 
     </div>
 
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-sm-2 text-right">
+    <div id="divHDRMetada">
 
-            <label class="control-label">HDR Metadata Supplied:</label>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">HDR Metadata Supplied:</label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.HDRMetadata.HDRMetadataSupplied,
+               new SelectList(Model.YesNoNAList, "value", "value"), "",
+               new { @class = "form-control", @style = "width:60px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">HDR Metadata Type:</label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.HDRMetadata.HDRMetadataType,
+                 new SelectList(Model.HDRMetadataTypeList), "",
+                 new { @class = "form-control", @style = "width:160px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Does xml Metadata match the Base file Metadata:</label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.HDRMetadata.XmlAndBaseFileMetadataMatch,
+               new SelectList(Model.XmlAndBaseFileMetadataMatchList), "",
+               new { @class = "form-control", @style = "width:200px" })
+            </div>
+
+
         </div>
 
-        <div class="col-sm-2 form-group">
 
-            @Html.DropDownListFor(m => m.HDRMetadata.HDRMetadataSupplied,
-           new SelectList(Model.YesNoNAList, "value", "value"), "",
-           new { @class = "form-control", @style = "width:60px" })
+
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">MaxCLL: </label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+                @Html.TextBoxFor(m => m.HDRMetadata.MaxCLL,
+               new
+                    {
+                   @class = "form-control",
+                   @style = "width:150px",
+                   maxlength = "50"
+                    })
+            </div>
+
+            <div class="col-sm-8 text-right">
+                <label class="control-label">&nbsp;</label>
+            </div>
+
+
+
         </div>
 
-        <div class="col-sm-2 text-right">
 
-            <label class="control-label">HDR Metadata Type:</label>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Max FALL:</label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+
+                @Html.TextBoxFor(m => m.HDRMetadata.MaxFALL,
+               new
+                    {
+                   @class = "form-control",
+                   @style = "width:150px",
+                   maxlength = "50"
+                    })
+            </div>
+
+
+            <div class="col-sm-8 text-right">
+                <label class="control-label">&nbsp; </label>
+            </div>
+
         </div>
 
-        <div class="col-sm-2 form-group">
 
-            @Html.DropDownListFor(m => m.HDRMetadata.HDRMetadataType,
-             new SelectList(Model.HDRMetadataTypeList), "",
-             new { @class = "form-control", @style = "width:160px" })
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">&nbsp; </label>
+            </div>
+            <div class="col-sm-10 text-left">
+                <label class="control-label" style="font-weight:bold;font-size:14px; text-decoration:underline;">Dolby Vision & ST.2086 Checks</label>
+            </div>
+
         </div>
 
-        <div class="col-sm-2 text-right">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-2 text-right">
+                <label class="control-label">&nbsp; </label>
+            </div>
+            <div class="col-sm-10 text-left">
+                <label class="control-label" style="font-weight:bold;font-size:14px;">Mastering Display</label>
+            </div>
 
-            <label class="control-label">Does xml Metadata match the Base file Metadata:</label>
         </div>
 
-        <div class="col-sm-2 form-group">
 
-            @Html.DropDownListFor(m => m.HDRMetadata.XmlAndBaseFileMetadataMatch,
-           new SelectList(Model.XmlAndBaseFileMetadataMatchList), "",
-           new { @class = "form-control", @style = "width:200px" })
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Color Primaries:</label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.HDRMetadata.ColorPrimariesMastering,
+               new SelectList(Model.ColourPrimariesList), "",
+               new { @class = "form-control", @style = "width:100px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">White Point:</label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+
+                @Html.DropDownListFor(m => m.HDRMetadata.WhitePointMastering,
+                 new SelectList(Model.WhitePointList), "",
+                 new { @class = "form-control", @style = "width:160px" })
+            </div>
+
+            <div class="col-sm-2 text-right">
+
+                <label class="control-label">Peak Brightness::</label>
+            </div>
+
+            <div class="col-sm-2 form-group">
+
+                @Html.TextBoxFor(m => m.HDRMetadata.PeakBrightnessMastering,
+               new
+                    {
+                   @class = "form-control",
+                   @style = "width:150px",
+                   maxlength = "50"
+                    })
+            </div>
+
+
         </div>
-
 
     </div>
 
 
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-sm-2 text-right">
-            <label class="control-label">MaxCLL: </label>
-        </div>
-
-        <div class="col-sm-2 form-group">
-            @Html.TextBoxFor(m => m.HDRMetadata.MaxCLL,
-           new
-                {
-               @class = "form-control",
-               @style = "width:150px",
-               maxlength = "50"
-                })
-        </div>
-
-        <div class="col-sm-8 text-right">
-            <label class="control-label">&nbsp;</label>
-        </div>
-
-
-
-    </div>
-
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-sm-2 text-right">
-            <label class="control-label">Max FALL:</label>
-        </div>
-
-        <div class="col-sm-2 form-group">
-
-            @Html.TextBoxFor(m => m.HDRMetadata.MaxFALL,
-           new
-                {
-               @class = "form-control",
-               @style = "width:150px",
-               maxlength = "50"
-                })
-        </div>
-
-
-        <div class="col-sm-8 text-right">
-            <label class="control-label">&nbsp; </label>
-        </div>
-
-    </div>
-
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-sm-2 text-right">
-            <label class="control-label">&nbsp; </label>
-        </div>
-        <div class="col-sm-10 text-left">
-            <label class="control-label" style="font-weight:bold;font-size:14px; text-decoration:underline;">Dolby Vision & ST.2086 Checks</label>
-        </div>
-
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-sm-2 text-right">
-            <label class="control-label">&nbsp; </label>
-        </div>
-        <div class="col-sm-10 text-left">
-            <label class="control-label" style="font-weight:bold;font-size:14px;">Mastering Display</label>
-        </div>
-
-    </div>
-
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-sm-2 text-right">
-
-            <label class="control-label">Color Primaries:</label>
-        </div>
-
-        <div class="col-sm-2 form-group">
-
-            @Html.DropDownListFor(m => m.HDRMetadata.ColorPrimariesMastering,
-           new SelectList(Model.ColourPrimariesList), "",
-           new { @class = "form-control", @style = "width:100px" })
-        </div>
-
-        <div class="col-sm-2 text-right">
-
-            <label class="control-label">White Point:</label>
-        </div>
-
-        <div class="col-sm-2 form-group">
-
-            @Html.DropDownListFor(m => m.HDRMetadata.WhitePointMastering,
-             new SelectList(Model.WhitePointList), "",
-             new { @class = "form-control", @style = "width:160px" })
-        </div>
-
-        <div class="col-sm-2 text-right">
-
-            <label class="control-label">Peak Brightness::</label>
-        </div>
-
-        <div class="col-sm-2 form-group">
-
-            @Html.TextBoxFor(m => m.HDRMetadata.PeakBrightnessMastering,
-           new
-                {
-               @class = "form-control",
-               @style = "width:150px",
-               maxlength = "50"
-                })
-        </div>
-
-
-    </div>
 
 
 
@@ -765,13 +771,35 @@
  function setActiveButton() {
     $(".subMenuOnClick").removeClass("subMenuOnClick")
      $('#lnkQcOverallSpecs').addClass("subMenuOnClick");
-}
+      }
+
+      function HDRMetadata() {
+
+                    
+            if ($('#HDRMetadata_NotRequired').is(':checked')) {
+                $('#divHDRMetada').hide();
+            }
+            else {
+                $('#divHDRMetada').show();
+            }
+         
+
+          $("input[name='HDRMetadata.NotRequired']:checkbox").change(function () {
+              if ($(this).is(':checked')) {
+                  $('#divHDRMetada').hide();
+              }
+              else {
+                  $('#divHDRMetada').show();
+              }
+          });
+      }
 
       $(function () {
 
         $(function () {
 
             setActiveButton();
+            HDRMetadata();
            // initializeMultiSelectChecboxList();
 
             // add ':' in timecode textbox
@@ -789,6 +817,8 @@
             //    }
 
             //});
+
+
 
 
         $('#btnSave').on("click", function () {
