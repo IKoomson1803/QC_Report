@@ -817,41 +817,6 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
 
 
@@ -976,9 +941,11 @@ function HDRMetadata() {
 
           $("input[name='HDRMetadata.NotRequired']:checkbox").change(function () {
               if ($(this).is(':checked')) {
+                  save();
                   $('#divHDRMetada').hide();
               }
               else {
+                  save();
                   $('#divHDRMetada').show();
               }
           });
