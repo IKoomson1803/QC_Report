@@ -17,6 +17,7 @@ Dim IsChecklistCompleted
 Dim rsFaultImage, sqlFaultImage, nFaultImages, nTotalImages
 Dim sQCBNJR
 
+
 sBVMaster = Request.QueryString("sBVMaster")
 sBVTech1 = Request.QueryString("sBVTech1")
 sBVTech2 = Request.QueryString("sBVTech2")
@@ -133,7 +134,7 @@ sqlBVIMaster = "SELECT " & _
 					"TrackContent7, TrackContent8, TrackContent9, TrackContent10, TrackContent11, TrackContent12,  " & _
 					"TrackContent13, TrackContent14, TrackContent15, TrackContent16, TrackContent17, TrackContent18, TrackContent19, TrackContent20,  " & _
 					"TrackContent21, TrackContent22, TrackContent23, TrackContent24, " & _
-					"DecodeCheck, MaxCLL, MaxFALL, ColourSpace " & _
+					"DecodeCheck, MaxCLL, MaxFALL, ColourSpace, ColourRange " & _
 	
      			"FROM qcHeader " & _
 				"INNER JOIN qcAudioTC ON qcHeader.QCNum = qcAudioTC.QCNum AND qcHeader.SubQCNum = qcAudioTC.SubQCNum " & _
@@ -201,7 +202,7 @@ sqlBVIMaster = "SELECT " & _
 					"TrackContent7, TrackContent8, TrackContent9, TrackContent10, TrackContent11, TrackContent12,  " & _
 					"TrackContent13, TrackContent14, TrackContent15, TrackContent16, TrackContent17, TrackContent18, TrackContent19, TrackContent20,  " & _
 					"TrackContent21, TrackContent22, TrackContent23, TrackContent24, " & _
-	                "DecodeCheck, MaxCLL, MaxFALL, ColourSpace " & _
+	                "DecodeCheck, MaxCLL, MaxFALL, ColourSpace, ColourRange " & _
 				"HAVING qcheader.Qcnum= " & clng(sQCNum) & " AND qcheader.subQcnum = " & cint(sRev)
 	
 
@@ -242,6 +243,7 @@ itemNumberCount = 0
 dim rsDPPLog, sqlDPPLog
 Dim rsChecklistDPP, sqlChecklistDPP
 Dim rsChecklistBanijayRights, sqlChecklistBanijayRights
+Dim rsHDRMetadata, sqlHDRMetadata
 
 
 ''*****************Log item number check***********************************************************************
@@ -389,8 +391,18 @@ rsDPPLog.Open sqlDPPLog
    " FROM [QCSUK].[bward].[ChecklistBanijayRights] " & _
    " WHERE Qcnum= " & clng(sQCNum) & " AND subQcnum = " & cint(sRev)
   
-   rsChecklistBanijayRights.Open sqlChecklistBanijayRights,cnQCS 
+   rsChecklistBanijayRights.Open sqlChecklistBanijayRights, cnQCS 
 
+
+
+'' HDR Metadata Dim rsHDRMetadata, sqlHDRMetadata
+ set rsHDRMetadata = Server.CreateObject("ADODB.Recordset")
+   rsHDRMetadata.ActiveConnection = cnQCS
+   sqlHDRMetadata = "SELECT TOP 1 * " & _
+   " FROM [QCSUK].[bward].[HDRMetadata] " & _
+   " WHERE QCNum= " & clng(sQCNum) & " AND SubQCNum = " & cint(sRev)
+  
+   rsHDRMetadata.Open sqlHDRMetadata, cnQCS 
 
 
 %>

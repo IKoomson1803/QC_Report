@@ -58,7 +58,7 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			  <td width="25%">GOP Structure:&nbsp; <b><%=rsHeader.Fields("GOP_Structure")%></b></td>
 			  <td width="25%">Gamut:&nbsp;<b><%=rsHeader.Fields("Gamut")%></b> </td>
 			  <td width="25%">Colour Encoding:&nbsp; <b><%=rsHeader.Fields("Colour_Encoding")%></b></td>
-			  <td width="25%">Colour Space:&nbsp; <b><%=rsHeader.Fields("ColourSpace")%></b></td>
+			  <td width="25%">Colour Range:&nbsp; <b><%=rsHeader.Fields("ColourRange")%></b></td>
 			</tr>
 			
 			<tr> 
@@ -98,3 +98,4 @@ if rsHeader.Fields("IRE_MV") = "M" then
 
 
 <!--#include file="Measurements_2.asp" -->
+<!--#include file="HDRMetadata.asp" -->
