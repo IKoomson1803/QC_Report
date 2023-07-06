@@ -29,11 +29,69 @@ If rsHDRMetadata.BOF  = False Then
 				  <td width="34%" >Does xml Metadata match the Base file Metadata:<b>&nbsp; <b><%=rsHDRMetadata.Fields("XmlAndBaseFileMetadataMatch")%></b></td>
 			</tr>	
             <tr> 
-	            <td colspan="3">MaxCLL:<b>&nbsp; <b><%=rsHDRMetadata.Fields("MaxCLL")%></b></td>
-	          </tr>			
+			      <td width="33%" >MaxCLL:<b>&nbsp; <b><%=rsHDRMetadata.Fields("MaxCLL")%></b></td>
+				  <td width="33%" >&nbsp;</b></td>
+				  <td width="34%" >&nbsp;</td>
+           </tr>			
 			<tr> 
-	            <td colspan="3">MaxFALL:<b>&nbsp; <b><%=rsHDRMetadata.Fields("MaxFALL")%></b></td>
+			     <td width="33%" >MaxFALL:<b>&nbsp; <b><%=rsHDRMetadata.Fields("MaxFALL")%></b></td>
+				  <td width="33%" >&nbsp;</b></td>
+				  <td width="34%" >&nbsp;</td>
+	        </tr>	
+			  
+			 <tr> 
+	            <td colspan="3" align="center"><b>Dolby Vision & ST.2086 Checks</b></td>
 	          </tr>	
+              <tr> 
+	            <td colspan="3" align="center"><b>Mastering Display</b></td>
+	          </tr>				  
+			  <tr> 
+				  <td width="33%" >Color Primaries:   <b>&nbsp; <b><%=rsHDRMetadata.Fields("ColorPrimariesMastering")%></b></td>
+				  <td width="33%" >White Point:   <b>&nbsp; <b><%=rsHDRMetadata.Fields("WhitePointMastering")%></b></td>
+				  <td width="34%" >Peak Brightness:<b>&nbsp; <b><%=rsHDRMetadata.Fields("PeakBrightnessMastering")%></b></td>
+			</tr>
+			  <tr> 
+			     <td width="33%" >Minimum Brightness:<b>&nbsp; <b><%=rsHDRMetadata.Fields("MinimumBrightnessMastering")%></b></td>
+				  <td width="33%" >&nbsp;</td>
+				  <td width="34%" >&nbsp;</td>
+	        </tr>
+			  
+			  <tr> 
+	            <td colspan="3" align="center"><b>Dolby Vision Checks</b></td>
+	          </tr>	
+              <tr> 
+	            <td colspan="3" align="center"><b>Color Encoding</b></td>
+	          </tr>				  
+			  <tr> 
+				  <td width="33%" >Color Primaries:   <b>&nbsp; <b><%=rsHDRMetadata.Fields("ColorPrimariesDolbyVision")%></b></td>
+				  <td width="33%" >White Point:   <b>&nbsp; <b><%=rsHDRMetadata.Fields("WhitePointDolbyVision")%></b></td>
+				  <td width="34%" >Peak Brightness:<b>&nbsp; <b><%=rsHDRMetadata.Fields("PeakBrightnessDolbyVision")%></b></td>
+			</tr>
+			  <tr> 
+			     <td width="33%" >Minimum Brightness:<b>&nbsp; <b><%=rsHDRMetadata.Fields("MinimumBrightnessDolbyVision")%></b></td>
+				  <td width="33%" >Encoding:<b>&nbsp; <b><%=rsHDRMetadata.Fields("Encoding")%></b></td>
+				  <td width="34%" >Color Space:<b>&nbsp; <b><%=rsHDRMetadata.Fields("ColourSpace")%></b></td>
+	        </tr>
+			  <tr> 
+			     <td width="33%" >Color Range:<b>&nbsp; <b><%=rsHDRMetadata.Fields("ColourRange")%></b></td>
+				  <td width="33%" >&nbsp;</td>
+				  <td width="34%" >&nbsp;</td>
+	        </tr>
+			  
+			  tr> 
+	            <td colspan="3" align="center"><b>Xml vs Base file</b></td>
+	          </tr>	
+              			  
+			  <tr> 
+				  <td width="33%" >Do Color Primaries match Video File:   <b>&nbsp; <b><%=rsHDRMetadata.Fields("ColourPrimariesMatchVideoFile")%></b></td>
+				  <td width="33%" >Does Framerate match Video File:    <b>&nbsp; <b><%=rsHDRMetadata.Fields("FrameRateMatchVideoFile")%></b></td>
+				  <td width="34%" >Does Canvas Aspect Ratio match Video File:<b>&nbsp; <b><%=rsHDRMetadata.Fields("CanvasAspectRatioMatchVideoFile")%></b></td>
+			</tr>
+			  <tr> 
+			     <td width="33%" >Does Image Aspect Ratio match Video File:<b>&nbsp; <b><%=rsHDRMetadata.Fields("ImageAspectRatioMatchVideoFile")%></b></td>
+				  <td width="33%" >Does Color Range match Video File:  <b>&nbsp; <b><%=rsHDRMetadata.Fields("ColourRangeMatchVideoFile")%></b></td>
+				  <td width="34%" >&nbsp;</td>
+	        </tr>
 				
 </table>				
 				
