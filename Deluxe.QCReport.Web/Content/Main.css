@@ -198,8 +198,13 @@ th{
     width: 100%;
 }
 
-#TapeLayout_VM_CurrentTimecodes_ItemNum, #BanijahRightsTapeLayout_ItemNum {
+#TapeLayout_VM_CurrentTimecodes_ItemNum, #BanijahRightsTapeLayout_ItemNum, .itemNumber {
     width: 50px !important;
+}
+
+
+.itemNumber {
+    width: 20px !important;
 }
 
 #Log_VM_CurrentQCTimes_ItemNum {

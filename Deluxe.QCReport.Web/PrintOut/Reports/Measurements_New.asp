@@ -20,7 +20,7 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	<% If sAssetType = "Tape" Then %>
 		  <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		      <tr> 
-	            <td colspan="4" class="header">MEASUREMENTS</td>
+	            <td colspan="4" align="center" class="header">MEASUREMENTS</td>
 	          </tr>
 			<tr> 
 			  <td width="25%" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Tape Number:&nbsp;<b> <%=rsHeader.Fields("TapeNumber")%></b></td>
@@ -34,7 +34,7 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	<% Else %>
 		  <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		      <tr> 
-	            <td colspan="4" class="header">MEASUREMENTS</td>
+	            <td colspan="4" align="center"><b>MEASUREMENTS</b></td>
 	          </tr>
 		  
 			<tr> 
@@ -95,13 +95,12 @@ if rsHeader.Fields("IRE_MV") = "M" then
   </tr>
 </table>
 
-<!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
--->
+
 
 <!--#include file="Measurements_2.asp" -->
 <!--#include file="HDRMetadata.asp" -->

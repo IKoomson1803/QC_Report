@@ -1,8 +1,8 @@
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
         <tr>
-          <td align="center" class="bottom_border" > 
-            <b>PROGRAMME LAYOUT</b>
+          <td  class="bottom_border header" > 
+            PROGRAMME LAYOUT
           </td>
         </tr>
         <tr>

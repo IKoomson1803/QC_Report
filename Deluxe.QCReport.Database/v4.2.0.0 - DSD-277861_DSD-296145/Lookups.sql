@@ -38,9 +38,7 @@ INSERT [bward].[ColourRange] ([Type]) VALUES (N'Limited')
 GO
 INSERT [bward].[ColourRange] ([Type]) VALUES (N'N/A')
 GO
-INSERT [bward].[WhitePoint] ([Type]) VALUES (N'D65 0.3127')
-GO
-INSERT [bward].[WhitePoint] ([Type]) VALUES (N'0.3290')
+INSERT [bward].[WhitePoint] ([Type]) VALUES (N'D65 0.3127, 0.3290')
 GO
 INSERT [bward].[WhitePoint] ([Type]) VALUES (N'Other')
 GO

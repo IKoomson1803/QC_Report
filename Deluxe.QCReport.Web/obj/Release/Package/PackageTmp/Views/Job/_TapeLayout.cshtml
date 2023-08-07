@@ -54,7 +54,7 @@
                 <div class="col-xs-1 form-group" style="margin-left:5px;">
 
                     <label class="control-label">Item No:</label>
-                    @Html.TextBoxFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum, new { @class = "form-control", @type = "number", @width = "40px" })
+                    @Html.TextBoxFor(m => m.TapeLayout_VM.CurrentTimecodes.ItemNum, new { @class = "form-control", @type = "number", @width = "20px" })
                 </div>
 
                 <div class="col-xs-9 form-group" style="margin-left:5px;">
@@ -100,7 +100,7 @@
             <table class="table table-striped table-condensed" style="margin-top:-5px;">
                 <thead>
                     <tr>
-                        <td>Item No.</td>
+                        <td class="itemNumber">Item No.</td>
                         <td>Description</td>
                         <td>Duration</td>
                         <td>Time Code</td>
@@ -112,10 +112,10 @@
                         itemNo++;
 
                         <tr class='clickable-row' style="cursor:pointer;" data-tfid="@item.TapeFormatId">
-                            <td class="col-xs-1">@item.ItemNum</td>
-                            <td class="col-xs-7">@item.Description</td>
+                            <td class="col-xs-1 itemNumber">@item.ItemNum</td>
+                            <td class="col-xs-8">@item.Description</td>
                             <td class="col-xs-1">@item.Length</td>
-                            <td class="col-xs-3">@item.Time_Code</td>
+                            <td class="col-xs-2">@item.Time_Code</td>
                         </tr>
 
                     }

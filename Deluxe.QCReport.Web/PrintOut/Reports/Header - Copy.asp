@@ -12,21 +12,17 @@
 			  <td>Description:&nbsp;<b><%=rsHeader.Fields("TapeDesc1")%></b></td>
              <td>QC Number:&nbsp;<b><%=rsHeader.Fields("QCNum")%></b></td>
 			</tr> 
-			<!--
 			 <tr> 
                <td colspan="4">&nbsp;</td>
             </tr>
-			-->
 			<tr>
              <td >Episode Name:&nbsp; <b><%=rsHeader.Fields("Epis_name")%></b></td>
              <td>Episode Number:&nbsp;<b><%=rsHeader.Fields("Epis_no")%></b></td>
              <td>WO Number:&nbsp;<b><%=rsHeader.Fields("wonum")%></b></td>
 			</tr> 
-			<!--
 			 <tr> 
-               <td colspan="4">&nbsp;</td>
+              <td colspan="4">&nbsp;</td>
             </tr>
-			-->
 			<tr>
 				
               <td >Subtitles:&nbsp; <b>
@@ -51,11 +47,8 @@
 			 
 			</tr> 
 			 <tr> 
-            <!--
-			 <tr> 
-               <td colspan="4">&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
-			-->
 			<tr>
              
              <td>TRT:&nbsp;<b><%=rsHeader.Fields("TRT")%></b></b></td>
@@ -65,7 +58,9 @@
 										Response.Write("No")
 									end if%></b></td>
 									
-			<td>Textless Duration: <b><%=rsHeader.Fields("Duration")%></b></td>		
+			<td>Textless Duration: <b><%=rsHeader.Fields("Duration")%></b>
+			
+			</td>		
 			<%
 		           If Not IsNull(sAssetType) And sAssetType = "Tape"   Then
 				       Response.Write "<tr><td colspan='3'>&nbsp;</td></tr>" 
@@ -78,17 +73,15 @@
 			
 		    <%
 		           If Not IsNull(sAssetType) And sAssetType = "File"   Then
-				     ''Response.Write "<tr><td colspan='3'>&nbsp;</td></tr>" 
+				     Response.Write "<tr><td colspan='3'>&nbsp;</td></tr>" 
                      Response.Write "<tr><td colspan='3'>Filename: <b>" & rsHeader.Fields("Filename") & "</b></td></tr>" 
                    End If		   
 		      %>
             
 
-            <!--
-			 <tr> 
-               <td colspan="4">&nbsp;</td>
-            </tr>
-			-->
+             <tr> 
+                <td colspan="4">&nbsp;</td>
+             </tr>
 			  <td>Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
 			 
 			 <td >Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
@@ -98,22 +91,18 @@
 			</tr>
 			
 
-             <!--
-			 <tr> 
-               <td colspan="4">&nbsp;</td>
+               <tr> 
+                <td colspan="4">&nbsp;</td>
             </tr>
-			-->
 			
 			<tr>
              <td >Status:&nbsp; <font size=3><b><%=rsHeader.Fields("Eval_Stat")%></b></font></td>
              <td>Head Logo:&nbsp;<b><%=rsHeader.Fields("HeadLogo")%></b></td>
              <td>Tail Logo:&nbsp; <b><%=rsHeader.Fields("TailLogo")%></b></td>
 			</tr> 
-			<!--
 			 <tr> 
-               <td colspan="4">&nbsp;</td>
-            </tr>
-			-->
+                <td colspan="4">&nbsp;</td>
+             </tr>
 			<tr>
 			 <td><b>Overall Grade:</b>&nbsp; <b><%=rsHeader.Fields("grdOverall")%></b></td>
              <td ><b>Video Grade:</b>&nbsp; <b><%=rsHeader.Fields("grdVideo")%></b></td>

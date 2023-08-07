@@ -12,7 +12,7 @@ rsProgLayout.Open sqlProgLayout
 set rsTapeLayout = Server.CreateObject("ADODB.Recordset")
 
 sqlTapeLayout ="SELECT * FROM BanijahRightsTapeLayout " & _
-			" WHERE QCNum = " & clng(sQCNum) & " AND SubQCnum = " & cint(sRev)
+			" WHERE QCNum = " & clng(sQCNum) & " AND SubQCnum = " & cint(sRev) & " ORDER BY [ItemNum]"
 			
 rsTapeLayout.ActiveConnection = cnQCS
 rsTapeLayout.Open sqlTapeLayout

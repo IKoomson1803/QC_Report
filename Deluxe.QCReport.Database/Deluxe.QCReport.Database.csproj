@@ -159,8 +159,8 @@
     <Content Include="Archives\v4.0.0.0 - Banijay Rights - New template\DB_Scripts_3.sql" />
     <Content Include="v4.2.0.0 - DSD-277861_DSD-296145\CRUD.sql" />
     <Content Include="v4.2.0.0 - DSD-277861_DSD-296145\Lookups.sql" />
-    <Content Include="v5.0.0.0 - Disney Plus Originals - TWDC\CRUD.sql" />
-    <Content Include="v5.0.0.0 - Disney Plus Originals - TWDC\Looups.sql" />
+    <Content Include="Archives\DSD-281453 - Disney Plus Originals - TWDC - Not Neede\CRUD.sql" />
+    <Content Include="Archives\DSD-281453 - Disney Plus Originals - TWDC - Not Neede\Looups.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

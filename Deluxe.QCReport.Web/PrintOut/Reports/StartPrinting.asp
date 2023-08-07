@@ -62,8 +62,14 @@ Select case Request.Form("action")
 		"&sQCRWLE=" & sQCRWLE & "&sQCRWLDPP=" & sQCRWLDPP & _
 		"&sWBQCR=" & sWBQCR & "&sMQCR=" &  sMQCR &_
 		"&sQCBNJR=" & sQCBNJR & "');")
-		Response.Write("window.navigate('reports.asp?sQCNum=" & nlQCNum & "&sRev=" & nlRev & "');")
+		''Response.Write("window.navigate('reports.asp?sQCNum=" & nlQCNum & "&sRev=" & nlRev & "');")
 		Response.Write("</script>")	
+		
+	case "Download"
+	
+	
+		
+		
 end select
 		
 %>

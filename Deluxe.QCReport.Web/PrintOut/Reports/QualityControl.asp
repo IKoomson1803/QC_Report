@@ -1,15 +1,8 @@
-<!-- Updated to include channels 9-16 Isaac Koomson 04/01/2012 -->
-<style>
-
-.galimage[src=""] {
-  display:none;
-}
-
-
-</style>
-
-
 <%
+Response.Buffer = True
+Response.CacheControl = "no-cache"
+Response.AddHeader "Pragma", "no-cache"
+Response.Expires = -1
 
 On Error Resume Next
 
@@ -41,22 +34,30 @@ Function ChecklistCompleted()
 		  End If 	
        End If
 
-
-
-
-
-
-
-
 End Function
+
 %>
 
 
-<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css">
+<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css?v=4.2.0.0">
 <style>
 BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: none; }
 DIV.PageBreak { page-break-before: always; }
 TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
+
+.galimage[src=""] {
+  display:none;
+  
+  
+}
+
+.header{
+	color:blue;
+	font-weight: bold;
+	font-size:12px;
+	text-align:center !important;
+}
+
 </style>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
@@ -88,12 +89,13 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   </tr>
 </table>
 
+<!--
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
-
+-->
  
 <!--#include file="Operations.asp" -->
 
@@ -112,12 +114,13 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   </tr>
 </table>
 
+<!--
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
-
+-->
 
  <!--#include file="SafeAreaCheck.asp" -->
  
@@ -126,12 +129,14 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
     <td>&nbsp;</td>
   </tr>
 </table>
+
+<!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
-
+-->
 
 <%
    
@@ -198,11 +203,14 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
     <td>&nbsp;</td>
   </tr>
 </table>
+
+<!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
 
 <% End If %>	
 
@@ -217,12 +225,13 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
       </tr>
     </table>
 	
+	<!--
 	 <table width="100%" border="0" cellspacing="0" cellpadding="1">
       <tr>
        <td>&nbsp;</td>
        </tr>
     </table>
-	
+	-->
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 	<tr>
@@ -238,37 +247,46 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   </tr>
 </table>
 
+<!--
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
 
 
-
-<table width="100%" border="0" cellspacing="0" cellpadding="1"  >
+<table width="100%" border="1" cellspacing="0" cellpadding="0"  >
   <tr>
-    <td  align="center" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
-	  <font class="txt_italic" size="2"><b>OVERALL COMMENTS</b></font>
+    <td  class="header" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
+	  OVERALL COMMENTS
     </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
+	<!--
     <td align="center" width="5" >
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
-    <td align="center" valign="top">
-      <font class="txt_italic" size="2"><b>AUDIO COMMENTS / CORRECTIVE ACTIONS</b></font>
+	-->
+	
+    <td class="header" >
+      AUDIO COMMENTS / CORRECTIVE ACTIONS
     </td>
+	
+	<!--
 	<td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
-	 <td align="center" valign="top">
-      <font class="txt_italic" size="2"><b>VIDEO COMMENTS / CORRECTIVE ACTIONS</b></font>
+	-->
+	
+	 <td class="header" >
+      VIDEO COMMENTS / CORRECTIVE ACTIONS
     </td>
+	
     <%End If%>
   </tr>
   <tr>
     <td height="200px" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%Else%> width="33%"<%End If%>>
-		  <table  width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+		  <table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
 			  <td style="padding:5px;"  valign="top"><%=rsFullSpot.Fields("Comments")%> 
 			  <p>&nbsp;</p>
@@ -278,28 +296,33 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 		  </table>
 	   </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
+	
+	<!--
     <td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
-    </td>
+    </td>-->
 	
-    <td width="33%" valign="top" height="200px">
-	 	  <table  width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+    <td width="33%"  height="200px">
+	 	  <table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
-			  <td style="padding:5px;" valign="top"><%=rsFullSpot.Fields("RecommendationComments")%>
+			  <td  valign="top" style="padding:5px;" ><%=rsFullSpot.Fields("RecommendationComments")%>
 			   <p>&nbsp;</p>
 			  <p>&nbsp;</p>
 			  </td>
 			</tr>
 		  </table>
 	  </td>
+	  
+	  <!--
 	<td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
+	-->
 	
-	<td width="33%" valign="top" height="200px">
-		  <table width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+	<td width="33%"  height="200px">
+		  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
-			  <td style="padding:5px;" valign="top"><%=rsFullSpot.Fields("VideoComments")%>&nbsp;
+			  <td  valign="top" style="padding:5px;" ><%=rsFullSpot.Fields("VideoComments")%>&nbsp;
 			  <p>&nbsp;</p>
 			  <p>&nbsp;</p>
 			  </td>
@@ -316,11 +339,13 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   </tr>
 </table>
 
+<!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
 
 <%
 j=0
@@ -352,18 +377,20 @@ do while not rsBVMastLog.EOF or j=1
 
 <!--#include file="Header.asp" -->
 
-
+<!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
 
+
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:-13px; display:none;">
   <tr>
@@ -458,13 +485,13 @@ do while not rsBVMastLog.EOF or j=1
 		   <% End If %>
 		   -->
 			
-             <td width="9%" align="center" class="left_top_border"><b>Time Code</b></td>
-            <td width="6%" align="center" class="left_top_border"><b>Type</b></td>
-            <td width="64%" align="center" class="left_top_border"><b>Fault Description</b></td>
-            <td width="3%" align="center" class="left_top_border"><b>Grade</b></td>
-			<td width="8%" align="center" class="left_top_border" ><b>Item Duration</b></td>
-			<td width="7%" align="center" class="left_top_border"><b>Sector</b></td>
-		     <td width="3%" align="center" class="left_right_top_border" ><b>Signed Off</b></td>
+             <td width="9%" align="center" class="left_top_border header"><b>Time Code</b></td>
+            <td width="6%" align="center" class="left_top_border header"><b>Type</b></td>
+            <td width="64%" align="center" class="left_top_border header"><b>Fault Description</b></td>
+            <td width="3%" align="center" class="left_top_border header"><b>Grade</b></td>
+			<td width="8%" align="center" class="left_top_border header" ><b>Item Duration</b></td>
+			<td width="7%" align="center" class="left_top_border header"><b>Sector</b></td>
+		     <td width="3%" align="center" class="left_right_top_border header" ><b>Signed Off</b></td>
 			
           </tr>
           <% nTotalLines = 0
@@ -626,11 +653,14 @@ do while not rsTextInfo.EOF or j=1
   </tr>
 </table>
 
+<!--
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>&nbsp;</td>
     </tr>
   </table>
+ -->
+ 
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>

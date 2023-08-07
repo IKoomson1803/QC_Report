@@ -1,6 +1,6 @@
  <table width="100%" border="1" cellspacing="0" cellpadding="0" >
 		<tr>
-			 <td colspan="3" align="center"><b>SAFE AREA CHECK</b></td>
+			 <td colspan="3" class="header"><b>SAFE AREA CHECK</b></td>
 		</tr>
 		<tr>
 			<td ><b>&nbsp;Opening Titles:&nbsp;</b></td>

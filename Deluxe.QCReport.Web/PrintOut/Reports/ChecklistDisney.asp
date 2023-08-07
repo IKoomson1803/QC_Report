@@ -8,7 +8,7 @@
 	    <td style="text-align:center;font-weight: bold;border-left: 2px solid;border-top: 2px solid;border-bottom: 1px solid;border-right: 2px solid"  colspan="5">
 		<table width="100%" border="0" cellspacing="0" cellpadding="1" >
 			   <tr>
-			     <td style="text-align:center;font-weight:bold;" >&nbsp;CHECKLIST - DISNEY INVENTORY SPEC&nbsp;|&nbsp;File to Spec: 
+			     <td class="header" >&nbsp;CHECKLIST - DISNEY INVENTORY SPEC&nbsp;|&nbsp;File to Spec: 
 				       <%
 							  If Not IsNull(rsChecklist.Fields("IsFile")) Then
 							    Response.Write  IIf(rsChecklist.Fields("IsFile"), "Yes", "No") 
