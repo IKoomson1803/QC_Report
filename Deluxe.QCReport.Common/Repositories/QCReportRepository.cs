@@ -216,7 +216,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     _cmd.Connection.Open();
 
-                    List<JobSQL> sqlRes = new List<JobSQL>();
+                    //List<JobSQL> sqlRes = new List<JobSQL>();
 
                     using (SqlDataReader DR = _cmd.ExecuteReader())
                     {

@@ -510,15 +510,27 @@
                                 })
                         </div>
 
-                        <div class="col-sm-8 text-right">
-                            <label class="control-label">&nbsp;</label>
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Max FALL:</label>
                         </div>
+
+                        <div class="col-sm-2 form-group">
+
+                            @Html.TextBoxFor(m => m.HDRMetadata.MaxFALL,
+                           new
+                                {
+                               @class = "form-control",
+                               @style = "width:150px",
+                               maxlength = "50"
+                                })
+                        </div>
+
 
 
 
                     </div>
 
-                    <div class="row" style="margin-top: 20px;">
+                    @*<div class="row" style="margin-top: 20px;">
                         <div class="col-sm-2 text-right">
                             <label class="control-label">Max FALL:</label>
                         </div>
@@ -539,7 +551,7 @@
                             <label class="control-label">&nbsp; </label>
                         </div>
 
-                    </div>
+                    </div>*@
 
 
                     <div class="row" style="margin-top: 20px;">
