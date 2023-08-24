@@ -23,6 +23,12 @@ If rsHDRMetadata.BOF  = False Then
 		      <tr> 
 	            <td colspan="4" class="header"><b>HDR METADATA</b></td>
 	          </tr>	
+			  <tr> 
+				  <td width="75%"  colspan="3">&nbsp;Xml Document: <b>&nbsp; <b><%=rsHDRMetadata.Fields("XmlDocument")%></b></td>
+		     	 <td width="25%" >&nbsp;Xml Creation Date:<b>&nbsp; <b><%=rsHDRMetadata.Fields("XmlCreationDate")%></b></td>
+			</tr>	
+            <tr> 
+			  
              <tr> 
 				  <td width="25%" >&nbsp;HDR Metadata Supplied: <b>&nbsp; <b><%=rsHDRMetadata.Fields("HDRMetadataSupplied")%></b></td>
 				  <td width="25%" >&nbsp;HDR Metadata Type:<b>&nbsp; <b><%=rsHDRMetadata.Fields("HDRMetadataType")%></b></td>

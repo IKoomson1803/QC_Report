@@ -457,6 +457,42 @@
 
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-sm-2 text-right">
+                            <label class="control-label">Xml Document:</label>
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                            @Html.TextBoxFor(m => m.HDRMetadata.XmlDocument,
+                         new
+                         {
+                             @class = "form-control veryVeryLongTextBox"
+                         })
+                        </div>
+
+                       
+                        <div class="col-sm-2 text-right">
+                            <label class="control-label">Xml Creation Date:</label>
+                        </div>
+
+                        <div class="col-sm-2 form-group">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.HDRMetadata.XmlCreationDate, new { @class = "form-control", @style = "width:150px" })
+                                <span class="input-group-btn float-left">
+                                    <button class="btn btn-xs btn-default" type="button" id="btnXmlCreationDate" >
+                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true" onclick="setDatePicker('HDRMetadata_XmlCreationDate')" ></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-2 text-right">
 
                             <label class="control-label">HDR Metadata Supplied:</label>
                         </div>
@@ -531,27 +567,27 @@
                     </div>
 
                     @*<div class="row" style="margin-top: 20px;">
-                        <div class="col-sm-2 text-right">
-                            <label class="control-label">Max FALL:</label>
-                        </div>
+            <div class="col-sm-2 text-right">
+                <label class="control-label">Max FALL:</label>
+            </div>
 
-                        <div class="col-sm-2 form-group">
+            <div class="col-sm-2 form-group">
 
-                            @Html.TextBoxFor(m => m.HDRMetadata.MaxFALL,
-                           new
-                                {
-                               @class = "form-control",
-                               @style = "width:150px",
-                               maxlength = "50"
-                                })
-                        </div>
+                @Html.TextBoxFor(m => m.HDRMetadata.MaxFALL,
+               new
+                    {
+                   @class = "form-control",
+                   @style = "width:150px",
+                   maxlength = "50"
+                    })
+            </div>
 
 
-                        <div class="col-sm-8 text-right">
-                            <label class="control-label">&nbsp; </label>
-                        </div>
+            <div class="col-sm-8 text-right">
+                <label class="control-label">&nbsp; </label>
+            </div>
 
-                    </div>*@
+        </div>*@
 
 
                     <div class="row" style="margin-top: 20px;">
@@ -933,23 +969,65 @@
 
 </div>
 
-  <script>
+<script>
 
  function setActiveButton() {
     $(".subMenuOnClick").removeClass("subMenuOnClick")
      $('#lnkQcOverallSpecs').addClass("subMenuOnClick");
-      }
+    }
+
+    function setDatePicker(element) {
+
+        $('#' + element).datepicker({
+            inline: true,
+            showAnim: 'slideDown',
+            dateFormat: 'dd/mm/yy ',
+            onSelect: function (date) {
+                var d = new Date();
+                var localtime = d.toLocaleTimeString([], {
+                    hourCycle: 'h23',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                $('#' + element).val(date + localtime)
+            }
+        });
+
+        $('#' + element).focus();
+    }
+
+   function initializeDatePicker() {
+        // setup date picker
+        var d = new Date();
+        var localtime = d.toLocaleTimeString([], {
+            hourCycle: 'h23',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+
+        // setup date picker
+        var datePickerSettings = {
+            inline: true, showAnim: 'slideDown', dateFormat: 'dd/mm/yy ' + localtime
+        };
+
+         $('#@Html.IdFor(m => m.HDRMetadata.XmlCreationDate)').datepicker(datePickerSettings);
+             $("#btnXmlCreationDatee").on('click', function () {
+            $('#@Html.IdFor(m => m.HDRMetadata.XmlCreationDate)').focus();
+        });
+    }
 
 function HDRMetadata() {
 
-                    
+
             if ($('#HDRMetadata_NotRequired').is(':checked')) {
                 $('#divHDRMetada').hide();
             }
             else {
                 $('#divHDRMetada').show();
             }
-         
+
 
           $("input[name='HDRMetadata.NotRequired']:checkbox").change(function () {
               if ($(this).is(':checked')) {
@@ -992,12 +1070,13 @@ function HDRMetadata() {
 
             setActiveButton();
             HDRMetadata();
+           // initializeDatePicker()
            // initializeMultiSelectChecboxList();
 
             // add ':' in timecode textbox
             //$('.timecodeBox').on('keyup', function (event) {
 
-                
+
 
             //    var currentValue = $(this).val();
 
@@ -1032,7 +1111,7 @@ function HDRMetadata() {
         //    })
         //    .always(function () {
 
-              
+
         //    });
         //});
 
@@ -1292,4 +1371,4 @@ function HDRMetadata() {
     }
 
 
-    </script>
+</script>

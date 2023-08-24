@@ -50,6 +50,11 @@
     width: 500px !important;
 }
 
+.veryVeryLongTextBox {
+    width: 750px !important;
+}
+
+
 .extraLongTextBox {
     width: 1000px !important;
 }
