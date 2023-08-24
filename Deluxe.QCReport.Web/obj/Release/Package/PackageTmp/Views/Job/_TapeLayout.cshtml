@@ -178,7 +178,7 @@
         $('#btnSave').on("click", function () {
 
             if ($('#TapeLayout_VM_CurrentTimecodes_ItemNum').val() == '') {
-                alert("Please add an item number and continue... ")
+                Msg.succes("Please add an item number and continue... ", 3 * 1000)
                 return;
             }
 

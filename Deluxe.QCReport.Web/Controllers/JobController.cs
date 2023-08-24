@@ -488,18 +488,8 @@ namespace Deluxe.QCReport.Web.Controllers
             }
             else
             {
-                return Json(new { success = false, msg = "Please add the test  ext and continue... " });
+                return Json(new { success = false, msg = "Please add the Text Info and continue... " });
             }
-
-            //if (string.IsNullOrWhiteSpace(model.TextInfo_VM.CurrentTimecodes?.TimecodeIn))
-            //{
-            //    return Json(new { success = false, msg = "Please add the timecode in and continue... " });
-            //}
-
-            //if (string.IsNullOrWhiteSpace(model.TextInfo_VM.CurrentTimecodes?.TimecodeOut))
-            //{
-            //    return Json(new { success = false, msg = "Please add the timecode out and continue... " });
-            //}
 
             bool result = _tiSrv.SaveTextInfoDetails(model.TextInfo_VM);
 

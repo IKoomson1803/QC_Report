@@ -1,4 +1,5 @@
-﻿using Deluxe.QCReport.Common.Abstractions;
+﻿using System;
+using Deluxe.QCReport.Common.Abstractions;
 
 namespace Deluxe.QCReport.Common.Models
 {
@@ -29,5 +30,7 @@ namespace Deluxe.QCReport.Common.Models
         public string CanvasAspectRatioMatchVideoFile { get; set; }
         public string ImageAspectRatioMatchVideoFile { get; set; }
         public string ColourRangeMatchVideoFile { get; set; }
+        public string XmlDocument { get; set; }
+        public DateTime? XmlCreationDate { get; set; }
     }
 }
