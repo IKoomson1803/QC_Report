@@ -47,8 +47,6 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 
 .galimage[src=""] {
   display:none;
-  
-  
 }
 
 .header{
@@ -56,6 +54,14 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 	font-weight: bold;
 	font-size:12px;
 	text-align:center !important;
+}
+
+.frame-border{
+	border:1px solid blue !important;
+}
+
+.frame-border-2{
+	border:2px solid blue !important;
 }
 
 </style>
@@ -666,13 +672,13 @@ do while not rsTextInfo.EOF or j=1
       <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr height=30> 
-			<td width="64%" align="center" class="left_top_border"><b>Text</b></td>
-            <td width="13%" align="center" class="left_top_border"><b>Time Code In</b></td>
-            <td width="13%" align="center" class="left_right_top_border"><b>Time Code Out</b></td>
+			<td width="64%" align="center" class="left_top_border header"><b>Text</b></td>
+            <td width="13%" align="center" class="left_top_border header"><b>Time Code In</b></td>
+            <td width="13%" align="center" class="left_right_top_border header"><b>Time Code Out</b></td>
 
           </tr>
           <% nTotalLines = 0
-             do while nTotalLines < 520
+             do while nTotalLines < 420
               nLines = 0
 				if rsTextInfo.EOF = false then 
 					nLines = GetLines(rsTextInfo.Fields("TextInfo"))
@@ -681,7 +687,7 @@ do while not rsTextInfo.EOF or j=1
 				nTotalLines = nTotalLines + 13	 
 				end if
 				
-				if nTotalLines > 520 Then
+				if nTotalLines > 420 Then
 					exit do           
 				
 				else

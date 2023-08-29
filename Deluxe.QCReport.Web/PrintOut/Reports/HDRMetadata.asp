@@ -13,20 +13,29 @@ If rsHDRMetadata.BOF  = False Then
 				
 %>					
 				
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
+<table width="100%" border="0" cellspacing="0" cellpadding="1" >
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
 
-<table width="100%" border="1" cellspacing="0" cellpadding="1">
+<table width="100%" border="1" cellspacing="0" cellpadding="0" class="frame-border">
+  <tr>
+    <td>
+	      
+     <table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" rules="all" >
+           
 		      <tr> 
 	            <td colspan="4" class="header"><b>HDR METADATA</b></td>
-	          </tr>	
+	          </tr>
+
+			  <!-- 
 			  <tr> 
 				  <td width="75%"  colspan="3">&nbsp;Xml Document: <b>&nbsp; <b><%=rsHDRMetadata.Fields("XmlDocument")%></b></td>
 		     	 <td width="25%" >&nbsp;Xml Creation Date:<b>&nbsp; <b><%=rsHDRMetadata.Fields("XmlCreationDate")%></b></td>
 			</tr>	
+			-->
+			
             <tr> 
 			  
              <tr> 
@@ -95,25 +104,12 @@ If rsHDRMetadata.BOF  = False Then
 				  <td width="25%" >&nbsp;</td>
 	        </tr>
 				
-</table>				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-			
+     </table>				
+		
+	</td>
+  </tr>
+</table>
+
 				
 <% End If	
 				

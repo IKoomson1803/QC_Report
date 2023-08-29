@@ -5,11 +5,11 @@
 </table>
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1" >
+<table width="100%" border="1" cellspacing="0" cellpadding="1" class="frame-border">
 <tr>
    <td style="border-right-style::none">
    
-        <table width="100%" border="1" cellspacing="0" cellpadding="1">
+        <table width="100%" border="1" cellspacing="0" cellpadding="0"  rules="all">
 		     
 			<tr> 
 			   <td >&nbsp;<b>BARS</b> </td>

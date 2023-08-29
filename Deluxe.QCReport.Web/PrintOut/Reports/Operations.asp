@@ -1,7 +1,7 @@
-<table width="100%" border="0" cellspacing="0" cellpadding="1" bordercolor="#000000" height="90">
+<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="frame-border" height="90">
   <tr>
     <td valign="top" > 
-      <table width="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000" >
+      <table width="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000" rules="all" >
 	  
 	    <tr>
 	     

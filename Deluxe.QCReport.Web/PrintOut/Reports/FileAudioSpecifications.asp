@@ -1,4 +1,4 @@
-<%
+-<%
 <!-- Include file by Isaac Koomson 18/12/2012 -->
           
 bIsTwoChannels = IsRequiredChannels(rsHeader.Fields("Ch2_Desc").value)
@@ -83,19 +83,19 @@ End Function
 						 <td  width="100%"  border="0"  height="100%" valign="top"  >
 						   <table width="100%" border="1" cellspacing="0" cellpadding="2" height="100%" >
 							    <tr>
-									<td height="17px" width="6%" class="txt_boldtype2 left_bottom_border">&nbsp;</td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Track</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Language</b></td>
+									<td height="17px" width="6%" class="txt_boldtype2 left_bottom_border header">&nbsp;</td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;Track</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;Language</b></td>
 									
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;In Phase</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Discrete</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;In Phase</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;Discrete</b></td>
 									
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;LUFS</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Tone</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Average db</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Peak db</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;True Peak</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Full / Spot</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;LUFS</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;Tone</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;Average db</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;Peak db</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;True Peak</b></td>
+									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border header"><b>&nbsp;Full / Spot</b></td>
 							  </tr>
 							  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
 						         <!--#include file="AudioSpecifications_1_2.asp" -->
