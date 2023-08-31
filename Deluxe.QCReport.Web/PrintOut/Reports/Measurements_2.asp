@@ -4,15 +4,17 @@
   </tr>
 </table>
 
-
-<table width="100%" border="1" cellspacing="0" cellpadding="1" class="frame-border">
+<div class="div-frame-border">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 <tr>
-   <td style="border-right-style::none">
+
+
+  <td style="border-right-style::none">
    
-        <table width="100%" border="1" cellspacing="0" cellpadding="0"  rules="all">
+        <table width="100%" border="1" cellspacing="0" cellpadding="0">
 		     
 			<tr> 
-			   <td >&nbsp;<b>BARS</b> </td>
+			   <td class="header">&nbsp;<b>BARS</b> </td>
 				  
 			</tr>
 			
@@ -34,12 +36,15 @@
    
    </td>
 
+
+ 
+
      <td style="border-right-style:none">
    
-        <table width="100%" border="1" cellspacing="0" cellpadding="1">
+        <table width="100%" border="1" cellspacing="0" cellpadding="0">
 		     
 			<tr> 
-			   <td colspan="2">&nbsp;<b>WAVEFORM LEVELS</b> </td>
+			   <td colspan="2" class="header">&nbsp;<b>WAVEFORM LEVELS</b> </td>
 	    	</tr>
 			
 			<tr>
@@ -69,10 +74,10 @@
 
 <td>
    
-        <table width="100%" border="1" cellspacing="0" cellpadding="1">
+        <table width="100%" border="1" cellspacing="0" cellpadding="0">
 		     
 			<tr> 
-			   <td >&nbsp;<b>LINE MEASUREMENTS</b> </td>
+			   <td class="header">&nbsp;<b>LINE MEASUREMENTS</b> </td>
 			  </tr>
                 <tr>			  
 			   <% If Not IsNull(rsHeader.Fields("HBlanking")) Then %>
@@ -109,7 +114,10 @@
 </tr>
 
 
-
-
-
 </table>
+
+
+
+</div>
+
+

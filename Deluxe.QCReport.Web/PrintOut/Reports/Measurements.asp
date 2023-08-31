@@ -13,12 +13,14 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	end if
 %>
 
-<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="frame-border">
+<div class="div-frame-border">
+     
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
  
   <tr>
     <td>
 	<% If sAssetType = "Tape" Then %>
-		  <table width="100%" border="1" cellspacing="0" cellpadding="0" rules="all">
+		  <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		      <tr> 
 	            <td colspan="4" class="header">MEASUREMENTS</td>
 	          </tr>
@@ -32,7 +34,7 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	
 		</table>
 	<% Else %>
-		  <table width="100%" border="1" cellspacing="0" cellpadding="0" rules="all">
+		  <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		      <tr> 
 	            <td colspan="4" class="header">MEASUREMENTS</td>
 	          </tr>
@@ -94,6 +96,8 @@ if rsHeader.Fields("IRE_MV") = "M" then
     </td>
   </tr>
 </table>
+
+</div>
 
 <!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">

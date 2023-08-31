@@ -1,7 +1,7 @@
- <table width="100%" border="1" cellspacing="0" cellpadding="0" class="frame-border"  >
-  <tr>
-    <td>
-	     <table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" rules="all" >
+<div class="div-frame-border">
+  
+
+ <table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#000000"  >
 			<tr>
 				 <td colspan="3" class="header"><b>SAFE AREA CHECK</b></td>
 			</tr>
@@ -112,12 +112,7 @@
 			</tr>
 			-->
       </table>
-	
-	</td>
-  </tr>
-</table>
- 
- 
- 
- 
- 
+
+
+</div>
+

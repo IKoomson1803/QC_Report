@@ -1,5 +1,7 @@
+<div class="div-frame-border">
+   
 
-<table width="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000" class="frame-border-2" height="36">
+<table width="100%" border="1" cellspacing="0" cellpadding="1"  height="36">
   <tr>
   <td>
        <table width="100%" border="0" cellspacing="0" cellpadding="1" >
@@ -33,7 +35,8 @@
 			
 			<tr>
 				
-              <td >&nbsp;Subtitles:&nbsp; <b>
+              <td >&nbsp;Subtitles:&nbsp; 
+			  <b>
 
 			  <%
 			   If Not IsNull(rsHeader.Fields("Subtitle")) Then
@@ -42,9 +45,7 @@
 				  Response.Write rsHeader.Fields("Subtitle_QC")
 			   End If
 			  %>
-			  
-			  
-			  
+		  
 			  </b>
 			  
 			  
@@ -93,8 +94,7 @@
 				  If rsHDRMetadata.BOF  = False Then
 						If rsHDRMetadata.Fields("NotRequired") = False Then	
 							   Response.Write "<tr>"  & _
-							   "<td colspan='2'>&nbsp;Xml Document: <b>" & rsHDRMetadata.Fields("XmlDocument") & "</b></td>"  & _
-							   "<td>&nbsp;Xml Creation Date: <b>" & rsHDRMetadata.Fields("XmlCreationDate") & "</b></td>"  & _
+							     "<td colspan='2'>&nbsp;Xml Document: <b>" & rsHDRMetadata.Fields("XmlDocument") & "</b></td>"  & _
 							    "</tr>" 
 						End If	
 				  End If		 		
@@ -108,12 +108,9 @@
 			
 			<tr>
 			  <td>&nbsp;Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
-			 
-			 <td >&nbsp;Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
+		       <td >&nbsp;Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
 			 <td>&nbsp;UID No. / Production ID:&nbsp;<b><%=rsHeader.Fields("CatalogueID")%></b></td>
-							
-			
-			</tr>
+		 </tr>
 			
 
              <!--
@@ -127,20 +124,26 @@
              <td>&nbsp;Head Logo:&nbsp;<b><%=rsHeader.Fields("HeadLogo")%></b></td>
              <td>&nbsp;Tail Logo:&nbsp; <b><%=rsHeader.Fields("TailLogo")%></b></td>
 			</tr> 
+			
 			<!--
 			 <tr> 
                <td colspan="4">&nbsp;</td>
             </tr>
 			-->
+			
 			<tr>
 			 <td><b>&nbsp;Overall Grade:</b>&nbsp; <b><%=rsHeader.Fields("grdOverall")%></b></td>
              <td ><b>&nbsp;Video Grade:</b>&nbsp; <b><%=rsHeader.Fields("grdVideo")%></b></td>
              <td><b>&nbsp;Audio Grade:</b>&nbsp;<b><%=rsHeader.Fields("grdAudio")%></b></td>
             
 			</tr> 
-			<tr>
+			
 			 
         </table>
 	</td>
   </tr>
   </table>
+
+
+</div>
+

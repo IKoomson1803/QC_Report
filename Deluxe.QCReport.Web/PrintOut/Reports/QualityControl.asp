@@ -56,12 +56,21 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 	text-align:center !important;
 }
 
+<!--
+
 .frame-border{
 	border:1px solid blue !important;
 }
 
 .frame-border-2{
 	border:2px solid blue !important;
+}
+-->
+
+.div-frame-border {
+    border:2px solid #2424c6;
+    display: table;
+	width: 99.9%
 }
 
 </style>
@@ -241,7 +250,7 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 	<tr>
-		<td valign="top" width="100%" class="blacksquare">
+		<td valign="top" width="100%" class="blacksquare" >
 		  <!--#include file="ProgramFormat.asp" -->
 	   </td>
 	 </tr>
@@ -261,7 +270,8 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 </table>
 -->
 
-
+<div class="div-frame-border">
+    
 <table width="100%" border="1" cellspacing="0" cellpadding="0"  >
   <tr>
     <td  class="header" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
@@ -338,6 +348,11 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
     <%End If%>
   </tr>
 </table>
+
+
+
+</div>
+
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
@@ -436,7 +451,9 @@ do while not rsBVMastLog.EOF or j=1
     <td>&nbsp;</td>
   </tr>
 </table>
-  
+
+
+<div class="div-frame-border">
   <table width="100%" border="0" cellspacing="0" cellpadding="1">
    <%if rsHeader.Fields("GradingScale") = 3 then %>
     <tr> 
@@ -473,12 +490,17 @@ do while not rsBVMastLog.EOF or j=1
     <%end if%>
 </table>
 
+
+</div>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
 
+<div class="div-frame-border">
+     
  
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
      <tr>
@@ -602,6 +624,9 @@ do while not rsBVMastLog.EOF or j=1
     </tr>
   </table>
   
+</div>
+
+  
   
 </div>
 <% j=0
@@ -667,7 +692,8 @@ do while not rsTextInfo.EOF or j=1
   </table>
  -->
  
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+ <div class="div-frame-border">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -708,6 +734,11 @@ do while not rsTextInfo.EOF or j=1
       </td>
     </tr>
   </table>
+ 
+
+</div>
+   
+  
 </div>
 <% j=0
    
@@ -765,6 +796,9 @@ do while not rsFaultImage.EOF or j=1
   </tr>
 </table>
 
+<div class="div-frame-border">
+
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
 			   <tr>
@@ -811,6 +845,9 @@ do while not rsFaultImage.EOF or j=1
 %>
  
  </table>
+
+</div>
+
  
 
 <% j=0

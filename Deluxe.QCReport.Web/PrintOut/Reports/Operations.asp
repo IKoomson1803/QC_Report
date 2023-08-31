@@ -1,11 +1,14 @@
-<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" class="frame-border" height="90">
+<div class="div-frame-border">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  height="90">
   <tr>
     <td valign="top" > 
-      <table width="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000" rules="all" >
+      <table width="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000" >
 	  
 	    <tr>
 	     
-		  <td>&nbsp;Record / Encode Date:&nbsp; <b><%if isnull(rsHeader.Fields("Rec_Date")) then
+		  <td>&nbsp;File Record / Encode Date:&nbsp; <b><%if isnull(rsHeader.Fields("Rec_Date")) then
 									Response.Write(rsHeader.Fields("Rec_Date"))
 								  else
 									Response.Write(replace(rsHeader.Fields("Rec_Date"), "TBD", ""))
@@ -18,6 +21,8 @@
         <td>&nbsp;Source Standard:&nbsp; <b><%=rsHeader.Fields("Src_standard")%></b></td>
 		<td>&nbsp;Source Format:&nbsp; <b><%=rsHeader.Fields("src_format")%></b></td>
         <td>&nbsp;Source Desc:&nbsp; <b><%=rsHeader.Fields("src_desc")%></b></td>
+		
+		
 	   	  
 	  <%  If sAssetType = "Tape" Then %>
 		   <tr>
@@ -31,14 +36,23 @@
 		   </td>
 		   <td>	
                <b>&nbsp;Stock Batch #:&nbsp;<%=rsHeader.Fields("Stock_Batch")%></b>
-	  </td>
+	       </td>
 		   <td>&nbsp;</td>
 		   <td>&nbsp;</td>
 		   </tr>
 	  <%  End If %>
 	   
 	   <tr>
-	   <td colspan="5" >&nbsp;Additional Info: <b><%=rsHeader.Fields("addinfo")%></b></td>
+	         <%
+				  If rsHDRMetadata.BOF  = False Then
+						If rsHDRMetadata.Fields("NotRequired") = False Then	
+						   Response.Write  "<td>&nbsp;Xml Creation Date: <b>" & rsHDRMetadata.Fields("XmlCreationDate") & "</b></td>"							    
+						End If	
+				  End If		 		
+				%>	
+	   
+	   
+	         <td colspan="4" >&nbsp;Additional Info: <b><%=rsHeader.Fields("addinfo")%></b></td>
 	   </tr>
 	  
 	  
@@ -94,3 +108,8 @@
     </td>
   </tr>
 </table>
+
+
+
+</div>
+
