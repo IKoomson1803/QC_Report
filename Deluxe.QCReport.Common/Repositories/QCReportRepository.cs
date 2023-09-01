@@ -363,13 +363,13 @@ namespace Deluxe.QCReport.Common.Repositories
                 var constr = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
                 var sql = "UPDATE [bward].[qcHeader] ";
                 sql += "  SET Deleted = 1 ";
-                sql += " WHERE Wonum = @workOrderNumder";
+                sql += " WHERE LTRIM(RTRIM(Wonum)) = @workOrderNumder";
                                
                 using (SqlConnection con = new SqlConnection(constr))
                 {
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {
-                        cmd.Parameters.Add(new SqlParameter("@workOrderNumder", qcWONo));
+                        cmd.Parameters.Add(new SqlParameter("@workOrderNumder", qcWONo.Trim()));
                         con.Open();
                         cmd.ExecuteNonQuery();
                         result = true;
