@@ -31,6 +31,8 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			  <td width="25%" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></b></td>
 			  <td width="25%">&nbsp; </td>
 			</tr>
+			
+			 <!--#include file="VideoSpecifications_2.asp" -->
 	
 		</table>
 	<% Else %>
@@ -85,15 +87,67 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			 <td  width="25%" >Luma Avg:&nbsp;<b><%=rsHeader.Fields("Lum_Avg")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>-->
 			</tr>
                 
-               <!--#include file="VideoSpecifications_2.asp" -->
-              
-
-           
+            <tr> 
+			  <td width="25%" ><span style="font-size:12px; font-weight:bold;">&nbsp;Bars</td>
+			  <td width="50%" colspan="2"><span style="font-size:12px; font-weight:bold;">&nbsp; Waveform Levels</td>
+			  <td width="25%" ><span style="font-size:12px; font-weight:bold;">&nbsp;Line Measuremants</td>
+			</tr>  
+			
+			<tr>
+			  <td >&nbsp;Video Gain:&nbsp;<b><%=rsHeader.Fields("Bar_Vid")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp; </td>
+			  <td>&nbsp;Luma Peak:&nbsp;<b><%=rsHeader.Fields("Lum_Peak")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			  <td>&nbsp;Chroma Peak:&nbsp;<b><%=rsHeader.Fields("Chroma_Peak")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			
+			    <% If Not IsNull(rsHeader.Fields("HBlanking")) Then %>
+				  <td>&nbsp;H Blanking:&nbsp;<b><%=rsHeader.Fields("HBlanking")%></b>&nbsp;</td>
+				  
+				 <% Else %>
+					 <td>&nbsp;H Blanking:&nbsp;<b><%=rsHeader.Fields("HBlank")%></b>&nbsp;</td>
+				<% End If %>
+			
+			</tr>
+			
+			<tr>
+		       <td>&nbsp;Chroma Gain:&nbsp;<b><%=rsHeader.Fields("Bar_Chr")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</b></td>
+			     <td>&nbsp;Luma Avg:&nbsp;<b><%=rsHeader.Fields("Lum_Avg")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+				<td >&nbsp;Chroma Avg:&nbsp; <b><%=rsHeader.Fields("Chroma_Avg")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+				
+				 <% If Not IsNull(rsHeader.Fields("VBlanking")) Then %>
+				   <td>&nbsp;V Blanking:&nbsp;<b><%=rsHeader.Fields("VBlanking")%></b>&nbsp;</td>
+			   <% Else %>
+				 <td >&nbsp;V Blanking:&nbsp;<b><%=rsHeader.Fields("VBlank")%></b>&nbsp;</td>
+				 
+				<% End If %>
+		  </tr>
+		  
+		  <tr>
+		   <td >&nbsp;Black Level:&nbsp;<b><%=rsHeader.Fields("Black")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+		   <td>&nbsp;Max CLL:&nbsp;<b><%=rsHeader.Fields("MaxCLL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+	       <td >&nbsp;Black Level:&nbsp;<b><%=rsHeader.Fields("Black")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+		  <td>&nbsp;Active Picture:&nbsp;<b><%=rsHeader.Fields("Active_Picture")%></b>&nbsp;</td>
+			
+		  </tr>
+		  
+		   <tr>
+		   <td >&nbsp;</td>
+		    <td >&nbsp;Max FALL:&nbsp; <b><%=rsHeader.Fields("MaxFALL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+		     <td>&nbsp;</td>
+			 <td >&nbsp;</td>
+		  </tr>
+		  
+		  
+			  
+			  
+    
 			
 		</table>
 	<% End If %>
 	
     </td>
+	
+	
+	
+	
   </tr>
 </table>
 
@@ -107,5 +161,5 @@ if rsHeader.Fields("IRE_MV") = "M" then
 </table>
 -->
 
-<!--#include file="Measurements_2.asp" -->
+
 <!--#include file="HDRMetadata.asp" -->

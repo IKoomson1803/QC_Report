@@ -63,7 +63,7 @@ End Function
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 	<tr>
 	  <td class="left_right_top_border header"  colspan="5">
-	   AUDIO LAYOUT (F/S = Full or Spot Check QC)
+	    AUDIO LAYOUT
 	  </td>
 	<tr>
 	<!--<tr>

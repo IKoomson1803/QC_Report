@@ -68,10 +68,19 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 -->
 
 .div-frame-border {
-    border:2px solid #2424c6;
+    border:1px solid #000;
     display: table;
-	width: 99.9%
+	width: 99.8%;
+	padding: -1px -1px -1px -1px;
 }
+
+.div-frame-border-2 {
+    border:2px solid #000;
+    display: table;
+	width: 99.8%;
+	padding:0;
+}
+
 
 </style>
 
@@ -506,6 +515,11 @@ do while not rsBVMastLog.EOF or j=1
      <tr>
       <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="1">
+		  <tr>
+			  <td class="left_right_top_border header"  colspan="7">
+			   FAULT LOG
+			  </td>
+	     <tr>
           <tr> 
 		  <!--
 		    <% If itemNumberCount >  0 Then %>
@@ -513,13 +527,13 @@ do while not rsBVMastLog.EOF or j=1
 		   <% End If %>
 		   -->
 			
-             <td width="9%" align="center" class="left_top_border header"><b>Time Code</b></td>
-            <td width="6%" align="center" class="left_top_border header"><b>Type</b></td>
-            <td width="64%" align="center" class="left_top_border header"><b>Fault Description</b></td>
-            <td width="3%" align="center" class="left_top_border header"><b>Grade</b></td>
-			<td width="8%" align="center" class="left_top_border header" ><b>Item Duration</b></td>
-			<td width="7%" align="center" class="left_top_border header"><b>Sector</b></td>
-		     <td width="3%" align="center" class="left_right_top_border header" ><b>Signed Off</b></td>
+             <td width="9%" align="center" class="left_top_border"><b>Time Code</b></td>
+            <td width="6%" align="center" class="left_top_border"><b>Type</b></td>
+            <td width="64%" align="center" class="left_top_border"><b>Fault Description</b></td>
+            <td width="3%" align="center" class="left_top_border"><b>Grade</b></td>
+			<td width="8%" align="center" class="left_top_border" ><b>Item Duration</b></td>
+			<td width="7%" align="center" class="left_top_border"><b>Sector</b></td>
+		     <td width="3%" align="center" class="left_right_top_border" ><b>Signed Off</b></td>
 			
           </tr>
           <% nTotalLines = 0
@@ -697,10 +711,16 @@ do while not rsTextInfo.EOF or j=1
     <tr>
       <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		   <tr>
+			  <td class="left_right_top_border header"  colspan="3">
+				TEXT LOG
+			  </td>
+	      <tr>
+		
           <tr height=30> 
-			<td width="64%" align="center" class="left_top_border header"><b>Text</b></td>
-            <td width="13%" align="center" class="left_top_border header"><b>Time Code In</b></td>
-            <td width="13%" align="center" class="left_right_top_border header"><b>Time Code Out</b></td>
+			<td width="64%" align="center" class="left_top_border"><b>Text</b></td>
+            <td width="13%" align="center" class="left_top_border"><b>Time Code In</b></td>
+            <td width="13%" align="center" class="left_right_top_border"><b>Time Code Out</b></td>
 
           </tr>
           <% nTotalLines = 0
@@ -803,7 +823,7 @@ do while not rsFaultImage.EOF or j=1
 
 			   <tr>
 				  <td align="center" class="blackSquare" colspan="2" > 
-					<font class="txt_italic" size="3"><b>Reference Images</b></font>
+					<font class="txt_italic header" size="3"><b>REFERENCE IMAGES</b></font>
 				  </td>
 				</tr>
 <%

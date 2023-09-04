@@ -1,12 +1,16 @@
+ <!--
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
 
-<div class="div-frame-border">
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" >
-<tr>
+<!-- div class="div-frame-border"> -->
+
+
+ <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
 
 
   <td style="border-right-style::none">
@@ -14,7 +18,7 @@
         <table width="100%" border="1" cellspacing="0" cellpadding="0">
 		     
 			<tr> 
-			   <td class="header">&nbsp;<b>BARS</b> </td>
+			   <td >&nbsp;<b>Bars</b> </td>
 				  
 			</tr>
 			
@@ -44,7 +48,7 @@
         <table width="100%" border="1" cellspacing="0" cellpadding="0">
 		     
 			<tr> 
-			   <td colspan="2" class="header">&nbsp;<b>WAVEFORM LEVELS</b> </td>
+			   <td colspan="2" >&nbsp;<b>Waveform Levels</b> </td>
 	    	</tr>
 			
 			<tr>
@@ -77,7 +81,7 @@
         <table width="100%" border="1" cellspacing="0" cellpadding="0">
 		     
 			<tr> 
-			   <td class="header">&nbsp;<b>LINE MEASUREMENTS</b> </td>
+			   <td >&nbsp;<b>Line Measuremants</b> </td>
 			  </tr>
                 <tr>			  
 			   <% If Not IsNull(rsHeader.Fields("HBlanking")) Then %>
@@ -118,6 +122,6 @@
 
 
 
-</div>
+<!-- </div> -->
 
 
