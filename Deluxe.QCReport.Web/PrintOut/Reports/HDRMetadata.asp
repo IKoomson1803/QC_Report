@@ -23,11 +23,15 @@ If rsHDRMetadata.BOF  = False Then
   <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		      <tr> 
 	            <td colspan="4" class="header"><b>HDR METADATA</b></td>
-	          </tr>	
+	          </tr>
+			  
+			  <!--
 			  <tr> 
 				  <td width="75%"  colspan="3">&nbsp;Xml Document: <b>&nbsp; <b><%=rsHDRMetadata.Fields("XmlDocument")%></b></td>
 		     	 <td width="25%" >&nbsp;Xml Creation Date:<b>&nbsp; <b><%=rsHDRMetadata.Fields("XmlCreationDate")%></b></td>
 			</tr>	
+			  -->
+			
             <tr> 
 			  
              <tr> 

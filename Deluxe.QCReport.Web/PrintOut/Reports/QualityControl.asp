@@ -70,15 +70,22 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 .div-frame-border {
     border:1px solid #000;
     display: table;
-	width: 99.8%;
-	padding: -1px -1px -1px -1px;
+	width: 99.9%;
+	padding: -2px -2px -2px -2px;
 }
 
 .div-frame-border-2 {
     border:2px solid #000;
     display: table;
-	width: 99.8%;
-	padding:0;
+	width: 99.9%;
+	padding: -2px -2px -2px -2px;
+}
+
+.div-frame-border-3 {
+    border:3px solid #000;
+    display: table;
+	width: 99.9%;
+	padding: -2px -2px -2px -2px;
 }
 
 
@@ -508,7 +515,7 @@ do while not rsBVMastLog.EOF or j=1
   </tr>
 </table>
 
-<div class="div-frame-border">
+<div class="div-frame-border-2">
      
  
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -620,19 +627,11 @@ do while not rsBVMastLog.EOF or j=1
           <%	end if
              if rsBVMastLog.EOF = false then rsBVMastLog.MoveNext 
              loop%>
-          <tr>
+          
 		  
-		    <td colspan=7 class="top_border">&nbsp;</td>
-			 
-			  <!--
-			   <% If itemNumberCount >  0 Then %>
-					<td colspan=8 class="top_border">&nbsp;</td>
-				 <% Else %>
-					<td colspan=7 class="top_border">&nbsp;</td>
-				<% End If %>
-			 -->
-			
-		  </tr>
+		  
+		  
+		  
         </table>
       </td>
     </tr>
@@ -706,7 +705,7 @@ do while not rsTextInfo.EOF or j=1
   </table>
  -->
  
- <div class="div-frame-border">
+ <div class="div-frame-border-2">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>
@@ -747,9 +746,10 @@ do while not rsTextInfo.EOF or j=1
           <%	end if
              if rsTextInfo.EOF = false then rsTextInfo.MoveNext 
              loop%>
-          <tr>
-			<td colspan=3 class="top_border">&nbsp;</td>
-		  </tr>
+			 
+			 
+         
+		  
         </table>
       </td>
     </tr>
@@ -816,7 +816,7 @@ do while not rsFaultImage.EOF or j=1
   </tr>
 </table>
 
-<div class="div-frame-border">
+<div class="div-frame-border-2">
 
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
