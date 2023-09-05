@@ -17,9 +17,9 @@
 				<td width="9%">&nbsp;
 			      <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch1").value) And rsFullSpot.Fields("FullQC_Ch1").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch1").value) And rsFullSpot.Fields("SpotQC_Ch1").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -46,9 +46,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch2").value) And rsFullSpot.Fields("FullQC_Ch2").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch2").value) And rsFullSpot.Fields("SpotQC_Ch2").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -73,9 +73,9 @@
 				<td width="9%">&nbsp;
 			 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch3").value) And rsFullSpot.Fields("FullQC_Ch3").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch3").value) And rsFullSpot.Fields("SpotQC_Ch3").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -101,9 +101,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch4").value) And rsFullSpot.Fields("FullQC_Ch4").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch4").value) And rsFullSpot.Fields("SpotQC_Ch4").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -129,9 +129,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch5").value) And rsFullSpot.Fields("FullQC_Ch5").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch5").value) And rsFullSpot.Fields("SpotQC_Ch5").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>

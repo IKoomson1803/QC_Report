@@ -544,7 +544,7 @@ do while not rsBVMastLog.EOF or j=1
 			
           </tr>
           <% nTotalLines = 0
-             do while nTotalLines < 420
+             do while nTotalLines < 210
               nLines = 0
 				if rsBVMastLog.EOF = false then 
 					nLines = GetLines(rsBVMastLog.Fields("Note"))
@@ -553,7 +553,7 @@ do while not rsBVMastLog.EOF or j=1
 				nTotalLines = nTotalLines + 13	 
 				end if
 				
-				if nTotalLines > 420 Then
+				if nTotalLines > 210 Then
 					exit do           
 				
 				else
@@ -723,7 +723,7 @@ do while not rsTextInfo.EOF or j=1
 
           </tr>
           <% nTotalLines = 0
-             do while nTotalLines < 420
+             do while nTotalLines < 210
               nLines = 0
 				if rsTextInfo.EOF = false then 
 					nLines = GetLines(rsTextInfo.Fields("TextInfo"))
@@ -732,7 +732,7 @@ do while not rsTextInfo.EOF or j=1
 				nTotalLines = nTotalLines + 13	 
 				end if
 				
-				if nTotalLines > 420 Then
+				if nTotalLines > 210 Then
 					exit do           
 				
 				else

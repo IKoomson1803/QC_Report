@@ -17,9 +17,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch11").value) And rsFullSpot.Fields("FullQC_Ch11").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch11").value) And rsFullSpot.Fields("SpotQC_Ch11").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -44,9 +44,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch12").value) And rsFullSpot.Fields("FullQC_Ch12").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch12").value) And rsFullSpot.Fields("SpotQC_Ch12").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -71,9 +71,9 @@
 				<td width="9%">&nbsp;
 			      <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch13").value) And rsFullSpot.Fields("FullQC_Ch13").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch13").value) And rsFullSpot.Fields("SpotQC_Ch13").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -99,9 +99,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch14").value) And rsFullSpot.Fields("FullQC_Ch14").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch14").value) And rsFullSpot.Fields("SpotQC_Ch14").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -126,9 +126,9 @@
 				<td width="9%">&nbsp;
 			 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch15").value) And rsFullSpot.Fields("FullQC_Ch15").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch15").value) And rsFullSpot.Fields("SpotQC_Ch15").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -154,9 +154,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch16").value) And rsFullSpot.Fields("FullQC_Ch16").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch16").value) And rsFullSpot.Fields("SpotQC_Ch16").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -182,9 +182,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch17").value) And rsFullSpot.Fields("FullQC_Ch17").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch17").value) And rsFullSpot.Fields("SpotQC_Ch17").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -210,9 +210,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch18").value) And rsFullSpot.Fields("FullQC_Ch18").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch18").value) And rsFullSpot.Fields("SpotQC_Ch18").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -238,9 +238,9 @@
 				<td width="9%">&nbsp;
 			 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch19").value) And rsFullSpot.Fields("FullQC_Ch19").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch19").value) And rsFullSpot.Fields("SpotQC_Ch19").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
@@ -266,9 +266,9 @@
 				<td width="9%">&nbsp;
 				 <%
 				    if Not IsNull(rsFullSpot.Fields("FullQC_Ch20").value) And rsFullSpot.Fields("FullQC_Ch20").value = True Then
-				      Response.Write("<b>F</b>")
+				      Response.Write("<b>Full</b>")
 				  ElseIf Not IsNull(rsFullSpot.Fields("SpotQC_Ch20").value) And rsFullSpot.Fields("SpotQC_Ch20").value = True Then
-				     Response.Write("<b>S</b>")
+				     Response.Write("<b>Spot</b>")
 				  End If
 				
 				%>
