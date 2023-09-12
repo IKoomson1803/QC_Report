@@ -70,6 +70,10 @@ CREATE TABLE [bward].[HDRMetadataType](
 GO
 INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'Dolby Vision xml')
 GO
+INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'Dolby Vision v2.9 xml')
+GO
+INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'Dolby Vision v4.0 xml')
+GO
 INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'ST.2086 - Embedded')
 GO
 INSERT [bward].[HDRMetadataType] ([Type]) VALUES (N'ST.2086 Side Car xml')
@@ -95,3 +99,42 @@ GO
 INSERT [bward].[XmlAndBaseFileMetadataMatch] ([Type]) VALUES (N'Embedded')
 GO
 
+
+
+/****** Object:  StoredProcedure [bward].[sel_GetLookup]    Script Date: 06/09/2023 12:03:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [bward].[sel_GetLookup]
+	-- Add the parameters for the stored procedure here
+	@TableName VARCHAR(50),
+	@OrderByType BIT = 0
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+DECLARE @str_SQL VARCHAR(5000)
+
+
+
+IF @OrderByType  = 1
+  BEGIN
+    SET  @str_SQL  = 'SELECT Type FROM ' + @TableName + '  ORDER BY  Type'
+  END
+ELSE
+  BEGIN
+    SET  @str_SQL  = 'SELECT Type FROM ' + @TableName
+  END
+
+EXEC(@str_SQL)
+
+--print(@str_SQL)
+
+END
+
+GO

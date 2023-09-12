@@ -39,7 +39,7 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     result = connection.Query<string>(
                     StoredProcedure.Lookup.sel_GetLookup.ToString(),
-                    new { TableName = lookup.ToString() },
+                    new { TableName = lookup.ToString(), OrderByType = true },
                     null,
                     false,
                     commandTimeout: 120,

@@ -316,7 +316,7 @@ rsTextInfo.ActiveConnection = cnQCS
 sqlTextInfo = "SELECT TextInfo, TimecodeIn, TimecodeOut FROM qcTextInfo WHERE Qcnum= " & clng(sQCNum) & " AND subQcnum = " & cint(sRev) & " ORDER BY timecodein"
 rsTextInfo.Open sqlTextInfo
 
-'' Checklist
+'' Checklist Disney
    set rsChecklist = Server.CreateObject("ADODB.Recordset")
    rsChecklist.ActiveConnection = cnQCS
    sqlChecklist = "SELECT TOP 1 * " & _

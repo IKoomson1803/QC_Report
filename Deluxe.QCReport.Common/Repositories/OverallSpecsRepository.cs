@@ -100,6 +100,10 @@ namespace Deluxe.QCReport.Common.Repositories
                             }
 
 
+                            result.ColourPrimaries = DR["ColourPrimaries"].ToString().Trim();
+                            result.TransferCharacteristics = DR["TransferCharacteristics"].ToString().Trim();
+                            result.MatrixCoefficients = DR["MatrixCoefficients"].ToString().Trim();
+
                         }
 
                     }
@@ -166,6 +170,11 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Parameters.Add(GetSqlParameterString("@_maxfall", oasDetails.MaxFALL));
                     _cmd.Parameters.Add(GetSqlParameterString("@_colourspace", oasDetails.ColourSpace));
                     _cmd.Parameters.Add(GetSqlParameterString("@_colourrange", oasDetails.ColourRange));
+
+                    _cmd.Parameters.Add(GetSqlParameterString("@_colourprimaries", oasDetails.ColourPrimaries));
+                    _cmd.Parameters.Add(GetSqlParameterString("@_transfercharacteristics", oasDetails.TransferCharacteristics));
+                    _cmd.Parameters.Add(GetSqlParameterString("@_matrixcoefficients", oasDetails.MatrixCoefficients));
+
 
                     _cmd.Connection.Open();
 

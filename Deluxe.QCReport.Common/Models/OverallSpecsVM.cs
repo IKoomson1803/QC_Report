@@ -51,5 +51,9 @@ namespace Deluxe.QCReport.Common.Models
         public string MaxFALL { get; set; }
         public string ColourSpace { get; set; }
         public string ColourRange { get; set; }
+
+        public string ColourPrimaries { get; set; }
+        public string TransferCharacteristics { get; set; }
+        public string MatrixCoefficients { get; set; }
     }
 }

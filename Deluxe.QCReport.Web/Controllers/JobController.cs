@@ -885,6 +885,8 @@ namespace Deluxe.QCReport.Web.Controllers
             model.OverallSpecs_VM = _oasSrv.GetOverallSpecsDetails(qcnum, revnum);
             model.HDRMetadata = _hdrMetadataService.Get(qcnum, revnum) as HDRMetadata;
 
+            UpdateMeasurements(model.OverallSpecs_VM, qcnum, revnum);
+
             model.VideoCodecList = LookUpsService.GetVideoCodec();
             model.VideoBitDepthList = LookUpsService.GetVideoBitDepth();
             model.BitRateModeList = LookUpsService.GetBitRateMode();
@@ -915,6 +917,144 @@ namespace Deluxe.QCReport.Web.Controllers
             /*******************************************************************************************/
 
             return PartialView("_Overall", model);
+        }
+
+        /// <summary>
+        /// Update Measurements with ColourPrimaries, TransferCharacteristics and MatrixCoefficients from clients Checklists
+        /// </summary>
+        /// <param name="overallSpecsVM"></param>
+        /// <param name="qcnum"></param>
+        /// <param name="revnum"></param>
+        private void UpdateMeasurements(OverallSpecsVM overallSpecsVM, int qcnum, int revnum)
+        {
+            var customerDetails = _clientService.GetClientDetails(qcnum, revnum);
+            var customerName = customerDetails.CustName;
+            var customerId = customerDetails.CustID;
+          
+
+            /******************* Disney **********************************************************************/
+
+            if (customerName.ToLower().Contains("disney"))
+            {
+                
+                var checklistDisney = _checklistService.GetChecklistDisney(qcnum, revnum, customerId);
+
+                if( string.IsNullOrWhiteSpace(overallSpecsVM.ColourPrimaries) &&  checklistDisney != null)
+                {
+                    overallSpecsVM.ColourPrimaries = checklistDisney.VideoColourPrimaries;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.TransferCharacteristics) && checklistDisney != null)
+                {
+                    overallSpecsVM.TransferCharacteristics = checklistDisney.VideoTransferCharacteristics;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.MatrixCoefficients) && checklistDisney != null)
+                {
+                    overallSpecsVM.MatrixCoefficients = checklistDisney.VideoMatrixCoefficients;
+                }
+            }
+
+            /******************* Lionsgate ****************************************************/
+
+            else if (customerName.ToLower().Contains("lionsgate")
+                || customerName.ToLower().Contains("lions gate"))
+            {
+                
+                var checklistLionsGate = _checklistService.GetChecklistLionsGate(qcnum, revnum, customerId);
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.ColourPrimaries) && checklistLionsGate != null)
+                {
+                    overallSpecsVM.ColourPrimaries = checklistLionsGate.ColourPrimaries;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.TransferCharacteristics) && checklistLionsGate != null)
+                {
+                    overallSpecsVM.TransferCharacteristics = checklistLionsGate.TransferCharacteristics;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.MatrixCoefficients) && checklistLionsGate != null)
+                {
+                    overallSpecsVM.MatrixCoefficients = checklistLionsGate.MatrixCoefficients;
+                }
+
+            }
+
+            /******************* Warner Bros. ****************************************************/
+
+            else if (customerName.ToLower().Contains("warner"))
+            {
+               
+               var checklistWarner = _checklistService.GetChecklistWarner(qcnum, revnum, customerId);
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.ColourPrimaries) && checklistWarner != null)
+                {
+                    overallSpecsVM.ColourPrimaries = checklistWarner.ColourPrimaries;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.TransferCharacteristics) && checklistWarner != null)
+                {
+                    overallSpecsVM.TransferCharacteristics = checklistWarner.TransferCharacteristics;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.MatrixCoefficients) && checklistWarner != null)
+                {
+                    overallSpecsVM.MatrixCoefficients = checklistWarner.MatrixCoefficients;
+                }
+
+            }
+
+            /******************* Wild Bunch ****************************************************/
+
+            else if (customerName.ToLower().Contains("wild bunch")
+                || (customerName.ToLower().Contains("versatile"))
+                || (customerName.ToLower().Contains("elle driver")))
+            {
+                
+                var checklistWildBunch = _checklistService.GetChecklistWildBunch(qcnum, revnum, customerId);
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.ColourPrimaries) && checklistWildBunch != null)
+                {
+                    overallSpecsVM.ColourPrimaries = checklistWildBunch.ColourPrimaries;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.TransferCharacteristics) && checklistWildBunch != null)
+                {
+                    overallSpecsVM.TransferCharacteristics = checklistWildBunch.TransferCharacteristics;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.MatrixCoefficients) && checklistWildBunch != null)
+                {
+                    overallSpecsVM.MatrixCoefficients = checklistWildBunch.MatrixCoefficients;
+                }
+            }
+
+            /******************* Banijay Rights ****************************************************/
+
+            else if (customerName.ToLower().Contains("banijay")
+                || (customerName.ToLower().Contains("endemol")))
+            {
+                
+                var checklistBanijayRights = _checklistService.GetChecklistBanijayRights(qcnum, revnum, customerId);
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.ColourPrimaries) && checklistBanijayRights != null)
+                {
+                    overallSpecsVM.ColourPrimaries = checklistBanijayRights.ColourPrimariesPresent;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.TransferCharacteristics) && checklistBanijayRights != null)
+                {
+                    overallSpecsVM.TransferCharacteristics = checklistBanijayRights.TransferCharacteristicsPresent;
+                }
+
+                if (string.IsNullOrWhiteSpace(overallSpecsVM.MatrixCoefficients) && checklistBanijayRights != null)
+                {
+                    overallSpecsVM.MatrixCoefficients = checklistBanijayRights.MatrixCoefficientsPresent;
+                }
+            }
+
+            // Save
+            bool result = _oasSrv.SaveOverallSpecsDetails(overallSpecsVM);
         }
 
         /// <summary>
