@@ -72,9 +72,9 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			
 			<tr> 
 			   <td width="25%">&nbsp;File Size:&nbsp; <b><%=rsHeader.Fields("File_Size")%></b></td>
-			  <td width="25%">&nbsp;</td>
-			  <td width="25%">&nbsp;</td>
-			  <td width="25%">&nbsp;</td>
+			  <td width="25%">&nbsp;Colour Primaries:&nbsp; <b><%=rsHeader.Fields("ColourPrimaries")%></b></td>
+			  <td width="25%">&nbsp;Transfer Characteristics:&nbsp; <b><%=rsHeader.Fields("TransferCharacteristics")%></b></td>
+			  <td width="25%">&nbsp;Matrix Coefficients:&nbsp; <b><%=rsHeader.Fields("MatrixCoefficients")%></b></td>
 			  
 			</tr>
 			
@@ -86,6 +86,14 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			  <td  width="25%" ><span>Luma Peak:</span>&nbsp;<b><%=rsHeader.Fields("Lum_Peak")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
 			 <td  width="25%" >Luma Avg:&nbsp;<b><%=rsHeader.Fields("Lum_Avg")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>-->
 			</tr>
+			<tr> 
+			  	  
+			 <td  colspan="4" >&nbsp; </td>  
+			 
+			</tr>
+			
+			
+			
                 
             <tr> 
 			  <td width="25%" ><span style="font-size:12px; font-weight:bold;">&nbsp;Bars</td>

@@ -359,6 +359,7 @@ End Function
 	   </td>
 	   
 	   <td >
+	   <!--
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Colour Primaries:</td>
@@ -374,6 +375,8 @@ End Function
 	   
 			   </tr>
 	  	   </table>
+		   -->
+		   &nbsp;
 		  </td>
   
  
@@ -397,6 +400,7 @@ End Function
 	   </td>
 	   
 	    <td >
+		<!--
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Transfer Characteristics:</td>
@@ -412,6 +416,8 @@ End Function
 	   
 			   </tr>
 	  	   </table>
+		   -->
+		   &nbsp;
 		  </td>
   
  
@@ -429,6 +435,7 @@ End Function
 	   </td>
 	   
 	   <td >
+	   <!--
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Matrix Coefficients:</td>
@@ -444,6 +451,8 @@ End Function
 	   
 			   </tr>
 	  	   </table>
+		   -->
+		   &nbsp;
 		  </td>
  
   </tr>

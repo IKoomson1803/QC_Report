@@ -115,7 +115,7 @@
             var rno = $(this).data('revnum');
 
             setQCAndRevNumbers(qcno, rno)
-                      
+
             var isWONoValid = IsWONumberValid(wono);
 
             if (!isWONoValid) {
@@ -129,7 +129,7 @@
                 return;
             }
 
-           
+
             $("#TopSubMenu").html('');
             GetDetailsNav(qcno, rno);
 
@@ -166,6 +166,7 @@
         $('#deletePromptModal').on('shown.bs.modal', function () {
 
             var jobnumber = '@Model.WONumber';
+            alert(jobnumber)
             var modal = $(this);
             modal.find('.modal-body').text('Are you sure you want to delete Job ' + jobnumber+ ' and all QCs therein?');
 
@@ -183,16 +184,18 @@
 
             //$('.cssload-preloader').fadeIn();
             var jobnumber = '@Model.WONumber';
-
+           
             $.post('/Home/DeleteJob', { jobnum: jobnumber }).done(function (data) {
 
                 if (data.success == true) {
                     Msg.success(data.msg, 2 * 1000);
 
-                    $('#SearchWONumber').val('');
-
-                    //$('.cssload-preloader').fadeIn();
+                    $('#SearchWONumber').val('@Model.WONumber');
                     $('#form_search').submit();
+
+                  //  location.reload()
+
+
                 }
                 else {
                     Msg.error(data.msg, 3 * 1000);

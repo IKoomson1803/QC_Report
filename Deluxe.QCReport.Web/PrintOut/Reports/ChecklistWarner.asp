@@ -579,6 +579,7 @@
 	   	   
 	 
 	    <td >
+		<!--
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Colour Primaries:</td>
@@ -594,6 +595,8 @@
 	   
 			   </tr>
 	  	   </table>
+		   -->
+		   &nbsp;
 		  </td>
   </tr>
   
@@ -612,6 +615,7 @@
     
 	   
 	   <td >
+	    <!--
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Transfer Characteristics:</td>
@@ -627,6 +631,7 @@
 	   
 			   </tr>
 	  	   </table>
+		   -->
 		  </td>
   
   
@@ -648,6 +653,7 @@
     
 	   
 	   <td >
+	   <!--
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Matrix Coefficients:</td>
@@ -663,6 +669,9 @@
 	   
 			   </tr>
 	  	   </table>
+		   -->
+		   &nbsp;
+		   
 		  </td>
   
   </tr>
