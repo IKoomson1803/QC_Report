@@ -413,16 +413,16 @@
 		
 			</table>
 	   </td>
+	
 	 <td >
-	 <!--
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
-			      <td  style="width:70%;">&nbsp;Colour Primaries:</td>
+			      <td  style="width:70%;">&nbsp;Tagged / labelled audio (WB TV only ):</td>
 				  <td  style="width:30%">&nbsp;
 						  
 				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("ColourPrimaries")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("ColourPrimaries") 
+						  If Not IsNull(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly")) Then
+						   Response.Write  IIf(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly"), "Yes", "No") 
 						  End If
 					 %>
 				  
@@ -430,10 +430,7 @@
 	   
 			   </tr>
 	  	   </table>
-		  --> 
-		   &nbsp;
 		  </td>
-	   
 	   
   
   </tr>
@@ -455,16 +452,16 @@
 		
 			</table>
 	   </td>
-	 <td >
-	   <!--
+	
+	  <td >
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
-			      <td  style="width:70%;">&nbsp;Transfer Characteristics:</td>
+			      <td  style="width:70%;">&nbsp;Audio Bit Depth / Rate:</td>
 				  <td  style="width:30%">&nbsp;
 						  
 				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("TransferCharacteristics")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("TransferCharacteristics")
+						  If Not IsNull(rsChecklistWildBunch.Fields("AudioBitDepthOrRate")) Then
+						   Response.Write  rsChecklistWildBunch.Fields("AudioBitDepthOrRate") 
 						  End If
 					 %>
 				  
@@ -472,10 +469,7 @@
 	   
 			   </tr>
 	  	   </table>
-		   -->
-		   &nbsp;
 		  </td>
-	 
 	   
 	  
   
@@ -500,109 +494,8 @@
 		
 			</table>
 	   </td>
-	<td >
-	       <!--
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Matrix Coefficients:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("MatrixCoefficients")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("MatrixCoefficients")
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		    -->
-		   &nbsp;
-		  </td>
-	   
-	 
-  
-  </tr>
-  
-    
-  
-    <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp; </td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Tagged / labelled audio (WB TV only ):</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly"), "Yes", "No") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-  
-  
-  </tr>
-  
-    <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp; </td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Audio Bit Depth / Rate:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("AudioBitDepthOrRate")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("AudioBitDepthOrRate") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	  
-  
-  </tr>
-  
-    <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp; </td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	   <td>
+	
+	 <td>
 	   
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -619,6 +512,7 @@
 		
 			</table>
 	   </td>
+	
   
   </tr>
   

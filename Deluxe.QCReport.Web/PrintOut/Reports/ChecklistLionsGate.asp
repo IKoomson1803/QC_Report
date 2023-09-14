@@ -358,31 +358,7 @@ End Function
 			</table>
 	   </td>
 	   
-	   <td >
-	   <!--
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Colour Primaries:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistLionsGate.Fields("ColourPrimaries")) Then
-						   Response.Write  rsChecklistLionsGate.Fields("ColourPrimaries") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		   -->
-		   &nbsp;
-		  </td>
-  
- 
-  </tr>
-  <tr>
-     <td >
+	    <td >
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Flashing images present - (Images likely to cause a seizure):</td>
@@ -399,73 +375,12 @@ End Function
 			</table>
 	   </td>
 	   
-	    <td >
-		<!--
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Transfer Characteristics:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistLionsGate.Fields("TransferCharacteristics")) Then
-						   Response.Write  rsChecklistLionsGate.Fields("TransferCharacteristics")
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		   -->
-		   &nbsp;
-		  </td>
   
  
   </tr>
+  
   <tr>
-	  
-   <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp; </td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	   <td >
-	   <!--
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Matrix Coefficients:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistLionsGate.Fields("MatrixCoefficients")) Then
-						   Response.Write  rsChecklistLionsGate.Fields("MatrixCoefficients")
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		   -->
-		   &nbsp;
-		  </td>
- 
-  </tr>
-  <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp; </td>
-			   </tr>
-		
-			</table>
-	   </td>
+   
 	   
 	   <td >
 		   <table style="width:100%" cellspacing="0">
@@ -484,20 +399,6 @@ End Function
 			   </tr>
 	  	   </table>
 		  </td>
- 
-  </tr>
-  <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp;</td>
-     	   </tr>
-		
-			</table>
-	   </td>
-	   
-	  
 		  
 		   <td >
 		   <table style="width:100%" cellspacing="0">
@@ -516,8 +417,9 @@ End Function
 			   </tr>
 	  	   </table>
 		  </td>
-  
+ 
   </tr>
+  
  
   
     </table>

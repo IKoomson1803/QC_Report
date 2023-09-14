@@ -485,23 +485,12 @@
 			 </table>
 		  
        </td>
-
-       <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp;</td>	
-					  					  
-			   </tr>
-		
-			</table>
-	   </td>
 	   
 	   <td >
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
-			      <td  style="width:80%;">&nbsp;Textless Gaps 1 Or 2s:</td>
-				  <td  style="width:20%">&nbsp;
+			      <td  style="width:70%;">&nbsp;Textless Gaps 1 Or 2s:</td>
+				  <td  style="width:30%">&nbsp;
 						  
 				   <%
 						  If Not IsNull(rsChecklist.Fields("ProgrammeTextlessGaps1Or2s")) Then
@@ -514,16 +503,13 @@
 			   </tr>
 	  	   </table>
 		  </td>
-	 
-	 </tr>
-	 
-	   <tr>
-	   <td>
+
+      <td>
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
-			   <td style="width:60%;">&nbsp;Progressive:</td>
-			   <td style="width:40%">&nbsp;		  
+			   <td style="width:80%;">&nbsp;Progressive:</td>
+			   <td style="width:20%">&nbsp;		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoProgressive")) Then
 				     Response.Write  IIf(rsChecklist.Fields("VideoProgressive"), "Yes", "No") 
@@ -534,23 +520,18 @@
 			 </table>
 		  
        </td>
-
-       <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp;</td>	
-					
-			   </tr>
-		
-			</table>
-	   </td>
+	   
+	   
+	 
+	 </tr>
+	 
+	   <tr>
 	   
 	   <td >
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
-			      <td  style="width:80%;">&nbsp;Programme end: (1s Black - Video and Audio):</td>
-				  <td  style="width:20%">&nbsp;
+			      <td  style="width:60%;">&nbsp;Programme end: (1s Black - Video and Audio):</td>
+				  <td  style="width:40%">&nbsp;
 						  
 				   <%
 						  If Not IsNull(rsChecklist.Fields("ProgrammeEnd1stBlackVideoAndAudio")) Then
@@ -563,15 +544,13 @@
 			   </tr>
 	  	   </table>
 		  </td>
-	 </tr>
-	 
-	   <tr>
+		  
 		   <td>
 			   
 				 <table style="width:100%" cellspacing="0">
 				   <tr>
-				   <td style="width:60%;">&nbsp;CLAP Present:</td>
-				   <td style="width:40%">&nbsp;		  
+				   <td style="width:70%;">&nbsp;CLAP Present:</td>
+				   <td style="width:30%">&nbsp;		  
 					   <%
 						   If Not IsNull(rsChecklist.Fields("VideoCLAP")) Then
 							   Response.Write  IIf(rsChecklist.Fields("VideoCLAP"), "Yes", "No") 
@@ -583,49 +562,7 @@
 			  
 		   </td>
 	   
-	         <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp;</td>	
-					
-			   </tr>
-		
-			</table>
-	   </td>
 	   
-	    <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td style="width:80%;">&nbsp;</td>
-				  <td style="width:20%">&nbsp;</td>	
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	   
-	   
-	   </tr>
-	   
-	   <!--
-	   <tr>
-	   <td>
-	       
-             <table style="width:100%" cellspacing="0">
-			   <tr>
-			   <td style="width:60%;">&nbsp;Colour Primaries Present:</td>
-			   <td style="width:40%">&nbsp;		  
-				   <%
-					 If Not IsNull(rsChecklist.Fields("VideoColourPrimaries")) Then
-						   Response.Write  rsChecklist.Fields("VideoColourPrimaries") 
-						  End If
-				  %>
-		        </td>
-			   </tr>
-			 </table>
-			 
-		  
-       </td>
 
        <td >
 		    <table style="width:100%" cellspacing="0">
@@ -638,103 +575,10 @@
 			</table>
 	   </td>
 	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td style="width:80%;">&nbsp;</td>
-				  <td style="width:20%">&nbsp;</td>	
 	   
-			   </tr>
-	  	   </table>
-		  </td>
-	 
-	 </tr>
-	
-	   <tr>
-	   <td>
-	       
-             <table style="width:100%" cellspacing="0">
-			   <tr>
-			   <td style="width:60%;">&nbsp;Transfer Characteristics Present:</td>
-			   <td style="width:40%">&nbsp;		  
-				   <%
-					  If Not IsNull(rsChecklist.Fields("VideoTransferCharacteristics")) Then
-					     Response.Write rsChecklist.Fields("VideoTransferCharacteristics") '' IIf(rsChecklist.Fields("VideoTransferCharacteristics"), "Yes", "No") 
-				     End If
-				  %>
-		        </td>
-			   </tr>
-			 </table>
-		  
-       </td>
-
-       <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp;</td>	
-					
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td style="width:80%;">&nbsp;</td>
-				  <td style="width:20%">&nbsp;</td>	
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	 
 	 </tr>
 	 
-	   <tr>
-	   <td>
-	       
-             <table style="width:100%" cellspacing="0">
-			   <tr>
-			   <td style="width:60%;">&nbsp;Matrix Coefficients Present:</td>
-			   <td style="width:40%">&nbsp;		  
-				   <%
-					 If Not IsNull(rsChecklist.Fields("VideoMatrixCoefficients")) Then
-						   Response.Write  rsChecklist.Fields("VideoMatrixCoefficients") '' IIf(rsChecklist.Fields("VideoMatrixCoefficients"), "Yes", "No") 
-						  End If
-				  %>
-		        </td>
-			   </tr>
-			 </table>
-		  
-       </td>
-
-       <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp;</td>	
-					
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td style="width:80%;">&nbsp;</td>
-				  <td style="width:20%">&nbsp;</td>	
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	 
-	 </tr>
-	 
-	  -->
-   
-   
+	    
    </table>
    
    <% End If %>

@@ -118,7 +118,8 @@ namespace Deluxe.QCReport.Web.Controllers
                 }
 
                 /************************* Lionsgate ************************************************************/
-                else if (customerName.ToLower().Contains("lionsgate"))
+                else if (customerName.ToLower().Contains("lionsgate")
+                   || customerName.ToLower().Contains("lions gate"))
                 {
                     checklist = _checklistService.GetChecklistLionsGate(qcnum, revnum, customerId);
                     checklistRequired = true;

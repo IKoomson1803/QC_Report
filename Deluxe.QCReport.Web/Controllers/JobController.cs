@@ -1844,7 +1844,10 @@ namespace Deluxe.QCReport.Web.Controllers
 
                 value = prop.GetValue(model.ChecklistDisney);
 
-                if (value == null && prop.Name != "CustName")
+                if (value == null && prop.Name != "CustName"
+                      && prop.Name != "VideoColourPrimaries"
+                    && prop.Name != "VideoTransferCharacteristics"
+                    && prop.Name != "VideoMatrixCoefficients")
                 {
                     notSelected.Add(prop.Name);
                 }
@@ -1868,7 +1871,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 value = prop.GetValue(model.ChecklistLionsGate);
 
-                if (value == null && prop.Name != "CustName")
+                if (value == null && prop.Name != "CustName"
+                    && prop.Name != "ColourPrimaries"
+                    && prop.Name != "TransferCharacteristics"
+                    && prop.Name != "MatrixCoefficients")
                 {
                     notSelected.Add(prop.Name);
                 }
@@ -1894,7 +1900,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 value = prop.GetValue(model.ChecklistWarner);
 
-                if (value == null && prop.Name != "CustName")
+                if (value == null && prop.Name != "CustName"
+                     && prop.Name != "ColourPrimaries"
+                    && prop.Name != "TransferCharacteristics"
+                    && prop.Name != "MatrixCoefficients")
                 {
                     notSelected.Add(prop.Name);
                 }
@@ -1918,7 +1927,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 value = prop.GetValue(model.ChecklistWildBunch);
 
-                if (value == null && prop.Name != "CustName")
+                if (value == null && prop.Name != "CustName"
+                     && prop.Name != "ColourPrimaries"
+                    && prop.Name != "TransferCharacteristics"
+                    && prop.Name != "MatrixCoefficients")
                 {
                     notSelected.Add(prop.Name);
                 }
@@ -1947,7 +1959,10 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 value = prop.GetValue(model.ChecklistBanijayRights);
 
-                if (value == null && prop.Name != "CustName")
+                if (value == null && prop.Name != "CustName"
+                    && prop.Name != "ColourPrimariesPresent"
+                    && prop.Name != "TransferCharacteristicsPresent"
+                    && prop.Name != "MatrixCoefficientsPresent")
                 {
                     notSelected.Add(prop.Name);
                 }

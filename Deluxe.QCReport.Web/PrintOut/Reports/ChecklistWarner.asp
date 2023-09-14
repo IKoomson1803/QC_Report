@@ -577,117 +577,7 @@
 			</table>
 	   </td>
 	   	   
-	 
-	    <td >
-		<!--
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Colour Primaries:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWarner.Fields("ColourPrimaries")) Then
-						   Response.Write  rsChecklistWarner.Fields("ColourPrimaries") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		   -->
-		   &nbsp;
-		  </td>
-  </tr>
-  
-  <tr>
-   
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				 <td style="width:30%">&nbsp;</td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   	   
-    
-	   
-	   <td >
-	    <!--
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Transfer Characteristics:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWarner.Fields("TransferCharacteristics")) Then
-						   Response.Write  rsChecklistWarner.Fields("TransferCharacteristics") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		   -->
-		  </td>
-  
-  
-  </tr>
-  
-   
-   <tr>
-   
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				 <td style="width:30%">&nbsp;</td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   	   
-    
-	   
-	   <td >
-	   <!--
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Matrix Coefficients:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWarner.Fields("MatrixCoefficients")) Then
-						   Response.Write  rsChecklistWarner.Fields("MatrixCoefficients") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		   -->
-		   &nbsp;
-		   
-		  </td>
-  
-  </tr>
-  
-   <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp; </td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	   <td >
+	  <td >
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Audio Bit Depth / Rate:</td>
@@ -704,20 +594,13 @@
 			   </tr>
 	  	   </table>
 		  </td>
- 
+	    
   </tr>
+  
+  
   <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;</td>
-				  <td style="width:30%">&nbsp;</td>
-     	   </tr>
-		
-			</table>
-	   </td>
-	 
-		   <td >
+  
+    <td >
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Is Audio Discrete:</td>
@@ -734,6 +617,18 @@
 			   </tr>
 	  	   </table>
 		  </td>
+		  
+     <td>
+		    <table style="width:100%" cellspacing="0">
+			   <tr>
+			      <td style="width:70%;">&nbsp;</td>
+				  <td style="width:30%">&nbsp;</td>
+     	   </tr>
+		
+			</table>
+	   </td>
+	 
+		  
   
   </tr>
    
