@@ -1,14 +1,14 @@
- 
- 
+ <div class="div-frame-border-3">
+  
  <% If Not rsChecklist.BOF = True And Not rsChecklist.EOF = True Then %>
     <% If Not IsNull(rsChecklist.Fields("ChecklistCompleted"))  And rsChecklist.Fields("ChecklistCompleted") = true Then %> 
    
-  <table width="100%" border="1" cellspacing="0" cellpadding="0" >
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" >
     <tr>
-	    <td style="text-align:center;font-weight: bold;border-left: 2px solid;border-top: 2px solid;border-bottom: 1px solid;border-right: 2px solid"  colspan="5">
+	    <td class="header bottom_border"  colspan="5">
 		<table width="100%" border="0" cellspacing="0" cellpadding="1" >
 			   <tr>
-			     <td class="header" >&nbsp;CHECKLIST - DISNEY INVENTORY SPEC&nbsp;|&nbsp;File to Spec: 
+			     <td class="header  bottom_border" >&nbsp;CHECKLIST - DISNEY INVENTORY SPEC&nbsp;|&nbsp;File to Spec: 
 				       <%
 							  If Not IsNull(rsChecklist.Fields("IsFile")) Then
 							    Response.Write  IIf(rsChecklist.Fields("IsFile"), "Yes", "No") 
@@ -21,17 +21,17 @@
 		</td>
 	</tr>
 	 <tr>
-	   <td style="font-weight:bold;text-align:center;width:33.3%">&nbsp;Video to Spec</td>
-	   <td  style="font-weight:bold;text-align:center;width:33.3%">&nbsp;Audio to Spec</td>
-	   <td  style="font-weight:bold;text-align:center;width:33.3%">&nbsp;Programme Layout to Spec</td>
+	   <td   class="right_bottom_border" style="font-weight:bold;text-align:center;width:33.3%">&nbsp;Video to Spec</td>
+	   <td   class="right_bottom_border"   style="font-weight:bold;text-align:center;width:33.3%">&nbsp;Audio to Spec</td>
+	   <td    class="bottom_border" style="font-weight:bold;text-align:center;width:33.3%">&nbsp;Programme Layout to Spec</td>
 	 </tr>
 	  <tr>
-	   <td>
+	   <td class="right_bottom_border" >
 	       
-             <table style="width:100%" cellspacing="0">
+             <table  style="width:100%" cellspacing="0">
 			   <tr>
-			   <td style="width:60%;">&nbsp;File Type:</td>
-			   <td style="width:40%">&nbsp;		  
+			   <td  style="width:60%;">&nbsp;File Type:</td>
+			   <td  style="width:40%">&nbsp;		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("FileType")) Then
 					   Response.Write  rsChecklist.Fields("FileType") 
@@ -43,7 +43,7 @@
 		  
        </td>
 
-       <td >
+       <td class="right_bottom_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;24 Tracks Present:</td>
@@ -60,7 +60,7 @@
 			</table>
 	   </td>
 	   
-	   <td >
+	   <td class="bottom_border">
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:80%;">&nbsp;Timecode:00:00:00:00:</td>
@@ -83,7 +83,7 @@
 	
 	
 	    <tr>
-	   <td>
+	   <td class="right_bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -100,7 +100,7 @@
 		  
        </td>
 
-       <td >
+       <td class="right_bottom_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Audio Track Layout:</td>
@@ -118,7 +118,7 @@
 	   </td>
 	   
 	   <td >
-		   <table style="width:100%" cellspacing="0">
+		   <table style="width:100%" cellspacing="0" class="bottom_border">
 		      <tr>
 			      <td  style="width:80%;">&nbsp;Head Build Present:</td>
 				  <td  style="width:20%">&nbsp;
@@ -140,7 +140,7 @@
 	  <tr>
 	   <td>
 	       
-             <table style="width:100%" cellspacing="0">
+             <table style="width:100%" cellspacing="0" class="right_bottom_border">
 			   <tr>
 			   <td style="width:60%;">&nbsp;File Name to Spec:</td>
 			   <td style="width:40%">&nbsp;		  
@@ -156,7 +156,7 @@
        </td>
 
        <td >
-		    <table style="width:100%" cellspacing="0">
+		    <table style="width:100%" cellspacing="0" class="right_bottom_border">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Codec:</td>
 					  <td style="width:30%">&nbsp;
@@ -172,8 +172,8 @@
 			</table>
 	   </td>
 	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
+	   <td class="bottom_border">
+		   <table style="width:100%" cellspacing="0" >
 		      <tr>
 			      <td  style="width:80%;">&nbsp;Slate Present:</td>
 				  <td  style="width:20%">&nbsp;
@@ -193,7 +193,7 @@
 	 </tr>
 	
 	  <tr>
-	   <td>
+	   <td class="right_bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -210,7 +210,7 @@
 		  
        </td>
 
-       <td >
+       <td class="right_bottom_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Sample Rate:</td>
@@ -227,7 +227,7 @@
 			</table>
 	   </td>
 	   
-	   <td >
+	   <td class="bottom_border">
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:80%;">&nbsp;Programme start: (1s Black - Video and Audio):</td>
@@ -247,7 +247,7 @@
 	 
 	 </tr>
 	   <tr>
-	   <td>
+	   <td class="right_bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -264,7 +264,7 @@
 		  
        </td>
 
-       <td >
+       <td class="right_bottom_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Bit Rate:</td>
@@ -281,7 +281,7 @@
 			</table>
 	   </td>
 	   
-	   <td >
+	   <td class="bottom_border" >
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:80%;">&nbsp;Textless Elements Present:</td>
@@ -302,7 +302,7 @@
 	 </tr>
 	 
 	   <tr>
-	   <td>
+	   <td class="right_bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -319,7 +319,7 @@
 		  
        </td>
 
-       <td >
+       <td class="right_bottom_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Bit Depth:</td>
@@ -336,7 +336,7 @@
 			</table>
 	   </td>
 	   
-	   <td >
+	   <td class="bottom_border">
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			  
@@ -359,7 +359,7 @@
 	 </tr>
 	 
 	   <tr>
-	   <td>
+	   <td class="right_bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -376,7 +376,7 @@
 		  
        </td>
 
-       <td >
+       <td class="right_bottom_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Channels Discrete:</td>
@@ -393,7 +393,7 @@
 			</table>
 	   </td>
 	   
-	   <td >
+	   <td class="bottom_border">
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:80%;">&nbsp;Full Textless Covers For Texted Shots Present:</td>
@@ -414,7 +414,7 @@
 	 </tr>
 	 
 	   <tr>
-	   <td>
+	   <td class="right_bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -431,7 +431,7 @@
 		  
        </td>
 
-       <td >
+       <td class="right_bottom_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;Audio Tracks Labelled / Tagged In QT:</td>
@@ -448,7 +448,7 @@
 			</table>
 	   </td>
 	   
-	   <td >
+	   <td class="bottom_border">
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:80%;">&nbsp;Does Textless Aspect Ratio match programme:</td>
@@ -469,7 +469,7 @@
 	 </tr>
 	 
 	   <tr>
-	   <td>
+	   <td class="right_bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -486,7 +486,7 @@
 		  
        </td>
 	   
-	   <td >
+	   <td class="right_bottom_border">
 		   <table style="width:100%" cellspacing="0">
 		      <tr>
 			      <td  style="width:70%;">&nbsp;Textless Gaps 1 Or 2s:</td>
@@ -504,7 +504,7 @@
 	  	   </table>
 		  </td>
 
-      <td>
+      <td class="bottom_border">
 	       
              <table style="width:100%" cellspacing="0">
 			   <tr>
@@ -527,8 +527,8 @@
 	 
 	   <tr>
 	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
+	   <td class="right_border">
+		   <table style="width:100%" cellspacing="0" >
 		      <tr>
 			      <td  style="width:60%;">&nbsp;Programme end: (1s Black - Video and Audio):</td>
 				  <td  style="width:40%">&nbsp;
@@ -545,7 +545,7 @@
 	  	   </table>
 		  </td>
 		  
-		   <td>
+		   <td class="right_border">
 			   
 				 <table style="width:100%" cellspacing="0">
 				   <tr>
@@ -564,7 +564,7 @@
 	   
 	   
 
-       <td >
+       <td class="right_border">
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;</td>
@@ -580,6 +580,8 @@
 	 
 	    
    </table>
+   
+   </div>
    
    <% End If %>
    

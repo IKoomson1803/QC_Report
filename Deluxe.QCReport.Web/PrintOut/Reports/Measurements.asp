@@ -25,11 +25,11 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	            <td colspan="4" class="header bottom_border">MEASUREMENTS</td>
 	          </tr>
 			<tr> 
-			  <td width="25%" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Tape Number:&nbsp;<b> <%=rsHeader.Fields("TapeNumber")%></b></td>
-			  <td width="25%" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Format:&nbsp; <b><%=rsHeader.Fields("Format")%></b></td>
-			  <td width="25%" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Standard:&nbsp; <b><%=rsHeader.Fields("Standard")%></b></td>
-			  <td width="25%" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></b></td>
-			  <td width="25%">&nbsp; </td>
+			  <td width="25%" class="right_bottom_border" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Tape Number:&nbsp;<b> <%=rsHeader.Fields("TapeNumber")%></b></td>
+			  <td width="25%" class="right_bottom_border" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Format:&nbsp; <b><%=rsHeader.Fields("Format")%></b></td>
+			  <td width="25%" class="right_bottom_border" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Standard:&nbsp; <b><%=rsHeader.Fields("Standard")%></b></td>
+			  <td width="25%" class="right_bottom_border" style="font-size:14px;font-weigth:bold;">&nbsp;<b>Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></b></td>
+			  <td width="25%" class="bottom_border">&nbsp; </td>
 			</tr>
 			
 			 <!--#include file="VideoSpecifications_2.asp" -->
