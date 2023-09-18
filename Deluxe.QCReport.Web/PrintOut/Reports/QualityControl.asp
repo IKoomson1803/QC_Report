@@ -67,25 +67,25 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 }
 -->
 
-.div-frame-border {
-    border:1px solid #000;
+.div-frame-border  {
+    border:1px solid #808080;
     display: table;
 	width: 99.9%;
 	padding: -2px -2px -2px -2px;
 }
 
-.div-frame-border-2 {
-    border:2px solid #000;
+.div-frame-border-2  {
+    border:2px solid #808080;
     display: table;
 	width: 99.9%;
 	padding: -2px -2px -2px -2px;
 }
 
-.div-frame-border-3 {
-    border:3px solid #000;
+.div-frame-border-3  {
+    border:3px solid #808080;
     display: table;
 	width: 99.9%;
-	padding: -2px -2px -2px -2px;
+	
 }
 
 

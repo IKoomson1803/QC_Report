@@ -1,7 +1,8 @@
 <div class="div-frame-border-3">
    
 
-<table width="100%" border="0
+<table width="100%" border="0>
+ <tr>
   <td>
        <table width="100%" border="0" cellspacing="0" cellpadding="1" >
 	       <tr>
