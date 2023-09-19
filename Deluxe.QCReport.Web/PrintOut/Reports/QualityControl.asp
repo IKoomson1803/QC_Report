@@ -65,7 +65,7 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 .frame-border-2{
 	border:2px solid blue !important;
 }
--->
+
 
 .div-frame-border  {
     border:1px solid #808080;
@@ -87,7 +87,22 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 	width: 99.9%;
 	
 }
+-->
 
+.section-header{
+background-color:  gray;
+border:3px solid #000;
+font-size: 20px;
+font-weight: bold;
+text-align:center;
+}
+
+.section-detail{
+background-color: gray;
+font-size: 12px;
+font-weight: bold;
+width:15%;
+}
 
 </style>
 

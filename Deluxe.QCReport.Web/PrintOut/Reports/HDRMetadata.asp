@@ -53,7 +53,7 @@ If rsHDRMetadata.BOF  = False Then
 	            <td colspan="4" align="center" class="right_bottom_border"><b>Dolby Vision & ST.2086 Checks</b></td>
 	          </tr>	
               <tr> 
-	            <td colspan="4" class="right_bottom_border"><b>Mastering Display</b></td>
+	            <td colspan="4" class="right_bottom_border">&nbsp;<b>Mastering Display</b></td>
 	          </tr>				  
 			  <tr> 
 				  <td width="25%" class="right_bottom_border">&nbsp;Color Primaries:   <b>&nbsp; <b><%=rsHDRMetadata.Fields("ColorPrimariesMastering")%></b></td>
@@ -66,7 +66,7 @@ If rsHDRMetadata.BOF  = False Then
 	            <td colspan="4" align="center" class="right_bottom_border"><b>Dolby Vision Checks</b></td>
 	          </tr>	
               <tr> 
-	            <td colspan="4" class="right_bottom_border"><b>Color Encoding</b></td>
+	            <td colspan="4" class="right_bottom_border">&nbsp;<b>Color Encoding</b></td>
 	          </tr>				  
 			  <tr> 
 				  <td width="25%" class="right_bottom_border">&nbsp;Color Primaries:   <b>&nbsp; <b><%=rsHDRMetadata.Fields("ColorPrimariesDolbyVision")%></b></td>

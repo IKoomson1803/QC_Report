@@ -5,10 +5,10 @@
    
   <table width="100%" border="0" cellspacing="0" cellpadding="0" >
     <tr>
-	    <td class="header bottom_border"  colspan="5">
+	    <td class="bottom_border"  colspan="5">
 		<table width="100%" border="0" cellspacing="0" cellpadding="1" >
 			   <tr>
-			     <td class="header  bottom_border" >&nbsp;CHECKLIST - DISNEY INVENTORY SPEC&nbsp;|&nbsp;File to Spec: 
+			     <td class="header" >&nbsp;CHECKLIST - DISNEY INVENTORY SPEC&nbsp;|&nbsp;File to Spec: 
 				       <%
 							  If Not IsNull(rsChecklist.Fields("IsFile")) Then
 							    Response.Write  IIf(rsChecklist.Fields("IsFile"), "Yes", "No") 
@@ -564,7 +564,7 @@
 	   
 	   
 
-       <td class="right_border">
+       <td >
 		    <table style="width:100%" cellspacing="0">
 			   <tr>
 			      <td style="width:70%;">&nbsp;</td>
