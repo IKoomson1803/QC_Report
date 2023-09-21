@@ -19,7 +19,7 @@ If rsHDRMetadata.BOF  = False Then
   </tr>
 </table>
 
-<div class="div-frame-border-3">
+
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
 		      <tr> 
 	            <td colspan="4" class="header bottom_border"><b>HDR METADATA</b></td>
@@ -103,7 +103,7 @@ If rsHDRMetadata.BOF  = False Then
 </table>
 
 
-</div>
+
 
 				
 			
