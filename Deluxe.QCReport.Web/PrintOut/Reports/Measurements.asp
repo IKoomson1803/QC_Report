@@ -60,14 +60,14 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			  <td  class="section-detail" ><span style="font-size:14px; font-weight:bold;">&nbsp;Format:</td>
 			  <td><b>&nbsp; <%=rsHeader.Fields("Format")%></b></td>
 			  
-			  <td  class="section-detail"><span style="font-size:14px; font-weight:bold;"></td>
-			  <td>&nbsp;Standard:<b>&nbsp; <%=rsHeader.Fields("Standard")%></b></td>
+			  <td  class="section-detail"><span style="font-size:14px; font-weight:bold;">&nbsp;Standard:</td>
+			  <td><b>&nbsp; <%=rsHeader.Fields("Standard")%></b></td>
 			  
-			  <td  class="section-detail"><span style="font-size:14px; font-weight:bold;"></td>
-			  <td>&nbsp;Aspect Ratio:<b>&nbsp; <%=rsHeader.Fields("Aspect")%></b></td>
+			  <td  class="section-detail"><span style="font-size:14px; font-weight:bold;">&nbsp;Aspect Ratio:</td>
+			  <td><b>&nbsp; <%=rsHeader.Fields("Aspect")%></b></td>
 			  
-			   <td  class="section-detail"><span style="font-size:14px; font-weight:bold;"></td>
-			   <td>&nbsp;Frame Size:<b>&nbsp; <%=rsHeader.Fields("Frame_Size")%></b></td>
+			   <td  class="section-detail"><span style="font-size:14px; font-weight:bold;">&nbsp;Frame Size:</td>
+			   <td><b>&nbsp; <%=rsHeader.Fields("Frame_Size")%></b></td>
 			   
 			</tr>
 			
@@ -134,6 +134,23 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			  
 			</tr>
 			
+			<tr> 
+			   <td class="section-detail">&nbsp;Max CLL:</td>
+		      <td>&nbsp;<b><%=rsHeader.Fields("MaxCLL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			   
+			  <td  class="section-detail">&nbsp;Max FALL:</td>
+			<td>&nbsp; <b><%=rsHeader.Fields("MaxFALL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
+			  
+			  <td>&nbsp;</td>
+			    <td>&nbsp;</td>
+				
+				  <td>&nbsp;</td>
+				    <td>&nbsp;</td>
+				  
+			  
+			  
+			</tr>
+			
 			
 						
 			<tr> 
@@ -195,34 +212,19 @@ if rsHeader.Fields("IRE_MV") = "M" then
 		  <tr>
 		   <td  class="section-detail">&nbsp;Black Level:</td>
 		   <td>&nbsp;<b><%=rsHeader.Fields("Black")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
-		   
-		   <td class="section-detail">&nbsp;Max CLL:</td>
-		   <td>&nbsp;<b><%=rsHeader.Fields("MaxCLL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
-		   
+	   
 	       <td class="section-detail" >&nbsp;Black Level:</td>
 		   <td>&nbsp;<b><%=rsHeader.Fields("Black")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
 		   
 		  <td class="section-detail">&nbsp;Active Picture:</td>
 		  <td>&nbsp;<b><%=rsHeader.Fields("Active_Picture")%></b>&nbsp;</td>
 		  
+		    <td>&nbsp;</td>
+			  <td>&nbsp;</td>
 			
 		  </tr>
 		  
-		   <tr>
-		   <td >&nbsp;</td>
-		   <td >&nbsp;</td>
-		   
-		    <td  class="section-detail">&nbsp;Max FALL:</td>
-			<td>&nbsp; <b><%=rsHeader.Fields("MaxFALL")%></b>&nbsp;&nbsp;<%=siremv%>&nbsp;</td>
-			
-		   
-		   
-		    <td >&nbsp;</td>
-			 <td >&nbsp;</td>
-			 
-			 <td >&nbsp;</td>
-			 <td >&nbsp;</td>
-		  </tr>
+		  
 		  
 		  
 			  

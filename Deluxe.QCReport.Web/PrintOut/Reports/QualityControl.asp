@@ -101,9 +101,18 @@ text-align:center;
 background-color: gray;
 font-size: 12px;
 font-weight: bold;
-width:15%;
+
 }
 
+.checklist-data{
+width:100px
+
+}
+
+.checklist-label{
+
+
+}
 </style>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
