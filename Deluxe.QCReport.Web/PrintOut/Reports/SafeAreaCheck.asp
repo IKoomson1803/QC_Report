@@ -1,12 +1,18 @@
-<div class="div-frame-border-3">
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Safe Area Check</td>
+			  </tr>
+		  </table>
+
+			<p></p>
   
 
- <table width="100%" border="0" cellspacing="0" cellpadding="0" bordercolor="#000000"  >
+ <table width="100%" border="1" cellspacing="0" cellpadding="0"   >
+			
 			<tr>
-				 <td colspan="3" class="header bottom_border"><b>SAFE AREA CHECK</b></td>
-			</tr>
-			<tr>
-				<td >&nbsp;Opening Titles:&nbsp;
+				<td class="section-detail">&nbsp;Opening Titles: </td>
+				<td>
+				&nbsp;
 				  <b>
 						 <%
 					
@@ -21,7 +27,9 @@
 				  </b>
 				</td>
 		
-				<td >&nbsp;Captions:&nbsp;
+				<td class="section-detail">&nbsp;Captions:</td>
+				<td>
+				&nbsp;
 				 <b>
 				 <%
 				
@@ -39,7 +47,9 @@
 				</td>
 			
 				
-				<td >&nbsp;Closing Titles:&nbsp;
+				<td class="section-detail" >&nbsp;Closing Titles:</td>
+				<td>
+				&nbsp;
 				  <b>
 				     <%
 				
@@ -63,7 +73,7 @@
 			
 			<!--
 			<tr>
-				<td >&nbsp;
+				<td>&nbsp;
 				<%
 				
 				   If rsHeader.Fields("OTPercent") <> "" Then
@@ -114,5 +124,5 @@
       </table>
 
 
-</div>
+
 
