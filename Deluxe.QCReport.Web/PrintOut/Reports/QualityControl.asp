@@ -275,22 +275,10 @@ width:100px
         <td>&nbsp;</td>
       </tr>
     </table>
-	
-	<!--
-	 <table width="100%" border="0" cellspacing="0" cellpadding="1">
-      <tr>
-       <td>&nbsp;</td>
-       </tr>
-    </table>
-	-->
-	
-	<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-	<tr>
-		<td valign="top" width="100%" class="blacksquare" >
-		  <!--#include file="ProgramFormat.asp" -->
-	   </td>
-	 </tr>
 
+	
+	<!--#include file="ProgramFormat.asp" -->
+	 
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>

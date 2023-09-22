@@ -1,23 +1,11 @@
- <%
- ''Function IIf(bClause, sTrue, sFalse)
-    ''If CBool(bClause) Then
-       '' IIf = sTrue
-    ''Else 
-        ''IIf = sFalse
-    ''End If
-''End Function
- 
- %>
+
  
   <% If Not rsChecklistWildBunch.BOF = True And Not rsChecklistWildBunch.EOF = True Then %>
      <% If Not IsNull(rsChecklistWildBunch.Fields("ChecklistCompleted"))  And rsChecklistWildBunch.Fields("ChecklistCompleted") = true Then %> 
-
-     <table width="100%" border="1" cellspacing="0" cellpadding="0" >
-    <tr>
-	    <td style="text-align:center;font-weight: bold;border-left: 2px solid;border-top: 2px solid;border-bottom: 1px solid;border-right: 2px solid"  colspan="2">
-		<table width="100%" border="0" cellspacing="0" cellpadding="1" >
+	 
+	 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 			   <tr>
-			     <td class="header" >&nbsp;CHECKLIST: WILD BUNCH&nbsp;|&nbsp;File to Spec: 
+			     <td class="section-header" >&nbsp;Checklist: Wild Bunch&nbsp;|&nbsp;File to Spec: 
 				       <%
 							  If Not IsNull(rsChecklistWildBunch.Fields("IsFile")) Then
 							    Response.Write  IIf(rsChecklistWildBunch.Fields("IsFile"), "Yes", "No") 
@@ -27,13 +15,15 @@
 			   
 			   </tr>
 		  </table>	   
-		</td>
-	</tr>
-  <tr>
+
+			<p></p>
+
+     <table width="100%" border="1" cellspacing="0" cellpadding="0" >
+   
   
    <tr>
-	   <td style="font-weight:bold;text-align:center;width:50%">&nbsp;Video and Content:</td>
-	   <td  style="font-weight:bold;text-align:center;width:50%">&nbsp;Audio and Metadata</td>
+	   <td colspan="2"  class="section-detail" style="font-weight:bold;text-align:center;width:50%">&nbsp;Video and Content:</td>
+	   <td colspan="2"  class="section-detail" style="font-weight:bold;text-align:center;width:50%">&nbsp;Audio and Metadata</td>
   </tr>
   
   <tr>

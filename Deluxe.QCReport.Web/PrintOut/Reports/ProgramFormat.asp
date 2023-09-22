@@ -1,38 +1,30 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Programme Layout</td>
+			  </tr>
+ </table>
 
-<div class="div-frame-border">
+<p></p>
+
+
   
-<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<table width="100%" border="1" cellspacing="0" cellpadding="0" >
+       
+         <!--<td width="4%" class="txt_boldtype2 bottom_border" >Item No.</td> -->
+                <td class="section-detail" width="40%" >&nbsp;Description</td>
+                <td class="section-detail" width="34%" >&nbsp;Time Code</td>
+                <td class="section-detail"  width="22%" >&nbsp;Length</td>
+              </tr> 
         <tr>
-          <td  class="bottom_border header" > 
-            PROGRAMME LAYOUT
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <table width="100%" border="0" cellspacing="0" cellpadding="5">
-              <tr>
-			   <!--<td width="4%" class="txt_boldtype2 bottom_border" >Item No.</td> -->
-                <td width="40%" class="txt_boldtype2 bottom_border" >Description</td>
-                <td width="34%" class="txt_boldtype2 bottom_border">Time Code</td>
-                <td width="22%" class="txt_boldtype2 bottom_border">Length</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td  valign="top"> 
-            <table width="100%" border="0" cellspacing="0" cellpadding="5">
-            <%while not rsTapeFormat.EOF%>
+		
+         <%while not rsTapeFormat.EOF%>
               <tr>
 			    <!-- <td width="4%"><%=rsTapeFormat.Fields("item_num")%></td> -->
-                <td width="40%"><%=rsTapeFormat.Fields("description")%></td>
-                <td width="34%"><%=rsTapeFormat.Fields("Time_Code")%></td>
-                <td width="22%"><%=rsTapeFormat.Fields("Length")%></td>
+                <td width="40%">&nbsp;<%=rsTapeFormat.Fields("description")%></td>
+                <td width="34%">&nbsp;<%=rsTapeFormat.Fields("Time_Code")%></td>
+                <td width="22%">&nbsp;<%=rsTapeFormat.Fields("Length")%></td>
               </tr>
             <%rsTapeFormat.MoveNext
             wend%>
-            </table>
-          </td>
-        </tr>
+			
       </table>
-</div>
