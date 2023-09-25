@@ -18,8 +18,7 @@
 
 			<p></p>
 
-     <table width="100%" border="1" cellspacing="0" cellpadding="0" >
-   
+  <table width="100%" border="1" cellspacing="0" cellpadding="0" >
   
    <tr>
 	   <td colspan="2"  class="section-detail" style="font-weight:bold;text-align:center;width:50%">&nbsp;Video and Content:</td>
@@ -28,11 +27,8 @@
   
   <tr>
   
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;Full scale files are acceptable, is this mentioned & logged:</td>
-					  <td style="width:25%">&nbsp;
+     <td  class="section-detail">&nbsp;Full scale files are acceptable, is this mentioned & logged:</td>
+					  <td >&nbsp;
 					
 					   <%
 							  If Not IsNull(rsChecklistWildBunch.Fields("FullScaleFilesAreAcceptableIsThisMentionedAndLogged")) Then
@@ -40,15 +36,9 @@
 							  End If
 						 %>
 					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
-	    <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Is Mono Audio Present:</td>
-				  <td  style="width:30%">&nbsp;
+					  
+	 <td  class="section-detail">&nbsp;Is Mono Audio Present:</td>
+				  <td >&nbsp;
 						  
 				   <%
 						  If Not IsNull(rsChecklistWildBunch.Fields("MonoAudioListTracks")) Then
@@ -57,210 +47,129 @@
 					 %>
 				  
 				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
+		  
+		  
   </tr>
   
     <tr>
 	
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;Are Normal Video Range levels legal and within spec:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AreNormalVideoRangeLevelsLegalAndWithinSpec")) Then
-							   Response.Write  rsChecklistWildBunch.Fields("AreNormalVideoRangeLevelsLegalAndWithinSpec")
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+     <td class="section-detail">&nbsp;Are Normal Video Range levels legal and within spec:</td>
+	  <td >&nbsp;
+	
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AreNormalVideoRangeLevelsLegalAndWithinSpec")) Then
+			   Response.Write  rsChecklistWildBunch.Fields("AreNormalVideoRangeLevelsLegalAndWithinSpec")
+			  End If
+		 %>
+	  </td>
 	   
-	     <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Is Split track audio present:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("SplitTrackAudio")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("SplitTrackAudio"), "Yes", "No")   
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	   
-  </tr>
-  
-    <tr>
-	 <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;Aspect ratio checked on all content:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AspectRatioCheckedOnAllContent")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("AspectRatioCheckedOnAllContent"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
-	   
-	    <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Is M&E clean of dialogues:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("IsMAndECleanOfDialogues")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("IsMAndECleanOfDialogues"), "Yes", "No") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-  
+	  <td  class="section-detail">&nbsp;Is Split track audio present:</td>
+	  <td>&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("SplitTrackAudio")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("SplitTrackAudio"), "Yes", "No")   
+			  End If
+		 %>
 	  
+	  </td>
+  </tr>
+  
+    <tr>
+	 <td class="section-detail">&nbsp;Aspect ratio checked on all content:</td>
+	  <td >&nbsp;
+	
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AspectRatioCheckedOnAllContent")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AspectRatioCheckedOnAllContent"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
+	  <td  class="section-detail">&nbsp;Is M&E clean of dialogues:</td>
+	  <td>&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("IsMAndECleanOfDialogues")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("IsMAndECleanOfDialogues"), "Yes", "No") 
+			  End If
+		 %>
+	  
+	  </td>
+
   
   </tr>
   
     <tr>
-	<td>
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;All H&V Blanking checked:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AllHAndVBlankingChecked")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("AllHAndVBlankingChecked"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+	 <td class="section-detail">&nbsp;All H&V Blanking checked:</td>
+	  <td>&nbsp;
 	
-	 <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Are M&E tracks fully filled:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("AreMAndETracksFullyFilled")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("AreMAndETracksFullyFilled"), "Yes", "No") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AllHAndVBlankingChecked")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AllHAndVBlankingChecked"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
 	
-	
+	<td class="section-detail">&nbsp;Are M&E tracks fully filled:</td>
+	  <td>&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AreMAndETracksFullyFilled")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AreMAndETracksFullyFilled"), "Yes", "No") 
+			  End If
+		 %>
 	  
-  
+	  </td>
+
   </tr>
   
     <tr>
-     <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;All logos and added text logged (include plot related featured text):</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AllLogosAndAddedTextLoggedIncludePlotRelatedFeaturedText")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("AllLogosAndAddedTextLoggedIncludePlotRelatedFeaturedText"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+     <td class="section-detail">&nbsp;All logos and added text logged (include plot related featured text):</td>
+	  <td >&nbsp;
+	
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AllLogosAndAddedTextLoggedIncludePlotRelatedFeaturedText")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AllLogosAndAddedTextLoggedIncludePlotRelatedFeaturedText"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
 	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Has all File Metadata been checked:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("HasAllFileMetadataBeenChecked")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("HasAllFileMetadataBeenChecked"), "Yes", "No") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
+	  <td  class="section-detail">&nbsp;Has all File Metadata been checked:</td>
+	  <td>&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("HasAllFileMetadataBeenChecked")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("HasAllFileMetadataBeenChecked"), "Yes", "No") 
+			  End If
+		 %>
 	  
+	  </td>
+
 	  
   </tr>
   
     <tr>
      
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:75%;">&nbsp;Title/captions/end credits text is present over black, picture or card and logged:</td>
-				  <td  style="width:25%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("LoggedIfTitleOrCaptionsOrEndcreditstextIsPresentOverBlackPictureOrCard")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("LoggedIfTitleOrCaptionsOrEndcreditstextIsPresentOverBlackPictureOrCard"), "Yes", "No") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-     
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;File format  / Codec:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("FileFormatOrCodec")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("FileFormatOrCodec")
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	   
+	 <td  class="section-detail">&nbsp;Title/captions/end credits text is present over black, picture or card and logged:</td>
+	  <td >&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("LoggedIfTitleOrCaptionsOrEndcreditstextIsPresentOverBlackPictureOrCard")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("LoggedIfTitleOrCaptionsOrEndcreditstextIsPresentOverBlackPictureOrCard"), "Yes", "No") 
+			  End If
+		 %>
 	  
+	  </td>
+     <td class="section-detail">&nbsp;File format  / Codec:</td>
+	  <td >&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("FileFormatOrCodec")) Then
+			   Response.Write  rsChecklistWildBunch.Fields("FileFormatOrCodec")
+			  End If
+		 %>
+	  
+	  </td>
   
   </tr>
   
@@ -268,118 +177,75 @@
   
     <tr>
       
-	   <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;All Wildbunch logos logged:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("LoggedWildbunchLogoPresent")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("LoggedWildbunchLogoPresent"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
+	    <td class="section-detail">&nbsp;All Wildbunch logos logged:</td>
+		  <td >&nbsp;
 		
-			</table>
-	   </td>
-	   
-	   <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Standard / Frame rate:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("StandardOrFrameRate")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("StandardOrFrameRate") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
+		   <%
+				  If Not IsNull(rsChecklistWildBunch.Fields("LoggedWildbunchLogoPresent")) Then
+				   Response.Write  IIf(rsChecklistWildBunch.Fields("LoggedWildbunchLogoPresent"), "Yes", "No") 
+				  End If
+			 %>
 		  </td>
-	  
+	   
+	    <td  class="section-detail">&nbsp;Standard / Frame rate:</td>
+		  <td  >&nbsp;
+				  
+		   <%
+				  If Not IsNull(rsChecklistWildBunch.Fields("StandardOrFrameRate")) Then
+				   Response.Write  rsChecklistWildBunch.Fields("StandardOrFrameRate") 
+				  End If
+			 %>
+		  
+		  </td>
   </tr>
   
     <tr>
-      <td >
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;Is prominent branding / copyright within content logged:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("BrandingOrCopyrightwithinContentLogged")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("BrandingOrCopyrightwithinContentLogged"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+     <td class="section-detail">&nbsp;Is prominent branding / copyright within content logged:</td>
+	  <td >&nbsp;
+	
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("BrandingOrCopyrightwithinContentLogged")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("BrandingOrCopyrightwithinContentLogged"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
 	 
-	  <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Progressive:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("Progressive")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("Progressive"), "Yes", "No") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	   
+	 <td class="section-detail">&nbsp;Progressive:</td>
+	  <td>&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("Progressive")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("Progressive"), "Yes", "No") 
+			  End If
+		 %>
+	  
+	  </td>
 	  
   
   </tr>
   
     <tr>
-     <td>
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;All text - titles, captions & end credits 90% caption safe:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AllTextTitlesCaptionsAndEndCredits_90_Percent_CaptionSafe")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTextTitlesCaptionsAndEndCredits_90_Percent_CaptionSafe"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+     <td class="section-detail">&nbsp;All text - titles, captions & end credits 90% caption safe:</td>
+	  <td>&nbsp;
 	
-	 <td>
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Resolution:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("Resolution")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("Resolution") 
-						  End If
-					 %>
-				  
-				  </td>
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AllTextTitlesCaptionsAndEndCredits_90_Percent_CaptionSafe")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTextTitlesCaptionsAndEndCredits_90_Percent_CaptionSafe"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
+	
+	 <td  class="section-detail">&nbsp;Resolution:</td>
+	  <td>&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("Resolution")) Then
+			   Response.Write  rsChecklistWildBunch.Fields("Resolution") 
+			  End If
+		 %>
+	  
+	  </td>
 	   
-			   </tr>
-	  	   </table>
-		  </td>
 	   
 	   
   
@@ -387,121 +253,74 @@
   
     <tr>
     
-	<td>
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;All Texted shots (Added text) must have corresponding textless covers:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AllTextedshotsAddedTextMustHaveCorrespondingTextlessCovers")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTextedshotsAddedTextMustHaveCorrespondingTextlessCovers"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+	<td  class="section-detail">&nbsp;All Texted shots (Added text) must have corresponding textless covers:</td>
+	  <td>&nbsp;
 	
-	 <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Tagged / labelled audio (WB TV only ):</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly")) Then
-						   Response.Write  IIf(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly"), "Yes", "No") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AllTextedshotsAddedTextMustHaveCorrespondingTextlessCovers")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTextedshotsAddedTextMustHaveCorrespondingTextlessCovers"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
+	
+	 <td class="section-detail">&nbsp;Tagged / labelled audio (WB TV only ):</td>
+	  <td>&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly"), "Yes", "No") 
+			  End If
+		 %>
+	  
+	  </td>
 	   
   
   </tr>
   
     <tr>
-      <td>
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;All textless must match the grade, framing and aspect ratio of its corresponding texted shot:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AllTtextlessMustMatchTheGradeFramingAndAspectRatioOfItsCorrespondingTextedShot")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTtextlessMustMatchTheGradeFramingAndAspectRatioOfItsCorrespondingTextedShot"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+      <td class="section-detail">&nbsp;All textless must match the grade, framing and aspect ratio of its corresponding texted shot:</td>
+	  <td>&nbsp;
 	
-	  <td >
-		   <table style="width:100%" cellspacing="0">
-		      <tr>
-			      <td  style="width:70%;">&nbsp;Audio Bit Depth / Rate:</td>
-				  <td  style="width:30%">&nbsp;
-						  
-				   <%
-						  If Not IsNull(rsChecklistWildBunch.Fields("AudioBitDepthOrRate")) Then
-						   Response.Write  rsChecklistWildBunch.Fields("AudioBitDepthOrRate") 
-						  End If
-					 %>
-				  
-				  </td>
-	   
-			   </tr>
-	  	   </table>
-		  </td>
-	   
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AllTtextlessMustMatchTheGradeFramingAndAspectRatioOfItsCorrespondingTextedShot")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTtextlessMustMatchTheGradeFramingAndAspectRatioOfItsCorrespondingTextedShot"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
+	 <td  class="section-detail">&nbsp;Audio Bit Depth / Rate:</td>
+	  <td >&nbsp;
+			  
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AudioBitDepthOrRate")) Then
+			   Response.Write  rsChecklistWildBunch.Fields("AudioBitDepthOrRate") 
+			  End If
+		 %>
 	  
-  
+	  </td>
   
   </tr>
   
     <tr>
     
-	 <td>
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:75%;">&nbsp;All textless covers must be the same timing as the corresponding texted shot:</td>
-					  <td style="width:25%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("AllTextlessCoversMustBeTheSameTimingAsTheCorrespondingTextedShot")) Then
-							   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTextlessCoversMustBeTheSameTimingAsTheCorrespondingTextedShot"), "Yes", "No") 
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+	<td class="section-detail">&nbsp;All textless covers must be the same timing as the corresponding texted shot:</td>
+	  <td >&nbsp;
 	
-	 <td>
-	   
-		    <table style="width:100%" cellspacing="0">
-			   <tr>
-			      <td style="width:70%;">&nbsp;Is Audio Discrete:</td>
-					  <td style="width:30%">&nbsp;
-					
-					   <%
-							  If Not IsNull(rsChecklistWildBunch.Fields("IsAudioDiscreate")) Then
-							   Response.Write  rsChecklistWildBunch.Fields("IsAudioDiscreate")
-							  End If
-						 %>
-					  </td>
-			   </tr>
-		
-			</table>
-	   </td>
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("AllTextlessCoversMustBeTheSameTimingAsTheCorrespondingTextedShot")) Then
+			   Response.Write  IIf(rsChecklistWildBunch.Fields("AllTextlessCoversMustBeTheSameTimingAsTheCorrespondingTextedShot"), "Yes", "No") 
+			  End If
+		 %>
+	  </td>
+	
+	<td class="section-detail">&nbsp;Is Audio Discrete:</td>
+	  <td >&nbsp;
+	
+	   <%
+			  If Not IsNull(rsChecklistWildBunch.Fields("IsAudioDiscreate")) Then
+			   Response.Write  rsChecklistWildBunch.Fields("IsAudioDiscreate")
+			  End If
+		 %>
+	  </td>
 	
   
   </tr>
