@@ -298,8 +298,8 @@ width:100px
     
 <table width="100%" border="1" cellspacing="0" cellpadding="0"  >
   <tr>
-    <td  class="header" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
-	  OVERALL COMMENTS
+    <td   class="section-detail" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
+	  &nbsp;Overall Comments
     </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
 	<!--
@@ -308,8 +308,8 @@ width:100px
     </td>
 	-->
 	
-    <td class="header" >
-      AUDIO COMMENTS / CORRECTIVE ACTIONS
+    <td  class="section-detail" >
+      &nbsp;Audio Comments / Corrective Actions
     </td>
 	
 	<!--
@@ -318,8 +318,8 @@ width:100px
     </td>
 	-->
 	
-	 <td class="header" >
-      VIDEO COMMENTS / CORRECTIVE ACTIONS
+	 <td  class="section-detail" >
+      &nbsp;Video Comments / Corrective Actions
     </td>
 	
     <%End If%>
@@ -477,11 +477,10 @@ do while not rsBVMastLog.EOF or j=1
 </table>
 
 
-<div class="div-frame-border">
-  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
    <%if rsHeader.Fields("GradingScale") = 3 then %>
     <tr> 
-      <td class="blackSquare" style="font-weight:bold;text-align:center;">
+      <td class="section-header">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
 	  <span>1=Pass&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>2=Referral&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -491,7 +490,7 @@ do while not rsBVMastLog.EOF or j=1
     <%end if%>
     <%If rsHeader.Fields("GradingScale") = 4 then %>
     <tr> 
-	  <td class="blackSquare" style="font-weight:bold;text-align:center;">
+	  <tdclass="section-header">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
 	  <span>1=Standard/Non Detectable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>2=Acceptable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -502,7 +501,7 @@ do while not rsBVMastLog.EOF or j=1
     <%end if%>
     <%If rsHeader.Fields("GradingScale") = 5 then %>
     <tr> 
-	  <td class="blackSquare" style="font-weight:bold;text-align:center;">
+	  <td class="section-header">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
 	  <span>1=Severe Fail &nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>2=Fail / Refer &nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -514,41 +513,36 @@ do while not rsBVMastLog.EOF or j=1
     <%end if%>
 </table>
 
+<p></p>
 
-</div>
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+	  <tr>
+		<td class="section-header">Fault Log</td>
+	  </tr>
+  </table>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-
-<div class="div-frame-border-2">
+<p></p>
      
  
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
      <tr>
       <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="1">
-		  <tr>
-			  <td class="left_right_top_border header"  colspan="7">
-			   FAULT LOG
-			  </td>
-	     <tr>
+        <table width="100%" border="1" cellspacing="0" cellpadding="1">
+		  
           <tr> 
 		  <!--
 		    <% If itemNumberCount >  0 Then %>
-	           <td width="4%" align="center" class="left_top_border"><b>Item No.</b></td>
+	           <td width="4%" align="center" class="section-detail"><b>Item No.</b></td>
 		   <% End If %>
 		   -->
 			
-             <td width="9%" align="center" class="left_top_border"><b>Time Code</b></td>
-            <td width="6%" align="center" class="left_top_border"><b>Type</b></td>
-            <td width="64%" align="center" class="left_top_border"><b>Fault Description</b></td>
-            <td width="3%" align="center" class="left_top_border"><b>Grade</b></td>
-			<td width="8%" align="center" class="left_top_border" ><b>Item Duration</b></td>
-			<td width="7%" align="center" class="left_top_border"><b>Sector</b></td>
-		     <td width="3%" align="center" class="left_right_top_border" ><b>Signed Off</b></td>
+             <td width="9%" align="center" class="section-detail"><b>Time Code</b></td>
+            <td width="6%" align="center" class="section-detail"><b>Type</b></td>
+            <td width="64%" align="center" class="section-detail"><b>Fault Description</b></td>
+            <td width="3%" align="center" class="section-detail"><b>Grade</b></td>
+			<td width="8%" align="center" class="section-detail"><b>Item Duration</b></td>
+			<td width="7%" align="center" class="section-detail"><b>Sector</b></td>
+		     <td width="3%" align="center" class="section-detail" ><b>Signed Off</b></td>
 			
           </tr>
           <% nTotalLines = 0
@@ -570,14 +564,14 @@ do while not rsBVMastLog.EOF or j=1
           <tr>
 		    <!--
 		     <% If itemNumberCount >  0 Then %>
-		  	    <td width="4%" align="center" class="left_top_border"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_num"))%>&nbsp;</td>
+		  	    <td width="4%" align="center" ><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_num"))%>&nbsp;</td>
 			<% End If %>
 			-->
 			
-            <td  align="center" class="left_top_border">&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Time_Code"))%>&nbsp;</td>
+            <td  align="center" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Time_Code"))%>&nbsp;</td>
 			
 			
-            <td  align="center" class="left_top_border">&nbsp;
+            <td  align="center" >&nbsp;
 			<%
 					   			   
 			   If rsBVMastLog.EOF = False Then
@@ -602,10 +596,10 @@ do while not rsBVMastLog.EOF or j=1
 			
 			
 			
-            <td  align="left" class="left_top_border">&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%>&nbsp;</td>
-            <td  align="center" class="left_top_border">&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade"))%>&nbsp;</td>
-			<td  align="center" class="left_top_border">&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%>&nbsp;</td>
-            <td  align="center" class="left_top_border">&nbsp;
+            <td  align="left" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%>&nbsp;</td>
+            <td  align="center" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade"))%>&nbsp;</td>
+			<td  align="center" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%>&nbsp;</td>
+            <td  align="center" >&nbsp;
 			<%
 			   If rsBVMastLog.EOF = False Then
 
@@ -620,7 +614,7 @@ do while not rsBVMastLog.EOF or j=1
 			
 			</td>
 			
-			<td  align="center" class="left_right_top_border">&nbsp;
+			<td  align="center" >&nbsp;
 		     <%if rsBVMastLog.EOF = false then 
 				if rsBVMastLog.Fields("in_master") = -1 then
 					Response.write("Yes")
@@ -644,8 +638,6 @@ do while not rsBVMastLog.EOF or j=1
       </td>
     </tr>
   </table>
-  
-</div>
 
   
   
@@ -713,21 +705,25 @@ do while not rsTextInfo.EOF or j=1
   </table>
  -->
  
- <div class="div-frame-border-2">
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Text Log</td>
+			  </tr>
+</table>
+
+<p></p>
+ 
+
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-		   <tr>
-			  <td class="left_right_top_border header"  colspan="3">
-				TEXT LOG
-			  </td>
-	      <tr>
+        <table width="100%" border="1" cellspacing="0" cellpadding="0">
+		   
 		
           <tr height=30> 
-			<td width="64%" align="center" class="left_top_border"><b>Text</b></td>
-            <td width="13%" align="center" class="left_top_border"><b>Time Code In</b></td>
-            <td width="13%" align="center" class="left_right_top_border"><b>Time Code Out</b></td>
+			<td width="64%" align="center" class="section-detail"><b>Text</b></td>
+            <td width="13%" align="center" class="section-detail"><b>Time Code In</b></td>
+            <td width="13%" align="center" class="section-detail"><b>Time Code Out</b></td>
 
           </tr>
           <% nTotalLines = 0
@@ -747,9 +743,9 @@ do while not rsTextInfo.EOF or j=1
 			
 		  %>
           <tr>
-			<td width="4%" align="center" class="left_top_border"><%if rsTextInfo.EOF = false then Response.Write(rsTextInfo.Fields("TextInfo"))%>&nbsp</td>
-            <td width="11%" align="center" class="left_top_border"><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;</td>
-            <td width="5%" align="center" class="left_right_top_border"><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeOut"))%>&nbsp;</td>
+			<td width="4%" align="center" ><%if rsTextInfo.EOF = false then Response.Write(rsTextInfo.Fields("TextInfo"))%>&nbsp</td>
+            <td width="11%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;</td>
+            <td width="5%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeOut"))%>&nbsp;</td>
           </tr>
           <%	end if
              if rsTextInfo.EOF = false then rsTextInfo.MoveNext 
@@ -762,10 +758,7 @@ do while not rsTextInfo.EOF or j=1
       </td>
     </tr>
   </table>
- 
-
-</div>
-   
+    
   
 </div>
 <% j=0
@@ -824,16 +817,18 @@ do while not rsFaultImage.EOF or j=1
   </tr>
 </table>
 
-<div class="div-frame-border-2">
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Reference Images</td>
+			  </tr>
+		  </table>
+
+			<p></p>
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
 
-			   <tr>
-				  <td align="center" class="blackSquare" colspan="2" > 
-					<font class="txt_italic header" size="3"><b>REFERENCE IMAGES</b></font>
-				  </td>
-				</tr>
+			 
 <%
          nTotalImages = 0
              do while nTotalImages < 2
@@ -852,12 +847,21 @@ do while not rsFaultImage.EOF or j=1
 				
 	              
 %>
-
-        
-			   <tr class="txt_boldtype2 hideRow">
-					<td style="padding:20px;" align="center"  class="txt_boldtype2 left_right_bottom_border" >
-					   <div style="font-size:18px;padding:5px;"> <%=rsFaultImage.Fields("Description")%> </div> <br/>
-					  <img  width="50%" src="<%=rsFaultImage.Fields("ImagePath")%>" class="galimage" onerror="hideRow()"  /> 
+      	   <tr class="hideRow">
+					<td  align="center"   >
+						<table width="100%" border="0" cellspacing="0" cellpadding="1">
+						  <tr>
+							<td align="center" class="section-detail"> 
+							  <%=rsFaultImage.Fields("Description")%>
+							</td>
+						  </tr>
+						   <tr>
+							<td align="center">
+								<img  width="50%" src="<%=rsFaultImage.Fields("ImagePath")%>" class="galimage" onerror="hideRow()"  /> 					
+							</td>
+						  </tr>
+						  
+						</table>
 				  </td>
 			  </tr>
   
@@ -874,7 +878,7 @@ do while not rsFaultImage.EOF or j=1
  
  </table>
 
-</div>
+
 
  
 
