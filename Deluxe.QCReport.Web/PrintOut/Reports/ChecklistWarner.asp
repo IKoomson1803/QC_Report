@@ -15,7 +15,7 @@
 	  
 	   <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 			   <tr>
-			     <td class="section-header" >&nbsp;Checklist: Warner Localised VariantS&nbsp;|&nbsp;File to Spec: 
+			     <td class="section-header" >Checklist: Warner Localised VariantS&nbsp;|&nbsp;File to Spec: 
 				         <%
 							  If Not IsNull(rsChecklistWarner.Fields("IsFile")) Then
 							    Response.Write  IIf(rsChecklistWarner.Fields("IsFile"), "Yes", "No") 
@@ -32,13 +32,13 @@
    <table width="100%" border="1" cellspacing="0" cellpadding="0" >
       
    <tr>
-	   <td colspan="2"  class="section-detail">&nbsp;Video and Content:</td>
-	   <td colspan="2"  class="section-detail"4>&nbsp;Audio and Metadata</td>
+	   <td colspan="2"  class="section-detail">Video and Content:</td>
+	   <td colspan="2"  class="section-detail"4>Audio and Metadata</td>
   </tr>
    
     <tr>
-     <td class="section-detail">&nbsp;Was OV report supplied:</td>
-	  <td>&nbsp;
+     <td class="section-detail" >Was OV report supplied:</td>
+	  <td class="section-text" >
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("WasOVReportSupplied")) Then
@@ -47,8 +47,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail">&nbsp;Is Audio on file OV:</td>
-	  <td>&nbsp;
+	  <td  <td class="section-detail" >Is Audio on file OV:</td>
+	  <td class="section-text" >
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("IsAudioOnFileOV")) Then
@@ -62,8 +62,8 @@
    
    
     <tr>
-     <td class="section-detail">&nbsp;Were localised text documents supplied:</td>
-	  <td>&nbsp;
+     <td class="section-detail" >Were localised text documents supplied:</td>
+	  <td class="section-text" >
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("WereAllLocalisedTextDocumentsSupplied")) Then
@@ -72,8 +72,8 @@
 		 %>
 	  </td>
 	   
-	    <td  class="section-detail">&nbsp;Does the audio channel layout match the original versions (with no M&E):</td>
-		  <td>&nbsp;
+	    <td  <td class="section-detail" >Does the audio channel layout match the original versions (with no M&E):</td>
+		  <td class="section-text" >
 				  
 		   <%
 				  If Not IsNull(rsChecklistWarner.Fields("DoesTheAudioChannelLayoutMatchOriginalVersionsWithNoMandE")) Then
@@ -106,8 +106,8 @@
   
   
    <tr>
-    <td class="section-detail">&nbsp;Was OV report used to create the language variant report & time codes / faults copied:</td>
-	  <td>&nbsp;
+    <td class="section-detail" >Was OV report used to create the language variant report & time codes / faults copied:</td>
+	  <td class="section-text" >
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("WasOVReportUsedToCreateTheLanguageVariantReportAndTimeCodesOrFaultsCopied")) Then
@@ -116,8 +116,8 @@
 		 %>
 	  </td>
 	   
-	 <td class="section-detail" >&nbsp;Does the audio language match the original versions:</td>
-	  <td>&nbsp;
+	 <td <td class="section-detail" >Does the audio language match the original versions:</td>
+	  <td class="section-text" >
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("DoesTheAudioLanguageMatchOriginalVersions")) Then
@@ -130,8 +130,8 @@
   </tr>
   
    <tr>
-     <td class="section-detail" >&nbsp;Do OV Timecodes and approved faults match the created language variant:</td>
-	  <td >&nbsp;
+     <td <td class="section-detail" >Do OV Timecodes and approved faults match the created language variant:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("DoOVTimecodesAndApprovedFaultsMatchTheCreatedLanguageVariant")) Then
@@ -140,8 +140,8 @@
 		 %>
 	  </td>
 	   
-	   <td  class="section-detail" >&nbsp;Is There M&E on File:</td>
-	  <td  >&nbsp;
+	   <td  <td class="section-detail" >Is There M&E on File:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("IsThereMAndEOnFile")) Then
@@ -154,8 +154,8 @@
   </tr>
   
    <tr>
-      <td class="section-detail" >&nbsp;Has the slate been checked for Text content / Timings / Audio config:</td>
-	  <td >&nbsp;
+      <td <td class="section-detail" >Has the slate been checked for Text content / Timings / Audio config:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("HasTheSlateBeenCheckedForTextContentOrTimingsOrAudioConfig")) Then
@@ -164,8 +164,8 @@
 		 %>
 	  </td>
 	  
-	  <td  class="section-detail" >&nbsp;Is 5.1 audio config L, R, C, LFE, Ls, Rs:</td>
-	  <td  >&nbsp;
+	  <td  <td class="section-detail" >Is 5.1 audio config L, R, C, LFE, Ls, Rs:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("Is_5_1_AudioConfig_L_R_C_LFE_Ls_Rs")) Then
@@ -178,8 +178,8 @@
   </tr>
   
    <tr>
-      <td class="section-detail" >&nbsp;Has the Aspect Ratio been checked on the slate and programme:</td>
-	  <td >&nbsp;
+      <td <td class="section-detail" >Has the Aspect Ratio been checked on the slate and programme:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("HasTheAspectRatioBeenCheckedOnTheSlateAndProgramme")) Then
@@ -188,8 +188,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail" >&nbsp;Audio / Video Sync Checked / Logged:</td>
-	  <td  >&nbsp;
+	  <td  <td class="section-detail" >Audio / Video Sync Checked / Logged:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("AudioOrVideoSyncCheckedOrLogged")) Then
@@ -203,8 +203,8 @@
   </tr>
   
    <tr>
-    <td class="section-detail" >&nbsp;Is created language variant File Normal Video Range:</td>
-	  <td >&nbsp;
+    <td <td class="section-detail" >Is created language variant File Normal Video Range:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("IsCreatedLanguageVariantFileNormalVideoRange")) Then
@@ -213,8 +213,8 @@
 		 %>
 	  </td>
 	    
-	<td  class="section-detail" >&nbsp;Has all File Metadata been checked:</td>
-	  <td  >&nbsp;
+	<td  <td class="section-detail" >Has all File Metadata been checked:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("HasAllFileMetadatBeenChecked")) Then
@@ -228,8 +228,8 @@
   
   
    <tr>
-     <td class="section-detail" >&nbsp;Are all inserts Normal Video Range:</td>
-	  <td >&nbsp;
+     <td <td class="section-detail" >Are all inserts Normal Video Range:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("AreAllInsertsNormalVideoRange")) Then
@@ -238,8 +238,8 @@
 		 %>
 	  </td>
 	   
-	 <td  class="section-detail" >&nbsp;File format:</td>
-	  <td  >&nbsp;
+	 <td  <td class="section-detail" >File format:</td>
+	  <td class="section-text" >
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("FileFormat")) Then
@@ -253,8 +253,8 @@
   
    <tr>
   
-	<td class="section-detail" >&nbsp;Have all localised inserts been checked for text content / Graphics / Spelling / Grammar:</td>
-	  <td >&nbsp;
+	<td <td class="section-detail" >Have all localised inserts been checked for text content / Graphics / Spelling / Grammar:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("HaveAllLocalisedInsertsBeenCheckedForTextContentOrGraphicsOrSpellingOrGrammar")) Then
@@ -263,8 +263,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail" >&nbsp;Codec:</td>
-	  <td  >&nbsp;
+	  <td  <td class="section-detail" >Codec:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("Codec")) Then
@@ -277,8 +277,8 @@
   </tr>
   
    <tr>
-     <td class="section-detail" >&nbsp;First and last cut been checked / logged as reference:</td>
-	  <td >&nbsp;
+     <td <td class="section-detail" >First and last cut been checked / logged as reference:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("FirstAndLastCutBeenCheckedOrloggedAsReference")) Then
@@ -287,8 +287,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail" >&nbsp;Standard / Frame rate:</td>
-	  <td  >&nbsp;
+	  <td  <td class="section-detail" >Standard / Frame rate:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("StandardOrFrameRate")) Then
@@ -301,8 +301,8 @@
   </tr>
   
    <tr>
-     <td class="section-detail" >&nbsp;Is Dub Card Normal Video Range:</td>
-	  <td >&nbsp;
+     <td <td class="section-detail" >Is Dub Card Normal Video Range:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("IsDubCardNormalVideoRange")) Then
@@ -311,8 +311,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail" >&nbsp;Resolution:</td>
-	  <td  >&nbsp;
+	  <td  class="section-detail" >Resolution:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("Resolution")) Then
@@ -327,8 +327,8 @@
   
    <tr>
     
-	    <td class="section-detail" >&nbsp;Has the Dub Card been checked for text content / Graphics / Spelling / Grammar:</td>
-		  <td >&nbsp;
+	    <td  class="section-detail" >Has the Dub Card been checked for text content / Graphics / Spelling / Grammar:</td>
+		  <td class="section-text">
 		
 		   <%
 				  If Not IsNull(rsChecklistWarner.Fields("HasTheDubCardBbeenCheckedForTextContentOrGraphicsOrSpellingOrgrammar")) Then
@@ -337,8 +337,8 @@
 			 %>
 		  </td>
 	   
-	      <td  class="section-detail" >&nbsp;Progressive:</td>
-		  <td  >&nbsp;
+	      <td  class="section-detail" >Progressive:</td>
+		  <td class="section-text" >
 				  
 		   <%
 				  If Not IsNull(rsChecklistWarner.Fields("Progressive")) Then
@@ -352,8 +352,8 @@
   </tr>
   
    <tr>
-         <td class="section-detail" >&nbsp;Has all texted content been listed in Localised language in report and checked:</td>
-		  <td >&nbsp;
+         <td  class="section-detail" >Has all texted content been listed in Localised language in report and checked:</td>
+		  <td class="section-text">
 		
 		   <%
 				  If Not IsNull(rsChecklistWarner.Fields("HasAllTextedContentBeenListedInLocalisedLanguageInReportAndChecked")) Then
@@ -362,8 +362,8 @@
 			 %>
 		  </td>
 	   
-	   <td  class="section-detail" >&nbsp;CLAP Present:</td>
-	  <td  >&nbsp;
+	   <td  class="section-detail" >CLAP Present:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("CLAPPresent")) Then
@@ -376,8 +376,8 @@
   </tr>
   
    <tr>
-      <td class="section-detail" >&nbsp;Is the New Warner Bros Blue Shield Logo Present Top / Tail:</td>
-	  <td >&nbsp;
+      <td  class="section-detail" >Is the New Warner Bros Blue Shield Logo Present Top / Tail:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("IsTheNewWarnerBrosBlueShieldLogoPresentTopOrTail")) Then
@@ -386,8 +386,8 @@
 		 %>
 	  </td>
 	   	   
-	 <td  class="section-detail" >&nbsp;Audio Bit Depth / Rate:</td>
-	  <td  >&nbsp;
+	 <td  class="section-detail" >Audio Bit Depth / Rate:</td>
+	  <td class="section-text" >
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("AudioBitDepthOrRate")) Then
@@ -402,8 +402,8 @@
   
   <tr>
   
-   <td  class="section-detail" >&nbsp;Is Audio Discrete:</td>
-	<td  >&nbsp;
+   <td  class="section-detail" >Is Audio Discrete:</td>
+	<td class="section-text" >
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("IsAudioDiscreate")) Then
@@ -413,8 +413,8 @@
 	  
 	  </td>
 		  
-     <td class="section-detail" >&nbsp;</td>
-	 <td >&nbsp;</td>
+     <td  class="section-detail" ></td>
+	 <td ></td>
 	 
 		  
   

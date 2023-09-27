@@ -16,7 +16,7 @@ End Function
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 			   <tr>
-			     <td class="section-header" >&nbsp;Checklist: Lionsgate&nbsp;|&nbsp;File to Spec: 
+			     <td class="section-header" >Checklist: Lionsgate&nbsp;|&nbsp;File to Spec: 
 				         <%
 							 If Not IsNull(rsChecklistLionsGate.Fields("IsFile")) Then
 							    Response.Write  IIf(rsChecklistLionsGate.Fields("IsFile"), "Yes", "No") 
@@ -33,12 +33,12 @@ End Function
   <table width="100%" border="1" cellspacing="0" cellpadding="0" >
      
   <tr>
-	   <td colspan="2"  class="section-detail">&nbsp;Video and Content</td>
-	   <td colspan="2"  class="section-detail">&nbsp;Audio and Metadata</td>
+	   <td colspan="2"  class="section-detail">Video and Content</td>
+	   <td colspan="2"  class="section-detail">Audio and Metadata</td>
   </tr>
   <tr>
-     <td class="section-detail" >&nbsp;Is the file Full Range Video:</td>
-	  <td >&nbsp;
+     <td class="section-detail" >Is the file Full Range Video:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("IsTheFileFullRangeVideo")) Then
@@ -47,8 +47,8 @@ End Function
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail" >&nbsp;Is 2.0 Stereo TV full mix present and QC'd:</td>
-	  <td  >&nbsp;
+	  <td  class="section-detail" >Is 2.0 Stereo TV full mix present and QC'd:</td>
+	  <td  class="section-text">
 			  
 		  <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("Is_2_0_StereoTVFullMixPresentAndQCeD")) Then
@@ -62,8 +62,8 @@ End Function
   </tr>
  <tr>
  
-    <td class="section-detail" >&nbsp;Are the Video levels correct on the Head-build:</td>
-	  <td >&nbsp;
+    <td class="section-detail" >Are the Video levels correct on the Head-build:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("AreTheVideoLevelsCorrectOnTheHeadBuild")) Then
@@ -72,8 +72,8 @@ End Function
 		 %>
 	  </td>
 	  
-	   <td  class="section-detail" >&nbsp;Has the 5.1 mix been spot checked:</td>
-	  <td  >&nbsp;
+	   <td  class="section-detail" >Has the 5.1 mix been spot checked:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("HasThe_5_1_MixBeenSpotChecked")) Then
@@ -87,8 +87,8 @@ End Function
   </tr>
 
   <tr>
-      <td class="section-detail" >&nbsp;Are the Video levels correct on the content:</td>
-	  <td >&nbsp;
+      <td class="section-detail" >Are the Video levels correct on the content:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("AreTheVideoLevelsCorrectOnTheContent")) Then
@@ -97,8 +97,8 @@ End Function
 		 %>
 	  </td>
 	   
-	 <td  class="section-detail" >&nbsp;Has all File Metadata been checked:</td>
-	  <td  >&nbsp;
+	 <td  class="section-detail" >Has all File Metadata been checked:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("HasAllFileMetadataBeenChecked")) Then
@@ -111,8 +111,8 @@ End Function
  
   </tr>
   <tr>
-     <td class="section-detail" >&nbsp;Has the Aspect Ratio been checked on the slate and programme:</td>
-	  <td >&nbsp;
+     <td class="section-detail" >Has the Aspect Ratio been checked on the slate and programme:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("HasTheAspectRatioBeenCheckedOTheSlateAndProgramme")) Then
@@ -121,9 +121,8 @@ End Function
 		 %>
 	  </td>
 	   
-	 <td  class="section-detail" >&nbsp;File format / Codec:</td>
-	  <td  >&nbsp;
-			  
+	 <td  class="section-detail" >File format / Codec:</td>
+	  <td  class="section-text">
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("FileFormatOrCodec")) Then
 			   Response.Write  rsChecklistLionsGate.Fields("FileFormatOrCodec") 
@@ -135,19 +134,19 @@ End Function
  
   </tr>
   <tr>
-     <td class="section-detail" >&nbsp;Is the info on the slate correct:</td>
-	  <td >&nbsp;
+     <td class="section-detail" >Is the info on the slate correct:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("IsTheInfoOnTheSlateCcorrect")) Then
 			   Response.Write  IIf(rsChecklistLionsGate.Fields("IsTheInfoOnTheSlateCcorrect"), "Yes", "No") 
 			  End If
 		 %>
-	  </td>>
+	  </td>
 	   
 	   
-	  <td  class="section-detail" >&nbsp;Standard / Frame rate:</td>
-	  <td  >&nbsp;
+	  <td  class="section-detail"> Standard / Frame rate:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("StandardOrFrameRate")) Then
@@ -160,8 +159,8 @@ End Function
  
   </tr>
   <tr>
-      <td class="section-detail" >&nbsp;Is the Lionsgate Celestial logo added / present:</td>
-	  <td >&nbsp;
+      <td class="section-detail" >Is the Lionsgate Celestial logo added / present:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("IsTheLionsgateCeletiallLogoAddedOrPresent")) Then
@@ -170,8 +169,8 @@ End Function
 		 %>
 	  </td>
 	 
-  <td  class="section-detail" >&nbsp;Resolution:</td>
-  <td  >&nbsp;
+  <td  class="section-detail" >Resolution:</td>
+  <td  class="section-text">
 		  
    <%
 		  If Not IsNull(rsChecklistLionsGate.Fields("Resolution")) Then
@@ -183,8 +182,8 @@ End Function
 
   </tr>
   <tr>
-     <td class="section-detail" >&nbsp;Is all added text within 16:9 90% title safe:</td>
-	  <td >&nbsp;
+     <td class="section-detail" >Is all added text within 16:9 90% title safe:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("IsAllAddedTextWithin16_9NinetyPercentTitleSafe")) Then
@@ -193,8 +192,8 @@ End Function
 		 %>
 	  </td>
 	   
-	   <td  class="section-detail" >&nbsp;Progressive:</td>
-	  <td  >&nbsp;
+	   <td  class="section-detail" >Progressive:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("Progressive")) Then
@@ -207,8 +206,8 @@ End Function
  
   </tr>
   <tr>
-   <td class="section-detail" >&nbsp;Has all added text been listed (including plot significant featured text):</td>
-	  <td >&nbsp;
+   <td class="section-detail" >Has all added text been listed (including plot significant featured text):</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("HasAllAddedTextBeenListedIncludingPlotSignificantFeaturedText")) Then
@@ -216,8 +215,8 @@ End Function
 			  End If
 		 %>
 	  </td>
-	  <td  class="section-detail" >&nbsp;CLAP Present:</td>
-	  <td  >&nbsp;
+	  <td  class="section-detail" >CLAP Present:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("CLAPPresent")) Then
@@ -230,8 +229,8 @@ End Function
  
   </tr>
   <tr>
-     <td class="section-detail" >&nbsp;Are there textless and clean graphic covers after feature for all texted shots:</td>
-	  <td >&nbsp;
+     <td class="section-detail" >Are there textless and clean graphic covers after feature for all texted shots:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("AreThereTextlessAndCleanGraphicCoversAfterFeatureForAllTextedShots")) Then
@@ -240,7 +239,7 @@ End Function
 		 %>
 	  </td>
 	   
-	   <td class="section-detail" >&nbsp;Flashing images present - (Images likely to cause a seizure):</td>
+	   <td class="section-detail" >Flashing images present - (Images likely to cause a seizure):</td>
 	  <td >&nbsp;
 	
 	   <%
@@ -256,8 +255,8 @@ End Function
   
   <tr>
    
-	   <td  class="section-detail" >&nbsp;Audio Bit Depth / Rate:</td>
-	  <td  >&nbsp;
+	   <td  class="section-detail" >Audio Bit Depth / Rate:</td>
+	  <td  class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("AudioBitDepthOrRate")) Then
@@ -265,8 +264,8 @@ End Function
 			  End If
 		 %>
 	  
-	 <td  class="section-detail" >&nbsp;Is Audio Discrete:</td>
-				  <td  >&nbsp;
+	 <td  class="section-detail" >Is Audio Discrete:</td>
+				  <td  class="section-text">
 						  
 				   <%
 						  If Not IsNull(rsChecklistLionsGate.Fields("IsAudioDiscreate")) Then

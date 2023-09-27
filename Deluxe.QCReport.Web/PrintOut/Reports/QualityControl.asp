@@ -62,8 +62,7 @@ text-align:center;
 background-color: gray;
 font-size: 12px;
 font-weight: bold;
-padding-left: 3px;
-padding-right: 3px;
+ padding: 3px 3px 3px 3px;
 }
 
 .section-text{
@@ -71,8 +70,7 @@ color: #000000;
 font-family: Tahoma;
 font-size: 8pt;
 font-weight: bold;
-padding-left: 3px;
-padding-right: 3px;
+ padding: 3px 3px 3px 3px;
 }
 
 .checklist-data{
@@ -507,13 +505,13 @@ do while not rsBVMastLog.EOF or j=1
 		   <% End If %>
 		   -->
 			
-             <td width="9%" align="center" class="section-detail"><b>Time Code</b></td>
-            <td width="6%" align="center" class="section-detail"><b>Type</b></td>
-            <td width="64%" align="center" class="section-detail"><b>Fault Description</b></td>
-            <td width="3%" align="center" class="section-detail"><b>Grade</b></td>
-			<td width="8%" align="center" class="section-detail"><b>Item Duration</b></td>
-			<td width="7%" align="center" class="section-detail"><b>Sector</b></td>
-		     <td width="3%" align="center" class="section-detail" ><b>Signed Off</b></td>
+             <td width="9%" align="center" class="section-detail">Time Code</td>
+            <td width="6%" align="center" class="section-detail">Type</td>
+            <td width="64%" align="center" class="section-detail">Fault Description</td>
+            <td width="3%" align="center" class="section-detail">Grade</td>
+			<td width="8%" align="center" class="section-detail">Item Duration</td>
+			<td width="7%" align="center" class="section-detail">Sector</td>
+		     <td width="3%" align="center" class="section-detail" >Signed Off</td>
 			
           </tr>
           <% nTotalLines = 0
@@ -539,10 +537,10 @@ do while not rsBVMastLog.EOF or j=1
 			<% End If %>
 			-->
 			
-            <td  align="center" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Time_Code"))%>&nbsp;</td>
+            <td  align="center" class="section-text" ><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Time_Code"))%>&nbsp;</td>
 			
 			
-            <td  align="center" >&nbsp;
+            <td  align="center" class="section-text">
 			<%
 					   			   
 			   If rsBVMastLog.EOF = False Then
@@ -567,10 +565,10 @@ do while not rsBVMastLog.EOF or j=1
 			
 			
 			
-            <td  align="left" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%>&nbsp;</td>
-            <td  align="center" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade"))%>&nbsp;</td>
-			<td  align="center" >&nbsp;<%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%>&nbsp;</td>
-            <td  align="center" >&nbsp;
+            <td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%>&nbsp;</td>
+            <td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade"))%>&nbsp;</td>
+			<td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%>&nbsp;</td>
+            <td  align="center" class="section-text">
 			<%
 			   If rsBVMastLog.EOF = False Then
 
@@ -585,7 +583,7 @@ do while not rsBVMastLog.EOF or j=1
 			
 			</td>
 			
-			<td  align="center" >&nbsp;
+			<td  align="center" class="section-text">
 		     <%if rsBVMastLog.EOF = false then 
 				if rsBVMastLog.Fields("in_master") = -1 then
 					Response.write("Yes")
@@ -600,10 +598,7 @@ do while not rsBVMastLog.EOF or j=1
           <%	end if
              if rsBVMastLog.EOF = false then rsBVMastLog.MoveNext 
              loop%>
-          
-		  
-		  
-		  
+    	  
 		  
         </table>
       </td>

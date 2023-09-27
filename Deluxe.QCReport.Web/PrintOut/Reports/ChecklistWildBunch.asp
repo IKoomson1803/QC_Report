@@ -21,8 +21,8 @@
   <table width="100%" border="1" cellspacing="0" cellpadding="0" >
   
    <tr>
-	   <td colspan="2"  class="section-detail" style="font-weight:bold;text-align:center;width:50%">&nbsp;Video and Content:</td>
-	   <td colspan="2"  class="section-detail" style="font-weight:bold;text-align:center;width:50%">&nbsp;Audio and Metadata</td>
+	   <td colspan="2"  class="section-detail" >&nbsp;Video and Content:</td>
+	   <td colspan="2"  class="section-detail" >&nbsp;Audio and Metadata</td>
   </tr>
   
   <tr>

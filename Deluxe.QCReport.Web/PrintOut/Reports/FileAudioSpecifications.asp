@@ -88,17 +88,17 @@ End Function
 						 <td  width="100%"  border="0"  height="100%" valign="top"  >
 						   <table width="100%" border="1" cellspacing="0" cellpadding="2" height="100%" >
 							    <tr>
-									<td class="section-detail" height="17px" width="6%" >&nbsp;Channel</td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;Track</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;Language</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;In Phase</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;Discrete</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;LUFS</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;Tone</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;Average db</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;Peak db</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;True Peak</b></td>
-									<td class="section-detail" height="17px" width="9%" ><b>&nbsp;Full / Spot</b></td>
+									<td class="section-detail" height="17px" width="6%" >Channel</td>
+									<td class="section-detail" height="17px" width="9%" >Track</td>
+									<td class="section-detail" height="17px" width="9%" >Language></td>
+									<td class="section-detail" height="17px" width="9%" >In Phase</td>
+									<td class="section-detail" height="17px" width="9%" >Discrete</td>
+									<td class="section-detail" height="17px" width="9%" >LUFS</td>
+									<td class="section-detail" height="17px" width="9%" >Tone</td>
+									<td class="section-detail" height="17px" width="9%" >Average db</td>
+									<td class="section-detail" height="17px" width="9%" >Peak db</td>
+									<td class="section-detail" height="17px" width="9%" >True Peak</td>
+									<td class="section-detail" height="17px" width="9%" >Full / Spot</td>
 							  </tr>
 							  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
 						         <!--#include file="AudioSpecifications_1_2.asp" -->
