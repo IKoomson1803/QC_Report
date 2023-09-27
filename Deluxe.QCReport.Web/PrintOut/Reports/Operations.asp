@@ -14,46 +14,46 @@
 	  
 	    <tr>
 	     
-		  <td class="section-detail">&nbsp;File Record / Encode Date:</td>
-		  <td>&nbsp; <b><%if isnull(rsHeader.Fields("Rec_Date")) then
+		  <td class="section-detail">File Record / Encode Date:</td>
+		  <td class="section-text"><%if isnull(rsHeader.Fields("Rec_Date")) then
 									Response.Write(rsHeader.Fields("Rec_Date"))
 								  else
 									Response.Write(replace(rsHeader.Fields("Rec_Date"), "TBD", ""))
 		
-						  end if%></b>
+						  end if%>>
 		 </td>
 		 
-	    <td class="section-detail">&nbsp;Record Facility: </td>
-		<td>&nbsp;<b><%=rsHeader.Fields("Rec_fac")%></b></td>
+	    <td class="section-detail" >Record Facility: </td>
+		<td class="section-text"><%=rsHeader.Fields("Rec_fac")%></td>
 		
-	    <td class="section-detail">&nbsp;Source Standard:</td>
-		<td>&nbsp; <b><%=rsHeader.Fields("Src_standard")%></b></td>
+	    <td class="section-detail" >Source Standard:</td>
+		<td class="section-text"><%=rsHeader.Fields("Src_standard")%></td>
 		
-		<td class="section-detail">&nbsp;Source Format:</td>
-		<td>&nbsp; <b><%=rsHeader.Fields("src_format")%></b></td>
+		<td class="section-detail" >Source Format:</td>
+		<td class="section-text" ><%=rsHeader.Fields("src_format")%></td>
 		
-        <td class="section-detail">&nbsp;Source Desc:</td>
-		<td>&nbsp; <b><%=rsHeader.Fields("src_desc")%></b></td>
+        <td class="section-detail" >Source Desc:</td>
+		<td class="section-text" ><%=rsHeader.Fields("src_desc")%></td>
 		
 		
 	   	  
 	  <%  If sAssetType = "Tape" Then %>
 		   <tr>
-			<td class="section-detail">&nbsp;Record VTR:</td>
-            <td> &nbsp;<b><%=rsHeader.Fields("Rec_Vtr")%></b></td>
+			<td class="section-detail" >Record VTR:</td>
+            <td class="section-text" ><%=rsHeader.Fields("Rec_Vtr")%></td>
 	 		   
-		   <td class="section-detail">&nbsp;Stock Mfg:</td> 	
-            <td> &nbsp; <b><%=rsHeader.Fields("Stock_mfg")%></b></td>
+		   <td class="section-detail" >Stock Mfg:</td> 	
+           <td class="section-text" ><%=rsHeader.Fields("Stock_mfg")%></td>
 		   
 		   
-		   <td class="section-detail">&nbsp;Stock Batch #:</td>	
-             <td> <b>&nbsp;<%=rsHeader.Fields("Stock_Batch")%></b></td>
+		   <td class="section-detail" >Stock Batch #:</td>	
+           <td class="section-text" ><%=rsHeader.Fields("Stock_Batch")%></td>
 	       
 		   
-		   <td class="section-detail">&nbsp;</td>
+		   <td class="section-detail" ></td>
 		   <td >&nbsp;</td>
 		   
-		   <td class="section-detail">&nbsp;</td>
+		   <td class="section-detail" ></td>
 		   <td >&nbsp;</td>
 		   
 		   </tr>
@@ -63,15 +63,15 @@
 	         <%
 				  If rsHDRMetadata.BOF  = False Then
 						If rsHDRMetadata.Fields("NotRequired") = False Then	
-						   Response.Write  "<td class='section-detail'>&nbsp;Xml Creation Date: </td>" & _	
-						   "<td>&nbsp;<b>" & rsHDRMetadata.Fields("XmlCreationDate") & "</b></td>" 						    
+						   Response.Write  "<td class='section-detail'>Xml Creation Date: </td>" & _	
+						   "<td class='section-text'>" & rsHDRMetadata.Fields("XmlCreationDate") & "</td>" 						    
 						End If	
 				  End If		 		
 				%>	
 	   
 	   
-	         <td  class="section-detail">&nbsp;Additional Info:</td>
-			 <td colspan="9">&nbsp;<b><%=rsHeader.Fields("addinfo")%></b></td>
+	         <td  class="section-detail" >Additional Info:</td>
+			 <td colspan="9" class="section-text"><%=rsHeader.Fields("addinfo")%></td>
 	   </tr>
 	     
       </table>
@@ -94,37 +94,37 @@
 					  
 			  <%  If Not IsNull(rsHeader.Fields("FullName")) Then  %>
 			   <tr>
-				 <td class="section-detail">&nbsp;QC Date:</td> 
-				 <td>&nbsp;<b><%=rsHeader.Fields("QC_Date")%></b></td>
+				 <td class="section-detail" >QC Date:</td> 
+				 <td class="section-text" ><%=rsHeader.Fields("QC_Date")%></td>
 				 
-				 <td class="section-detail">&nbsp;QC Operator:</td> 
-				 <td>&nbsp;<b><%=rsHeader.Fields("FullName")%></b></td> 
+				 <td class="section-detail" >QC Operator:</td> 
+				 <td class="section-text" ><%=rsHeader.Fields("FullName")%></td> 
 				 
-				 <td class="section-detail">&nbsp;QC OF: </td>
-				 <td>&nbsp;<b><%=rsHeader.Fields("Operator_Activity")%></b></td> 
+				 <td class="section-detail" >QC OF: </td>
+				 <td class="section-text" ><%=rsHeader.Fields("Operator_Activity")%></td> 
 				 
-				 <td class="section-detail">&nbsp;Revised By: </td>
-				 <td>&nbsp;<b><%=rsHeader.Fields("Revised_By")%></b></td>
+				 <td class="section-detail" >Revised By: </td>
+				 <td class="section-text" ><%=rsHeader.Fields("Revised_By")%></td>
 				 
-				<td class="section-detail">&nbsp;Revised Date: </td>
-				<td>&nbsp;<b><%=rsHeader.Fields("revised_date")%></b></td>
+				<td class="section-detail" >Revised Date: </td>
+				<td class="section-text" ><%=rsHeader.Fields("revised_date")%></td>
 				
 			 </tr>
 			 
 			 <tr>
-		  		<td class="section-detail">&nbsp;QC Player:</td>
-				<td>&nbsp;&nbsp;<b><%=rsHeader.Fields("QC_VTR")%></b></td>
+		  		<td class="section-detail" >QC Player:</td>
+				<td class="section-text"><%=rsHeader.Fields("QC_VTR")%></td>
 				
-				<td class="section-detail">&nbsp;MFR / QC Room: </td>
-				<td>&nbsp;<b><%=rsHeader.Fields("Bay_num")%></b></td>
+				<td class="section-detail" >MFR / QC Room: </td>
+				<td class="section-text" ><%=rsHeader.Fields("Bay_num")%></td>
 				
-				<td class="section-detail">&nbsp;</td>
+				<td class="section-detail" ></td>
 				<td>&nbsp;</td>
 				
-				<td class="section-detail">&nbsp;</td>
+				<td class="section-detail" ></td>
 				<td>&nbsp;</td>
 				
-				<td class="section-detail">&nbsp;</td>
+				<td class="section-detail" ></td>
 				<td>&nbsp;</td>
 		       </tr>
 			 <% End If %>
@@ -132,37 +132,37 @@
 		  <%  If Not IsNull(rsHeader.Fields("FullName2")) Then  %>
 		  
 		  <tr>
-			 <td class="section-detail">&nbsp;QC Date:</td>
-			 <td>&nbsp;<b><%=rsHeader.Fields("QC_Date_2")%></b></td>
+			 <td class="section-detail" >QC Date:</td>
+			 <td class="section-text" ><%=rsHeader.Fields("QC_Date_2")%></td>
 			 
-			 <td class="section-detail">&nbsp;QC Operator:</td>
-			 <td>&nbsp;<b><%=rsHeader.Fields("FullName2")%></b></td> 
+			 <td class="section-detail" >QC Operator:</td>
+			 <td class="section-text" ><%=rsHeader.Fields("FullName2")%></td> 
 			 
-			 <td class="section-detail">&nbsp;QC OF:</td> 
-			 <td>&nbsp;<b><%=rsHeader.Fields("Operator_2_Activity")%></b></td> 
+			 <td class="section-detail" >QC OF:</td> 
+			 <td class="section-text" ><%=rsHeader.Fields("Operator_2_Activity")%></td> 
 			 
-			 <td class="section-detail">&nbsp;Revised By:</td> 
-			 <td>&nbsp;<b><%=rsHeader.Fields("Revised_By_2")%></b></td>
+			 <td class="section-detail" >Revised By:</td> 
+			 <td class="section-text" ><%=rsHeader.Fields("Revised_By_2")%></td>
 			 
-			<td class="section-detail">&nbsp;Revised Date:</td>
-			<td>&nbsp;<b><%=rsHeader.Fields("Revised_Date_2")%></b></td>
+			<td class="section-detail" >Revised Date:</td>
+			<td class="section-text" ><%=rsHeader.Fields("Revised_Date_2")%></td>
 
 		  </tr>
 		  
 		   <tr>
-			<td class="section-detail">&nbsp;QC Player:</td>
-			<td>&nbsp;<b><%=rsHeader.Fields("QC_VTR_2")%></b></td>
+			<td class="section-detail" >QC Player:</td>
+			<td class="section-text" ><%=rsHeader.Fields("QC_VTR_2")%></td>
 			
-			<td class="section-detail">&nbsp;MFR / QC Room:</td>
-			<td>&nbsp;<b><%=rsHeader.Fields("Bay_num_2")%></b></td>
+			<td class="section-detail" >MFR / QC Room:</td>
+			<td class="section-text" ><%=rsHeader.Fields("Bay_num_2")%></td>
 			
-			<td class="section-detail">&nbsp;</td>
+			<td class="section-detail" ></td>
 			<td>&nbsp;</td>
 			
-			<td class="section-detail">&nbsp;</td>
+			<td class="section-detail" ></td>
 			<td>&nbsp;</td>
 			
-			<td class="section-detail">&nbsp;</td>
+			<td class="section-detail" ></td>
 			<td>&nbsp;</td>
 			
 		  </tr>

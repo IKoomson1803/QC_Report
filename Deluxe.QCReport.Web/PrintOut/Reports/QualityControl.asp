@@ -49,45 +49,6 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   display:none;
 }
 
-.header{
-	color:blue;
-	font-weight: bold;
-	font-size:12px;
-	text-align:center !important;
-}
-
-<!--
-
-.frame-border{
-	border:1px solid blue !important;
-}
-
-.frame-border-2{
-	border:2px solid blue !important;
-}
-
-
-.div-frame-border  {
-    border:1px solid #808080;
-    display: table;
-	width: 99.9%;
-	padding: -2px -2px -2px -2px;
-}
-
-.div-frame-border-2  {
-    border:2px solid #808080;
-    display: table;
-	width: 99.9%;
-	padding: -2px -2px -2px -2px;
-}
-
-.div-frame-border-3  {
-    border:3px solid #808080;
-    display: table;
-	width: 99.9%;
-	
-}
--->
 
 .section-header{
 background-color:  gray;
@@ -97,11 +58,21 @@ font-weight: bold;
 text-align:center;
 }
 
-.section-detail{
+.section-detail, section-label{
 background-color: gray;
 font-size: 12px;
 font-weight: bold;
+padding-left: 3px;
+padding-right: 3px;
+}
 
+.section-text{
+color: #000000; 
+font-family: Tahoma;
+font-size: 8pt;
+font-weight: bold;
+padding-left: 3px;
+padding-right: 3px;
 }
 
 .checklist-data{
