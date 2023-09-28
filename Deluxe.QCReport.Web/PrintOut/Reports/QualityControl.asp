@@ -58,7 +58,7 @@ font-weight: bold;
 text-align:center;
 }
 
-.section-detail, section-label{
+.scetion-detail, .section-label{
 background-color: gray;
 font-size: 12px;
 font-weight: bold;
@@ -267,7 +267,7 @@ width:100px
     
 <table width="100%" border="1" cellspacing="0" cellpadding="0"  >
   <tr>
-    <td   class="section-detail" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
+    <td   class="section-label" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
 	  &nbsp;Overall Comments
     </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
@@ -277,7 +277,7 @@ width:100px
     </td>
 	-->
 	
-    <td  class="section-detail" >
+    <td  class="section-label" >
       &nbsp;Audio Comments / Corrective Actions
     </td>
 	
@@ -287,7 +287,7 @@ width:100px
     </td>
 	-->
 	
-	 <td  class="section-detail" >
+	 <td  class="section-label" >
       &nbsp;Video Comments / Corrective Actions
     </td>
 	
@@ -501,17 +501,17 @@ do while not rsBVMastLog.EOF or j=1
           <tr> 
 		  <!--
 		    <% If itemNumberCount >  0 Then %>
-	           <td width="4%" align="center" class="section-detail"><b>Item No.</b></td>
+	           <td width="4%" align="center" class="section-label"><b>Item No.</b></td>
 		   <% End If %>
 		   -->
 			
-             <td width="9%" align="center" class="section-detail">Time Code</td>
-            <td width="6%" align="center" class="section-detail">Type</td>
-            <td width="64%" align="center" class="section-detail">Fault Description</td>
-            <td width="3%" align="center" class="section-detail">Grade</td>
-			<td width="8%" align="center" class="section-detail">Item Duration</td>
-			<td width="7%" align="center" class="section-detail">Sector</td>
-		     <td width="3%" align="center" class="section-detail" >Signed Off</td>
+             <td width="9%" align="center" class="section-label">Time Code</td>
+            <td width="6%" align="center" class="section-label">Type</td>
+            <td width="64%" align="center" class="section-label">Fault Description</td>
+            <td width="3%" align="center" class="section-label">Grade</td>
+			<td width="8%" align="center" class="section-label">Item Duration</td>
+			<td width="7%" align="center" class="section-label">Sector</td>
+		     <td width="3%" align="center" class="section-label" >Signed Off</td>
 			
           </tr>
           <% nTotalLines = 0
@@ -687,9 +687,9 @@ do while not rsTextInfo.EOF or j=1
 		   
 		
           <tr height=30> 
-			<td width="64%" align="center" class="section-detail"><b>Text</b></td>
-            <td width="13%" align="center" class="section-detail"><b>Time Code In</b></td>
-            <td width="13%" align="center" class="section-detail"><b>Time Code Out</b></td>
+			<td width="64%" align="center" class="section-label"><b>Text</b></td>
+            <td width="13%" align="center" class="section-label"><b>Time Code In</b></td>
+            <td width="13%" align="center" class="section-label"><b>Time Code Out</b></td>
 
           </tr>
           <% nTotalLines = 0
@@ -817,7 +817,7 @@ do while not rsFaultImage.EOF or j=1
 					<td  align="center"   >
 						<table width="100%" border="0" cellspacing="0" cellpadding="1">
 						  <tr>
-							<td align="center" class="section-detail"> 
+							<td align="center" class="section-label"> 
 							  <%=rsFaultImage.Fields("Description")%>
 							</td>
 						  </tr>

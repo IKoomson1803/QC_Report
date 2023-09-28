@@ -13,6 +13,8 @@ namespace Deluxe.QCReport.Common.Models
        
         public List<UserAccount> Users { get; set; }
         public UserAccount User { get; set; }
+        public Dictionary<int, string> LocationsList { get; set; }
+        public LocationVM Location { get; set; }
         public bool ResponseSuccess { get; set; }
         public string ResponseText { get; set; }
         public int? SecurityLevel { get; set; }

@@ -35,8 +35,10 @@ namespace Deluxe.QCReport.Common.Repositories
         public enum Location
         {
             sel_GetLocations,
+            sel_GetLocationsList,
+            sel_GetLocationDetails,
             ins_up_InsertOrUpdateLocation,
-            sel_GetLocationDetails
+            
         }
 
         public enum AspectRatio

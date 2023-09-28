@@ -10,10 +10,9 @@
  <table width="100%" border="1" cellspacing="0" cellpadding="0"   >
 			
 			<tr>
-				<td class="section-detail">&nbsp;Opening Titles: </td>
-				<td>
-				&nbsp;
-				  <b>
+				<td class="section-label">Opening Titles: </td>
+				<td class="section-text">
+				
 						 <%
 					
 					   If rsHeader.Fields("OTPercent") <> "" Then
@@ -24,13 +23,12 @@
 				
 					%>
 					
-				  </b>
+				 
 				</td>
 		
-				<td class="section-detail">&nbsp;Captions:</td>
-				<td>
-				&nbsp;
-				 <b>
+				<td class="section-label">Captions:</td>
+				<td class="section-text">
+				
 				 <%
 				
 				   If rsHeader.Fields("OTPercent") <> "" Then
@@ -40,17 +38,13 @@
 				   End If
 			
 				%>
-				
-				 
-				 </b>
-	
+			
 				</td>
 			
 				
-				<td class="section-detail" >&nbsp;Closing Titles:</td>
-				<td>
-				&nbsp;
-				  <b>
+				<td class="section-label"> Closing Titles:</td>
+				<td class="section-text">
+				 
 				     <%
 				
 				   If rsHeader.Fields("CTPercent") <> "" Then
@@ -71,56 +65,7 @@
 			</tr>
 			
 			
-			<!--
-			<tr>
-				<td>&nbsp;
-				<%
-				
-				   If rsHeader.Fields("OTPercent") <> "" Then
-					  Response.Write  rsHeader.Fields("OTPercent") & " Safe"
-				   Else 
-					 Response.Write "&nbsp;"
-				   End If
 			
-				%>
-				
-				&nbsp;&nbsp;
-				
-				</td>
-				
-				<td >&nbsp;
-				
-					<%
-				
-				   If rsHeader.Fields("CapPercent") <> "" Then
-					  Response.Write  rsHeader.Fields("CapPercent") & " Safe"
-				   Else 
-					 Response.Write "&nbsp;"
-				   End If
-			
-				%>
-							
-				
-				</td>
-				
-				<td >&nbsp;
-				
-				<%
-				
-				   If rsHeader.Fields("CTPercent") <> "" Then
-					  Response.Write  rsHeader.Fields("CTPercent") & " Safe"
-				   Else 
-					 Response.Write "&nbsp;"
-				   End If
-			
-				%>
-				
-				
-				
-				</td>
-				
-			</tr>
-			-->
       </table>
 
 

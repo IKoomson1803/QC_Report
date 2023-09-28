@@ -108,6 +108,7 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult LoadUserPartial()
         {
              UserAccountVM model = new UserAccountVM();
+              model.LocationsList = _locationService.GetLocationsList()?.ToList().ToDictionary(l => l.pkey, dic => dic.Location.Trim());
 
             /****************Log User Activity******************************************************/
 

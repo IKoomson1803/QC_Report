@@ -15,7 +15,7 @@
 	  
 	   <table width="100%" border="0" cellspacing="0" cellpadding="0" >
 			   <tr>
-			     <td class="section-header" >Checklist: Warner Localised VariantS&nbsp;|&nbsp;File to Spec: 
+			     <td class="section-header" >Checklist: Warner Localised Variants&nbsp;|&nbsp;File to Spec: 
 				         <%
 							  If Not IsNull(rsChecklistWarner.Fields("IsFile")) Then
 							    Response.Write  IIf(rsChecklistWarner.Fields("IsFile"), "Yes", "No") 
@@ -32,12 +32,12 @@
    <table width="100%" border="1" cellspacing="0" cellpadding="0" >
       
    <tr>
-	   <td colspan="2"  class="section-detail">Video and Content:</td>
-	   <td colspan="2"  class="section-detail"4>Audio and Metadata</td>
+	   <td colspan="2"  class="section-label">Video and Content:</td>
+	   <td colspan="2"  class="section-label"4>Audio and Metadata</td>
   </tr>
    
     <tr>
-     <td class="section-detail" >Was OV report supplied:</td>
+     <td class="section-label" >Was OV report supplied:</td>
 	  <td class="section-text" >
 	
 	   <%
@@ -47,7 +47,7 @@
 		 %>
 	  </td>
 	   
-	  <td  <td class="section-detail" >Is Audio on file OV:</td>
+	  <td  <td class="section-label" >Is Audio on file OV:</td>
 	  <td class="section-text" >
 			  
 	   <%
@@ -62,7 +62,7 @@
    
    
     <tr>
-     <td class="section-detail" >Were localised text documents supplied:</td>
+     <td class="section-label" >Were localised text documents supplied:</td>
 	  <td class="section-text" >
 	
 	   <%
@@ -72,7 +72,7 @@
 		 %>
 	  </td>
 	   
-	    <td  <td class="section-detail" >Does the audio channel layout match the original versions (with no M&E):</td>
+	    <td  <td class="section-label" >Does the audio channel layout match the original versions (with no M&E):</td>
 		  <td class="section-text" >
 				  
 		   <%
@@ -106,7 +106,7 @@
   
   
    <tr>
-    <td class="section-detail" >Was OV report used to create the language variant report & time codes / faults copied:</td>
+    <td class="section-label" >Was OV report used to create the language variant report & time codes / faults copied:</td>
 	  <td class="section-text" >
 	
 	   <%
@@ -116,7 +116,7 @@
 		 %>
 	  </td>
 	   
-	 <td <td class="section-detail" >Does the audio language match the original versions:</td>
+	 <td <td class="section-label" >Does the audio language match the original versions:</td>
 	  <td class="section-text" >
 			  
 	   <%
@@ -130,7 +130,7 @@
   </tr>
   
    <tr>
-     <td <td class="section-detail" >Do OV Timecodes and approved faults match the created language variant:</td>
+     <td <td class="section-label" >Do OV Timecodes and approved faults match the created language variant:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -140,7 +140,7 @@
 		 %>
 	  </td>
 	   
-	   <td  <td class="section-detail" >Is There M&E on File:</td>
+	   <td  <td class="section-label" >Is There M&E on File:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -154,7 +154,7 @@
   </tr>
   
    <tr>
-      <td <td class="section-detail" >Has the slate been checked for Text content / Timings / Audio config:</td>
+      <td <td class="section-label" >Has the slate been checked for Text content / Timings / Audio config:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -164,7 +164,7 @@
 		 %>
 	  </td>
 	  
-	  <td  <td class="section-detail" >Is 5.1 audio config L, R, C, LFE, Ls, Rs:</td>
+	  <td  <td class="section-label" >Is 5.1 audio config L, R, C, LFE, Ls, Rs:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -178,7 +178,7 @@
   </tr>
   
    <tr>
-      <td <td class="section-detail" >Has the Aspect Ratio been checked on the slate and programme:</td>
+      <td <td class="section-label" >Has the Aspect Ratio been checked on the slate and programme:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -188,7 +188,7 @@
 		 %>
 	  </td>
 	   
-	  <td  <td class="section-detail" >Audio / Video Sync Checked / Logged:</td>
+	  <td  <td class="section-label" >Audio / Video Sync Checked / Logged:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -203,7 +203,7 @@
   </tr>
   
    <tr>
-    <td <td class="section-detail" >Is created language variant File Normal Video Range:</td>
+    <td <td class="section-label" >Is created language variant File Normal Video Range:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -213,7 +213,7 @@
 		 %>
 	  </td>
 	    
-	<td  <td class="section-detail" >Has all File Metadata been checked:</td>
+	<td  <td class="section-label" >Has all File Metadata been checked:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -228,7 +228,7 @@
   
   
    <tr>
-     <td <td class="section-detail" >Are all inserts Normal Video Range:</td>
+     <td <td class="section-label" >Are all inserts Normal Video Range:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -238,7 +238,7 @@
 		 %>
 	  </td>
 	   
-	 <td  <td class="section-detail" >File format:</td>
+	 <td  <td class="section-label" >File format:</td>
 	  <td class="section-text" >
 			  
 	   <%
@@ -253,7 +253,7 @@
   
    <tr>
   
-	<td <td class="section-detail" >Have all localised inserts been checked for text content / Graphics / Spelling / Grammar:</td>
+	<td <td class="section-label" >Have all localised inserts been checked for text content / Graphics / Spelling / Grammar:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -263,7 +263,7 @@
 		 %>
 	  </td>
 	   
-	  <td  <td class="section-detail" >Codec:</td>
+	  <td  <td class="section-label" >Codec:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -277,7 +277,7 @@
   </tr>
   
    <tr>
-     <td <td class="section-detail" >First and last cut been checked / logged as reference:</td>
+     <td <td class="section-label" >First and last cut been checked / logged as reference:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -287,7 +287,7 @@
 		 %>
 	  </td>
 	   
-	  <td  <td class="section-detail" >Standard / Frame rate:</td>
+	  <td  <td class="section-label" >Standard / Frame rate:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -301,7 +301,7 @@
   </tr>
   
    <tr>
-     <td <td class="section-detail" >Is Dub Card Normal Video Range:</td>
+     <td <td class="section-label" >Is Dub Card Normal Video Range:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -311,7 +311,7 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail" >Resolution:</td>
+	  <td  class="section-label" >Resolution:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -327,7 +327,7 @@
   
    <tr>
     
-	    <td  class="section-detail" >Has the Dub Card been checked for text content / Graphics / Spelling / Grammar:</td>
+	    <td  class="section-label" >Has the Dub Card been checked for text content / Graphics / Spelling / Grammar:</td>
 		  <td class="section-text">
 		
 		   <%
@@ -337,7 +337,7 @@
 			 %>
 		  </td>
 	   
-	      <td  class="section-detail" >Progressive:</td>
+	      <td  class="section-label" >Progressive:</td>
 		  <td class="section-text" >
 				  
 		   <%
@@ -352,7 +352,7 @@
   </tr>
   
    <tr>
-         <td  class="section-detail" >Has all texted content been listed in Localised language in report and checked:</td>
+         <td  class="section-label" >Has all texted content been listed in Localised language in report and checked:</td>
 		  <td class="section-text">
 		
 		   <%
@@ -362,7 +362,7 @@
 			 %>
 		  </td>
 	   
-	   <td  class="section-detail" >CLAP Present:</td>
+	   <td  class="section-label" >CLAP Present:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -376,7 +376,7 @@
   </tr>
   
    <tr>
-      <td  class="section-detail" >Is the New Warner Bros Blue Shield Logo Present Top / Tail:</td>
+      <td  class="section-label" >Is the New Warner Bros Blue Shield Logo Present Top / Tail:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -386,7 +386,7 @@
 		 %>
 	  </td>
 	   	   
-	 <td  class="section-detail" >Audio Bit Depth / Rate:</td>
+	 <td  class="section-label" >Audio Bit Depth / Rate:</td>
 	  <td class="section-text" >
 			  
 	   <%
@@ -402,7 +402,7 @@
   
   <tr>
   
-   <td  class="section-detail" >Is Audio Discrete:</td>
+   <td  class="section-label" >Is Audio Discrete:</td>
 	<td class="section-text" >
 			  
 	   <%
@@ -413,7 +413,7 @@
 	  
 	  </td>
 		  
-     <td  class="section-detail" ></td>
+     <td  class="section-label" ></td>
 	 <td ></td>
 	 
 		  

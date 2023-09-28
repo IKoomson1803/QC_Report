@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Deluxe.QCReport.Common.Models;
 
 namespace Deluxe.QCReport.Common.Abstractions
 {
@@ -8,6 +9,7 @@ namespace Deluxe.QCReport.Common.Abstractions
         bool SaveLocation(ILocation deluxeLocation);
 
         ILocation GetLocationDetails(string location);
+        IList<LocationVM> GetLocationsList();
 
 
     }

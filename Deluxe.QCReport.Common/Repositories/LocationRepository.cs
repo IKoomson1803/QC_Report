@@ -58,6 +58,38 @@ namespace Deluxe.QCReport.Common.Repositories
             return list;
         }
 
+        public IList<LocationVM> GetLocationsList()
+        {
+            IList<LocationVM> list = null;
+
+            try
+            {
+
+
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+
+
+                    list = connection.Query<LocationVM>(
+                                     StoredProcedure.Location.sel_GetLocationsList.ToString(),
+                                     null,
+                                     null,
+                                     false,
+                                     null,
+                                     commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+                //throw;
+            }
+
+
+            return list;
+        }
+
 
         public ILocation GetLocationDetails(string location)
         {

@@ -1,4 +1,11 @@
-﻿
+﻿@model  Deluxe.QCReport.Common.Models.UserAccountVM 
+
+@{ 
+   
+
+
+}
+
     <title>Users Managemant</title>
     <link rel="stylesheet" type="text/css" href="~/css/admin.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" />
 
@@ -55,15 +62,19 @@
 
                 <div class="PaddTopBot">
                     <label>Location:</label><br />
-                    <select id="Location" name="Location" class="normalTextBox" required>
+                    @Html.DropDownListFor(m => m.Location, 
+                   new SelectList(Model.LocationsList, "key", "value"), "Select Location  (mandatory)", 
+                   new { @style = "width:300px; height:25px;" })
+
+                         @*<select id="Location" name="Location" class="normalTextBox" required>
                         <option value="">Select Location  (mandatory)</option>
                         <option value="7">Deluxe Australia</option>
                         <option value="8">Deluxe Bangolore</option>
                         <option value="15">Deluxe Burbank</option>
                         <option value="9">Deluxe House</option>
                         <option value="10">Deluxe Madrid</option>
-
-                    </select>
+                        <option value="13">Deluxe Moosic</option>
+                    </select>*@
                 </div>
 
                 <div class="PaddTopBot">
