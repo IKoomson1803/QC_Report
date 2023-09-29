@@ -20,7 +20,8 @@ namespace Deluxe.QCReport.Common.Repositories
             ins_up_InsertOrUpdateUser,
             sel_GetUserByUsername,
             sel_GetUsers,
-            sel_GetRevisedByUsers
+            sel_GetRevisedByUsers,
+            sel_GetUsersList,
 
         }
 

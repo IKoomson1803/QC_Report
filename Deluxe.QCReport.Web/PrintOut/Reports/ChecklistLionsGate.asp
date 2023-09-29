@@ -33,11 +33,11 @@ End Function
   <table width="100%" border="1" cellspacing="0" cellpadding="0" >
      
   <tr>
-	   <td colspan="2"  class="section-detail">Video and Content</td>
-	   <td colspan="2"  class="section-detail">Audio and Metadata</td>
+	   <td colspan="2"  class="section-label">Video and Content</td>
+	   <td colspan="2"  class="section-label">Audio and Metadata</td>
   </tr>
   <tr>
-     <td class="section-detail" >Is the file Full Range Video:</td>
+     <td class="section-label" >Is the file Full Range Video:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -47,7 +47,7 @@ End Function
 		 %>
 	  </td>
 	   
-	  <td  class="section-detail" >Is 2.0 Stereo TV full mix present and QC'd:</td>
+	  <td  class="section-label" >Is 2.0 Stereo TV full mix present and QC'd:</td>
 	  <td  class="section-text">
 			  
 		  <%
@@ -62,7 +62,7 @@ End Function
   </tr>
  <tr>
  
-    <td class="section-detail" >Are the Video levels correct on the Head-build:</td>
+    <td class="section-label" >Are the Video levels correct on the Head-build:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -72,7 +72,7 @@ End Function
 		 %>
 	  </td>
 	  
-	   <td  class="section-detail" >Has the 5.1 mix been spot checked:</td>
+	   <td  class="section-label" >Has the 5.1 mix been spot checked:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -87,7 +87,7 @@ End Function
   </tr>
 
   <tr>
-      <td class="section-detail" >Are the Video levels correct on the content:</td>
+      <td class="section-label" >Are the Video levels correct on the content:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -97,7 +97,7 @@ End Function
 		 %>
 	  </td>
 	   
-	 <td  class="section-detail" >Has all File Metadata been checked:</td>
+	 <td  class="section-label" >Has all File Metadata been checked:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -111,7 +111,7 @@ End Function
  
   </tr>
   <tr>
-     <td class="section-detail" >Has the Aspect Ratio been checked on the slate and programme:</td>
+     <td class="section-label" >Has the Aspect Ratio been checked on the slate and programme:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -121,7 +121,7 @@ End Function
 		 %>
 	  </td>
 	   
-	 <td  class="section-detail" >File format / Codec:</td>
+	 <td  class="section-label" >File format / Codec:</td>
 	  <td  class="section-text">
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("FileFormatOrCodec")) Then
@@ -134,7 +134,7 @@ End Function
  
   </tr>
   <tr>
-     <td class="section-detail" >Is the info on the slate correct:</td>
+     <td class="section-label" >Is the info on the slate correct:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -145,7 +145,7 @@ End Function
 	  </td>
 	   
 	   
-	  <td  class="section-detail"> Standard / Frame rate:</td>
+	  <td  class="section-label"> Standard / Frame rate:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -159,7 +159,7 @@ End Function
  
   </tr>
   <tr>
-      <td class="section-detail" >Is the Lionsgate Celestial logo added / present:</td>
+      <td class="section-label" >Is the Lionsgate Celestial logo added / present:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -169,7 +169,7 @@ End Function
 		 %>
 	  </td>
 	 
-  <td  class="section-detail" >Resolution:</td>
+  <td  class="section-label" >Resolution:</td>
   <td  class="section-text">
 		  
    <%
@@ -182,7 +182,7 @@ End Function
 
   </tr>
   <tr>
-     <td class="section-detail" >Is all added text within 16:9 90% title safe:</td>
+     <td class="section-label" >Is all added text within 16:9 90% title safe:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -192,7 +192,7 @@ End Function
 		 %>
 	  </td>
 	   
-	   <td  class="section-detail" >Progressive:</td>
+	   <td  class="section-label" >Progressive:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -206,7 +206,7 @@ End Function
  
   </tr>
   <tr>
-   <td class="section-detail" >Has all added text been listed (including plot significant featured text):</td>
+   <td class="section-label" >Has all added text been listed (including plot significant featured text):</td>
 	  <td class="section-text">
 	
 	   <%
@@ -215,7 +215,7 @@ End Function
 			  End If
 		 %>
 	  </td>
-	  <td  class="section-detail" >CLAP Present:</td>
+	  <td  class="section-label" >CLAP Present:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -229,7 +229,7 @@ End Function
  
   </tr>
   <tr>
-     <td class="section-detail" >Are there textless and clean graphic covers after feature for all texted shots:</td>
+     <td class="section-label" >Are there textless and clean graphic covers after feature for all texted shots:</td>
 	  <td class="section-text">
 	
 	   <%
@@ -239,7 +239,7 @@ End Function
 		 %>
 	  </td>
 	   
-	   <td class="section-detail" >Flashing images present - (Images likely to cause a seizure):</td>
+	   <td class="section-label" >Flashing images present - (Images likely to cause a seizure):</td>
 	  <td >&nbsp;
 	
 	   <%
@@ -255,7 +255,7 @@ End Function
   
   <tr>
    
-	   <td  class="section-detail" >Audio Bit Depth / Rate:</td>
+	   <td  class="section-label" >Audio Bit Depth / Rate:</td>
 	  <td  class="section-text">
 			  
 	   <%
@@ -264,7 +264,7 @@ End Function
 			  End If
 		 %>
 	  
-	 <td  class="section-detail" >Is Audio Discrete:</td>
+	 <td  class="section-label" >Is Audio Discrete:</td>
 				  <td  class="section-text">
 						  
 				   <%

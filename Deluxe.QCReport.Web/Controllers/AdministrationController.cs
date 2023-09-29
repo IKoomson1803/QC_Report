@@ -108,7 +108,8 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult LoadUserPartial()
         {
              UserAccountVM model = new UserAccountVM();
-              model.LocationsList = _locationService.GetLocationsList()?.ToList().ToDictionary(l => l.pkey, dic => dic.Location.Trim());
+             model.LocationsList = _locationService.GetLocationsList()?.ToList().ToDictionary(l => l.pkey, dic => dic.Location.Trim());
+             model.Users = _userService.GetUsersList()?.ToList();
 
             /****************Log User Activity******************************************************/
 
@@ -147,6 +148,29 @@ namespace Deluxe.QCReport.Web.Controllers
 
             return Json(
                 user, 
+                JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetUserDetailsById(int id)
+        {
+            var user = UserAccountService.GetUserAccountDetailsById(id);
+           
+            if (user == null)
+            {
+                user = new UserAccount { qcUserId = 0 };
+            }
+
+
+            /****************Log User Activity******************************************************/
+
+            WebSystemUtility.LogUserActivity(
+                                           $"User details [Id = {id}] was searched.",
+                                           Constants.ActivityType.UserDetailsSearched);
+
+            /*******************************************************************************************/
+
+            return Json(
+                user,
                 JsonRequestBehavior.AllowGet);
         }
 
@@ -374,10 +398,24 @@ namespace Deluxe.QCReport.Web.Controllers
                 return Json(
                     new { 
                         success = false, 
-                        msg = "Failed to save location, please contact system admin. " 
+                        msg = "Please supply a location and continue... " 
                     });
             }
 
+            if (string.IsNullOrWhiteSpace(deluxeLocation.Location))
+            {
+                return Json(
+                   new
+                   {
+                       success = false,
+                       msg = "Please supply a location and continue... "
+                   });
+            }
+
+            if (!string.IsNullOrWhiteSpace(deluxeLocation.Location) && !deluxeLocation.Location.ToLower().Contains("deluxe"))
+            {
+                deluxeLocation.Location = "Deluxe " + deluxeLocation.Location;
+            }
 
             bool result = _locationService.SaveLocation(deluxeLocation);
             string resultMsg = "Location saved successfully";

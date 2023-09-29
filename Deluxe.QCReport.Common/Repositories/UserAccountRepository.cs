@@ -125,6 +125,58 @@ namespace Deluxe.QCReport.Common.Repositories
 
         }
 
+        public static UserAccount GetUserAccountDetailsById(int id)
+        {
+            if (id == 0)
+            {
+                return null;
+            }
+
+            using (DataClassesDataContext DC = new DataClassesDataContext())
+            {
+                try
+                {
+                    var rUser = (from u in DC.qcUsers
+                                 where u.qcUserID == id && (!u.Deleted.HasValue || (u.Deleted.HasValue && u.Deleted == 0))
+                                 select u).FirstOrDefault();
+
+                    // var rUser = resultSql.Where(u => u.UserName == username && !u.Deleted.HasValue).FirstOrDefault();
+
+                    if (rUser != null)
+                    {
+                        int secLvl = 0;
+
+                        if (rUser.SecurityLevel.HasValue) { secLvl = rUser.SecurityLevel.Value; }
+
+                        if (rUser.Location == 1)
+                        {
+                            rUser.Location = 9;
+                        }
+
+                        return new UserAccount()
+                        {
+                            qcUserId = rUser.qcUserID,
+                            UserName = rUser.UserName.Trim(),
+                            UserNameText = rUser.UserName.Trim(),
+                            SecurityLevel = secLvl,
+                            FullName = rUser.FullName.Trim(),
+                            Phone = rUser.Phone,
+                            Deleted = rUser.Deleted,
+                            Location = rUser.Location
+                        };
+                    }
+                    else { return null; }
+                }
+                catch (Exception ex)
+                {
+
+                    return null;
+                }
+
+            }
+
+        }
+
         public static int GetSecurityLevel(string username)
         {
 
@@ -319,6 +371,36 @@ namespace Deluxe.QCReport.Common.Repositories
 
                     users = connection.Query<string>(
                                      StoredProcedure.User.sel_GetRevisedByUsers.ToString(),
+                                     null,
+                                     null,
+                                     false,
+                                     null,
+                                     commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+                //throw;
+            }
+
+
+            return users;
+        }
+
+        public IList<UserAccount> GetUsersList()
+        {
+            List<UserAccount> users = null;
+
+            try
+            {
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+
+
+                    users = connection.Query<UserAccount>(
+                                     StoredProcedure.User.sel_GetUsersList.ToString(),
                                      null,
                                      null,
                                      false,

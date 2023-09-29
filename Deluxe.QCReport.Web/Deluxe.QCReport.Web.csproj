@@ -122,6 +122,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bs_callout.css" />
+    <Content Include="Content\Datatable\buttons.dataTables.min.css" />
+    <Content Include="Content\Datatable\jquery.dataTables.min.css" />
     <Content Include="Content\dropzone.css" />
     <Content Include="Content\Images\Deluxe_Logo_2016_Red_100x100.png" />
     <Content Include="Content\jquery-ui.css" />
@@ -174,6 +176,7 @@
     <Content Include="Scripts\bootstrap-msg.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\administrationDatatable.js" />
     <Content Include="Scripts\Custom\advanceSearch.js" />
     <Content Include="Scripts\Custom\AjaxGlobalHandler.js" />
     <Content Include="Scripts\Custom\aspectRatio.js" />
@@ -185,6 +188,10 @@
     <Content Include="Scripts\Custom\location.js" />
     <Content Include="Scripts\Custom\searchResultDataTable.js" />
     <Content Include="Scripts\Custom\user.js" />
+    <Content Include="Scripts\Datatable\buttons.html5.min.js" />
+    <Content Include="Scripts\Datatable\dataTables.buttons.min.js" />
+    <Content Include="Scripts\Datatable\jquery.dataTables.min.js" />
+    <Content Include="Scripts\Datatable\jszip.min.js" />
     <Content Include="Scripts\dropzone.js" />
     <Content Include="Scripts\extensions.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -307,6 +314,7 @@
     <Content Include="Views\DisneyTWDC\_Comments.cshtml" />
     <Content Include="Specifications\Generic\HOW TO QC HDR DOLBY VISION FILES, AND HOW TO APPLY TRIM PASS - 11 July 2023.pdf" />
     <Content Include="Specifications\Lionsgate\Lionsgate UHD-Dolby Vision and UHD-SDR Technical Specs.pdf" />
+    <Content Include="Views\Administration\_UsersGrid.cshtml" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />

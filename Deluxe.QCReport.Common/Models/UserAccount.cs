@@ -17,5 +17,8 @@ namespace Deluxe.QCReport.Common.Models
         public string FullName { get; set; }
         public string Phone { get; set; }
         public byte? Deleted { get; set; }
+        public string LocationName { get; set; }
+        public string Role { get; set; }
+
     }
 }

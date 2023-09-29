@@ -62,6 +62,11 @@ namespace Deluxe.QCReport.Common.Services
             return UserAccountRepository.GetUserAccountDetails(username);
         }
 
+        public static UserAccount GetUserAccountDetailsById(int id)
+        {
+            return UserAccountRepository.GetUserAccountDetailsById(id);
+        }
+
         public static int GetSecurityLevel(string username)
         {
             int idx = username.IndexOf("\\");
@@ -73,6 +78,9 @@ namespace Deluxe.QCReport.Common.Services
             return UserAccountRepository.GetSecurityLevel(username);
         }
 
-     
+        public IList<UserAccount> GetUsersList()
+        {
+            return _rep.GetUsersList();
+        }
     }
 }

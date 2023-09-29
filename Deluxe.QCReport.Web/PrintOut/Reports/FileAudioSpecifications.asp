@@ -90,7 +90,7 @@ End Function
 							    <tr>
 									<td class="section-label" height="17px" width="6%" >Channel</td>
 									<td class="section-label" height="17px" width="9%" >Track</td>
-									<td class="section-label" height="17px" width="9%" >Language></td>
+									<td class="section-label" height="17px" width="9%" >Language</td>
 									<td class="section-label" height="17px" width="9%" >In Phase</td>
 									<td class="section-label" height="17px" width="9%" >Discrete</td>
 									<td class="section-label" height="17px" width="9%" >LUFS</td>

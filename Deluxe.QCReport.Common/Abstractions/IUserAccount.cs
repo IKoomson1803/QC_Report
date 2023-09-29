@@ -17,6 +17,7 @@ namespace Deluxe.QCReport.Common.Abstractions
         string FullName { get; set; }
         string Phone { get; set; }
         byte? Deleted { get; set; }
-
+        string LocationName { get; set; }
+        string Role { get; set; }
     }
 }

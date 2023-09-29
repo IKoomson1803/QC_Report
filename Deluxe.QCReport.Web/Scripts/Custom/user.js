@@ -2,26 +2,28 @@
 var users = [];
 
 $().ready(function () {
+    $("#divEnabled").hide();
     initializeUserForm();
+    rowOnClick();
 });
 
 function initializeUserForm() {
     
-    $.ajax({
-        url: '/Administration/GetUsers',
-        async: true,
-        contentType: "application/json",
-         dataType: "json",
-         success: function (data) {
-            //console.log('User Names ' +  data);
+    //$.ajax({
+    //    url: '/Administration/GetUsers',
+    //    async: true,
+    //    contentType: "application/json",
+    //     dataType: "json",
+    //     success: function (data) {
+    //        //console.log('User Names ' +  data);
 
-              $.each(data, function (k,u) {
-                   users.push(u);
-              });
+    //          $.each(data, function (k,u) {
+    //               users.push(u);
+    //          });
 
-             // console.log("Users:" + users);
-        }
-    });
+    //         // console.log("Users:" + users);
+    //    }
+    //});
 
     $('#SaveUser').click(function (event) {
         saveUser();
@@ -58,6 +60,20 @@ function searchUser() {
 
 }
 
+function rowOnClick() {
+
+    $('.clickable-row').on('click', function () {
+
+        $('table tr').removeClass("selectedRow");
+        $(this).addClass("selectedRow");
+        var id = $(this).data('id');
+        $('#btnSave').text('Update');
+        $("#divEnabled").show();
+        populateUserFormById(id);
+
+    });
+}
+
 
 function populateUserForm() {
 
@@ -69,6 +85,26 @@ function populateUserForm() {
         type: 'Get',
         success: function (result) {
            
+            if (result.qcUserId > 0) {
+                showUserForm(result);
+            }
+            else {
+                resetUserFields(true);
+            }
+        }
+    });
+}
+
+function populateUserFormById(id) {
+
+    $.ajax({
+        url: '/Administration/GetUserDetailsById',
+        async: true,
+        data: { id: id },
+        // contentType: 'application/json',
+        type: 'Get',
+        success: function (result) {
+
             if (result.qcUserId > 0) {
                 showUserForm(result);
             }
@@ -201,6 +237,8 @@ function resetUserFields(search) {
     $('#Phone').val('');
     $('#Enabled').prop('checked', true);
     $('#Deleted').val(null);
+    $('table tr').removeClass("selectedRow");
+    $("#divEnabled").hide();
 
     $("#SaveUser").html('Add New');
 }
