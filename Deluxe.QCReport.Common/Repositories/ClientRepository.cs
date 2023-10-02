@@ -191,5 +191,66 @@ namespace Deluxe.QCReport.Common.Repositories
 
         }
 
+        public IList<Client> GetClientsList()
+        {
+            List<Client> list = null;
+
+            try
+            {
+
+
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+
+
+                    list = connection.Query<Client>(
+                                     StoredProcedure.Client.sel_GetClientsList.ToString(),
+                                     null,
+                                     null,
+                                     false,
+                                     null,
+                                     commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+                //throw;
+            }
+
+
+            return list;
+        }
+
+        public IClient GetClientDetails(int id)
+        {
+            IClient client = null;
+
+            try
+            {
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+                    client = new Client();
+
+
+                    client = connection.Query<Client>(
+                                     StoredProcedure.Client.sel_GetClientById.ToString(),
+                                     new { Id =  id},
+                                     null,
+                                     false,
+                                     null,
+                                     commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+                //throw;
+            }
+
+            return client;
+        }
     }
 }

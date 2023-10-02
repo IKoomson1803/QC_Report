@@ -5,6 +5,12 @@ $().ready(function () {
     $("#divEnabled").hide();
     initializeUserForm();
     rowOnClick();
+
+    $('#tblAdmin').on('search.dt', function () {
+        var value = $('.dataTables_filter input').val();
+       // alert(value); // <-- the value
+        resetUserFields();
+    });
 });
 
 function initializeUserForm() {
@@ -30,7 +36,7 @@ function initializeUserForm() {
     });
 
     $('#ResetUserFields').click(function (event) {
-        resetUserFields(false);
+        resetUserFields();
     });
 
     $('#UsernameSearch').autocomplete({
@@ -62,6 +68,8 @@ function searchUser() {
 
 function rowOnClick() {
 
+
+
     $('.clickable-row').on('click', function () {
 
         $('table tr').removeClass("selectedRow");
@@ -89,7 +97,7 @@ function populateUserForm() {
                 showUserForm(result);
             }
             else {
-                resetUserFields(true);
+                resetUserFields();
             }
         }
     });
@@ -109,7 +117,7 @@ function populateUserFormById(id) {
                 showUserForm(result);
             }
             else {
-                resetUserFields(true);
+                resetUserFields();
             }
         }
     });
@@ -184,8 +192,12 @@ function saveUser() {
         return false;
     }
 
+    var formData  = $("#frmAdmin").serialize({
+        checkboxesAsBools: true
+    });
+
     
-    var formData = $('#frmUser').serializeObject();
+   /* var formData = $('#frmUser').serializeObject();*/
 
     $.ajax({
         url: '/Administration/SaveUser',
@@ -204,7 +216,7 @@ function saveUser() {
 function saveSuccessful(data) {
 
     if (data.success == true) {
-        resetUserFields(false);
+        resetUserFields();
        // Msg.success(data.msg, 5 * 1000);
 
         //Refresh the autocomplete lookup
@@ -222,11 +234,7 @@ function saveFailed(data) {
     Msg.error(data.msg, 5 * 1000);
 }
 
-function resetUserFields(search) {
-
-    if (!search) {
-        $('#UsernameSearch').val('');
-    }
+function resetUserFields() {
     
 
     $('#qcUserId').val('0');

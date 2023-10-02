@@ -234,6 +234,8 @@ namespace Deluxe.QCReport.Web.Controllers
 
         public ActionResult LoadClientPartial()
         {
+            ClientVM model = new ClientVM();
+            model.Clients = _clientService.GetClientsList()?.ToList();
 
             /****************Log User Activity******************************************************/
 
@@ -243,7 +245,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             /*******************************************************************************************/
 
-            return PartialView("_ClientPartial");
+            return PartialView("_ClientPartial",model);
         }
 
         public ActionResult GetClientDetails(string clientName)
@@ -265,6 +267,28 @@ namespace Deluxe.QCReport.Web.Controllers
 
             return Json(
                 client, 
+                JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetClientById(int id)
+        {
+            var client = _clientService.GetClientDetails(id); ;
+
+            if (client == null)
+            {
+                client = new Client();
+            }
+
+            /****************Log User Activity******************************************************/
+
+            WebSystemUtility.LogUserActivity(
+                                             $"Client details [Id = {id}] was searched.",
+                                            Constants.ActivityType.ClientDetailsSearched);
+
+            /*******************************************************************************************/
+
+            return Json(
+                client,
                 JsonRequestBehavior.AllowGet);
         }
 

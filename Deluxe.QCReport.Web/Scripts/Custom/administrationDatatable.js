@@ -2,6 +2,8 @@
 
 $(function () {
     initializeAdminDataTable();
+
+  
 });
 
 function initializeAdminDataTable() {
@@ -15,6 +17,8 @@ function initializeAdminDataTable() {
     }
 
     $(".dt-buttons").hide();
+
+    
 
 }
 

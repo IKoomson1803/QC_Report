@@ -1,9 +1,5 @@
 ﻿@model  Deluxe.QCReport.Common.Models.UserAccountVM
 
-@{
-    var itemNo = 0;
-    var users = Model.Users;
-}
 
 <title>Users Managemant</title>
 <link rel="stylesheet" type="text/css" href="~/css/admin.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" />
@@ -110,7 +106,7 @@
                 <button type="button" id="SaveUser" class="btn btn-info" onclick="saveUser()">
                     Add New
                 </button>
-                <button type="button" id="ResetUserFields" class="btn btn-danger" onclick="resetUserFields(null)">
+                <button type="button" id="ResetUserFields" class="btn btn-danger" onclick="resetUserFields()">
                     Reset
                 </button>
             </div>

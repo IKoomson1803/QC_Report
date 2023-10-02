@@ -1,4 +1,6 @@
-﻿
+﻿@model Deluxe.QCReport.Common.Models.ClientVM
+
+
     <title>Clients Managemant</title>
     <link rel="stylesheet" type="text/css" href="~/css/admin.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" />
 
@@ -10,11 +12,11 @@
 <div class="bs-callout bs-callout-warning">
      <div class="adminHeader">Clients Management</div>
 
-    <form id="frmClient" name="frmClient">
-        <input type="hidden" id="CustID" name="CustID" />
+     <form id="frmClient" name="frmClient">
+         <input type="hidden" id="CustID" name="CustID" />
 
 
-        <div class="row">
+         @*<div class="row">
             <div class="col-md-4">
 
             </div>
@@ -26,91 +28,108 @@
                     <span style="color:red;font-weight:bold;font-size:12px;">Auto search for customer's name and hit enter to display the details below.  </span>
                 </div>
             </div>
-        </div>
+        </div>*@
 
-        <div class="row">
-            <div class="col-md-12">
-                &nbsp;
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-
-            </div>
-
-            <div class="col-md-8">
-
-                <div class="PaddTopBot">
-                    <label>Customer Name:</label><br />
-                    <input id="CustName" name="CustName" class="ui-corner-all ui-textbox longTextBox" type="text" placeholder="Customer Name (mandatory)" required /><br />
-                </div>
-
-                <div class="PaddTopBot">
-                    <label>Address:</label><br />
-                    <textarea id="CustAddress" name="CustAddress" class="ui-corner-all ui-textbox longTextBox" type="text" placeholder="Customer Address (optional)" rows="5"></textarea><br />
-                </div>
-
-                <div class="PaddTopBot">
-                    <label>Customer Code:</label><br />
-                    <input id="CustCode" name="CustCode" class="ui-corner-all ui-textbox" type="text" placeholder="Customer Code (optional)" /><br />
-                </div>
-
-                <div class="PaddTopBot">
-                    <label>Grading Scale:</label><br />
-                    <select id="GradingScale" name="GradingScale" class="ui-corner-all ui-textbox" type="text" style="width:180px">
-                        <option value="" selected>Select Grade Scale</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-               </div>
+         <div class="row">
+             <div class="col-md-12">
+                 &nbsp;
+             </div>
+         </div>
 
 
-                <div class="PaddTopBot">
-                    <label>Phone Number:</label><br />
-                    <input id="CustPhone" name="CustPhone" class="ui-corner-all ui-textbox" type="text" placeholder="Phone number (optional)" required /><br />
-                </div>
+         <div class="row">
+             <div class="col-md-2">
+                 <label class="control-label">Customer Name:</label>
+             </div>
+             <div class="col-md-4 form-group">
+                 <input id="CustName" name="CustName"class="normalTextBox" type="text" placeholder="Customer Name (mandatory)" required />
+             </div>
 
+             <div class="col-md-2">
+                 <label class="control-label">Address:</label>
 
-                <div class="PaddTopBot">
+             </div>
+             <div class="col-md-4 form-group">
+                 <textarea id="CustAddress" name="CustAddress" class="normalTextBox" type="text" placeholder="Customer Address (optional)" rows="3"></textarea>
+             </div>
 
-                    <button type="button" id="SaveClient" name="SaveClient" class="btn btn-info">
-                        Add New
-                    </button>
-                    <button type="button" id="ResetClientFields" name="ResetClientFields" class="btn btn-danger">
-                        Reset
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                &nbsp;
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <label class="control-label">&nbsp;</label>
-                <span id="divClientMessage" class="divMessage"></span>
-            </div>
-        </div>
-
-
-    </form>
+         </div>
 
 
 
+         <div class="row">
+             <div class="col-md-2">
+                 <label class="control-label">Phone Number:</label>
+             </div>
+             <div class="col-md-4">
+                 <input id="CustPhone" name="CustPhone" " type="text" placeholder="Phone number (optional)" />
+             </div>
+
+             <div class="col-md-2">
+                 <label class="control-label">Customer Code:</label>
+             </div>
+             <div class="col-md-4  form-group">
+                 <input id="CustCode" name="CustCode"  type="text" placeholder="Customer Code (optional)" />
+             </div>
+
+         </div>
+
+         <div class="row">
+             <div class="col-md-2">
+                 <label class="control-label">>Grading Scale:</label>
+
+             </div>
+             <div class="col-md-4  form-group">
+                 <select id="GradingScale" name="GradingScale" class="ui-corner-all ui-textbox" type="text" style="width:180px">
+                     <option value="" selected>Select Grade Scale</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                 </select>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="col-md-2">
+                 &nbsp;
+             </div>
+             <div class="col-md-4">
+                 <button type="button" id="SaveClient" name="SaveClient" class="btn btn-info">
+                     Add New
+                 </button>
+                 <button type="button" id="ResetClientFields" name="ResetClientFields" class="btn btn-danger">
+                     Reset
+                 </button>
+             </div>
+
+
+         </div>
+
+
+         <div class="row">
+             <div class="col-md-12">
+                 &nbsp;
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="col-md-2">
+                 &nbsp;
+             </div>
+             <div class="col-md-10">
+                 <label class="control-label">&nbsp;</label>
+                 <span id="divClientMessage" class="divMessage"></span>
+             </div>
+         </div>
+
+
+     </form>
 
 
 
-
-
+    <div class="row" id="divUsers" style="overflow:auto;height:400px;">
+        @{Html.RenderPartial("_ClientsGrid", Model);}
+    </div>
 
 
 </div>

@@ -1,0 +1,44 @@
+﻿@model Deluxe.QCReport.Common.Models.ClientVM
+
+
+@{
+    var itemNo = 0;
+    var clients = Model.Clients;
+}
+
+@if (clients != null && clients.Any())
+{
+    <table id="tblAdmin" cellspacing="0" style="width: 100%; table-layout: fixed; word-wrap: break-word;">
+        <thead>
+            <tr>
+                <th class="tblHeaderCell tblHeaderNumberCell">Item No.</th>
+                <th class="tblHeaderCell">Customer Name</th>
+                <th class="tblHeaderCell">Address</th>
+                <th class="tblHeaderCell">Phone Number</th>
+                <th class="tblHeaderCell">Customer Code</th>
+                <th class="tblHeaderCell">Grading Scale</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var client in clients)
+            {
+                itemNo++;
+            <tr class='clickable-row' style="cursor:pointer;" data-id="@client.CustID " title="Click the row to update the client">
+                <td>@itemNo</td>
+                <td>@client.CustName</td>
+                <td>@client.CustAddress</td>
+                <td>@client.CustPhone</td>
+                <td>@client.CustCode</td>
+                <td>@client.GradingScale</td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+}
+
+
+<script src="~/Scripts/custom/administrationDatatable.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>

@@ -35,5 +35,15 @@ namespace Deluxe.QCReport.Common.Services
         {
             return _rep.GetClientDetails(qcNum, subQCNum);
         }
+
+        public IList<Client> GetClientsList()
+        {
+            return _rep.GetClientsList();
+        }
+
+        public IClient GetClientDetails(int id)
+        {
+            return _rep.GetClientDetails(id);
+        }
     }
 }

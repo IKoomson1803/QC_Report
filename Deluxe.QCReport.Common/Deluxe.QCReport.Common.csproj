@@ -156,6 +156,7 @@
     <Compile Include="Models\ChecklistWildBunch.cs" />
     <Compile Include="Models\BanijayRightsTextDetails.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientVM.cs" />
     <Compile Include="Models\ControlRoomVM.cs" />
     <Compile Include="Models\DetailsVMs.cs" />
     <Compile Include="Models\DisneyTWDC\DisneyTWDCElementInformation.cs" />

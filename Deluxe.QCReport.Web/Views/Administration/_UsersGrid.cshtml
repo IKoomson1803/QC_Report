@@ -11,7 +11,7 @@
 {
     <table id="tblAdmin" cellspacing="0" style="width: 100%; table-layout: fixed; word-wrap: break-word;">
         <thead>
-            <tr >
+            <tr>
                 <th class="tblHeaderCell tblHeaderNumberCell">Item No.</th>
                 <th class="tblHeaderCell">User Name</th>
                 <th class="tblHeaderCell">Full Name</th>
@@ -23,7 +23,7 @@
             @foreach (var user in users)
             {
                 itemNo++;
-                <tr class='clickable-row' style="cursor:pointer;" data-id="@user.qcUserId " title="Click the row to update the user">
+                <tr class='clickable-row' style="cursor:pointer;" onclick=" rowOnClick()" data-id="@user.qcUserId " title="Click the row to update the user">
                     <td>@itemNo</td>
                     <td>@user.UserName</td>
                     <td>@user.FullName</td>
@@ -36,6 +36,8 @@
 
     <p>&nbsp;</p>
 }
+
+
 
 <script src="~/Scripts/custom/administrationDatatable.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>
 

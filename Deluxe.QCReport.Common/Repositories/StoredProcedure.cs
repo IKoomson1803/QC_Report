@@ -30,7 +30,9 @@ namespace Deluxe.QCReport.Common.Repositories
             sel_GetClients,
             ins_up_InsertOrUpdateClient,
             sel_GetClientDetails,
-            sel_GetClientDetailsByQCNum
+            sel_GetClientDetailsByQCNum,
+            sel_GetClientsList,
+            sel_GetClientById
         }
 
         public enum Location
