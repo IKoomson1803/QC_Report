@@ -5,41 +5,48 @@ var clients = [];
 
 $().ready(function () {
     initializeClientForm();
+    rowOnClick();
+
+    $('#tblAdmin').on('search.dt', function () {
+        var value = $('.dataTables_filter input').val();
+        // alert(value); // <-- the value
+        resetClientFields() ;
+    });
 });
 
 
 function initializeClientForm() {
 
-    $.ajax({
-        url: '/Administration/GetClients',
-        async: true,
-        contentType: "application/json",
-        dataType: "json",
-        success: function (data) {
-            //console.log('Clients ' +  data);
+    //$.ajax({
+    //    url: '/Administration/GetClients',
+    //    async: true,
+    //    contentType: "application/json",
+    //    dataType: "json",
+    //    success: function (data) {
+    //        //console.log('Clients ' +  data);
 
-            $.each(data, function (k, c) {
-                clients.push(c);
-            });
+    //        $.each(data, function (k, c) {
+    //            clients.push(c);
+    //        });
 
          
-        }
-    });
+    //    }
+    //});
 
-    $('#CustomerNameSearch').autocomplete({
-        minLength: 3,
-        minDelay: 250,
-        source: clients,
-    });
+    //$('#CustomerNameSearch').autocomplete({
+    //    minLength: 3,
+    //    minDelay: 250,
+    //    source: clients,
+    //});
 
-    $('#CustomerNameSearch').keyup(function (event) {
-        if (event.key == 'Enter') {
-            searchClient();
-        }
-    });
+    //$('#CustomerNameSearch').keyup(function (event) {
+    //    if (event.key == 'Enter') {
+    //        searchClient();
+    //    }
+    //});
 
     $('#ResetClientFields').click(function (event) {
-        resetClientFields(false);
+        resetClientFields();
     });
         
     $('#SaveClient').click(function (event) {
@@ -59,6 +66,40 @@ function searchClient() {
 
 
 }
+
+function rowOnClick() {
+
+    $('.clickable-row').on('click', function () {
+
+        $('table tr').removeClass("selectedRow");
+        $(this).addClass("selectedRow");
+        var id = $(this).data('id');
+        $('#btnSave').text('Update');
+       //$("#divEnabled").show();
+        populateClient(id);
+
+    });
+}
+
+function populateClient(id) {
+    $.ajax({
+        url: '/Administration/GetClientById',
+        async: true,
+        data: { id: id },
+        type: 'Get',
+        success: function (result) {
+
+            if (result.CustID > 0) {
+                showClientForm(result);
+            }
+            else {
+                resetClientFields(true);
+            }
+        }
+    });
+
+}
+
 
 function populateClientForm() {
 
@@ -96,19 +137,15 @@ function showClientForm(result){
 
 }
 
-function resetClientFields(search) {
+function resetClientFields() {
 
-    if (!search) {
-        $('#CustomerNameSearch').val('');
-    }
-
-    $('#CustID ').val('0');
+    $('#CustID ').val('');
     $('#CustCode').val('');
     $('#CustName').val('');
     $('#CustAddress').val('');
     $('#CustPhone').val('');
     $('#GradingScale').val('');
-
+    $('table tr').removeClass("selectedRow");
     $("#SaveClient").html('Add New');
 
 }
@@ -141,7 +178,7 @@ function saveClient() {
         type: 'POST',
         success: function (data) {
             if (data.success == true) {
-                resetClientFields(false);
+                resetClientFields();
                 //Msg.success(data.msg, 5 * 1000);
 
                 //Refresh the autocomplete lookup

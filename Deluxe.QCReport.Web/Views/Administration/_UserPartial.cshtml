@@ -17,22 +17,7 @@
     <form id="frmUser" name="frmUser">
 
         <input type="hidden" id="qcUserId" name="qcUserId" />
-        <input type="hidden" id="Deleted" name="Deleted" />
-
-        @*<div class="row">
-            <div class="col-md-4">
-
-            </div>
-
-            <div class="col-md-8">
-                <div class="PaddTopBot">
-                    <label>Search By Operator (3 letters minimum):</label><br />
-                    <input id="UsernameSearch" class="ui-corner-all ui-textbox normalTextBox" type="text" placeholder="Operator's search" /><br />
-                    <span style="color:red;font-weight:bold;font-size:12px;">Auto search for operator and hit enter to display the details below.  </span>
-                </div>
-            </div>
-        </div>*@
-
+       
         <div class="row">&nbsp;</div>
 
         <div class="row">
@@ -40,7 +25,7 @@
                 <label class="control-label">CORP User Name:</label>
             </div>
             <div class="col-md-4 form-group">
-                <input id="UserNameText" name="UserNameText" class="normalTextBox" required placeholder="CORP username (mandatory)" />
+                <input id="UserName" name="UserName" class="normalTextBox" required placeholder="CORP username (mandatory)" />
             </div>
 
             <div class="col-md-2">
@@ -79,7 +64,7 @@
 
         </div>
 
-        <div class="row">
+        <div class="row" style="display:none;">
             <div class="col-md-2">
                 <label class="control-label">Phone:</label>
             </div>
@@ -94,7 +79,7 @@
                 <label class="control-label">Enable:</label>
             </div>
             <div class="col-md-4 form-group">
-                <input id="Enabled" name="Enabled" type="checkbox" />
+                <input id="Active" name="Active" type="checkbox" />
             </div>
         </div>
 

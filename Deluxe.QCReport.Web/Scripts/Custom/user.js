@@ -1,36 +1,20 @@
 ﻿
-var users = [];
 
 $().ready(function () {
     $("#divEnabled").hide();
+    $('#Active').prop('checked', true);
     initializeUserForm();
     rowOnClick();
 
     $('#tblAdmin').on('search.dt', function () {
         var value = $('.dataTables_filter input').val();
-       // alert(value); // <-- the value
-        resetUserFields();
+         resetUserFields();
     });
 });
 
 function initializeUserForm() {
-    
-    //$.ajax({
-    //    url: '/Administration/GetUsers',
-    //    async: true,
-    //    contentType: "application/json",
-    //     dataType: "json",
-    //     success: function (data) {
-    //        //console.log('User Names ' +  data);
 
-    //          $.each(data, function (k,u) {
-    //               users.push(u);
-    //          });
-
-    //         // console.log("Users:" + users);
-    //    }
-    //});
-
+   
     $('#SaveUser').click(function (event) {
         saveUser();
     });
@@ -39,20 +23,8 @@ function initializeUserForm() {
         resetUserFields();
     });
 
-    $('#UsernameSearch').autocomplete({
-        minLength: 3,
-        minDelay: 250,
-        source: users,
-    });
-
-    $('#UsernameSearch').keyup(function (event) {
-        if (event.key == 'Enter') {
-            
-            searchUser();
-        }
-    });
-
-    $('#Enabled').prop('checked', true);
+    
+   
 }
 
 
@@ -83,25 +55,6 @@ function rowOnClick() {
 }
 
 
-function populateUserForm() {
-
-    $.ajax({
-        url: '/Administration/GetUserDetails',
-        async: true,
-        data: { username: $('#UsernameSearch').val() },
-       // contentType: 'application/json',
-        type: 'Get',
-        success: function (result) {
-           
-            if (result.qcUserId > 0) {
-                showUserForm(result);
-            }
-            else {
-                resetUserFields();
-            }
-        }
-    });
-}
 
 function populateUserFormById(id) {
 
@@ -125,10 +78,10 @@ function populateUserFormById(id) {
 
 
 function showUserForm(result) {
-      
-    
+
+
     $('#qcUserId').val(result.qcUserId);
-    $('#UserNameText').val(result.UserName);
+    $('#UserName').val(result.UserName);
     $('#Fullname').val(null ?? result.FullName);
     $('#Location').val(null ?? result.Location);
     $('#SecurityLevel').val(null ?? result.SecurityLevel);
@@ -140,14 +93,11 @@ function showUserForm(result) {
 
     var isDeleted = result.Deleted;
 
-    if (isDeleted == true) {
-        $('#Enabled').prop('checked', false);
-        $('#Deleted').val('1');
-       
+    if (isDeleted) {
+        $('#Active').prop('checked', false);
     }
     else {
-        $('#Enabled').prop('checked', true);
-        $('#Deleted').val(null);
+        $('#Active').prop('checked', true);
     }
 
     $("#SaveUser").html('Update');
@@ -192,12 +142,12 @@ function saveUser() {
         return false;
     }
 
-    var formData  = $("#frmAdmin").serialize({
+    var formData = $("#frmUser").serialize({
         checkboxesAsBools: true
     });
 
-    
-   /* var formData = $('#frmUser').serializeObject();*/
+
+    /* var formData = $('#frmUser').serializeObject();*/
 
     $.ajax({
         url: '/Administration/SaveUser',
@@ -217,7 +167,7 @@ function saveSuccessful(data) {
 
     if (data.success == true) {
         resetUserFields();
-       // Msg.success(data.msg, 5 * 1000);
+        // Msg.success(data.msg, 5 * 1000);
 
         //Refresh the autocomplete lookup
         $.get('/Administration/LoadUserPartial').done(function (data) {
@@ -235,7 +185,7 @@ function saveFailed(data) {
 }
 
 function resetUserFields() {
-    
+
 
     $('#qcUserId').val('0');
     $('#UserNameText').val('');
@@ -243,8 +193,7 @@ function resetUserFields() {
     $('#Location').val('');
     $('#SecurityLevel').val('');
     $('#Phone').val('');
-    $('#Enabled').prop('checked', true);
-    $('#Deleted').val(null);
+    $('#Active').prop('checked', true);
     $('table tr').removeClass("selectedRow");
     $("#divEnabled").hide();
 

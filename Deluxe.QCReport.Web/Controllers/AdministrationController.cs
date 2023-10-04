@@ -181,12 +181,41 @@ namespace Deluxe.QCReport.Web.Controllers
             {
                 return Json(
                     new { success = false,
-                        msg = "Failed to save user, please contact system admin. " 
+                        msg = "Please supply user name and continue.... " 
                     });
             }
 
-            user.UserName = user.UserNameText;
-            bool result = _userService.InsertOrUpdateUser(user);
+            if (string.IsNullOrWhiteSpace(user.UserName ))
+            {
+                return Json(
+                    new
+                    {
+                        success = false,
+                        msg = "Please supply user name and continue.... "
+                    });
+            }
+
+            if (!user.Location.HasValue)
+            {
+                return Json(
+                    new
+                    {
+                        success = false,
+                        msg = "Please supplya location and continue.... "
+                    });
+            }
+
+
+            if (user.Active)
+            {
+                user.Deleted = null;
+            }
+            else
+            {
+                user.Deleted = 1;
+            }
+
+            bool result = _userService.Save(user);
             string resultMsg = "User saved successfully";
 
             if (!result) 

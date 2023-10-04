@@ -13,12 +13,11 @@ namespace Deluxe.QCReport.Common.Models
         public int? Location { get; set; }
         public int? SecurityLevel { get; set; }
         public string UserName { get; set; }
-        public string UserNameText { get; set; }
-        public string FullName { get; set; }
+       public string FullName { get; set; }
         public string Phone { get; set; }
         public byte? Deleted { get; set; }
         public string LocationName { get; set; }
         public string Role { get; set; }
-
+        public bool Active { get; set; }
     }
 }

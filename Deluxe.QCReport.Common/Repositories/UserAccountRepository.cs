@@ -53,7 +53,6 @@ namespace Deluxe.QCReport.Common.Repositories
                         return new UserAccount(){
                             qcUserId = rUser.qcUserID,
                             UserName = rUser.UserName.Trim(), 
-                            UserNameText =  rUser.UserName.Trim(),
                             SecurityLevel = secLvl,
                             FullName = rUser.FullName.Trim(),
                             Phone = rUser.Phone,
@@ -105,7 +104,6 @@ namespace Deluxe.QCReport.Common.Repositories
                         {
                             qcUserId = rUser.qcUserID,
                             UserName = rUser.UserName.Trim(),
-                            UserNameText = rUser.UserName.Trim(),
                             SecurityLevel = secLvl,
                             FullName = rUser.FullName.Trim(),
                             Phone = rUser.Phone,
@@ -157,7 +155,6 @@ namespace Deluxe.QCReport.Common.Repositories
                         {
                             qcUserId = rUser.qcUserID,
                             UserName = rUser.UserName.Trim(),
-                            UserNameText = rUser.UserName.Trim(),
                             SecurityLevel = secLvl,
                             FullName = rUser.FullName.Trim(),
                             Phone = rUser.Phone,
@@ -244,38 +241,47 @@ namespace Deluxe.QCReport.Common.Repositories
 
         }
 
-        public bool Insert(IUserAccount user)
+        public bool Save(IUserAccount user)
         {
             bool inserted = false;
 
             try
             {
-                using (DataClassesDataContext DC = new DataClassesDataContext())
+
+                if (user.qcUserId == 0)
                 {
-                    try
+                    using (DataClassesDataContext DC = new DataClassesDataContext())
                     {
-                        // Check for deleted user
-                        var resultSql = (from u in DC.qcUsers
-                                         where u.UserName == user.UserNameText
-                                         select u).FirstOrDefault();
-
-                        //var rUser = resultSql.Single(u => u.UserName == username && !u.Deleted.HasValue);
-
-                        if (resultSql != null)
+                        try
                         {
-                            user.qcUserId = resultSql.qcUserID;
+
+
+                            // Check for deleted user
+                            var resultSql = (from u in DC.qcUsers
+                                             where u.UserName == user.UserName
+                                             select u).FirstOrDefault();
+
+                            if (resultSql != null)
+                            {
+                                user.qcUserId = resultSql.qcUserID;
+                                user.Deleted = null;
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
+                        catch (Exception)
+                        {
+
+                        }
 
                     }
+
 
                 }
 
+                
+
                 using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
                 {
-                   // var parameters = PopulateParametersForInsert(user);
+                    // var parameters = PopulateParametersForInsert(user);
 
                     connection.Execute(
                                    StoredProcedure.User.ins_up_InsertOrUpdateUser.ToString(),
@@ -292,43 +298,13 @@ namespace Deluxe.QCReport.Common.Repositories
             {
                 ILoggerItem loggerItem = PopulateLoggerItem(ex);
                 _logger.LogSystemActivity(loggerItem);
-                throw;
+                //throw;
             }
 
             return inserted;
-        }
+     }
 
-        public bool Update(IUserAccount user)
-        {
-            bool updated = false;
-
-            try
-            {
-                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
-                {
-                   // var parameters = PopulateParametersForUpdate(user);
-
-                    connection.Execute(
-                                   StoredProcedure.User.ins_up_InsertOrUpdateUser.ToString(),
-                                   user,
-                                   null,
-                                   null,
-                                   commandType: CommandType.StoredProcedure);
-
-                    updated = true;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                ILoggerItem loggerItem = PopulateLoggerItem(ex);
-                _logger.LogSystemActivity(loggerItem);
-                throw;
-            }
-
-            return updated;
-        }
-
+      
         public List<string> GetUsers()
         {
            List<string> users = null;

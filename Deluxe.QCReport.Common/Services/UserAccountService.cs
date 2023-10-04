@@ -18,17 +18,10 @@ namespace Deluxe.QCReport.Common.Services
         }
 
                
-        public bool InsertOrUpdateUser(IUserAccount user)
+        public bool Save(IUserAccount user)
         {
-            if (user.qcUserId == 0)
-            {
-                return _rep.Insert(user);
-            }
-            else 
-            {
-                return _rep.Update(user);
-            }
-           
+            return _rep.Save(user);
+         
         }
 
         public IUserAccount GetUserDetails(string username)

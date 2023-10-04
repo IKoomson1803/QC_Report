@@ -1,13 +1,8 @@
-﻿@model  Deluxe.QCReport.Common.Models.UserAccountVM 
-
-@{ 
-   
+﻿@model  Deluxe.QCReport.Common.Models.UserAccountVM
 
 
-}
-
-    <title>Users Managemant</title>
-    <link rel="stylesheet" type="text/css" href="~/css/admin.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" />
+<title>Users Managemant</title>
+<link rel="stylesheet" type="text/css" href="~/css/admin.css?v=@DateTime.Now.ToString("yyyyMMddHHmmss")" />
 
 
 <a href="#Top">&nbsp;</a>
@@ -24,7 +19,7 @@
         <input type="hidden" id="qcUserId" name="qcUserId" />
         <input type="hidden" id="Deleted" name="Deleted" />
 
-        <div class="row">
+        @*<div class="row">
             <div class="col-md-4">
 
             </div>
@@ -36,103 +31,108 @@
                     <span style="color:red;font-weight:bold;font-size:12px;">Auto search for operator and hit enter to display the details below.  </span>
                 </div>
             </div>
-        </div>
+        </div>*@
 
         <div class="row">&nbsp;</div>
 
-
         <div class="row">
-            <div class="col-md-4">
-
+            <div class="col-md-2">
+                <label class="control-label">CORP User Name:</label>
+            </div>
+            <div class="col-md-4 form-group">
+                <input id="UserNameText" name="UserNameText" class="normalTextBox" required placeholder="CORP username (mandatory)" />
             </div>
 
-            <div class="col-md-8">
-
-                <div class="PaddTopBot">
-                    <label>CORP User Name:</label><br />
-                    <input id="UserNameText" name="UserNameText" class="normalTextBox" required placeholder="CORP username (mandatory)" />
-
-                </div>
-
-                <div class="PaddTopBot">
-                    <label>Full Name:</label><br />
-                    <input id="Fullname" name="Fullname" class="normalTextBox" placeholder="User full name (optional)" />
-                </div>
-
-
-                <div class="PaddTopBot">
-                    <label>Location:</label><br />
-                    @Html.DropDownListFor(m => m.Location, 
-                   new SelectList(Model.LocationsList, "key", "value"), "Select Location  (mandatory)", 
-                   new { @style = "width:300px; height:25px;" })
-
-                         @*<select id="Location" name="Location" class="normalTextBox" required>
-                        <option value="">Select Location  (mandatory)</option>
-                        <option value="7">Deluxe Australia</option>
-                        <option value="8">Deluxe Bangolore</option>
-                        <option value="15">Deluxe Burbank</option>
-                        <option value="9">Deluxe House</option>
-                        <option value="10">Deluxe Madrid</option>
-                        <option value="13">Deluxe Moosic</option>
-                    </select>*@
-                </div>
-
-                <div class="PaddTopBot">
-                    <label>Role:</label><br />
-                    <select id="SecurityLevel" name="SecurityLevel" class="normalTextBox" required>
-                        <option value="">Select Security Level  (mandatory)</option>
-                        <option value="0">Read Only</option>
-                        <option value="1">Operator</option>
-                        @*<option value="2">Super User</option>*@
-                        <option value="3">Administrator</option>
-                    </select>
-                </div>
-
-                <div class="PaddTopBot">
-                    <label>Phone:</label><br />
-                    <input id="Phone" name="Phone" class="shortTextBox" placeholder="User phone number (optional)" />
-                </div>
-
-                <div style="padding-left: 6px;">
-                    <label>&nbsp;</label>
-                    <input id="Enabled" name="Enabled" type="checkbox" />
-                    <label style="width:120px">Enable</label>
-
-                </div>
-
-
-                <div class="PaddTopBot">
-                    <button type="button" id="SaveUser" class="btn btn-info">
-                        Add New
-                    </button>
-                    <button type="button" id="ResetUserFields" class="btn btn-danger">
-                        Reset
-                    </button>
-
-                </div>
-
-
+            <div class="col-md-2">
+                <label class="control-label">Full Name:</label>
+            </div>
+            <div class="col-md-4 form-group">
+                <input id="Fullname" name="Fullname" class="normalTextBox" placeholder="User full name (optional)" />
             </div>
 
         </div>
+
+
+
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-2">
+                <label class="control-label">Location:</label>
+            </div>
+            <div class="col-md-4 form-group">
+                @Html.DropDownListFor(m => m.Location,
+              new SelectList(Model.LocationsList, "key", "value"), "Select Location  (mandatory)",
+              new { @style = "width:300px; height:25px;" })
+            </div>
+
+            <div class="col-md-2">
+                <label class="control-label">Role:</label>
+            </div>
+            <div class="col-md-4 form-group">
+                <select id="SecurityLevel" name="SecurityLevel" class="normalTextBox" required>
+                    <option value="">Select Security Level  (mandatory)</option>
+                    <option value="0">Read Only</option>
+                    <option value="1">Operator</option>
+                    @*<option value="2">Super User</option>*@
+                    <option value="3">Administrator</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label">Phone:</label>
+            </div>
+            <div class="col-md-4 form-group">
+                <input id="Phone" name="Phone" class="shortTextBox" placeholder="User phone number (optional)" />
+            </div>
+
+        </div>
+
+        <div class="row" id="divEnabled">
+            <div class="col-md-2">
+                <label class="control-label">Enable:</label>
+            </div>
+            <div class="col-md-4 form-group">
+                <input id="Enabled" name="Enabled" type="checkbox" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label">&nbsp;</label>
+            </div>
+            <div class="col-md-3  form-group">
+                <button type="button" id="SaveUser" class="btn btn-info" onclick="saveUser()">
+                    Add New
+                </button>
+                <button type="button" id="ResetUserFields" class="btn btn-danger" onclick="resetUserFields()">
+                    Reset
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12  form-group">
                 <label class="control-label">&nbsp;</label>
                 <span id="divUserMessage" class="divMessage"></span>
             </div>
         </div>
     </form>
 
-</div>
-
     <div class="row">&nbsp;</div>
 
-    <div class="row" id="divUsers" style="overflow:auto;height:400px;">
 
+    <div class="row" id="divUsers" style="overflow:auto;height:400px;">
+        @{Html.RenderPartial("_UsersGrid", Model);}
     </div>
 
-    
-    <script type="text/javascript" src="~/Scripts/Custom/user.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>
+</div>
+
+
+<script type="text/javascript" src="~/Scripts/Custom/user.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>
 
 
 
