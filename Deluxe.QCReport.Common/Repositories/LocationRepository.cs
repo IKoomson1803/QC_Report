@@ -58,9 +58,9 @@ namespace Deluxe.QCReport.Common.Repositories
             return list;
         }
 
-        public IList<LocationVM> GetLocationsList()
+        public IList<DeluxeLocation> GetLocationsList()
         {
-            IList<LocationVM> list = null;
+            IList<DeluxeLocation> list = null;
 
             try
             {
@@ -70,7 +70,7 @@ namespace Deluxe.QCReport.Common.Repositories
                 {
 
 
-                    list = connection.Query<LocationVM>(
+                    list = connection.Query<DeluxeLocation>(
                                      StoredProcedure.Location.sel_GetLocationsList.ToString(),
                                      null,
                                      null,
@@ -99,14 +99,14 @@ namespace Deluxe.QCReport.Common.Repositories
             {
                 using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
                 {
-                    deluxeLocation = new LocationVM();
+                    deluxeLocation = new DeluxeLocation();
 
                     var parameters = new
                     {
                         Location = location
                     };
 
-                    deluxeLocation = connection.Query<LocationVM>(
+                    deluxeLocation = connection.Query<DeluxeLocation>(
                                      StoredProcedure.Location.sel_GetLocationDetails.ToString(),
                                      parameters,
                                      null,
@@ -178,5 +178,35 @@ namespace Deluxe.QCReport.Common.Repositories
 
         }
 
+        public ILocation GetLocationDetails(int id)
+        {
+            ILocation deluxeLocation = null;
+
+            try
+            {
+                using (IDbConnection connection = OpenConnection(this._conn.ConnectionString))
+                {
+                    deluxeLocation = new DeluxeLocation();
+
+                 
+
+                    deluxeLocation = connection.Query<DeluxeLocation>(
+                                     StoredProcedure.Location.sel_GetLocationById.ToString(),
+                                     new { Id = id},
+                                     null,
+                                     false,
+                                     null,
+                                     commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                ILoggerItem loggerItem = PopulateLoggerItem(ex);
+                _logger.LogSystemActivity(loggerItem);
+                //throw;
+            }
+
+            return deluxeLocation;
+        }
     }
 }

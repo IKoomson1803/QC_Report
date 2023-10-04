@@ -24,7 +24,7 @@
             @foreach (var client in clients)
             {
                 itemNo++;
-            <tr class='clickable-row' style="cursor:pointer;" data-id="@client.CustID " title="Click the row to update the client">
+            <tr class='clickable-row' style="cursor:pointer;" onclick="rowOnClick()" data-id="@client.CustID " title="Click the row to update the client">
                 <td>@itemNo</td>
                 <td>@client.CustName</td>
                 <td>@client.CustAddress</td>

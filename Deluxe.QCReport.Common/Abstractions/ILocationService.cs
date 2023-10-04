@@ -9,7 +9,8 @@ namespace Deluxe.QCReport.Common.Abstractions
         bool SaveLocation(ILocation deluxeLocation);
 
         ILocation GetLocationDetails(string location);
-        IList<LocationVM> GetLocationsList();
+        ILocation GetLocationDetails(int id);
+        IList<DeluxeLocation> GetLocationsList();
 
 
     }

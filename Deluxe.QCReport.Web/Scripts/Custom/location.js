@@ -1,40 +1,17 @@
 ﻿
-var locations = [];
-
-
 
 $().ready(function () {
     initializeLocationForm();
+
+    $('#tblAdmin').on('search.dt', function () {
+        var value = $('.dataTables_filter input').val();
+        // alert(value); // <-- the value
+        resetLocationFields()
+    });
 });
 
 function initializeLocationForm() {
-    $.ajax({
-        url: '/Administration/GetLocations',
-        async: true,
-        contentType: "application/json",
-        dataType: "json",
-        success: function (data) {
-           
-            $.each(data, function (k, c) {
-                locations.push(c);
-            });
-
-
-        }
-    });
-
-    $('#LocationSearch').autocomplete({
-        minLength: 3,
-        minDelay: 250,
-        source: locations,
-    });
-
-    $('#LocationSearch').keyup(function (event) {
-        if (event.key == 'Enter') {
-            searchLocation();
-        }
-    });
-
+   
     $('#ResetLocationFields').click(function (event) {
         resetLocationFields(false);
     });
@@ -42,27 +19,24 @@ function initializeLocationForm() {
     $('#SaveLocation').click(function (event) {
         saveLocation();
     });
+
+    $('.clickable-row').on('click', function () {
+
+        $('table tr').removeClass("selectedRow");
+        $(this).addClass("selectedRow");
+        var id = $(this).data('id');
+        $('#btnSave').text('Update');
+        populateLocationById(id);
+
+    });
 }
 
-
-
-function searchLocation() {
-
-    if ($('#LocationSearch').val() == '') {
-        return;
-    }
-
-    populateLocationForm();
-
-
-}
-
-function populateLocationForm() {
+function populateLocationById(id) {
 
     $.ajax({
-        url: '/Administration/GetLocationDetails',
+        url: '/Administration/GetLocationById',
         async: true,
-        data: { location: $('#LocationSearch').val() },
+        data: { id: id },
         type: 'Get',
         success: function (result) {
             //console.log(result)
@@ -70,11 +44,10 @@ function populateLocationForm() {
             if (result.pkey > 0) {
                 showLocationForm(result);
             }
-            else {
-                resetLocationFields(true);
-            }
+
         }
-    });
+
+        });
 
 }
 
@@ -84,21 +57,36 @@ function showLocationForm(result) {
     $('#pkey').val(result.pkey);
     $('#Location').val(null ?? result.Location);
     $('#Address').val(null ?? result.Address);
-    
     $("#SaveLocation").html('Update');
-
 
 }
 
-function resetLocationFields(search) {
 
-    if (!search) {
-        $('#LocationSearch').val('');
-    }
 
-    $('#pkey ').val('0');
+function rowOnClick() {
+
+    $('.clickable-row').on('click', function () {
+
+        $('table tr').removeClass("selectedRow");
+        $(this).addClass("selectedRow");
+        var id = $(this).data('id');
+        $('#btnSave').text('Update');
+        populateLocationById(id);
+
+    });
+}
+
+
+
+
+
+
+function resetLocationFields() {
+
+    $('#pkey ').val('');
     $('#Location').val('');
     $('#Address').val('');
+    $('table tr').removeClass("selectedRow");
     $("#SaveLocation").html('Add New');
 
 }
@@ -109,7 +97,7 @@ function saveLocation() {
     $('#divLocationMessage').html('');
 
     if ($("#Location").val() == "") {
-       
+
         $('#Location').popover({ placement: 'bottom', content: "Please provide location and continue...", trigger: "manual" }).popover('show')
             .on('shown.bs.popover', function () {
                 setTimeout("$('#Location').popover('destroy');", 3000);
@@ -119,7 +107,7 @@ function saveLocation() {
     }
 
     if ($("#Address").val() == "") {
-       
+
         $('#Address').popover({ placement: 'bottom', content: "Please provide address and continue...", trigger: "manual" }).popover('show')
             .on('shown.bs.popover', function () {
                 setTimeout("$('#Address').popover('destroy');", 3000);
@@ -130,7 +118,7 @@ function saveLocation() {
 
     var formData = $('#frmLocation').serializeObject();
 
-   // console.log(formData);
+    // console.log(formData);
     // return;
 
     $.ajax({

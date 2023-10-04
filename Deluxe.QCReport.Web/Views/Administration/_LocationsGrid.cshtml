@@ -1,0 +1,39 @@
+﻿@model Deluxe.QCReport.Common.Models.LocationsVM
+
+
+@{
+    var itemNo = 0;
+    var locations = Model.Locations;
+}
+
+@if (locations != null && locations.Any())
+{
+    <table id="tblAdmin" cellspacing="0" style="width: 100%; table-layout: fixed; word-wrap: break-word;">
+        <thead>
+            <tr>
+                <th class="tblHeaderCell tblHeaderNumberCell">Item No.</th>
+                <th class="tblHeaderCell">Location</th>
+                <th class="tblHeaderCell">Address</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var location in locations)
+            {
+                itemNo++;
+                <tr class='clickable-row' style="cursor:pointer;" onclick="rowOnClick()" data-id="@location.pkey " title="Click the row to update the location">
+                    <td>@itemNo</td>
+                    <td>@location.Location</td>
+                    <td>@location.Address</td>
+                   
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+}
+
+
+<script src="~/Scripts/custom/administrationDatatable.js?v=@DateTime.Now.ToString("yyyyMMddHHmmss")"></script>

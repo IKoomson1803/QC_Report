@@ -162,6 +162,7 @@
     <Compile Include="Models\DisneyTWDC\DisneyTWDCElementInformation.cs" />
     <Compile Include="Models\DisneyTWDC\DisneyTWDCProgrammeDetails.cs" />
     <Compile Include="Models\HDRMetadata.cs" />
+    <Compile Include="Models\LocationsVM.cs" />
     <Compile Include="Models\QCBase.cs" />
     <Compile Include="Models\DPPCommBroadcasters.cs" />
     <Compile Include="Models\DPPLog.cs" />
@@ -181,7 +182,7 @@
     <Compile Include="Models\IndividualSpecsVM.cs" />
     <Compile Include="Models\JobTreeViewVM.cs" />
     <Compile Include="Models\DPPProdSignOff.cs" />
-    <Compile Include="Models\LocationVM.cs" />
+    <Compile Include="Models\DeluxeLocation.cs" />
     <Compile Include="Models\LoggerItem.cs" />
     <Compile Include="Models\LogVM.cs" />
     <Compile Include="Models\OverallSpecsVM.cs" />

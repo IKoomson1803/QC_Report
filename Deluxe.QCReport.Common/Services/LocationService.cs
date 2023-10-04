@@ -34,11 +34,14 @@ namespace Deluxe.QCReport.Common.Services
             return _rep.SaveLocation(deluxeLocation);
         }
 
-        public IList<LocationVM> GetLocationsList()
+        public IList<DeluxeLocation> GetLocationsList()
         {
             return _rep.GetLocationsList();
         }
 
-        
-     }
-   }
+        public ILocation GetLocationDetails(int id)
+        {
+            return _rep.GetLocationDetails(id);
+        }
+    }
+  }

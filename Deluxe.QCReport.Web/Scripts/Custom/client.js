@@ -33,17 +33,17 @@ function initializeClientForm() {
     //    }
     //});
 
-    $('#CustomerNameSearch').autocomplete({
-        minLength: 3,
-        minDelay: 250,
-        source: clients,
-    });
+    //$('#CustomerNameSearch').autocomplete({
+    //    minLength: 3,
+    //    minDelay: 250,
+    //    source: clients,
+    //});
 
-    $('#CustomerNameSearch').keyup(function (event) {
-        if (event.key == 'Enter') {
-            searchClient();
-        }
-    });
+    //$('#CustomerNameSearch').keyup(function (event) {
+    //    if (event.key == 'Enter') {
+    //        searchClient();
+    //    }
+    //});
 
     $('#ResetClientFields').click(function (event) {
         resetClientFields();
@@ -139,7 +139,7 @@ function showClientForm(result){
 
 function resetClientFields() {
 
-    $('#CustID ').val('0');
+    $('#CustID ').val('');
     $('#CustCode').val('');
     $('#CustName').val('');
     $('#CustAddress').val('');

@@ -2,7 +2,7 @@
 
 namespace Deluxe.QCReport.Common.Models
 {
-    public class LocationVM : ILocation
+    public class DeluxeLocation : ILocation
     {
         public int pkey { get; set; }
         public string Location { get; set; }

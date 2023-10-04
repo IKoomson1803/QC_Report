@@ -188,7 +188,6 @@
     <Content Include="Scripts\Custom\location.js" />
     <Content Include="Scripts\Custom\searchResultDataTable.js" />
     <Content Include="Scripts\Custom\user.js" />
-    <Content Include="Scripts\Custom\usersGrid.js" />
     <Content Include="Scripts\Datatable\buttons.html5.min.js" />
     <Content Include="Scripts\Datatable\dataTables.buttons.min.js" />
     <Content Include="Scripts\Datatable\jquery.dataTables.min.js" />
@@ -318,6 +317,7 @@
     <Content Include="Specifications\Lionsgate\Lionsgate UHD-Dolby Vision and UHD-SDR Technical Specs.pdf" />
     <Content Include="Views\Administration\_UsersGrid.cshtml" />
     <Content Include="Views\Administration\_ClientsGrid.cshtml" />
+    <Content Include="Views\Administration\_LocationsGrid.cshtml" />
     <None Include="Views\Job\_ESISpecifics.cshtml.old" />
     <Content Include="Views\Job\_ESIFinal.cshtml" />
     <Content Include="Views\AdvancedSearch\_SearchGrid.cshtml" />

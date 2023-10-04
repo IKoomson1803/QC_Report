@@ -371,6 +371,9 @@ namespace Deluxe.QCReport.Web.Controllers
         public ActionResult LoadLocationPartial()
         {
 
+            LocationsVM model = new LocationsVM();
+            model.Locations = _locationService.GetLocationsList()?.ToList();
+
             /****************Log User Activity******************************************************/
 
             WebSystemUtility.LogUserActivity(
@@ -379,7 +382,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             /*******************************************************************************************/
 
-            return PartialView("_LocationPartial");
+            return PartialView("_LocationPartial", model);
         }
 
         public ActionResult GetLocations()
@@ -398,7 +401,7 @@ namespace Deluxe.QCReport.Web.Controllers
 
             if (deluxeLocation == null)
             {
-                deluxeLocation = new LocationVM();
+                deluxeLocation = new DeluxeLocation();
             }
 
             /****************Log User Activity******************************************************/
@@ -414,8 +417,30 @@ namespace Deluxe.QCReport.Web.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetLocationById(int id)
+        {
+            var deluxeLocation = _locationService.GetLocationDetails(id);
+
+            if (deluxeLocation == null)
+            {
+                deluxeLocation = new DeluxeLocation();
+            }
+
+            /****************Log User Activity******************************************************/
+
+            WebSystemUtility.LogUserActivity(
+                                             $"Location details [Id = {id}] was searched.",
+                                            Constants.ActivityType.LocationDetailsSearched);
+
+            /*******************************************************************************************/
+
+            return Json(
+                deluxeLocation,
+                JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
-        public ActionResult SaveLocation(LocationVM  deluxeLocation )
+        public ActionResult SaveLocation(DeluxeLocation  deluxeLocation )
         {
             if (deluxeLocation == null)
             {
