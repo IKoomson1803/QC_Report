@@ -36,6 +36,27 @@ Function ChecklistCompleted()
 
 End Function
 
+
+Function SetGradeColour(grade)
+
+  
+     
+	If grade = "1"   Then
+	   Response.Write "<td class='grade-text-1'>" & grade & "</td>"
+	   
+	ElseIf grade = "2"   Then
+	   Response.Write "<td class='grade-text-2'>" & grade & "</td>"
+	   
+	Else
+	   Response.Write "<td class='grade-text-others'>" & grade & "</td>"   
+	   
+	
+   End If	
+	
+	
+  	
+End Function
+
 %>
 
 
@@ -59,7 +80,7 @@ text-align:center;
 }
 
 .scetion-detail, .section-label{
-background-color: gray;
+background-color: lightgray;
 font-size: 12px;
 font-weight: bold;
  padding: 3px 3px 3px 3px;
@@ -82,21 +103,117 @@ width:100px
 
 
 }
+
+.status-label{
+font-weight:bold;
+font-size:20px;
+border:2px solid #000;
+padding: 3px 3px 3px 3px;
+
+}
+
+.status-text-passed, .status-text-failed, .status-text-referral {
+font-weight:bold;
+font-size:20px;
+border-top:2px solid #000; 
+border-right:2px solid #000; 
+border-bottom:2px solid #000; 
+padding: 3px 3px 3px 3px;
+}
+
+.status-text-passed, .grade-text-others{
+background-color: green
+}
+
+.status-text-failed, .grade-text-1{
+background-color: red
+}
+
+.status-text-referral, .grade-text-2{
+background-color: yellow
+}
+
+.status-text-hold{
+background-color: #FF7518
+}
+
+.grade-label{
+font-weight:bold;
+font-size:16px;
+border-left:2px solid #000; 
+border-bottom:2px solid #000;
+border-right:2px solid #000;
+  padding: 3px 3px 3px 3px;
+}
+
+.grade-text-1, .grade-text-2, .grade-text-others {
+border-bottom:2px solid #000; 
+border-right:2px solid #000;
+ padding: 3px 3px 3px 3px;
+
+}
+
+
 </style>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
+    <td align="left" width="110" valign="top"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0" ></td>
     <td align="center"> 
       <h2 class="txt_boldtype_header" > QUALITY CONTROL REPORT FOR<br>
        <%=rsHeader.Fields("CustName")%></h2>
     </td>
+	<td>
+	    <table width="220" border="1" cellspacing="0" cellpadding="0">
+	       <tr>
+		      <td class="status-label">STATUS</td>
+			   <%
+			       status = rsHeader.Fields("Eval_Stat")
+				   
+				    If status = "PASSED"   Then
+				       Response.Write "<td class='status-text-passed'>" & status & "</td>"
+					   
+					ElseIf status = "FAILED"   Then
+				       Response.Write "<td class='status-text-failed'>" & status & "</td>"
+					   
+					ElseIf status = "REFERRAL"   Then
+				       Response.Write "<td class='status-text-referral'>" & status & "</td>"   
+					   
+					 ElseIf status = "HOLD"   Then
+				       Response.Write "<td class='status-text-hold'>" & status & "</td>"    
+	               End If	
+				   
+			  
+			    %>
+			  
+		   </tr>
+		   <tr>
+		      <td class="grade-label">Video Grade:</td>
+			   <%= SetGradeColour(rsHeader.Fields("grdVideo")) %>
+			
+		   </tr>
+		   <tr>
+		      <td class="grade-label">Audio Grade:</td>
+			   <%= SetGradeColour(rsHeader.Fields("grdAudio")) %>
+			
+          </tr>
+		   <tr>
+		     <td class="grade-label">Overall Grade:</td>
+			  <%= SetGradeColour(rsHeader.Fields("grdOverall")) %>
+			
+          </tr>
+		   
+	    </table>
+	</td>
+	
+  </tr>
+  <tr>
+	<td colspan="2" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
+	
+	
     <td align="right">
 		Page:&nbsp;1&nbsp;of&nbsp;<span id="totalPage1"></span>
     </td>
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
   </tr>
 </table>
 

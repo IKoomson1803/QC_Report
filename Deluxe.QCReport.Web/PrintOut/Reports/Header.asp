@@ -122,8 +122,22 @@
 			   
 			 <td class="section-label" >UID No. / Production ID:</td>
 			 <td class="section-text" ><%=rsHeader.Fields("CatalogueID")%></td>
+			 
 		 </tr>
-					
+		 
+		 <tr>
+		     <td  class="section-label" >Head Logo:</td>
+			 <td class="section-text" ><%=rsHeader.Fields("HeadLogo")%></td>
+			 
+             <td  class="section-label" >Tail Logo:</td>
+			 <td class="section-text"><%=rsHeader.Fields("TailLogo")%></td>
+			 
+			 <td class="section-label" >&nbsp;</td>
+			 <td class="section-text" >&nbsp;</td>
+		 
+		 </tr>
+			
+<!--			
 			<tr>
              <td  class="section-label" >Status:</td>
 			 <td class="section-text"><%=rsHeader.Fields("Eval_Stat")%></td>
@@ -147,7 +161,7 @@
 			 <td class="section-text" ><%=rsHeader.Fields("grdAudio")%></td>
             
 			</tr> 
-			
+	-->		
 			 
         </table>
 	</td>

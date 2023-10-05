@@ -20,7 +20,7 @@
 								  else
 									Response.Write(replace(rsHeader.Fields("Rec_Date"), "TBD", ""))
 		
-						  end if%>>
+						  end if%>
 		 </td>
 		 
 	    <td class="section-label" >Record Facility: </td>

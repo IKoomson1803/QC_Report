@@ -16,6 +16,7 @@ Dim positionDisney, positionLionsGate, positionWarner, positionWildBunch
 Dim IsChecklistCompleted 
 Dim rsFaultImage, sqlFaultImage, nFaultImages, nTotalImages
 Dim sQCBNJR
+Dim status, grade
 
 
 sBVMaster = Request.QueryString("sBVMaster")
