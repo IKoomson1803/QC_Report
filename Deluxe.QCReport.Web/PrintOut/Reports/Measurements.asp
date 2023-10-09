@@ -15,7 +15,7 @@ if rsHeader.Fields("IRE_MV") = "M" then
 
 
      
-<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<table class="section-table" border="0" cellspacing="0" cellpadding="0" >
  
   <tr>
     <td>
@@ -31,13 +31,13 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	
 		  <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		     <tr> 
-			  <td  class="section-detail" >Tape Number: <%=rsHeader.Fields("TapeNumber")%></td>
+			  <td  class="section-label measurements-label" >Tape Number: <%=rsHeader.Fields("TapeNumber")%></td>
 			  
-			  <td  class="section-label">Format:><%=rsHeader.Fields("Format")%></td>
+			  <td  class="section-text measurements-text">Format:><%=rsHeader.Fields("Format")%></td>
 			  
-			  <td  class="section-label" style="font-size:14px;font-weigth:bold;">Standard:&nbsp; <b><%=rsHeader.Fields("Standard")%></td>
+			  <td  class="section-label measurements-label" style="font-size:14px;font-weigth:bold;">Standard:&nbsp; <b><%=rsHeader.Fields("Standard")%></td>
 			  
-			  <td  class="section-label" style="font-size:14px;font-weigth:bold;">Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></td>
+			  <td  class="section-text measurements-text" style="font-size:14px;font-weigth:bold;">Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></td>
 			  
 			  <td  class="bottom_border">&nbsp; </td>
 			</tr>
@@ -57,17 +57,17 @@ if rsHeader.Fields("IRE_MV") = "M" then
 		  <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		     		  
 			<tr> 
-			  <td  class="section-label" ><span style="font-size:14px; font-weight:bold;">Format:</td>
-			  <td class="section-text" > <%=rsHeader.Fields("Format")%></td>
+			  <td  class="section-label measurements-label" ><span style="font-size:14px; ">Format:</span></td>
+			  <td class="section-text measurements-text" > <%=rsHeader.Fields("Format")%></td>
 			  
-			  <td  class="section-label"><span style="font-size:14px; font-weight:bold;">Standard:</td>
-			  <td class="section-text" > <%=rsHeader.Fields("Standard")%></td>
+			  <td  class="section-label measurements-label"><span style="font-size:14px;">Standard:</span></td>
+			  <td class="section-text measurements-text" > <%=rsHeader.Fields("Standard")%></td>
 			  
-			  <td  class="section-label"><span style="font-size:14px; font-weight:bold;">Aspect Ratio:</td>
-			  <td class="section-text" > <%=rsHeader.Fields("Aspect")%></td>
+			  <td  class="section-label measurements-label"><span style="font-size:14px;">Aspect Ratio:</span></td>
+			  <td class="section-text measurements-text" > <%=rsHeader.Fields("Aspect")%></td>
 			  
-			   <td  class="section-label"><span style="font-size:14px; font-weight:bold;">Frame Size:</td>
-			   <td class="section-text" > <%=rsHeader.Fields("Frame_Size")%></td>
+			   <td  class="section-label measurements-label"><span style="font-size:14px;">Frame Size:</span></td>
+			   <td class="section-text measurements-text" > <%=rsHeader.Fields("Frame_Size")%></td>
 			   
 			</tr>
 			
@@ -138,14 +138,14 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			   <td <td class="section-label" >Max CLL:</td>
 		      <td class="section-text" ><%=rsHeader.Fields("MaxCLL")%></td>
 			   
-			  <td  <td class="section-label" >Max FALL:</td>
-			<td class="section-text" ><%=rsHeader.Fields("MaxFALL")%></td>
+			   <td class="section-label" >Max FALL:</td>
+			  <td class="section-text" ><%=rsHeader.Fields("MaxFALL")%></td>
 			  
-			  <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			  <td class="section-label">&nbsp;</td>
+			    <td class="section-text">&nbsp;</td>
 				
-				  <td>&nbsp;</td>
-				    <td>&nbsp;</td>
+				  <td class="section-label">&nbsp;</td>
+				    <td class="section-text">&nbsp;</td>
 				  
 			  
 			  
@@ -163,9 +163,9 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			
                 
             <tr> 
-			  <td  class="section-label" colspan="2">Bars</td>
-			  <td  class="section-label" colspan="4">Waveform Levels</td>
-			  <td   class="section-label" colspan="2">Line Measurements</td>
+			  <td  class="section-sub-header" colspan="2">BARS</td>
+			  <td  class="section-sub-header" colspan="4">WAVEFORM LEVELS</td>
+			  <td   class="section-sub-header" colspan="2">LINE MEASUREMENTS</td>
 			</tr>  
 			
 			<tr>

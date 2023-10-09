@@ -5,7 +5,7 @@
 	
 	 <table width="100%" border="0" cellspacing="0" cellpadding="1">
 			  <tr>
-			     <td class="section-header" >&nbsp;Checklist - Disney Inventory Spec&nbsp;&nbsp;|&nbsp;&nbsp;File to Spec: 
+			     <td class="section-header" >Checklist - Disney Inventory Spec&nbsp;&nbsp;|&nbsp;&nbsp;File to Spec: 
 				
 				 &nbsp;
 				       <%
@@ -20,16 +20,16 @@
 
 			<p></p>
    
-  <table width="100%" border="1" cellspacing="0" cellpadding="0" >
+  <table class="section-table" border="1" cellspacing="0" cellpadding="0" >
    
 	 <tr>
-	   <td colspan="2"  class="section-label" >&nbsp;Video to Spec</td>
-	   <td colspan="2"  class="section-label" >&nbsp;Audio to Spec</td>
-	   <td colspan="2"  class="section-label" >&nbsp;Programme Layout to Spec</td>
+	   <td colspan="2"  class="section-label" >Video to Spec</td>
+	   <td colspan="2"  class="section-label" >Audio to Spec</td>
+	   <td colspan="2"  class="section-label" >Programme Layout to Spec</td>
 	 </tr>
 	  <tr>
-	     <td class="section-label checklist-label" >&nbsp;File Type:</td>
-			   <td class="checklist-data" >&nbsp;		  
+	     <td class="section-label checklist-label" >File Type:</td>
+			   <td class="section-text checklist-text" >		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("FileType")) Then
 					   Response.Write  rsChecklist.Fields("FileType") 
@@ -39,8 +39,8 @@
 	   
 	   
 
-       <td class="section-label checklist-label" >&nbsp;24 Tracks Present:</td>
-					  <td class="checklist-data">&nbsp;
+       <td class="section-label checklist-label" >24 Tracks Present:</td>
+					  <td class="section-text checklist-text">
 					
 					   <%
 							  If Not IsNull(rsChecklist.Fields("Audio24TracksPresent")) Then
@@ -49,8 +49,8 @@
 						 %>
 					  </td>
 					  
-	   <td class="section-label checklist-label" >&nbsp;Timecode:00:00:00:00:</td>
-				  <td  class="checklist-data">&nbsp;
+	   <td class="section-label checklist-label" >Timecode:00:00:00:00:</td>
+				  <td  class="section-text checklist-text">
 						  
 				   <%
 						  If Not IsNull(rsChecklist.Fields("VideoTimecode")) Then
@@ -64,8 +64,8 @@
 	
 	
 	 <tr>
-	   <td class="section-label checklist-label" >&nbsp;Standard Definition:</td>
-			   <td class="checklist-data">&nbsp;		  
+	   <td class="section-label" >Standard Definition:</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("StandardDefinition")) Then
 					   Response.Write  rsChecklist.Fields("StandardDefinition") 
@@ -73,8 +73,8 @@
 				  %>
 		        </td>
 
-       <td class="section-label" >&nbsp;Audio Track Layout:</td>
-					  <td >&nbsp;
+       <td class="section-label" >Audio Track Layout:</td>
+					  <td class="section-text">
 					
 					   <%
 							If Not IsNull(rsChecklist.Fields("AudioTrackLayout")) Then
@@ -83,8 +83,8 @@
 						 %>
 					  </td>
 	   
-	   <td class="section-label" >&nbsp;Head Build Present:</td>
-				  <td  >&nbsp;
+	   <td class="section-label" >Head Build Present:</td>
+				  <td  class="section-text">
 						  
 				   <%
 						 If Not IsNull(rsChecklist.Fields("ProgrammeHeadBuild")) Then
@@ -97,8 +97,8 @@
 	 </tr>
 	   
 	  <tr>
-	   <td class="section-label" >&nbsp;File Name to Spec:</td>
-			   <td >&nbsp;		  
+	   <td class="section-label" >File Name to Spec:</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("FileName")) Then
 						   Response.Write  IIf(rsChecklist.Fields("FileName"), "Yes", "No") 
@@ -106,8 +106,8 @@
 				  %>
 		        </td>
 
-       <td class="section-label" >&nbsp;Codec:</td>
-				 <td >&nbsp;
+       <td class="section-label" >Codec:</td>
+				 <td class="section-text">
 					
 					   <%
 							  If Not IsNull(rsChecklist.Fields("AudioCodec")) Then
@@ -116,8 +116,8 @@
 						 %>
 					  </td>
 	   
-	   <td class="section-label" >&nbsp;Slate Present:</td>
-				  <td  >&nbsp;
+	   <td class="section-label" >Slate Present:</td>
+				  <td  class="section-text">
 						  
 				   <%
 						  If Not IsNull(rsChecklist.Fields("ProgrammeSlatePresent")) Then
@@ -130,8 +130,8 @@
 	 </tr>
 	
 	  <tr>
-	   <td class="section-label" >&nbsp;File Jes: (Quick Time):</td>
-			   <td >&nbsp;		  
+	   <td class="section-label" >File Jes: (Quick Time):</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoJesExtensifier")) Then
 								   Response.Write  IIf(rsChecklist.Fields("VideoJesExtensifier"), "Yes", "No") 
@@ -139,8 +139,8 @@
 				  %>
 		        </td>
 
-       <td class="section-label" >&nbsp;Sample Rate:</td>
-					  <td >&nbsp;
+       <td class="section-label" >Sample Rate:</td>
+					  <td class="section-text">
 					
 					   <%
 						 If Not IsNull(rsChecklist.Fields("AudioSampleRate")) Then
@@ -149,8 +149,8 @@
 						 %>
 					  </td>
 	   
-	   <td class="section-label" >&nbsp;Programme start: (1s Black - Video and Audio):</td>
-				  <td  >&nbsp;
+	   <td class="section-label" >Programme start: (1s Black - Video and Audio):</td>
+				  <td  class="section-text">
 						  
 				   <%
 						   If Not IsNull(rsChecklist.Fields("ProgrammeStart1stBlackVideoAndAudio")) Then
@@ -162,8 +162,8 @@
 	 
 	 </tr>
 	   <tr>
-	   <td class="section-label" >&nbsp;Container / Wrapper:</td>
-			   <td >&nbsp;		  
+	   <td class="section-label" >Container / Wrapper:</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoContainerOrWrapper")) Then
 					   Response.Write  rsChecklist.Fields("VideoContainerOrWrapper") 
@@ -171,8 +171,8 @@
 				  %>
 		        </td>
 
-       <td class="section-label" >&nbsp;Bit Rate:</td>
-					  <td >&nbsp;
+       <td class="section-label" >Bit Rate:</td>
+					  <td >
 					
 					   <%
 							  If Not IsNull(rsChecklist.Fields("AudioBitRate")) Then
@@ -181,8 +181,8 @@
 						 %>
 					  </td>
 	   
-	   <td class="section-label" >&nbsp;Textless Elements Present:</td>
-				  <td  >&nbsp;
+	   <td class="section-label" >Textless Elements Present:</td>
+				  <td  class="section-text">
 						  
 				   <%
 						   If Not IsNull(rsChecklist.Fields("ProgrammeTextlessElementsPresent")) Then
@@ -196,8 +196,8 @@
 	 </tr>
 	 
 	   <tr>
-              <td class="section-label" >&nbsp;Codec:</td>
-			   <td >&nbsp;		  
+              <td class="section-label" >Codec:</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoCodec")) Then
 					   Response.Write  rsChecklist.Fields("VideoCodec") 
@@ -205,8 +205,8 @@
 				  %>
 		        </td>
 
-       <td class="section-label" >&nbsp;Bit Depth:</td>
-       <td >&nbsp;
+       <td class="section-label" >Bit Depth:</td>
+       <td class="section-text">
 					
 					   <%
 							  If Not IsNull(rsChecklist.Fields("AudioBitDepth")) Then
@@ -215,8 +215,8 @@
 						 %>
 					  </td>
 	   
-	   <td class="section-label" >&nbsp;Black Between Programme And Textless Elements to spec:</td>
-					  <td  >&nbsp;
+	   <td class="section-label" >Black Between Programme And Textless Elements to spec:</td>
+					  <td class="section-text" >
 							  
 					   <%
 							  If Not IsNull(rsChecklist.Fields("ProgrammeBlackBetweenProgrammeAndTextlessElements")) Then
@@ -232,8 +232,8 @@
 	 
 	   <tr>
 	     
-         <td class="section-label" >&nbsp;Resolution:</td>
-	     <td >&nbsp;		  
+         <td class="section-label" >Resolution:</td>
+	     <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoResolution")) Then
 					   Response.Write  rsChecklist.Fields("VideoResolution") 
@@ -241,8 +241,8 @@
 				  %>
 		        </td>
 
-         <td class="section-label" >&nbsp;Channels Discrete:</td>
-					  <td >&nbsp;
+         <td class="section-label" >Channels Discrete:</td>
+					  <td class="section-text">
 					
 					   <%
 							 If Not IsNull(rsChecklist.Fields("AudioChannelsDiscrete")) Then
@@ -251,8 +251,8 @@
 						 %>
 					  </td>
 	   
-			 <td class="section-label" >&nbsp;Full Textless Covers For Texted Shots Present:</td>
-				  <td  >&nbsp;
+			 <td class="section-label" >Full Textless Covers For Texted Shots Present:</td>
+				  <td class="section-text" >
 						  
 				   <%
 						 If Not IsNull(rsChecklist.Fields("ProgrammeFullTextlessCoversForTextedShotsPresent")) Then
@@ -267,8 +267,8 @@
 	 </tr>
 	 
 	   <tr>
-	     <td class="section-label" >&nbsp;Frame Rate / Standard:</td>
-			   <td >&nbsp;		  
+	     <td class="section-label" >Frame Rate / Standard:</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoFrameRateOrStandard")) Then
 					   Response.Write  rsChecklist.Fields("VideoFrameRateOrStandard") 
@@ -276,8 +276,8 @@
 				  %>
 		        </td>
 
-         <td class="section-label" >&nbsp;Audio Tracks Labelled / Tagged In QT:</td>
-				  <td >&nbsp;
+         <td class="section-label" >Audio Tracks Labelled / Tagged In QT:</td>
+				  <td class="section-text">
 					
 					   <%
 							  If Not IsNull(rsChecklist.Fields("AudioTracksLabelledOrtTaggedInQT")) Then
@@ -286,8 +286,8 @@
 						 %>
 					  </td>
 	   
-	     <td class="section-label" >&nbsp;Does Textless Aspect Ratio match programme:</td>
-				  <td  >&nbsp;
+	     <td class="section-label" >Does Textless Aspect Ratio match programme:</td>
+				  <td class="section-text" >
 						  
 				   <%
 						  If Not IsNull(rsChecklist.Fields("ProgrammeDoesTextlessMatchTheFramingAndAspectRatioOfItsCorrespondingTextedShot")) Then
@@ -299,8 +299,8 @@
 	 </tr>
 	 
 	   <tr>
-	       <td class="section-label" >&nbsp;Display Aspect Ratio:</td>
-			   <td >&nbsp;		  
+	       <td class="section-label">Display Aspect Ratio:</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoDisplayAspectRatio")) Then
 					   Response.Write  rsChecklist.Fields("VideoDisplayAspectRatio") 
@@ -308,8 +308,8 @@
 				  %>
 		        </td>
 	   
-	         <td class="section-label" >&nbsp;Textless Gaps (1-2s):</td>
-	        <td  >&nbsp;
+	         <td class="section-label">Textless Gaps (1-2s):</td>
+	        <td class="section-text">
 						  
 				   <%
 						  If Not IsNull(rsChecklist.Fields("ProgrammeTextlessGaps1Or2s")) Then
@@ -319,8 +319,8 @@
 				  
 				  </td>
 	       
-           <td class="section-label" >&nbsp;Progressive:</td>
-			   <td >&nbsp;		  
+           <td class="section-label" >Progressive:</td>
+			   <td class="section-text">		  
 				   <%
 					  If Not IsNull(rsChecklist.Fields("VideoProgressive")) Then
 				     Response.Write  IIf(rsChecklist.Fields("VideoProgressive"), "Yes", "No") 
@@ -334,8 +334,8 @@
 	 
 	   <tr>
 	   
-	       <td class="section-label" >&nbsp;Programme end: (1s Black - Video and Audio):</td>
-				  <td  >&nbsp;
+	       <td class="section-label" >Programme end: (1s Black - Video and Audio):</td>
+				  <td class="section-text">
 						  
 				   <%
 						  If Not IsNull(rsChecklist.Fields("ProgrammeEnd1stBlackVideoAndAudio")) Then
@@ -346,8 +346,8 @@
 				  </td>
 	   
 		  
-		   <td class="section-label" >&nbsp;CLAP Present:</td>
-				   <td >&nbsp;		  
+		   <td class="section-label" >CLAP Present:</td>
+				   <td class="section-text">		  
 					   <%
 						   If Not IsNull(rsChecklist.Fields("VideoCLAP")) Then
 							   Response.Write  IIf(rsChecklist.Fields("VideoCLAP"), "Yes", "No") 
@@ -357,8 +357,8 @@
 	   
 	   
 
-       <td >&nbsp;</td>
-				  <td >&nbsp;</td>	
+              <td class="checklist-empty-label">&nbsp;</td>
+				  <td class="section-text checklist-empty-text">&nbsp;</td>	
 	   
 	   
 	 </tr>

@@ -16,7 +16,7 @@ Dim positionDisney, positionLionsGate, positionWarner, positionWildBunch
 Dim IsChecklistCompleted 
 Dim rsFaultImage, sqlFaultImage, nFaultImages, nTotalImages
 Dim sQCBNJR
-Dim status, grade
+
 
 
 sBVMaster = Request.QueryString("sBVMaster")
@@ -113,8 +113,8 @@ sqlBVIMaster = "SELECT " & _
 					"Video_Codec,Video_Bit_Rate,Video_Bit_Depth,Bit_Rate_Mode, " & _
 			        "Audio_Codec,Audio_Bit_Rate,Audio_Bit_Depth,Sample_Rate, " & _
 			        "GOP_Structure,Gamut,Colour_Encoding,File_Size,Active_Picture, Frame_Size, " & _
-					"QC_VTR, Operator, u1.qcUserID, u1.FullName, Rec_Fac, Rec_VTR, QC_Date, revised_date, revised_by, " & _
-					"Rec_Date, Bar_vid, Bar_Set, HBlank, Format, Aspect, Time_Code, Address, Src_Format, src_standard, src_desc, " & _
+					"QC_VTR, Operator, u1.qcUserID, u1.FullName, Rec_Fac, Rec_VTR,  CONVERT(VARCHAR(12), QC_Date, 103) 'QC_Date', CONVERT(VARCHAR(12), revised_date, 103) 'revised_date', revised_by, " & _
+					" CONVERT(VARCHAR(12), Rec_Date, 103) 'Rec_Date', Bar_vid, Bar_Set, HBlank, Format, Aspect, Time_Code, Address, Src_Format, src_standard, src_desc, " & _
 					"IRE_MV, Lum_Peak, Lum_Avg, Black, Bar_Chr, Front_Por, VBlank, Chroma_Avg, Standard, stock_mfg, rec_fac, " & _
 					"VITC, VITS, Chroma_Peak, Channel_cond, Version, Stock_batch, CH12_Phase, CH34_Phase, Tone_Phase, " & _
 					"VIRS, tracking_qc, ctl_Track, RF, Tape_Wrap_QC, Eval_Stat, TRT, CustName, TCInteg, QCinUnity, LTC_VITC_Match, SurroundSound, " & _
@@ -124,8 +124,8 @@ sqlBVIMaster = "SELECT " & _
 					"InPhase13, InPhase14, InPhase15, InPhase16, InPhase17, InPhase18, InPhase19, InPhase20, InPhase21, InPhase22, InPhase23, InPhase24,  " & _
 					"Discreate1, Discreate2, Discreate3, Discreate4, Discreate5, Discreate6, Discreate7, Discreate8, Discreate9, Discreate10, Discreate11, Discreate12, " & _
 					"Discreate13, Discreate14, Discreate15, Discreate16, Discreate17, Discreate18, Discreate19, Discreate20, Discreate21, Discreate22, Discreate23, Discreate24,  " & _
-					"Revised_Date_2, Revised_By_2, " & _
-					"u2.qcUserID 'qcUserID2', u2.FullName 'FullName2', QC_Date_2, Operator_Activity, Operator_2_Activity, Bay_Num_2, QC_VTR_2, " & _
+					" CONVERT(VARCHAR(12), Revised_Date_2, 103) 'Revised_Date_2', Revised_By_2, " & _
+					"u2.qcUserID 'qcUserID2', u2.FullName 'FullName2',  CONVERT(VARCHAR(12), QC_Date_2, 103) 'QC_Date_2', Operator_Activity, Operator_2_Activity, Bay_Num_2, QC_VTR_2, " & _
 					"ProgrammeDetails, ProductionNumber, ProgrammeTitleAndNumber,ProductionCompany, ContactPhoneNumber, PostCompany,   " & _
 					"ProductPlacementLogoPresentAndInSafeArea, SponsorshipHeadAndTailPresent, TAndCsWithinSafeArea,   " & _
 					"AuthorisedBy, AuthorisedDate, JobTitle,   " & _
@@ -400,7 +400,33 @@ rsDPPLog.Open sqlDPPLog
 '' HDR Metadata Dim rsHDRMetadata, sqlHDRMetadata
  set rsHDRMetadata = Server.CreateObject("ADODB.Recordset")
    rsHDRMetadata.ActiveConnection = cnQCS
-   sqlHDRMetadata = "SELECT TOP 1 * " & _
+   sqlHDRMetadata = "SELECT TOP 1  " & _
+   " QCNum, " & _
+	" SubQCNum, " & _
+	" [NotRequired], " & _
+	" HDRMetadataSupplied , " & _
+	" HDRMetadataType , " & _
+	" XmlAndBaseFileMetadataMatch , " & _
+	" MaxCLL , " & _
+	" MaxFALL , " & _
+	" ColorPrimariesMastering , " & _
+	" ColorPrimariesDolbyVision , " & _
+	" WhitePointMastering , " & _
+	" WhitePointDolbyVision , " & _
+	" PeakBrightnessMastering , " & _
+	" PeakBrightnessDolbyVision , " & _
+	" MinimumBrightnessMastering , " & _
+	" MinimumBrightnessDolbyVision , " & _
+	" [Encoding] , " & _
+	" ColourSpace , " & _
+	" ColourRange , " & _
+	" ColourPrimariesMatchVideoFile , " & _
+	" FrameRateMatchVideoFile , " & _
+	" CanvasAspectRatioMatchVideoFile , " & _
+	" ImageAspectRatioMatchVideoFile , " & _
+	" ColourRangeMatchVideoFile, " & _
+	" XmlDocument, " & _
+	" CONVERT(VARCHAR(12), XmlCreationDate, 103) 'XmlCreationDate' " & _
    " FROM [QCSUK].[bward].[HDRMetadata] " & _
    " WHERE QCNum= " & clng(sQCNum) & " AND SubQCNum = " & cint(sRev)
   

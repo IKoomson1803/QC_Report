@@ -37,10 +37,8 @@ Function ChecklistCompleted()
 End Function
 
 
-Function SetGradeColour(grade)
-
-  
-     
+Function SetGrade(grade)
+       
 	If grade = "1"   Then
 	   Response.Write "<td class='grade-text-1'>" & grade & "</td>"
 	   
@@ -50,10 +48,25 @@ Function SetGradeColour(grade)
 	Else
 	   Response.Write "<td class='grade-text-others'>" & grade & "</td>"   
 	   
-	
    End If	
 	
-	
+End Function
+
+Function SetStatus(status)
+   
+	If status = "PASSED"   Then
+	   Response.Write "<td class='status-text-passed'>" & status & "</td>"
+	   
+	ElseIf status = "FAILED"   Then
+	   Response.Write "<td class='status-text-failed'>" & status & "</td>"
+	   
+	ElseIf status = "REFERRAL"   Then
+	   Response.Write "<td class='status-text-referral'>" & status & "</td>"   
+	   
+	 ElseIf status = "HOLD"   Then
+	   Response.Write "<td class='status-text-hold'>" & status & "</td>"    
+   End If	
+
   	
 End Function
 
@@ -71,38 +84,89 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 }
 
 
-.section-header{
-background-color:  gray;
-border:3px solid #000;
-font-size: 20px;
+
+
+.section-header, .section-sub-header{
+background-color:  lightgray;
 font-weight: bold;
 text-align:center;
 }
 
-.scetion-detail, .section-label{
+.section-header{
+font-size: 20px;
+border:3px solid #000;
+}
+
+.section-sub-header{
+font-size: 14px;
+}
+
+.section-detail, .section-label{
 background-color: lightgray;
 font-size: 12px;
 font-weight: bold;
  padding: 3px 3px 3px 3px;
 }
 
+.section-empty-label{
+background-color: orange;
+width: 200px;
+}
+
+.programme-details-label, .operations-label, .hdr-metadata-label{
+width: 200px;
+}
+
+.programme-details-text, .operations-text, .hdr-metadata-text{
+width: 200px;
+}
+
+
+.measurements-label{
+width: 125px;
+}
+
+.measurements-text{
+width: 125px;
+}
+
+
 .section-text{
 color: #000000; 
 font-family: Tahoma;
-font-size: 8pt;
+font-size: 10px;
 font-weight: bold;
  padding: 3px 3px 3px 3px;
 }
 
-.checklist-data{
+.section-table{
+width:1000px;
+
+}
+
+.checklist-table{
 width:100px
 
 }
 
 .checklist-label{
-
-
+width: 220px;
 }
+
+.checklist-text{
+width: 100px;
+}
+
+.checklist-empty-label{
+background-color: orange;
+width: 220px;
+}
+
+.checklist-empty-text{
+background-color: orange;
+width: 100px;
+}
+
 
 .status-label{
 font-weight:bold;
@@ -156,73 +220,15 @@ border-right:2px solid #000;
 
 </style>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td align="left" width="110" valign="top"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0" ></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header" > QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-	<td>
-	    <table width="220" border="1" cellspacing="0" cellpadding="0">
-	       <tr>
-		      <td class="status-label">STATUS</td>
-			   <%
-			       status = rsHeader.Fields("Eval_Stat")
-				   
-				    If status = "PASSED"   Then
-				       Response.Write "<td class='status-text-passed'>" & status & "</td>"
-					   
-					ElseIf status = "FAILED"   Then
-				       Response.Write "<td class='status-text-failed'>" & status & "</td>"
-					   
-					ElseIf status = "REFERRAL"   Then
-				       Response.Write "<td class='status-text-referral'>" & status & "</td>"   
-					   
-					 ElseIf status = "HOLD"   Then
-				       Response.Write "<td class='status-text-hold'>" & status & "</td>"    
-	               End If	
-				   
-			  
-			    %>
-			  
-		   </tr>
-		   <tr>
-		      <td class="grade-label">Video Grade:</td>
-			   <%= SetGradeColour(rsHeader.Fields("grdVideo")) %>
-			
-		   </tr>
-		   <tr>
-		      <td class="grade-label">Audio Grade:</td>
-			   <%= SetGradeColour(rsHeader.Fields("grdAudio")) %>
-			
-          </tr>
-		   <tr>
-		     <td class="grade-label">Overall Grade:</td>
-			  <%= SetGradeColour(rsHeader.Fields("grdOverall")) %>
-			
-          </tr>
-		   
-	    </table>
-	</td>
-	
-  </tr>
-  <tr>
-	<td colspan="2" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-	
-	
-    <td align="right">
-		Page:&nbsp;1&nbsp;of&nbsp;<span id="totalPage1"></span>
-    </td>
-  </tr>
-</table>
+<div style="width:1000px; margin:auto" > 
 
 
 
 
 
+<!--#include file="Page_1_Logo.asp" -->
 
-<!--#include file="Header.asp" -->
+<!--#include file="ProgrammeDetails.asp" -->
   
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
@@ -380,7 +386,7 @@ border-right:2px solid #000;
 </table>
 -->
 
-<div class="div-frame-border">
+
     
 <table width="100%" border="1" cellspacing="0" cellpadding="0"  >
   <tr>
@@ -461,8 +467,6 @@ border-right:2px solid #000;
 
 
 
-</div>
-
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
@@ -488,25 +492,11 @@ do while not rsBVMastLog.EOF or j=1
 <!-- ******************************************************* -->
 <div class="PageBreak"><!-- Pages >= 2 -->
 <!-- ******************************************************* -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-    <td>
-		Page:&nbsp;<%=thisPage%>&nbsp;of&nbsp;<span id="totalPage<%=thisPage%>"></span>
-    </td>
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
+
+<!--#include file="Page_Break_Logo.asp" -->
 
 
-
-<!--#include file="Header.asp" -->
+<!--#include file="ProgrammeDetails.asp" -->
 
 <!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
@@ -556,6 +546,12 @@ do while not rsBVMastLog.EOF or j=1
     </tr>
   </table>
   
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
   <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
@@ -722,7 +718,11 @@ do while not rsBVMastLog.EOF or j=1
     </tr>
   </table>
 
-  
+    <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
   
 </div>
 <% j=0
@@ -739,11 +739,8 @@ do while not rsBVMastLog.EOF or j=1
 	set rsBVMastLog = Nothing
 %>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+
+
 
 
 <%
@@ -755,24 +752,10 @@ do while not rsTextInfo.EOF or j=1
 <!-- ******************************************************* -->
 <div class="PageBreak"><!-- Pages > Log Pages -->
 <!-- ******************************************************* -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-    <td>
-		Page:&nbsp;<%=thisPage%>&nbsp;of&nbsp;<span id="totalPage<%=thisPage%>"></span>
-    </td>
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
 
+<!--#include file="Page_Break_Logo.asp" -->
 
-<!--#include file="Header.asp" -->
+<!--#include file="ProgrammeDetails.asp" -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
@@ -780,13 +763,6 @@ do while not rsTextInfo.EOF or j=1
   </tr>
 </table>
 
-<!--
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
- -->
  
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
 			  <tr>
@@ -841,6 +817,13 @@ do while not rsTextInfo.EOF or j=1
       </td>
     </tr>
   </table>
+  
+  
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
     
   
 </div>
@@ -857,11 +840,10 @@ do while not rsTextInfo.EOF or j=1
 
 %>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+
+
+
+
 
 <%
  If rsFaultImage.RecordCount  > 0 Then
@@ -876,23 +858,10 @@ do while not rsFaultImage.EOF or j=1
 
 <div class="PageBreak"><!-- Pages >= 2 -->
 <!-- ******************************************************* -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-   <td>
-		Page:&nbsp;<%=thisPage%>&nbsp;of&nbsp;<span id="totalPage<%=thisPage%>"></span>
-    </td> 
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
 
-<!--#include file="Header.asp" -->
+<!--#include file="Page_Break_Logo.asp" -->
+
+<!--#include file="ProgrammeDetails.asp" -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -961,7 +930,11 @@ do while not rsFaultImage.EOF or j=1
  
  </table>
 
-
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 
  
 
@@ -1004,6 +977,9 @@ set rsFaultImage = Nothing
  }
 
 </script>
+
+
+ </div>
 
 
 

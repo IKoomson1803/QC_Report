@@ -1,4 +1,4 @@
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
+<table class="section-table" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td class="section-header">Programme Details</td>
   </tr>
@@ -9,7 +9,7 @@
 
    
 
-<table width="100%" border="0">
+<table class="section-table" border="0">
  <tr>
   <td>
        <table width="100%" border="1" cellspacing="0" cellpadding="0" >
@@ -21,14 +21,14 @@
 			
 			
 			 <tr>
-      		  <td class="section-label" >Description:</td>
-			  <td class="section-text" ><%=rsHeader.Fields("TapeDesc1")%></td>
+      		  <td class="section-label programme-details-label" >Description:</td>
+			  <td class="section-text programme-details-text" ><%=rsHeader.Fields("TapeDesc1")%></td>
 			  			  
-             <td class="section-label" >QC Number:</td>
-			 <td class="section-text" ><%=rsHeader.Fields("QCNum")%></td>
+             <td class="section-label programme-details-label" >QC Number:</td>
+			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("QCNum")%></td>
 			 
-			   <td class="section-label" >&nbsp; </td>
-			 <td class="section-text" >&nbsp;</td>
+			   <td class="section-empty-label"  >&nbsp; </td>
+			      <td class="section-empty-label"  >&nbsp; </td>
 	
 			</tr> 
 			

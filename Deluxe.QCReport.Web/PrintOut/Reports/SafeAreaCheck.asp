@@ -1,4 +1,4 @@
-  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <table class="section-table" border="0" cellspacing="0" cellpadding="1">
 			  <tr>
 				<td class="section-header">Safe Area Check</td>
 			  </tr>
@@ -7,7 +7,7 @@
 			<p></p>
   
 
- <table width="100%" border="1" cellspacing="0" cellpadding="0"   >
+ <table class="section-table" border="1" cellspacing="0" cellpadding="0"   >
 			
 			<tr>
 				<td class="section-label">Opening Titles: </td>
