@@ -53,6 +53,8 @@ Function SetGrade(grade)
 End Function
 
 Function SetStatus(status)
+
+  '' Response.write "status: " & status
    
 	If status = "PASSED"   Then
 	   Response.Write "<td class='status-text-passed'>" & status & "</td>"
@@ -65,6 +67,9 @@ Function SetStatus(status)
 	   
 	 ElseIf status = "HOLD"   Then
 	   Response.Write "<td class='status-text-hold'>" & status & "</td>"    
+	   
+	 Else
+	   Response.Write "<td class='status-text-failed'>&nbsp;</td>"  
    End If	
 
   	
@@ -134,6 +139,15 @@ width: 125px;
 width: 125px;
 }
 
+.safe-area-label{
+width: 330px;
+}
+
+.safe-area-text{
+width: 160px;
+}
+
+
 
 .section-text{
 color: #000000; 
@@ -144,16 +158,20 @@ font-weight: bold;
 }
 
 
-.checklist-table{
-width:100px
-
-}
 
 .checklist-label{
 width: 220px;
 }
 
 .checklist-text{
+width: 100px;
+}
+
+.checklist-2-label{
+width: 300px;
+}
+
+.checklist-2-text{
 width: 100px;
 }
 
@@ -173,7 +191,7 @@ font-weight:bold;
 font-size:20px;
 border:2px solid #000;
 padding: 3px 3px 3px 3px;
-
+width: 140px;
 }
 
 .status-text-passed, .status-text-failed, .status-text-referral {
@@ -183,6 +201,7 @@ border-top:2px solid #000;
 border-right:2px solid #000; 
 border-bottom:2px solid #000; 
 padding: 3px 3px 3px 3px;
+width: 80px;
 }
 
 .status-text-passed, .grade-text-others{

@@ -14,7 +14,7 @@ End Function
     <% If Not IsNull(rsChecklistLionsGate.Fields("ChecklistCompleted"))  And rsChecklistLionsGate.Fields("ChecklistCompleted") = true Then %>    
 	
 	
-	<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+	<table class="section-table" border="0" cellspacing="0" cellpadding="0" >
 			   <tr>
 			     <td class="section-header" >Checklist: Lionsgate&nbsp;|&nbsp;File to Spec: 
 				         <%
@@ -30,7 +30,7 @@ End Function
 			<p></p>
 	
   
-  <table width="100%" border="1" cellspacing="0" cellpadding="0" >
+  <table class="section-table" border="1" cellspacing="0" cellpadding="0" >
      
   <tr>
 	   <td colspan="2"  class="section-label">Video and Content</td>
@@ -240,7 +240,7 @@ End Function
 	  </td>
 	   
 	   <td class="section-label" >Flashing images present - (Images likely to cause a seizure):</td>
-	  <td >&nbsp;
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("FlashingImagesPpresentImagesLikelyToCauseASeizure")) Then

@@ -53,8 +53,8 @@
   
     <tr>
 	
-     <td class="section-label">Are Normal Video Range levels legal and within spec:</td>
-	  <td class="section-text">
+     <td class="section-label checklist-2-label">Are Normal Video Range levels legal and within spec:</td>
+	  <td class="section-text  checklist-2-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AreNormalVideoRangeLevelsLegalAndWithinSpec")) Then
@@ -63,8 +63,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-label">Is Split track audio present:</td>
-	  <td class="section-text">
+	  <td  class="section-label checklist-2-label">Is Split track audio present:</td>
+	  <td class="section-text  checklist-2-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("SplitTrackAudio")) Then

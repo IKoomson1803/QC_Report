@@ -10,8 +10,8 @@
  <table class="section-table" border="1" cellspacing="0" cellpadding="0"   >
 			
 			<tr>
-				<td class="section-label">Opening Titles: </td>
-				<td class="section-text">
+				<td class="section-label safe-area-label">Opening Titles: </td>
+				<td class="section-text safe-area-text">
 				
 						 <%
 					
@@ -26,8 +26,8 @@
 				 
 				</td>
 		
-				<td class="section-label">Captions:</td>
-				<td class="section-text">
+				<td class="section-label safe-area-label">Captions:</td>
+				<td class="section-text  safe-area-text">
 				
 				 <%
 				
@@ -42,8 +42,8 @@
 				</td>
 			
 				
-				<td class="section-label"> Closing Titles:</td>
-				<td class="section-text">
+				<td class="section-label  safe-area-label"> Closing Titles:</td>
+				<td class="section-text  safe-area-text">
 				 
 				     <%
 				
