@@ -3,7 +3,7 @@
   <% If Not rsChecklistWildBunch.BOF = True And Not rsChecklistWildBunch.EOF = True Then %>
      <% If Not IsNull(rsChecklistWildBunch.Fields("ChecklistCompleted"))  And rsChecklistWildBunch.Fields("ChecklistCompleted") = true Then %> 
 	 
-	 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+	 <table class="section-table" border="0" cellspacing="0" cellpadding="0" >
 			   <tr>
 			     <td class="section-header" >&nbsp;Checklist: Wild Bunch&nbsp;|&nbsp;File to Spec: 
 				       <%
@@ -18,17 +18,17 @@
 
 			<p></p>
 
-  <table width="100%" border="1" cellspacing="0" cellpadding="0" >
+  <table class="section-table" border="1" cellspacing="0" cellpadding="0" >
   
    <tr>
-	   <td colspan="2"  class="section-label" >&nbsp;Video and Content:</td>
-	   <td colspan="2"  class="section-label" >&nbsp;Audio and Metadata</td>
+	   <td colspan="2"  class="section-label" >Video and Content:</td>
+	   <td colspan="2"  class="section-label" >Audio and Metadata</td>
   </tr>
   
   <tr>
   
-     <td  class="section-label">&nbsp;Full scale files are acceptable, is this mentioned & logged:</td>
-					  <td >&nbsp;
+     <td  class="section-label checklist-2-label">Full scale files are acceptable, is this mentioned & logged:</td>
+					  <td class="section-text checklist-2-text">
 					
 					   <%
 							  If Not IsNull(rsChecklistWildBunch.Fields("FullScaleFilesAreAcceptableIsThisMentionedAndLogged")) Then
@@ -37,8 +37,8 @@
 						 %>
 					  </td>
 					  
-	 <td  class="section-label">&nbsp;Is Mono Audio Present:</td>
-				  <td >&nbsp;
+	 <td  class="section-label checklist-2-label">Is Mono Audio Present:</td>
+				  <td class="section-text checklist-2-text" >
 						  
 				   <%
 						  If Not IsNull(rsChecklistWildBunch.Fields("MonoAudioListTracks")) Then
@@ -53,8 +53,8 @@
   
     <tr>
 	
-     <td class="section-label">&nbsp;Are Normal Video Range levels legal and within spec:</td>
-	  <td >&nbsp;
+     <td class="section-label">Are Normal Video Range levels legal and within spec:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AreNormalVideoRangeLevelsLegalAndWithinSpec")) Then
@@ -63,8 +63,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-label">&nbsp;Is Split track audio present:</td>
-	  <td>&nbsp;
+	  <td  class="section-label">Is Split track audio present:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("SplitTrackAudio")) Then
@@ -76,8 +76,8 @@
   </tr>
   
     <tr>
-	 <td class="section-label">&nbsp;Aspect ratio checked on all content:</td>
-	  <td >&nbsp;
+	 <td class="section-label">Aspect ratio checked on all content:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AspectRatioCheckedOnAllContent")) Then
@@ -85,8 +85,8 @@
 			  End If
 		 %>
 	  </td>
-	  <td  class="section-label">&nbsp;Is M&E clean of dialogues:</td>
-	  <td>&nbsp;
+	  <td  class="section-label">Is M&E clean of dialogues:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("IsMAndECleanOfDialogues")) Then
@@ -100,8 +100,8 @@
   </tr>
   
     <tr>
-	 <td class="section-label">&nbsp;All H&V Blanking checked:</td>
-	  <td>&nbsp;
+	 <td class="section-label">All H&V Blanking checked:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AllHAndVBlankingChecked")) Then
@@ -110,8 +110,8 @@
 		 %>
 	  </td>
 	
-	<td class="section-label">&nbsp;Are M&E tracks fully filled:</td>
-	  <td>&nbsp;
+	<td class="section-label">Are M&E tracks fully filled:</td>
+	  <td>
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AreMAndETracksFullyFilled")) Then
@@ -124,8 +124,8 @@
   </tr>
   
     <tr>
-     <td class="section-label">&nbsp;All logos and added text logged (include plot related featured text):</td>
-	  <td >&nbsp;
+     <td class="section-label">All logos and added text logged (include plot related featured text):</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AllLogosAndAddedTextLoggedIncludePlotRelatedFeaturedText")) Then
@@ -134,8 +134,8 @@
 		 %>
 	  </td>
 	   
-	  <td  class="section-label">&nbsp;Has all File Metadata been checked:</td>
-	  <td>&nbsp;
+	  <td  class="section-label">Has all File Metadata been checked:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("HasAllFileMetadataBeenChecked")) Then
@@ -150,8 +150,8 @@
   
     <tr>
      
-	 <td  class="section-label">&nbsp;Title/captions/end credits text is present over black, picture or card and logged:</td>
-	  <td >&nbsp;
+	 <td  class="section-label">Title/captions/end credits text is present over black, picture or card and logged:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("LoggedIfTitleOrCaptionsOrEndcreditstextIsPresentOverBlackPictureOrCard")) Then
@@ -160,8 +160,8 @@
 		 %>
 	  
 	  </td>
-     <td class="section-label">&nbsp;File format  / Codec:</td>
-	  <td >&nbsp;
+     <td class="section-label">File format  / Codec:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("FileFormatOrCodec")) Then
@@ -177,8 +177,8 @@
   
     <tr>
       
-	    <td class="section-label">&nbsp;All Wildbunch logos logged:</td>
-		  <td >&nbsp;
+	    <td class="section-label">All Wildbunch logos logged:</td>
+		  <td class="section-text">
 		
 		   <%
 				  If Not IsNull(rsChecklistWildBunch.Fields("LoggedWildbunchLogoPresent")) Then
@@ -187,8 +187,8 @@
 			 %>
 		  </td>
 	   
-	    <td  class="section-label">&nbsp;Standard / Frame rate:</td>
-		  <td  >&nbsp;
+	    <td  class="section-label">Standard / Frame rate:</td>
+		  <td  >
 				  
 		   <%
 				  If Not IsNull(rsChecklistWildBunch.Fields("StandardOrFrameRate")) Then
@@ -200,8 +200,8 @@
   </tr>
   
     <tr>
-     <td class="section-label">&nbsp;Is prominent branding / copyright within content logged:</td>
-	  <td >&nbsp;
+     <td class="section-label">Is prominent branding / copyright within content logged:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("BrandingOrCopyrightwithinContentLogged")) Then
@@ -210,8 +210,8 @@
 		 %>
 	  </td>
 	 
-	 <td class="section-label">&nbsp;Progressive:</td>
-	  <td>&nbsp;
+	 <td class="section-label">Progressive:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("Progressive")) Then
@@ -225,8 +225,8 @@
   </tr>
   
     <tr>
-     <td class="section-label">&nbsp;All text - titles, captions & end credits 90% caption safe:</td>
-	  <td>&nbsp;
+     <td class="section-label">All text - titles, captions & end credits 90% caption safe:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AllTextTitlesCaptionsAndEndCredits_90_Percent_CaptionSafe")) Then
@@ -235,8 +235,8 @@
 		 %>
 	  </td>
 	
-	 <td  class="section-label">&nbsp;Resolution:</td>
-	  <td>&nbsp;
+	 <td  class="section-label">Resolution:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("Resolution")) Then
@@ -253,8 +253,8 @@
   
     <tr>
     
-	<td  class="section-label">&nbsp;All Texted shots (Added text) must have corresponding textless covers:</td>
-	  <td>&nbsp;
+	<td  class="section-label">All Texted shots (Added text) must have corresponding textless covers:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AllTextedshotsAddedTextMustHaveCorrespondingTextlessCovers")) Then
@@ -263,8 +263,8 @@
 		 %>
 	  </td>
 	
-	 <td class="section-label">&nbsp;Tagged / labelled audio (WB TV only ):</td>
-	  <td>&nbsp;
+	 <td class="section-label">Tagged / labelled audio (WB TV only ):</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("TaggedOrLabelledAudioWBTVOnly")) Then
@@ -278,8 +278,8 @@
   </tr>
   
     <tr>
-      <td class="section-label">&nbsp;All textless must match the grade, framing and aspect ratio of its corresponding texted shot:</td>
-	  <td>&nbsp;
+      <td class="section-label">All textless must match the grade, framing and aspect ratio of its corresponding texted shot:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AllTtextlessMustMatchTheGradeFramingAndAspectRatioOfItsCorrespondingTextedShot")) Then
@@ -287,8 +287,8 @@
 			  End If
 		 %>
 	  </td>
-	 <td  class="section-label">&nbsp;Audio Bit Depth / Rate:</td>
-	  <td >&nbsp;
+	 <td  class="section-label">Audio Bit Depth / Rate:</td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AudioBitDepthOrRate")) Then
@@ -302,8 +302,8 @@
   
     <tr>
     
-	<td class="section-label">&nbsp;All textless covers must be the same timing as the corresponding texted shot:</td>
-	  <td >&nbsp;
+	<td class="section-label">All textless covers must be the same timing as the corresponding texted shot:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AllTextlessCoversMustBeTheSameTimingAsTheCorrespondingTextedShot")) Then
@@ -312,8 +312,8 @@
 		 %>
 	  </td>
 	
-	<td class="section-label">&nbsp;Is Audio Discrete:</td>
-	  <td >&nbsp;
+	<td class="section-label">Is Audio Discrete:</td>
+	  <td class="section-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("IsAudioDiscreate")) Then

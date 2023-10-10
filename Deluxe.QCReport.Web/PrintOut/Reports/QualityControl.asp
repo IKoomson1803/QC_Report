@@ -83,6 +83,10 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   display:none;
 }
 
+.section-table{
+width:1000px;
+
+}
 
 
 
@@ -139,10 +143,6 @@ font-weight: bold;
  padding: 3px 3px 3px 3px;
 }
 
-.section-table{
-width:1000px;
-
-}
 
 .checklist-table{
 width:100px

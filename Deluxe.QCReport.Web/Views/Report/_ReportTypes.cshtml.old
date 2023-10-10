@@ -6,7 +6,7 @@
 
     var QCType = Model.QCTtype;
     var isChecklistCompleted = Model.IsChecklistCompleted;
-
+     
 }
 
 
@@ -26,10 +26,10 @@
         </table>
         <br />
         <table>
-            @*<tr>
+            <tr>
                 <th class="ReportCell">&nbsp;</th>
                 <th class="ReportCell" valign="bottom"><b>&nbsp;Report</b></th>
-            </tr>*@
+            </tr>
 
             @{
                 if (QCType != "E" && QCType != "D" && QCType != "BNJR")
@@ -38,11 +38,11 @@
                     if (QCType != "A" && QCType != "L" && QCType != "T")
                     {
                         <tr>
-                            <td class="ReportCell"><input type="radio" name="rptType" id="rptType" value="chkQCR"></td>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCR" id="chkQCR" value="1"></td>
                             <th class="ReportCell">&nbsp;Broadcast QC&nbsp;&nbsp;</th>
                         </tr>
                         <tr>
-                            <td class="ReportCell"> <input type="radio" name="rptType" id="rptType" value="chkMQCR"></td>
+                            <td class="ReportCell"> <input type="checkbox" name="chkMQCR" id="chkMQCR" value="1"></td>
                             <th class="ReportCell">&nbsp;Master QC&nbsp;&nbsp;</th>
                         </tr>
 
@@ -52,7 +52,7 @@
                     if (QCType != "L" && QCType != "T")
                     {
                         <tr>
-                            <td class="ReportCell"><input type="radio" name="rptType" id="rptType" value="chkQCR1Pg"></td>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCR1Pg" id="chkQCR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC&nbsp;&nbsp;</th>
                         </tr>
                     }
@@ -63,7 +63,7 @@
                     {
 
                         <tr>
-                            <td class="ReportCell"><input type="radio" name="rptType" id="rptType" value="chkQCWLR1Pg"></td>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCWLR1Pg" id="chkQCWLR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC With Log&nbsp;&nbsp;</th>
                         </tr>
 
@@ -74,7 +74,7 @@
                     if (QCType != "A" && QCType != "L")
                     {
                         <tr>
-                            <td class="ReportCell"><input type="radio" name="rptType" id="rptType" value="chkQCWTR1Pg"></td>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCWTR1Pg" id="chkQCWTR1Pg" value="1"></td>
                             <th class="ReportCell">&nbsp;Runtime QC With Text Info&nbsp;&nbsp;</th>
                         </tr>
                     }
@@ -86,7 +86,7 @@
                 {
 
                     <tr>
-                        <td class="ReportCell"><input type="radio" name="rptType" id="rptType" value="chkQCWLER"></td>
+                        <td class="ReportCell"><input type="checkbox" name="chkQCWLER" id="chkQCWLER" value="1"></td>
 
                         @if (Model.CustName.ToLower().Contains("banijay"))
                         {
@@ -104,7 +104,7 @@
                 {
 
                     <tr>
-                        <td class="ReportCell"><input type="radio" name="rptType" id="rptType" value="chkQCBNJR"></td>
+                        <td class="ReportCell"><input type="checkbox" name="chkQCBNJR" id="chkQCBNJR" value="1"></td>
                         <th class="ReportCell">&nbsp;QC report for Banijay Rights&nbsp;&nbsp;</th>
                     </tr>
                 }
@@ -116,7 +116,7 @@
                     if (isChecklistCompleted)
                     {
                         <tr>
-                            <td class="ReportCell"><input type="radio" name="rptType" id="rptType" value="chkQCRWLDPP"></td>
+                            <td class="ReportCell"><input type="checkbox" name="chkQCRWLDPP" id="chkQCRWLDPP" value="1"></td>
                             <th class="ReportCell">&nbsp;QC report for DPP Eyeballs&nbsp;&nbsp;</th>
                         </tr>
                     }
@@ -153,15 +153,15 @@
         }
         else
         {
-            if (isChecklistCompleted)
-            {
-                <table width=70%>
-                    <tr>
-                        <td align="left">
-                            <input type=submit name="action" value="Preview" id="btnPreview" class="btn btn-sm btn-primary">
-                        </td>
-                    </tr>
-                </table>
+            if (isChecklistCompleted) 
+            { 
+            <table width=70%>
+                <tr>
+                    <td align="left">
+                        <input type=submit name="action" value="Preview" id="btnPreview" class="btn btn-sm btn-primary">
+                    </td>
+                </tr>
+            </table>
             }
         }
 
@@ -171,4 +171,4 @@
 </div>
 
 
-
+   

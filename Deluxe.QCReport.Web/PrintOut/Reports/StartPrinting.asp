@@ -23,14 +23,49 @@ sQCR100 =  "" ''Request.Form("chkQCR100")
 sWBQCR = "" ''Request.Form("chkWBQCR")
 '-----------------
 
-sQCR = Request.Form("chkQCR")
-sMQCR = Request.Form("chkMQCR")  ''Master QC Report added by Isaac Koomson 25/04/2014
-sQCR1Pg = Request.Form("chkQCR1Pg")
-sQCRWL1Pg = Request.Form("chkQCWLR1Pg") ''Runtime QC With Log Report added by Isaac Koomson 13/05/2016
-sQCRWT1Pg = Request.Form("chkQCWTR1Pg") ''Runtime QC With Text Info Report added by Isaac Koomson 16/05/2016
-sQCRWLE = Request.Form("chkQCWLER") ''Runtime QC With Log For ESI Report added by Isaac Koomson 26/05/2016
-sQCRWLDPP = Request.Form("chkQCRWLDPP") ''Runtime QC With Log For DPP Eyeball Report added by Isaac Koomson 16/08/2022
-sQCBNJR = Request.Form("chkQCBNJR") ''Runtime QC With Log For Banijay Rights Report - New Template - added by Isaac Koomson 22/02/2023
+
+sQCR =  "" ''Request.Form("chkQCR")
+sMQCR =  "" ''Request.Form("chkMQCR")  ''Master QC Report added by Isaac Koomson 25/04/2014
+sQCR1Pg =  "" ''Request.Form("chkQCR1Pg")
+sQCRWL1Pg =  "" ''Request.Form("chkQCWLR1Pg") ''Runtime QC With Log Report added by Isaac Koomson 13/05/2016
+sQCRWT1Pg =  "" ''Request.Form("chkQCWTR1Pg") ''Runtime QC With Text Info Report added by Isaac Koomson 16/05/2016
+sQCRWLE =  "" ''Request.Form("chkQCWLER") ''Runtime QC With Log For ESI Report added by Isaac Koomson 26/05/2016
+sQCRWLDPP =  "" ''Request.Form("chkQCRWLDPP") ''Runtime QC With Log For DPP Eyeball Report added by Isaac Koomson 16/08/2022
+sQCBNJR =  "" ''Request.Form("chkQCBNJR") ''Runtime QC With Log For Banijay Rights Report - New Template - added by Isaac Koomson 22/02/2023
+
+reportType = Request.Form("rptType")
+
+Select  Case  reportType  
+     Case "chkQCR"  
+         sQCR = "1"
+		 
+	 Case "chkMQCR"  
+         sMQCR = "1"	 
+		 
+	Case "chkQCR1Pg"  
+         sQCR1Pg = "1"		 
+		 
+	Case "chkQCWLR1Pg"  
+         sQCRWL1Pg = "1"	 
+		 
+	Case "chkQCWTR1Pg"  
+         sQCRWT1Pg = "1"
+
+    Case "chkQCWLER"  
+         sQCRWLE = "1"
+
+    Case "chkQCRWLDPP"  
+         sQCRWLDPP = "1"
+		 
+	Case "chkQCBNJR"  
+         sQCBNJR = "1"	 
+		 
+     Case Else  
+         '' Do nothing
+End Select  
+
+
+
 
 ''response.write "Start Printing - sQCRWT1Pg:" & sQCRWT1Pg
 ''response.end

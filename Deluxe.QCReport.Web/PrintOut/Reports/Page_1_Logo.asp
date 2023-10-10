@@ -6,7 +6,7 @@
       <h2 class="txt_boldtype_header" > QUALITY CONTROL REPORT FOR<br>
        <%=rsHeader.Fields("CustName")%></h2>
     </td>
-	<td>
+	<td align="right">
 	    <table width="220" border="1" cellspacing="0" cellpadding="0">
 	       <tr>
 		      <td class="status-label">STATUS</td>

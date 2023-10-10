@@ -37,8 +37,8 @@ End Function
 	   <td colspan="2"  class="section-label">Audio and Metadata</td>
   </tr>
   <tr>
-     <td class="section-label" >Is the file Full Range Video:</td>
-	  <td class="section-text">
+     <td class="section-label checklist-2-label" >Is the file Full Range Video:</td>
+	  <td class="section-text checklist-2-text">
 	
 	   <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("IsTheFileFullRangeVideo")) Then
@@ -47,8 +47,8 @@ End Function
 		 %>
 	  </td>
 	   
-	  <td  class="section-label" >Is 2.0 Stereo TV full mix present and QC'd:</td>
-	  <td  class="section-text">
+	  <td  class="section-label  checklist-2-label" >Is 2.0 Stereo TV full mix present and QC'd:</td>
+	  <td  class="section-text checklist-2-text">
 			  
 		  <%
 			  If Not IsNull(rsChecklistLionsGate.Fields("Is_2_0_StereoTVFullMixPresentAndQCeD")) Then
