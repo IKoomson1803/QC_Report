@@ -160,19 +160,19 @@ font-weight: bold;
 
 
 .checklist-label{
-width: 220px;
+width: 250px;
 }
 
 .checklist-text{
-width: 100px;
+width: 80px;
 }
 
 .checklist-2-label{
-width: 300px;
+width: 450px;
 }
 
 .checklist-2-text{
-width: 100px;
+width: 50px;
 }
 
 .checklist-empty-label{

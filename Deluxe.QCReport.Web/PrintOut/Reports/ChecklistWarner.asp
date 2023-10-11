@@ -37,8 +37,8 @@
   </tr>
    
     <tr>
-     <td class="section-label" >Was OV report supplied:</td>
-	  <td class="section-text" >
+     <td class="section-label checklist-2-label" >Was OV report supplied:</td>
+	  <td class="section-text checklist-2-text" >
 	
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("WasOVReportSupplied")) Then
@@ -47,8 +47,8 @@
 		 %>
 	  </td>
 	   
-	  <td  <td class="section-label" >Is Audio on file OV:</td>
-	  <td class="section-text" >
+	  <td  <td class="section-label checklist-2-label" >Is Audio on file OV:</td>
+	  <td class="section-text checklist-2-text" >
 			  
 	   <%
 			  If Not IsNull(rsChecklistWarner.Fields("IsAudioOnFileOV")) Then

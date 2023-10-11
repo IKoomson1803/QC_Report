@@ -111,7 +111,7 @@
 	  </td>
 	
 	<td class="section-label">Are M&E tracks fully filled:</td>
-	  <td>
+	  <td class="section-text">
 			  
 	   <%
 			  If Not IsNull(rsChecklistWildBunch.Fields("AreMAndETracksFullyFilled")) Then
@@ -188,7 +188,7 @@
 		  </td>
 	   
 	    <td  class="section-label">Standard / Frame rate:</td>
-		  <td  >
+		  <td  class="section-text">
 				  
 		   <%
 				  If Not IsNull(rsChecklistWildBunch.Fields("StandardOrFrameRate")) Then
