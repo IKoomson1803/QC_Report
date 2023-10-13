@@ -14,7 +14,6 @@ if rsHeader.Fields("IRE_MV") = "M" then
 %>
 
 
-     
 <table class="section-table" border="0" cellspacing="0" cellpadding="0" >
  
   <tr>

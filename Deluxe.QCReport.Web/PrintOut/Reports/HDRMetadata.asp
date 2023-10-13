@@ -81,10 +81,12 @@ If rsHDRMetadata.BOF  = False Then
 				  
 			</tr>			   
 			
-						  
+				<!--		  
 			  <tr> 
 	            <td colspan="8" class="section-sub-header">DOLBY VISION CHECKS</td>
 	          </tr>	
+			  -->
+			  
               <tr> 
 	            <td colspan="8" align="center" class="section-label">Color Encoding</td>
 	          </tr>				  

@@ -7,7 +7,7 @@
        <%=rsHeader.Fields("CustName")%></h2>
     </td>
 	<td align="right">
-	    <table width="220" border="1" cellspacing="0" cellpadding="0">
+	    <table class="status-table" border="1" cellspacing="0" cellpadding="0">
 	       <tr>
 		      <td class="status-label">STATUS</td>
 			   <% SetStatus(rsHeader.Fields("Eval_Stat"))  %>

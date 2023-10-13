@@ -33,8 +33,8 @@ End Function
   <table class="section-table" border="1" cellspacing="0" cellpadding="0" >
      
   <tr>
-	   <td colspan="2"  class="section-label">Video and Content</td>
-	   <td colspan="2"  class="section-label">Audio and Metadata</td>
+	   <td colspan="2"  class="section-sub-header">Video and Content</td>
+	   <td colspan="2"  class="section-sub-header">Audio and Metadata</td>
   </tr>
   <tr>
      <td class="section-label checklist-2-label" >Is the file Full Range Video:</td>

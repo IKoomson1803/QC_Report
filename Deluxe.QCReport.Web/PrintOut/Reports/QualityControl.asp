@@ -96,7 +96,7 @@ width:1000px;
 
 
 .section-header, .section-sub-header{
-background-color:  lightgray;
+background-color:  #d3d3d3; 
 font-weight: bold;
 text-align:center;
 }
@@ -111,16 +111,100 @@ font-size: 14px;
 }
 
 .section-detail, .section-label{
-background-color: lightgray;
+background-color: #d3d3d3;
 font-size: 12px;
 font-weight: bold;
  padding: 3px 3px 3px 3px;
 }
 
+.section-text{
+font-family: Tahoma;
+font-size: 8pt;
+font-weight: bold;
+ padding: 3px 3px 3px 3px;
+}
+
+.section-text-blue {
+/* color: blue;  */
+}
+
+.section-text-big-font{
+font-size: 14px;
+}
+
 .section-empty-label{
-background-color: orange;
+background-color: #fff;
 width: 200px;
 }
+
+.status-table{
+width: 250px;
+}
+
+.status-label{
+font-weight:bold;
+font-size:20px;
+border:2px solid #000;
+padding: 3px 3px 3px 3px;
+width: 150px;
+}
+
+.status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
+font-weight:bold;
+font-size:20px;
+border-top:2px solid #000; 
+border-right:2px solid #000; 
+border-bottom:2px solid #000; 
+padding: 3px 3px 3px 3px;
+width: 100px;
+
+}
+
+.status-text-passed, .grade-text-others{
+/* background-color: green */
+background-color: #0BDA51 ;
+/* background-color: #0FFF50; */
+color : #fff;
+}
+
+.status-text-failed, .grade-text-1{
+background-color: red;
+color : #fff;
+
+}
+
+.status-text-referral, .grade-text-2{
+background-color: yellow;
+color: #000;
+}
+
+.status-text-hold{
+background-color: #FF7518;
+color: #000;
+}
+
+.grade-label{
+font-weight:bold;
+font-size:16px;
+border-left:2px solid #000; 
+border-bottom:2px solid #000;
+border-right:2px solid #000;
+ padding: 3px 3px 3px 3px;
+}
+
+.grade-text-1, .grade-text-2, .grade-text-others {
+border-bottom:2px solid #000; 
+border-right:2px solid #000;
+ padding: 3px 3px 3px 3px;
+font-weight:bold;
+font-size:12px;
+}
+
+.grade-text-1, .grade-text-others {
+color: #fff;
+
+}
+
 
 .programme-details-label, .operations-label, .hdr-metadata-label{
 width: 200px;
@@ -148,17 +232,6 @@ width: 160px;
 }
 
 
-
-.section-text{
-color: #000000; 
-font-family: Tahoma;
-font-size: 10px;
-font-weight: bold;
- padding: 3px 3px 3px 3px;
-}
-
-
-
 .checklist-label{
 width: 250px;
 }
@@ -176,65 +249,16 @@ width: 50px;
 }
 
 .checklist-empty-label{
-background-color: orange;
+background-color: #fff;
 width: 220px;
 }
 
 .checklist-empty-text{
-background-color: orange;
+background-color: #fff;
 width: 100px;
 }
 
 
-.status-label{
-font-weight:bold;
-font-size:20px;
-border:2px solid #000;
-padding: 3px 3px 3px 3px;
-width: 140px;
-}
-
-.status-text-passed, .status-text-failed, .status-text-referral {
-font-weight:bold;
-font-size:20px;
-border-top:2px solid #000; 
-border-right:2px solid #000; 
-border-bottom:2px solid #000; 
-padding: 3px 3px 3px 3px;
-width: 80px;
-}
-
-.status-text-passed, .grade-text-others{
-background-color: green
-}
-
-.status-text-failed, .grade-text-1{
-background-color: red
-}
-
-.status-text-referral, .grade-text-2{
-background-color: yellow
-}
-
-.status-text-hold{
-background-color: #FF7518
-}
-
-.grade-label{
-font-weight:bold;
-font-size:16px;
-border-left:2px solid #000; 
-border-bottom:2px solid #000;
-border-right:2px solid #000;
-  padding: 3px 3px 3px 3px;
-}
-
-.grade-text-1, .grade-text-2, .grade-text-others {
-border-bottom:2px solid #000; 
-border-right:2px solid #000;
- padding: 3px 3px 3px 3px;
-
-}
 
 
 </style>
@@ -571,17 +595,20 @@ do while not rsBVMastLog.EOF or j=1
   </tr>
 </table>
 
-  <table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-
 
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+	  <tr>
+		<td class="section-header">Fault Log</td>
+	  </tr>
+  </table>
+
+<p></p>
+
+
+ <table width="100%" border="1" cellspacing="0" cellpadding="1">
    <%if rsHeader.Fields("GradingScale") = 3 then %>
     <tr> 
-      <td class="section-header">
+      <td class="section-label" align="center">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
 	  <span>1=Pass&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>2=Referral&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -591,7 +618,7 @@ do while not rsBVMastLog.EOF or j=1
     <%end if%>
     <%If rsHeader.Fields("GradingScale") = 4 then %>
     <tr> 
-	  <tdclass="section-header">
+	  <td class="section-label" align="center">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
 	  <span>1=Standard/Non Detectable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>2=Acceptable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -602,7 +629,7 @@ do while not rsBVMastLog.EOF or j=1
     <%end if%>
     <%If rsHeader.Fields("GradingScale") = 5 then %>
     <tr> 
-	  <td class="section-header">
+	  <td class="section-label" align="center">
 	  <span>Severity Grades:&nbsp;&nbsp;</span>
 	  <span>1=Severe Fail &nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	  <span>2=Fail / Refer &nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -616,13 +643,6 @@ do while not rsBVMastLog.EOF or j=1
 
 <p></p>
 
- <table width="100%" border="0" cellspacing="0" cellpadding="1">
-	  <tr>
-		<td class="section-header">Fault Log</td>
-	  </tr>
-  </table>
-
-<p></p>
      
  
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

@@ -23,9 +23,9 @@
   <table class="section-table" border="1" cellspacing="0" cellpadding="0" >
    
 	 <tr>
-	   <td colspan="2"  class="section-label" >Video to Spec</td>
-	   <td colspan="2"  class="section-label" >Audio to Spec</td>
-	   <td colspan="2"  class="section-label" >Programme Layout to Spec</td>
+	   <td colspan="2"  class="section-sub-header" >Video to Spec</td>
+	   <td colspan="2"  class="section-sub-header" >Audio to Spec</td>
+	   <td colspan="2"  class="section-sub-header">Programme Layout to Spec</td>
 	 </tr>
 	  <tr>
 	     <td class="section-label checklist-label" >File Type:</td>

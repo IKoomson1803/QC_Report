@@ -14,8 +14,8 @@
   <td>
        <table width="100%" border="1" cellspacing="0" cellpadding="0" >
 	       <tr>
-             <td class="section-label programme-details-label" ><span style="font-size:14px;">Title:</span></td>
-			 <td class="section-text" colspan="5"><%=rsHeader.Fields("Show")%></td>
+             <td class="section-label programme-details-label section-text-blue section-text-big-font" >Title:</td>
+			 <td class="section-text section-text-blue" colspan="5" ><%=rsHeader.Fields("Show")%></td>
 	
 			</tr> 
 			
@@ -114,8 +114,8 @@
 		           If Not IsNull(sAssetType) And sAssetType = "File"   Then
 				     ''Response.Write "<tr><td colspan='3'>&nbsp;</td></tr>" 
                      Response.Write "<tr>" & _
-					 "<td class='section-label programme-details-label'>Filename:</td>" & _
-					 "<td colspan='5' class='section-text' >" & rsHeader.Fields("Filename") & "</td>" & _
+					 "<td class='section-label programme-details-label section-text-blue'>Filename:</td>" & _
+					 "<td colspan='5' class='section-text section-text-blue' >" & rsHeader.Fields("Filename") & "</td>" & _
 					 "</tr>" 
                    End If		   
 		      %>
@@ -124,8 +124,8 @@
 				  If rsHDRMetadata.BOF  = False Then
 						If rsHDRMetadata.Fields("NotRequired") = False Then	
 							   Response.Write "<tr>"  & _
-							     "<td class='section-label programme-details-label'>xml Document:</td>"  & _
-								 "<td colspan='5' class='section-text'>" & rsHDRMetadata.Fields("XmlDocument") & "</td>" & _
+							     "<td class='section-label programme-details-label section-text-blue'>xml Document:</td>"  & _
+								 "<td colspan='5' class='section-text section-text-blue'>" & rsHDRMetadata.Fields("XmlDocument") & "</td>" & _
 							    "</tr>" 
 						End If	
 				  End If		 		
