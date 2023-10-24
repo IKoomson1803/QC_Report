@@ -36,17 +36,41 @@ Function ChecklistCompleted()
 
 End Function
 
+Function SetLogGrade(grade)
 
-Function SetGrade(grade)
-       
-	If grade = "1"   Then
-	   Response.Write "<td class='grade-text-1'>" & grade & "</td>"
+         
+	If grade = 1   Then
+	   Response.Write " class='section-text log-text-passed' "
 	   
-	ElseIf grade = "2"   Then
-	   Response.Write "<td class='grade-text-2'>" & grade & "</td>"
+	ElseIf grade = 2   Then
+	   Response.Write " class='section-text  log-text-referral' "
+	   
+	ElseIf grade >= 3   Then
+	   Response.Write " class='section-text log-text-failed' "
 	   
 	Else
+	   Response.Write " class='section-text' "   
+	   
+   End If	
+	
+End Function
+
+
+Function SetGrade(grade)
+
+   '' Response.Write grade
+       
+	If grade = 1   Then
+	   Response.Write "<td class='grade-text-1'>" & grade & "</td>"
+	   
+	ElseIf grade = 2   Then
+	   Response.Write "<td class='grade-text-2'>" & grade & "</td>"
+	   
+	ElseIf grade >= 3   Then
 	   Response.Write "<td class='grade-text-others'>" & grade & "</td>"   
+	   
+	Else
+	   Response.Write "<td class='grade-text'>&nbsp;</td>"   
 	   
    End If	
 	
@@ -69,7 +93,7 @@ Function SetStatus(status)
 	   Response.Write "<td class='status-text-hold'>" & status & "</td>"    
 	   
 	 Else
-	   Response.Write "<td class='status-text-failed'>&nbsp;</td>"  
+	   Response.Write "<td class='status-text'>&nbsp;</td>"  
    End If	
 
   	
@@ -92,8 +116,6 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 width:1000px;
 
 }
-
-
 
 .section-header, .section-sub-header{
 background-color:  #d3d3d3; 
@@ -149,7 +171,8 @@ padding: 3px 3px 3px 3px;
 width: 150px;
 }
 
-.status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
+
+ .status-text, .status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
 font-weight:bold;
 font-size:20px;
 border-top:2px solid #000; 
@@ -161,9 +184,11 @@ width: 100px;
 }
 
 .status-text-passed, .grade-text-others{
-/* background-color: green */
-background-color: #0BDA51 ;
-/* background-color: #0FFF50; */
+/* background-color: green 
+   background-color: #0BDA51 ;
+   background-color: #0FFF50;
+ */
+background-color: #4CBB17 ;
 color : #fff;
 }
 
@@ -180,7 +205,7 @@ color: #000;
 
 .status-text-hold{
 background-color: #FF7518;
-color: #000;
+color: #fff;
 }
 
 .grade-label{
@@ -189,13 +214,13 @@ font-size:16px;
 border-left:2px solid #000; 
 border-bottom:2px solid #000;
 border-right:2px solid #000;
- padding: 3px 3px 3px 3px;
+padding: 3px 3px 3px 3px;
 }
 
 .grade-text-1, .grade-text-2, .grade-text-others {
 border-bottom:2px solid #000; 
 border-right:2px solid #000;
- padding: 3px 3px 3px 3px;
+padding: 3px 3px 3px 3px;
 font-weight:bold;
 font-size:12px;
 }
@@ -205,6 +230,20 @@ color: #fff;
 
 }
 
+.log-text-passed {
+background-color: #4CBB17 ;
+color : #fff;
+}
+
+.log-text-failed{
+background-color: red;
+color : #fff;
+}
+
+.log-text-referral{
+background-color: yellow;
+color: #000;
+}
 
 .programme-details-label, .operations-label, .hdr-metadata-label{
 width: 200px;
@@ -717,9 +756,14 @@ do while not rsBVMastLog.EOF or j=1
 			
 			
 			
-            <td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%>&nbsp;</td>
-            <td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade"))%>&nbsp;</td>
-			<td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%>&nbsp;</td>
+            <td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%></td>
+									
+            <td  align="center" <%if rsBVMastLog.EOF = false then SetLogGrade( rsBVMastLog.Fields("QC_Grade")) %> >
+			  <%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade")) %>
+			</td>
+			
+			
+			<td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%></td>
             <td  align="center" class="section-text">
 			<%
 			   If rsBVMastLog.EOF = False Then
@@ -842,7 +886,10 @@ do while not rsTextInfo.EOF or j=1
 		  %>
           <tr>
 			<td width="4%" align="center" ><%if rsTextInfo.EOF = false then Response.Write(rsTextInfo.Fields("TextInfo"))%>&nbsp</td>
-            <td width="11%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;</td>
+			
+            <%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;
+			
+			
             <td width="5%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeOut"))%>&nbsp;</td>
           </tr>
           <%	end if
