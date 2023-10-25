@@ -172,18 +172,21 @@ End Function
 Function SetYesNo(response)
 
             If response = "Yes"   Then
-			   Response.Write "<td class='section-text log-text-passed' >" & response & "</td>"
+			   Response.Write "<td class='section-text hdr-metadata-text yes' >" & response & "</td>"
 			   
 			ElseIf response = "No" Then
-			    Response.Write "<td class='section-text log-text-failed' >" & response & "</td>"
+			    Response.Write "<td class='section-text hdr-metadata-text no' >" & response & "</td>"
 				
 			Else
-			   Response.Write "<td class='section-text'>&nbsp;</td>"    
+			   Response.Write "<td class='section-text hdr-metadata-text'>&nbsp;</td>"    
 			   
 		   End If	
 			  
 
 End Function
+
+
+
 %>
 
 
