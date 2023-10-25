@@ -120,16 +120,16 @@ Function SetLogGrade(grade)
       If rsHeader.Fields("GradingScale") = 3 Then
 	  
 	      If grade = 1   Then
-			   Response.Write " class='section-text log-text-passed' "
+			   Response.Write "<td align='center'  class='section-text log-text-passed' >" & grade & "</td>"
 			   
 			ElseIf grade = 2   Then
-			   Response.Write " class='section-text  log-text-referral' "
+			   Response.Write "<td align='center' class='section-text  log-text-referral' >" & grade & "</td>"
 			   
 			ElseIf grade = 3   Then
-			   Response.Write " class='section-text log-text-failed' "
+			   Response.Write "<td align='center' class='section-text log-text-failed' >" & grade & "</td>"
 			   
 			Else
-			   Response.Write " class='section-text' "   
+			   Response.Write "<td class='section-text' >&nbsp;</td>"     
 			   
 		   End If	
 			  
@@ -137,29 +137,29 @@ Function SetLogGrade(grade)
 	  ElseIf rsHeader.Fields("GradingScale") = 4   Then
 	
 	    If grade = 1 Or  grade = 2 Or  grade = 3  Then
-	            Response.Write " class='section-text log-text-passed' "
+	            Response.Write "<td align='center'  class='section-text log-text-passed' >" & grade & "</td>"
 			   
 			ElseIf grade = 4   Then
-			   Response.Write " class='section-text log-text-failed' "
+			   Response.Write "<td align='center'  class='section-text log-text-failed' >" & grade & "</td>"
 		
 			Else
-			   Response.Write " class='section-text' "     
+			   Response.Write "<td class='section-text' >&nbsp;</td>"       
 			   
 		   End If	
 	
 	ElseIf rsHeader.Fields("GradingScale") = 5   Then
 	
 	        If grade = 1   Then
-	             Response.Write " class='section-text log-text-failed' "
+	             Response.Write "<td align='center'  class='section-text log-text-failed' >" & grade & "</td>"
 			   
 			ElseIf grade = 2   Then
-			   Response.Write " class='section-text  log-text-referral' "
+			   Response.Write "<td align='center' class='section-text  log-text-referral' >" & grade & "</td>"
 			   
 			ElseIf grade >= 3   Then
-			   Response.Write " class='section-text log-text-passed' "  
+			   Response.Write "<td align='center' class='section-text log-text-passed' >" & grade & "</td>" 
 			   
 			Else
-			  Response.Write " class='section-text' "     
+			  Response.Write "<td class='section-text' >&nbsp;</td>"       
 			   
 		   End If	
   
@@ -841,10 +841,19 @@ do while not rsBVMastLog.EOF or j=1
 			
 			
             <td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%></td>
+			
+			
+			<%
+			    If rsBVMastLog.EOF = False Then
+   				    SetLogGrade( rsBVMastLog.Fields("QC_Grade"))
+				Else
+				    Response.Write "<td class='section-text' >&nbsp;</td>"    
+				End If  
+
+			%>
+			
 									
-            <td  align="center" <%if rsBVMastLog.EOF = false then SetLogGrade( rsBVMastLog.Fields("QC_Grade")) %> >
-			  <%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade")) %>
-			</td>
+            
 			
 			
 			<td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%></td>
