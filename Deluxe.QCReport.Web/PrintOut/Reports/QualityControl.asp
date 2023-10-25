@@ -69,10 +69,10 @@ Function SetGrade(grade)
 	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
 			   
 			ElseIf grade = 2   Then
-			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"
 			   
 			ElseIf grade = 3   Then
-			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"   
+			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"   
 			   
 			Else
 			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
@@ -81,7 +81,7 @@ Function SetGrade(grade)
 		   
 	ElseIf rsHeader.Fields("GradingScale") = 4   Then
 	
-	    If grade = 1 Or  grade = 2 Or  grade = 2  Then
+	    If grade = 1 Or  grade = 2 Or  grade = 3  Then
 	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
 			   
 			ElseIf grade = 4   Then
@@ -136,7 +136,7 @@ Function SetLogGrade(grade)
 	  
 	  ElseIf rsHeader.Fields("GradingScale") = 4   Then
 	
-	    If grade = 1 Or  grade = 2 Or  grade = 2  Then
+	    If grade = 1 Or  grade = 2 Or  grade = 3  Then
 	            Response.Write " class='section-text log-text-passed' "
 			   
 			ElseIf grade = 4   Then
@@ -162,21 +162,27 @@ Function SetLogGrade(grade)
 			  Response.Write " class='section-text' "     
 			   
 		   End If	
-	  
-	  
-	  
-	  
-	  
+  
 	  
       End If
-   
-	  
+   	   
 	
-   
-   
-   
-   
-	
+End Function
+
+Function SetYesNo(response)
+
+            If response = "Yes"   Then
+			   Response.Write "<td class='section-text log-text-passed' >" & response & "</td>"
+			   
+			ElseIf response = "No" Then
+			    Response.Write "<td class='section-text log-text-failed' >" & response & "</td>"
+				
+			Else
+			   Response.Write "<td class='section-text'>&nbsp;</td>"    
+			   
+		   End If	
+			  
+
 End Function
 %>
 
@@ -281,7 +287,7 @@ font-size:12px;
 
 
 
-.status-text-passed, .grade-text-passed{
+.status-text-passed, .grade-text-passed, .yes{
 /* background-color: green 
    background-color: #0BDA51 ;
    background-color: #0FFF50;
@@ -290,7 +296,7 @@ background-color: #4CBB17 ;
 color : #fff;
 }
 
-.status-text-failed, .grade-text-failed{
+.status-text-failed, .grade-text-failed, .no{
 background-color: red;
 color : #fff;
 

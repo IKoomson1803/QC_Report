@@ -27,7 +27,8 @@ If rsHDRMetadata.BOF  = False Then
 			
              <tr> 
 				 <td class="section-label hdr-metadata-label" >HDR Metadata Supplied: </td>
-				  <td class="section-text hdr-metadata-text"><%=rsHDRMetadata.Fields("HDRMetadataSupplied")%></td>
+				 <%=SetYesNo(rsHDRMetadata.Fields("HDRMetadataSupplied"))%>
+				 
 				  
 				 <td class="section-label hdr-metadata-label" >HDR Metadata Type:</td>
 				  <td class="section-text hdr-metadata-text" ><%=rsHDRMetadata.Fields("HDRMetadataType")%></td>
@@ -133,22 +134,24 @@ If rsHDRMetadata.BOF  = False Then
               			  
 			  <tr> 
 			       <td class="section-label" >Do Color Primaries match Video File: </td>
-                   <td class="section-text" ><%=rsHDRMetadata.Fields("ColourPrimariesMatchVideoFile")%></td>
+				   <%=SetYesNo(rsHDRMetadata.Fields("ColourPrimariesMatchVideoFile"))%>
+                   
 				  
 				 <td class="section-label" >Does Framerate match Video File: </td>
-				  <td class="section-text" ><%=rsHDRMetadata.Fields("FrameRateMatchVideoFile")%></td>
-				  
+				 <%=SetYesNo(rsHDRMetadata.Fields("FrameRateMatchVideoFile"))%>
+								  
 				 <td class="section-label" >Does Canvas Aspect Ratio match Video File:</td>
-				  <td class="section-text" ><%=rsHDRMetadata.Fields("CanvasAspectRatioMatchVideoFile")%></td>
-				  
+				 <%=SetYesNo(rsHDRMetadata.Fields("CanvasAspectRatioMatchVideoFile"))%>
+				 
 				
 			</tr>
 			  <tr> 
 			      <td class="section-label" >Does Image Aspect Ratio match Video File:</td>
-				   <td class="section-text" ><%=rsHDRMetadata.Fields("ImageAspectRatioMatchVideoFile")%></td>
-			    
+				  <%=SetYesNo(rsHDRMetadata.Fields("ImageAspectRatioMatchVideoFile"))%>
+				 
 				  <td  class="section-label">Does Color Range match Video File: </td> 
-				  <td class="section-text" ><%=rsHDRMetadata.Fields("ColourRangeMatchVideoFile")%></td>
+				  <%=SetYesNo(rsHDRMetadata.Fields("ColourRangeMatchVideoFile"))%>
+				  
 				  
 				   <td class="section-empty-label"  >&nbsp; </td>
 			      <td class="section-empty-label"  >&nbsp; </td>
