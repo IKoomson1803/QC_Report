@@ -6,6 +6,8 @@ Response.Expires = -1
 
 On Error Resume Next
 
+ 
+
 Function ChecklistCompleted()
 
         ChecklistCompleted = False
@@ -36,50 +38,10 @@ Function ChecklistCompleted()
 
 End Function
 
-Function SetLogGrade(grade)
 
-         
-	If grade = 1   Then
-	   Response.Write " class='section-text log-text-passed' "
-	   
-	ElseIf grade = 2   Then
-	   Response.Write " class='section-text  log-text-referral' "
-	   
-	ElseIf grade >= 3   Then
-	   Response.Write " class='section-text log-text-failed' "
-	   
-	Else
-	   Response.Write " class='section-text' "   
-	   
-   End If	
-	
-End Function
-
-
-Function SetGrade(grade)
-
-   '' Response.Write grade
-       
-	If grade = 1   Then
-	   Response.Write "<td class='grade-text-1'>" & grade & "</td>"
-	   
-	ElseIf grade = 2   Then
-	   Response.Write "<td class='grade-text-2'>" & grade & "</td>"
-	   
-	ElseIf grade >= 3   Then
-	   Response.Write "<td class='grade-text-others'>" & grade & "</td>"   
-	   
-	Else
-	   Response.Write "<td class='grade-text'>&nbsp;</td>"   
-	   
-   End If	
-	
-End Function
 
 Function SetStatus(status)
 
-  '' Response.write "status: " & status
-   
 	If status = "PASSED"   Then
 	   Response.Write "<td class='status-text-passed'>" & status & "</td>"
 	   
@@ -99,6 +61,123 @@ Function SetStatus(status)
   	
 End Function
 
+Function SetGrade(grade)
+   
+   If rsHeader.Fields("GradingScale") = 3 Then
+	
+	       If grade = 1   Then
+	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+			   
+			ElseIf grade = 3   Then
+			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"   
+			   
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+		   
+	ElseIf rsHeader.Fields("GradingScale") = 4   Then
+	
+	    If grade = 1 Or  grade = 2 Or  grade = 2  Then
+	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
+			   
+			ElseIf grade = 4   Then
+			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+		
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+	
+	ElseIf rsHeader.Fields("GradingScale") = 5   Then
+	
+	        If grade = 1   Then
+	             Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"
+			   
+			ElseIf grade >= 3   Then
+			   Response.Write "<td class='grade-text-passed'>" & grade & "</td>"   
+			   
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+		   
+	
+	End If
+   
+	
+End Function
+
+
+Function SetLogGrade(grade)
+
+      If rsHeader.Fields("GradingScale") = 3 Then
+	  
+	      If grade = 1   Then
+			   Response.Write " class='section-text log-text-passed' "
+			   
+			ElseIf grade = 2   Then
+			   Response.Write " class='section-text  log-text-referral' "
+			   
+			ElseIf grade = 3   Then
+			   Response.Write " class='section-text log-text-failed' "
+			   
+			Else
+			   Response.Write " class='section-text' "   
+			   
+		   End If	
+			  
+	  
+	  ElseIf rsHeader.Fields("GradingScale") = 4   Then
+	
+	    If grade = 1 Or  grade = 2 Or  grade = 2  Then
+	            Response.Write " class='section-text log-text-passed' "
+			   
+			ElseIf grade = 4   Then
+			   Response.Write " class='section-text log-text-failed' "
+		
+			Else
+			   Response.Write " class='section-text' "     
+			   
+		   End If	
+	
+	ElseIf rsHeader.Fields("GradingScale") = 5   Then
+	
+	        If grade = 1   Then
+	             Response.Write " class='section-text log-text-failed' "
+			   
+			ElseIf grade = 2   Then
+			   Response.Write " class='section-text  log-text-referral' "
+			   
+			ElseIf grade >= 3   Then
+			   Response.Write " class='section-text log-text-passed' "  
+			   
+			Else
+			  Response.Write " class='section-text' "     
+			   
+		   End If	
+	  
+	  
+	  
+	  
+	  
+	  
+      End If
+   
+	  
+	
+   
+   
+   
+   
+	
+End Function
 %>
 
 
@@ -172,7 +251,7 @@ width: 150px;
 }
 
 
- .status-text, .status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
+.status-text, .status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
 font-weight:bold;
 font-size:20px;
 border-top:2px solid #000; 
@@ -181,31 +260,6 @@ border-bottom:2px solid #000;
 padding: 3px 3px 3px 3px;
 width: 100px;
 
-}
-
-.status-text-passed, .grade-text-others{
-/* background-color: green 
-   background-color: #0BDA51 ;
-   background-color: #0FFF50;
- */
-background-color: #4CBB17 ;
-color : #fff;
-}
-
-.status-text-failed, .grade-text-1{
-background-color: red;
-color : #fff;
-
-}
-
-.status-text-referral, .grade-text-2{
-background-color: yellow;
-color: #000;
-}
-
-.status-text-hold{
-background-color: #FF7518;
-color: #fff;
 }
 
 .grade-label{
@@ -217,7 +271,7 @@ border-right:2px solid #000;
 padding: 3px 3px 3px 3px;
 }
 
-.grade-text-1, .grade-text-2, .grade-text-others {
+.grade-text-passed, .grade-text-failed, .grade-text-referral, .grade-text-hold{
 border-bottom:2px solid #000; 
 border-right:2px solid #000;
 padding: 3px 3px 3px 3px;
@@ -225,10 +279,34 @@ font-weight:bold;
 font-size:12px;
 }
 
-.grade-text-1, .grade-text-others {
-color: #fff;
+
+
+.status-text-passed, .grade-text-passed{
+/* background-color: green 
+   background-color: #0BDA51 ;
+   background-color: #0FFF50;
+ */
+background-color: #4CBB17 ;
+color : #fff;
+}
+
+.status-text-failed, .grade-text-failed{
+background-color: red;
+color : #fff;
 
 }
+
+.status-text-referral, .grade-text-referral{
+background-color: yellow;
+color: #000;
+}
+
+.status-text-hold, .grade-text-hold{
+background-color: #FF7518;
+color: #fff;
+}
+
+
 
 .log-text-passed {
 background-color: #4CBB17 ;

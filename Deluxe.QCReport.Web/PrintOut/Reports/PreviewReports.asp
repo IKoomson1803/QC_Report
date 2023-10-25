@@ -246,6 +246,7 @@ dim rsDPPLog, sqlDPPLog
 Dim rsChecklistDPP, sqlChecklistDPP
 Dim rsChecklistBanijayRights, sqlChecklistBanijayRights
 Dim rsHDRMetadata, sqlHDRMetadata
+dim gradeScale
 
 
 ''*****************Log item number check***********************************************************************
@@ -538,6 +539,7 @@ rsDPPLog.Open sqlDPPLog
 
  ''Response.write "FileType: " & rsChecklist.Fields("FileType") & "<br/>"
 '' Response.write " Customer Name: " & rsHeader.Fields("CustName")
+'' Response.write " Grade Scle: " & rsHeader.Fields("GradingScale")
 %>
 
 </body>
