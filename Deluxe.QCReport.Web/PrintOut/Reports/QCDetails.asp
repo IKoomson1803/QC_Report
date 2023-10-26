@@ -1,6 +1,6 @@
 <table class="section-table" border="0" cellspacing="0" cellpadding="1">
   <tr>
-    <td class="section-header">File Information</td>
+    <td class="section-header">QC Details</td>
   </tr>
 </table>
 
@@ -16,38 +16,9 @@
     <td valign="top"  > 
       <table width="100%" border="1" cellspacing="0" cellpadding="0"  > <!-- bordercolor="#000000" -->
 	  
-	    <tr>
-	     
-		  <td class="section-label operations-label">File Record / Encode Date:</td>
-		  <td class="section-text operations-text"><%if isnull(rsHeader.Fields("Rec_Date")) then
-									Response.Write(rsHeader.Fields("Rec_Date"))
-								  else
-									Response.Write(replace(rsHeader.Fields("Rec_Date"), "TBD", ""))
-		
-						  end if%>
-		 </td>
-		 
-	    <td class="section-label operations-label" >Record Facility: </td>
-		<td class="section-text operations-text"><%=rsHeader.Fields("Rec_fac")%></td>
-		
-	    <td class="section-label operations-label" >Source Standard:</td>
-		<td class="section-text operations-text"><%=rsHeader.Fields("Src_standard")%></td>
+	 
 		
 		
-		
-		</tr>
-		
-		<tr>
-		<td class="section-label" >Source Format:</td>
-		<td class="section-text" ><%=rsHeader.Fields("src_format")%></td>
-		
-        <td class="section-label" >Source Desc:</td>
-		<td class="section-text" colspan="4"><%=rsHeader.Fields("src_desc")%></td>
-		
-		
-		
-		
-		</tr>
 	   	  
 	  <%  If sAssetType = "Tape" Then %>
 		   <tr>
@@ -67,21 +38,7 @@
 		   </tr>
 	  <%  End If %>
 	   
-	   <tr>
-	         <%
-				  If rsHDRMetadata.BOF  = False Then
-				 '' response.write rsHDRMetadata.Fields("NotRequired")
-						If rsHDRMetadata.Fields("NotRequired") = False Then	
-						   Response.Write  "<td class='section-label'>Xml Creation Date: </td>" & _	
-						   "<td class='section-text'>" & rsHDRMetadata.Fields("XmlCreationDate")  & "</td>" 						    
-						End If	
-				  End If		 		
-				%>	
-	   
-	   
-	         <td  class="section-label" >Additional Info:</td>
-			 <td colspan="9" class="section-text"><%=rsHeader.Fields("addinfo")%></td>
-	   </tr>
+	  
 	   
 	   <%  If Not IsNull(rsHeader.Fields("FullName")) Then  %>
 			   <tr>
@@ -161,9 +118,3 @@
   </tr>
 </table>
 
-
-<table class="section-table" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-   &nbsp;
-  </tr>
-</table>

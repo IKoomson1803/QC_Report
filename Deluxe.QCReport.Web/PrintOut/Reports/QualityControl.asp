@@ -178,7 +178,39 @@ Function SetYesNo(response)
 			    Response.Write "<td class='section-text hdr-metadata-text no' >" & response & "</td>"
 				
 			Else
-			   Response.Write "<td class='section-text hdr-metadata-text'>&nbsp;</td>"    
+			   Response.Write "<td class='section-text hdr-metadata-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+Function SetChecklistText(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-text no' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+Function SetChecklistText_2(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-2-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-2-text no' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-2-text'>" & response & "</td>"    
 			   
 		   End If	
 			  
@@ -290,7 +322,7 @@ font-size:12px;
 
 
 
-.status-text-passed, .grade-text-passed, .yes{
+.status-text-passed, .grade-text-passed{
 /* background-color: green 
    background-color: #0BDA51 ;
    background-color: #0FFF50;
@@ -299,10 +331,14 @@ background-color: #4CBB17 ;
 color : #fff;
 }
 
-.status-text-failed, .grade-text-failed, .no{
+.status-text-failed, .grade-text-failed{
 background-color: red;
 color : #fff;
 
+}
+
+.yes, .no{
+background-color: #fff;
 }
 
 .status-text-referral, .grade-text-referral{
@@ -413,9 +449,9 @@ width: 100px;
 </table>
 -->
  
-<!--#include file="Operations.asp" -->
+<!--#include file="FileInformation.asp" -->
 
-
+<!--#include file="QCDetails.asp" -->
 
   
 <!--#include file="Measurements.asp" -->
@@ -982,11 +1018,8 @@ do while not rsTextInfo.EOF or j=1
 		  %>
           <tr>
 			<td width="4%" align="center" ><%if rsTextInfo.EOF = false then Response.Write(rsTextInfo.Fields("TextInfo"))%>&nbsp</td>
-			
-            <%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;
-			
-			
-            <td width="5%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeOut"))%>&nbsp;</td>
+		    <td width="5%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;</td>
+     		<td width="5%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeOut"))%>&nbsp;</td>
           </tr>
           <%	end if
              if rsTextInfo.EOF = false then rsTextInfo.MoveNext 

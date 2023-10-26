@@ -28,26 +28,26 @@ If rsHDRMetadata.BOF  = False Then
              <tr> 
 				 <td class="section-label hdr-metadata-label" >HDR Metadata Supplied: </td>
 				 <%=SetYesNo(rsHDRMetadata.Fields("HDRMetadataSupplied"))%>
-				 
+				
 				  
 				 <td class="section-label hdr-metadata-label" >HDR Metadata Type:</td>
 				  <td class="section-text hdr-metadata-text" ><%=rsHDRMetadata.Fields("HDRMetadataType")%></td>
 				  
 				 <td class="section-label hdr-metadata-label" >Does xml Metadata match the Base file Metadata:</td>
-				  <td class="section-text hdr-metadata-text" ><%=rsHDRMetadata.Fields("XmlAndBaseFileMetadataMatch")%></td>
-				  
+				 <%=SetYesNo(rsHDRMetadata.Fields("XmlAndBaseFileMetadataMatch"))%>
+						  
 				
 			</tr>	
             <tr> 
-			      <td   class="section-label">Xml MaxCLL:</td>
-				    <td class="section-text" ><%=rsHDRMetadata.Fields("MaxCLL")%></td>
+			      <td   class="section-label hdr-metadata-label">Xml MaxCLL:</td>
+				    <td class="section-text hdr-metadata-text" ><%=rsHDRMetadata.Fields("MaxCLL")%></td>
 					
 			     
-				  <td  class="section-label">Xml MaxFALL:</td>
-				  <td class="section-text" ><%=rsHDRMetadata.Fields("MaxFALL")%></td>
+				  <td  class="section-label hdr-metadata-label">Xml MaxFALL:</td>
+				  <td class="section-text hdr-metadata-text" ><%=rsHDRMetadata.Fields("MaxFALL")%></td>
 				  
-				 <td class="section-empty-label"  >&nbsp; </td>
-			      <td class="section-empty-label"  >&nbsp; </td>
+				 <td class="section-empty-label hdr-metadata-label"  >&nbsp; </td>
+			      <td class="section-text hdr-metadata-text"  >&nbsp; </td>
 				  
 				  				  
            </tr>			

@@ -511,7 +511,7 @@ rsDPPLog.Open sqlDPPLog
 	<!--#include file="QCWT1Pg.asp" -->
 <%end if%>
 
-<!-- Runtime QC with Log For ESI-->
+<!-- Runtime QC with Log For Banijah Rights old template-->
 <%if sQCRWLE = "1" then %>
 	<!--#include file="QCEndemol.asp" -->
 <%end if%>

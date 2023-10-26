@@ -33,6 +33,7 @@ rsVidAud.Open sqlVidAud
     </td>
 	-->
   </tr>
+  </table>
   
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
@@ -681,7 +682,7 @@ Set rsComments = Nothing
 %>
 
 
-<!-- #include file="FaultImages.asp" -->
+<!-- #include file="FaultImages_ESI.asp" -->
 
  
  

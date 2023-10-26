@@ -19,42 +19,29 @@
 	
 			</tr> 
 			
-			
-			 <tr>
-      		  <td class="section-label programme-details-label" >Description:</td>
-			  <td class="section-text programme-details-text" ><%=rsHeader.Fields("TapeDesc1")%></td>
-			  			  
-             <td class="section-label programme-details-label" >QC Number:</td>
-			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("QCNum")%></td>
-			 
-			   <td class="section-empty-label"  >&nbsp; </td>
-			      <td class="section-empty-label"  >&nbsp; </td>
-	
-			</tr> 
-			
 			<tr>
              <td  class="section-label programme-details-label" ><span style="font-size:14px;">Episode Name:</span></td>
 			 <td class="section-text" colspan="5"><%=rsHeader.Fields("Epis_name")%></td>
 			 			 
             
 			</tr> 
-						
-			<tr>
 			
 			
-			<tr>
-          			 			 
-             <td  class="section-label programme-details-label" >Episode Number:</td>
+			 <tr>
+			   <td  class="section-label programme-details-label" >Episode Number:</td>
 			 <td class="section-text" ><%=rsHeader.Fields("Epis_no")%></td>
 			 			 
              <td  class="section-label" >WO Number:</td>
 			 <td class="section-text" ><%=rsHeader.Fields("wonum")%></td>
+			  			  
+             <td class="section-label programme-details-label" >QC Number:</td>
+			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("QCNum")%></td>
 			 
-			  <td class="section-label" >&nbsp; </td>
-			 <td class="section-text" >&nbsp;</td>
+			  
 	
 			</tr> 
-						
+			
+				
 			<tr>
 				
               <td  class="section-label programme-details-label" >Subtitles:</td>
@@ -110,6 +97,7 @@
 			  
 			</tr> 
 			
+			<!-- 
 		    <%
 		           If Not IsNull(sAssetType) And sAssetType = "File"   Then
 				     ''Response.Write "<tr><td colspan='3'>&nbsp;</td></tr>" 
@@ -130,19 +118,24 @@
 						End If	
 				  End If		 		
 				%>	
-  
+    -->
            			
-			<tr>
+		<!--	<tr>
 			  <td class="section-label programme-details-label" >Time Code:</td>
 			  <td class="section-text" ><%=rsHeader.Fields("Timecode")%></td>
 				
 		       <td class="section-label" >Version:</td>
 			   <td class="section-text"><%=rsHeader.Fields("Version")%></td>
 			   
+			    <td class="section-empty-label" >&nbsp;</td>
+			    <td class="section-text" >&nbsp;</td>
+			  
+            			  
 			 <td class="section-label" >UID No. / Production ID:</td>
 			 <td class="section-text" ><%=rsHeader.Fields("CatalogueID")%></td>
+			
 			 
-		 </tr>
+		 </tr> -->
 		 
 		 <tr>
 		     <td  class="section-label  programme-details-label" >Head Logos:</td>
