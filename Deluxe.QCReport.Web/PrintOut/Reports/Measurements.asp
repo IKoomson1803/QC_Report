@@ -134,34 +134,52 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			</tr>
 			
 			<tr> 
-			   <td <td class="section-label" >Max CLL:</td>
-		      <td class="section-text" ><%=rsHeader.Fields("MaxCLL")%></td>
+			   <td <td class="section-label" >Stated Max CLL:</td>
+		      <td class="section-text" colspan="3"><%=rsHeader.Fields("MaxCLL")%></td>
 			   
-			   <td class="section-label" >Max FALL:</td>
-			  <td class="section-text" ><%=rsHeader.Fields("MaxFALL")%></td>
-			  
-			  <td class="section-label">&nbsp;</td>
-			    <td class="section-text">&nbsp;</td>
-				
-				  <td class="section-label">&nbsp;</td>
-				    <td class="section-text">&nbsp;</td>
-				  
+			   <td class="section-label" >Stated Max FALL:</td>
+			  <td class="section-text" colspan="3"><%=rsHeader.Fields("MaxFALL")%></td>
+						  
 			  
 			  
 			</tr>
 			
 			
-						
+			<!--			
 			<tr> 
 			  	  
-			 <td  colspan="8"  >&nbsp; </td>  
+			 <td  colspan="8" style="border-right:none; " >&nbsp; </td>  
 			 
 			</tr>
-			
+			-->
 			
 			
                 
-            <tr> 
+            
+		  
+		  
+		  
+			  
+			  
+    
+			
+		</table>
+	<% End If %>
+	
+    </td>
+	
+	
+  </tr>
+</table>
+
+<p></p>
+
+<table class="section-table" border="0" cellspacing="0" cellpadding="0" >
+ 
+  <tr>
+    <td>
+	  <table width="100%" border="1" cellspacing="0" cellpadding="1">
+	       <tr> 
 			  <td  class="section-sub-header" colspan="2">BARS</td>
 			  <td  class="section-sub-header" colspan="4">WAVEFORM LEVELS</td>
 			  <td   class="section-sub-header" colspan="2">LINE MEASUREMENTS</td>
@@ -178,11 +196,11 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			  <td class="section-text" ><%=rsHeader.Fields("Chroma_Peak")%>&nbsp;&nbsp;<%=siremv%></td>
 			
 			    <% If Not IsNull(rsHeader.Fields("HBlanking")) Then %>
-				  <td class="section-label" >&nbsp;H Blanking:</td>
+				  <td class="section-label" >H Blanking:</td>
 				  <td class="section-text" ><%=rsHeader.Fields("HBlanking")%></td>
 				  
 				 <% Else %>
-					 <td class="section-label" >&nbsp;H Blanking:</td>
+					 <td class="section-label" >H Blanking:</td>
 					 <td class="section-text" ><%=rsHeader.Fields("HBlank")%></td>
 				<% End If %>
 			
@@ -223,33 +241,14 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			
 		  </tr>
 		  
-		  
-		  
-		  
-			  
-			  
-    
-			
-		</table>
-	<% End If %>
 	
-    </td>
-	
-	
+	  </table>
+   </td>
 	
 	
   </tr>
 </table>
-
-
-
-<!--
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
--->
+	
 
 
 <!--#include file="HDRMetadata.asp" -->

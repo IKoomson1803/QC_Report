@@ -300,7 +300,7 @@ border-right:2px solid #000;
 border-bottom:2px solid #000; 
 padding: 3px 3px 3px 3px;
 width: 100px;
-
+text-align: center;
 }
 
 .grade-label{
@@ -318,6 +318,7 @@ border-right:2px solid #000;
 padding: 3px 3px 3px 3px;
 font-weight:bold;
 font-size:12px;
+text-align: center;
 }
 
 

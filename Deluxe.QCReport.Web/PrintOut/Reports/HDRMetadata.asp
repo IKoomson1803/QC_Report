@@ -39,22 +39,30 @@ If rsHDRMetadata.BOF  = False Then
 				
 			</tr>	
             <tr> 
-			      <td   class="section-label hdr-metadata-label">Xml MaxCLL:</td>
-				    <td class="section-text hdr-metadata-text" ><%=rsHDRMetadata.Fields("MaxCLL")%></td>
+			      <td   class="section-label hdr-metadata-label">xml MaxCLL:</td>
+				    <td class="section-text hdr-metadata-text" colspan="2"><%=rsHDRMetadata.Fields("MaxCLL")%></td>
 					
 			     
-				  <td  class="section-label hdr-metadata-label">Xml MaxFALL:</td>
-				  <td class="section-text hdr-metadata-text" ><%=rsHDRMetadata.Fields("MaxFALL")%></td>
-				  
-				 <td class="section-empty-label hdr-metadata-label"  >&nbsp; </td>
-			      <td class="section-text hdr-metadata-text"  >&nbsp; </td>
-				  
+				  <td  class="section-label hdr-metadata-label">xml MaxFALL:</td>
+				  <td class="section-text hdr-metadata-text" colspan="2"><%=rsHDRMetadata.Fields("MaxFALL")%></td>
+			
 				  				  
            </tr>			
 			
+			
+				
+</table>
+
+<p></p>
+
+<table class="section-table" border="1" cellspacing="0" cellpadding="0">
+		     	  
+			
+            
+			
 			  
 			 <tr> 
-	            <td colspan="8" class="section-sub-header">DOLBY VISION & ST.2086 CHECKS</td>
+	            <td colspan="8" class="section-sub-header">DOLBY VISION & ST.2086</td>
 	          </tr>	
               <tr> 
 	            <td colspan="8" align="center" class="section-label">Mastering Display</td>
@@ -72,21 +80,18 @@ If rsHDRMetadata.BOF  = False Then
 
 				<tr>
 	                <td  class="section-label">Minimum Brightness:</td>
-				  <td class="section-text" ><%=rsHDRMetadata.Fields("MinimumBrightnessMastering")%></td>
+				  <td class="section-text" colspan="5"><%=rsHDRMetadata.Fields("MinimumBrightnessMastering")%></td>
 				  
+				  <!--
 				   <td class="section-empty-label"  >&nbsp; </td>
 			      <td class="section-empty-label"  >&nbsp; </td>
 				  
 				   <td class="section-empty-label"  >&nbsp; </td>
 			      <td class="section-empty-label"  >&nbsp; </td>
-				  
+				  -->
 			</tr>			   
 			
-				<!--		  
-			  <tr> 
-	            <td colspan="8" class="section-sub-header">DOLBY VISION CHECKS</td>
-	          </tr>	
-			  -->
+			
 			  
               <tr> 
 	            <td colspan="8" align="center" class="section-label">Color Encoding</td>
@@ -97,7 +102,7 @@ If rsHDRMetadata.BOF  = False Then
 	  
 				  
 				   <td  class="section-label">White Point: </td> 
-				  <td  class="section-label"><%=RMetadata.Fields("PeakBrightnessDolbyVision")%></td>
+				  <td  class="section-text"><%=RMetadata.Fields("PeakBrightnessDolbyVision")%></td>
 				  
 				  <td  class="section-label">Minimum Brightness:</td>
 				  <td class="section-text" ><%=rsHDRMetadata.Fields("MinimumBrightnessDolbyVision")%></td>
@@ -118,16 +123,26 @@ If rsHDRMetadata.BOF  = False Then
 			<tr>
 			    	  
 				  <td  class="section-label">Color Range:</td>
-				  <td class="section-text" ><%=rsHDRMetadata.Fields("ColourRange")%></td>
+				  <td class="section-text" colspan="5"><%=rsHDRMetadata.Fields("ColourRange")%></td>
 				  
+				  <!--
 				   <td class="section-empty-label"  >&nbsp; </td>
 			      <td class="section-empty-label"  >&nbsp; </td>
 				  
 				   <td class="section-empty-label"  >&nbsp; </td>
 			      <td class="section-empty-label"  >&nbsp; </td>
-			
+			  -->
 			</tr>
 						  
+			 
+</table>
+
+<p></p>
+
+<table class="section-table" border="1" cellspacing="0" cellpadding="0">
+		     	  
+			
+        					  
 			  <tr> 
 	            <td colspan="8" class="section-sub-header">XML VS BASE FILE</td>
 	          </tr>	
@@ -150,16 +165,19 @@ If rsHDRMetadata.BOF  = False Then
 				  <%=SetYesNo(rsHDRMetadata.Fields("ImageAspectRatioMatchVideoFile"))%>
 				 
 				  <td  class="section-label">Does Color Range match Video File: </td> 
-				  <%=SetYesNo(rsHDRMetadata.Fields("ColourRangeMatchVideoFile"))%>
-				  
-				  
+				   <td class="section-text" colspan="3"><%=rsHDRMetadata.Fields("ColourRangeMatchVideoFile")%></td>
+				  				  
+				  <!--
 				   <td class="section-empty-label"  >&nbsp; </td>
 			      <td class="section-empty-label"  >&nbsp; </td>
-				  
+				  -->
 				 
 	        </tr>
 				
 </table>
+
+
+
 
 
 

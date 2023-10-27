@@ -48,7 +48,7 @@
 				  If rsHDRMetadata.BOF  = False Then
 				 '' response.write rsHDRMetadata.Fields("NotRequired")
 						If rsHDRMetadata.Fields("NotRequired") = False Then	
-						   Response.Write  "<td class='section-label'>Xml Creation Date: </td>" & _	
+						   Response.Write  "<td class='section-label'>xml Creation Date: </td>" & _	
 						   "<td class='section-text'>" & rsHDRMetadata.Fields("XmlCreationDate")  & "</td>" 						    
 						End If	
 				  End If		 		
@@ -64,10 +64,9 @@
 			  <td class="section-text operations-text" ><%=rsHeader.Fields("Timecode")%></td>
 				
 		       <td class="section-label operations-label" >Version:</td>
-			   <td class="section-text operations-text"><%=rsHeader.Fields("Version")%></td>
+			   <td class="section-text operations-text"  colspan="3"><%=rsHeader.Fields("Version")%></td>
 			   
-			    <td class="section-empty-label operations-label" >&nbsp;</td>
-			    <td class="section-text operations-text" >&nbsp;</td>
+			
 			  
             <!--			  
 			 <td class="section-label" >UID No. / Production ID:</td>
@@ -79,7 +78,7 @@
 		 
 	  <tr>
 	     
-		  <td class="section-label operations-label">File Record / Encode Date:</td>
+		  <td class="section-label operations-label">File Encode Date:</td>
 		  <td class="section-text operations-text"><%if isnull(rsHeader.Fields("Rec_Date")) then
 									Response.Write(rsHeader.Fields("Rec_Date"))
 								  else

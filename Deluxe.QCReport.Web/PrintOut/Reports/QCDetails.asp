@@ -68,7 +68,7 @@
 			   </tr>
 			   
 			   <tr>
-			      <td class="section-label" >QC OF: </td>
+			      <td class="section-label" >QC of: </td>
 				 <td class="section-text" colspan="5" ><%=rsHeader.Fields("Operator_Activity")%></td> 
 			 
 			 </tr>
@@ -104,7 +104,7 @@
 			   </tr>
 			   
 			   <tr>
-			      <td class="section-label" >QC OF: </td>
+			      <td class="section-label" >QC of: </td>
 				 <td class="section-text" colspan="5" ><%=rsHeader.Fields("Operator_2_Activity")%></td> 
 			 
 			 </tr>

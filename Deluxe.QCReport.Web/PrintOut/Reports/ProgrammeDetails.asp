@@ -14,14 +14,14 @@
   <td>
        <table width="100%" border="1" cellspacing="0" cellpadding="0" >
 	       <tr>
-             <td class="section-label programme-details-label section-text-blue section-text-big-font" >Title:</td>
-			 <td class="section-text section-text-blue" colspan="5" ><%=rsHeader.Fields("Show")%></td>
+             <td class="section-label programme-details-label section-text-big-font" >Title:</td>
+			 <td class="section-text section-text-big-font" colspan="5" ><%=rsHeader.Fields("Show")%></td>
 	
 			</tr> 
 			
 			<tr>
-             <td  class="section-label programme-details-label" ><span style="font-size:14px;">Episode Name:</span></td>
-			 <td class="section-text" colspan="5"><%=rsHeader.Fields("Epis_name")%></td>
+             <td  class="section-label programme-details-label section-text-big-font" ><span style="font-size:14px;">Episode Name:</span></td>
+			 <td class="section-text section-text-big-font" colspan="5"><%=rsHeader.Fields("Epis_name")%></td>
 			 			 
             
 			</tr> 
