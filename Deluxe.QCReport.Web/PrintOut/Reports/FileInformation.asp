@@ -55,7 +55,7 @@
 				%>	
 	   
 	   
-	         <td  class="section-label" >Additional Info:</td>
+	         <td  class="section-label" >Additional Information:</td>
 			 <td colspan="9" class="section-text"><%=rsHeader.Fields("addinfo")%></td>
 	   </tr>
            			

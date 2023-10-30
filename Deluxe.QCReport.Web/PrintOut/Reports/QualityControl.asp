@@ -373,7 +373,15 @@ color: #000;
 width: 200px;
 }
 
-.programme-details-text, .operations-text, .hdr-metadata-text{
+.programme-details-text{
+width: 100px;
+}
+.programme-details-text-2{
+width: 200px;
+}
+
+
+.operations-text, .hdr-metadata-text{
 width: 200px;
 }
 

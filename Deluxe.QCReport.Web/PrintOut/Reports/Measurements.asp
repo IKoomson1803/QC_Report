@@ -134,11 +134,11 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			</tr>
 			
 			<tr> 
-			   <td <td class="section-label" >Stated Max CLL:</td>
-		      <td class="section-text" colspan="3"><%=rsHeader.Fields("MaxCLL")%></td>
+			   <td <td class="section-label" colspan="3">Base file Stated MaxCLL:</td>
+		      <td class="section-text" ><%=rsHeader.Fields("MaxCLL")%></td>
 			   
-			   <td class="section-label" >Stated Max FALL:</td>
-			  <td class="section-text" colspan="3"><%=rsHeader.Fields("MaxFALL")%></td>
+			   <td class="section-label" colspan="3">Base file Stated MaxFALL:</td>
+			  <td class="section-text" ><%=rsHeader.Fields("MaxFALL")%></td>
 						  
 			  
 			  
@@ -187,13 +187,13 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			
 			<tr>
 			  <td <td class="section-label" >Video Gain: </td>
-			  <td class="section-text" ><%=rsHeader.Fields("Bar_Vid")%>&nbsp;&nbsp;<%=siremv%> </td>
+			  <td class="section-text" ><%=rsHeader.Fields("Bar_Vid")%><%=siremv%> </td>
 			  
 			  <td <td class="section-label" >Luma Peak: </td>
-			  <td class="section-text" ><%=rsHeader.Fields("Lum_Peak")%>&nbsp;&nbsp;<%=siremv%></td>
+			  <td class="section-text" ><%=rsHeader.Fields("Lum_Peak")%><%=siremv%></td>
 			  
 			  <td <td class="section-label" >Chroma Peak:</td>
-			  <td class="section-text" ><%=rsHeader.Fields("Chroma_Peak")%>&nbsp;&nbsp;<%=siremv%></td>
+			  <td class="section-text" ><%=rsHeader.Fields("Chroma_Peak")%><%=siremv%></td>
 			
 			    <% If Not IsNull(rsHeader.Fields("HBlanking")) Then %>
 				  <td class="section-label" >H Blanking:</td>
@@ -208,13 +208,13 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			
 			<tr>
 		       <td <td class="section-label" >Chroma Gain:</td>
-			   <td class="section-text" ><%=rsHeader.Fields("Bar_Chr")%>&nbsp;&nbsp;<%=siremv%></td>
+			   <td class="section-text" ><%=rsHeader.Fields("Bar_Chr")%><%=siremv%></td>
 			   
 			     <td <td class="section-label" >Luma Avg:</td>
-				 <td class="section-text" ><%=rsHeader.Fields("Lum_Avg")%>&nbsp;&nbsp;<%=siremv%></td>
+				 <td class="section-text" ><%=rsHeader.Fields("Lum_Avg")%><%=siremv%></td>
 				 
 				<td  <td class="section-label" >Chroma Avg:</td>
-				<td class="section-text" ><%=rsHeader.Fields("Chroma_Avg")%>&nbsp;&nbsp;<%=siremv%></td>
+				<td class="section-text" ><%=rsHeader.Fields("Chroma_Avg")%><%=siremv%></td>
 				
 				 <% If Not IsNull(rsHeader.Fields("VBlanking")) Then %>
 				   <td <td class="section-label" >V Blanking:</td>
@@ -228,10 +228,10 @@ if rsHeader.Fields("IRE_MV") = "M" then
 		  
 		  <tr>
 		   <td  <td class="section-label" >Black Level:</td>
-		   <td class="section-text" ><%=rsHeader.Fields("Black")%>&nbsp;&nbsp;<%=siremv%></td>
+		   <td class="section-text" ><%=rsHeader.Fields("Black")%><%=siremv%></td>
 	   
 	       <td class="section-label" >&nbsp;Black Level:</td>
-		   <td class="section-text" ><%=rsHeader.Fields("Black")%>&nbsp;&nbsp;<%=siremv%></td>
+		   <td class="section-text" ><%=rsHeader.Fields("Black")%><%=siremv%></td>
 		   
 		  <td <td class="section-label" >Active Picture:</td>
 		  <td class="section-text" ><%=rsHeader.Fields("Active_Picture")%></td>

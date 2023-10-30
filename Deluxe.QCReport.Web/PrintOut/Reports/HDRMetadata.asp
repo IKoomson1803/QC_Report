@@ -39,11 +39,11 @@ If rsHDRMetadata.BOF  = False Then
 				
 			</tr>	
             <tr> 
-			      <td   class="section-label hdr-metadata-label">xml MaxCLL:</td>
+			      <td   class="section-label hdr-metadata-label">Stated MaxCLL:</td>
 				    <td class="section-text hdr-metadata-text" colspan="2"><%=rsHDRMetadata.Fields("MaxCLL")%></td>
 					
 			     
-				  <td  class="section-label hdr-metadata-label">xml MaxFALL:</td>
+				  <td  class="section-label hdr-metadata-label">Stated MaxFALL:</td>
 				  <td class="section-text hdr-metadata-text" colspan="2"><%=rsHDRMetadata.Fields("MaxFALL")%></td>
 			
 				  				  
@@ -102,15 +102,17 @@ If rsHDRMetadata.BOF  = False Then
 	  
 				  
 				   <td  class="section-label">White Point: </td> 
-				  <td  class="section-text"><%=RMetadata.Fields("PeakBrightnessDolbyVision")%></td>
+				 <td class="section-text" ><%=rsHDRMetadata.Fields("WhitePointDolbyVision")%></td>
+				  
 				  
 				  <td  class="section-label">Minimum Brightness:</td>
 				  <td class="section-text" ><%=rsHDRMetadata.Fields("MinimumBrightnessDolbyVision")%></td>
 			</tr>
 			  <tr> 
 			  <td  class="section-label">Peak Brightness: </td> 
-				  <td class="section-text" ><%=rsHDRMetadata.Fields("WhitePointDolbyVision")%></td>
-				  
+			    <td  class="section-text"><%=rsHDRMetadata.Fields("PeakBrightnessDolbyVision")%></td>
+			  
+				 
 			     
 				  <td  class="section-label">Encoding:</td>
 				  <td class="section-text" ><%=rsHDRMetadata.Fields("Encoding")%></td>
@@ -148,24 +150,26 @@ If rsHDRMetadata.BOF  = False Then
 	          </tr>	
               			  
 			  <tr> 
-			       <td class="section-label" >Do Color Primaries match Video File: </td>
-				   <%=SetYesNo(rsHDRMetadata.Fields("ColourPrimariesMatchVideoFile"))%>
-                   
+			       <td class="section-label" style="width:350px" >Do Color Primaries match Video File: </td>
+				    <td class="section-text" style="width:20px"><%=rsHDRMetadata.Fields("ColourPrimariesMatchVideoFile")%></td>
+				                     
 				  
-				 <td class="section-label" >Does Framerate match Video File: </td>
-				 <%=SetYesNo(rsHDRMetadata.Fields("FrameRateMatchVideoFile"))%>
-								  
-				 <td class="section-label" >Does Canvas Aspect Ratio match Video File:</td>
-				 <%=SetYesNo(rsHDRMetadata.Fields("CanvasAspectRatioMatchVideoFile"))%>
+				 <td class="section-label" style="width:300px">Does Framerate match Video File: </td>
+				  <td class="section-text" style="width:20px"><%=rsHDRMetadata.Fields("FrameRateMatchVideoFile")%></td>
 				 
+												  
+				 <td class="section-label" style="width:350px">Does Canvas Aspect Ratio match Video File:</td>
+				 <td class="section-text" style="width:20px"><%=rsHDRMetadata.Fields("CanvasAspectRatioMatchVideoFile")%></td>
+			
 				
 			</tr>
 			  <tr> 
-			      <td class="section-label" >Does Image Aspect Ratio match Video File:</td>
-				  <%=SetYesNo(rsHDRMetadata.Fields("ImageAspectRatioMatchVideoFile"))%>
+			      <td class="section-label" style="width:350px" >Does Image Aspect Ratio match Video File:</td>
+				   <td class="section-text" style="width:20px"><%=rsHDRMetadata.Fields("ImageAspectRatioMatchVideoFile")%></td>
+				
 				 
-				  <td  class="section-label">Does Color Range match Video File: </td> 
-				   <td class="section-text" colspan="3"><%=rsHDRMetadata.Fields("ColourRangeMatchVideoFile")%></td>
+				  <td  class="section-label" style="width:450px" >Does Color Range match Video File: </td> 
+				   <td class="section-text"style="width:20px" colspan="3"><%=rsHDRMetadata.Fields("ColourRangeMatchVideoFile")%></td>
 				  				  
 				  <!--
 				   <td class="section-empty-label"  >&nbsp; </td>

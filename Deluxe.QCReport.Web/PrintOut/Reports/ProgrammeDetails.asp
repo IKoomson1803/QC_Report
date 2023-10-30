@@ -29,23 +29,29 @@
 			
 			 <tr>
 			   <td  class="section-label programme-details-label" >Episode Number:</td>
-			 <td class="section-text" ><%=rsHeader.Fields("Epis_no")%></td>
+			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("Epis_no")%></td>
 			 			 
-             <td  class="section-label" >WO Number:</td>
-			 <td class="section-text" ><%=rsHeader.Fields("wonum")%></td>
+             <td  class="section-label programme-details-label" >WO Number:</td>
+			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("wonum")%></td>
 			  			  
-             <td class="section-label programme-details-label" >QC Number:</td>
-			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("QCNum")%></td>
+            
 			 
+			     <td class="section-label programme-details-label" >QC Number:</td>
+			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("QCNum")%></td>
 			  
 	
 			</tr> 
 			
 				
 			<tr>
+			 
+			
+			
+	         <td class="section-label programme-details-label" >Language:</td>
+			 <td class="section-text" ><%=rsHeader.Fields("HLanguage")%></td>
 				
               <td  class="section-label programme-details-label" >Subtitles:</td>
-			  <td class="section-text">
+			  <td class="section-text programme-details-text">
 			   
 			  <b>
 
@@ -61,18 +67,15 @@
 						  
 			  </td>
 	         		 
-             <td class="section-label" >Language:</td>
-			 <td class="section-text" ><%=rsHeader.Fields("HLanguage")%></td>
-
-             <td class="section-label" >PO Number:</td>
-			 <td class="section-text"><%=rsHeader.Fields("Pono")%></td>
-			 
+					  <td class="section-label programme-details-label" >PO Number:</td>
+			 <td class="section-text programme-details-text"><%=rsHeader.Fields("Pono")%></td>
+        
 			</tr> 
 						
 			<tr>
              
              <td class="section-label programme-details-label" >Programme Duration:</td>
-			 <td class="section-text" ><%=rsHeader.Fields("TRT")%></td>
+			 <td class="section-text programme-details-text" ><%=rsHeader.Fields("TRT")%></td>
 			 
 			 <td class="section-label" >Textless @ Tail:</td> 
 			  <td class="section-text">
@@ -83,8 +86,8 @@
 									end if%></td>
 			</td>
 			
-			<td class="section-label" >Textless Duration:</td>
-              <td class="section-text">
+			<td class="section-label programme-details-label" >Textless Duration:</td>
+              <td class="section-text programme-details-text">
 			<b><%=rsHeader.Fields("Duration")%></td>		
 			<%
 		           If Not IsNull(sAssetType) And sAssetType = "Tape"   Then

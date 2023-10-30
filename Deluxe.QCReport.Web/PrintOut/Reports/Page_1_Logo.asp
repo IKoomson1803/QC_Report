@@ -28,7 +28,7 @@
 	</td>
   </tr>
   <tr>
-	<td colspan="2" align="center" style="width:750px"><br/><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
+	<td colspan="2" style="width:750px"><br/><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
 	 <td align="right">
 		Page:&nbsp;1&nbsp;of&nbsp;<span id="totalPage1"></span>
     </td>
