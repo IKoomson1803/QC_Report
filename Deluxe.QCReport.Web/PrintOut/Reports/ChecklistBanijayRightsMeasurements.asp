@@ -1,7 +1,7 @@
- <%  'If Not rsChecklistBanijayRights.BOF= True And Not rsChecklistBanijayRights.EOF= True Then %> 
+ <%  If Not rsChecklistBanijayRights.BOF= True And Not rsChecklistBanijayRights.EOF= True Then %> 
   
    
-    <!--   **************** FILE DETAILS ********************************    -->
+    <!--   **************** FILE DETAILS ********************************   
        <table width="100%" border="1" cellspacing="0" cellpadding="2" >	 
 	        <tr >
 			    <td align="center" colspan="4" style="font-weight:bold;font-size:14px;text-align:center;" ><b>FILE</b></td>
@@ -34,21 +34,21 @@
 	          </td>
 		   </tr>
      </table>
-	   
+	  -->
 
 	   
-     <table width="100%" border="0" cellspacing="0" cellpadding="0" >	 
-	        <tr>
-			<td>&nbsp; </td>
-	    </tr>
-	 </table>
+    <table class="section-table" border="0" cellspacing="0" cellpadding="1">
+		  <tr>
+			<td class="section-header">MEASUREMENTS</td>
+		  </tr>
+   </table>
+
+  <p></p>
 	 
 	 
 	 <!-- *********************** MEASUREMENTS ******************************   -->
-      <table width="100%" border="1" cellspacing="0" cellpadding="2">
-	    <tr> 
-	            <td colspan="4" align="center" style="font-size:14px"><b>MEASUREMENTS</b></td>
-	    </tr>
+      <table class="section-table"  border="1" cellspacing="0" cellpadding="1">
+	    
 	   <tr> 
 			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Format:<b>&nbsp; <b>   <%=rsHeader.Fields("Format")%></b></td>
 			  <td width="25%" ><span style="font-size:14px; font-weight:bold;">Standard:<b>&nbsp; <b>   <%=rsHeader.Fields("Standard")%></b></td>
@@ -183,6 +183,6 @@
 		  
 	 </table>
  
-<%    'End If  %> 	  
+<%    End If  %> 	  
  
  

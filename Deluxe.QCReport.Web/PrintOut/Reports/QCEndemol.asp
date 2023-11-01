@@ -1,10 +1,3 @@
-<!-- Updated to ensure no blank channels are added to the report Isaac Koomson 04/01/2012 -->
-<!--<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css">-->
-<style>
-BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: none; }
-DIV.PageBreak {break-after: always; page-break-before: always; }
-TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
-</style>
 
 <%
 Dim rsVidAud, sqlVidAud
@@ -17,90 +10,158 @@ sqlVidAud ="SELECT * FROM qcEndemolVideoAndAudio " & _
 rsVidAud.ActiveConnection = cnQCS
 rsVidAud.Open sqlVidAud
 
+Dim rsSpecifics, sqlSpecifics
+
+set rsSpecifics = Server.CreateObject("ADODB.Recordset")
+
+sqlSpecifics = " SELECT * FROM qcEndemolSpecifics " & _
+			" WHERE Qcnum= " & clng(sQCNum) & " AND subQcnum = " & cint(sRev)
+			
+rsSpecifics.ActiveConnection = cnQCS
+rsSpecifics.Open sqlSpecifics
+
+
+Function SetChecklistText(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-text no'   >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-text' >" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+
+Function SetChecklistText_3(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-text yes' colspan='3' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-text no'  colspan='3' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-text' colspan='3' >" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+Function SetChecklistText_2(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-2-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-2-text no' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-2-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+
 %>
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       Banijay Rights</h2>
-    </td>
-	<!--
-    <td align="right">
-		Page:&nbsp;1&nbsp;of&nbsp;1
-    </td>
-	-->
-  </tr>
-  </table>
-  
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000" height="36">
-  <tr>
-  <td>
-     <table width="100%" border="0" cellspacing="0" cellpadding="1" >
-	     <tr>
-             <td >Title:&nbsp; <b><%=rsHeader.Fields("Show")%></b></td>
-             <td>Part Number:&nbsp;<b>Part <%=rsHeader.Fields("This_part")%> of <%=rsHeader.Fields("tot_part")%></b></td>
-             <td>QC Number:&nbsp;<b><%=rsHeader.Fields("QCNum")%></b></td>
-		 </tr> 
-		 <tr> 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-		<tr>
-             <td >Series:&nbsp; <b><%=rsHeader.Fields("Epis_name")%></b></td>
-             <td>Episode Number:&nbsp;<b><%=rsHeader.Fields("Epis_no")%></b></td>
-             <td>WO Number:&nbsp;<b><%=rsHeader.Fields("wonum")%></b></td>
-		</tr> 
-		<tr> 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-         
-	
-	     <tr>
-              <td >Description:&nbsp; <b><%=rsHeader.Fields("TapeDesc1")%></b></td>
-              <td>TRT:&nbsp;<b><%=rsHeader.Fields("TRT")%></b></b></td>
-			  <!-- <td >Subtitles:&nbsp; <b><%=rsHeader.Fields("Subtitle")%></b></td> -->
-               <td>Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
-					  
-			  
-			  
-			  
-   		</tr> 
-		<tr>
-			 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-		 <tr>
-              <td >Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
-              
-			  
-   		</tr> 
-		
-		 <tr>
-			 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-		 
-		 </table>
-	</td>
-  </tr>
- </table>
+<!-- Updated to ensure no blank channels are added to the report Isaac Koomson 04/01/2012 -->
+<!--<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css">-->
+<style>
+BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: none; }
+DIV.PageBreak {break-after: always; page-break-before: always; }
+TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
+
+
+.section-table{
+width:1000px;
+
+}
+
+
+.section-header, .section-sub-header{
+background-color:  #d3d3d3; 
+font-weight: bold;
+text-align:center;
+}
+
+.section-header{
+font-size: 20px;
+border:3px solid #000;
+}
+
+.section-sub-header{
+font-size: 14px;
+}
+
+.section-detail, .section-label{
+background-color: #d3d3d3;
+font-size: 12px;
+font-weight: bold;
+ padding: 3px 3px 3px 3px;
+}
+
+.section-text{
+font-family: Tahoma;
+font-size: 8pt;
+font-weight: bold;
+ padding: 3px 3px 3px 3px;
+}
+
+.section-text-blue {
+/* color: blue;  */
+}
+
+.section-text-big-font{
+font-size: 14px;
+}
+
+.section-empty-label{
+background-color: #fff;
+width: 200px;
+}
+
+
+.programme-details-label, .operations-label, .hdr-metadata-label{
+width: 200px;
+}
+
+.programme-details-text{
+width: 100px;
+}
+.programme-details-text-2{
+width: 200px;
+}
 
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+
+
+
+
+
+
+</style>
+
+
+
+<div style="width:1000px; margin:auto" >
+
+
+<!--#include file="Logo_ESI.asp" -->
+
+<!--#include file="ProgrammeDetails_ESI.asp" -->
 
 
  
@@ -156,7 +217,13 @@ rsVidAud.Open sqlVidAud
   </table>
   
 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 
+<!--#include file="FileInformation_ESI.asp" -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -165,59 +232,6 @@ rsVidAud.Open sqlVidAud
 </table>
 
 
-<!--
-<table width="100%" class="blackSquare" style="border-bottom: none;">
-  <tr>
-    <td>
-	<% If sAssetType = "Tape" Then %>
-		  <table width="100%" border="0" cellspacing="0" cellpadding="1">
-		   <tr><td colspan="3">Tape Number: <b><%=rsHeader.Fields("TapeNumber")%></b></td></tr>
-		   <tr> 
-                <td colspan="4">&nbsp;</td>
-            </tr>
-			<tr> 
-			  <td width="25%">Format:&nbsp; <b><%=rsHeader.Fields("Format")%></b></td>
-			  <td width="25%">Standard:&nbsp; <b><%=rsHeader.Fields("Standard")%></b></td>
-			  <td width="25%">Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></b></td>
-			  <td width="25%">&nbsp; </td>
-			</tr>
-		</table>
-	<% Else %>
-		  <table width="100%" border="0" cellspacing="0" cellpadding="1">
-		   <tr><td colspan="3">Filename: <b><%=rsHeader.Fields("Filename")%></b></td></tr>
-		   <tr> 
-                <td colspan="4">&nbsp;</td>
-            </tr>
-			<tr> 
-			    <td width="25%">Video Codec:&nbsp; <b><%=rsHeader.Fields("Video_Codec")%></b></td>
-				<td width="25%">Sample Rate:&nbsp; <b><%=rsHeader.Fields("Sample_Rate")%></b></td>
-			   <td width="25%">Frame Size:&nbsp; <b><%=rsHeader.Fields("Frame_Size")%></b></td> 
-			  
-			  <td width="25%">Audio Codec:&nbsp; <b><%=rsHeader.Fields("Audio_Codec")%></b></td>
-			 
-			</tr>
-			 <tr> 
-                <td colspan="4">&nbsp;</td>
-            </tr>
-			<tr> 
-			  <td width="25%">Format:&nbsp; <b><%=rsHeader.Fields("Format")%></b></td>
-			  <td width="25%">Standard:&nbsp; <b><%=rsHeader.Fields("Standard")%></b></td>
-			  <td width="25%">Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></b></td>
-			  <td width="25%">&nbsp; </td>
-			</tr>
-						
-		</table>
-	<% End If %>
-    </td>
-  </tr>
-  <tr>
-      <td>
-	     
-	  </td>
-  </tr>
-</table>
-
--->
 
 <!--#include file="ChecklistBanijayRightsMeasurements.asp" -->
 
@@ -229,63 +243,9 @@ rsVidAud.Open sqlVidAud
 </table>
 
 
-
-
-<!-- Start Specifics -->
-<!--
-<%
-Dim rsSpecifics, sqlSpecifics
-
-set rsSpecifics = Server.CreateObject("ADODB.Recordset")
-
-sqlSpecifics = " SELECT * FROM qcEndemolSpecifics " & _
-			" WHERE Qcnum= " & clng(sQCNum) & " AND subQcnum = " & cint(sRev)
-			
-rsSpecifics.ActiveConnection = cnQCS
-rsSpecifics.Open sqlSpecifics
-
-%>
-
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-
-
-
-<table width="100%" class="blackSquare" style="border-bottom: none;>
- 
-   <tr> 
-      <td style="padding-left:2px">Banijay Rights / ESI End Credit / Logo: <b>&nbsp;<%=rsSpecifics.Fields("ESIEndCreditOrLogo")%></b></td>
-   	  <td style="padding-left:2px">Seamless Or Parted: <b><%=rsSpecifics.Fields("SeamlessOrParted")%></b></td>
-      <td style="padding-left:2px">Is Textless Present: <b<%=rsSpecifics.Fields("IsTextlessPresent")%></b></td>
-   </tr>
-   <tr ><td colspan="3">&nbsp;</td></tr>
-   <tr> 
-      <td style="padding-left:2px">Content Censored - Bleeped Or Blurred: <b>&nbsp;<%=rsSpecifics.Fields("ContentCensoredBleepedOrBlurred")%></b></td>
-      <td style="padding-left:2px">Flashing Lights / Epilepsy Warning Present: <b>&nbsp;<%=rsSpecifics.Fields("FlashingLightsOrEpilepsyWarningPresent")%></b></td>
-      <td style="padding-left:2px">Time Specific Text Or Audio Present: <b>&nbsp;<%=rsSpecifics.Fields("TimeSpecificTextOrAudioPresent")%></b></td>
-   </tr>
-    <tr ><td colspan="3">&nbsp;</td></tr>
-   <tr> 
-      <td style="padding-left:2px">Extreme Language Present: <b>&nbsp;<%=rsSpecifics.Fields("ExtremeLanguagePresent")%></b></td>
-      <td style="padding-left:2px">Nudity Present: <b>&nbsp;<%=rsSpecifics.Fields("NudityPresent")%></b></td>
-      <td style="padding-left:2px">Is M&E Present and Complete: <b>&nbsp;<%=rsSpecifics.Fields("IsMandEComplete")%></b></td>
-	   <td style="padding-left:2px">Is Mix Minus Narration Present and Complete: <b>&nbsp;<%=rsSpecifics.Fields("IsMixMinusNarrationPresentandComplete")%></b></td>
-   </tr>
- 
-</table>
-
-<%
-Set rsSpecifics = Nothing
-
-%>
--->
-
 <!--#include file="ChecklistBanijayRightsSpecifics.asp" -->
 
-<!-- End Specifics -->
+
 
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
@@ -683,6 +643,8 @@ Set rsComments = Nothing
 
 
 <!-- #include file="FaultImages_ESI.asp" -->
+
+</div>
 
  
  

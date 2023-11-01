@@ -1,4 +1,4 @@
-  <%  ' If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
+  <%   If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then %> 
     <table width="100%" border="1" cellspacing="0" cellpadding="2" >	 
             <tr> 
 	            <td colspan="3" align="center" style="font-size:14px"><b>SPECIFICS</b></td>
@@ -411,4 +411,4 @@
  </table>
  
  
- <%    'End If  %> 
+ <%    End If  %> 
