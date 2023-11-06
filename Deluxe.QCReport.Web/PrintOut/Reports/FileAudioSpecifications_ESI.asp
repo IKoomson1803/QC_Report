@@ -55,12 +55,16 @@ End Function
 
 %>
 
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Audio Layout</td>
+			  </tr>
+		  </table>
+
+			<p></p>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
-	<tr>
-	  <td class="left_right_top_border" style="padding:2px; font-size:14px;" align="center" colspan="5">
-	    <b>AUDIO LAYOUT (F/S = Full or Spot Check QC) </b>
-	  </td>
-	<tr>
+	
 	
 	<tr>
 		  <td colspan="5" height="100%"  >
@@ -69,19 +73,21 @@ End Function
 						 <td  width="100%" border="0" height="100%" valign="top"  >
 						   <table width="100%" border="1" cellspacing="0" cellpadding="0" height="100%" >
 							   <tr>
-									<td height="17px" width="6%" class="txt_boldtype2 left_bottom_border">&nbsp;</td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Track</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Language</b></td>
+									<td height="17px" width="6%" class="section-label">Channel</td>
+									<td height="17px" width="9%" class="section-label">Track</td>
+									<td height="17px" width="9%" class="section-label">Language</td>
 									
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;In Phase</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Discrete</b></td>
+									<td height="17px" width="9%" class="section-label">In Phase</td>
+									<td height="17px" width="9%" class="section-label">Discrete</td>
 									
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;LUFS</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Tone</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Average db</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;Peak db</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;True Peak</b></td>
-									<td height="17px" width="9%" class="txt_boldtype2 left_bottom_border"><b>&nbsp;F/S</b></td>
+									<td height="17px" width="9%" class="section-label">LUFS</td>
+									<td height="17px" width="9%" class="section-label">Tone</td>
+									
+									<td height="17px" width="5%" class="section-label">Average dBfs</td>
+									<td height="17px" width="5%" class="section-label">Peak dBfs</td>
+									
+									<td height="17px" width="9%" class="section-label">True Peak</td>
+									<td height="17px" width="15%" class="section-label">Full / Spot</td>
 							  </tr>
 							  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
 						         <!--#include file="AudioSpecifications_1_2.asp" -->

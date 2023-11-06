@@ -21,6 +21,28 @@ rsSpecifics.ActiveConnection = cnQCS
 rsSpecifics.Open sqlSpecifics
 
 
+Function SetStatus(status)
+
+	If status = "PASS"   Then
+	   Response.Write "<td class='status-text-passed'>" & status & "</td>"
+	   
+	ElseIf status = "FAIL"   Then
+	   Response.Write "<td class='status-text-failed'>" & status & "</td>"
+	   
+	ElseIf status = "REFERRAL"   Then
+	   Response.Write "<td class='status-text-referral'>" & status & "</td>"   
+	   
+	 ElseIf status = "HOLD"   Then
+	   Response.Write "<td class='status-text-hold'>" & status & "</td>"    
+	   
+	 Else
+	   Response.Write "<td class='status-text'>&nbsp;</td>"  
+   End If	
+
+  	
+End Function
+
+
 Function SetChecklistText(response)
 
             If response = "True"   Then
@@ -146,6 +168,48 @@ font-size: 14px;
 background-color: #fff;
 width: 200px;
 }
+
+.grade-label{
+font-weight:bold;
+font-size:16px;
+padding: 3px 3px 3px 3px;
+}
+
+.status-text, .status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
+font-weight:bold;
+font-size:20px;
+padding: 3px 3px 3px 3px;
+width: 100px;
+text-align: center;
+}
+
+
+.status-text-passed, .grade-text-passed{
+/* background-color: green 
+   background-color: #0BDA51 ;
+   background-color: #0FFF50;
+ */
+background-color: #4CBB17 ;
+color : #fff;
+}
+
+.status-text-failed, .grade-text-failed{
+background-color: red;
+color : #fff;
+
+}
+
+.yes, .no{
+background-color: #fff;
+}
+
+.status-text-referral, .grade-text-referral{
+background-color: yellow;
+color: #000;
+}
+
+
+
 
 
 .programme-details-label, .operations-label, .hdr-metadata-label{
@@ -276,60 +340,9 @@ width: 50px;
 </table> 
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-        <tr>
-          <td align="center" class="blackSquare" colspan="3" style="font-size:14px" > 
-            <b>VIDEO & AUDIO</b>
-          </td>
-        </tr>
-        <tr>
-            <td width="42%" class="txt_boldtype2 left_bottom_border" >&nbsp;Item</td>
-           <td width="36%" class="txt_boldtype2 left_bottom_border">&nbsp;Rating</td>
-           <td width="22%" class="txt_boldtype2 left_right_bottom_border">&nbsp;Description</td>
-        </tr>
-       
-		  <tr>
-			<td width="42%" class="left_bottom_border" >&nbsp;Luminance Levels:</td>
-			<td width="36%" class="left_bottom_border">&nbsp;<%=rsVidAud.Fields("LuminanceLevelsRating")%></td>
-			<td width="22%" class="left_right_bottom_border">&nbsp;<%=rsVidAud.Fields("LuminanceLevelsDetails")%></td>
-		  </tr>
-		  
-		  <tr>
-			<td width="42%" class="left_bottom_border" >&nbsp;Black Levels:</td>
-			<td width="36%" class="left_bottom_border">&nbsp;<%=rsVidAud.Fields("BlackLevelsRating")%></td>
-			<td width="22%" class="left_right_bottom_border">&nbsp;<%=rsVidAud.Fields("BlackLevelsDetails")%></td>
-		  </tr>
-		  
-		   <tr>
-			<td width="42%" class="left_bottom_border" >&nbsp;Chrominance Levels:</td>
-			<td width="36%" class="left_bottom_border">&nbsp;<%=rsVidAud.Fields("ChrominanceLevelsRating")%></td>
-			<td width="22%" class="left_right_bottom_border">&nbsp;<%=rsVidAud.Fields("ChrominanceLevelsDetails")%></td>
-		  </tr>
-		  
-		   <tr>
-			<td width="42%" class="left_bottom_border" >&nbsp;Audio Peaks and Loudness:</td>
-			<td width="36%" class="left_bottom_border">&nbsp;<%=rsVidAud.Fields("AudioPeaksAndLoudnessRating")%></td>
-			<td width="22%" class="left_right_bottom_border">&nbsp;<%=rsVidAud.Fields("AudioPeaksAndLoudnessDetails")%></td>
-		  </tr>
-		  
-		   <tr>
-			<td width="42%" class="left_bottom_border" >&nbsp;TitleSafe:</td>
-			<td width="36%" class="left_bottom_border">&nbsp;<%=rsVidAud.Fields("TitleSafeRating")%></td>
-			<td width="22%" class="left_right_bottom_border">&nbsp;<%=rsVidAud.Fields("TitleSafeDetails")%></td>
-		  </tr>
-		  
-		   
-		   <tr style="font-weight:bold; font-size:1.8em;height:30px;text-align:center;">
-			<td width="78%" colspan="2" class="left_bottom_border" >&nbsp;QC Result:</td>
-			<td width="22%" class="left_right_bottom_border">&nbsp;<%=rsVidAud.Fields("QCResult")%></td>
-		  </tr>
-          
-  </table>
+<!-- #include file="ChecklistBanijayVideoAndAudio.asp" -->
 
-<%
-Set rsVidAud = Nothing
 
-%>
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -337,10 +350,9 @@ Set rsVidAud = Nothing
   </tr>
 </table> 
 
-<!-- End Video And Audio -->
 
- 
- 
+
+
 <!-- START  LOG  -->
 
 <div class="PageBreak"></div>
