@@ -13,6 +13,12 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	end if
 %>
 
+ <table class="section-table" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td >&nbsp;</td>
+			  </tr>
+  </table>
+
 
 <table class="section-table" border="0" cellspacing="0" cellpadding="0" >
  
@@ -30,15 +36,19 @@ if rsHeader.Fields("IRE_MV") = "M" then
 	
 		  <table width="100%" border="1" cellspacing="0" cellpadding="1">
 		     <tr> 
-			  <td  class="section-label measurements-label" >Tape Number: <%=rsHeader.Fields("TapeNumber")%></td>
+			  <td  class="section-label measurements-label" >Tape Number:</td>
+			  <td class="section-text measurements-text" ><%=rsHeader.Fields("TapeNumber")%></td>
 			  
-			  <td  class="section-text measurements-text">Format:><%=rsHeader.Fields("Format")%></td>
+			  <td  class="section-text measurements-text">Format:</td>
+			  <td class="section-text measurements-text" > <%=rsHeader.Fields("Format")%></td>
 			  
-			  <td  class="section-label measurements-label" style="font-size:14px;font-weigth:bold;">Standard:&nbsp; <b><%=rsHeader.Fields("Standard")%></td>
+			  <td  class="section-label measurements-label" style="font-size:14px;">Standard:&nbsp:</td>
+			   <td class="section-text measurements-text" > <%=rsHeader.Fields("Standard")%></td>
 			  
-			  <td  class="section-text measurements-text" style="font-size:14px;font-weigth:bold;">Aspect Ratio:&nbsp; <b><%=rsHeader.Fields("Aspect")%></td>
+			  <td  class="section-text measurements-text" style="font-size:14px;">Aspect Ratio:</td>
+			  <td class="section-text measurements-text" > <%=rsHeader.Fields("Aspect")%></td>
 			  
-			  <td  class="bottom_border">&nbsp; </td>
+			
 			</tr>
 			
 			 <!--#include file="VideoSpecifications_2.asp" -->
@@ -152,17 +162,7 @@ if rsHeader.Fields("IRE_MV") = "M" then
 			 
 			</tr>
 			-->
-			
-			
-                
-            
-		  
-		  
-		  
-			  
-			  
-    
-			
+				
 		</table>
 	<% End If %>
 	

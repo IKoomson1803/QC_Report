@@ -14,12 +14,11 @@
 							  End If
 					  %>
 				 </td>
-			   
 			   </tr>
 		  </table>
 
 			<p></p>
-   
+
   <table class="section-table" border="1" cellspacing="0" cellpadding="0" >
    
 	 <tr>

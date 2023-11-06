@@ -37,6 +37,21 @@ Function SetChecklistText(response)
 
 End Function
 
+Function SetChecklistAndSpanText(response)
+    
+		   
+			If response = "No" Then
+			    Response.Write "<td class='section-text checklist-text'   >No: " & rsChecklistBanijayRights.Fields("AllAssociatedWAVSNotPresentReason") & "</td>"
+				
+				
+			Else
+			   Response.Write "<td class='section-text checklist-text' >" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
 
 Function SetChecklistText_3(response)
 
@@ -140,13 +155,54 @@ width: 200px;
 .programme-details-text{
 width: 100px;
 }
+
 .programme-details-text-2{
 width: 200px;
 }
 
+.measurements-label{
+width: 125px;
+}
 
+.measurements-text{
+width: 125px;
+}
 
+.checklist-label{
+width: 280px;
+}
 
+.checklist-text{
+width: 60px;
+}
+
+.checklist-2-label{
+width: 450px;
+}
+
+.checklist-2-text{
+width: 50px;
+}
+
+.checklist-empty-label{
+background-color: #fff;
+width: 220px;
+}
+
+.checklist-empty-text{
+background-color: #fff;
+width: 100px;
+}
+
+.checklist-2-empty-label{
+background-color: #fff;
+width: 450px;
+}
+
+.checklist-2-empty-text{
+background-color: #fff;
+width: 50px;
+}
 
 
 
@@ -165,57 +221,8 @@ width: 200px;
 
 
  
-<table width="100%" border="1" cellspacing="0" cellpadding="1">
- <tr>
-	    <td colspan="5" style="font-weight:bold;font-size:14px;text-align:center;">QC DETAILS </td>
-	  </tr>
-	  
-<%  If Not IsNull(rsHeader.Fields("FullName")) Then  %>
-  <tr>
-     <td>QC Date: &nbsp;<b><%=rsHeader.Fields("QC_Date")%></b></td>
-     <td>QC Operator: &nbsp;<b><%=rsHeader.Fields("FullName")%></b></td> 
-	 <td>QC OF: &nbsp;<b><%=rsHeader.Fields("Operator_Activity")%></b></td> 
-	 <td>Revised By: &nbsp;<b><%=rsHeader.Fields("Revised_By")%></b></td>
-    <td>Revised Date: &nbsp;<b><%=rsHeader.Fields("revised_date")%></b></td>
-  </tr>
-   
-   <tr>
-  
-    <td>QC Player&nbsp;<b><%=rsHeader.Fields("QC_VTR")%></b></td>
-	<td>MFR / QC Room: &nbsp;<b><%=rsHeader.Fields("Bay_num")%></b></td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-  </tr>
-  <% End If %>
-  
-  <%  If Not IsNull(rsHeader.Fields("FullName2")) Then  %>
-  
-    
-  <tr>
-  
-     <td>QC Date: &nbsp;<b><%=rsHeader.Fields("QC_Date_2")%></b></td>
-     <td>QC Operator: &nbsp;<b><%=rsHeader.Fields("FullName2")%></b></td> 
-	 <td>QC OF: &nbsp;<b><%=rsHeader.Fields("Operator_2_Activity")%></b></td> 
-	 <td>Revised By: &nbsp;<b><%=rsHeader.Fields("Revised_By_2")%></b></td>
-    <td>Revised Date: &nbsp;<b><%=rsHeader.Fields("Revised_Date_2")%></b></td>
-	
-  </tr>
-  
-  
-  <tr>
-  
-    <td>QC Player:&nbsp;<b><%=rsHeader.Fields("QC_VTR_2")%></b></td>
-	<td>MFR / QC Room: &nbsp;<b><%=rsHeader.Fields("Bay_num_2")%></b></td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-  </tr>
-  
-  <% End If %>
-  
-  </table>
-  
+<!--#include file="QCDetails_ESI.asp" -->
+
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -245,43 +252,13 @@ width: 200px;
 
 <!--#include file="ChecklistBanijayRightsSpecifics.asp" -->
 
-
-
-
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-        <tr>
-          <td align="center" class="blackSquare" colspan="4" style="font-size:14px" > 
-            <b>PROGRAM FORMAT</b>
-          </td>
-        </tr>
-        <tr>
-		     
-		     <!-- <td width="4%" class="txt_boldtype2 left_bottom_border" >Item No.</td> -->
-		    <td width="40%" class="txt_boldtype2 left_bottom_border" >&nbsp;Description</td>
-           <td width="34%" class="txt_boldtype2 left_bottom_border">&nbsp;Time Code</td>
-           <td width="22%" class="txt_boldtype2 left_right_bottom_border">&nbsp;Length</td>
-        </tr>
-        <%while not rsTapeFormat.EOF%>
-              <tr>
-			      
-			   <!--<td width="4%" class="left_bottom_border">&nbsp;<%=rsTapeFormat.Fields("item_num")%></td> -->
-               <td width="40%" class="left_bottom_border" >&nbsp;<%=rsTapeFormat.Fields("description")%></td>
-                <td width="34%" class="left_bottom_border">&nbsp;<%=rsTapeFormat.Fields("Time_Code")%></td>
-                <td width="22%" class="left_right_bottom_border">&nbsp;<%=rsTapeFormat.Fields("Length")%></td>
-              </tr>
-            <%rsTapeFormat.MoveNext
-       wend%>
-  </table>
-  
-
-	  
-<!-- ESI Audio Here -->
+<!--#include file="ProgramFormat.asp" -->
 	
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
