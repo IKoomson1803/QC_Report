@@ -6,7 +6,7 @@
        Banijay Rights</h2>
     </td>
 	<tr>
-	<td colspan="2" style="width:750px;text-align:center;"><br/><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
+	<td colspan="2" style="width:750px;text-align:center;"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
 	
   </tr>
   </tr>

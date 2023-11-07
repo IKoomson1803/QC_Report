@@ -29,72 +29,11 @@ do while not rsFaultImage.EOF or j=1
 
 <div class="PageBreak"><!-- Pages >= 2 -->
 <!-- ******************************************************* -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       Banijay Rights</h2>
-    </td>
-	<!--
-    <td align="right">
-		Page:&nbsp;1&nbsp;of&nbsp;1
-    </td>
-	-->
-  </tr>
-  </table>
 
-<table width="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000" height="36">
-  <tr>
-  <td>
-     <table width="100%" border="0" cellspacing="0" cellpadding="1" >
-	     <tr>
-             <td >Title:&nbsp; <b><%=rsHeader.Fields("Show")%></b></td>
-             <td>Part Number:&nbsp;<b>Part <%=rsHeader.Fields("This_part")%> of <%=rsHeader.Fields("tot_part")%></b></td>
-             <td>QC Number:&nbsp;<b><%=rsHeader.Fields("QCNum")%></b></td>
-		 </tr> 
-		 <tr> 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-		<tr>
-             <td >Series:&nbsp; <b><%=rsHeader.Fields("Epis_name")%></b></td>
-             <td>Episode Number:&nbsp;<b><%=rsHeader.Fields("Epis_no")%></b></td>
-             <td>WO Number:&nbsp;<b><%=rsHeader.Fields("wonum")%></b></td>
-		</tr> 
-		<tr> 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-         
-	
-	     <tr>
-              <td >Description:&nbsp; <b><%=rsHeader.Fields("TapeDesc1")%></b></td>
-              <td>TRT:&nbsp;<b><%=rsHeader.Fields("TRT")%></b></b></td>
-			  <!-- <td >Subtitles:&nbsp; <b><%=rsHeader.Fields("Subtitle")%></b></td> -->
-               <td>Time Code:&nbsp;<b><%=rsHeader.Fields("Timecode")%></b></td>
-					  
-			  
-			  
-			  
-   		</tr> 
-		<tr>
-			 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-		 <tr>
-              <td >Version:&nbsp; <b><%=rsHeader.Fields("Version")%></b></td>
-              
-			  
-   		</tr> 
-		
-		 <tr>
-			 
-                <td colspan="3">&nbsp;</td>
-         </tr>
-		 
-		 </table>
-	</td>
-  </tr>
- </table>
+<!--#include file="Logo_ESI.asp" -->
+
+<!--#include file="ProgrammeDetails_ESI.asp" -->
+
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -102,13 +41,17 @@ do while not rsFaultImage.EOF or j=1
   </tr>
 </table>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Reference Images</td>
+			  </tr>
+		  </table>
 
-			   <tr>
-				  <td align="center" class="blackSquare" colspan="2" > 
-					<font class="txt_italic" size="3"><b>Reference Images</b></font>
-				  </td>
-				</tr>
+			<p></p>
+
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+
+			   
 <%
          nTotalImages = 0
              do while nTotalImages < 2

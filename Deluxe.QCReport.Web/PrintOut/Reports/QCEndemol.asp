@@ -21,6 +21,8 @@ rsSpecifics.ActiveConnection = cnQCS
 rsSpecifics.Open sqlSpecifics
 
 
+
+
 Function SetStatus(status)
 
 	If status = "PASS"   Then
@@ -105,6 +107,28 @@ Function SetChecklistText_2(response)
 		   End If	
 			  
 
+End Function
+
+Function SetLogGrade(grade)
+   
+   
+	
+	       If grade = 1   Then
+	             Response.Write "<td align = 'center' class='grade-text-failed'>" & grade & "</td>"
+			   
+			ElseIf grade = 3   Then
+			   Response.Write "<td align = 'center' class='grade-text-referral'>" & grade & "</td>"
+			   
+			ElseIf grade = 5   Then
+			   Response.Write "<td align = 'center' class='grade-text-passed'>" & grade & "</td>"   
+			   
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+		   
+	   
+	
 End Function
 
 
@@ -428,14 +452,24 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
     </tr>
   </table>
   
-<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-  <tr style="line-height:20px;">
-   	<td class="blackSquare" style="font-weight:bold;text-align:center;">
+  
+   <table width="100%" border="0" cellspacing="0" cellpadding="1">
+	  <tr>
+		<td class="section-header">Fault Log</td>
+	  </tr>
+  </table>
+
+<p></p>
+
+  
+<table width="100%" border="1" cellspacing="0" cellpadding="0" >
+  <tr >
+   	<td class="section-label" align="center">
 	<span>Severity Grades:&nbsp;&nbsp;</span>
 	<span>1 = Fail</span>
-     &nbsp;&nbsp;
+     |&nbsp;&nbsp;
 	<span>3 = Referral</span>
-	 &nbsp;&nbsp;
+	 |&nbsp;&nbsp;
 	<span>5 = Pass</span>
 	 &nbsp;&nbsp;
 	</td>
@@ -454,7 +488,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
     
     <tr>
       <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <table width="100%" border="1" cellspacing="0" cellpadding="1">
           <tr> 
 		  <!--
 		     <% If itemNumberCount >  0 Then %>
@@ -463,13 +497,13 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			  -->
 			  
 			
-            <td width="9%" align="center" class="left_top_border"><b>Time Code</b></td>
-            <td width="6%" align="center" class="left_top_border"><b>Type</b></td>
-            <td width="64%" align="center" class="left_top_border"><b>Fault Description</b></td>
-            <td width="3%" align="center" class="left_top_border"><b>Grade</b></td>
-			<td width="8%" align="center" class="left_top_border" ><b>Item Duration</b></td>
-            <td width="7%" align="center" class="left_top_border"><b>Sector</b></td>
-		     <td width="3%" align="center" class="left_right_top_border" ><b>Signed Off</b></td>
+            <td width="9%" align="center" class="section-label">Time Code</td>
+            <td width="6%" align="center" class="section-label">Type</td>
+            <td width="64%" align="center" class="section-label">Fault Description</td>
+            <td width="3%" align="center" class="section-label">Grade</td>
+			<td width="8%" align="center" class="section-label" >Item Duration</td>
+            <td width="7%" align="center" class="section-label">Sector</td>
+		     <td width="3%" align="center" class="section-label" >Signed Off</td>
 			
             
           </tr>
@@ -500,12 +534,12 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			   <% End If %>
 			-->
 			
-            <td  style="vertical-align:middle;" class="left_top_border">
+            <td  style="vertical-align:middle;" class="section-text">
 			
-			  &nbsp;<%=rsBVMastLog.Fields("Time_Code")%>&nbsp;&nbsp;
+			 <%=rsBVMastLog.Fields("Time_Code")%>
 		
 			</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
+            <td  align="center"  class="section-text">
 			<%
 			
 			      If IsNull(rsBVMastLog.Fields("QC_Codename").Value) Then
@@ -524,10 +558,10 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			%>
 			
 			&nbsp;&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("Note")%>&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;<%=rsBVMastLog.Fields("QC_Grade")%>&nbsp;</td>
-			<td  style="vertical-align:middle;"  class="left_top_border" >&nbsp;<%=rsBVMastLog.Fields("item_duratn")%>&nbsp;</td>
-            <td  style="vertical-align:middle;"  class="left_top_border">&nbsp;
+            <td  align="center" class="section-text"><%=rsBVMastLog.Fields("Note")%></td>
+			<% SetLogGrade( rsBVMastLog.Fields("QC_Grade"))		%>	 
+			<td  align="center"  class="section-text" ><%=rsBVMastLog.Fields("item_duratn")%></td>
+            <td  align="center"  class="section-text">
 			
 			      <%
 				  
@@ -543,7 +577,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 			
 			&nbsp;</td>
 			
-            <td  style="vertical-align:middle;"  class="left_right_top_border">&nbsp;
+            <td  align="center"  class="section-text">
 			                                        <%
 													if rsBVMastLog.Fields("in_master") = -1 then
 														Response.write("Yes")
@@ -564,13 +598,13 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
              loop%>
 			 
 			<tr> 
-			   <td colspan=7 class="top_border">&nbsp;</td>
+			   <td colspan=7 class="section-text">&nbsp;</td>
 			 
 			  <!--
 			   <% If itemNumberCount >  0 Then %>
-					<td colspan=8 class="top_border">&nbsp;</td>
+					<td colspan=8 class="section-text">&nbsp;</td>
 				 <% Else %>
-					<td colspan=7 class="top_border">&nbsp;</td>
+					<td colspan=7 class="section-text">&nbsp;</td>
 				<% End If %>
 			 -->
 		  </tr>
@@ -595,12 +629,19 @@ rsComments.ActiveConnection = cnQCS
 rsComments.Open sqlComments
 
 %>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 
-<table width="100%" class="left_right_top_border" >
+<table width="100%" class="section-header" >
    <tr>
     <td style="text-align:center;font-size:14px;"> <b>OVERALL COMMENTS</b></td>
   </tr>
  </table>
+ <p></p>
+ 
 <table width="100%" class="blacksquare" >
    <tr>
     <td style="padding:5px;" valign="top"><%=rsComments.Fields("Comments")%></td>
