@@ -127,7 +127,9 @@ namespace Deluxe.QCReport.Common.Repositories
                     _cmd.Parameters.Add(GetSqlParameterInt("@_totPart", headerDetails.Tot_Part));
                     _cmd.Parameters.Add(GetSqlParameterString("@_pono", headerDetails.Pono));
                     _cmd.Parameters.Add(GetSqlParameterString("@_aspect", headerDetails.Aspect));
+
                     _cmd.Parameters.Add(GetSqlParameterInt("@_custID", headerDetails.CustId));
+
                     _cmd.Parameters.Add(GetSqlParameterString("@_show", headerDetails.Show));
                     _cmd.Parameters.Add(GetSqlParameterString("@_epNo", headerDetails.Epis_no));
                     _cmd.Parameters.Add(GetSqlParameterString("@_epName", headerDetails.Epis_name));

@@ -159,16 +159,16 @@ namespace Deluxe.QCReport.Web.Controllers
 
 
             // set selected customerId 
-            Dictionary<int, string> custList = LookUpsService.GetCustName();
-            KeyValuePair<int, string> selCustomer = custList.FirstOrDefault(c => c.Value == model.Header_VM.CustName);
-            if (selCustomer.Key == 0 && string.IsNullOrEmpty(selCustomer.Value))
-            {
-                return Json(new { success = false, msg = "Data not saved! Customer name not found." });
-            }
-            else
-            {
-                model.Header_VM.CustId = selCustomer.Key;
-            }
+            //Dictionary<int, string> custList = LookUpsService.GetCustName();
+            //KeyValuePair<int, string> selCustomer = custList.FirstOrDefault(c => c.Value == model.Header_VM.CustName);
+            //if (selCustomer.Key == 0 && string.IsNullOrEmpty(selCustomer.Value))
+            //{
+            //    return Json(new { success = false, msg = "Data not saved! Customer name not found." });
+            //}
+            //else
+            //{
+            //    model.Header_VM.CustId = selCustomer.Key;
+            //}
 
             //Dictionary<int, string> versionList = LookUpsService.GetVersion();
             //KeyValuePair<int, string> selVersion = versionList.FirstOrDefault(c => c.Value == model.Header_VM.Version);

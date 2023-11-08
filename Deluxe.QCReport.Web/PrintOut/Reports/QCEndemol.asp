@@ -248,6 +248,11 @@ width: 100px;
 width: 200px;
 }
 
+.operations-text, .hdr-metadata-text{
+width: 200px;
+}
+
+
 .measurements-label{
 width: 125px;
 }
@@ -381,23 +386,9 @@ width: 50px;
 
 <div class="PageBreak"></div>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       Banijay Rights</h2>
-    </td>
-	<!--
-    <td align="right">
-		Page:&nbsp;1&nbsp;of&nbsp;2
-    </td>
-	-->
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
+<!--#include file="Logo_ESI.asp" -->
+
+<!--#include file="ProgrammeDetails_ESI.asp" -->
 
 
 <%
@@ -407,17 +398,7 @@ rsBVMastLog.Open sqlBVIMastLog,,3,3
 %> 
 
 
- <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
 
- <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:-13px; display:none;">
   <tr>

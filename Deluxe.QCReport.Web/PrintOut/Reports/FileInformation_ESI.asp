@@ -44,9 +44,11 @@
 			
 			   <%
 			   
-			       If Not IsNull(rsChecklistBanijayRights.Fields("FileToSpec")) Then
+			       If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then
 				          SetChecklistText(rsChecklistBanijayRights.Fields("FileToSpec"))
-				      End If
+				   Else
+                    Response.Write "<td class='section-text checklist-text'  >&nbsp;</td>" 				 
+				 End If
 			   
 				  %>
 			  
@@ -55,9 +57,11 @@
 			   
 			  
 			    <%
-			     If Not IsNull(rsChecklistBanijayRights.Fields("DecodeCheckPass") ) Then
+			     If Not rsChecklistBanijayRights.BOF = True And Not rsChecklistBanijayRights.EOF = True Then  
 				           SetChecklistText_3( rsChecklistBanijayRights.Fields("DecodeCheckPass"))
-				      End If
+				 Else
+                    Response.Write "<td class='section-text checklist-text' colspan='3' >&nbsp;</td>" 				 
+				 End If
 			     %>
 			   
 	

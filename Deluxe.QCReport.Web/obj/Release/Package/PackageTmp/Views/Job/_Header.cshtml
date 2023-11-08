@@ -111,7 +111,8 @@
 
                 <div class="col-sm-5 form-group">
 
-                    @Html.DropDownListFor(m => m.Header_VM.CustName, new SelectList(Model.ClientNameList, "value", "value"), "", new {  @class = "form-control", @style = "width:400px", required = (string)null, maxlength = "50" })
+                    @Html.DropDownListFor(m => m.Header_VM.CustName, new SelectList(Model.ClientNameList, "value", "value"), "",
+                   new {  @class = "form-control", @style = "width:400px", required = (string)null, maxlength = "50", disabled = "true" })
                 </div>
 
                 <div class="col-sm-1 text-right">
@@ -134,7 +135,8 @@
 
                 <div class="col-sm-5 form-group">
 
-                    @Html.TextBoxFor(m => m.Header_VM.Epis_no, new { @id = "tbEpisNo", @class = "form-control",@style="width:150px", maxlength = "30" })
+                    @*@Html.TextBoxFor(m => m.Header_VM.Epis_no, new { @id = "tbEpisNo", @class = "form-control", @style = "width:150px", maxlength = "155" })*@
+                    @Html.TextAreaFor(m => m.Header_VM.Epis_no, 3, 3, new { @class = "form-control", @style = "width:400px", maxlength = "255", @title = Model.Header_VM.Epis_no })
                 </div>
 
                 <div class="col-sm-1 text-right">

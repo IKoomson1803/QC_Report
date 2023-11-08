@@ -7,15 +7,9 @@
 <p></p>
 
 
-<table class="section-table" border="0" cellspacing="0" cellpadding="0"  height="90">
-  <tr>
-    <td valign="top"  > 
-      <table width="100%" border="1" cellspacing="0" cellpadding="0"  > <!-- bordercolor="#000000" -->
-	  
+
+      <table class="section-table" border="1" cellspacing="0" cellpadding="0"  > <!-- bordercolor="#000000" -->
 	 
-		
-		
-	   	  
 	  <%  If sAssetType = "Tape" Then %>
 		   <tr>
 			<td class="section-label operations-label" >Record VTR:</td>
@@ -109,8 +103,6 @@
 			  
 		  <% End If %>
 	     
-      </table>
-    </td>
-  </tr>
+  
 </table>
 

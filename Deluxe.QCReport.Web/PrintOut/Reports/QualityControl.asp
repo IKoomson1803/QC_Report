@@ -115,9 +115,9 @@ Function SetGrade(grade)
 End Function
 
 
-Function SetLogGrade(grade)
+Function SetLogGrade_1(grade)
 
-      If rsHeader.Fields("GradingScale") = 3 Then
+    If rsHeader.Fields("GradingScale") = 3 Then
 	  
 	      If grade = 1   Then
 			   Response.Write "<td align='center'  class='section-text log-text-passed' >" & grade & "</td>"
@@ -166,6 +166,9 @@ Function SetLogGrade(grade)
 	  
       End If
    	   
+
+
+     
 	
 End Function
 
@@ -368,6 +371,8 @@ color : #fff;
 background-color: yellow;
 color: #000;
 }
+
+
 
 .programme-details-label, .operations-label, .hdr-metadata-label{
 width: 200px;
@@ -880,7 +885,8 @@ do while not rsBVMastLog.EOF or j=1
 			 End If
 			
 			
-			%>&nbsp;
+			%>
+			
 			</td>
 			
 			
@@ -890,17 +896,15 @@ do while not rsBVMastLog.EOF or j=1
 			
 			<%
 			    If rsBVMastLog.EOF = False Then
-   				    SetLogGrade( rsBVMastLog.Fields("QC_Grade"))
+   				    SetLogGrade_1( rsBVMastLog.Fields("QC_Grade"))
+					''Response.Write "<td class='section-text' >" + rsBVMastLog.Fields("QC_Grade") + "</td>"
 				Else
 				    Response.Write "<td class='section-text' >&nbsp;</td>"    
 				End If  
 
 			%>
 			
-									
-            
-			
-			
+				
 			<td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%></td>
             <td  align="center" class="section-text">
 			<%

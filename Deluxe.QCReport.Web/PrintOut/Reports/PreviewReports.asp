@@ -539,7 +539,7 @@ rsDPPLog.Open sqlDPPLog
 
  ''Response.write "FileType: " & rsChecklist.Fields("FileType") & "<br/>"
 '' Response.write " Customer Name: " & rsHeader.Fields("CustName")
-'' Response.write " Grade Scle: " & rsHeader.Fields("GradingScale")
+'' Response.write " Grade Scale: " & rsHeader.Fields("GradingScale")
 %>
 
 </body>
