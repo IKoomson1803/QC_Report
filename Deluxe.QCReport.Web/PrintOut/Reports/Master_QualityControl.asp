@@ -1,16 +1,12 @@
-<style>
-
-.galimage[src=""] {
-  display:none;
-}
-
-
-</style>
-
-<!-- Updated to include channels 9-16 Isaac Koomson 04/01/2012 -->
 <%
+Response.Buffer = True
+Response.CacheControl = "no-cache"
+Response.AddHeader "Pragma", "no-cache"
+Response.Expires = -1
 
 On Error Resume Next
+
+ 
 
 Function ChecklistCompleted()
 
@@ -40,47 +36,435 @@ Function ChecklistCompleted()
 		  End If 	
        End If
 
+End Function
 
+
+
+Function SetStatus_1(status)
+
+	If status = "PASSED"   Then
+	   Response.Write "<td class='status-text-passed'>" & status & "</td>"
+	   
+	ElseIf status = "FAILED"   Then
+	   Response.Write "<td class='status-text-failed'>" & status & "</td>"
+	   
+	ElseIf status = "REFERRAL"   Then
+	   Response.Write "<td class='status-text-referral'>" & status & "</td>"   
+	   
+	 ElseIf status = "HOLD"   Then
+	   Response.Write "<td class='status-text-hold'>" & status & "</td>"    
+	   
+	 Else
+	   Response.Write "<td class='status-text'>&nbsp;</td>"  
+   End If	
+
+  	
+End Function
+
+Function SetGrade(grade)
+   
+   If rsHeader.Fields("GradingScale") = 3 Then
+	
+	       If grade = 1   Then
+	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"
+			   
+			ElseIf grade = 3   Then
+			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"   
+			   
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+		   
+	ElseIf rsHeader.Fields("GradingScale") = 4   Then
+	
+	    If grade = 1 Or  grade = 2 Or  grade = 3  Then
+	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
+			   
+			ElseIf grade = 4   Then
+			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+		
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+	
+	ElseIf rsHeader.Fields("GradingScale") = 5   Then
+	
+	        If grade = 1   Then
+	             Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"
+			   
+			ElseIf grade >= 3   Then
+			   Response.Write "<td class='grade-text-passed'>" & grade & "</td>"   
+			   
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+		   
+	
+	End If
+   
+	
+End Function
+
+
+Function SetLogGrade_1(grade)
+
+    If rsHeader.Fields("GradingScale") = 3 Then
+	  
+	      If grade = 1   Then
+			   Response.Write "<td align='center'  class='section-text log-text-passed' >" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td align='center' class='section-text  log-text-referral' >" & grade & "</td>"
+			   
+			ElseIf grade = 3   Then
+			   Response.Write "<td align='center' class='section-text log-text-failed' >" & grade & "</td>"
+			   
+			Else
+			   Response.Write "<td class='section-text' >&nbsp;</td>"     
+			   
+		   End If	
+			  
+	  
+	  ElseIf rsHeader.Fields("GradingScale") = 4   Then
+	
+	    If grade = 1 Or  grade = 2 Or  grade = 3  Then
+	            Response.Write "<td align='center'  class='section-text log-text-passed' >" & grade & "</td>"
+			   
+			ElseIf grade = 4   Then
+			   Response.Write "<td align='center'  class='section-text log-text-failed' >" & grade & "</td>"
+		
+			Else
+			   Response.Write "<td class='section-text' >&nbsp;</td>"       
+			   
+		   End If	
+	
+	ElseIf rsHeader.Fields("GradingScale") = 5   Then
+	
+	        If grade = 1   Then
+	             Response.Write "<td align='center'  class='section-text log-text-failed' >" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td align='center' class='section-text  log-text-referral' >" & grade & "</td>"
+			   
+			ElseIf grade >= 3   Then
+			   Response.Write "<td align='center' class='section-text log-text-passed' >" & grade & "</td>" 
+			   
+			Else
+			  Response.Write "<td class='section-text' >&nbsp;</td>"       
+			   
+		   End If	
+  
+	  
+      End If
+   	   
+
+
+     
+	
+End Function
+
+Function SetYesNo(response)
+
+            If response = "Yes"   Then
+			   Response.Write "<td class='section-text hdr-metadata-text yes' >" & response & "</td>"
+			   
+			ElseIf response = "No" Then
+			    Response.Write "<td class='section-text hdr-metadata-text no' >" & response & "</td>"
+				
+			Else
+			   Response.Write "<td class='section-text hdr-metadata-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
 
 End Function
+
+Function SetChecklistText(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-text no' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+Function SetChecklistText_2(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-2-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-2-text no' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-2-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+
+
 %>
 
 
-<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css">
+<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css?v=4.2.0.0">
 <style>
 BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: none; }
 DIV.PageBreak { page-break-before: always; }
 TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
+
+.galimage[src=""] {
+  display:none;
+}
+
+.section-table{
+width:1000px;
+
+}
+
+.section-header, .section-sub-header{
+background-color:  #d3d3d3; 
+font-weight: bold;
+text-align:center;
+}
+
+.section-header{
+font-size: 20px;
+border:3px solid #000;
+}
+
+.section-sub-header{
+font-size: 14px;
+}
+
+.section-detail, .section-label{
+background-color: #d3d3d3;
+font-size: 12px;
+font-weight: bold;
+ padding: 3px 3px 3px 3px;
+}
+
+.section-text{
+font-family: Tahoma;
+font-size: 8pt;
+font-weight: bold;
+ padding: 3px 3px 3px 3px;
+}
+
+.section-text-blue {
+/* color: blue;  */
+}
+
+.section-text-big-font{
+font-size: 14px;
+}
+
+.section-empty-label{
+background-color: #fff;
+width: 200px;
+}
+
+.status-table{
+width: 250px;
+}
+
+.status-label{
+font-weight:bold;
+font-size:20px;
+border:2px solid #000;
+padding: 3px 3px 3px 3px;
+width: 150px;
+}
+
+
+.status-text, .status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
+font-weight:bold;
+font-size:20px;
+border-top:2px solid #000; 
+border-right:2px solid #000; 
+border-bottom:2px solid #000; 
+padding: 3px 3px 3px 3px;
+width: 100px;
+text-align: center;
+}
+
+.grade-label{
+font-weight:bold;
+font-size:16px;
+border-left:2px solid #000; 
+border-bottom:2px solid #000;
+border-right:2px solid #000;
+padding: 3px 3px 3px 3px;
+}
+
+.grade-text-passed, .grade-text-failed, .grade-text-referral, .grade-text-hold{
+border-bottom:2px solid #000; 
+border-right:2px solid #000;
+padding: 3px 3px 3px 3px;
+font-weight:bold;
+font-size:12px;
+text-align: center;
+}
+
+
+
+.status-text-passed, .grade-text-passed{
+/* background-color: green 
+   background-color: #0BDA51 ;
+   background-color: #0FFF50;
+ */
+background-color: #4CBB17 ;
+color : #fff;
+}
+
+.status-text-failed, .grade-text-failed{
+background-color: red;
+color : #fff;
+
+}
+
+.yes, .no{
+background-color: #fff;
+}
+
+.status-text-referral, .grade-text-referral{
+background-color: yellow;
+color: #000;
+}
+
+.status-text-hold, .grade-text-hold{
+background-color: #FF7518;
+color: #fff;
+}
+
+
+
+.log-text-passed {
+background-color: #4CBB17 ;
+color : #fff;
+}
+
+.log-text-failed{
+background-color: red;
+color : #fff;
+}
+
+.log-text-referral{
+background-color: yellow;
+color: #000;
+}
+
+
+
+.programme-details-label, .operations-label, .hdr-metadata-label{
+width: 200px;
+}
+
+.programme-details-text{
+width: 100px;
+}
+.programme-details-text-2{
+width: 200px;
+}
+
+
+.operations-text, .hdr-metadata-text{
+width: 200px;
+}
+
+
+.measurements-label{
+width: 125px;
+}
+
+.measurements-text{
+width: 125px;
+}
+
+.safe-area-label{
+width: 330px;
+}
+
+.safe-area-text{
+width: 160px;
+}
+
+
+.checklist-label{
+width: 250px;
+}
+
+.checklist-text{
+width: 80px;
+}
+
+.checklist-2-label{
+width: 450px;
+}
+
+.checklist-2-text{
+width: 50px;
+}
+
+.checklist-empty-label{
+background-color: #fff;
+width: 220px;
+}
+
+.checklist-empty-text{
+background-color: #fff;
+width: 100px;
+}
+
+
+
+
 </style>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype2">MASTER QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-    <td align="right">
-		Page:&nbsp;1&nbsp;of&nbsp;<span id="totalPage1"></span>
-    </td>
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
+<div style="width:1000px; margin:auto" > 
 
-<!--#include file="Header.asp" -->
 
+<!--#include file="Page_1_Logo_Master.asp" -->
+
+<!--#include file="ProgrammeDetails.asp" -->
+  
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
 
-<!--#include file="Operations.asp" -->
+<!--
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
+ 
+<!--#include file="FileInformation.asp" -->
 
-<br/>
+<!--#include file="QCDetails.asp" -->
 
+  
 <!--#include file="Measurements.asp" -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
@@ -89,51 +473,120 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   </tr>
 </table>
 
+<!--
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
+
  <!--#include file="SafeAreaCheck.asp" -->
-
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+ 
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
 
+<!--
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
 
-<% If sAssetType = "Tape" Then %>
-     <!--#include file="TapeAudioSpecifications.asp" -->
-	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
-     </table>
-	 <!--#include file="VideoSpecifications.asp" --> 
-<% Else %>
-    <!--#include file="FileAudioSpecifications.asp" -->
+<%
+   
+      
+  IsChecklistCompleted = ChecklistCompleted()
+  
+  ''response.write "IsChecklistCompleted:" & IsChecklistCompleted
+      
+
+ If IsChecklistCompleted = true Then
+
+
+ %>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+	         <% 
+       
+	           positionDisney = InStr(1, UCase(rsHeader.Fields("CustName")), "DISNEY")
+			   
+	           positionLionsGate = InStr(1, UCase(rsHeader.Fields("CustName")), "LIONSGATE")
+			   
+			   If positionLionsGate <= 0  Then
+			     positionLionsGate = InStr(1, UCase(rsHeader.Fields("CustName")), "LIONS GATE")
+			   End If
+			   
+	           positionWarner = InStr(1, UCase(rsHeader.Fields("CustName")), "WARNER")
+			   
+	           positionWildBunch  = InStr(1, UCase(rsHeader.Fields("CustName")), "WILD BUNCH")
+			   
+			   If positionWildBunch <=0 Then
+			       positionWildBunch  = InStr(1, UCase(rsHeader.Fields("CustName")), "VERSATILE")
+			   End If
+			   
+			    If positionWildBunch <=0 Then
+			       positionWildBunch  = InStr(1, UCase(rsHeader.Fields("CustName")), "ELLE DRIVER")
+			   End If
+			   
+			   
+			   '''''''' Response.Write "positionDisney: " &  positionDisney & "<br/>"
+			   '' Response.Write "positionLionsGate: " &  positionLionsGate & "<br/>"
+				'' Response.Write "Customer Name: " &  rsHeader.Fields("CustName") & "<br/>"
+			 	
+			  If positionDisney > 0  Then
+			  %>			     			  
+			      <!--#include file="ChecklistDisney.asp" -->
+			 <% ElseIf  positionLionsGate > 0 Then %>
+		         <!--#include file="ChecklistLionsGate.asp" -->
+		     <% ElseIf  positionWarner > 0 Then %>
+		         <!--#include file="ChecklistWarner.asp" -->
+				 <% ElseIf  positionWildBunch > 0 Then %>
+		         <!--#include file="ChecklistWildBunch.asp" -->
+			  <% Else %> 
+				 
+			  <% End If %>			  
+			  
+	</td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<!--
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
+
+<% End If %>	
+
+
+
+     
+<!--#include file="FileAudioSpecifications.asp" -->
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
        <tr>
         <td>&nbsp;</td>
       </tr>
     </table>
-	   
-    			
-		
-				<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-				<tr>
-					<td valign="top" width="100%" class="blacksquare">
-					  <!--#include file="ProgramFormat.asp" -->
-				   </td>
-				 </tr>
-				 </table>
-		   
-		
-		</div>
-		
-		
-		
-	 
 
- <% End If %>
+	
+	<!--#include file="ProgramFormat.asp" -->
+	 
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -141,31 +594,47 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
   </tr>
 </table>
 
-
-
-<table width="100%" border="0" cellspacing="0" cellpadding="1"  >
+<!--
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
-    <td  align="center" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
-	  <font class="txt_italic" size="2"><b>OVERALL COMMENTS</b></font>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
+
+
+    
+<table width="100%" border="1" cellspacing="0" cellpadding="0"  >
+  <tr>
+    <td   class="section-label" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
+	  &nbsp;Overall Comments
     </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
+	<!--
     <td align="center" width="5" >
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
-    <td align="center" valign="top">
-      <font class="txt_italic" size="2"><b>AUDIO COMMENTS / CORRECTIVE ACTIONS</b></font>
+	-->
+	
+    <td  class="section-label" >
+      &nbsp;Audio Comments / Corrective Actions
     </td>
+	
+	<!--
 	<td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
-	 <td align="center" valign="top">
-      <font class="txt_italic" size="2"><b>VIDEO COMMENTS / CORRECTIVE ACTIONS</b></font>
+	-->
+	
+	 <td  class="section-label" >
+      &nbsp;Video Comments / Corrective Actions
     </td>
+	
     <%End If%>
   </tr>
   <tr>
     <td height="200px" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%Else%> width="33%"<%End If%>>
-		  <table  width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+		  <table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
 			  <td style="padding:5px;"  valign="top"><%=rsFullSpot.Fields("Comments")%> 
 			  <p>&nbsp;</p>
@@ -175,28 +644,33 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 		  </table>
 	   </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
+	
+	<!--
     <td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
-    </td>
+    </td>-->
 	
-    <td width="33%" valign="top" height="200px">
-	 	  <table  width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+    <td width="33%"  height="200px">
+	 	  <table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
-			  <td style="padding:5px;" valign="top"><%=rsFullSpot.Fields("RecommendationComments")%>
+			  <td  valign="top" style="padding:5px;" ><%=rsFullSpot.Fields("RecommendationComments")%>
 			   <p>&nbsp;</p>
 			  <p>&nbsp;</p>
 			  </td>
 			</tr>
 		  </table>
 	  </td>
+	  
+	  <!--
 	<td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
+	-->
 	
-	<td width="33%" valign="top" height="200px">
-		  <table width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+	<td width="33%"  height="200px">
+		  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
-			  <td style="padding:5px;" valign="top"><%=rsFullSpot.Fields("VideoComments")%>&nbsp;
+			  <td  valign="top" style="padding:5px;" ><%=rsFullSpot.Fields("VideoComments")%>&nbsp;
 			  <p>&nbsp;</p>
 			  <p>&nbsp;</p>
 			  </td>
@@ -208,11 +682,21 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
 </table>
 
 
+
+
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+
+<!--
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
 
 <%
 j=0
@@ -224,53 +708,136 @@ do while not rsBVMastLog.EOF or j=1
 <!-- ******************************************************* -->
 <div class="PageBreak"><!-- Pages >= 2 -->
 <!-- ******************************************************* -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype2">MASTER QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-    <td>
-		Page:&nbsp;<%=thisPage%>&nbsp;of&nbsp;<span id="totalPage<%=thisPage%>"></span>
-    </td>
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
 
-<table width="100%" border="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+<!--#include file="Page_Break_Logo_Master.asp" -->
 
-<!--#include file="Header.asp" -->
 
+<!--#include file="ProgrammeDetails.asp" -->
+
+<!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
 
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>&nbsp;</td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:-13px; display:none;">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+	 <td  align="right"  >
+			<table cellspacing=0 border="0" width="80" style="margin-right:100px">
+			    <tr>
+					<td colspan="3" align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_right_top_border">Sector Key</td>
+      			</tr>
+				<tr>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_top_border">U-L</td>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_top_border">U-C</td>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_right_top_border">U-R</td>
+				</tr>
+				<tr>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_top_border">M-L</td>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_top_border">M-C</td>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_right_top_border" >M-R</td>
+				</tr>
+				<tr>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_top_border">L-L</td> 
+					<td width=30 align="center" valign="middle"  style="font-size:6pt;font-weight:bold;" class="left_top_border">L-C</td>
+					<td width=30 align="center" valign="middle" style="font-size:6pt;font-weight:bold;" class="left_right_top_border">L-R</td>
+				</tr>
+				<tr>
+		  	    <td colspan=3 class="top_border">&nbsp;</td>
+	         </tr>
+		</table>	
+      </td>
     </tr>
   </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
+  
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+	  <tr>
+		<td class="section-header">Fault Log</td>
+	  </tr>
+  </table>
+
+<p></p>
+
+
+ <table width="100%" border="1" cellspacing="0" cellpadding="1">
+   <%if rsHeader.Fields("GradingScale") = 3 then %>
+    <tr> 
+      <td class="section-label" align="center">
+	  <span>Severity Grades:&nbsp;&nbsp;</span>
+	  <span>1=Pass&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>2=Referral&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>3=Fail&nbsp;&nbsp;</span>
+	  </td>
+     </tr>
+    <%end if%>
+    <%If rsHeader.Fields("GradingScale") = 4 then %>
+    <tr> 
+	  <td class="section-label" align="center">
+	  <span>Severity Grades:&nbsp;&nbsp;</span>
+	  <span>1=Standard/Non Detectable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>2=Acceptable&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>3=Marginal/Intrusive&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>4=Unacceptable&nbsp;&nbsp;</span>
+	  </td>
+    </tr>
+    <%end if%>
+    <%If rsHeader.Fields("GradingScale") = 5 then %>
+    <tr> 
+	  <td class="section-label" align="center">
+	  <span>Severity Grades:&nbsp;&nbsp;</span>
+	  <span>1=Severe Fail &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>2=Fail / Refer &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>3=Slightly Annoying &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>4=Perceptible &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  <span>5=Imperceptible &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	  </td>
+     </tr>
+    <%end if%>
+</table>
+
+<p></p>
+
+     
+ 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+     <tr>
       <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <table width="100%" border="1" cellspacing="0" cellpadding="1">
+		  
           <tr> 
-            <td width="12%" align="center" class="left_top_border"><b>Time Code</b></td>
-            <td width="5%" align="center" class="left_top_border"><b>Type</b></td>
-            <td width="54%" align="center" class="left_top_border"><b>Fault Description</b></td>
-            <td width="5%" align="center" class="left_top_border"><b>GRD</b></td>
-            <td width="7%" align="center" class="left_top_border"><b>Sector</b></td>
-            <td width="9%" align="center" class="left_top_border"><b>Same As Master</b></td>
-            <td width="8%" align="center" class="left_right_top_border"><b>Item Duration</b></td>
+		  <!--
+		    <% If itemNumberCount >  0 Then %>
+	           <td width="4%" align="center" class="section-label"><b>Item No.</b></td>
+		   <% End If %>
+		   -->
+			
+             <td width="9%" align="center" class="section-label">Time Code</td>
+            <td width="6%" align="center" class="section-label">Type</td>
+            <td width="64%" align="center" class="section-label">Fault Description</td>
+            <td width="3%" align="center" class="section-label">Grade</td>
+			<td width="8%" align="center" class="section-label">Item Duration</td>
+			<td width="7%" align="center" class="section-label">Sector</td>
+		     <td width="3%" align="center" class="section-label" >Signed Off</td>
+			
           </tr>
           <% nTotalLines = 0
              do while nTotalLines < 420
@@ -289,92 +856,99 @@ do while not rsBVMastLog.EOF or j=1
 			
 		  %>
           <tr>
-            <td width="12%" align="center" class="left_top_border"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Time_Code"))%>&nbsp;</td>
-            <td width="5%" align="center" class="left_top_border"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Code"))%>&nbsp;</td>
-            <td width="54%" align="left" class="left_top_border"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%>&nbsp;</td>
-            <td width="5%" align="center" class="left_top_border"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("QC_Grade"))%>&nbsp;</td>
-            <td width="7%" align="center" class="left_top_border"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Action"))%>&nbsp;</td>
-            <td width="9%" align="center" class="left_top_border"><%if rsBVMastLog.EOF = false then 
-													if rsBVMastLog.Fields("in_master") = -1 then
-														Response.write("Yes")
-													else
-														Response.Write("")
-													end if
-												 end if%>&nbsp;</td>
-            <td width="8%" align="center" class="left_right_top_border"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%>&nbsp;</td>
+		    <!--
+		     <% If itemNumberCount >  0 Then %>
+		  	    <td width="4%" align="center" ><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_num"))%>&nbsp;</td>
+			<% End If %>
+			-->
+			
+            <td  align="center" class="section-text" ><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Time_Code"))%>&nbsp;</td>
+			
+			
+            <td  align="center" class="section-text">
+			<%
+					   			   
+			   If rsBVMastLog.EOF = False Then
+
+			      If IsNull(rsBVMastLog.Fields("QC_Codename").Value) Then
+				  
+				        If rsBVMastLog.Fields("QC_Code").Value = "A" Then
+						   Response.write("Audio")
+						ElseIf rsBVMastLog.Fields("QC_Code").Value = "F" Then
+						   Response.write("Film")    
+						ElseIf rsBVMastLog.Fields("QC_Code").Value = "V" Then
+						   Response.write("Video")  
+				    	End If
+				  Else
+				    Response.write("&nbsp;" & rsBVMastLog.Fields("QC_Codename"))
+			      End If
+			 End If
+			
+			
+			%>
+			
+			</td>
+			
+			
+			
+            <td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("Note"))%></td>
+			
+			
+			<%
+			    If rsBVMastLog.EOF = False Then
+   				    SetLogGrade_1( rsBVMastLog.Fields("QC_Grade"))
+					''Response.Write "<td class='section-text' >" + rsBVMastLog.Fields("QC_Grade") + "</td>"
+				Else
+				    Response.Write "<td class='section-text' >&nbsp;</td>"    
+				End If  
+
+			%>
+			
+				
+			<td  align="center" class="section-text"><%if rsBVMastLog.EOF = false then Response.write(rsBVMastLog.Fields("item_duratn"))%></td>
+            <td  align="center" class="section-text">
+			<%
+			   If rsBVMastLog.EOF = False Then
+
+			      If IsNull(rsBVMastLog.Fields("ActionsForDisplay").Value)Then
+			           Response.write(rsBVMastLog.Fields("Action"))
+				  Else
+				    Response.write("<span style=white-space: pre;>" &  rsBVMastLog.Fields("ActionsForDisplay") &  "</span>")
+			      End If
+			 End If
+			%>&nbsp;
+			
+			
+			</td>
+			
+			<td  align="center" class="section-text">
+		     <%if rsBVMastLog.EOF = false then 
+				if rsBVMastLog.Fields("in_master") = -1 then
+					Response.write("Yes")
+				else
+					Response.Write("")
+				end if
+			 end if
+			 %>
+			 &nbsp;</td>
+            
           </tr>
           <%	end if
              if rsBVMastLog.EOF = false then rsBVMastLog.MoveNext 
              loop%>
-          <tr>
-			<td colspan=7 class="top_border">&nbsp;</td>
-		  </tr>
+    	  
+		  
         </table>
       </td>
     </tr>
   </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr> 
-      <td colspan=5>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Type:</td>
-      <td>F=Film</td>
-      <td>V=Video</td>
-      <td>A=Audio</td>
-      <td colspan=2 align="center">
-			<table cellspacing=0 border=1 bordercolor="#000000" width=90 id="tblTapeFormat">
-				<tr>
-					<td width=30 align="center" valign="middle">U-L</td>
-					<td width=30 align="center" valign="middle">U-C</td>
-					<td width=30 align="center" valign="middle">U-R</td>
-				</tr>
-				<tr>
-					<td width=30 align="center" valign="middle">M-L</td>
-					<td width=30 align="center" valign="middle">M-C</td>
-					<td width=30 align="center" valign="middle">M-R</td>
-				</tr>
-				<tr>
-					<td width=30 align="center" valign="middle">L-L</td>
-					<td width=30 align="center" valign="middle">L-C</td>
-					<td width=30 align="center" valign="middle">L-R</td>
-				</tr>
-			</table>	
-      </td>
-    </tr>
-    <tr>
-		<td colspan=5>&nbsp;</td>
-    </tr>
-    <%if rsHeader.Fields("GradingScale") = 3 then %>
-    <tr> 
-      <td>Severity Grades:</td>
-      <td>1=Acceptable</td>
-      <td>2=Marginal</td>
-      <td>3=Unacceptable</td>
-      <td colspan=2>&nbsp;</td>
-    </tr>
-    <%end if%>
-    <%if rsHeader.Fields("GradingScale") = 4 then %>
-    <tr> 
-      <td>Severity Grades:</td>
-      <td>1=Standard/Non Detectable</td>
-      <td>2=Acceptable</td>
-      <td>3=Marginal/Intrusive</td>
-      <td>4=Unacceptable</td>
-      <td>&nbsp;</td>
-    </tr>
-    <%end if%>
-    <%if rsHeader.Fields("GradingScale") = 5 then %>
-    <tr> 
-      <td>Severity Grades:</td>
-      <td>1=Very Annoying</td>
-      <td>2=Annoying</td>
-      <td>3=Slightly Annoying</td>
-      <td>4=Perceptible but not Annoying</td>
-      <td>5=Imperceptible</td>
-    </tr>
-    <%end if%>
-  </table>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+  
 </div>
 <% j=0
    
@@ -392,9 +966,9 @@ do while not rsBVMastLog.EOF or j=1
 
 
 
-<%
- If  rsFaultImage.RecordCount  > 0 Then
 
+
+<%
 j=0
 'thisPage = thisPage + 1
 if rsTextInfo.BOF = true and rsTextInfo.EOF =true then j=1
@@ -403,30 +977,10 @@ do while not rsTextInfo.EOF or j=1
 <!-- ******************************************************* -->
 <div class="PageBreak"><!-- Pages > Log Pages -->
 <!-- ******************************************************* -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype2">MASTER QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-    <td>
-		Page:&nbsp;<%=thisPage%>&nbsp;of&nbsp;<span id="totalPage<%=thisPage%>"></span>
-    </td>
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
-<table width="100%" border="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
 
+<!--#include file="Page_Break_Logo_Master.asp" -->
 
-<!--#include file="Header.asp" -->
-
+<!--#include file="ProgrammeDetails.asp" -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
@@ -434,24 +988,30 @@ do while not rsTextInfo.EOF or j=1
   </tr>
 </table>
 
+ 
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Text Log</td>
+			  </tr>
+</table>
 
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<p></p>
+ 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <table width="100%" border="1" cellspacing="0" cellpadding="0">
+		   
+		
           <tr height=30> 
-			<td width="64%" align="center" class="left_top_border"><b>Text</b></td>
-            <td width="13%" align="center" class="left_top_border"><b>Time Code In</b></td>
-            <td width="13%" align="center" class="left_right_top_border"><b>Time Code Out</b></td>
+			<td width="64%" align="center" class="section-label"><b>Text</b></td>
+            <td width="13%" align="center" class="section-label"><b>Time Code In</b></td>
+            <td width="13%" align="center" class="section-label"><b>Time Code Out</b></td>
 
           </tr>
           <% nTotalLines = 0
-             do while nTotalLines < 520
+             do while nTotalLines < 420
               nLines = 0
 				if rsTextInfo.EOF = false then 
 					nLines = GetLines(rsTextInfo.Fields("TextInfo"))
@@ -460,27 +1020,37 @@ do while not rsTextInfo.EOF or j=1
 				nTotalLines = nTotalLines + 13	 
 				end if
 				
-				if nTotalLines > 520 Then
+				if nTotalLines > 420 Then
 					exit do           
 				
 				else
 			
 		  %>
           <tr>
-			<td width="4%" align="center" class="left_top_border"><%if rsTextInfo.EOF = false then Response.Write(rsTextInfo.Fields("TextInfo"))%>&nbsp</td>
-            <td width="11%" align="center" class="left_top_border"><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;</td>
-            <td width="5%" align="center" class="left_right_top_border"><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeOut"))%>&nbsp;</td>
+			<td width="4%" align="center" ><%if rsTextInfo.EOF = false then Response.Write(rsTextInfo.Fields("TextInfo"))%>&nbsp</td>
+		    <td width="5%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeIn"))%>&nbsp;</td>
+     		<td width="5%" align="center" ><%if rsTextInfo.EOF = false then Response.write(rsTextInfo.Fields("TimecodeOut"))%>&nbsp;</td>
           </tr>
           <%	end if
              if rsTextInfo.EOF = false then rsTextInfo.MoveNext 
              loop%>
-          <tr>
-			<td colspan=3 class="top_border">&nbsp;</td>
-		  </tr>
+			 
+			 
+         
+		  
         </table>
       </td>
     </tr>
   </table>
+  
+  
+ <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+    
+  
 </div>
 <% j=0
    
@@ -491,17 +1061,14 @@ do while not rsTextInfo.EOF or j=1
 	Response.Write("</SCRIPT>")
 	
 	thisPage = thisPage + 1 
-	loop
-	
-End If
+	loop   
+
 %>
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+
+
+
 
 <%
  If rsFaultImage.RecordCount  > 0 Then
@@ -509,30 +1076,17 @@ End If
 j=0
 'thisPage = thisPage + 1
 if rsFaultImage.BOF = true and rsFaultImage.EOF =true then j=1
-''rsFaultImage.MoveFirst
+
 do while not rsFaultImage.EOF or j=1
 %> 
 
 
 <div class="PageBreak"><!-- Pages >= 2 -->
 <!-- ******************************************************* -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype_header">QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-   <td>
-		Page:&nbsp;<%=thisPage%>&nbsp;of&nbsp;<span id="totalPage<%=thisPage%>"></span>
-    </td> 
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
-  </tr>
-</table>
 
-<!--#include file="Header.asp" -->
+<!--#include file="Page_Break_Logo.asp" -->
+
+<!--#include file="ProgrammeDetails.asp" -->
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -540,13 +1094,18 @@ do while not rsFaultImage.EOF or j=1
   </tr>
 </table>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Reference Images</td>
+			  </tr>
+		  </table>
 
-			   <tr>
-				  <td align="center" class="blackSquare" colspan="2" > 
-					<font class="txt_italic" size="3"><b>Reference Images</b></font>
-				  </td>
-				</tr>
+			<p></p>
+
+
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+
+			 
 <%
          nTotalImages = 0
              do while nTotalImages < 2
@@ -561,20 +1120,30 @@ do while not rsFaultImage.EOF or j=1
 				if nFaultImages > 520 Then
 					exit do           
 				
-				else
-	
+				elseIf Not IsNull(rsFaultImage.Fields("Description")) And Not IsNull(rsFaultImage.Fields("ImagePath"))  Then
+				
+	              
 %>
-
-
-			   <tr class="txt_boldtype2 hideRow">
-					<td style="padding:20px;" align="center"  class="txt_boldtype2 left_right_bottom_border" >
-					   <div style="font-size:18px;padding:5px;"> <%=rsFaultImage.Fields("Description")%> </div> <br/>
-					  <img  width="50%" src="<%=rsFaultImage.Fields("ImagePath")%>"  class="galimage" onerror="hideRow()" /> 
+      	   <tr class="hideRow">
+					<td  align="center"   >
+						<table width="100%" border="0" cellspacing="0" cellpadding="1">
+						  <tr>
+							<td align="center" class="section-label"> 
+							  <%=rsFaultImage.Fields("Description")%>
+							</td>
+						  </tr>
+						   <tr>
+							<td align="center">
+								<img  width="50%" src="<%=rsFaultImage.Fields("ImagePath")%>" class="galimage" onerror="hideRow()"  /> 					
+							</td>
+						  </tr>
+						  
+						</table>
 				  </td>
 			  </tr>
   
  <%	
-             end if
+            End If
 			 
          If rsFaultImage.EOF=false Then
 		    rsFaultImage.MoveNext 
@@ -583,7 +1152,15 @@ do while not rsFaultImage.EOF or j=1
 		 End if
        loop
 %>
+ 
  </table>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
  
 
 <% j=0
@@ -625,4 +1202,14 @@ set rsFaultImage = Nothing
  }
 
 </script>
+
+
+ </div>
+
+
+
+
+
+
+
 

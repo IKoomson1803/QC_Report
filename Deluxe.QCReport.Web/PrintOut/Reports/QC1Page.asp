@@ -1,59 +1,468 @@
-<!-- Updated to ensure no blank channels are added to the report Isaac Koomson 04/01/2012 -->
-<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css">
+<%
+Response.Buffer = True
+Response.CacheControl = "no-cache"
+Response.AddHeader "Pragma", "no-cache"
+Response.Expires = -1
+
+On Error Resume Next
+
+ 
+
+Function ChecklistCompleted()
+
+        ChecklistCompleted = False
+
+       If Not rsChecklist.BOF = True And Not rsChecklist.EOF = True Then
+           If Not IsNull(rsChecklist.Fields("ChecklistCompleted"))  And rsChecklist.Fields("ChecklistCompleted") = true Then  
+                ChecklistCompleted  = true
+		  End If 	
+       End If
+	   
+      If Not rsChecklistLionsGate.BOF = True And Not rsChecklistLionsGate.EOF = True Then
+           If Not IsNull(rsChecklistLionsGate.Fields("ChecklistCompleted"))  And rsChecklistLionsGate.Fields("ChecklistCompleted") = true Then  
+                ChecklistCompleted  = true
+		  End If 	
+       End If
+	   
+      If Not rsChecklistWarner.BOF = True And Not rsChecklistWarner.EOF = True Then
+           If Not IsNull(rsChecklistWarner.Fields("ChecklistCompleted"))  And rsChecklistWarner.Fields("ChecklistCompleted") = true Then  
+                ChecklistCompleted  = true
+		  End If 	
+       End If
+	   
+     If Not rsChecklistWildBunch.BOF = True And Not rsChecklistWildBunch.EOF = True Then
+           If Not IsNull(rsChecklistWildBunch.Fields("ChecklistCompleted"))  And rsChecklistWildBunch.Fields("ChecklistCompleted") = true Then  
+                ChecklistCompleted  = true
+		  End If 	
+       End If
+
+End Function
+
+
+
+Function SetStatus_1(status)
+
+	If status = "PASSED"   Then
+	   Response.Write "<td class='status-text-passed'>" & status & "</td>"
+	   
+	ElseIf status = "FAILED"   Then
+	   Response.Write "<td class='status-text-failed'>" & status & "</td>"
+	   
+	ElseIf status = "REFERRAL"   Then
+	   Response.Write "<td class='status-text-referral'>" & status & "</td>"   
+	   
+	 ElseIf status = "HOLD"   Then
+	   Response.Write "<td class='status-text-hold'>" & status & "</td>"    
+	   
+	 Else
+	   Response.Write "<td class='status-text'>&nbsp;</td>"  
+   End If	
+
+  	
+End Function
+
+Function SetGrade(grade)
+   
+   If rsHeader.Fields("GradingScale") = 3 Then
+	
+	       If grade = 1   Then
+	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"
+			   
+			ElseIf grade = 3   Then
+			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"   
+			   
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+		   
+	ElseIf rsHeader.Fields("GradingScale") = 4   Then
+	
+	    If grade = 1 Or  grade = 2 Or  grade = 3  Then
+	             Response.Write "<td class='grade-text-passed'>" & grade & "</td>"
+			   
+			ElseIf grade = 4   Then
+			   Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+		
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+	
+	ElseIf rsHeader.Fields("GradingScale") = 5   Then
+	
+	        If grade = 1   Then
+	             Response.Write "<td class='grade-text-failed'>" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td class='grade-text-referral'>" & grade & "</td>"
+			   
+			ElseIf grade >= 3   Then
+			   Response.Write "<td class='grade-text-passed'>" & grade & "</td>"   
+			   
+			Else
+			   Response.Write "<td class='grade-text'>&nbsp;</td>"   
+			   
+		   End If	
+		   
+	
+	End If
+   
+	
+End Function
+
+
+Function SetLogGrade_1(grade)
+
+    If rsHeader.Fields("GradingScale") = 3 Then
+	  
+	      If grade = 1   Then
+			   Response.Write "<td align='center'  class='section-text log-text-passed' >" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td align='center' class='section-text  log-text-referral' >" & grade & "</td>"
+			   
+			ElseIf grade = 3   Then
+			   Response.Write "<td align='center' class='section-text log-text-failed' >" & grade & "</td>"
+			   
+			Else
+			   Response.Write "<td class='section-text' >&nbsp;</td>"     
+			   
+		   End If	
+			  
+	  
+	  ElseIf rsHeader.Fields("GradingScale") = 4   Then
+	
+	    If grade = 1 Or  grade = 2 Or  grade = 3  Then
+	            Response.Write "<td align='center'  class='section-text log-text-passed' >" & grade & "</td>"
+			   
+			ElseIf grade = 4   Then
+			   Response.Write "<td align='center'  class='section-text log-text-failed' >" & grade & "</td>"
+		
+			Else
+			   Response.Write "<td class='section-text' >&nbsp;</td>"       
+			   
+		   End If	
+	
+	ElseIf rsHeader.Fields("GradingScale") = 5   Then
+	
+	        If grade = 1   Then
+	             Response.Write "<td align='center'  class='section-text log-text-failed' >" & grade & "</td>"
+			   
+			ElseIf grade = 2   Then
+			   Response.Write "<td align='center' class='section-text  log-text-referral' >" & grade & "</td>"
+			   
+			ElseIf grade >= 3   Then
+			   Response.Write "<td align='center' class='section-text log-text-passed' >" & grade & "</td>" 
+			   
+			Else
+			  Response.Write "<td class='section-text' >&nbsp;</td>"       
+			   
+		   End If	
+  
+	  
+      End If
+   	   
+
+
+     
+	
+End Function
+
+Function SetYesNo(response)
+
+            If response = "Yes"   Then
+			   Response.Write "<td class='section-text hdr-metadata-text yes' >" & response & "</td>"
+			   
+			ElseIf response = "No" Then
+			    Response.Write "<td class='section-text hdr-metadata-text no' >" & response & "</td>"
+				
+			Else
+			   Response.Write "<td class='section-text hdr-metadata-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+Function SetChecklistText(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-text no' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+Function SetChecklistText_2(response)
+
+            If response = "True"   Then
+			   Response.Write "<td class='section-text checklist-2-text yes' >Yes</td>"
+			   
+			ElseIf response = "False" Then
+			    Response.Write "<td class='section-text checklist-2-text no' >No</td>"
+				
+			Else
+			   Response.Write "<td class='section-text checklist-2-text'>" & response & "</td>"    
+			   
+		   End If	
+			  
+
+End Function
+
+
+
+%>
+
+
+<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css?v=4.2.0.0">
 <style>
 BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: none; }
 DIV.PageBreak { page-break-before: always; }
-TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
+TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt;  }
+
+.galimage[src=""] {
+  display:none;
+}
+
+.section-table{
+width:1000px;
+
+}
+
+.section-header, .section-sub-header{
+background-color:  #d3d3d3; 
+font-weight: bold;
+text-align:center;
+}
+
+.section-header{
+font-size: 20px;
+border:3px solid #000;
+}
+
+.section-sub-header{
+font-size: 14px;
+}
+
+.section-detail, .section-label{
+background-color: #d3d3d3;
+font-size: 12px;
+font-weight: bold;
+ padding: 3px 3px 3px 3px;
+}
+
+.section-text{
+font-family: Tahoma;
+font-size: 8pt;
+font-weight: bold;
+ padding: 3px 3px 3px 3px;
+}
+
+.section-text-blue {
+/* color: blue;  */
+}
+
+.section-text-big-font{
+font-size: 14px;
+}
+
+.section-empty-label{
+background-color: #fff;
+width: 200px;
+}
+
+.status-table{
+width: 250px;
+}
+
+.status-label{
+font-weight:bold;
+font-size:20px;
+border:2px solid #000;
+padding: 3px 3px 3px 3px;
+width: 150px;
+}
+
+
+.status-text, .status-text-passed, .status-text-failed, .status-text-referral, .status-text-hold {
+font-weight:bold;
+font-size:20px;
+border-top:2px solid #000; 
+border-right:2px solid #000; 
+border-bottom:2px solid #000; 
+padding: 3px 3px 3px 3px;
+width: 100px;
+text-align: center;
+}
+
+.grade-label{
+font-weight:bold;
+font-size:16px;
+border-left:2px solid #000; 
+border-bottom:2px solid #000;
+border-right:2px solid #000;
+padding: 3px 3px 3px 3px;
+}
+
+.grade-text-passed, .grade-text-failed, .grade-text-referral, .grade-text-hold{
+border-bottom:2px solid #000; 
+border-right:2px solid #000;
+padding: 3px 3px 3px 3px;
+font-weight:bold;
+font-size:12px;
+text-align: center;
+}
+
+
+
+.status-text-passed, .grade-text-passed{
+/* background-color: green 
+   background-color: #0BDA51 ;
+   background-color: #0FFF50;
+ */
+background-color: #4CBB17 ;
+color : #fff;
+}
+
+.status-text-failed, .grade-text-failed{
+background-color: red;
+color : #fff;
+
+}
+
+.yes, .no{
+background-color: #fff;
+}
+
+.status-text-referral, .grade-text-referral{
+background-color: yellow;
+color: #000;
+}
+
+.status-text-hold, .grade-text-hold{
+background-color: #FF7518;
+color: #fff;
+}
+
+
+
+.log-text-passed {
+background-color: #4CBB17 ;
+color : #fff;
+}
+
+.log-text-failed{
+background-color: red;
+color : #fff;
+}
+
+.log-text-referral{
+background-color: yellow;
+color: #000;
+}
+
+
+
+.programme-details-label, .operations-label, .hdr-metadata-label{
+width: 200px;
+}
+
+.programme-details-text{
+width: 100px;
+}
+.programme-details-text-2{
+width: 200px;
+}
+
+
+.operations-text, .hdr-metadata-text{
+width: 200px;
+}
+
+
+.measurements-label{
+width: 125px;
+}
+
+.measurements-text{
+width: 125px;
+}
+
+.safe-area-label{
+width: 330px;
+}
+
+.safe-area-text{
+width: 160px;
+}
+
+
+.checklist-label{
+width: 250px;
+}
+
+.checklist-text{
+width: 80px;
+}
+
+.checklist-2-label{
+width: 450px;
+}
+
+.checklist-2-text{
+width: 50px;
+}
+
+.checklist-empty-label{
+background-color: #fff;
+width: 220px;
+}
+
+.checklist-empty-text{
+background-color: #fff;
+width: 100px;
+}
+
+
+
+
 </style>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<div style="width:1000px; margin:auto" > 
+
+
+<!--#include file="Page_1_Logo_QCR.asp" -->
+
+<!--#include file="ProgrammeDetails.asp" -->
+  
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
-    <td width="180"><img SRC="../images/Logos/End-Cred-Red-Logo_tran-100x100.png" border="0"></td>
-    <td align="center"> 
-      <h2 class="txt_boldtype2">RUNTIME QUALITY CONTROL REPORT FOR<br>
-       <%=rsHeader.Fields("CustName")%></h2>
-    </td>
-    <td align="right">
-		Page:&nbsp;1&nbsp;of&nbsp;1
-    </td>
-  </tr>
-  <tr>
-	<td colspan="3" align="center"><b><%=rsHeader.Fields("Address")%></b>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
 </table>
 
-<!--#include file="Header.asp" -->
-
+<!--
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0" height="25">
-  <tr>
-    <td height="12">
-    <p align="center"><b>&nbsp;1 = </b>Very Annoying<b>&nbsp;&nbsp;
-    2 = </b>Annoying<b>&nbsp;&nbsp;
-    3 = </b>Slightly Annoying<b>&nbsp;&nbsp;
-    4 = </b>Perceptible but not Annoying&nbsp;&nbsp;
-    <b>5 = </b>ImPerceptible
-	</td>
-  </tr>
-   
-  <tr>
-    <td height="13"></td>
-  </tr>
-</table>
-  
+-->
  
-<!--#include file="Operations.asp" -->
+<!--#include file="FileInformation.asp" -->
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+<!--#include file="QCDetails.asp" -->
 
   
 <!--#include file="Measurements.asp" -->
@@ -64,12 +473,42 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
   </tr>
 </table>
 
+<!--
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
 
+ <!--#include file="SafeAreaCheck.asp" -->
+ 
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<!--
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
+
+<%
+   
+      
+  IsChecklistCompleted = ChecklistCompleted()
+  
+  ''response.write "IsChecklistCompleted:" & IsChecklistCompleted
+      
+
+ If IsChecklistCompleted = true Then
+
+
+ %>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -77,9 +516,25 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
 	         <% 
        
 	           positionDisney = InStr(1, UCase(rsHeader.Fields("CustName")), "DISNEY")
-			   positionLionsGate = InStr(1, UCase(rsHeader.Fields("CustName")), "LIONSGATE")
-			   positionWarner = InStr(1, UCase(rsHeader.Fields("CustName")), "WARNER")
-			   positionWildBunch  = InStr(1, UCase(rsHeader.Fields("CustName")), "WILD BUNCH")
+			   
+	           positionLionsGate = InStr(1, UCase(rsHeader.Fields("CustName")), "LIONSGATE")
+			   
+			   If positionLionsGate <= 0  Then
+			     positionLionsGate = InStr(1, UCase(rsHeader.Fields("CustName")), "LIONS GATE")
+			   End If
+			   
+	           positionWarner = InStr(1, UCase(rsHeader.Fields("CustName")), "WARNER")
+			   
+	           positionWildBunch  = InStr(1, UCase(rsHeader.Fields("CustName")), "WILD BUNCH")
+			   
+			   If positionWildBunch <=0 Then
+			       positionWildBunch  = InStr(1, UCase(rsHeader.Fields("CustName")), "VERSATILE")
+			   End If
+			   
+			    If positionWildBunch <=0 Then
+			       positionWildBunch  = InStr(1, UCase(rsHeader.Fields("CustName")), "ELLE DRIVER")
+			   End If
+			   
 			   
 			   '''''''' Response.Write "positionDisney: " &  positionDisney & "<br/>"
 			   '' Response.Write "positionLionsGate: " &  positionLionsGate & "<br/>"
@@ -107,13 +562,20 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
     <td>&nbsp;</td>
   </tr>
 </table>
+
+<!--
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
+
+<% End If %>	
 
 
+
+     
 <!--#include file="FileAudioSpecifications.asp" -->
 	
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -121,21 +583,10 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
         <td>&nbsp;</td>
       </tr>
     </table>
-	
-	 <table width="100%" border="0" cellspacing="0" cellpadding="1">
-      <tr>
-       <td>&nbsp;</td>
-       </tr>
-    </table>
-	
-	
-	<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-	<tr>
-		<td valign="top" width="100%" class="blacksquare">
-		  <!--#include file="ProgramFormat.asp" -->
-	   </td>
-	 </tr>
 
+	
+	<!--#include file="ProgramFormat.asp" -->
+	 
 
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -143,38 +594,49 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
   </tr>
 </table>
 
+<!--
  <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
     <td>&nbsp;</td>
   </tr>
 </table>
+-->
 
 
-<table width="100%" border="0" cellspacing="0" cellpadding="1"  >
+    
+<table width="100%" border="1" cellspacing="0" cellpadding="0"  >
   <tr>
-    <td  align="center" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
-	  <font class="txt_italic" size="2"><b>OVERALL COMMENTS</b></font>
+    <td   class="section-label" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%End If%>>
+	  &nbsp;Overall Comments
     </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
+	<!--
     <td align="center" width="5" >
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
-    <td align="center" valign="top">
-      <font class="txt_italic" size="2"><b>AUDIO COMMENTS / CORRECTIVE ACTIONS</b></font>
+	-->
+	
+    <td  class="section-label" >
+      &nbsp;Audio Comments / Corrective Actions
     </td>
+	
+	<!--
 	<td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
-	 <td align="center" valign="top">
-      <font class="txt_italic" size="2"><b>VIDEO COMMENTS / CORRECTIVE ACTIONS</b></font>
+	-->
+	
+	 <td  class="section-label" >
+      &nbsp;Video Comments / Corrective Actions
     </td>
+	
     <%End If%>
   </tr>
   <tr>
     <td height="200px" <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%> colspan="5"<%Else%> width="33%"<%End If%>>
-		  <table  width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+		  <table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
-			  <td  valign="top">&nbsp;<%=rsFullSpot.Fields("Comments")%> 
+			  <td style="padding:5px;"  valign="top"><%=rsFullSpot.Fields("Comments")%> 
 			  <p>&nbsp;</p>
 			  <p>&nbsp;</p>
 			  </td>
@@ -182,26 +644,33 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
 		  </table>
 	   </td>
     <%If rsHeader.Fields("Eval_Stat") <> "PASSED" Then%>
+	
+	<!--
     <td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
-    </td>
-    <td width="33%" valign="top" height="200px">
-	 	  <table  width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+    </td>-->
+	
+    <td width="33%"  height="200px">
+	 	  <table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
-			  <td  valign="top">&nbsp;<%=rsFullSpot.Fields("RecommendationComments")%>
+			  <td  valign="top" style="padding:5px;" ><%=rsFullSpot.Fields("RecommendationComments")%>
 			   <p>&nbsp;</p>
 			  <p>&nbsp;</p>
 			  </td>
 			</tr>
 		  </table>
 	  </td>
+	  
+	  <!--
 	<td align="center" width="5">
       <font class="txt_italic" size="2">&nbsp;</font>
     </td>
-	<td width="33%" valign="top" height="200px">
-		  <table width="100%" height="100%" border="1" cellspacing="0" cellpadding="1" bordercolor="#000000">
+	-->
+	
+	<td width="33%"  height="200px">
+		  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="1" >
 			<tr>
-			  <td  valign="top">&nbsp;<%=rsFullSpot.Fields("VideoComments")%>&nbsp;
+			  <td  valign="top" style="padding:5px;" ><%=rsFullSpot.Fields("VideoComments")%>&nbsp;
 			  <p>&nbsp;</p>
 			  <p>&nbsp;</p>
 			  </td>
@@ -211,6 +680,9 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
     <%End If%>
   </tr>
 </table>
+
+
+
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
   <tr>
@@ -218,5 +690,157 @@ TD {COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; }
   </tr>
 </table>
 
-<!-- #include file="FaultImages.asp" -->
+<!--
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+-->
+
+
+
+
+<%
+ If rsFaultImage.RecordCount  > 0 Then
+
+j=0
+'thisPage = thisPage + 1
+if rsFaultImage.BOF = true and rsFaultImage.EOF =true then j=1
+
+do while not rsFaultImage.EOF or j=1
+%> 
+
+
+<div class="PageBreak"><!-- Pages >= 2 -->
+<!-- ******************************************************* -->
+
+<!--#include file="Page_1_Logo_QCR.asp" -->
+
+<!--#include file="ProgrammeDetails.asp" -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	<td>&nbsp;</td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			  <tr>
+				<td class="section-header">Reference Images</td>
+			  </tr>
+		  </table>
+
+			<p></p>
+
+
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+
+			 
+<%
+         nTotalImages = 0
+             do while nTotalImages < 2
+              nFaultImages = 0
+				if rsFaultImage.EOF = false then 
+					nFaultImages = 1 ''GetLines(rsFaultImage.Fields("Description"))
+					nTotalImages = nTotalImages + nFaultImages
+				else 
+				''nTotalLines = nTotalLines + 13	 
+				end if
+				
+				if nFaultImages > 520 Then
+					exit do           
+				
+				elseIf Not IsNull(rsFaultImage.Fields("Description")) And Not IsNull(rsFaultImage.Fields("ImagePath"))  Then
+				
+	              
+%>
+      	   <tr class="hideRow">
+					<td  align="center"   >
+						<table width="100%" border="0" cellspacing="0" cellpadding="1">
+						  <tr>
+							<td align="center" class="section-label"> 
+							  <%=rsFaultImage.Fields("Description")%>
+							</td>
+						  </tr>
+						   <tr>
+							<td align="center">
+								<img  width="50%" src="<%=rsFaultImage.Fields("ImagePath")%>" class="galimage" onerror="hideRow()"  /> 					
+							</td>
+						  </tr>
+						  
+						</table>
+				  </td>
+			  </tr>
+  
+ <%	
+            End If
+			 
+         If rsFaultImage.EOF=false Then
+		    rsFaultImage.MoveNext 
+		 else
+		    Exit Do
+		 End if
+       loop
+%>
+ 
+ </table>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+ 
+
+<% j=0
+   
+		Response.Write("<SCRIPT>")
+		for i = 1 to thisPage
+		Response.Write("totalPage" & i & ".innerText = '" & thisPage & "';")
+		next
+		Response.Write("</SCRIPT>")
+		
+		thisPage = thisPage + 1 
+		
+		If rsFaultImage.EOF=True  Then
+	       Exit do
+	  End If 
+	loop   
+
+End if
+
+rsFaultImage.Close
+set rsFaultImage = Nothing
+%>
+
+<script>
+ function hideRow(){
+ 
+    var images = document.getElementsByClassName('galimage');
+	for (var i=0;i<images.length;i+=1){
+	
+	//alert(images[i].src)
+
+	if(!images[i].src.includes('UploadedImages')){
+	   // alert('found: ' + i )
+	    document.getElementsByClassName("hideRow")[i].style.display = "none";
+	  }
+	
+	}
+ 
+ }
+
+</script>
+
+
+ </div>
+
+
+
+
+
+
+
 
