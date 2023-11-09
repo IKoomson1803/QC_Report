@@ -147,17 +147,6 @@
     <Content Include="Content\Report.css" />
     <Content Include="Content\Selectize.css" />
     <Content Include="Content\Tabs.css" />
-    <Content Include="controls\ASYCFILT.DLL" />
-    <Content Include="controls\COMCAT.DLL" />
-    <Content Include="controls\IEPrintSetttings.ocx" />
-    <Content Include="controls\MSCOMM32.OCX" />
-    <Content Include="controls\MSSTKPRP.DLL" />
-    <Content Include="controls\msvbvm60.dll" />
-    <Content Include="controls\OLEAUT32.DLL" />
-    <Content Include="controls\OLEPRO32.DLL" />
-    <Content Include="controls\SonyTimeControl.CAB" />
-    <Content Include="controls\SonyTimeControl.INF" />
-    <Content Include="controls\SonyTimeControl.ocx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -166,8 +155,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="controls\IEPrintSetttings.oca" />
-    <Content Include="controls\STDOLE2.TLB" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-multiselect.js" />
     <Content Include="Scripts\Bundled\jobDetailsNav_3.js" />

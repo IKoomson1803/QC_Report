@@ -10,7 +10,7 @@
 	    <table class="status-table" border="1" cellspacing="0" cellpadding="0">
 	       <tr>
 		      <td class="status-label">STATUS</td>
-			   <% SetStatus(rsHeader.Fields("Eval_Stat"))  %>
+			   <% SetStatus_1(rsHeader.Fields("Eval_Stat"))  %>
       	   </tr>
 		   <tr>
 		      <td class="grade-label">Video Grade:</td>

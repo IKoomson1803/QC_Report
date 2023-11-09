@@ -40,7 +40,7 @@ End Function
 
 
 
-Function SetStatus(status)
+Function SetStatus_1(status)
 
 	If status = "PASSED"   Then
 	   Response.Write "<td class='status-text-passed'>" & status & "</td>"
