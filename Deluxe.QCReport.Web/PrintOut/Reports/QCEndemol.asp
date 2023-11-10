@@ -138,7 +138,7 @@ End Function
 
 
 <!-- Updated to ensure no blank channels are added to the report Isaac Koomson 04/01/2012 -->
-<!--<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css">-->
+<!--<link REL="stylesheet" TYPE="text/css" HREF="../css/qcs.css?v=4.2.0.0">-->
 <style>
 BODY { COLOR: #000000; FONT-FAMILY: Tahoma; font-size: 8pt; TEXT-DECORATION: none; }
 DIV.PageBreak {break-after: always; page-break-before: always; }
