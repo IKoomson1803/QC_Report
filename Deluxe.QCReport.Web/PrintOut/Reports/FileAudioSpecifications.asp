@@ -95,9 +95,13 @@ End Function
 									<td class="section-label" height="17px" width="9%" >Discrete</td>
 									<td class="section-label" height="17px" width="9%" >LUFS</td>
 									<td class="section-label" height="17px" width="9%" >Tone</td>
+									
+									<!--
 									<td class="section-label" height="17px" width="9%" >Average  dBfs</td>
 									<td class="section-label" height="17px" width="9%" >Peak  dBfs</td>
-									<td class="section-label" height="17px" width="9%" >True Peak</td>
+									-->
+									
+									<td class="section-label" height="17px" width="9%" >True Peak (dBfs)</td>
 									<td class="section-label" height="17px" width="9%" >Full / Spot</td>
 							  </tr>
 							  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
