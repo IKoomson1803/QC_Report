@@ -88,20 +88,20 @@ End Function
 						 <td  width="100%"  border="0"  height="100%" valign="top"  >
 						   <table width="100%" border="1" cellspacing="0" cellpadding="2" height="100%" >
 							    <tr>
-									<td class="section-label" height="17px" width="6%" >Channel</td>
-									<td class="section-label" height="17px" width="9%" >Track</td>
-									<td class="section-label" height="17px" width="9%" >Language</td>
-									<td class="section-label" height="17px" width="9%" >In Phase</td>
-									<td class="section-label" height="17px" width="9%" >Discrete</td>
-									<td class="section-label" height="17px" width="9%" >LUFS</td>
-									<td class="section-label" height="17px" width="9%" >Tone</td>
+									<td class="section-label" height="17px" width="5%" >Channel</td>
+									<td class="section-label" height="17px" width="25%" >Track</td>
+									<td class="section-label" height="17px" width="18%" >Language</td>
+									<td class="section-label" height="17px" width="5%" >In Phase</td>
+									<td class="section-label" height="17px" width="5%" >Discrete</td>
+									<td class="section-label" height="17px" width="11%" >LUFS</td>
+									<td class="section-label" height="17px" width="11%" >Tone</td>
 									
 									<!--
 									<td class="section-label" height="17px" width="9%" >Average  dBfs</td>
 									<td class="section-label" height="17px" width="9%" >Peak  dBfs</td>
 									-->
 									
-									<td class="section-label" height="17px" width="9%" >True Peak (dBfs)</td>
+									<td class="section-label" height="17px" width="12%" >True Peak (dBfs)</td>
 									<td class="section-label" height="17px" width="9%" >Full / Spot</td>
 							  </tr>
 							  <% If bIsTwoChannels = True And bIsFourChannels = False  Then %>
