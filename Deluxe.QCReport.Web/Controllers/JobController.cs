@@ -24,6 +24,7 @@ namespace Deluxe.QCReport.Web.Controllers
 {
     //[Authorize]
     [CustomAuthorize]
+    [CustomException]
     public class JobController : Controller
     {
         

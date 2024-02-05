@@ -203,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\GlobalErrorHandler.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Autofac\AutofacConfig.cs" />
     <Compile Include="Autofac\StandardModule.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Fillter\CustomAuthorize.cs" />
+    <Compile Include="Fillter\CustomException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
